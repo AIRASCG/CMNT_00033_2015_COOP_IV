@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_company_form_add_header" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <sheet position="before">
+                    <header>
+                        <button name="%(action_res_company_assign_users_wizard)d"
+                                string="Assign users" type="action"/>
+                    </header>
+                </sheet>
+            </field>
+        </record>
+    </data>
+</openerp>

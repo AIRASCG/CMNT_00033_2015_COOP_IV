@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record id="res_company_assign_users_wizard_form" model="ir.ui.view">
+            <field name="name">res.company.assign.users.wizard.form</field>
+            <field name="model">res.company.assign.users.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Assign users">
+                    <group>
+                        <field name="user_ids" widget="many2many_tags"/>
+                    </group>
+                    <button string="Assign" name="assign" type="object" icon="gtk-ok"/>
+                    <button string="Cancel" special="cancel" icon="gtk-cancel"/>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Assign users"
+            res_model="res.company.assign.users.wizard"
+            src_model="res.company"
+            view_id="res_company_assign_users_wizard_form"
+            view_mode="form"
+            target="new"
+            id="action_res_company_assign_users_wizard"/>
+
+    </data>
+</openerp>
+
