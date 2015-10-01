@@ -62,9 +62,8 @@ $ mkdir project-addons
 $ bin/buildout -c <configuracion_elegida>
 ```
 - Urls
-- Supervisor : http://localhost:9003
-- Odoo: http://localhost:9169
-      admin//admin
+- Supervisor : http://localhost:9001
+- Odoo: http://localhost:8069
 
 ## Configurar OpenERP
 Archivo de configuración: etc/openerp.cfg, si sequieren cambiar opciones en  openerp.cfg, no se debe editar el fichero,
