@@ -20,14 +20,13 @@
 ##############################################################################
 
 {
-    'name': 'Assign users to company',
+    'name': 'Email templates customized',
     'version': '1.0',
-    'category': 'Technical Settings',
-    'description': """Adds a wizard to assign users to companies""",
+    'category': '',
+    'description': """ """,
     'author': 'Comunitea',
     'website': '',
-    "depends": ['base'],
-    "data": ['wizard/res_company_assign_users_wizard.xml',
-             'views/res_company_view.xml'],
-    "installable": True
+    "depends": ['auth_signup'],
+    "data": ['views/mail_template_view.xml', 'security/ir.model.access.csv'],
+    "installable": True,
 }

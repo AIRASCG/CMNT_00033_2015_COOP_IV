@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="reset_password_email" model="email.template">
+            <field name="name">Reset Password</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.email|safe}</field>
+            <field name="subject">Password reset</field>
+            <field name="body_html"><![CDATA[
+<p>Se acaba de solicitar la creación de una nueva contraseña para acceder al panel de control de gesga.</p>
+<p>Para proceder deberá acceder a la herramienta utilizando el siguiente <a href="${object.signup_url}">enlace</a>.</p>
+<p>${object.signup_url}</p>
+
+<p>Recuerde que, una vez dentro ed la plataforma, podrá cambiar sus datos de acceso en su perfil de usuario.</p>
+
+<p><span style="font-style: italic;">Este mensaje va dirigido, de manera exclusiva, a su destinatario y puede contener información confidencial y sujeta al
+secreto profesional, cuya divulgación no está permitida por la ley. En caso de haber recibido este mensaje por error,
+le rogamos que, de forma inmediata, nos lo comunique mediante correo electrónico remitido a nuestra atención y proceda a
+su eliminación, así como la de cualquier documento o archivo adjunto al mismo. Asimismo, le comunicamos que la distribución
+copia o utilización de este mensaje, o de cualquier archivo adjunto al mismo, cualquiera que fuera su finalidad, están prohibidos
+por la ley.</span></p>
+        ]]></field>
+        </record>
+
+
+        <record id="set_password_email" model="email.template">
+            <field name="name">Odoo Enterprise Connection</field>
+            <field name="model_id" ref="base.model_res_users"/>
+            <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
+            <field name="email_to">${object.email|safe}</field>
+            <field name="subject"><![CDATA[${object.company_id.name} invitation to connect on Odoo]]></field>
+            <field name="body_html">
+                <![CDATA[
+<p>
+    ${object.name},
+</p>
+<p>Acaba de ser dado de alta en el sistema de gestión de explotaciones Gesga</p>
+<p>Para proceder deberá acceder a la herramienta utilizando el siguiente <a href="${object.signup_url}">enlace</a>.</p>
+<p>${object.signup_url}</p>
+
+<p>Recuerde que, una vez dentro ed la plataforma, podrá cambiar sus datos de acceso en su perfil de usuario.</p>
+
+<p><span style="font-style: italic;">Este mensaje va dirigido, de manera exclusiva, a su destinatario y puede contener información confidencial y sujeta al
+secreto profesional, cuya divulgación no está permitida por la ley. En caso de haber recibido este mensaje por error,
+le rogamos que, de forma inmediata, nos lo comunique mediante correo electrónico remitido a nuestra atención y proceda a
+su eliminación, así como la de cualquier documento o archivo adjunto al mismo. Asimismo, le comunicamos que la distribución
+copia o utilización de este mensaje, o de cualquier archivo adjunto al mismo, cualquiera que fuera su finalidad, están prohibidos
+por la ley.</span></p>
+                ]]>
+            </field>
+        </record>
+    </data>
+</openerp>

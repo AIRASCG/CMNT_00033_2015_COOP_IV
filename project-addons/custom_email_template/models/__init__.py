@@ -18,16 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Assign users to company',
-    'version': '1.0',
-    'category': 'Technical Settings',
-    'description': """Adds a wizard to assign users to companies""",
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base'],
-    "data": ['wizard/res_company_assign_users_wizard.xml',
-             'views/res_company_view.xml'],
-    "installable": True
-}
+from . import res_users_monkeypatch
