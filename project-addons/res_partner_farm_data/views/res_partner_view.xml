@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="res_partner_add_farm_data" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='buttons']" position="inside">
+                    <button name="action_account_assets" icon="fa-bars" class="oe_stat_button"
+                            string="Assets" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
+                </xpath>
+
+                <xpath expr="//page[@name='sales_purchases']/group/group[2]/field[@name='customer']" position="before">
+                    <field name="farm"/>
+                </xpath>
+                <notebook position="inside">
+                    <page string="General data" attrs="{'invisible': [('farm', '=', False)]}">
+                        <group>
+                            <group>
+                                <field name="production_orientation"/>
+                                <field name="partner_of"/>
+                                <field name="exploitation_technician"/>
+                                <field name="secondary_technician"/>
+                                <field name="barn_type"/>
+                                <field name="bed_suppliers" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="cornadizas"/>
+                                <field name="dairy_company"/>
+                                <field name="milk_tank_liter"/>
+                                <field name="pickup_frequency"/>
+                                <field name="electric_power"/>
+                                <field name="average_annual_consumption"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Power supplies and services" attrs="{'invisible': [('farm', '=', False)]}">
+                        <group>
+                            <group>
+                                <field name="supplies_technician"/>
+                                <field name="lactating_cows"/>
+                                <field name="dry_cows"/>
+                                <field name="heifers"/>
+                                <field name="bait"/>
+                                <field name="feeding_supplier"/>
+                                <field name="milk_quality_supplier"/>
+                                <field name="counselling_supplier"/>
+                                <field name="clinic_supplier"/>
+                                <field name="mixer_truck_supplier"/>
+                                <field name="replacement_supplier"/>
+                            </group>
+                            <group>
+                                <field name="reproduction_supplier"/>
+                                <field name="adsg_certification_supplier"/>
+                                <field name="special_mix"/>
+                                <field name="dry_mix"/>
+                                <field name="mh"/>
+                                <field name="standard_fodder"/>
+                                <field name="concentrate_capacity"/>
+                                <field name="forage_silos"/>
+                                <field name="manure_pit"/>
+                                <field name="manure_pit_outdoor"/>
+                                <field name="trailer_access"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>

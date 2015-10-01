@@ -1,0 +1,255 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * res_partner_farm_data
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-01 11:43+0000\n"
+"PO-Revision-Date: 2015-10-01 11:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: res_partner_farm_data
+#: field:res.partner,adsg_certification_supplier:0
+msgid "ADSG certification supplier"
+msgstr "Proveedor certificación ADSG"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:113
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#, python-format
+msgid "Assets"
+msgstr "Activos"
+
+#. module: res_partner_farm_data
+#: field:res.partner,average_annual_consumption:0
+msgid "Average annual consumption"
+msgstr "Consumo medio anual"
+
+#. module: res_partner_farm_data
+#: field:res.partner,bait:0
+msgid "Bait"
+msgstr "Cebo"
+
+#. module: res_partner_farm_data
+#: field:res.partner,barn_type:0
+msgid "Barn type"
+msgstr "Tipo de establo"
+
+#. module: res_partner_farm_data
+#: field:res.partner,bed_suppliers:0
+msgid "Bed suppliers"
+msgstr "Proveedor de camas"
+
+#. module: res_partner_farm_data
+#: field:res.partner,clinic_supplier:0
+msgid "Clinic supplier"
+msgstr "Proveedor clínica"
+
+#. module: res_partner_farm_data
+#: field:res.partner,cornadizas:0
+msgid "Cornadizas quantity"
+msgstr "Nº de cornadizas"
+
+#. module: res_partner_farm_data
+#: field:res.partner,counselling_supplier:0
+msgid "Counselling supplier"
+msgstr "Proveedor asesoramiento"
+
+#. module: res_partner_farm_data
+#: field:res.partner,dairy_company:0
+msgid "Dairy company"
+msgstr "Empresa láctea"
+
+#. module: res_partner_farm_data
+#: field:res.partner,dry_cows:0
+msgid "Dry cows"
+msgstr "Vacas secas"
+
+#. module: res_partner_farm_data
+#: field:res.partner,dry_mix:0
+msgid "Dry mix"
+msgstr "Mezcla seca"
+
+#. module: res_partner_farm_data
+#: field:res.partner,electric_power:0
+msgid "Electric power"
+msgstr "Potencia eléctrica"
+
+#. module: res_partner_farm_data
+#: field:res.partner,exploitation_technician:0
+msgid "Exploitation technician"
+msgstr "Técnico explotación"
+
+#. module: res_partner_farm_data
+#: field:res.partner,farm:0
+msgid "Farm"
+msgstr "Explotación"
+
+#. module: res_partner_farm_data
+#: field:res.partner,feeding_supplier:0
+msgid "Feeding supplier"
+msgstr "Proveedor alimentación"
+
+#. module: res_partner_farm_data
+#: field:res.partner,forage_silos:0
+msgid "Forage silos"
+msgstr "Silos forraje"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,barn_type:0
+msgid "Free"
+msgstr "Libre"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "General data"
+msgstr "Datos generales"
+
+#. module: res_partner_farm_data
+#: field:res.partner,heifers:0
+msgid "Heifers"
+msgstr "Novillas"
+
+#. module: res_partner_farm_data
+#: field:res.partner,lactating_cows:0
+msgid "Lactating cows"
+msgstr "Vacas lactación"
+
+#. module: res_partner_farm_data
+#: field:res.partner,manure_pit:0
+msgid "Manure pit"
+msgstr "Fosa purín"
+
+#. module: res_partner_farm_data
+#: field:res.partner,manure_pit_outdoor:0
+msgid "Manure pit outdoor"
+msgstr "Fosa purín descubierta"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,production_orientation:0
+msgid "Meat"
+msgstr "Carne"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,production_orientation:0
+msgid "Milk"
+msgstr "Leche"
+
+#. module: res_partner_farm_data
+#: field:res.partner,milk_quality_supplier:0
+msgid "Milk quality supplier"
+msgstr "Proveedor calidad leche"
+
+#. module: res_partner_farm_data
+#: field:res.partner,milk_tank_liter:0
+msgid "Milk tank liter"
+msgstr "Litros tanque leche"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,barn_type:0
+#: selection:res.partner,production_orientation:0
+msgid "Mixed"
+msgstr "Mixto"
+
+#. module: res_partner_farm_data
+#: field:res.partner,mixer_truck_supplier:0
+msgid "Mixer truck supplier"
+msgstr "Proveedor carro mezclador"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,production_orientation:0
+msgid "Orchard"
+msgstr "Huerta"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,production_orientation:0
+msgid "Other"
+msgstr "Otra"
+
+#. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: res_partner_farm_data
+#: field:res.partner,partner_of:0
+msgid "Partner of"
+msgstr "Socio de"
+
+#. module: res_partner_farm_data
+#: field:res.partner,pickup_frequency:0
+msgid "Pickup frequency"
+msgstr "Frecuencia recogida"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Power supplies and services"
+msgstr "Suministros alimentación y servicios"
+
+#. module: res_partner_farm_data
+#: field:res.partner,production_orientation:0
+msgid "Production orientation"
+msgstr "Orientación productiva"
+
+#. module: res_partner_farm_data
+#: field:res.partner,replacement_supplier:0
+msgid "Replacement supplier"
+msgstr "Proveedor sustitución"
+
+#. module: res_partner_farm_data
+#: field:res.partner,reproduction_supplier:0
+msgid "Reproduction supplier"
+msgstr "Proveedor reproducción"
+
+#. module: res_partner_farm_data
+#: field:res.partner,secondary_technician:0
+msgid "Secondary technician"
+msgstr "Técnico secundario"
+
+#. module: res_partner_farm_data
+#: field:res.partner,special_mix:0
+msgid "Special mix"
+msgstr "Mezcla especial"
+
+#. module: res_partner_farm_data
+#: field:res.partner,standard_fodder:0
+msgid "Standard fodder"
+msgstr "Pienso estándar"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,barn_type:0
+msgid "Stuck"
+msgstr "Trabado"
+
+#. module: res_partner_farm_data
+#: field:res.partner,supplies_technician:0
+msgid "Supplies technician"
+msgstr "Tecnico de suministros"
+
+#. module: res_partner_farm_data
+#: field:res.partner,temporary:0
+msgid "Temporary"
+msgstr "Temporal"
+
+#. module: res_partner_farm_data
+#: field:res.partner,trailer_access:0
+msgid "Trailer access"
+msgstr "Acceso trailer"
+
+#. module: res_partner_farm_data
+#: field:res.partner,concentrate_capacity:0
+msgid "concentrate capacity"
+msgstr "Capacidad concentrado"
+
+#. module: res_partner_farm_data
+#: field:res.partner,mh:0
+msgid "mh"
+msgstr "mh"
+
