@@ -30,7 +30,6 @@ $ sudo apt-get install libreadline-dev
 ```
 - Descargar el  repositorio de buildouts :
 ```
-$ git clone https://github.com/Pexego/PXGO_00064_2014_PHA.git <ubicacion_local_repo>
 ```
 - [EN REVISIÓN] Hacer checkout de la rama deseada según proyecto
 ```
