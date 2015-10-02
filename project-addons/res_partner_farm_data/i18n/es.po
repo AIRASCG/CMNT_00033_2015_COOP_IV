@@ -16,6 +16,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:131
+#, python-format
+msgid "A farm with the name %s already exists"
+msgstr "Ya existe una explotación con el nombre %s"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:138
+#, python-format
+msgid "A farm with the vat %s already exists"
+msgstr "Ya existe una explotación con el CIF %s"
+
+#. module: res_partner_farm_data
 #: field:res.partner,adsg_certification_supplier:0
 msgid "ADSG certification supplier"
 msgstr "Proveedor certificación ADSG"

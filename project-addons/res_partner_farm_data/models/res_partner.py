@@ -118,3 +118,23 @@ class ResPartner(models.Model):
             'res_model': 'account.asset.asset',
             'type': 'ir.actions.act_window',
         }
+
+    @api.one
+    @api.constrains('name', 'vat', 'farm')
+    def unique_name_vat_partner(self):
+        if not self.farm:
+            return
+        same_name = self.search([('name', 'ilike', self.name),
+                                 ('farm', '=', True), ('id', '!=', self.id)])
+        if same_name:
+            raise exceptions.ValidationError(
+                ("A farm with the name %s already exists")
+                % self.name)
+        if not self.vat:
+            return
+        same_vat = self.search([('vat', 'ilike', self.vat),
+                                ('farm', '=', True), ('id', '!=', self.id)])
+        if same_vat:
+            raise exceptions.ValidationError(
+                _("A farm with the vat %s already exists")
+                % self.var)
