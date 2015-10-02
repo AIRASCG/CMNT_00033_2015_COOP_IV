@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="config_allowed_modules" model="ir.config_parameter">
+            <field name="key">allowed_modules</field>
+            <field name="value">email.template,ir.actions.actions,ir.actions.act_url,ir.actions.act_window,ir.actions.act_window_close,ir.actions.act_window.view,ir.actions.client,ir.actions.report.xml,ir.actions.server,ir.actions.todo,ir.attachment,ir.config_parameter,ir.cron,ir.default,ir.exports,ir.exports.line,ir.fields.converter,ir.filters,ir.http,ir.logging,ir.mail_server,ir.model,ir.model.access,ir.model.constraint,ir.model.data,ir.model.fields,ir.model.relation,ir.module.category,ir.module.module,ir.module.module.dependency,ir.needaction_mixin,ir.property,ir.qweb,ir.qweb.field,ir.qweb.field.contact,ir.qweb.field.date,ir.qweb.field.datetime,ir.qweb.field.duration,ir.qweb.field.float,ir.qweb.field.html,ir.qweb.field.image,ir.qweb.field.many2one,ir.qweb.field.monetary,ir.qweb.field.qweb,ir.qweb.field.relative,ir.qweb.field.selection,ir.qweb.field.text,ir.qweb.widget,ir.qweb.widget.monetary,ir.rule,ir.sequence,ir.sequence.type,ir.server.object.lines,ir.translation,ir.ui.menu,ir.ui.view,ir.ui.view.custom,ir.values,mail.alias,mail.compose.message,mail.followers,mail.group,mail.mail,mail.message,mail.message.subtype,mail.notification,mail.thread,mail.wizard.invite,res.config,res.config.installer,res.config.settings,res.font,res.groups,res.lang,res.request.link,wizard.ir.model.menu.create,base.action.rule,base.action.rule.lead.test,base.config.settings,base.language.export,base.language.import,base.language.install,base.module.configuration,base.module.update,base.module.upgrade,base.setup.terminology,base.update.translations</field>
+        </record>
+    </data>
+</openerp>
