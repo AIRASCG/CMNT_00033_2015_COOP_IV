@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="cost_imputation_tree" model="ir.ui.view">
+            <field name="name">cost.imputation.tree</field>
+            <field name="model">cost.imputation</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Cost imputation">
+                    <field name="date"/>
+                    <field name="user_id"/>
+                    <field name="year_id"/>
+                    <field name="type_id"/>
+                    <field name="value_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="cost_imputation_form" model="ir.ui.view">
+            <field name="name">cost.imputation.form</field>
+            <field name="model">cost.imputation</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Cost imputation">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="year_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="type_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="value_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                            </group>
+                            <group>
+                                <field name="farm_id" domain="[('farm', '=', True)]" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="user_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="date" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="cost_imputation_filter" model="ir.ui.view">
+            <field name="name">cost.imputation.search</field>
+            <field name="model">cost.imputation</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Cost imputation">
+                    <field name="farm_id"/>
+                    <field name="type_id"/>
+                    <field name="value_id"/>
+                    <field name="user_id"/>
+                    <field name="year_id"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_cost_imputation">
+            <field name="name">Cost imputation</field>
+            <field name="res_model">cost.imputation</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="cost_imputation_tree"/>
+            <field name="search_view_id" ref="cost_imputation_filter"/>
+        </record>
+
+    </data>
+</openerp>

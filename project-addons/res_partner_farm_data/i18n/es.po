@@ -70,6 +70,55 @@ msgid "Cornadizas quantity"
 msgstr "Nº de cornadizas"
 
 #. module: res_partner_farm_data
+#: view:cost.imputation:res_partner_farm_data.cost_imputation_filter
+#: view:cost.imputation:res_partner_farm_data.cost_imputation_form
+#: view:cost.imputation:res_partner_farm_data.cost_imputation_tree
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_cost_imputation
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Cost imputation"
+msgstr "Imputación de costes"
+
+#. module: res_partner_farm_data
+#: selection:cost.imputation,state:0
+msgid "Current"
+msgstr "Actual"
+
+#. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_account_fiscalyear
+msgid "Fiscal Year"
+msgstr "Ejercicio fiscal"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: res_partner_farm_data
+#: selection:cost.imputation,state:0
+msgid "Old"
+msgstr "Antiguo"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,value_id:0
+msgid "Value"
+msgstr "Valor"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,year_id:0
+msgid "Year"
+msgstr "Año"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,type_id:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: res_partner_farm_data
 #: field:res.partner,counselling_supplier:0
 msgid "Counselling supplier"
 msgstr "Proveedor asesoramiento"
@@ -100,6 +149,7 @@ msgid "Exploitation technician"
 msgstr "Técnico explotación"
 
 #. module: res_partner_farm_data
+#: field:cost.imputation,farm_id:0
 #: field:res.partner,farm:0
 msgid "Farm"
 msgstr "Explotación"

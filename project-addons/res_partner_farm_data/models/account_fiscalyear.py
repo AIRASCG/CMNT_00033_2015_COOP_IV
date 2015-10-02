@@ -18,15 +18,18 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import models, fields, api, exceptions, _
 
-{
-    'name': 'Partner farm fields',
-    'version': '1.0',
-    'category': '',
-    'description': """This module adds the fields required for a farm""",
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base', 'product', 'account_asset', 'account_analytic_plans'],
-    "data": ['views/cost_imputation.xml', 'views/res_partner_view.xml', 'security/ir.model.access.csv'],
-    "installable": True
-}
+
+class AccountFiscalYear(models.Model):
+
+    _inherit = 'account.fiscalyear'
+
+    @api.multi
+    def write(self, vals):
+        if 'state' in vals.keys() and vals['state'] == 'done':
+            for year in self:
+                cost = self.env['cost.imputation'].search([('year_id', '=',
+                                                            year.id)])
+                cost.write({'state': 'old'})
+        return super(AccountFiscalYear, self).write(vals)

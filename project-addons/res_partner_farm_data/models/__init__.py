@@ -20,3 +20,5 @@
 ##############################################################################
 from . import res_partner
 from . import res_company
+from . import cost_imputation
+from . import account_fiscalyear

@@ -9,6 +9,9 @@
                 <xpath expr="//div[@name='buttons']" position="inside">
                     <button name="action_account_assets" icon="fa-bars" class="oe_stat_button"
                             string="Assets" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
+                    <button name="%(action_cost_imputation)d" icon="fa-money" class="oe_stat_button"
+                            string="Cost imputation" type="action" attrs="{'invisible': [('farm','=',False)]}"
+                            context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
                 </xpath>
 
                 <xpath expr="//page[@name='sales_purchases']/group/group[2]/field[@name='customer']" position="before">
