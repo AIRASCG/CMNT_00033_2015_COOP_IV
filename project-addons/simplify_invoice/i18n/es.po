@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * simplify_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-06 15:38+0000\n"
+"PO-Revision-Date: 2015-10-06 15:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: simplify_invoice
+#: field:product.product,analytic_default_ids:0
+msgid "Analityc defaults"
+msgstr "Plan analítico por defecto"
+
+#. module: simplify_invoice
+#: model:ir.model,name:simplify_invoice.model_product_product
+msgid "Product"
+msgstr "Producto"
+
+#. module: simplify_invoice
+#: view:account.invoice:simplify_invoice.account_invoice_simplify
+#: view:account.invoice:simplify_invoice.account_invoice_supplier_simplify
+msgid "draft,open"
+msgstr "draft,open"
+

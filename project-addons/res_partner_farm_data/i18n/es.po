@@ -16,6 +16,32 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: res_partner_farm_data
+#: field:stock.location,total_capacity:0
+msgid "Total capacity"
+msgstr "Capacidad total"
+
+#. module: res_partner_farm_data
+#: selection:stock.location,type:0
+msgid "Trentch"
+msgstr "Trinchera"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,type_id:0
+#: field:stock.location,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: res_partner_farm_data
+#: selection:stock.location,type:0
+msgid "Vertical"
+msgstr "Vertical"
+
+#. module: res_partner_farm_data
+#: selection:stock.location,type:0
+msgid "Walls"
+msgstr "Con paredes"
+
+#. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/res_partner.py:131
 #, python-format
 msgid "A farm with the name %s already exists"
