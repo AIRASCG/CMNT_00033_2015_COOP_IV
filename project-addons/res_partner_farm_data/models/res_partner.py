@@ -123,12 +123,25 @@ class ResPartner(models.Model):
     @api.multi
     def action_account_assets(self):
         return {
-            'domain': "[('company_id','=',[" + str(self.company_id.id) + "])]",
+            'domain': "[('company_id','=', " + str(self.company_id.id) + ")]",
             'name': _('Assets'),
             'view_mode': 'tree,form',
             'view_type': 'form',
             'context': {'tree_view_ref':
                         'account_asset.view_account_asset_asset_tree'},
             'res_model': 'account.asset.asset',
+            'type': 'ir.actions.act_window',
+        }
+
+    @api.multi
+    def action_locations(self):
+        return {
+            'domain': "[('company_id','='," + str(self.company_id.id) + "), ('usage', '=', 'internal')]",
+            'name': _('Locations'),
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'context': {'tree_view_ref':
+                        'stock.view_location_tree2'},
+            'res_model': 'stock.location',
             'type': 'ir.actions.act_window',
         }

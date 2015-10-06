@@ -12,6 +12,8 @@
                     <button name="%(action_cost_imputation)d" icon="fa-money" class="oe_stat_button"
                             string="Cost imputation" type="action" attrs="{'invisible': [('farm','=',False)]}"
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
+                    <button name="action_locations" icon="fa-building" class="oe_stat_button"
+                            string="Locations" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
                 </xpath>
 
                 <xpath expr="//page[@name='sales_purchases']/group/group[2]/field[@name='customer']" position="before">
@@ -26,7 +28,7 @@
                                 <field name="exploitation_technician"/>
                                 <field name="secondary_technician"/>
                                 <field name="barn_type"/>
-                                <field name="bed_suppliers" widget="many2many_tags"/>
+                                <field name="bed_suppliers" widget="many2many_tags" domain="[('is_bed_supplier', '=', True)]"/>
                             </group>
                             <group>
                                 <field name="cornadizas"/>

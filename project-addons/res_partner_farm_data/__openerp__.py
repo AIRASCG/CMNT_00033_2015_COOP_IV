@@ -26,7 +26,7 @@
     'description': """This module adds the fields required for a farm""",
     'author': 'Comunitea',
     'website': '',
-    "depends": ['base', 'product', 'account_asset', 'account_analytic_plans'],
-    "data": ['views/cost_imputation.xml', 'views/res_partner_view.xml', 'security/ir.model.access.csv'],
+    "depends": ['base', 'product', 'stock', 'account_asset', 'account_analytic_plans', 'supplier_type'],
+    "data": ['views/cost_imputation.xml', 'views/res_partner_view.xml', 'views/stock.xml', 'security/ir.model.access.csv'],
     "installable": True
 }

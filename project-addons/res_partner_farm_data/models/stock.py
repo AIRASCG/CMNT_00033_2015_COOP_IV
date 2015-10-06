@@ -18,8 +18,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_partner
-from . import res_company
-from . import cost_imputation
-from . import account_fiscalyear
-from . import stock
+from openerp import models, fields, api, exceptions, _
+
+
+class StockLocation(models.Model):
+
+    _inherit = 'stock.location'
+
+    type = fields.Selection(
+        (('vertical', 'Vertical'), ('trentch', 'Trentch'), ('walls', 'Walls')),
+        'Type')
+    total_capacity = fields.Float('Total capacity')
