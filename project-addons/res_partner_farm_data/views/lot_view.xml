@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="lot_tree" model="ir.ui.view">
+            <field name="name">lot.tree</field>
+            <field name="model">lot</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Lot">
+                    <field name="date"/>
+                    <field name="user_id"/>
+                    <field name="year_id"/>
+                    <field name="lot_number"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="lot_form" model="ir.ui.view">
+            <field name="name">lot.form</field>
+            <field name="model">lot</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Lot">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="year_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="lot_number" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                            </group>
+                            <group>
+                                <field name="farm_id" domain="[('farm', '=', True)]" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="user_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="date" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="lot_filter" model="ir.ui.view">
+            <field name="name">lot.search</field>
+            <field name="model">lot</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Lot">
+                    <field name="farm_id"/>
+                    <field name="lot_number"/>
+                    <field name="user_id"/>
+                    <field name="year_id"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_lot">
+            <field name="name">Lot</field>
+            <field name="res_model">lot</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lot_tree"/>
+            <field name="search_view_id" ref="lot_filter"/>
+        </record>
+
+    </data>
+</openerp>

@@ -18,17 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import models, fields, api, exceptions, _
+from datetime import date
 
-{
-    'name': 'Partner farm fields',
-    'version': '1.0',
-    'category': '',
-    'description': """This module adds the fields required for a farm""",
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base', 'product', 'stock', 'account_asset', 'account_analytic_plans', 'supplier_type'],
-    "data": ['views/cost_imputation.xml', 'views/stock.xml',
-             'views/output_quota_view.xml', 'views/lot_view.xml',
-             'security/ir.model.access.csv', 'views/res_partner_view.xml'],
-    "installable": True
-}
+class OutputQuota(models.Model):
+
+    _name = 'output.quota'
+    _inherit = ['yearly.data']
+
+    value = fields.Integer('Value')

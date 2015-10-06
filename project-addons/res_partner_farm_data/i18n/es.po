@@ -15,6 +15,14 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_company.py:30
+#: sql_constraint:res.company:0
+#, python-format
+msgid "A company with the same name already exists"
+msgstr "Ya existe una compañía con el mismo nombre"
+
 #. module: res_partner_farm_data
 #: field:stock.location,total_capacity:0
 msgid "Total capacity"
@@ -106,6 +114,9 @@ msgstr "Imputación de costes"
 
 #. module: res_partner_farm_data
 #: selection:cost.imputation,state:0
+#: selection:lot,state:0
+#: selection:output.quota,state:0
+#: selection:yearly.data,state:0
 msgid "Current"
 msgstr "Actual"
 
@@ -116,11 +127,17 @@ msgstr "Ejercicio fiscal"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,date:0
+#: field:lot,date:0
+#: field:output.quota,date:0
+#: field:yearly.data,date:0
 msgid "Date"
 msgstr "Fecha"
 
 #. module: res_partner_farm_data
 #: selection:cost.imputation,state:0
+#: selection:lot,state:0
+#: selection:output.quota,state:0
+#: selection:yearly.data,state:0
 msgid "Old"
 msgstr "Antiguo"
 
@@ -131,11 +148,15 @@ msgstr "Usuario"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,value_id:0
+#: field:output.quota,value:0
 msgid "Value"
 msgstr "Valor"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,year_id:0
+#: field:lot,year_id:0
+#: field:output.quota,year_id:0
+#: field:yearly.data,year_id:0
 msgid "Year"
 msgstr "Año"
 
@@ -176,9 +197,41 @@ msgstr "Técnico explotación"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,farm_id:0
+#: field:lot,farm_id:0
+#: field:output.quota,farm_id:0
 #: field:res.partner,farm:0
+#: field:yearly.data,farm_id:0
 msgid "Farm"
 msgstr "Explotación"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Output Quota"
+msgstr "Cuota de producción"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_output_quota
+#: view:output.quota:res_partner_farm_data.output_quota_filter
+#: view:output.quota:res_partner_farm_data.output_quota_form
+#: view:output.quota:res_partner_farm_data.output_quota_tree
+msgid "Output quota"
+msgstr "Cuota de producción"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,state:0
+#: field:lot,state:0
+#: field:output.quota,state:0
+#: field:yearly.data,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,user_id:0
+#: field:lot,user_id:0
+#: field:output.quota,user_id:0
+#: field:yearly.data,user_id:0
+msgid "User"
+msgstr "Usuario"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
@@ -189,6 +242,31 @@ msgstr "Explotaciones"
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
 msgid "Farms"
 msgstr "Explotaciones"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:140
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#, python-format
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
+#: view:lot:res_partner_farm_data.lot_filter
+#: view:lot:res_partner_farm_data.lot_form
+#: view:lot:res_partner_farm_data.lot_tree
+msgid "Lot"
+msgstr "Lote"
+
+#. module: res_partner_farm_data
+#: field:lot,lot_number:0
+msgid "Lot number"
+msgstr "Número de lotes"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Lots"
+msgstr "Lotes"
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/res_partner.py:29

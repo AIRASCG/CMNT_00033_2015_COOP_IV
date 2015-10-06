@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_yearly_data,access_yearly_data,model_yearly_data,base.group_user,1,1,1,1
 access_cost_imputation,access_cost_imputation,model_cost_imputation,base.group_user,1,1,1,1
+access_output_quota,access_output_quota,model_output_quota,base.group_user,1,1,1,1

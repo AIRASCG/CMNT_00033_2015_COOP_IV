@@ -18,8 +18,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from . import yearly_data
 from . import res_partner
 from . import res_company
 from . import cost_imputation
+from . import output_quota
+from . import lot
 from . import account_fiscalyear
 from . import stock

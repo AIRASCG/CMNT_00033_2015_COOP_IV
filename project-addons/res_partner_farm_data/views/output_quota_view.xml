@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="output_quota_tree" model="ir.ui.view">
+            <field name="name">output.quota.tree</field>
+            <field name="model">output.quota</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Output quota">
+                    <field name="date"/>
+                    <field name="user_id"/>
+                    <field name="year_id"/>
+                    <field name="value"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="output_quota_form" model="ir.ui.view">
+            <field name="name">output.quota.form</field>
+            <field name="model">output.quota</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Output quota">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="year_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="value" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                            </group>
+                            <group>
+                                <field name="farm_id" domain="[('farm', '=', True)]" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="user_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="date" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="output_quota_filter" model="ir.ui.view">
+            <field name="name">output.quota.search</field>
+            <field name="model">output.quota</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Output quota">
+                    <field name="farm_id"/>
+                    <field name="value"/>
+                    <field name="user_id"/>
+                    <field name="year_id"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_output_quota">
+            <field name="name">Output quota</field>
+            <field name="res_model">output.quota</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="output_quota_tree"/>
+            <field name="search_view_id" ref="output_quota_filter"/>
+        </record>
+
+    </data>
+</openerp>

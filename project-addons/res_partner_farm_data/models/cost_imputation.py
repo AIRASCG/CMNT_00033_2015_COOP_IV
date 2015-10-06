@@ -25,32 +25,8 @@ from datetime import date
 class CostImputation(models.Model):
 
     _name = 'cost.imputation'
+    _inherit = ['yearly.data']
 
-    @api.model
-    def _get_user_id(self):
-        return self.env.user.id
-
-    farm_id = fields.Many2one('res.partner', 'Farm', required=True)
-    user_id = fields.Many2one('res.users', 'User', default=_get_user_id,
-                              required=True)
-    date = fields.Date('Date',
-                       default=lambda *a: date.today().strftime('%Y-%m-%d'),
-                       required=True)
     type_id = fields.Many2one('product.product', 'Type', required=True)
-    state = fields.Selection(
-        (('current', 'Current'), ('old', 'Old')), 'State', default='current')
-    year_id = fields.Many2one('account.fiscalyear', 'Year', required=True)
     value_id = fields.Many2one('account.analytic.plan.instance', 'Value',
                                required=True)
-
-    @api.onchange('farm_id')
-    def onchange_farm_id(self):
-        company = self.env['res.company'].search([('partner_id', '=',
-                                                   self.farm_id.id)])
-        if not company:
-            self.year_id = False
-        curdate = date.today().strftime('%Y-%m-%d')
-        year = self.env['account.fiscalyear'].search(
-            [('date_start', '<=', curdate), ('date_stop', '>=', curdate),
-             ('company_id', '=', company.id)])
-        self.year_id = year
