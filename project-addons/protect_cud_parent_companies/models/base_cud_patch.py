@@ -23,16 +23,17 @@ from openerp import models, fields, api, exceptions, _
 
 @api.model
 def check_company(self):
-    if self.env.user.company_id.child_ids:
-        allowed_modules = self.env['ir.config_parameter'].search(
-            [('key', '=', 'allowed_modules')])
-        if not allowed_modules:
-            return
-        if str(self._model) not in allowed_modules.value.split(','):
-            raise exceptions.Warning(
-                _('Error'),
-                _('you can not do the operation on the model %s '
-                  'with a parent company') % str(self._model))
+    if 'company_id' in self._columns.keys():
+        if self.env.user.company_id.child_ids:
+            allowed_modules = self.env['ir.config_parameter'].search(
+                [('key', '=', 'allowed_modules')])
+            if not allowed_modules:
+                return
+            if str(self._model) not in allowed_modules.value.split(','):
+                raise exceptions.Warning(
+                    _('Error'),
+                    _('you can not do the operation on the model %s '
+                      'with a parent company') % str(self._model))
 
 models.BaseModel.check_company = check_company
 
