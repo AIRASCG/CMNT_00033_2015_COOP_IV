@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="res_partner_add_supplier_type" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Supplier type" attrs="{'invisible': [('supplier', '=', False)]}">
+                        <group>
+                            <group>
+                                <field name="is_seed_supplier"/>
+                                <field name="is_bed_supplier"/>
+                                <field name="is_various_supplier"/>
+                                <field name="is_external_service_supplier"/>
+                                <field name="is_insurance_service_supplier"/>
+                                <field name="is_clean_supplier"/>
+                                <field name="is_raw_material_supplier"/>
+                            </group>
+                            <group>
+                                <field name="is_vet_supplier"/>
+                                <field name="is_chiropody_supplier"/>
+                                <field name="is_financial_service_supplier"/>
+                                <field name="is_energy_supplier"/>
+                                <field name="is_machine_supplier"/>
+                                <field name="is_maintenance_supplier"/>
+                                <field name="is_lab_supplier"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</openerp>

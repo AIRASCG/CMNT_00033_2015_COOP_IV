@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * supplier_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-06 10:59+0000\n"
+"PO-Revision-Date: 2015-10-06 10:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: supplier_type
+#: field:res.partner,is_bed_supplier:0
+msgid "Bed supplier"
+msgstr "Material de cama"
+
+#. module: supplier_type
+#: field:res.partner,is_chiropody_supplier:0
+msgid "Chiropody supplier"
+msgstr "Servicios de podología"
+
+#. module: supplier_type
+#: field:res.partner,is_clean_supplier:0
+msgid "Clean supplier"
+msgstr "Zoosanitario y limpieza"
+
+#. module: supplier_type
+#: field:res.partner,is_energy_supplier:0
+msgid "Energy supplier"
+msgstr "Energía"
+
+#. module: supplier_type
+#: field:res.partner,is_external_service_supplier:0
+msgid "External service supplier"
+msgstr "Servicios externos"
+
+#. module: supplier_type
+#: field:res.partner,is_financial_service_supplier:0
+msgid "Financial service supplier"
+msgstr "Servicios financieros"
+
+#. module: supplier_type
+#: field:res.partner,is_insurance_service_supplier:0
+msgid "Insurance service supplier"
+msgstr "Servicios de seguro"
+
+#. module: supplier_type
+#: field:res.partner,is_lab_supplier:0
+msgid "Lab supplier"
+msgstr "Servicios de laboratorio"
+
+#. module: supplier_type
+#: field:res.partner,is_machine_supplier:0
+msgid "Machine supplier"
+msgstr "Servicios de maquinaria"
+
+#. module: supplier_type
+#: field:res.partner,is_maintenance_supplier:0
+msgid "Maintenance supplier"
+msgstr "Servicios de mantenimiento"
+
+#. module: supplier_type
+#: model:ir.model,name:supplier_type.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: supplier_type
+#: field:res.partner,is_raw_material_supplier:0
+msgid "Raw material supplier"
+msgstr "Materias primas"
+
+#. module: supplier_type
+#: field:res.partner,is_seed_supplier:0
+msgid "Seed supplier"
+msgstr "Semillas"
+
+#. module: supplier_type
+#: view:res.partner:supplier_type.res_partner_add_supplier_type
+msgid "Supplier type"
+msgstr "Tipo de proveedor"
+
+#. module: supplier_type
+#: field:res.partner,is_various_supplier:0
+msgid "Various supplier"
+msgstr "Proveedores varios"
+
+#. module: supplier_type
+#: field:res.partner,is_vet_supplier:0
+msgid "Vet supplier"
+msgstr "Servicios veterinarios"
+
