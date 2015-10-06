@@ -53,5 +53,4 @@ class CostImputation(models.Model):
         year = self.env['account.fiscalyear'].search(
             [('date_start', '<=', curdate), ('date_stop', '>=', curdate),
              ('company_id', '=', company.id)])
-        year.write({'state': 'done'})
         self.year_id = year
