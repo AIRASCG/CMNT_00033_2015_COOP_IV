@@ -23,7 +23,7 @@
     'name': 'Supplier type',
     'version': '1.0',
     'category': '',
-    'description': """This module adds several Boolean fields to differentiate the types of supplier""",
+    'description': """This module adds several boolean fields to differentiate the types of supplier""",
     'author': 'Comunitea',
     'website': '',
     "depends": ['base'],
