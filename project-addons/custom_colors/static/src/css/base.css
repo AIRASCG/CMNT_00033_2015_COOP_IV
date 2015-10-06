@@ -1,0 +1,94 @@
+.openerp .oe_kanban_view .oe_kanban_card:not(.ui-sortable-helper):hover, .openerp .oe_kanban_view .oe_kanban_quick_create:not(.ui-sortable-helper):hover {
+  border: 1px solid #18A589 !important;
+  -moz-box-shadow: 0 0 4px #18A589 !important;
+  -webkit-box-shadow: 0 0 4px #18A589 !important;
+  -box-shadow: 0 0 4px #18A589 !important;
+}
+
+.openerp .oe_mail .oe_mail_vote_count{
+    color: #18A589 !important;
+}
+
+.openerp.openerp_ie .oe_mail .oe_msg .oe_msg_icons .oe_read:hover a{
+    color: #18A589 !important;
+}
+.openerp.openerp_ie .oe_mail .oe_msg .oe_msg_icons .oe_unread:hover a{
+    color: #18A589 !important;
+}
+
+.openerp .oe_mail button.oe_attach, .openerp .oe_mail button.oe_full{
+    color: #18A589 !important;
+}
+.openerp .oe_mail .oe_attach_label{
+    color: #18A589 !important;
+}
+.openerp .ui-widget-content a {
+  color: #18A589 !important;
+}
+.openerp .oe_stat_button .stat_button_icon {
+  color: #18A589 !important;
+}
+.openerp .oe_stat_button:hover {
+  background: #18A589 !important;
+}
+.openerp .oe_button.oe_link span {
+  color: #18A589 !important;
+}
+
+.openerp .oe_tag_dark {
+  background: #18A589 !important;
+}
+.openerp .oe_secondary_menu_section {
+  color: #18A589 !important;
+}
+.openerp .oe_application a {
+  color: #18A589 !important;
+}
+.openerp .oe_view_manager table.oe_view_manager_header h2 a {
+  color: #18A589 !important;
+}
+.openerp .oe_searchview .oe-autocomplete ul li.oe-selection-focus {
+  background-color: #18A589 !important;
+}
+.openerp .oe_searchview_drawer dt {
+  color: #18A589 !important;
+}
+.openerp .oe_horizontal_separator {
+  color: #18A589 !important;
+}
+.openerp .oe_fileupload .oe_add button.oe_attach {
+  color: #18A589 !important;
+}
+.openerp .oe_fileupload .oe_add .oe_attach_label {
+  color: #18A589 !important;
+}
+
+.openerp ul.oe_form_status_clickable li > .label {
+  color: #18A589 !important;
+}
+.openerp .nav-pills > li.active > a, .openerp a.list-group-item.active > a {
+  background-color: #18A589 !important;
+}
+
+.openerp .nav-pills > li.active a:hover, .openerp .nav-pills > li.active a:focus, .openerp a.list-group-item.active a:hover, .openerp a.list-group-item.active a:focus {
+  background-color: #18A589 !important;
+}
+
+.openerp .nav-pills > li.active .badge, .openerp a.list-group-item.active .badge {
+  color: #18A589 !important;
+}
+.openerp .badge {
+  background-color: #18A589 !important;
+}
+
+.ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
+  background: #18A589 !important;
+}
+
+.openerp .oe_notebook > li.ui-tabs-active > a {
+  color: #4c4c4c !important;
+}
+
+.openerp .oe_notebook > li > a{
+  color: #808080 !important
+}
