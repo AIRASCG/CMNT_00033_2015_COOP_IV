@@ -71,5 +71,16 @@
                 </notebook>
             </field>
         </record>
+
+        <record id="res_partner_filter_add_farm" model="ir.ui.view">
+            <field name="name">res.partner.search</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <filter name="customer" position="before">
+                    <filter string="Farms" name="farm" domain="[('farm','=',1)]" help="Farm Partners"/>
+                </filter>
+            </field>
+        </record>
     </data>
 </openerp>

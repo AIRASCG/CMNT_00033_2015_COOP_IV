@@ -25,6 +25,11 @@ class ResCompany(models.Model):
 
     _inherit = 'res.company'
 
+    _sql_constraints = [
+        ('name_uniq', 'unique(name)',
+         _('A company with the same name already exists'))
+    ]
+
     @api.model
     def create(self, vals):
         return super(ResCompany,

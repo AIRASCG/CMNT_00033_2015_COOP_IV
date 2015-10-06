@@ -25,7 +25,13 @@ class ResPartner(models.Model):
 
     _inherit = 'res.partner'
 
+    _sql_constraints = [
+        ('vat_uniq', 'unique (vat)',
+         _('Error! Specified VAT Number already exists for any other registered partner.'))
+    ]
+
     farm = fields.Boolean('Farm')
+    farm_group = fields.Boolean('Is farm group', compute='_get_farm_group', store=True)
     partner_of = fields.Char('Partner of')
     exploitation_technician = fields.Many2one('res.users',
                                               'Exploitation technician')
@@ -83,6 +89,14 @@ class ResPartner(models.Model):
     trailer_access = fields.Boolean('Trailer access')
     temporary = fields.Boolean('Temporary')
 
+    @api.one
+    @api.depends('farm', 'company_id', 'company_id.child_ids')
+    def _get_farm_group(self):
+        if self.farm and self.company_id.child_ids:
+            self.farm_group = True
+        else:
+            self.farm_group = False
+
     @api.model
     def create(self, vals):
         if self._context.get('company_partner', False):
@@ -118,23 +132,3 @@ class ResPartner(models.Model):
             'res_model': 'account.asset.asset',
             'type': 'ir.actions.act_window',
         }
-
-    @api.one
-    @api.constrains('name', 'vat', 'farm')
-    def unique_name_vat_partner(self):
-        if not self.farm:
-            return
-        same_name = self.search([('name', 'ilike', self.name),
-                                 ('farm', '=', True), ('id', '!=', self.id)])
-        if same_name:
-            raise exceptions.ValidationError(
-                ("A farm with the name %s already exists")
-                % self.name)
-        if not self.vat:
-            return
-        same_vat = self.search([('vat', 'ilike', self.vat),
-                                ('farm', '=', True), ('id', '!=', self.id)])
-        if same_vat:
-            raise exceptions.ValidationError(
-                _("A farm with the vat %s already exists")
-                % self.var)

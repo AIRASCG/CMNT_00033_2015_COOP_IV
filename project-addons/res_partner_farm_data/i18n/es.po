@@ -155,6 +155,23 @@ msgid "Farm"
 msgstr "Explotación"
 
 #. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
+msgid "Farm Partners"
+msgstr "Explotaciones"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
+msgid "Farms"
+msgstr "Explotaciones"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:29
+#: sql_constraint:res.partner:0
+#, python-format
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! El CIF ya está establecido en otro partner."
+
+#. module: res_partner_farm_data
 #: field:res.partner,feeding_supplier:0
 msgid "Feeding supplier"
 msgstr "Proveedor alimentación"
