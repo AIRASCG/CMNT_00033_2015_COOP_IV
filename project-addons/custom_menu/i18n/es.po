@@ -1,0 +1,155 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * custom_menu
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-06 09:51+0000\n"
+"PO-Revision-Date: 2015-10-06 09:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_menu
+#: model:ir.actions.act_window,help:custom_menu.action_partner_farm_form
+#: model:ir.actions.act_window,help:custom_menu.action_partner_farm_group_form
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a contact in your address book.\n"
+"              </p><p>\n"
+"                Odoo helps you easily track all activities related to\n"
+"                a customer; discussions, history of business opportunities,\n"
+"                documents, etc.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Pulsa para añadir un contacto a tu lista de direcciones.\n"
+"              </p><p>\n"
+"                Odoo le ayuda a llevar de forma sencilla un registro de todas las actividades\n"
+"                relacionadas con un cliente: conversaciones, historial de las oportunidades de negocio, \n"
+"                 documentos, etc\n"
+"              </p>\n"
+"            "
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_log
+msgid "Activity/log"
+msgstr "Actividad/Log"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.advanced_parameters
+msgid "Advanced parameters"
+msgstr "Parámetros avanzados"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_account_asset_asset_tree
+msgid "Asset Hierarchy"
+msgstr "Jerarquía de activos"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_account_asset_asset_form
+#: model:ir.ui.menu,name:custom_menu.menu_finance_assets
+msgid "Assets"
+msgstr "Activos"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree1
+msgid "Customer Invoices"
+msgstr "Facturas de cliente"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree3
+msgid "Customer Refunds"
+msgstr "Facturas rectificativas de cliente"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_customer
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.product_template_action_denominations
+#: model:ir.ui.menu,name:custom_menu.menu_products_menu
+msgid "Denominations"
+msgstr "Denominaciones"
+
+#. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_partner_farm_group_form
+#: model:ir.ui.menu,name:custom_menu.partner_farm_group
+msgid "Farm groups"
+msgstr "Grupos de explotaciones"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.farm_managemen
+msgid "Farm management"
+msgstr "Gestión de explotaciones"
+
+#. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_partner_farm_form
+#: model:ir.ui.menu,name:custom_menu.partner_farm
+msgid "Farms"
+msgstr "Explotaciones"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.parent_menu
+msgid "Gestga"
+msgstr "Gestga"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_tech_invoices
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_audit_logs
+msgid "Logs"
+msgstr "Registros"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_auditlog_rule_tree
+msgid "Rules"
+msgstr "Reglas"
+
+#. module: custom_menu
+#: model:res.groups,name:custom_menu.group_standard_menus
+msgid "Show standard menus"
+msgstr "Mostrar menús standard"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree2
+msgid "Supplier Invoices"
+msgstr "Facturas de proveedor"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree4
+msgid "Supplier Refunds"
+msgstr "Facturas rectificativas de proveedor"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_supplier
+msgid "Suppliers"
+msgstr "Proveedores"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.tech_economic_management
+msgid "Technical economic management"
+msgstr "Gestión técnico económica"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.visitor_management
+msgid "Visitor management"
+msgstr "Gestión de visitas"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_calendar
+msgid "Meetings"
+msgstr "Calendario"

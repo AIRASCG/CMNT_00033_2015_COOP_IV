@@ -3,7 +3,7 @@
     <data noupdate="0">
         <record id="config_allowed_modules" model="ir.config_parameter">
             <field name="key">allowed_modules</field>
-            <field name="value">ir.values,ir.property,ir.attachment,stock.location,res.partner</field>
+            <field name="value">ir.values,ir.property,ir.attachment,stock.location,res.partner,res.users</field>
         </record>
     </data>
 </openerp>
