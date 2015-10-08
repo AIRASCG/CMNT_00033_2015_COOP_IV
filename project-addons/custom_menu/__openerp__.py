@@ -26,7 +26,7 @@
     'description': """""",
     'author': 'Comunitea',
     'website': '',
-    "depends": ['base', 'calendar', 'account', 'product', 'res_partner_farm_data', 'auditlog'],
+    "depends": ['base', 'calendar', 'account', 'product', 'res_partner_farm_data', 'auditlog', 'document', 'knowledge'],
     "data": ['security/group.xml', 'custom_menu.xml'],
     "installable": True
 }

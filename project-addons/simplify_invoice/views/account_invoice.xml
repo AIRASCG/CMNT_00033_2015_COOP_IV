@@ -16,10 +16,13 @@
                 <field name="state" position="attributes">
                     <attribute name="statusbar_visible">draft,open</attribute>
                 </field>
-                <field name="payment_term" position="replace"></field>
+                <field name="payment_term" position="replace">
+                    <field name="payment_term" invisible="1"/>
+                </field>
                 <xpath expr="//page[@string='Payments']" position="replace">
                 </xpath>
                 <field name="partner_bank_id" position="replace">
+                    <field name="partner_bank_id" invisible="1"/>
                 </field>
             </field>
         </record>
@@ -40,6 +43,7 @@
                 <xpath expr="//page[@string='Payments']" position="replace">
                 </xpath>
                 <field name="partner_bank_id" position="replace">
+                    <field name="partner_bank_id" invisible="1"/>
                 </field>
             </field>
         </record>
