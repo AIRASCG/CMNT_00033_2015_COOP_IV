@@ -27,3 +27,8 @@ class ui(models.Model):
     _inherit = ['yearly.data']
 
     lot_number = fields.Integer('Lot number')
+
+    _sql_constraints = [
+        ('lot_uniq', 'unique (year_id,farm_id)',
+         _('Error! Only one lot by year and company.'))
+    ]
