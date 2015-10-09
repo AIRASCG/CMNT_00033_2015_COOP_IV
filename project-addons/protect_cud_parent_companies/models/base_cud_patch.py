@@ -18,13 +18,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, api, exceptions, _
 
 
 @api.model
 def check_company(self):
     if 'company_id' in self._columns.keys():
-        if self.env.user.company_id.child_ids:
+        if self.env.user.company_id.child_ids and \
+                self.env.user.company_id.parent_id:
             allowed_modules = self.env['ir.config_parameter'].search(
                 [('key', '=', 'allowed_modules')])
             if not allowed_modules:
