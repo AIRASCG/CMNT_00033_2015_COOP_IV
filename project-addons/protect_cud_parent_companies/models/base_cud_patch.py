@@ -25,7 +25,7 @@ from openerp import models, api, exceptions, _
 def check_company(self):
     if 'company_id' in self._columns.keys():
         if self.env.user.company_id.child_ids and \
-                self.env.user.company_id.parent_id:
+                self.env.user.company_id.parent_id and self.env.user.id != 1:
             allowed_modules = self.env['ir.config_parameter'].search(
                 [('key', '=', 'allowed_modules')])
             if not allowed_modules:

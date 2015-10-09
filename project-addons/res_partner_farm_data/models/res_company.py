@@ -32,5 +32,8 @@ class ResCompany(models.Model):
 
     @api.model
     def create(self, vals):
-        return super(ResCompany,
-                     self.with_context(company_partner=True)).create(vals)
+        company = super(ResCompany,
+                        self.with_context(company_partner=True)).create(vals)
+        self.sudo().env["res.users"].browse(1).write({'company_ids':
+                                                      [(4, company.id)]})
+        return company
