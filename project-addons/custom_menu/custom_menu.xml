@@ -28,7 +28,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="view_mode">kanban,tree,form</field>
-            <field name="context">{'search_default_farm':1,'default_farm': 1,'default_customer': 0,'default_supplier': 0}</field>
+            <field name="context">{'search_default_farm':1,'default_farm': 1,'default_customer': 0,'default_supplier': 0, 'default_is_company': 1}</field>
             <field name="domain">[('farm_group', '=', False)]</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="help" type="html">
@@ -96,7 +96,7 @@
                 <field name="view_type">form</field>
                 <field name="view_id" ref="product.product_template_kanban_view"/>
                 <field name="context">{'default_type':'service'}</field>
-                <field name="domain">[('type', '=', 'service')]</field>
+                <field name="domain"></field>
             </record>
 
             <menuitem action="product_product_action_denominations" id="menu_products_menu" parent="tech_economic_management"/>
