@@ -101,6 +101,9 @@ class ResPartner(models.Model):
     def create(self, vals):
         if self._context.get('company_partner', False):
             vals['farm'] = True
+        elif vals.get('farm', False):
+            # El partner ha sido creado a mano.
+            raise exceptions.Warning(_('Farm creation error'), _('To create farm must do it from the menu farm High'))
         res = super(ResPartner, self).create(vals)
         if vals.get('exploitation_technician', False):
             res.message_subscribe([res.exploitation_technician.partner_id.id])

@@ -29,7 +29,10 @@
                         <group>
                             <group>
                                 <field name="year_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
-                                <field name="value" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <label for="value"/>
+                                <div>
+                                    <field name="value" attrs="{'readonly': [('state', '=', 'old')]}" class="oe_inline"/> Kgs
+                                </div>
                             </group>
                             <group>
                                 <field name="farm_id" domain="[('farm', '=', True)]" attrs="{'readonly': [('state', '=', 'old')]}"/>

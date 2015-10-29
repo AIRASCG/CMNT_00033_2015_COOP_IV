@@ -10,7 +10,10 @@
                 <field name="comment" position="before">
                     <group>
                         <field name="type"/>
-                        <field name="total_capacity"/>
+                        <label for="total_capacity"/>
+                            <div>
+                                <field name="total_capacity" class="oe_inline"/> tn
+                            </div>
                     </group>
                 </field>
             </field>
