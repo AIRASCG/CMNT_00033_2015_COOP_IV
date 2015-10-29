@@ -18,15 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Custom groups',
-    'version': '1.0',
-    'category': '',
-    'description': """ """,
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base', 'account', 'stock', 'auditlog'],
-    "data": ['security/custom_groups.xml'],
-    "installable": True
-}
+from . import res_users
