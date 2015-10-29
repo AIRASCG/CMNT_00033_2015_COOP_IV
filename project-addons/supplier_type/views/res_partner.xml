@@ -9,20 +9,22 @@
             <field name="arch" type="xml">
                 <notebook position="inside">
                     <page string="Supplier type" attrs="{'invisible': [('supplier', '=', False)]}">
-                        <group>
-                            <group>
+                        <group col="6">
+                            <group colspan="2">
                                 <field name="is_seed_supplier"/>
                                 <field name="is_bed_supplier"/>
                                 <field name="is_various_supplier"/>
                                 <field name="is_external_service_supplier"/>
                                 <field name="is_insurance_service_supplier"/>
+                            </group>
+                            <group colspan="2">
                                 <field name="is_clean_supplier"/>
                                 <field name="is_raw_material_supplier"/>
-                            </group>
-                            <group>
                                 <field name="is_vet_supplier"/>
                                 <field name="is_chiropody_supplier"/>
                                 <field name="is_financial_service_supplier"/>
+                            </group>
+                            <group colspan="2">
                                 <field name="is_energy_supplier"/>
                                 <field name="is_machine_supplier"/>
                                 <field name="is_maintenance_supplier"/>
