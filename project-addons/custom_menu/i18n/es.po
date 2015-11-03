@@ -57,14 +57,27 @@ msgid "Assets"
 msgstr "Activos"
 
 #. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_ir_attachment
+#: model:ir.ui.menu,name:custom_menu.menu_attachment
+msgid "Attachments"
+msgstr "Adjuntos"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.company
+msgid "Create Farm"
+msgstr "Alta explotaciones"
+
+#. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree1
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_line_tree1
+msgid "Customer Invoice lines"
+msgstr "Lineas de factura de cliente"
+
+#. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree1
 msgid "Customer Invoices"
 msgstr "Facturas de cliente"
 
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree3
-msgid "Customer Refunds"
-msgstr "Facturas rectificativas de cliente"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_customer
@@ -96,8 +109,8 @@ msgstr "Explotaciones"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.parent_menu
-msgid "Gestga"
-msgstr "Gestga"
+msgid "Milkoop"
+msgstr "Milkoop"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_tech_invoices
@@ -125,9 +138,10 @@ msgid "Supplier Invoices"
 msgstr "Facturas de proveedor"
 
 #. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree4
-msgid "Supplier Refunds"
-msgstr "Facturas rectificativas de proveedor"
+#: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree2
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_line_tree2
+msgid "Supplier Invoice lines"
+msgstr "Lineas de factura de proveedor"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_supplier

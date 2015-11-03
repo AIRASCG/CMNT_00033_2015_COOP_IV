@@ -3,6 +3,7 @@
     <data noupdate="0">
         <record id="group_standard_menus" model="res.groups">
             <field name="name">Show standard menus</field>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
     </data>
 </openerp>
