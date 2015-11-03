@@ -50,7 +50,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="context">{'default_farm': 1,'default_customer': 0,'default_supplier': 0, 'default_is_company': 1}</field>
-            <field name="domain">[('farm_group', '=', False), ('farm', '=', True)]</field>
+            <field name="domain">[('farm', '=', True)]</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="view_id" ref="res_partner_farm_tree"/>
             <field name="help" type="html">
@@ -65,18 +65,15 @@
         </record>
 
 
-        <record id="action_partner_farm_group_form" model="ir.actions.act_window">
+        <record id="action_partner_farm_group_category_form" model="ir.actions.act_window">
             <field name="name">Farm groups</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">res.partner</field>
+            <field name="res_model">res.partner.category</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{'default_farm': 1,'default_customer': 0,'default_supplier': 0}</field>
-            <field name="domain">[('farm_group', '=', True), ('farm', '=', True)]</field>
-            <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
-                Click to add a contact in your address book.
+                Click to add a farm group.
               </p><p>
                 Odoo helps you easily track all activities related to
                 a customer; discussions, history of business opportunities,
@@ -87,7 +84,7 @@
 
         <menuitem id="farm_managemen" name="Farm management" parent="parent_menu" sequence="1"/>
             <menuitem id="partner_farm" name="Farms" parent="farm_managemen" action="action_partner_farm_form"/>
-            <menuitem id="partner_farm_group" name="Farm groups" parent="farm_managemen" action="action_partner_farm_group_form"/>
+            <menuitem id="partner_farm_group" name="Farm groups" parent="farm_managemen" action="action_partner_farm_group_category_form"/>
 
 
         <record id="action_invoice_line_tree1" model="ir.actions.act_window">

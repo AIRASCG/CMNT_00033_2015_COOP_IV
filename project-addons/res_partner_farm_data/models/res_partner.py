@@ -32,7 +32,6 @@ class ResPartner(models.Model):
 
     farm = fields.Boolean('Farm')
     temporary_farm = fields.Boolean('Temporary farm', readonly=True, related='company_id.not_configured_accounting')
-    farm_group = fields.Boolean('Is farm group', compute='_get_farm_group', store=True)
     partner_of = fields.Char('Partner of')
     exploitation_technician = fields.Many2one('res.users',
                                               'Exploitation technician')
@@ -88,14 +87,6 @@ class ResPartner(models.Model):
     manure_pit = fields.Integer('Manure pit')
     manure_pit_outdoor = fields.Integer('Manure pit outdoor')
     trailer_access = fields.Boolean('Trailer access')
-
-    @api.one
-    @api.depends('farm', 'company_id', 'company_id.child_ids')
-    def _get_farm_group(self):
-        if self.farm and self.company_id.child_ids:
-            self.farm_group = True
-        else:
-            self.farm_group = False
 
     @api.model
     def create(self, vals):
