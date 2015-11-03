@@ -333,6 +333,17 @@ msgid "General data"
 msgstr "Datos generales"
 
 #. module: res_partner_farm_data
+#: field:res.partner,temporary:0
+msgid "Temporary"
+msgstr "Temporal"
+
+#. module: res_partner_farm_data
+#: view:res.company:res_partner_farm_data.res_company_add_temporary
+#: field:res.partner,temporary_farm:0
+msgid "Temporary farm"
+msgstr "Explotación temporal"
+
+#. module: res_partner_farm_data
 #: field:res.partner,heifers:0
 msgid "Heifers"
 msgstr "Novillas"

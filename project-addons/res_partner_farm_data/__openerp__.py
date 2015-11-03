@@ -28,9 +28,10 @@
     'website': '',
     "depends": ['base', 'product', 'stock', 'account', 'account_asset',
                 'account_analytic_plans', 'supplier_type', 'base_vat',
-                'email_template'],
+                'email_template', 'company_automatic_account_config'],
     "data": ['views/cost_imputation.xml', 'views/stock.xml',
              'views/output_quota_view.xml', 'views/lot_view.xml',
-             'security/ir.model.access.csv', 'views/res_partner_view.xml'],
+             'security/ir.model.access.csv', 'views/res_partner_view.xml',
+             'views/res_company.xml'],
     "installable": True
 }

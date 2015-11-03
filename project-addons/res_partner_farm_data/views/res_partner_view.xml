@@ -47,6 +47,7 @@
                 <field name="website" position="after">
                     <field name="ref"/>
                     <field name="active"/>
+                    <field name="temporary_farm" attrs="{'invisible': [('farm', '=', False)]}"/>
                 </field>
                 <field name="comment" position="before">
                     <group>

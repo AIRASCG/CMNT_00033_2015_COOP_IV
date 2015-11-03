@@ -7,9 +7,9 @@
             <field name="inherit_id" ref="company_assign_users.view_company_form_add_header"/>
             <field name="arch" type="xml">
                 <header position="inside">
-                    <field name="configured_accounting" invisible="1"/>
+                    <field name="not_configured_accounting" invisible="1"/>
                     <button name="configure_accounting" string="Configure accounting"
-                            type="object" attrs="{'invisible': [('configured_accounting', '=', True)]}"
+                            type="object" attrs="{'invisible': [('not_configured_accounting', '=', False)]}"
                             confirm="This action will configure the accounting for the company."/>
                 </header>
             </field>

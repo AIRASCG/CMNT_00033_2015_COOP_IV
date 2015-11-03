@@ -25,14 +25,14 @@ class ResCompany(models.Model):
 
     _inherit = 'res.company'
 
-    configured_accounting = fields.Boolean(
-        'Configured accounting', compute="_get_configured_accounting")
+    not_configured_accounting = fields.Boolean(
+        'Configured accounting', compute="_get_not_configured_accounting")
 
     @api.one
-    def _get_configured_accounting(self):
+    def _get_not_configured_accounting(self):
         fiscalyear = self.env['account.fiscalyear'].search(
             [('company_id', '=', self.id)])
-        self.configured_accounting = fiscalyear and True or False
+        self.not_configured_accounting = not fiscalyear and True or False
 
     @api.multi
     def _launch_account_configure_wizards(self):
