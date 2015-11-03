@@ -24,6 +24,9 @@
                 <field name="partner_bank_id" position="replace">
                     <field name="partner_bank_id" invisible="1"/>
                 </field>
+                <page string="Other Info" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </page>
             </field>
         </record>
 
@@ -47,6 +50,9 @@
                 <field name="partner_bank_id" position="replace">
                     <field name="partner_bank_id" invisible="1"/>
                 </field>
+                <page string="Other Info" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </page>
             </field>
         </record>
 
