@@ -50,3 +50,7 @@ msgstr "Técnico gestión"
 msgid "Technical sales"
 msgstr "Técnico comercial"
 
+#. module: custom_groups
+#: model:res.groups,name:custom_groups.group_view_all_groups
+msgid "View all groups"
+msgstr "Ver todos los grupos""

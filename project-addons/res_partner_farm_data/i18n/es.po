@@ -142,6 +142,21 @@ msgid "Old"
 msgstr "Antiguo"
 
 #. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/lot.py:33
+#: sql_constraint:lot:0
+#, python-format
+msgid "Error! Only one lot by year and company."
+msgstr "Error! Solo un lote por año y compañía."
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/output_quota.py:33
+#: sql_constraint:output.quota:0
+#, python-format
+msgid "Error! Only one quota by year and company."
+msgstr "Error! Solo una cuota por año y compañía."
+
+
+#. module: res_partner_farm_data
 #: field:cost.imputation,user_id:0
 msgid "User"
 msgstr "Usuario"
@@ -289,6 +304,28 @@ msgstr "Silos forraje"
 #: selection:res.partner,barn_type:0
 msgid "Free"
 msgstr "Libre"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:106
+#, python-format
+msgid "Farm creation error"
+msgstr "Error al crear explotación"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:106
+#, python-format
+msgid "To create farm must do it from the menu farm High"
+msgstr "Para crear explotaciones debe hacerse desde el menú 'Alta explotaciones'"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.view_partner_form_account
+msgid "e.g. BE0477472701"
+msgstr "Por ejemplo, ESA00000000"
+
+#. module: res_partner_farm_data
+#: field:res.partner,farm_group:0
+msgid "Is farm group"
+msgstr "Es un grupo de explotaciones"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data

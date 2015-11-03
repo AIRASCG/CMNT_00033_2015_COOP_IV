@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': 'Atomatic company',
+    'name': 'Automatic company',
     'version': '',
     'category': '',
     'description': """The right company is automatically added to the product and partner models""",
