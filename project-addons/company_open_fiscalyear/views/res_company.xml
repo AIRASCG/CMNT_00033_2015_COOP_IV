@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="res_company_add_open_fiscalyear" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="company_automatic_account_config.res_company_add_configure_accounting"/>
+            <field name="arch" type="xml">
+                <header position="inside">
+                    <button name="open_fiscalyear" string="Open fiscal year" attrs="{'invisible': [('configured_accounting', '=', False)]}"
+                            type="object" groups="custom_groups.group_admin" confirm="This action will close the current fiscal year and a new one will be created for the company and its children."/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</openerp>
