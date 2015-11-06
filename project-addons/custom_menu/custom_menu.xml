@@ -29,12 +29,13 @@
             <field name="model">res.partner</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="Farms" create="0">
+                <tree string="Farms" create="0" colors="red:temporary_farm == True">
                     <field name="display_name"/>
                     <field name="function" invisible="1"/>
                     <field name="phone"/>
                     <field name="email"/>
                     <field name="vat"/>
+                    <field name="temporary_farm"/>
                     <field name="user_id" invisible="1"/>
                     <field name="is_company" invisible="1"/>
                     <field name="country_id" invisible="1"/>
