@@ -26,7 +26,7 @@
     'description': """The right company is automatically added to the product and partner models""",
     'author': 'Comunitea',
     'website': '',
-    "depends": ['base', 'product'],
+    "depends": ['base', 'product', 'stock_production_lot_multi_company'],
     "data": ['views/res_company.xml'],
     "installable": True
 }
