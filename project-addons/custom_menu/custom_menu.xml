@@ -29,12 +29,13 @@
             <field name="model">res.partner</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="Farms" create="0">
+                <tree string="Farms" create="0" colors="red:temporary_farm == True">
                     <field name="display_name"/>
                     <field name="function" invisible="1"/>
                     <field name="phone"/>
                     <field name="email"/>
                     <field name="vat"/>
+                    <field name="temporary_farm"/>
                     <field name="user_id" invisible="1"/>
                     <field name="is_company" invisible="1"/>
                     <field name="country_id" invisible="1"/>
@@ -93,7 +94,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field eval="False" name="view_id"/>
-            <field name="domain">[('invoice_id.type','=','out_invoice')]</field>
+            <field name="domain">[('invoice_id.type','=','out_invoice'),('invoice_id.state', '=', 'draft')]</field>
         </record>
 
         <record id="action_invoice_line_tree2" model="ir.actions.act_window">
@@ -102,7 +103,28 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field eval="False" name="view_id"/>
-            <field name="domain">[('invoice_id.type','=','in_invoice')]</field>
+            <field name="domain">[('invoice_id.type','=','in_invoice'),('invoice_id.state', '=', 'draft')]</field>
+        </record>
+
+        <record id="view_invoice_line_tree_editable" model="ir.ui.view">
+            <field name="name">account.invoice.line.tree</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_tree"/>
+            <field name="arch" type="xml">
+                <tree position="attributes">
+                    <attribute name="editable">top</attribute>
+                </tree>
+                <field name="name" position="before">
+                    <field name="product_id"/>
+                </field>
+                <field name="account_id" position="after">
+                    <field name="account_analytic_id" domain="[('type','!=','view'),('state','not in',('close','cancelled'))]" groups="analytic.group_analytic_accounting"/>
+                    <field name="analytics_id" domain="[('plan_id','&lt;&gt;',False)]" groups="analytic.group_analytic_accounting"/>
+                </field>
+                <field name="discount" position="after">
+                    <field name="invoice_line_tax_id" widget="many2many_tags" domain="[('parent_id','=',False)]"/>
+                </field>
+            </field>
         </record>
 
         <menuitem id="tech_economic_management" name="Technical economic management" parent="parent_menu"  sequence="2"/>

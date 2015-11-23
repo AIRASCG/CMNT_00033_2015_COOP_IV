@@ -31,7 +31,7 @@ class ResCompany(models.Model):
 
     @api.one
     def _get_cooperative_company(self):
-        if self.is_cooperative or not self.parent_id.is_cooperative:
+        if self.is_cooperative or not self.sudo().parent_id.is_cooperative:
             self.cooperative_company = self
         else:
-            self.cooperative_company = self.parent_id
+            self.cooperative_company = self.sudo().parent_id
