@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_passwd_partner_add_url" model="ir.ui.view">
+            <field name="name">res.partner.passwd.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="partner_passwd.view_password_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='passwd_ids']/tree/field[@name='passwd']" position="after">
+                    <field name="url" widget="url"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -18,5 +18,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import wizard
-from . import models
+from openerp import models, fields, api, exceptions, _
+
+
+class ResPartnerPasswd(models.Model):
+
+    _inherit = 'res.partner.passwd'
+
+    url = fields.Char('URL')
