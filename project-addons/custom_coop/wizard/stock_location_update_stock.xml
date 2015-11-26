@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record id="stock_location_update_wizard_form" model="ir.ui.view">
+            <field name="name">stock.location.update.stock.wizard.form</field>
+            <field name="model">stock.location.update.stock.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Update stock">
+                    <group>
+                        <field name="product_id"/>
+                        <field name="lot_id"/>
+                        <field name="quantity"/>
+                    </group>
+                    <button string="Update" name="update" type="object" icon="gtk-ok"/>
+                    <button string="Cancel" special="cancel" icon="gtk-cancel"/>
+                </form>
+            </field>
+        </record>
+
+        <act_window name=""
+            res_model="stock.location.update.stock.wizard"
+            view_id="stock_location_update_wizard_form"
+            view_mode="form"
+            target="new"
+            id="action_stock_location_update_wizard"/>
+
+    </data>
+</openerp>
+
