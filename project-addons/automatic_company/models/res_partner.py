@@ -37,8 +37,8 @@ class ResPartner(models.Model):
             vals['company_id'] = self._get_coop_company_id(vals['company_id'])
         return super(ResPartner, self).create(vals)
 
-    @api.multi
+    '''@api.multi
     def write(self, vals):
         if vals.get('company_id', False):
             vals['company_id'] = self._get_coop_company_id(vals['company_id'])
-        return super(ResPartner, self).write(vals)
+        return super(ResPartner, self).write(vals)'''

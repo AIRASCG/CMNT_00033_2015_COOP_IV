@@ -18,12 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import models
 
-def pre_init_hook(cr):
+def migrate(cr, version):
     cr.execute("""UPDATE ir_model_data SET noupdate=FALSE
-                  WHERE module='product' AND name='product_comp_rule'""")
-
-def post_init_hook(cr, registry):
-    cr.execute("""UPDATE ir_model_data SET noupdate=TRUE
-                  WHERE module='product' AND name='product_comp_rule'""")
+              WHERE module='product' AND name='product_comp_rule'""")
