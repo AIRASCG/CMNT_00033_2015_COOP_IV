@@ -177,6 +177,20 @@
                             </group>
                         </group>
                     </page>
+                    <page string="Employees"  attrs="{'invisible': [('farm', '=', False)]}">
+                        <group>
+                            <field name="employees_quantity" />
+                            <label for="employee_count_ids" string="History"/>
+                            <field name="employee_count_ids" readonly="1" nolabel="1">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="user_id"/>
+                                    <field name="quantity"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
                 </notebook>
             </field>
         </record>

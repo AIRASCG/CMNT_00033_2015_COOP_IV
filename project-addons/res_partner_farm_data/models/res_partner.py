@@ -19,7 +19,7 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
-
+from datetime import date
 
 class ResPartner(models.Model):
 
@@ -87,6 +87,8 @@ class ResPartner(models.Model):
     manure_pit = fields.Integer('Manure pit')
     manure_pit_outdoor = fields.Integer('Manure pit outdoor')
     trailer_access = fields.Boolean('Trailer access')
+    employees_quantity = fields.Integer('Employees quantity')
+    employee_count_ids = fields.One2many('employee.farm.count', 'partner_id', 'Employees')
 
     @api.model
     def create(self, vals):
@@ -100,12 +102,33 @@ class ResPartner(models.Model):
             res.message_subscribe([res.exploitation_technician.partner_id.id])
         if vals.get('secondary_technician', False):
             res.message_subscribe([res.secondary_technician.partner_id.id])
+        if res.employees_quantity:
+            count_args = {
+                        'partner_id': res.id,
+                        'date': date.today(),
+                        'user_id': self.env.user.id,
+                        'quantity': res.employees_quantity,
+            }
+            self.env['employee.farm.count'].create(count_args)
         return res
 
     @api.multi
     def write(self, vals):
         res = super(ResPartner, self).write(vals)
         for partner in self:
+            if vals.get('employees_quantity', False):
+
+                if not self.employee_count_ids:
+                    count_args = {
+                        'partner_id': self.id,
+                        'date': date.today(),
+                        'user_id': self.env.user.id,
+                        'quantity': vals.get('employees_quantity'),
+                    }
+                    self.env['employee.farm.count'].create(count_args)
+                else:
+                    current = self.employee_count_ids.filtered(lambda record: record.state == 'current')
+                    current.write({'quantity': vals.get('employees_quantity')})
             if vals.get('exploitation_technician', False):
                 partner.message_subscribe(
                     [partner.exploitation_technician.partner_id.id])
