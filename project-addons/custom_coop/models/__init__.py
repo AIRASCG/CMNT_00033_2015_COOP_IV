@@ -19,3 +19,4 @@
 #
 ##############################################################################
 from . import partner_passwd
+from . import res_company

@@ -18,22 +18,24 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import models, fields, api, exceptions, _
+from datetime import date, timedelta
 
-{
-    'name': 'Coop customizations',
-    'version': '1.0',
-    'category': '',
-    'description': """
-            -Update stock wizard.
-        """,
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['acc_analytic_acc_distribution_between', 'automatic_company',
-                'company_assign_users', 'company_automatic_account_config',
-                'company_open_fiscalyear', 'custom_colors', 'custom_email_template',
-                'custom_groups', 'custom_menu', 'protect_cud_parent_companies',
-                'res_partner_farm_data', 'simplify_invoice', 'supplier_type'],
-    "data": ['wizard/stock_location_update_stock.xml', 'views/stock.xml',
-             'views/partner_view.xml', 'data/ir_cron.xml'],
-    "installable": True
-}
+
+class ResCompany(models.Model):
+
+    _inherit = 'res.company'
+
+    @api.model
+    def calc_assets(self):
+        for company in self.search([]):
+            td = date.today()
+            last_month = date(td.year, td.month - 1, 1)
+            period = self.env['account.period'].search(
+                [('date_start', '<=', last_month), ('date_stop', '>=', last_month),
+                 ('company_id', '=', company.id)])
+            if period:
+                assets = self.env['account.asset.asset'].search([('state', '=', 'open'),
+                                                                 ('company_id', '=',
+                                                                  company.id)])
+                assets.with_context(company_id=company.id)._compute_entries(period.id)
