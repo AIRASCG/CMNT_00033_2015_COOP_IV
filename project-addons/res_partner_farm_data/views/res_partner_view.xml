@@ -191,6 +191,36 @@
                             </field>
                         </group>
                     </page>
+                    <page string="Cows"  attrs="{'invisible': [('farm', '=', False)]}">
+                        <group>
+                            <group col="6" colspan="4">
+                                <group>
+                                    <field name="heifer_0_3"/>
+                                    <field name="milk_cow"/>
+                                </group>
+                                <group>
+                                    <field name="heifer_3_12"/>
+                                    <field name="dry_cow"/>
+                                </group>
+                                <group>
+                                    <field name="heifer_plus_12"/>
+                                </group>
+                            </group>
+                            <label for="cow_count_ids" string="History"/>
+                            <field name="cow_count_ids" readonly="1" nolabel="1">
+                                <tree>
+                                    <field name="date"/>
+                                    <field name="user_id"/>
+                                    <field name="heifer_0_3"/>
+                                    <field name="heifer_3_12"/>
+                                    <field name="heifer_plus_12"/>
+                                    <field name="milk_cow"/>
+                                    <field name="dry_cow"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
                 </notebook>
             </field>
         </record>

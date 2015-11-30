@@ -3,3 +3,5 @@ access_yearly_data,access_yearly_data,model_yearly_data,base.group_user,1,1,1,1
 access_cost_imputation,access_cost_imputation,model_cost_imputation,base.group_user,1,1,1,1
 access_output_quota,access_output_quota,model_output_quota,base.group_user,1,1,1,1
 access_lot,access_lot,model_lot,base.group_user,1,1,1,1
+access_employee_farm_count,access_employee_farm_count,model_employee_farm_count,base.group_user,1,1,1,1
+access_cow_count,access_cow_count,model_cow_count,base.group_user,1,1,1,1
