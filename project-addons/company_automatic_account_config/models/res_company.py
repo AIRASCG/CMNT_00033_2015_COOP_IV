@@ -38,7 +38,7 @@ class ResCompany(models.Model):
     def _launch_account_configure_wizards(self):
         self.ensure_one()
         wizard = self.env['account.installer'].create(
-            {'charts': 'l10n_es', 'company_id': self.id})
+            {'charts': 'l10n_es', 'company_id': self.id, 'period': '3months'})
         wizard.action_next()
 
         pymes_chart = self.env.ref('l10n_es.account_chart_template_pymes')
