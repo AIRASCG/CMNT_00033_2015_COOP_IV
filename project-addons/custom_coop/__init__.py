@@ -18,16 +18,3 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Custom menu',
-    'version': '1.0',
-    'category': '',
-    'description': """""",
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base', 'calendar', 'account', 'product', 'acc_analytic_acc_distribution_between',
-                'res_partner_farm_data', 'auditlog', 'document', 'knowledge', 'mail'],
-    "data": ['security/group.xml', 'security/ir_rule.xml', 'custom_menu.xml'],
-    "installable": True
-}

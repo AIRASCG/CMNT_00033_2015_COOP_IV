@@ -21,6 +21,9 @@
         <record model="ir.ui.menu" id="base.menu_administration">
           <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
+        <record model="ir.ui.menu" id="mail.mail_allgroups">
+          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+        </record>
 
         <menuitem name="Milkoop" id="parent_menu"/>
 
@@ -205,7 +208,7 @@
         <menuitem id="advanced_parameters" name="Advanced parameters" parent="parent_menu"  sequence="4"/>
             <menuitem action="base.action_res_users" id="menu_action_res_users" parent="advanced_parameters"/>
             <menuitem id="menu_log" name="Activity/log" parent="advanced_parameters"/>
-                <menuitem id="menu_action_auditlog_rule_tree" parent="menu_log" action="auditlog.action_auditlog_rule_tree" groups="custom_groups.group_admin"/>
+                <menuitem id="menu_action_auditlog_rule_tree" parent="menu_log" action="auditlog.action_auditlog_rule_tree" groups="custom_menu.group_standard_menus"/>
                 <menuitem id="menu_audit_logs" name="Logs" parent="menu_log" action="auditlog.action_auditlog_log_tree"/>
             <menuitem
                 id="company" name="Create Farm"

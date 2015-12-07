@@ -21,9 +21,10 @@ msgid "Admin"
 msgstr "Administrador"
 
 #. module: custom_groups
+#: code:addons/custom_groups/models/res_users.py:38
 #: model:ir.module.category,name:custom_groups.category_custom
-msgid "Custom"
-msgstr "Custom"
+msgid "User types"
+msgstr "Tipo de usuarios"
 
 #. module: custom_groups
 #: model:ir.module.category,description:custom_groups.category_custom
@@ -53,4 +54,4 @@ msgstr "Técnico comercial"
 #. module: custom_groups
 #: model:res.groups,name:custom_groups.group_view_all_groups
 msgid "View all groups"
-msgstr "Ver todos los grupos""
+msgstr "Ver todos los grupos"

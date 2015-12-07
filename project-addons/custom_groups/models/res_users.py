@@ -35,7 +35,7 @@ class ResUsers(models.Model):
                                                     submenu=submenu)
         if view_type == 'form' and self.env.user.id != SUPERUSER_ID:
             view = etree.XML(res['arch'])
-            for separator in view.xpath("//notebook/page[1]/group[2]/separator[@string!='Custom']"):
+            for separator in view.xpath("//notebook/page[1]/group[2]/separator[@string!='" + _("User types") + "']"):
                 separator.set("modifiers", '{"invisible": true}')
             id_1 = self.env.ref('custom_groups.group_admin').id
             id_2 = self.env.ref('custom_groups.group_tech_mngnt').id

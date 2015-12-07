@@ -20,14 +20,18 @@
 ##############################################################################
 
 {
-    'name': 'Custom menu',
+    'name': 'Coop customizations',
     'version': '1.0',
     'category': '',
-    'description': """""",
+    'description': """
+        """,
     'author': 'Comunitea',
     'website': '',
-    "depends": ['base', 'calendar', 'account', 'product', 'acc_analytic_acc_distribution_between',
-                'res_partner_farm_data', 'auditlog', 'document', 'knowledge', 'mail'],
-    "data": ['security/group.xml', 'security/ir_rule.xml', 'custom_menu.xml'],
+    "depends": ['acc_analytic_acc_distribution_between', 'automatic_company',
+                'company_assign_users', 'company_automatic_account_config',
+                'company_open_fiscalyear', 'custom_colors', 'custom_email_template',
+                'custom_groups', 'custom_menu', 'protect_cud_parent_companies',
+                'res_partner_farm_data', 'simplify_invoice', 'supplier_type'],
+    "data": ['views/user_preferences.xml'],
     "installable": True
 }

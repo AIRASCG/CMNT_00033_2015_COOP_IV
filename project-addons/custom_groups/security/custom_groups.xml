@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="0">
+    <data>
 
          <record model="ir.module.category" id="category_custom">
-            <field name="name">Custom</field>
+            <field name="name">User types</field>
             <field name="sequence">8</field>
         </record>
 
