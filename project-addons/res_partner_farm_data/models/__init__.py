@@ -19,6 +19,8 @@
 #
 ##############################################################################
 from . import yearly_data
+from . import employee_count
+from . import cow_count
 from . import res_partner
 from . import res_company
 from . import cost_imputation

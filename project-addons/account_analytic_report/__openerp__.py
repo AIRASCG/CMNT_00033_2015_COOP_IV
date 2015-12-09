@@ -18,6 +18,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_users
-from . import partner_passwd
-from . import res_company
+
+{
+    'name': 'Account analytic report',
+    'version': '1.0',
+    'category': 'Account',
+    'description': """""",
+    'author': 'Comunitea',
+    'website': '',
+    "depends": ['account'],
+    "data": ['views/account_analytic_report_template.xml', 'views/account_analytic_report.xml',
+             'views/account_analytic_report_menu.xml', 'security/ir.model.access.csv'],
+    "installable": True
+}

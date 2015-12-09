@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <menuitem
+            id="account_analytic_report_template_menu"
+            name="Anaytic report template"
+            action="action_view_account_analytic_report_template"
+            parent="account.menu_analytic_accounting"/>
+
+        <menuitem
+            id="account_analytic_report_menu"
+            name="Anaytic report"
+            action="action_view_account_analytic_report"
+            parent="account.next_id_40"/>
+
+    </data>
+</openerp>

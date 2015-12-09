@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="view_account_analytic_report_form">
+            <field name="name">account.analytic.report.form</field>
+            <field name="model">account.analytic.report</field>
+            <field name="arch" type="xml">
+                <form string="Account analytic report">
+                    <header>
+                        <button name="calculate" string="Calculate" type="object" states="draft,calc_done"/>
+                        <button name="act_cancel" string="Cancel" type="object" states="calc_done"/>
+                        <button name="act_done" string="Done" type="object" states="calc_done"/>
+                        <field name="state" select="2" widget="statusbar" statusbar_visible="calc_done,done"
+                            statusbar_colors='{"calc_done":"blue","done":"blue","canceled":"red"}'/>
+                    </header>
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name" nolabel="1"/>
+                    </h1>
+                    <notebook>
+                        <page string="Configuration">
+                            <group col="6">
+                                <field name="template_id"/>
+                                <field name="calc_date" states="calc_done,done"/>
+                            </group>
+                            <group>
+                                <group col="1">
+                                    <separator string="Company 1"/>
+                                    <field name="ref_1"/>
+                                    <field name="from_date_1"/>
+                                    <field name="to_date_1"/>
+                                </group>
+                                <group col="1">
+                                    <separator string="Company 2"/>
+                                    <field name="ref_2"/>
+                                    <field name="from_date_2"/>
+                                    <field name="to_date_2"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Report lines">
+                            <field name="line_ids" nolabel="1">
+                                <tree string="Report lines" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="notes"/>
+                                    <field name="value_1"/>
+                                    <field name="value_2"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <!-- Report tree view -->
+        <record model="ir.ui.view" id="view_account_analytic_report_tree">
+            <field name="name">account.analytic.report.tree</field>
+            <field name="model">account.analytic.report</field>
+            <field name="arch" type="xml">
+                <tree string="Account analytic report">
+                    <field name="name" select="1"/>
+                    <!--field name="company_id" groups="base.group_multi_company"/-->
+                    <field name="template_id" select="2" colspan="4"/>
+                    <field name="state" colspan="4" select="2"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--*** window action ******************************************* -->
+
+        <record model="ir.actions.act_window" id="action_view_account_analytic_report">
+            <field name="name">Account analytic report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">account.analytic.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_account_analytic_report_tree"/>
+        </record>
+
+    </data>
+</openerp>

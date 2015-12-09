@@ -19,7 +19,7 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
-
+from datetime import date
 
 class ResPartner(models.Model):
 
@@ -88,6 +88,14 @@ class ResPartner(models.Model):
     manure_pit = fields.Integer('Manure pit')
     manure_pit_outdoor = fields.Integer('Manure pit outdoor')
     trailer_access = fields.Boolean('Trailer access')
+    employees_quantity = fields.Integer('Employees quantity')
+    employee_count_ids = fields.One2many('employee.farm.count', 'partner_id', 'Employees')
+    cow_count_ids = fields.One2many('cow.count', 'partner_id', 'Cows')
+    heifer_0_3 = fields.Integer('Heifer 0-3 months')
+    heifer_3_12 = fields.Integer('Heifer 3-12 months')
+    heifer_plus_12 = fields.Integer('Heifer >12 months')
+    milk_cow = fields.Integer('Milk cows')
+    dry_cow = fields.Integer('Dry cows')
 
     @api.model
     def create(self, vals):
@@ -101,12 +109,58 @@ class ResPartner(models.Model):
             res.message_subscribe([res.exploitation_technician.partner_id.id])
         if vals.get('secondary_technician', False):
             res.message_subscribe([res.secondary_technician.partner_id.id])
+        if res.employees_quantity:
+            count_args = {
+                        'partner_id': res.id,
+                        'date': date.today(),
+                        'user_id': self.env.user.id,
+                        'quantity': res.employees_quantity,
+            }
+            self.env['employee.farm.count'].create(count_args)
         return res
 
     @api.multi
     def write(self, vals):
         res = super(ResPartner, self).write(vals)
         for partner in self:
+            if vals.get('employees_quantity', False):
+
+                if not self.employee_count_ids:
+                    count_args = {
+                        'partner_id': self.id,
+                        'date': date.today(),
+                        'user_id': self.env.user.id,
+                        'quantity': vals.get('employees_quantity'),
+                    }
+                    self.env['employee.farm.count'].create(count_args)
+                else:
+                    current = self.employee_count_ids.filtered(lambda record: record.state == 'current')
+                    current.write({'quantity': vals.get('employees_quantity')})
+            if vals.get('heifer_0_3', False) or vals.get('heifer_3_12', False) or \
+                    vals.get('heifer_plus_12', False) or vals.get('milk_cow', False) or \
+                    vals.get('dry_cow', False):
+
+                if not self.cow_count_ids:
+                    count_args = {
+                        'partner_id': self.id,
+                        'date': date.today(),
+                        'user_id': self.env.user.id,
+                        'heifer_0_3': vals.get('heifer_0_3', 0),
+                        'heifer_3_12': vals.get('heifer_3_12', 0),
+                        'heifer_plus_12': vals.get('heifer_plus_12', 0),
+                        'milk_cow': vals.get('milk_cow', 0),
+                        'dry_cow': vals.get('dry_cow', 0),
+                    }
+                    self.env['cow.count'].create(count_args)
+                else:
+                    current = self.cow_count_ids.filtered(lambda record: record.state == 'current')
+                    current.write({
+                        'heifer_0_3': vals.get('heifer_0_3', self.heifer_0_3),
+                        'heifer_3_12': vals.get('heifer_3_12', self.heifer_3_12),
+                        'heifer_plus_12': vals.get('heifer_plus_12', self.heifer_plus_12),
+                        'milk_cow': vals.get('milk_cow', self.milk_cow),
+                        'dry_cow': vals.get('dry_cow', self.dry_cow),
+                    })
             if vals.get('exploitation_technician', False):
                 partner.message_subscribe(
                     [partner.exploitation_technician.partner_id.id])

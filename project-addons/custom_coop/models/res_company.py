@@ -19,6 +19,7 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
+from datetime import date, timedelta
 
 
 class ResCompany(models.Model):
@@ -38,3 +39,16 @@ class ResCompany(models.Model):
             if self.env.user.id != 1:
                 raise exceptions.Warning(_('Create error'), _('Parent required'))
         return super(ResCompany, self).write(vals)
+
+    def calc_assets(self):
+        for company in self.search([]):
+            td = date.today()
+            last_month = date(td.year, td.month - 1, 1)
+            period = self.env['account.period'].search(
+                [('date_start', '<=', last_month), ('date_stop', '>=', last_month),
+                 ('company_id', '=', company.id)])
+            if period:
+                assets = self.env['account.asset.asset'].search([('state', '=', 'open'),
+                                                                 ('company_id', '=',
+                                                                  company.id)])
+                assets.with_context(company_id=company.id)._compute_entries(period.id)

@@ -34,6 +34,12 @@ msgid "Trentch"
 msgstr "Trinchera"
 
 #. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#: field:res.partner,cow_count_ids:0
+msgid "Cows"
+msgstr "Vacas"
+
+#. module: res_partner_farm_data
 #: field:cost.imputation,type_id:0
 #: field:stock.location,type:0
 msgid "Type"
@@ -125,6 +131,8 @@ msgstr "Imputación de costes"
 
 #. module: res_partner_farm_data
 #: selection:cost.imputation,state:0
+#: selection:employee.farm.count,state:0
+#: selection:cow.count,state:0
 #: selection:lot,state:0
 #: selection:output.quota,state:0
 #: selection:yearly.data,state:0
@@ -138,11 +146,25 @@ msgstr "Ejercicio fiscal"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,date:0
+#: field:employee.farm.count,date:0
+#: field:cow.count,date:0
 #: field:lot,date:0
 #: field:output.quota,date:0
 #: field:yearly.data,date:0
 msgid "Date"
 msgstr "Fecha"
+
+#. module: res_partner_farm_data
+#: field:employee.farm.count,quantity:0
+#: field:res.partner,employee_count_ids:0
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Employees"
+msgstr "Trabajadores"
+
+#. module: res_partner_farm_data
+#: field:res.partner,employees_quantity:0
+msgid "Employees quantity"
+msgstr "Cantidad de trabajadores"
 
 #. module: res_partner_farm_data
 #: selection:cost.imputation,state:0
@@ -151,6 +173,13 @@ msgstr "Fecha"
 #: selection:yearly.data,state:0
 msgid "Old"
 msgstr "Antiguo"
+
+#. module: res_partner_farm_data
+#: selection:employee.farm.count,state:0
+#: selection:cow.count,state:0
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "History"
+msgstr "Histórico"
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/lot.py:33
@@ -166,9 +195,18 @@ msgstr "Error! Solo un lote por año y compañía."
 msgid "Error! Only one quota by year and company."
 msgstr "Error! Solo una cuota por año y compañía."
 
+#. module: res_partner_farm_data
+#: field:cow.count,milk_cow:0
+#: field:res.partner,milk_cow:0
+msgid "Milk cows"
+msgstr "Vacas de leche"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,user_id:0
+#: field:employee.farm.count,user_id:0
+#: field:lot,user_id:0
+#: field:output.quota,user_id:0
+#: field:yearly.data,user_id:0
 msgid "User"
 msgstr "Usuario"
 
@@ -177,6 +215,12 @@ msgstr "Usuario"
 #: field:output.quota,value:0
 msgid "Value"
 msgstr "Valor"
+
+#. module: res_partner_farm_data
+#: field:employee.farm.count,sequence:0
+msgid "sequence"
+msgstr "sequence"
+
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,year_id:0
@@ -202,6 +246,8 @@ msgid "Dairy company"
 msgstr "Empresa láctea"
 
 #. module: res_partner_farm_data
+#: field:cow.count,dry_cow:0
+#: field:res.partner,dry_cow:0
 #: field:res.partner,dry_cows:0
 msgid "Dry cows"
 msgstr "Vacas secas"
@@ -220,6 +266,24 @@ msgstr "Potencia eléctrica"
 #: field:res.partner,exploitation_technician:0
 msgid "Exploitation technician"
 msgstr "Técnico explotación"
+
+#. module: res_partner_farm_data
+#: field:cow.count,heifer_0_3:0
+#: field:res.partner,heifer_0_3:0
+msgid "Heifer 0-3 months"
+msgstr "Novillas 0-3 meses"
+
+#. module: res_partner_farm_data
+#: field:cow.count,heifer_3_12:0
+#: field:res.partner,heifer_3_12:0
+msgid "Heifer 3-12 months"
+msgstr "Novillas 3-12 meses"
+
+#. module: res_partner_farm_data
+#: field:cow.count,heifer_plus_12:0
+#: field:res.partner,heifer_plus_12:0
+msgid "Heifer >12 months"
+msgstr "Novillas >12 meses"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,farm_id:0
@@ -245,6 +309,8 @@ msgstr "Cuota de producción"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,state:0
+#: field:employee.farm.count,state:0
+#: field:cow.count,state:0
 #: field:lot,state:0
 #: field:output.quota,state:0
 #: field:yearly.data,state:0
@@ -416,6 +482,7 @@ msgid "Other"
 msgstr "Otra"
 
 #. module: res_partner_farm_data
+#: field:employee.farm.count,partner_id:0
 #: model:ir.model,name:res_partner_farm_data.model_res_partner
 msgid "Partner"
 msgstr "Empresa"

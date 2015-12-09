@@ -41,3 +41,75 @@ msgstr "Usuarios"
 #, python-format
 msgid "Write error"
 msgstr "Error en escritura"
+#: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: custom_coop
+#: code:addons/custom_coop/wizard/stock_location_update_stock.py:46
+#, python-format
+msgid "INV: %s"
+msgstr "INV: %s"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,lot_id:0
+msgid "Lot"
+msgstr "Lote"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: custom_coop
+#: field:stock.location.update.stock.wizard,quantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: custom_coop
+#: code:addons/custom_coop/wizard/stock_location_update_stock.py:38
+#, python-format
+msgid "Quantity cannot be negative."
+msgstr "La cantidad no puede ser negativa."
+
+#. module: custom_coop
+#: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
+msgid "Update"
+msgstr "Actualizar"
+
+#. module: custom_coop
+#: view:stock.location:custom_coop.view_location_form
+#: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
+msgid "Update stock"
+msgstr "Actualizar stock"
+
+#. module: custom_coop
+#: code:addons/custom_coop/wizard/stock_location_update_stock.py:37
+#, python-format
+msgid "Warning!"
+msgstr "Warning!"
