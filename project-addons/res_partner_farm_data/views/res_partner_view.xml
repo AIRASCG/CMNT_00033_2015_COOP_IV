@@ -187,7 +187,8 @@
             <field name="inherit_id" ref="base.view_res_partner_filter"/>
             <field name="arch" type="xml">
                 <filter name="customer" position="before">
-                    <filter string="Farms" name="farm" domain="[('farm','=',1)]" help="Farm Partners"/>
+                    <filter string="Farms" name="farm" domain="[('farm','=',1), ('is_cooperative', '=', 0)]" help="Farm Partners"/>
+                    <filter string="Cooperatives" name="coop" domain="[('farm','=',1), ('is_cooperative', '=', 1)]" help="Cooperative Partners"/>
                 </filter>
             </field>
         </record>
@@ -218,6 +219,18 @@
                 <button name="%(account.action_invoice_refund_out_tree)d" position="attributes">
                     <attribute name="attrs">{'invisible': [('customer', '=', False), ('farm', '=', False)]}</attribute>
                 </button>
+            </field>
+        </record>
+
+        <record id="res_partner_category_add_description_form" model="ir.ui.view">
+            <field name="name">res.partner.category.form</field>
+            <field name="model">res.partner.category</field>
+            <field name="inherit_id" ref="base.view_partner_category_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']/.." position="after">
+                    <separator string="Description"/>
+                    <field name="description"/>
+                </xpath>
             </field>
         </record>
     </data>

@@ -18,16 +18,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import models, fields, api, exceptions, _
 
-{
-    'name': 'Custom menu',
-    'version': '1.0',
-    'category': '',
-    'description': """""",
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base', 'calendar', 'account', 'product', 'acc_analytic_acc_distribution_between',
-                'res_partner_farm_data', 'auditlog', 'document', 'knowledge', 'mail', 'custom_groups'],
-    "data": ['security/group.xml', 'security/ir_rule.xml', 'custom_menu.xml'],
-    "installable": True
-}
+
+class ResUsers(models.Model):
+
+    _inherit = 'res.users'
+
+    @api.multi
+    def write(self, vals):
+        for user in self:
+            if user.id == 1 and self.env.user.id != 1:
+                raise exceptions.Warning(_('Write error'), _('Only %s can edit his user') % user.name)
+        return super(ResUsers, self).write(vals)

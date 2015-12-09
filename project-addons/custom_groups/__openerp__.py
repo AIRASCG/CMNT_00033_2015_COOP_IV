@@ -27,6 +27,6 @@
     'author': 'Comunitea',
     'website': '',
     "depends": ['base', 'account', 'stock', 'auditlog'],
-    "data": ['security/custom_groups.xml'],
+    "data": ['security/custom_groups.xml', 'security/security.xml'],
     "installable": True
 }

@@ -51,4 +51,14 @@ class ResUsers(models.Model):
             for field in view.xpath("//field[starts-with(@name,'sel_groups')]"):
                 field.set("modifiers", '{"invisible": true}')
             res['arch'] = etree.tostring(view)
+        if view_type == 'form':
+            view = etree.XML(res['arch'])
+            description_text = _("<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
+                                 " sed do eiusmod tempor incididunt ut labore et dolore</h4>"
+                                 "<p>-Adminsitrador: Ut enim ad minim veniam</p>"
+                                 "<p>-Técnico alimentación: quis nostrud exercitation ullamco laboris nisi</p>"
+                                 "<p>-...</p><p>-...</p>")
+            separator = view.xpath("//notebook/page[1]/group[2]/separator[@string='" + _("User types") + "']")[0]
+            separator.addnext(etree.XML('<group colspan="4"><div>%s</div></group>' % description_text))
+            res['arch'] = etree.tostring(view)
         return res

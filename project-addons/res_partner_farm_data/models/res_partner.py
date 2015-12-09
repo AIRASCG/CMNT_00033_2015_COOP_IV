@@ -32,6 +32,7 @@ class ResPartner(models.Model):
 
     farm = fields.Boolean('Farm')
     temporary_farm = fields.Boolean('Temporary farm', readonly=True, related='company_id.not_configured_accounting')
+    is_cooperative = fields.Boolean('Cooperative', readonly=True, related='company_id.is_cooperative')
     partner_of = fields.Char('Partner of')
     exploitation_technician = fields.Many2one('res.users',
                                               'Exploitation technician')
@@ -139,3 +140,10 @@ class ResPartner(models.Model):
             'res_model': 'stock.location',
             'type': 'ir.actions.act_window',
         }
+
+
+class ResPartnerCategory(models.Model):
+
+    _inherit = 'res.partner.category'
+
+    description = fields.Text('Description')

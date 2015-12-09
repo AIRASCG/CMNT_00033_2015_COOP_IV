@@ -27,7 +27,8 @@
     'author': 'Comunitea',
     'website': '',
     "depends": ['base', 'product', 'stock_production_lot_multi_company'],
-    "data": ['views/res_company.xml', 'security/security.xml'],
+    "data": ['views/res_company.xml', 'views/res_partner.xml', 'views/res_users.xml',
+             'security/security.xml'],
     "pre_init_hook": "pre_init_hook",
     "post_init_hook": "post_init_hook",
     "installable": True

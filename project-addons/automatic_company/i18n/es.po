@@ -21,6 +21,11 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: automatic_company
+#: field:res.partner.category,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: automatic_company
 #: field:res.company,is_cooperative:0
 msgid "Is a cooperative?"
 msgstr "¿Es una cooperativa?"
@@ -29,6 +34,11 @@ msgstr "¿Es una cooperativa?"
 #: model:ir.model,name:automatic_company.model_res_partner
 msgid "Partner"
 msgstr "Empresa"
+
+#. module: automatic_company
+#: model:ir.model,name:automatic_company.model_res_partner_category
+msgid "Partner Tags"
+msgstr "Etiquetas de empresa"
 
 #. module: automatic_company
 #: model:ir.model,name:automatic_company.model_product_product

@@ -18,16 +18,21 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import models, api
+import collections
 
-{
-    'name': 'Custom menu',
-    'version': '1.0',
-    'category': '',
-    'description': """""",
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base', 'calendar', 'account', 'product', 'acc_analytic_acc_distribution_between',
-                'res_partner_farm_data', 'auditlog', 'document', 'knowledge', 'mail', 'custom_groups'],
-    "data": ['security/group.xml', 'security/ir_rule.xml', 'custom_menu.xml'],
-    "installable": True
-}
+
+class ResUsers(models.Model):
+
+    _inherit = 'res.users'
+
+    @api.multi
+    def add_farms(self):
+        import ipdb; ipdb.set_trace()
+        for usr in self:
+            tot_companies = self.env['res.company']
+            for company in usr.company_ids:
+                tot_companies += self.env['res.company'].search(
+                    [('id', 'child_of', company.id), ('id', 'not in', tot_companies._ids)])
+            usr.company_ids = tot_companies
+        return True

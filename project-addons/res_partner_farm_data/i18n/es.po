@@ -74,6 +74,17 @@ msgid "Assets"
 msgstr "Activos"
 
 #. module: res_partner_farm_data
+#: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
+#: field:res.partner.category,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
+msgid "Cooperatives"
+msgstr "Cooperativas"
+
+#. module: res_partner_farm_data
 #: field:res.partner,average_annual_consumption:0
 msgid "Average annual consumption"
 msgstr "Consumo medio anual"

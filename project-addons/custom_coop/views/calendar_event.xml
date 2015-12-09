@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="calendar_event_checkbox" model="ir.ui.view">
+            <field name="name">calendar.event.form</field>
+            <field name="model">calendar.event</field>
+            <field name="inherit_id" ref="calendar.view_calendar_event_form"/>
+            <field name="arch" type="xml">
+                <field name="alarm_ids" position="attributes">
+                    <attribute name="widget">many2many_checkboxes</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

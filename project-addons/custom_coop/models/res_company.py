@@ -19,29 +19,22 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
-from datetime import date
+
 
 class ResCompany(models.Model):
 
     _inherit = 'res.company'
 
+    @api.model
+    def create(self, vals):
+        if not vals.get('parent_id', False):
+            if self.env.user.id != 1:
+                raise exceptions.Warning(_('Create error'), _('Parent required'))
+        return super(ResCompany, self).create(vals)
+
     @api.multi
-    def open_fiscalyear(self):
-        self.ensure_one()
-        if self.env.user.id != 1:
-            raise exceptions.Warning(_('Access error'), _('Only administrator can open fiscal year'))
-        for company in self.search([('id', 'child_of', self.id)]):
-            fiscalyear = self.env['account.fiscalyear'].search([('company_id', '=', company.id), ('state', '=', 'draft')])
-            period_close = self.env['account.period.close'].create({'sure': True})
-            period_close.with_context(active_ids=fiscalyear.period_ids._ids).data_save()
-            fiscalyear.write({'state': 'done'})
-            curyear = date.today().year
-            year_vals = {
-                'name': str(curyear),
-                'code': str(curyear),
-                'company_id': company.id,
-                'date_start': date(curyear, 01, 01),
-                'date_stop': date(curyear, 12, 31),
-            }
-            new_fiscalyear = self.env['account.fiscalyear'].create(year_vals)
-            new_fiscalyear.create_period3()
+    def write(self, vals):
+        if 'parent_id' in vals.keys() and not vals.get('parent_id'):
+            if self.env.user.id != 1:
+                raise exceptions.Warning(_('Create error'), _('Parent required'))
+        return super(ResCompany, self).write(vals)

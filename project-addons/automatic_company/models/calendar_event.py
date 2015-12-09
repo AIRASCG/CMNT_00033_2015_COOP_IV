@@ -18,16 +18,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import models, fields, api, exceptions, _
 
-{
-    'name': 'Custom menu',
-    'version': '1.0',
-    'category': '',
-    'description': """""",
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['base', 'calendar', 'account', 'product', 'acc_analytic_acc_distribution_between',
-                'res_partner_farm_data', 'auditlog', 'document', 'knowledge', 'mail', 'custom_groups'],
-    "data": ['security/group.xml', 'security/ir_rule.xml', 'custom_menu.xml'],
-    "installable": True
-}
+
+class CalendarEvent(models.Model):
+
+    _inherit = 'calendar.event'
+
+    def _get_company(self):
+        return self.env.user.company_id
+
+    company_id = fields.Many2one('res.company', 'Company', default=_get_company)

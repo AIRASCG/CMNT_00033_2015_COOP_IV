@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api, _
 
 
 class ResPartner(models.Model):
@@ -42,3 +42,24 @@ class ResPartner(models.Model):
         if vals.get('company_id', False):
             vals['company_id'] = self._get_coop_company_id(vals['company_id'])
         return super(ResPartner, self).write(vals)'''
+
+
+class ResPartnerCategory(models.Model):
+
+    _inherit = 'res.partner.category'
+
+    def _get_company(self):
+        return self.env.user.company_id
+
+    company_id = fields.Many2one('res.company', 'Company', default=_get_company)
+
+    def _get_coop_company_id(self, company_id):
+        company_setted = self.env['res.company'].browse(company_id)
+        coop_company = company_setted.cooperative_company
+        return coop_company.id
+
+    @api.model
+    def create(self, vals):
+        if vals.get('company_id', False):
+            vals['company_id'] = self._get_coop_company_id(vals['company_id'])
+        return super(ResPartnerCategory, self).create(vals)
