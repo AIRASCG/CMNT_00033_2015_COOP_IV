@@ -201,3 +201,4 @@ class ResPartnerCategory(models.Model):
     _inherit = 'res.partner.category'
 
     description = fields.Text('Description')
+    partnr_id = fields.Many2many('res.partner', 'res_partner_res_partner_category_rel', id1='category_id', id2='partner_id', string="Partners")
