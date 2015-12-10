@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+    <openerp>
+        <data>
+            <record model="ir.ui.view" id="view_document_file_form">
+                <field name="name">ir.attachment</field>
+                <field name="model">ir.attachment</field>
+                <field name="priority" eval="1"/>
+                <field name="inherit_id" ref="document.view_document_file_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//group[@string='Indexed Content']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='res_model']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='res_id']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                    <xpath expr="//field[@name='res_name']" position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+                </field>
+            </record>
+      </data>
+</openerp>

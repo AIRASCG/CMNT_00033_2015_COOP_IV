@@ -35,6 +35,6 @@
                 'res_partner_farm_data', 'simplify_invoice', 'supplier_type'],
     "data": ['wizard/stock_location_update_stock.xml', 'views/stock.xml',
              'views/partner_view.xml', 'data/ir_cron.xml', 'views/user_preferences.xml',
-             'views/res_company.xml', 'views/calendar_event.xml'],
+             'views/res_company.xml', 'views/calendar_event.xml', 'views/document_view.xml'],
     "installable": True
 }
