@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-        <!-- Se ocultan partes del formulario de res.partner ninnecesarias. -->
+        <!-- Se ocultan partes del formulario de res.partner innecesarias. -->
+        <record id="view_password_partner_form2" model="ir.ui.view">
+    			<field name="name">res.partner.passwd.form2</field>
+    			<field name="model">res.partner</field>
+    			<field name="inherit_id" ref="partner_passwd.view_password_partner_form"/>
+    			<field name="arch" type="xml">
+            <xpath expr="//page[@name='passwd']" position="attributes">
+              <attribute name="attrs">{'invisible': ['|',('customer', '=', True), ('supplier', '=', True)]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="attributes">
+              <attribute name="attrs">{'invisible': ['|',('customer', '=', True), ('supplier', '=', True)]}</attribute>
+            </xpath>
+          </field>
+        </record>
+
         <record id="delete_vat_partner" model="ir.ui.view">
             <field name="name">res.partner.vat.inherit</field>
             <field name="model">res.partner</field>
@@ -46,7 +60,8 @@
                 </page>
                 <field name="website" position="after">
                     <field name="ref"/>
-                    <field name="active"/>
+                    <field name="is_cooperative" invisible="1"/>
+                    <field name="active" attrs="{'invisible': [('is_cooperative', '=', True)]}"/>
                     <field name="temporary_farm" attrs="{'invisible': [('farm', '=', False)]}"/>
                 </field>
                 <field name="comment" position="before">
@@ -274,6 +289,8 @@
                 <xpath expr="//field[@name='parent_id']/.." position="after">
                     <separator string="Description"/>
                     <field name="description"/>
+                    <separator string="Partners"/>
+                    <field name="partnr_id" domain="[('farm', '=', True)]"/>
                 </xpath>
             </field>
         </record>

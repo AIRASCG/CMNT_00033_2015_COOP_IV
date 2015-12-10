@@ -40,6 +40,7 @@ class ResCompany(models.Model):
                 raise exceptions.Warning(_('Create error'), _('Parent required'))
         return super(ResCompany, self).write(vals)
 
+    @api.model
     def calc_assets(self):
         for company in self.search([]):
             td = date.today()

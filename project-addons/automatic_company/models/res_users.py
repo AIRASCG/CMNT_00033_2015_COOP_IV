@@ -28,7 +28,6 @@ class ResUsers(models.Model):
 
     @api.multi
     def add_farms(self):
-        import ipdb; ipdb.set_trace()
         for usr in self:
             tot_companies = self.env['res.company']
             for company in usr.company_ids:
