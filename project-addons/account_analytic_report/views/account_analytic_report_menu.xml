@@ -8,11 +8,11 @@
             action="action_view_account_analytic_report_template"
             parent="account.menu_analytic_accounting"/>
 
-        <menuitem
+        <!-- <menuitem
             id="account_analytic_report_menu"
             name="Anaytic report"
             action="action_view_account_analytic_report"
-            parent="account.next_id_40"/>
+            parent="account.next_id_40"/> -->
 
     </data>
 </openerp>
