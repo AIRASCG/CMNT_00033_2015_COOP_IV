@@ -12,6 +12,27 @@
                         <button name="%(action_stock_location_update_wizard)d" type="action" string="Update stock"/>
                     </header>
                 </div>
+                <xpath expr="//field[@name='location_id']/.." position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//label[@for='location_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='usage']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='scrap_location']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[@name='localization']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[@string='Additional Information']" position="attributes">
+                    <attribute name="string"></attribute>
+                </xpath>
             </field>
         </record>
 

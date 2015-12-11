@@ -18,7 +18,15 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_users
-from . import partner_passwd
-from . import res_company
-from . import stock
+from openerp import models, fields, api, exceptions, _
+
+
+class StockLocation(models.Model):
+
+    _inherit = 'stock.location'
+
+    @api.model
+    def _get_default_location(self):
+        return self.env.ref('stock.stock_location_locations').id
+
+    location_id = fields.Many2one(default=_get_default_location)

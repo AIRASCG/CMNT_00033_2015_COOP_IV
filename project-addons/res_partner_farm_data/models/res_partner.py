@@ -190,7 +190,8 @@ class ResPartner(models.Model):
             'view_mode': 'tree,form',
             'view_type': 'form',
             'context': {'tree_view_ref':
-                        'stock.view_location_tree2'},
+                        'stock.view_location_tree2',
+                        'default_company_id': self.company_id.id},
             'res_model': 'stock.location',
             'type': 'ir.actions.act_window',
         }
