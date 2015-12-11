@@ -21,5 +21,17 @@
                     </xpath>
                 </field>
             </record>
+
+            <record id="view_attach_filter_inherit3" model="ir.ui.view">
+                    <field name="name">IR Attachment3</field>
+                    <field name="model">ir.attachment</field>
+                    <field name="inherit_id" ref="document.view_attach_filter_inherit2"/>
+                    <field name="arch" type="xml">
+                        <filter string="Owner" position="after">
+                            <filter string="Date" icon="terp-folder-green" domain="[]" context="{'group_by':'create_date'}"/>
+                        </filter>
+                    </field>
+            </record>
+
       </data>
 </openerp>

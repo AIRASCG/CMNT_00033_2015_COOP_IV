@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * custom_coop
+#	* custom_coop
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-07 16:44+0000\n"
-"PO-Revision-Date: 2015-12-07 16:44+0000\n"
+"POT-Creation-Date: 2015-12-11 12:16+0000\n"
+"PO-Revision-Date: 2015-12-11 12:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,34 +16,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_coop
-#: code:addons/custom_coop/models/res_users.py:32
-#, python-format
-msgid "Only %s can edit his user"
-msgstr "Solo %s puede editar su usuario"
-
-#. module: custom_coop
-#: model:ir.model,name:custom_coop.model_res_partner
-msgid "Partner"
-msgstr "Empresa"
-
-#. module: custom_coop
-#: view:res.users:custom_coop.view_users_form_preferences_remove_sale_team
-msgid "True"
-msgstr "True"
-
-#. module: custom_coop
-#: model:ir.model,name:custom_coop.model_res_users
-msgid "Users"
-msgstr "Usuarios"
-
-#. module: custom_coop
-#: code:addons/custom_coop/models/res_users.py:32
-#, python-format
-msgid "Write error"
-msgstr "Error en escritura"
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Cancel"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: custom_coop
+#: view:res.company:custom_coop.res_company_hide_conf
+msgid "Configuration"
+msgstr "Configuración"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/res_company.py:33
+#: code:addons/custom_coop/models/res_company.py:40
+#, python-format
+msgid "Create error"
+msgstr "Create error"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,create_uid:0
@@ -54,6 +46,11 @@ msgstr "Created by"
 #: field:stock.location.update.stock.wizard,create_date:0
 msgid "Created on"
 msgstr "Created on"
+
+#. module: custom_coop
+#: view:ir.attachment:custom_coop.view_attach_filter_inherit3
+msgid "Date"
+msgstr "Fecha"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,id:0
@@ -82,6 +79,34 @@ msgid "Lot"
 msgstr "Lote"
 
 #. module: custom_coop
+#: code:addons/custom_coop/models/res_users.py:32
+#, python-format
+msgid "Only %s can edit his user"
+msgstr "Solo %s puede editar su usuario"
+
+#. module: custom_coop
+#: view:res.company:custom_coop.res_company_hide_overdue
+msgid "Overdue Payments"
+msgstr "Pagos fuera de plazo"
+
+#. module: custom_coop
+#: view:ir.attachment:custom_coop.view_attach_filter_inherit3
+msgid "Owner"
+msgstr "Propietario"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/res_company.py:33
+#: code:addons/custom_coop/models/res_company.py:40
+#, python-format
+msgid "Parent required"
+msgstr "Parent required"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_res_partner_passwd
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: custom_coop
 #: field:stock.location.update.stock.wizard,product_id:0
 msgid "Product"
 msgstr "Producto"
@@ -98,6 +123,21 @@ msgid "Quantity cannot be negative."
 msgstr "La cantidad no puede ser negativa."
 
 #. module: custom_coop
+#: view:res.company:custom_coop.res_company_hide_conf
+msgid "Report Configuration"
+msgstr "Configuración de informes"
+
+#. module: custom_coop
+#: view:res.users:custom_coop.view_users_form_preferences_remove_sale_team
+msgid "True"
+msgstr "True"
+
+#. module: custom_coop
+#: field:res.partner.passwd,url:0
+msgid "URL"
+msgstr "URL"
+
+#. module: custom_coop
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
 msgid "Update"
 msgstr "Actualizar"
@@ -109,7 +149,24 @@ msgid "Update stock"
 msgstr "Actualizar stock"
 
 #. module: custom_coop
+#: model:ir.model,name:custom_coop.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: custom_coop
 #: code:addons/custom_coop/wizard/stock_location_update_stock.py:37
 #, python-format
 msgid "Warning!"
 msgstr "Warning!"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/res_users.py:32
+#, python-format
+msgid "Write error"
+msgstr "Error en escritura: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_forsgid \"Cancelsgstr \"Cancelar"
+
+#. module: custom_coop
+#: view:calendar.event:custom_coop.calendar_event_checkbox
+msgid "many2many_checkboxes"
+msgstr "many2many_checkboxes"
+
