@@ -215,6 +215,16 @@ msgid "Dcoumental management"
 msgstr "Gestión documental"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.configuration
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.information
+msgid "Information"
+msgstr "Información"
+
+#. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree2
 #: model:ir.ui.menu,name:custom_menu.menu_action_invoice_line_tree2
 msgid "Supplier Invoice lines"

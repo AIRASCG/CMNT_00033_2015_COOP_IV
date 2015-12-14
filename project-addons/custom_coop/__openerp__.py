@@ -36,6 +36,6 @@
     "data": ['wizard/stock_location_update_stock.xml', 'views/stock.xml',
              'views/partner_view.xml', 'data/ir_cron.xml', 'views/user_preferences.xml',
              'views/res_company.xml', 'views/calendar_event.xml', 'views/document_view.xml',
-             'views/res_partner.xml', 'views/mail_attachment_partner.xml'],
+             'views/res_partner.xml', 'views/mail_attachment_partner.xml', 'security/ir.model.access.csv'],
     "installable": True
 }
