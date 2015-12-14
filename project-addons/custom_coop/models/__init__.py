@@ -25,3 +25,4 @@ from . import stock
 from . import mail_attachment_partner
 from . import res_partner
 from . import account_analytic
+from . import account_asset_asset

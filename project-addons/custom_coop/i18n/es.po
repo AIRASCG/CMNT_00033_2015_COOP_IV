@@ -21,6 +21,11 @@ msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
 #. module: custom_coop
+#: field:account.asset.asset,subvention:0
+msgid "Subvention"
+msgstr "Subvención"
+
+#. module: custom_coop
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
 msgid "Cancel"
 msgstr "Cancel"
