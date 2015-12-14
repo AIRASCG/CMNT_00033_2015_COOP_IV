@@ -294,5 +294,17 @@
                 </xpath>
             </field>
         </record>
+
+        <record id="add_description_view_partner_category_list" model="ir.ui.view">
+            <field name="name">Partner Tags</field>
+            <field name="model">res.partner.category</field>
+            <!-- <field eval="6" name="priority"/> -->
+            <field name="inherit_id" ref="base.view_partner_category_list"/>
+            <field name="arch" type="xml">
+                <field name="complete_name" position="after">
+                    <field name="description"/>
+                </field>
+            </field>
+        </record>
     </data>
 </openerp>

@@ -91,6 +91,12 @@
             <menuitem id="partner_farm" name="Farms" parent="farm_managemen" action="action_partner_farm_form"/>
             <menuitem id="partner_farm_group" name="Farm groups" parent="farm_managemen" action="action_partner_farm_group_category_form"/>
 
+        <menuitem id="myreport" name="Reports" parent="parent_menu" sequence="2"/>
+            <menuitem
+                id="account_analytic_report_menu"
+                name="Anaytic report"
+                action="account_analytic_report.action_view_account_analytic_report"
+                parent="myreport"/>
 
         <record id="action_invoice_line_tree1" model="ir.actions.act_window">
             <field name="name">Customer Invoice lines</field>
@@ -131,7 +137,7 @@
             </field>
         </record>
 
-        <menuitem id="tech_economic_management" name="Technical economic management" parent="parent_menu"  sequence="2"/>
+        <menuitem id="tech_economic_management" name="Technical economic management" parent="parent_menu"  sequence="3"/>
             <menuitem id="menu_tech_invoices" name="Invoices" parent="tech_economic_management"/>
                 <menuitem action="account.action_invoice_tree1" id="menu_action_invoice_tree1" parent="menu_tech_invoices" sequence="1"/>
                 <menuitem action="action_invoice_line_tree1" id="menu_action_invoice_line_tree1" parent="menu_tech_invoices"  sequence="2"/>
@@ -203,7 +209,7 @@
             parent="tech_economic_management"
             action="action_partner_supplier_form" />
 
-        <menuitem id="visitor_management" name="Visitor management" parent="parent_menu"  sequence="3"/>
+        <menuitem id="visitor_management" name="Visitor management" parent="parent_menu"  sequence="4"/>
             <menuitem action="calendar.action_calendar_event" id="menu_calendar" parent="visitor_management"/>
 
         <record model="ir.actions.act_window" id="action_ir_attachment">
@@ -215,19 +221,21 @@
             <field name="context">{'apply_multicompany': True}</field>
         </record>
 
-        <menuitem id="documental_management" name="Dcoumental management" parent="parent_menu"  sequence="4"/>
+        <menuitem id="documental_management" name="Documental management" parent="parent_menu"  sequence="5"/>
             <menuitem name="Attachments" parent="documental_management" action="action_ir_attachment" id="menu_attachment"/>
 
-        <menuitem id="advanced_parameters" name="Advanced parameters" parent="parent_menu"  sequence="5" groups="custom_groups.group_admin"/>
-            <menuitem action="base.action_res_users" id="menu_action_res_users" parent="advanced_parameters"/>
-            <menuitem id="menu_log" name="Activity/log" parent="advanced_parameters"/>
-                <menuitem id="menu_action_auditlog_rule_tree" parent="menu_log" action="auditlog.action_auditlog_rule_tree" groups="custom_menu.group_standard_menus"/>
-                <menuitem id="menu_audit_logs" name="Logs" parent="menu_log" action="auditlog.action_auditlog_log_tree"/>
+        <menuitem id="advanced_parameters" name="Advanced parameters" parent="parent_menu"  sequence="6"/>
+            <menuitem id="configuration" parent="advanced_parameters" name="Settings" groups="custom_groups.group_admin"/>
+            <menuitem action="base.action_res_users" id="menu_action_res_users" parent="configuration"/>
             <menuitem
                 id="company" name="Create Farm"
                 string="Create farm"
                 action="base.action_res_company_form"
-                parent="advanced_parameters"/>
+                parent="configuration"/>
+            <menuitem id="information" parent="advanced_parameters" name="Information"/>
+              <menuitem id="menu_log" name="Activity/log" parent="information"/>
+                  <menuitem id="menu_audit_logs" name="Logs" parent="menu_log" action="auditlog.action_auditlog_log_tree"/>
+        <menuitem id="menu_action_auditlog_rule_tree" parent="base.menu_users" action="auditlog.action_auditlog_rule_tree" groups="custom_menu.group_standard_menus"/>
 
         <record id="res_users_remove_section" model="ir.ui.view">
             <field name="name">res.users.form</field>
@@ -237,6 +245,7 @@
                 <field name="default_section_id" position="replace"/>
             </field>
         </record>
+
 
     </data>
 </openerp>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-06 09:51+0000\n"
-"PO-Revision-Date: 2015-10-06 09:51+0000\n"
+"POT-Creation-Date: 2015-12-11 11:41+0000\n"
+"PO-Revision-Date: 2015-12-11 11:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,26 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_menu
+#: model:ir.actions.act_window,help:custom_menu.action_partner_customer_form
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a contact in your address book.\n"
+"              </p><p>\n"
+"                Odoo helps you easily track all activities related to\n"
+"                a customer: discussions, history of business opportunities,\n"
+"                documents, etc.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Pulsa para añadir un contacto a tu lista de direcciones.\n"
+"              </p><p>\n"
+"                Odoo le ayuda a llevar de forma sencilla un registro de todas las actividades\n"
+"                relacionadas con un cliente: conversaciones, historial de las oportunidades de negocio, \n"
+"                 documentos, etc\n"
+"              </p>\n"
+"            "
+
+#. module: custom_menu
 #: model:ir.actions.act_window,help:custom_menu.action_partner_farm_form
-#: model:ir.actions.act_window,help:custom_menu.action_partner_farm_group_form
 msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                Click to add a contact in your address book.\n"
 "              </p><p>\n"
@@ -36,6 +54,44 @@ msgstr "<p class=\"oe_view_nocontent_create\">\n"
 "            "
 
 #. module: custom_menu
+#: model:ir.actions.act_window,help:custom_menu.action_partner_supplier_form
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a contact in your address book.\n"
+"              </p><p>\n"
+"                Odoo helps you easily track all activities related to\n"
+"                a supplier: discussions, history of purchases,\n"
+"                documents, etc.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Pulsa para añadir un contacto a tu lista de direcciones.\n"
+"              </p><p>\n"
+"                Odoo le ayuda a llevar de forma sencilla un registro de todas las actividades\n"
+"                relacionadas con el proveedor: conversaciones, historial de compras, \n"
+"                 documentos, etc\n"
+"              </p>\n"
+"            "
+
+#. module: custom_menu
+#: model:ir.actions.act_window,help:custom_menu.action_partner_farm_group_category_form
+msgid "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a farm group.\n"
+"              </p><p>\n"
+"                Odoo helps you easily track all activities related to\n"
+"                a customer; discussions, history of business opportunities,\n"
+"                documents, etc.\n"
+"              </p>\n"
+"            "
+msgstr "<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a farm group.\n"
+"              </p><p>\n"
+"                Odoo helps you easily track all activities related to\n"
+"                a customer; discussions, history of business opportunities,\n"
+"                documents, etc.\n"
+"              </p>\n"
+"            "
+
+#. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_log
 msgid "Activity/log"
 msgstr "Actividad/Log"
@@ -44,6 +100,11 @@ msgstr "Actividad/Log"
 #: model:ir.ui.menu,name:custom_menu.advanced_parameters
 msgid "Advanced parameters"
 msgstr "Parámetros avanzados"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.account_analytic_report_menu
+msgid "Anaytic report"
+msgstr "Informe de contabilidad analítica"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_account_asset_asset_tree
@@ -78,20 +139,20 @@ msgstr "Lineas de factura de cliente"
 msgid "Customer Invoices"
 msgstr "Facturas de cliente"
 
-
 #. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_partner_customer_form
 #: model:ir.ui.menu,name:custom_menu.menu_customer
 msgid "Customers"
 msgstr "Clientes"
 
 #. module: custom_menu
-#: model:ir.actions.act_window,name:custom_menu.product_template_action_denominations
+#: model:ir.actions.act_window,name:custom_menu.product_product_action_denominations
 #: model:ir.ui.menu,name:custom_menu.menu_products_menu
 msgid "Denominations"
 msgstr "Denominaciones"
 
 #. module: custom_menu
-#: model:ir.actions.act_window,name:custom_menu.action_partner_farm_group_form
+#: model:ir.actions.act_window,name:custom_menu.action_partner_farm_group_category_form
 #: model:ir.ui.menu,name:custom_menu.partner_farm_group
 msgid "Farm groups"
 msgstr "Grupos de explotaciones"
@@ -104,13 +165,9 @@ msgstr "Gestión de explotaciones"
 #. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_partner_farm_form
 #: model:ir.ui.menu,name:custom_menu.partner_farm
+#: view:res.partner:custom_menu.res_partner_farm_tree
 msgid "Farms"
 msgstr "Explotaciones"
-
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.parent_menu
-msgid "Milkoop"
-msgstr "Milkoop"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_tech_invoices
@@ -121,6 +178,21 @@ msgstr "Facturas"
 #: model:ir.ui.menu,name:custom_menu.menu_audit_logs
 msgid "Logs"
 msgstr "Registros"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_calendar
+msgid "Meetings"
+msgstr "Calendario"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.parent_menu
+msgid "Milkoop"
+msgstr "Milkoop"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.myreport
+msgid "Reports"
+msgstr "Informes"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_auditlog_rule_tree
@@ -149,6 +221,12 @@ msgid "Supplier Invoice lines"
 msgstr "Lineas de factura de proveedor"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree2
+msgid "Supplier Invoices"
+msgstr "Facturas de proveedor"
+
+#. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_partner_supplier_form
 #: model:ir.ui.menu,name:custom_menu.menu_supplier
 msgid "Suppliers"
 msgstr "Proveedores"
@@ -169,6 +247,7 @@ msgid "Visitor management"
 msgstr "Gestión de visitas"
 
 #. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_calendar
-msgid "Meetings"
-msgstr "Calendario"
+#: view:account.invoice.line:custom_menu.view_invoice_line_tree_editable
+msgid "top"
+msgstr "top"
+
