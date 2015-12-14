@@ -138,6 +138,11 @@ msgid "Supplier Invoices"
 msgstr "Facturas de proveedor"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.documental_management
+msgid "Dcoumental management"
+msgstr "Gestión documental"
+
+#. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree2
 #: model:ir.ui.menu,name:custom_menu.menu_action_invoice_line_tree2
 msgid "Supplier Invoice lines"

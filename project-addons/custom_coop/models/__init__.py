@@ -22,3 +22,5 @@ from . import res_users
 from . import partner_passwd
 from . import res_company
 from . import stock
+from . import mail_attachment_partner
+from . import res_partner

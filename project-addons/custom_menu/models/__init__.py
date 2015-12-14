@@ -18,24 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
-{
-    'name': 'Coop customizations',
-    'version': '1.0',
-    'category': '',
-    'description': """
-        -Update stock wizard.
-        """,
-    'author': 'Comunitea',
-    'website': '',
-    "depends": ['account', 'acc_analytic_acc_distribution_between', 'automatic_company',
-                'partner_passwd','company_assign_users', 'company_automatic_account_config',
-                'company_open_fiscalyear', 'custom_colors', 'custom_email_template',
-                'custom_groups', 'custom_menu', 'protect_cud_parent_companies',
-                'res_partner_farm_data', 'simplify_invoice', 'supplier_type'],
-    "data": ['wizard/stock_location_update_stock.xml', 'views/stock.xml',
-             'views/partner_view.xml', 'data/ir_cron.xml', 'views/user_preferences.xml',
-             'views/res_company.xml', 'views/calendar_event.xml', 'views/document_view.xml',
-             'views/res_partner.xml', 'views/mail_attachment_partner.xml'],
-    "installable": True
-}
+from . import ir_attachment

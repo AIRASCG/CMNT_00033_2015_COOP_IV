@@ -37,6 +37,27 @@ msgid "Users"
 msgstr "Usuarios"
 
 #. module: custom_coop
+#: field:mail.attachment.partner,attachment_id:0
+msgid "Attachment"
+msgstr "Adjunto"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,body:0
+msgid "Body"
+msgstr "Mensaje"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,name:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,datas:0
+msgid "File Content"
+msgstr "Adjunto"
+
+
+#. module: custom_coop
 #: code:addons/custom_coop/models/res_users.py:32
 #, python-format
 msgid "Write error"
@@ -44,6 +65,11 @@ msgstr "Error en escritura"
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
 msgid "Cancel"
 msgstr "Cancelar"
+
+#. module: custom_coop
+#: view:res.partner:custom_coop.res_partner_add_action_mails
+msgid "Notifications"
+msgstr "Notificaciones"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,create_uid:0
