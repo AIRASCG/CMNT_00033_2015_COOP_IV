@@ -196,6 +196,19 @@ class ResPartner(models.Model):
             'type': 'ir.actions.act_window',
         }
 
+    @api.multi
+    def action_analytic_plan(self):
+        # import ipdb; ipdb.set_trace()
+
+        return {
+            'domain': "[('company_id','='," + str(self.company_id.id) + ")]",
+            'name': _('Analytic Plan'),
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'context': {'default_company_id': self.company_id.id},
+            'res_model': 'account.analytic.default',
+            'type': 'ir.actions.act_window',
+                }
 
 class ResPartnerCategory(models.Model):
 

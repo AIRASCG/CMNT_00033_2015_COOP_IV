@@ -1,20 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * res_partner_farm_data
+#	* res_partner_farm_data
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-01 11:43+0000\n"
-"PO-Revision-Date: 2015-10-01 11:43+0000\n"
+"POT-Creation-Date: 2015-12-14 13:10+0000\n"
+"PO-Revision-Date: 2015-12-14 13:10+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/res_company.py:30
@@ -24,71 +23,23 @@ msgid "A company with the same name already exists"
 msgstr "Ya existe una compañía con el mismo nombre"
 
 #. module: res_partner_farm_data
-#: field:stock.location,total_capacity:0
-msgid "Total capacity"
-msgstr "Capacidad total"
-
-#. module: res_partner_farm_data
-#: selection:stock.location,type:0
-msgid "Trentch"
-msgstr "Trinchera"
-
-#. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
-#: field:res.partner,cow_count_ids:0
-msgid "Cows"
-msgstr "Vacas"
-
-#. module: res_partner_farm_data
-#: field:cost.imputation,type_id:0
-#: field:stock.location,type:0
-msgid "Type"
-msgstr "Tipo"
-
-#. module: res_partner_farm_data
-#: selection:stock.location,type:0
-msgid "Vertical"
-msgstr "Vertical"
-
-#. module: res_partner_farm_data
-#: selection:stock.location,type:0
-msgid "Walls"
-msgstr "Con paredes"
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:131
-#, python-format
-msgid "A farm with the name %s already exists"
-msgstr "Ya existe una explotación con el nombre %s"
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:138
-#, python-format
-msgid "A farm with the vat %s already exists"
-msgstr "Ya existe una explotación con el CIF %s"
-
-#. module: res_partner_farm_data
 #: field:res.partner,adsg_certification_supplier:0
 msgid "ADSG certification supplier"
 msgstr "Proveedor certificación ADSG"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:113
+#: code:addons/res_partner_farm_data/models/res_partner.py:205
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#, python-format
+msgid "Analytic Plan"
+msgstr "Plan analítico"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:176
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Assets"
 msgstr "Activos"
-
-#. module: res_partner_farm_data
-#: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
-#: field:res.partner.category,description:0
-msgid "Description"
-msgstr "Descripción"
-
-#. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
-msgid "Cooperatives"
-msgstr "Cooperativas"
 
 #. module: res_partner_farm_data
 #: field:res.partner,average_annual_consumption:0
@@ -111,9 +62,29 @@ msgid "Bed suppliers"
 msgstr "Proveedor de camas"
 
 #. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.view_partner_form_account
+msgid "Check Validity"
+msgstr "Verificar validez"
+
+#. module: res_partner_farm_data
 #: field:res.partner,clinic_supplier:0
 msgid "Clinic supplier"
 msgstr "Proveedor clínica"
+
+#. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
+msgid "Cooperative Partners"
+msgstr "Cooperative Partners"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
+msgid "Cooperatives"
+msgstr "Cooperativas"
 
 #. module: res_partner_farm_data
 #: field:res.partner,cornadizas:0
@@ -125,115 +96,8 @@ msgstr "Nº de cornadizas"
 #: view:cost.imputation:res_partner_farm_data.cost_imputation_form
 #: view:cost.imputation:res_partner_farm_data.cost_imputation_tree
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_cost_imputation
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "Cost imputation"
 msgstr "Imputación de costes"
-
-#. module: res_partner_farm_data
-#: selection:cost.imputation,state:0
-#: selection:employee.farm.count,state:0
-#: selection:cow.count,state:0
-#: selection:lot,state:0
-#: selection:output.quota,state:0
-#: selection:yearly.data,state:0
-msgid "Current"
-msgstr "Actual"
-
-#. module: res_partner_farm_data
-#: model:ir.model,name:res_partner_farm_data.model_account_fiscalyear
-msgid "Fiscal Year"
-msgstr "Ejercicio fiscal"
-
-#. module: res_partner_farm_data
-#: field:cost.imputation,date:0
-#: field:employee.farm.count,date:0
-#: field:cow.count,date:0
-#: field:lot,date:0
-#: field:output.quota,date:0
-#: field:yearly.data,date:0
-msgid "Date"
-msgstr "Fecha"
-
-#. module: res_partner_farm_data
-#: field:employee.farm.count,quantity:0
-#: field:res.partner,employee_count_ids:0
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
-msgid "Employees"
-msgstr "Trabajadores"
-
-#. module: res_partner_farm_data
-#: field:res.partner,employees_quantity:0
-msgid "Employees quantity"
-msgstr "Cantidad de trabajadores"
-
-#. module: res_partner_farm_data
-#: selection:cost.imputation,state:0
-#: selection:lot,state:0
-#: selection:output.quota,state:0
-#: selection:yearly.data,state:0
-msgid "Old"
-msgstr "Antiguo"
-
-#. module: res_partner_farm_data
-#: selection:employee.farm.count,state:0
-#: selection:cow.count,state:0
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
-msgid "History"
-msgstr "Histórico"
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/lot.py:33
-#: sql_constraint:lot:0
-#, python-format
-msgid "Error! Only one lot by year and company."
-msgstr "Error! Solo un lote por año y compañía."
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/output_quota.py:33
-#: sql_constraint:output.quota:0
-#, python-format
-msgid "Error! Only one quota by year and company."
-msgstr "Error! Solo una cuota por año y compañía."
-
-#. module: res_partner_farm_data
-#: field:cow.count,milk_cow:0
-#: field:res.partner,milk_cow:0
-msgid "Milk cows"
-msgstr "Vacas de leche"
-
-#. module: res_partner_farm_data
-#: field:cost.imputation,user_id:0
-#: field:employee.farm.count,user_id:0
-#: field:lot,user_id:0
-#: field:output.quota,user_id:0
-#: field:yearly.data,user_id:0
-msgid "User"
-msgstr "Usuario"
-
-#. module: res_partner_farm_data
-#: field:cost.imputation,value_id:0
-#: field:output.quota,value:0
-msgid "Value"
-msgstr "Valor"
-
-#. module: res_partner_farm_data
-#: field:employee.farm.count,sequence:0
-msgid "sequence"
-msgstr "sequence"
-
-
-#. module: res_partner_farm_data
-#: field:cost.imputation,year_id:0
-#: field:lot,year_id:0
-#: field:output.quota,year_id:0
-#: field:yearly.data,year_id:0
-msgid "Year"
-msgstr "Año"
-
-#. module: res_partner_farm_data
-#: field:cost.imputation,type_id:0
-msgid "Type"
-msgstr "Tipo"
 
 #. module: res_partner_farm_data
 #: field:res.partner,counselling_supplier:0
@@ -241,9 +105,61 @@ msgid "Counselling supplier"
 msgstr "Proveedor asesoramiento"
 
 #. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#: field:res.partner,cow_count_ids:0
+msgid "Cows"
+msgstr "Vacas"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,create_uid:0
+#: field:cow.count,create_uid:0
+#: field:employee.farm.count,create_uid:0
+#: field:lot,create_uid:0
+#: field:output.quota,create_uid:0
+#: field:yearly.data,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,create_date:0
+#: field:cow.count,create_date:0
+#: field:employee.farm.count,create_date:0
+#: field:lot,create_date:0
+#: field:output.quota,create_date:0
+#: field:yearly.data,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: res_partner_farm_data
+#: selection:cost.imputation,state:0
+#: selection:cow.count,state:0
+#: selection:employee.farm.count,state:0
+#: selection:lot,state:0
+#: selection:output.quota,state:0
+#: selection:yearly.data,state:0
+msgid "Current"
+msgstr "Actual"
+
+#. module: res_partner_farm_data
 #: field:res.partner,dairy_company:0
 msgid "Dairy company"
 msgstr "Empresa láctea"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,date:0
+#: field:cow.count,date:0
+#: field:employee.farm.count,date:0
+#: field:lot,date:0
+#: field:output.quota,date:0
+#: field:yearly.data,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: res_partner_farm_data
+#: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
+#: field:res.partner.category,description:0
+msgid "Description"
+msgstr "Descripción"
 
 #. module: res_partner_farm_data
 #: field:cow.count,dry_cow:0
@@ -263,9 +179,92 @@ msgid "Electric power"
 msgstr "Potencia eléctrica"
 
 #. module: res_partner_farm_data
+#: field:employee.farm.count,quantity:0
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#: field:res.partner,employee_count_ids:0
+msgid "Employees"
+msgstr "Trabajadores"
+
+#. module: res_partner_farm_data
+#: field:res.partner,employees_quantity:0
+msgid "Employees quantity"
+msgstr "Cantidad de trabajadores"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/lot.py:33
+#: sql_constraint:lot:0
+#, python-format
+msgid "Error! Only one lot by year and company."
+msgstr "Error! Solo un lote por año y compañía."
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/output_quota.py:33
+#: sql_constraint:output.quota:0
+#, python-format
+msgid "Error! Only one quota by year and company."
+msgstr "Error! Solo una cuota por año y compañía."
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:30
+#: sql_constraint:res.partner:0
+#, python-format
+msgid "Error! Specified VAT Number already exists for any other registered partner."
+msgstr "Error! El CIF ya está establecido en otro partner."
+
+#. module: res_partner_farm_data
 #: field:res.partner,exploitation_technician:0
 msgid "Exploitation technician"
 msgstr "Técnico explotación"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,farm_id:0
+#: field:lot,farm_id:0
+#: field:output.quota,farm_id:0
+#: field:res.partner,farm:0
+#: field:yearly.data,farm_id:0
+msgid "Farm"
+msgstr "Explotación"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
+msgid "Farm Partners"
+msgstr "Explotaciones"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:106
+#, python-format
+msgid "Farm creation error"
+msgstr "Error al crear explotación"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
+msgid "Farms"
+msgstr "Explotaciones"
+
+#. module: res_partner_farm_data
+#: field:res.partner,feeding_supplier:0
+msgid "Feeding supplier"
+msgstr "Proveedor alimentación"
+
+#. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_account_fiscalyear
+msgid "Fiscal Year"
+msgstr "Ejercicio fiscal"
+
+#. module: res_partner_farm_data
+#: field:res.partner,forage_silos:0
+msgid "Forage silos"
+msgstr "Silos forraje"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,barn_type:0
+msgid "Free"
+msgstr "Libre"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "General data"
+msgstr "Datos generales"
 
 #. module: res_partner_farm_data
 #: field:cow.count,heifer_0_3:0
@@ -286,57 +285,69 @@ msgid "Heifer >12 months"
 msgstr "Novillas >12 meses"
 
 #. module: res_partner_farm_data
-#: field:cost.imputation,farm_id:0
-#: field:lot,farm_id:0
-#: field:output.quota,farm_id:0
-#: field:res.partner,farm:0
-#: field:yearly.data,farm_id:0
-msgid "Farm"
-msgstr "Explotación"
+#: field:res.partner,heifers:0
+msgid "Heifers"
+msgstr "Novillas"
+
+#. module: res_partner_farm_data
+#: selection:cow.count,state:0
+#: selection:employee.farm.count,state:0
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "History"
+msgstr "Histórico"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,id:0
+#: field:cow.count,id:0
+#: field:employee.farm.count,id:0
+#: field:lot,id:0
+#: field:output.quota,id:0
+#: field:yearly.data,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
-msgid "Output Quota"
-msgstr "Cuota de producción"
+msgid "KWs"
+msgstr "KWs"
 
 #. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.action_output_quota
-#: view:output.quota:res_partner_farm_data.output_quota_filter
 #: view:output.quota:res_partner_farm_data.output_quota_form
-#: view:output.quota:res_partner_farm_data.output_quota_tree
-msgid "Output quota"
-msgstr "Cuota de producción"
+msgid "Kgs"
+msgstr "Kgs"
 
 #. module: res_partner_farm_data
-#: field:cost.imputation,state:0
-#: field:employee.farm.count,state:0
-#: field:cow.count,state:0
-#: field:lot,state:0
-#: field:output.quota,state:0
-#: field:yearly.data,state:0
-msgid "State"
-msgstr "Estado"
+#: field:res.partner,lactating_cows:0
+msgid "Lactating cows"
+msgstr "Vacas lactación"
 
 #. module: res_partner_farm_data
-#: field:cost.imputation,user_id:0
-#: field:lot,user_id:0
-#: field:output.quota,user_id:0
-#: field:yearly.data,user_id:0
-msgid "User"
-msgstr "Usuario"
+#: field:cost.imputation,write_uid:0
+#: field:cow.count,write_uid:0
+#: field:employee.farm.count,write_uid:0
+#: field:lot,write_uid:0
+#: field:output.quota,write_uid:0
+#: field:yearly.data,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
-msgid "Farm Partners"
-msgstr "Explotaciones"
+#: field:cost.imputation,write_date:0
+#: field:cow.count,write_date:0
+#: field:employee.farm.count,write_date:0
+#: field:lot,write_date:0
+#: field:output.quota,write_date:0
+#: field:yearly.data,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
-msgid "Farms"
-msgstr "Explotaciones"
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:140
+#: code:addons/res_partner_farm_data/models/res_partner.py:189
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Locations"
@@ -361,76 +372,6 @@ msgid "Lots"
 msgstr "Lotes"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:29
-#: sql_constraint:res.partner:0
-#, python-format
-msgid "Error! Specified VAT Number already exists for any other registered partner."
-msgstr "Error! El CIF ya está establecido en otro partner."
-
-#. module: res_partner_farm_data
-#: field:res.partner,feeding_supplier:0
-msgid "Feeding supplier"
-msgstr "Proveedor alimentación"
-
-#. module: res_partner_farm_data
-#: field:res.partner,forage_silos:0
-msgid "Forage silos"
-msgstr "Silos forraje"
-
-#. module: res_partner_farm_data
-#: selection:res.partner,barn_type:0
-msgid "Free"
-msgstr "Libre"
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:106
-#, python-format
-msgid "Farm creation error"
-msgstr "Error al crear explotación"
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:106
-#, python-format
-msgid "To create farm must do it from the menu farm High"
-msgstr "Para crear explotaciones debe hacerse desde el menú 'Alta explotaciones'"
-
-#. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_partner_form_account
-msgid "e.g. BE0477472701"
-msgstr "Por ejemplo, ESA00000000"
-
-#. module: res_partner_farm_data
-#: field:res.partner,farm_group:0
-msgid "Is farm group"
-msgstr "Es un grupo de explotaciones"
-
-#. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
-msgid "General data"
-msgstr "Datos generales"
-
-#. module: res_partner_farm_data
-#: field:res.partner,temporary:0
-msgid "Temporary"
-msgstr "Temporal"
-
-#. module: res_partner_farm_data
-#: view:res.company:res_partner_farm_data.res_company_add_temporary
-#: field:res.partner,temporary_farm:0
-msgid "Temporary farm"
-msgstr "Explotación temporal"
-
-#. module: res_partner_farm_data
-#: field:res.partner,heifers:0
-msgid "Heifers"
-msgstr "Novillas"
-
-#. module: res_partner_farm_data
-#: field:res.partner,lactating_cows:0
-msgid "Lactating cows"
-msgstr "Vacas lactación"
-
-#. module: res_partner_farm_data
 #: field:res.partner,manure_pit:0
 msgid "Manure pit"
 msgstr "Fosa purín"
@@ -449,6 +390,12 @@ msgstr "Carne"
 #: selection:res.partner,production_orientation:0
 msgid "Milk"
 msgstr "Leche"
+
+#. module: res_partner_farm_data
+#: field:cow.count,milk_cow:0
+#: field:res.partner,milk_cow:0
+msgid "Milk cows"
+msgstr "Vacas de leche"
 
 #. module: res_partner_farm_data
 #: field:res.partner,milk_quality_supplier:0
@@ -472,6 +419,14 @@ msgid "Mixer truck supplier"
 msgstr "Proveedor carro mezclador"
 
 #. module: res_partner_farm_data
+#: selection:cost.imputation,state:0
+#: selection:lot,state:0
+#: selection:output.quota,state:0
+#: selection:yearly.data,state:0
+msgid "Old"
+msgstr "Antiguo"
+
+#. module: res_partner_farm_data
 #: selection:res.partner,production_orientation:0
 msgid "Orchard"
 msgstr "Huerta"
@@ -482,15 +437,40 @@ msgid "Other"
 msgstr "Otra"
 
 #. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Output Quota"
+msgstr "Cuota de producción"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_output_quota
+#: view:output.quota:res_partner_farm_data.output_quota_filter
+#: view:output.quota:res_partner_farm_data.output_quota_form
+#: view:output.quota:res_partner_farm_data.output_quota_tree
+msgid "Output quota"
+msgstr "Cuota de producción"
+
+#. module: res_partner_farm_data
+#: field:cow.count,partner_id:0
 #: field:employee.farm.count,partner_id:0
 #: model:ir.model,name:res_partner_farm_data.model_res_partner
 msgid "Partner"
 msgstr "Empresa"
 
 #. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_res_partner_category
+msgid "Partner Tags"
+msgstr "Etiquetas de empresa"
+
+#. module: res_partner_farm_data
 #: field:res.partner,partner_of:0
 msgid "Partner of"
 msgstr "Socio de"
+
+#. module: res_partner_farm_data
+#: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
+#: field:res.partner.category,partner_id:0
+msgid "Partners"
+msgstr "Partners"
 
 #. module: res_partner_farm_data
 #: field:res.partner,pickup_frequency:0
@@ -523,6 +503,11 @@ msgid "Secondary technician"
 msgstr "Técnico secundario"
 
 #. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Servicios"
+msgstr "Servicios"
+
+#. module: res_partner_farm_data
 #: field:res.partner,special_mix:0
 msgid "Special mix"
 msgstr "Mezcla especial"
@@ -533,9 +518,24 @@ msgid "Standard fodder"
 msgstr "Pienso estándar"
 
 #. module: res_partner_farm_data
+#: field:cost.imputation,state:0
+#: field:cow.count,state:0
+#: field:employee.farm.count,state:0
+#: field:lot,state:0
+#: field:output.quota,state:0
+#: field:yearly.data,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: res_partner_farm_data
 #: selection:res.partner,barn_type:0
 msgid "Stuck"
 msgstr "Trabado"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Suministros alimentación"
+msgstr "Suministros alimentación"
 
 #. module: res_partner_farm_data
 #: field:res.partner,supplies_technician:0
@@ -543,9 +543,20 @@ msgid "Supplies technician"
 msgstr "Tecnico de suministros"
 
 #. module: res_partner_farm_data
-#: field:res.partner,temporary:0
-msgid "Temporary"
-msgstr "Temporal"
+#: view:res.company:res_partner_farm_data.res_company_add_temporary
+msgid "Temporary farm"
+msgstr "Explotación temporal"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:106
+#, python-format
+msgid "To create farm must do it from the menu farm High"
+msgstr "Para crear explotaciones debe hacerse desde el menú 'Alta explotaciones'"
+
+#. module: res_partner_farm_data
+#: field:stock.location,total_capacity:0
+msgid "Total capacity"
+msgstr "Capacidad total"
 
 #. module: res_partner_farm_data
 #: field:res.partner,trailer_access:0
@@ -553,12 +564,88 @@ msgid "Trailer access"
 msgstr "Acceso trailer"
 
 #. module: res_partner_farm_data
+#: selection:stock.location,type:0
+msgid "Trentch"
+msgstr "Trinchera"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,type_id:0
+#: field:stock.location,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,user_id:0
+#: field:cow.count,user_id:0
+#: field:employee.farm.count,user_id:0
+#: field:lot,user_id:0
+#: field:output.quota,user_id:0
+#: field:yearly.data,user_id:0
+msgid "User"
+msgstr "Usuario"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,value_id:0
+#: field:output.quota,value:0
+msgid "Value"
+msgstr "Valor"
+
+#. module: res_partner_farm_data
+#: selection:stock.location,type:0
+msgid "Vertical"
+msgstr "Vertical"
+
+#. module: res_partner_farm_data
+#: selection:stock.location,type:0
+msgid "Walls"
+msgstr "Con paredes"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Watts"
+msgstr "Watts"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,year_id:0
+#: field:lot,year_id:0
+#: field:output.quota,year_id:0
+#: field:yearly.data,year_id:0
+msgid "Year"
+msgstr "Año"
+
+#. module: res_partner_farm_data
 #: field:res.partner,concentrate_capacity:0
 msgid "concentrate capacity"
 msgstr "Capacidad concentrado"
 
 #. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "días"
+msgstr "días"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.view_partner_form_account
+msgid "e.g. BE0477472701"
+msgstr "Por ejemplo, ESA00000000"
+
+#. module: res_partner_farm_data
 #: field:res.partner,mh:0
 msgid "mh"
 msgstr "mh"
+
+#. module: res_partner_farm_data
+#: field:cow.count,sequence:0
+#: field:employee.farm.count,sequence:0
+msgid "sequence"
+msgstr "sequence"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.partner_view_buttons_add_farm
+msgid "{'invisible': [('customer', '=', False), ('farm', '=', False)]}"
+msgstr "{'invisible': [('customer', '=', False), ('farm', '=', False)]}"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.view_password_partner_form2
+msgid "{'invisible': [('farm', '=', False)]}"
+msgstr "{'invisible': [('farm', '=', False)]}"
 
