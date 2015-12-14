@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Copyright (C) 2015 Comunitea All Rights Reserved
-#    $Jesús Ventosinos Mayor <jesus@comunitea.com>$
+#    $Carlos Lombardía Rodríguez <carlos@comunitea.com>$
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published
@@ -18,10 +18,15 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_users
-from . import partner_passwd
-from . import res_company
-from . import stock
-from . import mail_attachment_partner
-from . import res_partner
-from . import account_analytic
+from openerp import models, fields, api, exceptions, _
+
+class AccountAnalyticAccount(models.Model):
+
+    _inherit = 'account.analytic.account'
+
+    @api.model
+    def create(self, vals):
+        if not vals.get('parent_id', False):
+            if self.env.user.id != 1:
+                raise exceptions.Warning(_('Create error'), _('Parent required'))
+        return super(AccountAnalyticAccount, self).create(vals)
