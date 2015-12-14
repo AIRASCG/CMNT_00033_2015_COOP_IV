@@ -18,10 +18,20 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_users
-from . import partner_passwd
-from . import res_company
-from . import stock
-from . import mail_attachment_partner
-from . import res_partner
-from . import account_analytic
+from openerp import models, fields, api, exceptions, _
+
+
+class IrAttachment(models.Model):
+
+    _inherit = 'ir.attachment'
+
+    @api.model
+    def search(self, args, offset=0, limit=None, order=None, count=False):
+        if self.env.context.get('apply_multicompany'):
+            args = args + ['|', ('company_id', 'child_of', [self.env.user.company_id.id]),
+                           ('company_id', '=', False)]
+            self.env.cr.execute('SELECT attachment_id from message_attachment_rel')
+            res = self.env.cr.fetchall()
+            args.append(('id', 'not in', [x[0] for x in res]))
+        return super(IrAttachment, self).search(args, offset=offset, limit=limit,
+                                                order=order, count=count)

@@ -218,6 +218,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('res_model', '!=', False)]</field>
+            <field name="context">{'apply_multicompany': True}</field>
         </record>
 
         <menuitem id="documental_management" name="Documental management" parent="parent_menu"  sequence="5"/>

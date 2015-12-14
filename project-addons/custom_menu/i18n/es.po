@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* custom_menu
+#   * custom_menu
 #
 msgid ""
 msgstr ""
@@ -152,11 +152,6 @@ msgid "Denominations"
 msgstr "Denominaciones"
 
 #. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.documental_management
-msgid "Documental management"
-msgstr "Gestión documental"
-
-#. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_partner_farm_group_category_form
 #: model:ir.ui.menu,name:custom_menu.partner_farm_group
 msgid "Farm groups"
@@ -208,6 +203,26 @@ msgstr "Reglas"
 #: model:res.groups,name:custom_menu.group_standard_menus
 msgid "Show standard menus"
 msgstr "Mostrar menús standard"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree2
+msgid "Supplier Invoices"
+msgstr "Facturas de proveedor"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.documental_management
+msgid "Dcoumental management"
+msgstr "Gestión documental"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.configuration
+msgid "Settings"
+msgstr "Configuración"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.information
+msgid "Information"
+msgstr "Información"
 
 #. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree2

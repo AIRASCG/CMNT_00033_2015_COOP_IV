@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* custom_coop
+#   * custom_coop
 #
 msgid ""
 msgstr ""
@@ -36,12 +36,44 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: custom_coop
+#: model:ir.model,name:custom_coop.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,attachment_id:0
+msgid "Attachment"
+msgstr "Adjunto"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,body:0
+msgid "Body"
+msgstr "Mensaje"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,name:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,datas:0
+msgid "File Content"
+msgstr "Adjunto"
+
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/res_users.py:32
 #: code:addons/custom_coop/models/account_analytic.py:31
 #: code:addons/custom_coop/models/res_company.py:33
 #: code:addons/custom_coop/models/res_company.py:40
 #, python-format
 msgid "Create error"
 msgstr "Error al crear"
+
+#. module: custom_coop
+#: view:res.partner:custom_coop.res_partner_add_action_mails
+msgid "Notifications"
+msgstr "Notificaciones"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,create_uid:0

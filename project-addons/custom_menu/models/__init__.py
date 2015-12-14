@@ -18,10 +18,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_users
-from . import partner_passwd
-from . import res_company
-from . import stock
-from . import mail_attachment_partner
-from . import res_partner
-from . import account_analytic
+from . import ir_attachment

@@ -18,10 +18,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_users
-from . import partner_passwd
-from . import res_company
-from . import stock
-from . import mail_attachment_partner
-from . import res_partner
-from . import account_analytic
+from openerp import models, fields, api, tools, exceptions, _
+
+
+class mail_attachment_partner(models.Model):
+
+    _name = 'mail.attachment.partner'
+    _auto = False
+
+    name = fields.Text('Subject')
+    body = fields.Text('Body')
+    partner_id = fields.Many2one('res.partner', 'Partner')
+    attachment_id = fields.Many2one('ir.attachment', 'Attachment')
+    datas = fields.Binary(related='attachment_id.datas')
+    datas_fname = fields.Char(related='attachment_id.datas_fname')
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, self._table)
+        cr.execute("""CREATE VIEW mail_attachment_partner as (
+        select row_number() over () as id, mm.subject as name, mm.body as body, mn.partner_id as partner_id, mar.attachment_id as attachment_id
+        from mail_notification mn join message_attachment_rel mar
+            on mn.message_id=mar.message_id
+        join mail_message mm on mn.message_id=mm.id
+        )
+""")

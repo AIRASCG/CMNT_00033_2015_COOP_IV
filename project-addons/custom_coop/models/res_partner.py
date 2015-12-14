@@ -18,10 +18,21 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import res_users
-from . import partner_passwd
-from . import res_company
-from . import stock
-from . import mail_attachment_partner
-from . import res_partner
-from . import account_analytic
+from openerp import models, fields, api, exceptions, _
+
+
+class ui(models.Model):
+
+    _inherit = 'res.partner'
+
+    @api.multi
+    def action_mails(self):
+        return {
+            'domain': "[('partner_id','='," + str(self.id) + ")]",
+            'name': _('Mails'),
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'context': {},
+            'res_model': 'mail.attachment.partner',
+            'type': 'ir.actions.act_window',
+        }
