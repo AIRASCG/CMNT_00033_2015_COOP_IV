@@ -28,5 +28,5 @@ class AccountAnalyticAccount(models.Model):
     def create(self, vals):
         if not vals.get('parent_id', False):
             if self.env.user.id != 1:
-                raise exceptions.Warning(_('Create error'), _('Parent required'))
+                raise exceptions.Warning(_('Create error'), _('Unauthorized user'))
         return super(AccountAnalyticAccount, self).create(vals)
