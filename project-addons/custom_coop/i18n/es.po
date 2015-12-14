@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-11 12:16+0000\n"
-"PO-Revision-Date: 2015-12-11 12:16+0000\n"
+"POT-Creation-Date: 2015-12-14 10:58+0000\n"
+"PO-Revision-Date: 2015-12-14 10:58+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
 
 #. module: custom_coop
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
@@ -58,11 +63,12 @@ msgstr "Adjunto"
 
 #. module: custom_coop
 #: code:addons/custom_coop/models/res_users.py:32
+#: code:addons/custom_coop/models/account_analytic.py:31
 #: code:addons/custom_coop/models/res_company.py:33
 #: code:addons/custom_coop/models/res_company.py:40
 #, python-format
 msgid "Create error"
-msgstr "Create error"
+msgstr "Error al crear"
 
 #. module: custom_coop
 #: view:res.partner:custom_coop.res_partner_add_action_mails
@@ -94,6 +100,11 @@ msgstr "ID"
 #, python-format
 msgid "INV: %s"
 msgstr "INV: %s"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_stock_location
+msgid "Inventory Locations"
+msgstr "Ubicaciones de inventario"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,write_uid:0
@@ -168,6 +179,12 @@ msgstr "True"
 #: field:res.partner.passwd,url:0
 msgid "URL"
 msgstr "URL"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/account_analytic.py:31
+#, python-format
+msgid "Unauthorized user"
+msgstr "Usuario no autorizado"
 
 #. module: custom_coop
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
