@@ -19,6 +19,20 @@
                     <xpath expr="//field[@name='res_name']" position="attributes">
                         <attribute name="invisible">1</attribute>
                     </xpath>
+                    <form position="attributes">
+                        <attribute name="create">0</attribute>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="view_document_file_tree_no_create">
+                <field name="name">ir.attachment.no_create</field>
+                <field name="model">ir.attachment</field>
+                <field name="inherit_id" ref="document.view_document_file_tree"/>
+                <field name="arch" type="xml">
+                    <tree position="attributes">
+                        <attribute name="create">0</attribute>
+                    </tree>
                 </field>
             </record>
 

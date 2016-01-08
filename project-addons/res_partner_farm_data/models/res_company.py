@@ -30,6 +30,15 @@ class ResCompany(models.Model):
          _('A company with the same name already exists'))
     ]
 
+    @api.one
+    def _get_not_configured_accounting(self):
+        fiscalyear = self.env['account.fiscalyear'].search(
+            [('company_id', '=', self.id)])
+        if self.is_cooperative:
+            self.not_configured_accounting = False
+        else:
+            self.not_configured_accounting = not fiscalyear and True or False
+
     @api.model
     def create(self, vals):
         company = super(ResCompany,

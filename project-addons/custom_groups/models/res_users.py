@@ -33,7 +33,8 @@ class ResUsers(models.Model):
                                                     view_type=view_type,
                                                     toolbar=toolbar,
                                                     submenu=submenu)
-        if view_type == 'form' and self.env.user.id != SUPERUSER_ID:
+        view_obj = self.env.ref('base.view_users_form')
+        if view_type == 'form' and self.env.user.id != SUPERUSER_ID and view_id == view_obj.id:
             view = etree.XML(res['arch'])
             for separator in view.xpath("//notebook/page[1]/group[2]/separator[@string!='" + _("User types") + "']"):
                 separator.set("modifiers", '{"invisible": true}')
@@ -51,7 +52,7 @@ class ResUsers(models.Model):
             for field in view.xpath("//field[starts-with(@name,'sel_groups')]"):
                 field.set("modifiers", '{"invisible": true}')
             res['arch'] = etree.tostring(view)
-        if view_type == 'form':
+        if view_type == 'form' and view_id == view_obj.id:
             view = etree.XML(res['arch'])
             description_text = _("<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
                                  " sed do eiusmod tempor incididunt ut labore et dolore</h4>"
