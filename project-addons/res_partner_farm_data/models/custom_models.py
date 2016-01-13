@@ -33,9 +33,11 @@ class HistoricalModel(models.Model):
 
     @api.multi
     def write(self, vals):
+        if vals.get('state', False) == 'history' or self[0].state == 'history':
+            return super(HistoricalModel, self).write(vals)
         for record in self:
             vals['sequence'] = record.sequence + 1
             vals['date'] = date.today()
-            vals['user_id'] = self.env.user.id
+            vals['user_id'] = vals.get('user_id', False) or self.env.user.id
             new = record.copy(vals)
         return super(HistoricalModel, self).write({'state': 'history'})

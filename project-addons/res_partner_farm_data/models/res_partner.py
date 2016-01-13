@@ -135,7 +135,8 @@ class ResPartner(models.Model):
                     self.env['employee.farm.count'].create(count_args)
                 else:
                     current = self.employee_count_ids.filtered(lambda record: record.state == 'current')
-                    current.write({'quantity': vals.get('employees_quantity')})
+                    current.sudo().write({'quantity': vals.get('employees_quantity'),
+                                          'user_id': self.env.user.id})
             if vals.get('heifer_0_3', False) or vals.get('heifer_3_12', False) or \
                     vals.get('heifer_plus_12', False) or vals.get('milk_cow', False) or \
                     vals.get('dry_cow', False):
@@ -154,12 +155,13 @@ class ResPartner(models.Model):
                     self.env['cow.count'].create(count_args)
                 else:
                     current = self.cow_count_ids.filtered(lambda record: record.state == 'current')
-                    current.write({
+                    current.sudo().write({
                         'heifer_0_3': vals.get('heifer_0_3', self.heifer_0_3),
                         'heifer_3_12': vals.get('heifer_3_12', self.heifer_3_12),
                         'heifer_plus_12': vals.get('heifer_plus_12', self.heifer_plus_12),
                         'milk_cow': vals.get('milk_cow', self.milk_cow),
                         'dry_cow': vals.get('dry_cow', self.dry_cow),
+                        'user_id': self.env.user.id,
                     })
             if vals.get('exploitation_technician', False):
                 partner.message_subscribe(

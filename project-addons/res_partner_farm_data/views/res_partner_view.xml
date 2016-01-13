@@ -196,8 +196,8 @@
                         <group>
                             <field name="employees_quantity" />
                             <label for="employee_count_ids" string="History"/>
-                            <field name="employee_count_ids" readonly="1" nolabel="1">
-                                <tree>
+                            <field name="employee_count_ids" nolabel="1">
+                                <tree create="0" editable="top">
                                     <field name="date"/>
                                     <field name="user_id"/>
                                     <field name="quantity"/>
@@ -222,8 +222,8 @@
                                 </group>
                             </group>
                             <label for="cow_count_ids" string="History"/>
-                            <field name="cow_count_ids" readonly="1" nolabel="1">
-                                <tree>
+                            <field name="cow_count_ids" nolabel="1" context="{'create': 0}">
+                                <tree create="0" editable="top">
                                     <field name="date"/>
                                     <field name="user_id"/>
                                     <field name="heifer_0_3"/>

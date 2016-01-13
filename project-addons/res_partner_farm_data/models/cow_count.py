@@ -28,17 +28,19 @@ class CowCount(custom_models.HistoricalModel):
     _order = 'sequence desc'
 
     sequence = fields.Integer('sequence', default=0)
-    partner_id = fields.Many2one('res.partner', 'Partner',
-                                 states={'current': [('readonly', False)],
-                                         'history': [('readonly', True)]})
-    date = fields.Date('Date', states={'current': [('readonly', False)],
-                                       'history': [('readonly', True)]})
-    user_id = fields.Many2one('res.users', 'User', states={'current': [('readonly', False)],
-                                                           'history': [('readonly', True)]})
-    heifer_0_3 = fields.Integer('Heifer 0-3 months')
-    heifer_3_12 = fields.Integer('Heifer 3-12 months')
-    heifer_plus_12 = fields.Integer('Heifer >12 months')
-    milk_cow = fields.Integer('Milk cows')
-    dry_cow = fields.Integer('Dry cows')
+    partner_id = fields.Many2one('res.partner', 'Partner', readonly=True)
+    date = fields.Date('Date', readonly=True)
+    user_id = fields.Many2one('res.users', 'User', readonly=True)
+    heifer_0_3 = fields.Integer('Heifer 0-3 months',
+                                states={'current': [('readonly', True)]})
+    heifer_3_12 = fields.Integer('Heifer 3-12 months',
+                                 states={'current': [('readonly', True)]})
+    heifer_plus_12 = fields.Integer('Heifer >12 months',
+                                    states={'current': [('readonly', True)]})
+    milk_cow = fields.Integer('Milk cows',
+                              states={'current': [('readonly', True)]})
+    dry_cow = fields.Integer('Dry cows',
+                             states={'current': [('readonly', True)]})
     state = fields.Selection(
-        (('current', 'Current'), ('history', 'History')), 'State', default='current')
+        (('current', 'Current'), ('history', 'History')), 'State',
+        default='current', readonly=True)

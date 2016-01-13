@@ -29,7 +29,7 @@
     "depends": ['base', 'product', 'stock', 'account', 'account_asset',
                 'account_analytic_plans', 'supplier_type', 'base_vat',
                 'email_template', 'company_automatic_account_config',
-                'automatic_company', 'partner_passwd'],
+                'automatic_company', 'partner_passwd', 'custom_groups'],
     "data": ['views/cost_imputation.xml', 'views/stock.xml',
              'views/output_quota_view.xml', 'views/lot_view.xml',
              'security/ir.model.access.csv', 'views/res_partner_view.xml',
