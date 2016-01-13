@@ -166,8 +166,6 @@
                 <menuitem action="action_invoice_line_tree2" id="menu_action_invoice_line_tree2" parent="menu_tech_invoices"  sequence="4"/>
 
             <menuitem id="menu_finance_assets" name="Assets" parent="tech_economic_management"/>
-                <menuitem parent="menu_finance_assets" id="menu_action_account_asset_asset_tree"
-                    action="account_asset.action_account_asset_asset_tree"/>
                 <menuitem parent="menu_finance_assets" id="menu_action_account_asset_asset_form" action="account_asset.action_account_asset_asset_form"/>
 
             <record id="product_product_action_denominations" model="ir.actions.act_window">
