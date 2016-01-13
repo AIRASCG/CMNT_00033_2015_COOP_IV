@@ -92,11 +92,32 @@
             <menuitem id="partner_farm_group" name="Farm groups" parent="farm_managemen" action="action_partner_farm_group_category_form"/>
 
         <menuitem id="myreport" name="Reports" parent="parent_menu" sequence="2"/>
-            <menuitem
-                id="account_analytic_report_menu"
-                name="Anaytic report"
-                action="account_analytic_report.action_view_account_analytic_report"
-                parent="myreport"/>
+
+        <menuitem id="menu_action_wizard_valuation_history" action="stock_account.action_wizard_stock_valuation_history" parent="myreport"/>
+
+        <record id="view_stock_history_report_tree_rm_value" model="ir.ui.view">
+            <field name="name">Stock Value At Date</field>
+            <field name="inherit_id" ref="stock_account.view_stock_history_report_tree"/>
+            <field name="model">stock.history</field>
+            <field name="arch" type="xml">
+                <field name="inventory_value" position="replace"/>
+            </field>
+        </record>
+
+        <record id="view_stock_history_report_graph_rm_value" model="ir.ui.view">
+            <field name="name">stock.history.value.graph</field>
+            <field name="model">stock.history</field>
+            <field name="inherit_id" ref="stock_account.view_stock_history_report_graph"/>
+            <field name="arch" type="xml">
+                <field name="inventory_value" position="replace"/>
+            </field>
+        </record>
+
+        <menuitem
+            id="account_analytic_report_menu"
+            name="Anaytic report"
+            action="account_analytic_report.action_view_account_analytic_report"
+            parent="myreport"/>
 
         <record id="action_invoice_line_tree1" model="ir.actions.act_window">
             <field name="name">Customer Invoice lines</field>
