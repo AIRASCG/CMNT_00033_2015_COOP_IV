@@ -30,3 +30,10 @@ class AccountAnalyticAccount(models.Model):
             if self.env.user.id != 1:
                 raise exceptions.Warning(_('Create error'), _('Unauthorized user'))
         return super(AccountAnalyticAccount, self).create(vals)
+
+
+class AccountAnalyticJournal(models.Model):
+    _inherit = 'account.analytic.journal'
+
+    company_id = fields.Many2one('res.company', 'Company', required=False,
+                                 default=False)

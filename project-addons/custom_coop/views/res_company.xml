@@ -13,6 +13,7 @@
                 <page string="Report Configuration" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </page>
+                <group string="Bank Accounts" position="replace"/>
             </field>
         </record>
 

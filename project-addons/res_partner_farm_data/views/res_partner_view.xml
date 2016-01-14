@@ -26,6 +26,23 @@
             </field>
         </record>
 
+        <record id="view_partner_tree_add_fields" model="ir.ui.view">
+            <field name="name">res.partner.tree.add_fields</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="email" position="after">
+                    <field name="city"/>
+                    <field name="state_id"/>
+                    <field name="is_cooperative" invisible="1"/>
+                    <field name="farm" invisible="1"/>
+                </field>
+                <tree position="attributes">
+                    <attribute name="colors">gray:is_cooperative == True or farm == True</attribute>
+                </tree>
+            </field>
+        </record>
+
         <record id="view_partner_form_account" model="ir.ui.view">
             <field name="name">res.partner.form</field>
             <field name="model">res.partner</field>

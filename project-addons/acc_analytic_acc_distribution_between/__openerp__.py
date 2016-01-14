@@ -29,7 +29,7 @@
     'author': 'Pexego Sistemas Informáticos',
     'website': 'https://www.pexego.es',
     'depends': ['base', 'account', 'analytic', 'account_analytic_plans',
-                'account_analytic_default'],
+                'account_analytic_default', 'sale_analytic_plans'],
     'init_xml': [],
     'data': ['account_view.xml'],
     'demo_xml': [],

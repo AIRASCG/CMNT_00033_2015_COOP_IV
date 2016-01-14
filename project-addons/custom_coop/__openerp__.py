@@ -29,7 +29,7 @@
     'author': 'Comunitea',
     'website': '',
     "depends": ['account', 'acc_analytic_acc_distribution_between',
-                'automatic_company', 'account_asset',
+                'automatic_company', 'account_asset', 'analytic',
                 'partner_passwd','company_assign_users', 'company_automatic_account_config',
                 'company_open_fiscalyear', 'custom_colors', 'custom_email_template',
                 'custom_groups', 'custom_menu', 'protect_cud_parent_companies',
@@ -38,6 +38,7 @@
              'views/partner_view.xml', 'data/ir_cron.xml', 'views/user_preferences.xml',
              'views/res_company.xml', 'views/calendar_event.xml', 'views/document_view.xml',
              'views/res_partner.xml', 'views/mail_attachment_partner.xml',
-             'views/account_asset_asset.xml', 'security/ir.model.access.csv'],
+             'views/account_asset_asset.xml', 'security/ir.model.access.csv',
+             'views/analytic_view.xml'],
     "installable": True
 }
