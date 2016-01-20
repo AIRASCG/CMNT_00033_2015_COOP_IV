@@ -21,6 +21,20 @@
 from openerp import models, fields, api, exceptions, _
 
 
+class AccountAssetCategory(models.Model):
+
+    _inherit = 'account.asset.category'
+
+    journal_id = fields.Many2one(company_dependent=True)
+    account_asset_id = fields.Many2one(company_dependent=True)
+    account_depreciation_id = fields.Many2one(company_dependent=True)
+    account_expense_depreciation_id = fields.Many2one(company_dependent=True)
+    subvention_analytic_account_id = fields.Many2one('account.analytic.account',
+                                             'Subvention analytic account')
+    analytic_plan = fields.Many2one('account.analytic.plan.instance', 'Analytic plan')
+    subvention_analytic_plan = fields.Many2one('account.analytic.plan.instance', 'Subvention Analytic plan')
+
+
 class AccountAssetAsset(models.Model):
 
     _inherit = 'account.asset.asset'
@@ -30,18 +44,39 @@ class AccountAssetAsset(models.Model):
                                           states={'draft': [('readonly', False)],
                                                   'open': [('readonly', True)],
                                                   'close': [('readonly', True)]})
+    analytic_plan = fields.Many2one('account.analytic.plan.instance',
+                                          'Analytic plan',
+                                          states={'draft': [('readonly', False)],
+                                                  'open': [('readonly', True)],
+                                                  'close': [('readonly', True)]})
     subvention = fields.Boolean('Subvention',
                                 states={'draft': [('readonly', False)],
                                         'open': [('readonly', True)],
                                         'close': [('readonly', True)]})
 
     @api.multi
-    def onchange_category_id(self, category_id):
+    def onchange_category_id_subvention(self, category_id, subvention):
         res = super(AccountAssetAsset, self).onchange_category_id(category_id)
         if category_id:
             category = self.env['account.asset.category'].browse(category_id)
-            res['value']['account_analytic_id'] = category.account_analytic_id.id
+            if subvention:
+                res['value']['account_analytic_id'] = category.subvention_analytic_account_id.id
+                res['value']['analytic_plan'] = category.subvention_analytic_plan.id
+            else:
+                res['value']['account_analytic_id'] = category.account_analytic_id.id
+                res['value']['analytic_plan'] = category.analytic_plan.id
         return res
+
+    @api.onchange('subvention')
+    @api.one
+    def onchange_subvention(self):
+        if self.category_id:
+            if self.subvention:
+                self.account_analytic_id = self.category_id.subvention_analytic_account_id
+                self.analytic_plan = self.category_id.subvention_analytic_plan
+            else:
+                self.account_analytic_id = self.category_id.account_analytic_id
+                self.analytic_plan = self.category_id.analytic_plan
 
 
 class AccountAssetDepreciationLine(models.Model):
@@ -59,9 +94,15 @@ class AccountAssetDepreciationLine(models.Model):
             if move.journal_id.entry_posted:
                 move.button_cancel()
             for move_line in move.line_id:
+                write_vals = {}
                 if move_line.debit:
-                    write_vals = {'analytic_account_id':
-                                  asset.account_analytic_id.id}
+                    if asset.analytic_plan:
+                        write_vals.update({'analytics_id':
+                                      asset.analytic_plan.id,
+                                      'analytic_account_id': False})
+                    else:
+                        write_vals.update({'analytic_account_id':
+                                      asset.account_analytic_id.id})
                 if asset.subvention:
                     debit = move_line.debit
                     credit = move_line.credit

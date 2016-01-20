@@ -28,6 +28,6 @@
     'website': '',
     "depends": ['base', 'calendar', 'account', 'product', 'acc_analytic_acc_distribution_between', 'stock_account',
                 'res_partner_farm_data', 'auditlog', 'document', 'knowledge', 'mail', 'custom_groups', 'account_analytic_report'],
-    "data": ['security/group.xml', 'security/ir_rule.xml', 'custom_menu.xml'],
+    "data": ['security/group.xml', 'security/ir_rule.xml', 'security/ir.model.access.csv', 'custom_menu.xml'],
     "installable": True
 }
