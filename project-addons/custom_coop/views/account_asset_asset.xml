@@ -51,6 +51,10 @@
                     <field name="analytic_plan"/>
                     <field name="subvention_analytic_plan"/>
                 </field>
+                <field name="account_expense_depreciation_id" position="after">
+                    <field name="account_deterioration_depreciation_id"/>
+                    <field name="account_deterioration_expense_depreciation_id"/>
+                </field>
             </field>
         </record>
 

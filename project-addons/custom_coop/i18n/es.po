@@ -32,6 +32,16 @@ msgid "Assets journal"
 msgstr "Diario de activos"
 
 #. module: custom_coop
+#: field:account.asset.category,account_deterioration_depreciation_id:0
+msgid "Deterioration depreciation account"
+msgstr "Cuenta de amortización de deterioro"
+
+#. module: custom_coop
+#: field:account.asset.category,account_deterioration_expense_depreciation_id:0
+msgid "Deterioration depr. expense dccount"
+msgstr "Cuenta gastos amortización de deterioro"
+
+#. module: custom_coop
 #: field:account.asset.asset,subvention:0
 msgid "Subvention"
 msgstr "Subvención"

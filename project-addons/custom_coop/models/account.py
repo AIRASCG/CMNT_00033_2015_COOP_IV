@@ -29,6 +29,8 @@ class AccountChartTemplate(models.Model):
     account_depreciation_id = fields.Many2one('account.account.template', '')
     account_expense_depreciation_id = fields.Many2one(
         'account.account.template', '')
+    account_deterioration_depreciation_id = fields.Many2one('account.account.template', '')
+    account_deterioration_expense_depreciation_id = fields.Many2one('account.account.template', '')
 
 
 class WizardMultiChartsAccounts(models.TransientModel):
@@ -43,6 +45,10 @@ class WizardMultiChartsAccounts(models.TransientModel):
             ('account_depreciation_id', 'account.asset.category',
              'account.account'),
             ('account_expense_depreciation_id', 'account.asset.category',
+             'account.account'),
+            ('account_deterioration_depreciation_id', 'account.asset.category',
+             'account.account'),
+            ('account_deterioration_expense_depreciation_id', 'account.asset.category',
              'account.account'),
             ('journal_id', 'account.asset.category',
              'account.journal'),
