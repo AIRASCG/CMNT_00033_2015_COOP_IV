@@ -27,6 +27,7 @@
                                         <field name="value_2"/>
                                         <field name="template_id" invisible="1"/>
                                         <field name="parent_id" domain="[('template_id', '=', template_id)]"/>
+                                        <field name="css_style"/>
                                     </tree>
                                 </field>
                             </page>

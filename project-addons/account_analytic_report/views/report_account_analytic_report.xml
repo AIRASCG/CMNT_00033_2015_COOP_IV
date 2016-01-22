@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <template id="report_analytic_report_document">
+                <div class="page">
+                    <div class="row">
+                        <div class="col-xs-6" t-if="o.ref_1">
+                            Compnay 1: <span t-field="o.ref_1.name"/>
+                        </div>
+                        <div class="col-xs-6" t-if="o.ref_2">
+                            Company 2: <span t-field="o.ref_2.name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6" t-if="o.from_date_1">
+                            From date: <span t-field="o.from_date_1"/>
+                        </div>
+                        <div class="col-xs-6" t-if="o.from_date_2">
+                            From date: <span t-field="o.from_date_2"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6" t-if="o.to_date_1">
+                            To date: <span t-field="o.to_date_1"/>
+                        </div>
+                        <div class="col-xs-6" t-if="o.to_date_2">
+                            To date: <span t-field="o.to_date_2"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6" t-if="o.milk_1">
+                            Milk: <span t-field="o.milk_1"/>
+                        </div>
+                        <div class="col-xs-6" t-if="o.milk_2">
+                            Milk: <span t-field="o.milk_2"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6" t-if="o.total_cows_1">
+                            Total cows: <span t-field="o.total_cows_1"/>
+                        </div>
+                        <div class="col-xs-6" t-if="o.total_cows_2">
+                            Total cows: <span t-field="o.total_cows_2"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6" t-if="o.employees_1">
+                            Employees: <span t-field="o.employees_1"/>
+                        </div>
+                        <div class="col-xs-6" t-if="o.employees_2">
+                            Employees: <span t-field="o.employees_2"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6" t-if="o.total_heifer_1">
+                            Total heifer: <span t-field="o.total_heifer_1"/>
+                        </div>
+                        <div class="col-xs-6" t-if="o.total_heifer_2">
+                            Total heifer: <span t-field="o.total_heifer_2"/>
+                        </div>
+                    </div>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>code</th>
+                                <th>name</th>
+                                <th>notes</th>
+                                <th>value 1</th>
+                                <th>value 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.line_ids" t-as="line">
+                                <tr>
+                                    <td t-att-class="line.css_style"><span t-field="line.code"/></td>
+                                    <td t-att-class="line.css_style"><span t-field="line.name"/></td>
+                                    <td t-att-class="line.css_style"><span t-field="line.notes"/></td>
+                                    <td t-att-class="line.css_style"><span t-field="line.value_1"/></td>
+                                    <td t-att-class="line.css_style"><span t-field="line.value_2"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+        </template>
+
+        <template id="report_analytic_report">
+            <style>
+                .red_bold{
+                    color: red;
+                    font-weight: bold;
+                }
+                .green_bold{
+                    color: green;
+                    font-weight: bold;
+                }
+                .bold{
+                    font-weight: bold;
+                }
+                .red{
+                    color: red;
+                }
+            </style>
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'company_id.partner_id.lang', 'account_analytic_report.report_analytic_report_document')"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

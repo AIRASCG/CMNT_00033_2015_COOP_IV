@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <form string="Account analytic report">
                     <header>
+                        <button name="act_button_update_fields" string="Calculate fields" type="object" states="draft,calc_done"/>
                         <button name="calculate" string="Calculate" type="object" states="draft,calc_done"/>
                         <button name="act_cancel" string="Cancel" type="object" states="calc_done"/>
                         <button name="act_done" string="Done" type="object" states="calc_done"/>
@@ -24,18 +25,26 @@
                                 <field name="template_id"/>
                                 <field name="calc_date" states="calc_done,done"/>
                             </group>
-                            <group>
-                                <group col="1">
-                                    <separator string="Company 1"/>
+                            <group colspan="4" col="2">
+                                <group colspan="1">
+                                    <separator string="Company 1" colspan="3"/>
                                     <field name="ref_1"/>
                                     <field name="from_date_1"/>
                                     <field name="to_date_1"/>
+                                    <field name="milk_1"/>
+                                    <field name="total_cows_1"/>
+                                    <field name="employees_1"/>
+                                    <field name="total_heifer_1"/>
                                 </group>
-                                <group col="1">
-                                    <separator string="Company 2"/>
+                                <group colspan="1">
+                                    <separator string="Company 2" colspan="3"/>
                                     <field name="ref_2"/>
                                     <field name="from_date_2"/>
                                     <field name="to_date_2"/>
+                                    <field name="milk_2"/>
+                                    <field name="total_cows_2"/>
+                                    <field name="employees_2"/>
+                                    <field name="total_heifer_2"/>
                                 </group>
                             </group>
                         </page>
@@ -48,6 +57,7 @@
                                     <field name="notes"/>
                                     <field name="value_1"/>
                                     <field name="value_2"/>
+                                    <field name="css_style"/>
                                 </tree>
                             </field>
                         </page>

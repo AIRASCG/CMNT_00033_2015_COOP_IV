@@ -27,21 +27,41 @@ class AccountAnalyticReport(models.Model):
     _name = 'account.analytic.report'
 
     name = fields.Char('Name', required=True)
-    template_id = fields.Many2one('account.analytic.report.template', 'Template',
-                                  required=True)
+    template_id = fields.Many2one('account.analytic.report.template',
+                                  'Template', required=True)
 
     calc_date = fields.Date('Calc date')
-    ref_1 = fields.Reference(selection=[('res.company', 'Company'), ('res.partner.category', 'Farm group')], string='Reference')
+    ref_1 = fields.Reference(
+        selection=[('res.company', 'Company'),
+                   ('res.partner.category', 'Farm group')], string='Reference')
     from_date_1 = fields.Date('From date')
     to_date_1 = fields.Date('To date')
-    ref_2 = fields.Reference(selection=[('res.company', 'Company'), ('res.partner.category', 'Farm group')], string='Reference')
+    milk_1 = fields.Float('Milk')
+    total_cows_1 = fields.Integer('Total cows')
+    employees_1 = fields.Integer('Total employees')
+    total_heifer_1 = fields.Integer('Total heifer')
+
+    ref_2 = fields.Reference(
+        selection=[('res.company', 'Company'),
+                   ('res.partner.category', 'Farm group')], string='Reference')
     from_date_2 = fields.Date('From date')
     to_date_2 = fields.Date('To date')
+    milk_2 = fields.Float('Milk')
+    total_cows_2 = fields.Integer('Total cows')
+    employees_2 = fields.Integer('Total employees')
+    total_heifer_2 = fields.Integer('Total heifer')
 
-    line_ids = fields.One2many('account.analytic.report.line', 'report_id', 'Lines')
+    line_ids = fields.One2many('account.analytic.report.line', 'report_id',
+                               'Lines')
     state = fields.Selection(
-        (('draft', 'Draft'), ('calc', 'Calculating'), ('calc_done', 'Calculated'),
-         ('done', 'Done'), ('cancel', 'Cancel')), 'State', default='draft')
+        [('draft', 'Draft'), ('calc', 'Calculating'),
+         ('calc_done', 'Calculated'), ('done', 'Done'), ('cancel', 'Cancel')],
+        'State', default='draft')
+
+    def _get_company(self):
+        return self.env.user.company_id
+
+    company_id = fields.Many2one('res.company', 'Company', default=_get_company)
 
     @api.multi
     def _get_companies(self, company_1_2=1):
@@ -53,9 +73,103 @@ class AccountAnalyticReport(models.Model):
         if 'res.company' == str(self[ref_field]._model):
             companies = self[ref_field]
         elif 'res.partner.category' == str(self[ref_field]._model):
-            partners = self.env['res.partner'].search([('category_id', '=', self[ref_field].id)])
-            companies = partners.filtered(lambda partner: partner.farm).mapped('company_id')
+            partners = self.env['res.partner'].search(
+                [('category_id', '=', self[ref_field].id)])
+            companies = partners.filtered(
+                lambda partner: partner.farm).mapped('company_id')
         return companies
+
+    @api.multi
+    def _set_milk_fields(self):
+        self.ensure_one()
+        for i in (1, 2):
+            from_date = 'from_date_' + str(i)
+            to_date = 'to_date_' + str(i)
+            companies = self._get_companies(i)
+            partner_companies = companies.mapped('partner_id')
+            quotas = self.env['output.quota'].search(
+                [('farm_id', 'in', partner_companies._ids),
+                 ('date', '>=', self[from_date]),
+                 ('date', '<=', self[to_date])])
+            self['milk_' + str(i)] = sum([x.value for x in quotas])
+
+    @api.multi
+    def _set_total_cows_fields(self):
+        self.ensure_one()
+        for i in (1, 2):
+            from_date = 'from_date_' + str(i)
+            to_date = 'to_date_' + str(i)
+            companies = self._get_companies(i)
+            partner_companies = companies.mapped('partner_id')
+            total_cows = 0
+            for partner in partner_companies:
+                cow_counts = self.env['cow.count'].search(
+                    [('partner_id', '=', partner.id),
+                     ('date', '>=', self[from_date]),
+                     ('date', '<=', self[to_date])])
+                if not cow_counts:
+                    continue
+                total_count = len(cow_counts)
+                heifer_0_3 = sum(cow_counts.mapped('heifer_0_3')) / total_count
+                heifer_3_12 = sum(cow_counts.mapped('heifer_3_12')) / total_count
+                heifer_plus_12 = sum(cow_counts.mapped('heifer_plus_12')) / total_count
+                milk_cow = sum(cow_counts.mapped('milk_cow')) / total_count
+                dry_cow = sum(cow_counts.mapped('dry_cow')) / total_count
+                total_cows += sum((heifer_0_3, heifer_3_12, heifer_plus_12, milk_cow, dry_cow))
+            self['total_cows_' + str(i)] = total_cows
+
+    @api.multi
+    def _set_employee_fields(self):
+        self.ensure_one()
+        for i in (1, 2):
+            from_date = 'from_date_' + str(i)
+            to_date = 'to_date_' + str(i)
+            companies = self._get_companies(i)
+            partner_companies = companies.mapped('partner_id')
+            total_employee = 0
+            for partner in partner_companies:
+                employee_count = self.env['employee.farm.count'].search(
+                    [('partner_id', '=', partner.id),
+                     ('date', '>=', self[from_date]),
+                     ('date', '<=', self[to_date])])
+                if not employee_count:
+                    continue
+                total_count = len(employee_count)
+                total_employee += sum(employee_count.mapped('quantity')) / total_count
+            self['employees_' + str(i)] = total_employee
+
+
+    @api.multi
+    def _set_total_heifer_fields(self):
+        self.ensure_one()
+        for i in (1, 2):
+            from_date = 'from_date_' + str(i)
+            to_date = 'to_date_' + str(i)
+            companies = self._get_companies(i)
+            partner_companies = companies.mapped('partner_id')
+            total_cows = 0
+            for partner in partner_companies:
+                cow_counts = self.env['cow.count'].search(
+                    [('partner_id', '=', partner.id),
+                     ('date', '>=', self[from_date]),
+                     ('date', '<=', self[to_date])])
+                if not cow_counts:
+                    continue
+                total_count = len(cow_counts)
+                heifer_0_3 = sum(cow_counts.mapped('heifer_0_3')) / total_count
+                heifer_3_12 = sum(cow_counts.mapped('heifer_3_12')) / total_count
+                heifer_plus_12 = sum(cow_counts.mapped('heifer_plus_12')) / total_count
+                total_cows += sum((heifer_0_3, heifer_3_12, heifer_plus_12))
+            self['total_heifer_' + str(i)] = total_cows
+
+    @api.multi
+    def act_button_update_fields(self):
+        for report in self:
+            report._set_milk_fields()
+            report._set_total_cows_fields()
+            report._set_employee_fields()
+            report._set_total_heifer_fields()
+        return True
 
     @api.one
     def refresh_values(self):
@@ -89,11 +203,13 @@ class AccountAnalyticReport(models.Model):
                 'name': line.name,
                 'notes': '',
                 'template_line_id': line.id,
+                'css_style': line.css_style
             })
         for line in self.line_ids:
             if line.template_line_id.parent_id:
                 parent_line = self.env['account.analytic.report.line'].search(
-                    [('template_line_id', '=', line.template_line_id.parent_id.id),
+                    [('template_line_id', '=',
+                      line.template_line_id.parent_id.id),
                      ('report_id', '=', self.id)])
                 line.parent_id = parent_line
         self.refresh_values()
@@ -114,7 +230,11 @@ class AccountAnalyticReportLine(models.Model):
     template_line_id = fields.Many2one('account.analytic.report.template.line',
                                        'Template line')
     parent_id = fields.Many2one('account.analytic.report.line', 'Parent')
-    child_ids = fields.One2many('account.analytic.report.line', 'parent_id', 'Childs')
+    child_ids = fields.One2many('account.analytic.report.line', 'parent_id',
+                                'Childs')
+    css_style = fields.Selection(
+        [('red_bold', 'Red bold'), ('green_bold', 'Green bold'), ('bold', 'Bold'), ('red', 'Red')],
+        'Css style')
 
     @api.multi
     def get_value_1(self, company):
@@ -132,26 +252,39 @@ class AccountAnalyticReportLine(models.Model):
         vals = self.template_line_id[field].replace(' ', '').split(',')
         final_vals = []
         for val in vals:
-            sign = '-'
-            if val[0] != '-':
+            if val[0] in '+-*/':
+                sign = val[0]
+            else:
                 sign = '+'
                 val = '+' + val
             if val[1] == '.':  # Se referencia a otra linea
                 code_line = val.replace('.', '')[1:]
-                line = self.search([('report_id', '=', self.report_id.id), ('code', '=', code_line)])
+                line = self.search([('report_id', '=', self.report_id.id),
+                                    ('code', '=', code_line)])
                 if not line:
-                    raise exceptions.Warning(_('Line not found'),
-                                             _('Line with code %s not found') % code_line)
+                    raise exceptions.Warning(
+                        _('Line not found'),
+                        _('Line with code %s not found') % code_line)
                 val = sign + str(line.eval_line(company, field))
-            elif val[1] == "'": # Valor literal
+            elif val[1] == "'":  # Valor literal
                 val = val.replace("'", "")
+            elif val[1] == '#':  # Se referencia a un campo del informe.
+                called_field = val.replace('#', '')[1:] + '_' + field[-1]
+                val = sign + str(self.report_id[called_field])
             else:  # se referencia a una cuenta
-                account = self.env['account.analytic.account'].search([('code', '=', val[1:])])
+                account = self.env['account.analytic.account'].search(
+                    [('code', '=', val[1:])])
                 if not account:
-                    raise exceptions.Warning(_('Account not found'),
-                                             _('Account with code %s not found') % val[1:])
+                    raise exceptions.Warning(
+                        _('Account not found'),
+                        _('Account with code %s not found') % val[1:])
                 from_date = self.report_id.from_date_1
                 to_date = self.report_id.to_date_1
-                val = sign + str(account.with_context(company_id=company.id,from_date=from_date,to_date=to_date).balance)
+                val = sign + str(account.with_context(company_id=company.id,
+                                 from_date=from_date, to_date=to_date).balance)
             final_vals.append(val)
-        return eval(''.join(final_vals))
+        try:
+            result = eval(''.join(final_vals))
+        except ZeroDivisionError:
+            raise exceptions.Warning(_('Calc error'), _('Division by zero in %s') % self.template_line_id[field])
+        return result

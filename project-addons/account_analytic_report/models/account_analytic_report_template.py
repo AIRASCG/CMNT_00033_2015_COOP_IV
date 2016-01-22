@@ -43,6 +43,9 @@ class AccountAnalyticReportTemplateLine(models.Model):
     parent_id = fields.Many2one('account.analytic.report.template.line', 'Parent',
                                 ondelete='cascade')
     child_ids = fields.One2many('account.analytic.report.template.line', 'parent_id', 'Childs')
+    css_style = fields.Selection(
+        [('red_bold', 'Red bold'), ('green_bold', 'Green bold'), ('bold', 'Bold'), ('red', 'Red')],
+        'Css style')
 
     _order = "sequence, code"
 
