@@ -229,6 +229,10 @@
             parent="tech_economic_management"
             action="action_partner_supplier_form" />
 
+        <menuitem id="feeding_management" name="Feeding management" parent="parent_menu"  sequence="3"/>
+            <menuitem action="res_partner_farm_data.action_lot" id="menu_lot" parent="feeding_management"/>
+
+
         <menuitem id="visitor_management" name="Visitor management" parent="parent_menu"  sequence="4"/>
             <menuitem action="calendar.action_calendar_event" id="menu_calendar" parent="visitor_management"/>
 

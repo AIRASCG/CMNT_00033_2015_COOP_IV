@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) 2015 Comunitea All Rights Reserved
+#    Copyright (C) 2016 Comunitea All Rights Reserved
 #    $Jesús Ventosinos Mayor <jesus@comunitea.com>$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -18,14 +18,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import yearly_data
-from . import employee_count
-from . import cow_count
-from . import res_partner
-from . import res_company
-from . import cost_imputation
-from . import output_quota
-from . import lot
-from . import account_fiscalyear
-from . import stock
-from . import product
+from openerp import models, fields, api, exceptions, _
+
+
+class ProductProduct(models.Model):
+
+    _inherit = 'product.product'
+
+    concenctrate = fields.Boolean('Concentrate')

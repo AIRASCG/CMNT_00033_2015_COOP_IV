@@ -33,6 +33,6 @@
     "data": ['views/cost_imputation.xml', 'views/stock.xml',
              'views/output_quota_view.xml', 'views/lot_view.xml',
              'security/ir.model.access.csv', 'views/res_partner_view.xml',
-             'views/res_company.xml'],
+             'views/res_company.xml', 'views/product.xml', 'views/lot_report_template.xml', 'lot_report.xml'],
     "installable": True
 }

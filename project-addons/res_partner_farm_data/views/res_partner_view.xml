@@ -104,7 +104,7 @@
                     <button name="%(action_output_quota)d" icon="fa-money" class="oe_stat_button"
                             string="Output Quota" type="action" attrs="{'invisible': [('farm','=',False)]}"
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
-                    <button name="%(action_lot)d" icon="fa-money" class="oe_stat_button"
+                    <button name="%(action_lot_partner)d" icon="fa-money" class="oe_stat_button"
                             string="Lots" type="action" attrs="{'invisible': [('farm','=',False)]}"
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
                     <button name="action_locations" icon="fa-building" class="oe_stat_button"
