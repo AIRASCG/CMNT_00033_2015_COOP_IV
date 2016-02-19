@@ -39,33 +39,35 @@ class Lot(models.Model):
 
     _name = 'lot'
 
-    date = fields.Datetime('Date', required=True,
+    date = fields.Datetime('Date', required=True, readonly=True, states={'draft': [('readonly', False)]},
                            default=lambda a: datetime.now())
-    user_id = fields.Many2one('res.users', 'User', required=True,
+    user_id = fields.Many2one('res.users', 'User', required=True, readonly=True, states={'draft': [('readonly', False)]},
                               default=lambda self: self.env.user.id)
-    farm_id = fields.Many2one('res.partner', 'Farm', required=True,
+    farm_id = fields.Many2one('res.partner', 'Farm', required=True, readonly=True, states={'draft': [('readonly', False)]},
                               default=lambda self:
                               self.env.user.company_id.partner_id.id)
-    lot_number = fields.Char('Lot number', compute='_get_lot_number')
-    lot_details = fields.One2many('lot.detail', 'lot_id', 'Lot details')
+    state = fields.Selection(
+        (('draft', 'Draft'), ('validated', 'Validated')), 'State', default='draft')
+    lot_number = fields.Char('Lot number', compute='_get_lot_number', readonly=True, states={'draft': [('readonly', False)]})
+    lot_details = fields.One2many('lot.detail', 'lot_id', 'Lot details', readonly=True, states={'draft': [('readonly', False)]})
 
-    total_liters_sold = fields.Integer('Total liters sold')
-    number_milking_cows = fields.Integer('Number of milking cows')
-    liters_produced_per_day = fields.Integer('Liters produced per day')
-    cs = fields.Integer('CS (X1000)')
-    live_weight = fields.Integer('Live weight')
-    collection_frequency = fields.Integer('Collection frequency')
-    number_dry_cows = fields.Integer('Number of dry cows')
-    liters_sold_per_day = fields.Integer('Liters sold per day')
-    milk_price = fields.Float('Milk price(€ / 1000L)')
-    liters_discarded_per_day = fields.Integer('Liters discarded per day')
-    carriage_cost = fields.Integer('Carriage cost (€/month)')
-    number_cubicle_lactation = fields.Integer('Nº cubicle lactation')
-    mg = fields.Float('%MG')
-    dry_cow_ration_cost = fields.Float('Dry cow ration cost(€/ cow and day)')
-    liters_reused_day = fields.Integer('Liters reused/day')
-    mp = fields.Float('%MP')
-    carriage_cost_cow_day = fields.Float('Carriage cost (€/ cow and day)')
+    total_liters_sold = fields.Integer('Total liters sold', readonly=True, states={'draft': [('readonly', False)]})
+    number_milking_cows = fields.Integer('Number of milking cows', readonly=True, states={'draft': [('readonly', False)]})
+    liters_produced_per_day = fields.Integer('Liters produced per day', readonly=True, states={'draft': [('readonly', False)]})
+    cs = fields.Integer('CS (X1000)', readonly=True, states={'draft': [('readonly', False)]})
+    live_weight = fields.Integer('Live weight', readonly=True, states={'draft': [('readonly', False)]})
+    collection_frequency = fields.Integer('Collection frequency', readonly=True, states={'draft': [('readonly', False)]})
+    number_dry_cows = fields.Integer('Number of dry cows', readonly=True, states={'draft': [('readonly', False)]})
+    liters_sold_per_day = fields.Integer('Liters sold per day', readonly=True, states={'draft': [('readonly', False)]})
+    milk_price = fields.Float('Milk price(€ / 1000L)', readonly=True, states={'draft': [('readonly', False)]})
+    liters_discarded_per_day = fields.Integer('Liters discarded per day', readonly=True, states={'draft': [('readonly', False)]})
+    carriage_cost = fields.Integer('Carriage cost (€/month)', readonly=True, states={'draft': [('readonly', False)]})
+    number_cubicle_lactation = fields.Integer('Nº cubicle lactation', readonly=True, states={'draft': [('readonly', False)]})
+    mg = fields.Float('%MG', readonly=True, states={'draft': [('readonly', False)]})
+    dry_cow_ration_cost = fields.Float('Dry cow ration cost(€/ cow and day)', readonly=True, states={'draft': [('readonly', False)]})
+    liters_reused_day = fields.Integer('Liters reused/day', readonly=True, states={'draft': [('readonly', False)]})
+    mp = fields.Float('%MP', readonly=True, states={'draft': [('readonly', False)]})
+    carriage_cost_cow_day = fields.Float('Carriage cost (€/ cow and day)', readonly=True, states={'draft': [('readonly', False)]})
 
     @api.multi
     def _get_lot_number(self):
@@ -76,6 +78,21 @@ class Lot(models.Model):
                  ('year_id.date_stop', '>=', lot.date)])
             total_lots = lot_partner and lot_partner[0].lot_number or 0
             lot.lot_number = '%s/%s' % (len(lot.lot_details), total_lots)
+
+    @api.multi
+    def button_validate(self):
+        self.state = 'validated'
+
+
+class LotDetailSequence(models.Model):
+
+    _name = 'lot.detail.sequence'
+
+    name = fields.Integer('Name')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', 'The sequence name must be unique !')
+    ]
 
 
 class LotDetail(models.Model):
@@ -176,7 +193,22 @@ class LotDetail(models.Model):
     milk_cow_production_corrected = fields.Float('', compute='_get_lot_calcs', readonly=True)
     eat_cow_production = fields.Float('', compute='_get_lot_calcs', readonly=True)
     eat_cow_production_corrected = fields.Float('', compute='_get_lot_calcs', readonly=True)
-    sequence = fields.Integer('sequence', default=1)
+    sequence_id = fields.Many2one('lot.detail.sequence', 'Sequence')
+    sequence = fields.Integer('Sequence', related='sequence_id.name')
+    max_seq = fields.Integer('', compute='_get_max_sequence', store=True)
+
+    @api.depends('lot_id.farm_id', 'user_id')
+    def _get_max_sequence(self):
+        for detail in self:
+            lot_partner = self.env['lot.partner'].search(
+                [('farm_id', '=', detail.lot_id.farm_id.id),
+                 ('year_id.date_start', '<=', detail.lot_id.date),
+                 ('year_id.date_stop', '>=', detail.lot_id.date)])
+            detail.max_seq = lot_partner and lot_partner[0].lot_number or 0
+
+    _sql_constraints = [
+        ('uniq_sequence_per_lot', 'unique (sequence_id, lot_id)', 'The sequence must be unique !')
+    ]
 
     @api.multi
     def _get_lot_calcs(self):
@@ -391,15 +423,26 @@ class LotContent(models.Model):
     enl = fields.Float('ENL')
     pb = fields.Float('%PB')
     theorical_kg_ration = fields.Float('Kg/Ration',
-                                       compute='_get_theorical_values')
-    theorical_ms = fields.Float('%MS', compute='_get_theorical_values')
-    theorical_enl = fields.Float('ENL', compute='_get_theorical_values')
-    theorical_pb = fields.Float('%PB', compute='_get_theorical_values')
+                                       compute='_get_theorical_values', inverse='_set_theorical_values')
+    theorical_ms = fields.Float('%MS', compute='_get_theorical_values', inverse='_set_theorical_values')
+    theorical_enl = fields.Float('ENL', compute='_get_theorical_values', inverse='_set_theorical_values')
+    theorical_pb = fields.Float('%PB', compute='_get_theorical_values', inverse='_set_theorical_values')
+    manual_setted = fields.Boolean('')
+    _theorical_kg_ration = fields.Float('Kg/Ration')
+    _theorical_ms = fields.Float('%MS')
+    _theorical_enl = fields.Float('ENL')
+    _theorical_pb = fields.Float('%PB')
 
     @api.multi
     @api.depends('product_id', 'detail_id.lot_id')
     def _get_theorical_values(self):
         for content in self:
+            if content.manual_setted:
+                content.theorical_kg_ration = content._theorical_kg_ration
+                content.theorical_ms = content._theorical_ms
+                content.theorical_enl = content._theorical_enl
+                content.theorical_pb = content._theorical_pb
+                continue
             if not content.detail_id.lot_id:
                 continue
             curr_lot = content.detail_id.lot_id
@@ -420,3 +463,13 @@ class LotContent(models.Model):
                         content.theorical_ms = last_content.ms
                         content.theorical_enl = last_content.enl
                         content.theorical_pb = last_content.pb
+
+    @api.multi
+    def _set_theorical_values(self):
+        for content in self:
+            content.write(
+                {'manual_setted': True,
+                 '_theorical_kg_ration': content.theorical_kg_ration,
+                 '_theorical_ms':content.theorical_ms,
+                 '_theorical_enl': content.theorical_enl,
+                 '_theorical_pb': content.theorical_pb})

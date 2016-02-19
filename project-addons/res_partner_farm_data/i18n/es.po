@@ -57,6 +57,12 @@ msgid "Barn type"
 msgstr "Tipo de establo"
 
 #. module: res_partner_farm_data
+#: selection:lot,state:0
+msgid "Draft"
+msgstr "Borrador"
+
+
+#. module: res_partner_farm_data
 #: field:res.partner,bed_suppliers:0
 msgid "Bed suppliers"
 msgstr "Proveedor de camas"
@@ -612,6 +618,17 @@ msgstr "Pienso estándar"
 #: field:yearly.data,state:0
 msgid "State"
 msgstr "Estado"
+
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
+msgid "Validate"
+msgstr "Validar"
+
+#. module: res_partner_farm_data
+#: selection:lot,state:0
+msgid "Validated"
+msgstr "Validado"
 
 #. module: res_partner_farm_data
 #: selection:res.partner,barn_type:0

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="s1" model="lot.detail.sequence">
+            <field name="name">1</field>
+        </record>
+        <record id="s2" model="lot.detail.sequence">
+            <field name="name">2</field>
+        </record>
+        <record id="s3" model="lot.detail.sequence">
+            <field name="name">3</field>
+        </record>
+        <record id="s4" model="lot.detail.sequence">
+            <field name="name">4</field>
+        </record>
+        <record id="s5" model="lot.detail.sequence">
+            <field name="name">5</field>
+        </record>
+        <record id="s6" model="lot.detail.sequence">
+            <field name="name">6</field>
+        </record>
+        <record id="s7" model="lot.detail.sequence">
+            <field name="name">7</field>
+        </record>
+        <record id="s8" model="lot.detail.sequence">
+            <field name="name">8</field>
+        </record>
+        <record id="s9" model="lot.detail.sequence">
+            <field name="name">9</field>
+        </record>
+        <record id="s10" model="lot.detail.sequence">
+            <field name="name">10</field>
+        </record>
+
+    </data>
+</openerp>

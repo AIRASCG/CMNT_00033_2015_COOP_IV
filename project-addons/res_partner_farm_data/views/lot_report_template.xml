@@ -5,7 +5,9 @@
         <template id="lot_report">
 
             <t t-call="report.html_container">
+<!--
                 <t t-call="report.external_layout">
+-->
                     <div class="page">
                         <t t-foreach="docs" t-as="o">
                             <table  class="table table-condensed">
@@ -65,7 +67,9 @@
                             </table>
                         </t>
                     </div>
+<!--
                 </t>
+-->
             </t>
         </template>
     </data>
