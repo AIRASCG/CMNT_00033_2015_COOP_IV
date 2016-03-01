@@ -67,7 +67,7 @@
   color: #18A589 !important;
 }
 .openerp .nav-pills > li.active > a, .openerp a.list-group-item.active > a {
-  background-color: #18A589 !important;
+  background-color: #6c737c !important;
 }
 
 .openerp .nav-pills > li.active a:hover, .openerp .nav-pills > li.active a:focus, .openerp a.list-group-item.active a:hover, .openerp a.list-group-item.active a:focus {
@@ -75,10 +75,10 @@
 }
 
 .openerp .nav-pills > li.active .badge, .openerp a.list-group-item.active .badge {
-  color: #18A589 !important;
+  color: #FFF !important;
 }
 .openerp .badge {
-  background-color: #18A589 !important;
+  background-color: #8FD33C !important;
 }
 
 .ui-menu .ui-menu-item a.ui-state-hover, .ui-menu .ui-menu-item a.ui-state-active {
