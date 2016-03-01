@@ -58,6 +58,9 @@ class AccountAnalyticReport(models.Model):
          ('calc_done', 'Calculated'), ('done', 'Done'), ('cancel', 'Cancel')],
         'State', default='draft')
 
+    title_1 = fields.Char('Title value 1')
+    title_2 = fields.Char('Title value 2')
+
     def _get_company(self):
         return self.env.user.company_id
 
@@ -171,14 +174,11 @@ class AccountAnalyticReport(models.Model):
             report._set_total_heifer_fields()
         return True
 
-    @api.one
+    @api.multi
     def refresh_values(self):
-        field = 'val_%s' % str(1)
-        for line in self.line_ids:
-            companies = self._get_companies(1)
-            line.value_1 = sum([line.get_value_1(x) for x in companies])
-            companies = self._get_companies(2)
-            line.value_2 = sum([line.get_value_2(x) for x in companies])
+        companies_1 = self._get_companies(1)
+        companies_2 = self._get_companies(2)
+        self.line_ids.set_values(companies_1, companies_2)
 
     @api.multi
     def act_cancel(self):
@@ -192,7 +192,9 @@ class AccountAnalyticReport(models.Model):
     def calculate(self):
         self.write({
             'state': 'calc',
-            'calc_date': time.strftime('%Y-%m-%d %H:%M:%S')
+            'calc_date': time.strftime('%Y-%m-%d %H:%M:%S'),
+            'title_1': self.template_id.title_1,
+            'title_2': self.template_id.title_2,
         })
         self.line_ids.unlink()
         for line in self.template_id.line_ids:
@@ -225,8 +227,10 @@ class AccountAnalyticReportLine(models.Model):
     sequence = fields.Integer('sequence', default=10)
     name = fields.Char('Name', required=True)
     notes = fields.Text('Notes')
-    value_1 = fields.Text('Value 1')
-    value_2 = fields.Text('Value 2')
+    value_1_1 = fields.Text('Value 1.1')
+    value_1_2 = fields.Text('Value 1.2')
+    value_2_1 = fields.Text('Value 2.1')
+    value_2_2 = fields.Text('Value 2.2')
     template_line_id = fields.Many2one('account.analytic.report.template.line',
                                        'Template line')
     parent_id = fields.Many2one('account.analytic.report.line', 'Parent')
@@ -237,18 +241,24 @@ class AccountAnalyticReportLine(models.Model):
         'Css style')
 
     @api.multi
-    def get_value_1(self, company):
-        return self.eval_line(company, 'value_1')
+    def set_values(self, companies_1, companies_2):
+        for line in self:
+            for field in ['value_1_1', 'value_1_2']:
+                field_val = 0.0
+                for company in companies_1:
+                    field_val += line.eval_field(company,field)
+                line[field] = field_val
+            for field in ['value_2_1', 'value_2_2']:
+                field_val = 0.0
+                for company in companies_2:
+                    field_val += line.eval_field(company,field)
+                line[field] = field_val
 
     @api.multi
-    def get_value_2(self, company):
-        return self.eval_line(company, 'value_2')
-
-    @api.multi
-    def eval_line(self, company, field):
+    def eval_field(self, company, field):
         self.ensure_one()
         if not self.template_line_id[field]:
-            return sum([x.eval_line(company, field) for x in self.child_ids])
+            return sum([x.eval_field(company, field) for x in self.child_ids])
         vals = self.template_line_id[field].replace(' ', '').split(',')
         final_vals = []
         for val in vals:
@@ -257,7 +267,11 @@ class AccountAnalyticReportLine(models.Model):
             else:
                 sign = '+'
                 val = '+' + val
-            if val[1] == '.':  # Se referencia a otra linea
+            if val[1] == '[': # se referencia a otro valor de la misma linea
+                another_field = 'value_' + val[2:-1]
+                val = sign + str(self[another_field])
+
+            elif val[1] == '.':  # Se referencia a otra linea
                 code_line = val.replace('.', '')[1:]
                 line = self.search([('report_id', '=', self.report_id.id),
                                     ('code', '=', code_line)])
@@ -265,11 +279,11 @@ class AccountAnalyticReportLine(models.Model):
                     raise exceptions.Warning(
                         _('Line not found'),
                         _('Line with code %s not found') % code_line)
-                val = sign + str(line.eval_line(company, field))
+                val = sign + str(line[field])
             elif val[1] == "'":  # Valor literal
                 val = val.replace("'", "")
             elif val[1] == '#':  # Se referencia a un campo del informe.
-                called_field = val.replace('#', '')[1:] + '_' + field[-1]
+                called_field = val.replace('#', '')[1:] + '_' + field[-3]
                 val = sign + str(self.report_id[called_field])
             else:  # se referencia a una cuenta
                 account = self.env['account.analytic.account'].search(

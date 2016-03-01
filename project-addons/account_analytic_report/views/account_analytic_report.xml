@@ -49,15 +49,21 @@
                             </group>
                         </page>
                         <page string="Report lines">
+                            <group>
+                                <field name="title_1"/>
+                                <field name="title_2"/>
+                            </group>
                             <field name="line_ids" nolabel="1">
                                 <tree string="Report lines" editable="bottom">
                                     <field name="sequence" widget="handle"/>
                                     <field name="code"/>
                                     <field name="name"/>
                                     <field name="notes"/>
-                                    <field name="value_1"/>
-                                    <field name="value_2"/>
-                                    <field name="css_style"/>
+                                    <field name="value_1_1"/>
+                                    <field name="value_1_2"/>
+                                    <field name="value_2_1"/>
+                                    <field name="value_2_2"/>
+                                    <!--field name="css_style"/-->
                                 </tree>
                             </field>
                         </page>

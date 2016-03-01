@@ -28,6 +28,8 @@ class AccountAnalyticReportTemplate(models.Model):
     name = fields.Char('Name', required=True)
     description = fields.Text('Description')
     line_ids = fields.One2many('account.analytic.report.template.line', 'template_id', 'Lines')
+    title_1 = fields.Char('Title value 1')
+    title_2 = fields.Char('Title value 2')
 
 
 class AccountAnalyticReportTemplateLine(models.Model):
@@ -38,8 +40,10 @@ class AccountAnalyticReportTemplateLine(models.Model):
     code = fields.Char('Code', required=True)
     sequence = fields.Integer('sequence', default=10)
     name = fields.Char('Name', required=True)
-    value_1 = fields.Text('Value 1')
-    value_2 = fields.Text('Value 2')
+    value_1_1 = fields.Text('Value 1.1')
+    value_1_2 = fields.Text('Value 1.2')
+    value_2_1 = fields.Text('Value 2.1')
+    value_2_2 = fields.Text('Value 2.2')
     parent_id = fields.Many2one('account.analytic.report.template.line', 'Parent',
                                 ondelete='cascade')
     child_ids = fields.One2many('account.analytic.report.template.line', 'parent_id', 'Childs')

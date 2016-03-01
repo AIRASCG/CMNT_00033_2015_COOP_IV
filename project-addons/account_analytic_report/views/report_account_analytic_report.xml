@@ -66,8 +66,16 @@
                                 <th>code</th>
                                 <th>name</th>
                                 <th>notes</th>
-                                <th>value 1</th>
-                                <th>value 2</th>
+                                <th><span t-field="o.title_1"/></th>
+                                <t t-if="o.title_2">
+                                    <th><span t-field="o.title_2"/></th>
+                                </t>
+                                <t t-if="o.ref_2">
+                                    <th><span t-field="o.title_1"/></th>
+                                    <t t-if="o.title_2">
+                                        <th><span t-field="o.title_2"/></th>
+                                    </t>
+                                </t>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,8 +84,16 @@
                                     <td t-att-class="line.css_style"><span t-field="line.code"/></td>
                                     <td t-att-class="line.css_style"><span t-field="line.name"/></td>
                                     <td t-att-class="line.css_style"><span t-field="line.notes"/></td>
-                                    <td t-att-class="line.css_style"><span t-field="line.value_1"/></td>
-                                    <td t-att-class="line.css_style"><span t-field="line.value_2"/></td>
+                                    <td t-att-class="line.css_style"><span t-field="line.value_1_1"/></td>
+                                    <t t-if="o.title_2">
+                                        <td t-att-class="line.css_style"><span t-field="line.value_1_2"/></td>
+                                    </t>
+                                    <t t-if="o.ref_2">
+                                        <td t-att-class="line.css_style"><span t-field="line.value_2_1"/></td>
+                                        <t t-if="o.title_2">
+                                            <td t-att-class="line.css_style"><span t-field="line.value_2_2"/></td>
+                                        </t>
+                                    </t>
                                 </tr>
                             </t>
                         </tbody>

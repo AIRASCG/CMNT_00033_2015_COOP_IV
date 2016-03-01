@@ -18,13 +18,19 @@
                                 <field name="description" nolabel="1"/>
                             </page>
                             <page string="Lines">
+                                <group>
+                                    <field name="title_1"/>
+                                    <field name="title_2"/>
+                                </group>
                                 <field name="line_ids" nolabel="1" context="{'template_id':active_id}">
                                     <tree string="Template lines" editable="top">
                                         <field name="sequence" widget="handle"/>
                                         <field name="code"/>
                                         <field name="name"/>
-                                        <field name="value_1"/>
-                                        <field name="value_2"/>
+                                        <field name="value_1_1"/>
+                                        <field name="value_1_2"/>
+                                        <field name="value_2_1"/>
+                                        <field name="value_2_2"/>
                                         <field name="template_id" invisible="1"/>
                                         <field name="parent_id" domain="[('template_id', '=', template_id)]"/>
                                         <field name="css_style"/>
