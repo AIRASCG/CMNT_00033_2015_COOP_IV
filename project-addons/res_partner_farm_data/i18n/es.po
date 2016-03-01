@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* res_partner_farm_data
+#   * res_partner_farm_data
 #
 msgid ""
 msgstr ""
@@ -55,6 +55,12 @@ msgstr "Cebo"
 #: field:res.partner,barn_type:0
 msgid "Barn type"
 msgstr "Tipo de establo"
+
+#. module: res_partner_farm_data
+#: selection:lot,state:0
+msgid "Draft"
+msgstr "Borrador"
+
 
 #. module: res_partner_farm_data
 #: field:res.partner,bed_suppliers:0
@@ -150,12 +156,15 @@ msgstr "Empresa láctea"
 #: field:cow.count,date:0
 #: field:employee.farm.count,date:0
 #: field:lot,date:0
+#: field:lot.detail,date:0
+#: field:lot.partner,date:0
 #: field:output.quota,date:0
 #: field:yearly.data,date:0
 msgid "Date"
 msgstr "Fecha"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,description:0
 #: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
 #: field:res.partner.category,description:0
 msgid "Description"
@@ -355,11 +364,94 @@ msgstr "Ubicaciones"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot_partner
 #: view:lot:res_partner_farm_data.lot_filter
-#: view:lot:res_partner_farm_data.lot_form
+#: view:lot:res_partner_farm_data.lot_partner_form
 #: view:lot:res_partner_farm_data.lot_tree
+#: view:lot.content:res_partner_farm_data.lot_content_form
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+#: view:lot.detail:res_partner_farm_data.lot_detail_form
+#: view:lot.detail:res_partner_farm_data.lot_detail_tree
+#: field:lot.detail,lot_id:0
+#: view:lot.partner:res_partner_farm_data.lot_partner_filter
+#: view:lot.partner:res_partner_farm_data.lot_partner_tree
 msgid "Lot"
 msgstr "Lote"
+
+#. module: res_partner_farm_data
+#: field:lot,total_liters_sold:0
+msgid "Total liters sold"
+msgstr "Litros totales vendidos"
+
+#. module: res_partner_farm_data
+#: field:lot,milk_price:0
+msgid "Milk price(€ / 1000L)"
+msgstr "Precio leche(€ / 1000L)"
+
+#. module: res_partner_farm_data
+#: field:lot,number_milking_cows:0
+msgid "Number of milking cows"
+msgstr "Nº vacas en ordeño"
+
+#. module: res_partner_farm_data
+#: field:lot,liters_discarded_per_day:0
+msgid "Liters discarded per day"
+msgstr "Litros tirados/día"
+
+#. module: res_partner_farm_data
+#: field:lot,liters_produced_per_day:0
+msgid "Liters produced per day"
+msgstr "Litros producidos/día"
+
+#. module: res_partner_farm_data
+#: field:lot,carriage_cost:0
+msgid "Carriage cost (€/month)"
+msgstr "Coste carro (€/mes)"
+
+#. module: res_partner_farm_data
+#: field:lot,number_cubicle_lactation:0
+msgid "Nº cubicle lactation"
+msgstr "Nº cubículos lactación"
+
+#. module: res_partner_farm_data
+#: field:lot,live_weight:0
+msgid "Live weight"
+msgstr "Peso vivo"
+
+#. module: res_partner_farm_data
+#: field:lot,collection_frequency:0
+msgid "Collection frequency"
+msgstr "Frecuencia de recogida"
+
+#. module: res_partner_farm_data
+#: field:lot,dry_cow_ration_cost:0
+msgid "Dry cow ration cost(€/ cow and day)"
+msgstr "Coste ración vacas secas(€/vaca y día)"
+
+#. module: res_partner_farm_data
+#: field:lot,number_dry_cows:0
+msgid "Number of dry cows"
+msgstr "Nº vacas secas"
+
+#. module: res_partner_farm_data
+#: field:lot,liters_reused_day:0
+msgid "Liters reused/day"
+msgstr "Litros reutilizados/día"
+
+#. module: res_partner_farm_data
+#: field:lot,liters_sold_per_day:0
+msgid "Liters sold per day"
+msgstr "Litros vendidos/día"
+
+#. module: res_partner_farm_data
+#: field:lot,carriage_cost_cow_day:0
+msgid "Carriage cost (€/ cow and day)"
+msgstr "Coste carro (€/vaca y día)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,name:0
+msgid "Name"
+msgstr "Nombre"
 
 #. module: res_partner_farm_data
 #: field:lot,lot_number:0
@@ -527,6 +619,17 @@ msgstr "Pienso estándar"
 msgid "State"
 msgstr "Estado"
 
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
+msgid "Validate"
+msgstr "Validar"
+
+#. module: res_partner_farm_data
+#: selection:lot,state:0
+msgid "Validated"
+msgstr "Validado"
+
 #. module: res_partner_farm_data
 #: selection:res.partner,barn_type:0
 msgid "Stuck"
@@ -579,6 +682,8 @@ msgstr "Tipo"
 #: field:cow.count,user_id:0
 #: field:employee.farm.count,user_id:0
 #: field:lot,user_id:0
+#: field:lot.detail,user_id:0
+#: field:lot.partner,user_id:0
 #: field:output.quota,user_id:0
 #: field:yearly.data,user_id:0
 msgid "User"
@@ -636,8 +741,131 @@ msgstr "mh"
 #. module: res_partner_farm_data
 #: field:cow.count,sequence:0
 #: field:employee.farm.count,sequence:0
+#: field:lot.detail,sequence:0
 msgid "sequence"
-msgstr "sequence"
+msgstr "Secuencia"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,rations_make_number:0
+msgid "Number of maked rations"
+msgstr "Nº raciones hechas"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,cows_eat_number:0
+msgid "Cows eat number"
+msgstr "Nº vacas a comer"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,surplus:0
+msgid "Surplus (Kg)"
+msgstr "Sobrantes (Kg)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,tank_liters:0
+msgid "Tank liters"
+msgstr "Litros al tanque"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,cows_tank_number:0
+msgid "Cows tank number"
+msgstr "Nº vacas al tanque"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,retired_liters:0
+msgid "Retired liters"
+msgstr "Litros retirados"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,liters_on_farm_consumption:0
+msgid "Liters on-farm consumption"
+msgstr "Litros autoconsumo"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,number_cubicles_in_lot:0
+msgid "Number of cubicles in this lot"
+msgstr "Nº cubículos en este lote"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kf_mf_carriage:0
+msgid "kf MF carriage"
+msgstr "Kg MF en el carro"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_plucking:0
+msgid "Plucking kg"
+msgstr "Kg punteo"
+
+#. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_product_product
+#: field:lot.content,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: res_partner_farm_data
+#: field:lot.content,kg_ration:0
+#: field:lot.content,theorical_kg_ration:0
+msgid "Kg/Ration"
+msgstr "Kg/ración"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ingress_milk_cow_day:0
+msgid "Ingress milk/milk cow and day"
+msgstr "Ingresos leche/vaca ordeñada y día"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,feed_cost_cow_day:0
+msgid "Feed cost cow day"
+msgstr "Coste alimentación/vaca y día"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,diff_ing_cost:0
+msgid "Diff ing cost"
+msgstr "Diferencia"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_feed_milk_ingress:0
+msgid "Perc feed milk ingress"
+msgstr "% Alimentación sobre ingresos leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_purchased_feed_milk_ingress:0
+msgid "Perc purchased feed milk ingress"
+msgstr "% Alimentación comprada sobre ingresos leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_concentrated_milk_ingress:0
+msgid "Perc concentrated milk ingress"
+msgstr "% concentrado sobre ingresos leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,liters_produced_kg_concentrated_used:0
+msgid "Liters produced kg concentrated used"
+msgstr "Litros producidos/Kg de concentrado gastado"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,lot_threshold_point_slaughterhouse:0
+msgid "Lot threshold point slaughterhouse"
+msgstr "Punto umbral de lote (destino matadero)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,lot_threshold_point_dry:0
+msgid "Lot threshold point dry"
+msgstr "Punto umbral de lote (destino lote secas)"
+
+#. module: res_partner_farm_data
+#: field:lot,lot_details:0
+msgid "Lot details"
+msgstr "Detalle de lote"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_form
+msgid "Theorical ration"
+msgstr "Ración teórica"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_form
+msgid "Real ration"
+msgstr "Ración real"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.partner_view_buttons_add_farm

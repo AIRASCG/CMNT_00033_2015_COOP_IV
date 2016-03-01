@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+            string="Analytic report"
+            id="print_analytic_report"
+            model="account.analytic.report"
+            report_type="qweb-pdf"
+            name="account_analytic_report.report_analytic_report"
+            file="account_analytic_report.report_analytic_report"
+        />
+
+    </data>
+</openerp>

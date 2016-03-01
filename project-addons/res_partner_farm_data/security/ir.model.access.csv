@@ -2,8 +2,12 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_yearly_data,access_yearly_data,model_yearly_data,base.group_user,1,1,1,1
 access_cost_imputation,access_cost_imputation,model_cost_imputation,base.group_user,1,1,1,1
 access_output_quota,access_output_quota,model_output_quota,base.group_user,1,1,1,1
-access_lot,access_lot,model_lot,base.group_user,1,1,1,1
+access_lot_partner,access_lot_partner,model_lot_partner,base.group_user,1,1,1,1
 access_employee_farm_count,access_employee_farm_count,model_employee_farm_count,base.group_user,1,0,1,0
 access_cow_count,access_cow_count,model_cow_count,base.group_user,1,0,1,0
 access_employee_farm_count_admin,access_employee_farm_count_admin,model_employee_farm_count,custom_groups.group_admin,1,1,1,1
 access_cow_count_admin,access_cow_count_admin,model_cow_count,custom_groups.group_admin,1,1,1,1
+access_lot,access_lot,model_lot,base.group_user,1,1,1,1
+access_lot_detail,access_lot_detail,model_lot_detail,base.group_user,1,1,1,1
+access_lot_content,access_lot_content,model_lot_content,base.group_user,1,1,1,1
+access_lot_detail_sequence,access_lot_detail_sequence,model_lot_detail_sequence,base.group_user,1,1,1,1

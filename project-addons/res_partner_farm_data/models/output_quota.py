@@ -21,6 +21,7 @@
 from openerp import models, fields, api, exceptions, _
 from datetime import date
 
+
 class OutputQuota(models.Model):
 
     _name = 'output.quota'

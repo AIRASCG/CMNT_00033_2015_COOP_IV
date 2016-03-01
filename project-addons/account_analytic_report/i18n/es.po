@@ -22,6 +22,8 @@ msgstr ""
 msgid "Account analytic report"
 msgstr "Informe de contabilidad analítica"
 
+
+
 #. module: account_analytic_report
 #: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
 #: model:ir.actions.act_window,name:account_analytic_report.action_view_account_analytic_report_template
@@ -49,6 +51,156 @@ msgstr "La cuenta analítica con el código %s no ha sido encontrada"
 #: model:ir.model,name:account_analytic_report.model_account_analytic_account
 msgid "Analytic Account"
 msgstr "Cuenta analítica"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,milk_1:0
+#: field:account.analytic.report,milk_2:0
+msgid "Milk"
+msgstr "Leche"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Milk:"
+msgstr "Leche:"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,employees_1:0
+#: field:account.analytic.report,employees_2:0
+msgid "Total employees"
+msgstr "Empleados"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Employees:"
+msgstr "Empleados:"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,total_heifer_1:0
+#: field:account.analytic.report,total_heifer_2:0
+msgid "Total heifer"
+msgstr "Total novillas"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,css_style:0
+#: field:account.analytic.report.template.line,css_style:0
+msgid "Css style"
+msgstr "Estílo CSS"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Company 2:"
+msgstr "Compañía 2:"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Compnay 1:"
+msgstr "Compañía 1:"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "code"
+msgstr "Código"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "name"
+msgstr "Nombre"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "notes"
+msgstr "Notas"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,value_1_1:0
+#: field:account.analytic.report.template.line,value_1_1:0
+msgid "Value 1.1"
+msgstr "Valor 1.1"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,value_1_2:0
+#: field:account.analytic.report.template.line,value_1_2:0
+msgid "Value 1.2"
+msgstr "Valor 1.2"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,value_2_1:0
+#: field:account.analytic.report.template.line,value_2_1:0
+msgid "Value 2.1"
+msgstr "Valor 2.1"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,value_2_2:0
+#: field:account.analytic.report.template.line,value_2_2:0
+msgid "Value 2.2"
+msgstr "Valor 2.2"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,title_1:0
+#: field:account.analytic.report.template,title_1:0
+msgid "Title value 1"
+msgstr "Título valor 1"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,title_2:0
+#: field:account.analytic.report.template,title_2:0
+msgid "Title value 2"
+msgstr "Título valor 2"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "From date:"
+msgstr "Desde:"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Red"
+msgstr "Rojo"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Red bold"
+msgstr "Rojo negrita"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Green bold"
+msgstr "Verde negrita"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Bold"
+msgstr "Negrita"
+
+#. module: account_analytic_report
+#: model:ir.actions.report.xml,name:account_analytic_report.print_analytic_report
+msgid "Analytic report"
+msgstr "Informe"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "To date:"
+msgstr "Hasta:"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Total heifer:"
+msgstr "Total novillas:"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,total_cows_1:0
+#: field:account.analytic.report,total_cows_2:0
+msgid "Total cows"
+msgstr "Total vacas"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Total cows:"
+msgstr "Total vacas:"
 
 #. module: account_analytic_report
 #: model:ir.model,name:account_analytic_report.model_account_analytic_line

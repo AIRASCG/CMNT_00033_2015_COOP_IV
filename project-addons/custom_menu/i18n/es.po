@@ -231,6 +231,16 @@ msgid "Supplier Invoice lines"
 msgstr "Lineas de factura de proveedor"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.feeding_management
+msgid "Feeding management"
+msgstr "Gestión de alimentación"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_lot
+msgid "Lot"
+msgstr "Lotes"
+
+#. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree2
 msgid "Supplier Invoices"
 msgstr "Facturas de proveedor"

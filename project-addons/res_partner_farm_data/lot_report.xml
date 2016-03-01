@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <report
+            string="Lot report"
+            id="action_lot_report"
+            model="lot"
+            report_type="qweb-pdf"
+            name="res_partner_farm_data.lot_report"
+            file="res_partner_farm_data.lot_report"
+    />
+
+    </data>
+</openerp>

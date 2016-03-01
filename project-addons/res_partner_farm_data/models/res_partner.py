@@ -200,7 +200,6 @@ class ResPartner(models.Model):
 
     @api.multi
     def action_analytic_plan(self):
-        # import ipdb; ipdb.set_trace()
 
         return {
             'domain': "[('company_id','='," + str(self.company_id.id) + ")]",

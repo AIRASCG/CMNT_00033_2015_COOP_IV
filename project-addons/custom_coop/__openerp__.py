@@ -39,6 +39,7 @@
              'views/res_company.xml', 'views/calendar_event.xml', 'views/document_view.xml',
              'views/res_partner.xml', 'views/mail_attachment_partner.xml',
              'views/account_asset_asset.xml', 'security/ir.model.access.csv',
+             'data/account_account.xml',
              'views/analytic_view.xml'],
     "installable": True
 }

@@ -16,9 +16,30 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_coop
+#: field:account.asset.category,subvention_analytic_account_id:0
+msgid "Subvention analytic account"
+msgstr "Cuenta analítica subvenciones"
+
+#. module: custom_coop
 #: model:ir.model,name:custom_coop.model_account_analytic_account
 msgid "Analytic Account"
 msgstr "Cuenta analítica"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/account.py:90
+#, python-format
+msgid "Assets journal"
+msgstr "Diario de activos"
+
+#. module: custom_coop
+#: field:account.asset.category,account_deterioration_depreciation_id:0
+msgid "Deterioration depreciation account"
+msgstr "Cuenta de amortización de deterioro"
+
+#. module: custom_coop
+#: field:account.asset.category,account_deterioration_expense_depreciation_id:0
+msgid "Deterioration depr. expense dccount"
+msgstr "Cuenta gastos amortización de deterioro"
 
 #. module: custom_coop
 #: field:account.asset.asset,subvention:0

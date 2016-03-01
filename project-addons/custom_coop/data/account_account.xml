@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="l10n_es.account_chart_template_common" model="account.chart.template">
+            <field name="account_asset_id" ref="l10n_es.pgc_211_child"/>
+            <field name="account_depreciation_id" ref="l10n_es.pgc_2811_child"/>
+            <field name="account_expense_depreciation_id" ref="l10n_es.pgc_681_child"/>
+            <field name="account_deterioration_depreciation_id" ref="l10n_es.pgc_690_child"/>
+            <field name="account_deterioration_expense_depreciation_id" ref="l10n_es.pgc_290"/>
+        </record>
+
+    </data>
+</openerp>
