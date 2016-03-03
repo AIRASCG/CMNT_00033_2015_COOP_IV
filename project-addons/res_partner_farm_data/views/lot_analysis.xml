@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="lot_analysis_tree" model="ir.ui.view">
+            <field name="name">lot.analysis.tree</field>
+            <field name="model">lot.analysis</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Lot analysis">
+                    <field name="name"/>
+                    <field name="lot_id"/>
+                    <field name="sampling_date"/>
+                    <field name="analysis_date"/>
+                    <field name="cooperative_id"/>
+                    <field name="explotation_id"/>
+                    <field name="tipo_material"/>
+                    <field name="lab_id"/>
+                    <field name="year"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="lot_analysis_form" model="ir.ui.view">
+            <field name="name">lot.analysis.form</field>
+            <field name="model">lot.analysis</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Lot analysis">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="sampling_date"/>
+                                <field name="analysis_date"/>
+                                <field name="cooperative_id"/>
+                                <field name="lot_id"/>
+                                <field name="company_id" />
+                            </group>
+                            <group>
+                                <field name="tipo_material"/>
+                                <field name="explotation_id"/>
+                                <field name="lab_id"/>
+                                <field name="year"/>
+                                <field name="product_name"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="cut_number"/>
+                                <field name="dry_material"/>
+                                <field name="cinder"/>
+                                <field name="enl"/>
+                                <field name="ufl"/>
+                                <field name="pb"/>
+                                <field name="pbn"/>
+                                <field name="ps"/>
+                                <field name="starch"/>
+                                <field name="grain_equivalence"/>
+                                <field name="ee"/>
+                                <field name="fb"/>
+                                <field name="fad"/>
+                                <field name="fnd"/>
+                                <field name="lignina"/>
+                                <field name="digestibility"/>
+                                <field name="vrf"/>
+                                <field name="pdie"/>
+                                <field name="pdin"/>
+                                <field name="ph"/>
+                                <field name="ph_stability"/>
+                                <field name="conservation_index"/>
+                                <field name="ecoli_absence"/>
+                                <field name="ecoli_unquantifiable"/>
+                                <field name="ecoli_value"/>
+                            </group>
+                            <group>
+                                <field name="lactic_acid"/>
+                                <field name="acetic_acid"/>
+                                <field name="butyric_acid"/>
+                                <field name="staphylococci"/>
+                                <field name="mold"/>
+                                <field name="clostridium"/>
+                                <field name="yeast"/>
+                                <field name="enterobacteriaceae"/>
+                                <field name="calcium"/>
+                                <field name="phosphor"/>
+                                <field name="sodium"/>
+                                <field name="potassium"/>
+                                <field name="magnesium"/>
+                                <field name="iron"/>
+                                <field name="copper"/>
+                                <field name="zinc"/>
+                                <field name="manganese"/>
+                                <field name="chlorine"/>
+                                <field name="sulfur"/>
+                                <field name="zearelenone"/>
+                                <field name="vomitoxin"/>
+                                <field name="afla_b1"/>
+                                <field name="salmonella_absence"/>
+                                <field name="salmonella_unquantifiable"/>
+                                <field name="salmonella_value"/>
+                            </group>
+                        </group>
+                        <field name="notes"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="lot_analysis_filter" model="ir.ui.view">
+            <field name="name">lot.analysis.search</field>
+            <field name="model">lot.analysis</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Lot analysis">
+                    <field name="name"/>
+                    <field name="lot_id"/>
+                    <field name="sampling_date"/>
+                    <field name="analysis_date"/>
+                    <field name="cooperative_id"/>
+                    <field name="explotation_id"/>
+                    <field name="lab_id"/>
+                    <field name="year"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_lot_analysis">
+            <field name="name">Lot analysis</field>
+            <field name="res_model">lot.analysis</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lot_analysis_tree"/>
+            <field name="search_view_id" ref="lot_analysis_filter"/>
+        </record>
+
+        <menuitem name="Lot analysis" parent="custom_menu.feeding_management"
+            action="action_lot_analysis" id="menu_lot_analysis"/>
+
+    </data>
+</openerp>

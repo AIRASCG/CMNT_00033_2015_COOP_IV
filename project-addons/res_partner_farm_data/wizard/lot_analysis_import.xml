@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record id="lot_analysis_import_from" model="ir.ui.view">
+            <field name="name">lot.analysis.import.form</field>
+            <field name="model">lot.analysis.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Lot analysis import">
+                    <group>
+                        <field name="import_file"/>
+                    </group>
+                    <footer>
+                        <button name="import_analysis" string="Import" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Import analysis"
+            res_model="lot.analysis.import"
+            view_id="lot_analysis_import_from"
+            view_mode="form"
+            target="new"
+            id="lot_analysis_import_act"/>
+
+        <menuitem name="Import analysis" parent="custom_menu.feeding_management"
+            action="lot_analysis_import_act" id="menu_lot_analysis_import"/>
+
+    </data>
+</openerp>
+

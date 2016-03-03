@@ -368,6 +368,7 @@ msgstr "Ubicaciones"
 #: view:lot:res_partner_farm_data.lot_filter
 #: view:lot:res_partner_farm_data.lot_partner_form
 #: view:lot:res_partner_farm_data.lot_tree
+#: field:lot.analysis,lot_id:0
 #: view:lot.content:res_partner_farm_data.lot_content_form
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
@@ -712,7 +713,8 @@ msgstr "Watts"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,year_id:0
-#: field:lot,year_id:0
+#: field:lot.analysis,year:0
+#: field:lot.partner,year_id:0
 #: field:output.quota,year_id:0
 #: field:yearly.data,year_id:0
 msgid "Year"
@@ -877,3 +879,358 @@ msgstr "{'invisible': [('customer', '=', False), ('farm', '=', False)]}"
 msgid "{'invisible': [('farm', '=', False)]}"
 msgstr "{'invisible': [('farm', '=', False)]}"
 
+#. module: res_partner_farm_data
+#: field:lot.analysis,afla_b1:0
+msgid "AFLA B1"
+msgstr "AFLA B1"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,acetic_acid:0
+msgid "Acetic acid"
+msgstr "Ácido acético"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,analysis_date:0
+msgid "Analysis date"
+msgstr "Fecha análisis"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,butyric_acid:0
+msgid "Butyric acid"
+msgstr "Ácido butírico"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,calcium:0
+msgid "Calcium"
+msgstr "Calcio"
+
+#. module: res_partner_farm_data
+#: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,chlorine:0
+msgid "Chlorine"
+msgstr "Cloro"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,cinder:0
+msgid "Cinder"
+msgstr "Cenizas"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,clostridium:0
+msgid "Clostridium"
+msgstr "Clostridium"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,conservation_index:0
+msgid "Conservation index"
+msgstr "Índice conservación"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,cooperative_id:0
+msgid "Cooperative"
+msgstr "Cooperativa"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,copper:0
+msgid "Copper"
+msgstr "Cobre"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,digestibility:0
+msgid "Digestibility"
+msgstr "Digestibilidad"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,dry_material:0
+msgid "Dry material"
+msgstr "Materia seca"
+
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ecoli_absence:0
+msgid "E coli absence"
+msgstr "E coli ausencia"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ecoli_unquantifiable:0
+msgid "E coli unquantifiable"
+msgstr "E coli no cuantificable"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ecoli_value:0
+msgid "E coli value"
+msgstr "E coli valor"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ee:0
+msgid "EE"
+msgstr "EE"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,enl:0
+msgid "Enl"
+msgstr "Enl"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,enterobacteriaceae:0
+msgid "Enterobacteriaceae"
+msgstr "Enterobacterias"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,explotation_id:0
+msgid "Explotation"
+msgstr "Explotación"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,fad:0
+msgid "FAD"
+msgstr "FAD"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,fb:0
+msgid "FB"
+msgstr "FB"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,fnd:0
+msgid "FND"
+msgstr "FND"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis.import,import_file:0
+msgid "File to import"
+msgstr "Fichero a importar"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,grain_equivalence:0
+msgid "Grain equivalence"
+msgstr "Equiv. grano"
+
+#. module: res_partner_farm_data
+#: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
+msgid "Import"
+msgstr "Importar"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.lot_analysis_import_act
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_lot_analysis_import
+msgid "Import analysis"
+msgstr "Importar análisis"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,iron:0
+msgid "Iron"
+msgstr "Hierro"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,lab_id:0
+msgid "Laboratory"
+msgstr "Laboratorio"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,lactic_acid:0
+msgid "Lactic acid"
+msgstr "Ácido láctico"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,lignina:0
+msgid "Lignina"
+msgstr "Lignina"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot_analysis
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_lot_analysis
+#: view:lot.analysis:res_partner_farm_data.lot_analysis_filter
+#: view:lot.analysis:res_partner_farm_data.lot_analysis_form
+#: view:lot.analysis:res_partner_farm_data.lot_analysis_tree
+msgid "Lot analysis"
+msgstr "Análisis de lote"
+
+#. module: res_partner_farm_data
+#: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
+msgid "Lot analysis import"
+msgstr "Importar análisis de lote"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,magnesium:0
+msgid "Magnesium"
+msgstr "Magnesio"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,manganese:0
+msgid "Manganese"
+msgstr "Manganeso"
+
+#. module: res_partner_farm_data
+#: selection:lot.analysis,tipo_material:0
+msgid "Mezcla unifeed"
+msgstr "Mezcla unifeed"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,mold:0
+msgid "Mold"
+msgstr "Mohos"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,notes:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,pb:0
+msgid "PB"
+msgstr "PB"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,pbn:0
+msgid "PBn"
+msgstr "PBn"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,pdie:0
+msgid "PDIE"
+msgstr "PDIE"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,pdin:0
+msgid "PDIN"
+msgstr "PDIN"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ps:0
+msgid "PS"
+msgstr "PS"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,phosphor:0
+msgid "Phosphor"
+msgstr "Fósforo"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,potassium:0
+msgid "Potassium"
+msgstr "Potasio"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,product_name:0
+msgid "Product name"
+msgstr "Nombre producto"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,name:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,salmonella_absence:0
+msgid "Salmonella absence"
+msgstr "Salmonela ausente"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,salmonella_unquantifiable:0
+msgid "Salmonella unquantifiable"
+msgstr "Salmonela no cuantificable"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,salmonella_value:0
+msgid "Salmonella value"
+msgstr "Salmonela valor"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,sampling_date:0
+msgid "Sampling date"
+msgstr "Fecha toma muestra"
+
+#. module: res_partner_farm_data
+#: selection:lot.analysis,tipo_material:0
+msgid "Silo hierba"
+msgstr "Silo hierba"
+
+#. module: res_partner_farm_data
+#: selection:lot.analysis,tipo_material:0
+msgid "Silo maiz"
+msgstr "Silo maiz"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,sodium:0
+msgid "Sodium"
+msgstr "Sodio"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,staphylococci:0
+msgid "Staphylococci"
+msgstr "Estafilococos"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,starch:0
+msgid "Starch"
+msgstr "Almidón"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,sulfur:0
+msgid "Sulfur"
+msgstr "Azufre"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,tipo_material:0
+msgid "Tipo de material"
+msgstr "Tipo de material"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ufl:0
+msgid "UFL"
+msgstr "UFL"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,vrf:0
+msgid "VRF"
+msgstr "VRF"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,vomitoxin:0
+msgid "Vomitoxin"
+msgstr "Vomitoxina"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,yeast:0
+msgid "Yeast"
+msgstr "Levaduras"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,zearelenone:0
+msgid "Zearelenone"
+msgstr "Zearalenoma"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,zinc:0
+msgid "Zinc"
+msgstr "Zinc"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,cut_number:0
+msgid "cut number"
+msgstr "Nº de corte"
+
+#. module: res_partner_farm_data
+#: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
+msgid "or"
+msgstr "O"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ph:0
+msgid "pH"
+msgstr "pH"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,ph_stability:0
+msgid "pH stability"
+msgstr "pH estabilidad"
