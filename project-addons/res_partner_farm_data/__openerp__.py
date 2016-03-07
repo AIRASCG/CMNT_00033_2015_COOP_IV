@@ -36,7 +36,7 @@
              'views/lot_analysis.xml', 'views/res_company.xml',
              'views/product.xml', 'views/lot_report_template.xml',
              'lot_report.xml', 'data/lot_detail_sequence.xml',
-             'wizard/lot_analysis_import.xml',
-             'security/security.xml'],
+             'wizard/lot_analysis_import.xml', 'wizard/milk_analysis_import.xml',
+             'security/security.xml', 'views/milk_analysis.xml'],
     "installable": True
 }

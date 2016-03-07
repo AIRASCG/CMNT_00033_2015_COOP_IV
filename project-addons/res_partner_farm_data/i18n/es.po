@@ -159,6 +159,7 @@ msgstr "Empresa láctea"
 #: field:lot.detail,date:0
 #: field:lot.partner,date:0
 #: field:output.quota,date:0
+#: field:milk.analysis,date:0
 #: field:yearly.data,date:0
 msgid "Date"
 msgstr "Fecha"
@@ -615,6 +616,8 @@ msgstr "Pienso estándar"
 #: field:cow.count,state:0
 #: field:employee.farm.count,state:0
 #: field:lot,state:0
+#: field:milk.analysis,state:0
+#: field:milk.analysis.line,state:0
 #: field:output.quota,state:0
 #: field:yearly.data,state:0
 msgid "State"
@@ -716,6 +719,7 @@ msgstr "Watts"
 #: field:lot.analysis,year:0
 #: field:lot.partner,year_id:0
 #: field:output.quota,year_id:0
+#: field:milk.analysis.import,year:0
 #: field:yearly.data,year_id:0
 msgid "Year"
 msgstr "Año"
@@ -906,6 +910,7 @@ msgstr "Calcio"
 
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
+#: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -926,6 +931,7 @@ msgstr "Clostridium"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,company_id:0
+#: field:milk.analysis,company_id:0
 msgid "Company"
 msgstr "Compañía"
 
@@ -1007,6 +1013,7 @@ msgstr "FND"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis.import,import_file:0
+#: field:milk.analysis.import,import_file:0
 msgid "File to import"
 msgstr "Fichero a importar"
 
@@ -1017,6 +1024,7 @@ msgstr "Equiv. grano"
 
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
+#: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
 msgid "Import"
 msgstr "Importar"
 
@@ -1222,6 +1230,7 @@ msgstr "Nº de corte"
 
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
+#: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
 msgid "or"
 msgstr "O"
 
@@ -1234,3 +1243,155 @@ msgstr "pH"
 #: field:lot.analysis,ph_stability:0
 msgid "pH stability"
 msgstr "pH estabilidad"
+#. module: res_partner_farm_data
+#: field:milk.analysis.import,analysis:0
+#: field:milk.analysis.line,analysis_id:0
+msgid "Analysis"
+msgstr "Análisis"
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,analysis_date:0
+#: field:milk.analysis.line,analysis_date:0
+msgid "Analysis date"
+msgstr "Fecha análisis"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,bacteriology:0
+msgid "Bacteriology"
+msgstr "Bacteriología"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,butyric:0
+msgid "Butyric"
+msgstr "Butíricos"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,cs:0
+msgid "CS"
+msgstr "CS"
+
+#. module: res_partner_farm_data
+#: selection:milk.analysis,state:0
+msgid "Correct"
+msgstr "Correcto"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,cryoscope:0
+msgid "Cryoscope"
+msgstr "Ciroscópico"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,dni:0
+msgid "DNI"
+msgstr "DNI"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,dry_extract:0
+msgid "Dry extract"
+msgstr "Extracto seco"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis,exploitation_id:0
+msgid "Exploitation"
+msgstr "Explotación"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,exploitation_name:0
+msgid "Exploitation name"
+msgstr "Nombre explotación"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,fat:0
+msgid "Fat"
+msgstr "Grasa"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,analysis_line_id:0
+msgid "Id"
+msgstr "Id"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.milk_analysis_act
+msgid "Import milk analysis"
+msgstr "Importar análisis de leche"
+
+#. module: res_partner_farm_data
+#: selection:milk.analysis,state:0
+msgid "Incorrect"
+msgstr "Incorrecto"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,inhibitors:0
+msgid "Inhibitors"
+msgstr "Inhibidores"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,milk_analysis_type:0
+msgid "LIGAL"
+msgstr "LIGAL"
+
+#. module: res_partner_farm_data
+#: selection:res.partner,milk_analysis_type:0
+msgid "LILA"
+msgstr "LILA"
+
+#. module: res_partner_farm_data
+#: view:milk.analysis:res_partner_farm_data.milk_analysis_form
+#: field:milk.analysis,line_ids:0
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_milk_analysis
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_milk_analysis
+#: view:milk.analysis:res_partner_farm_data.milk_analysis_filter
+#: view:milk.analysis:res_partner_farm_data.milk_analysis_form
+#: view:milk.analysis:res_partner_farm_data.milk_analysis_tree
+msgid "Milk analysis"
+msgstr "Análisis de leche"
+
+#. module: res_partner_farm_data
+#: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
+msgid "Milk analysis import"
+msgstr "Importar análisis de leche"
+
+#. module: res_partner_farm_data
+#: view:milk.analysis.line:res_partner_farm_data.milk_analysis_line_form
+msgid "Milk analysis line"
+msgstr "Milk analysis line"
+
+#. module: res_partner_farm_data
+#: field:res.partner,milk_analysis_type:0
+msgid "Milk analysis type"
+msgstr "Tipo de análisis"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,protein:0
+msgid "Protein"
+msgstr "Proteina"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,route:0
+msgid "Route"
+msgstr "Ruta"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,sample_date:0
+msgid "Sample date"
+msgstr "Fecha muestra"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,urea:0
+msgid "Urea"
+msgstr "Urea"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,water:0
+msgid "Water"
+msgstr "Agua"
+
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.line,yearmonth:0
+msgid "Year/month"
+msgstr "Año/mes"

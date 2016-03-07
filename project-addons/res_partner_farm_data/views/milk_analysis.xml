@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="milk_analysis_line_tree" model="ir.ui.view">
+            <field name="name">milk.analysis.line.tree</field>
+            <field name="model">milk.analysis.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sample_date"/>
+                    <field name="analysis_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="milk_analysis_line_form" model="ir.ui.view">
+            <field name="name">milk.analysis.line.form</field>
+            <field name="model">milk.analysis.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Milk analysis line">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="sample_date"/>
+                                <field name="dni"/>
+                                <field name="exploitation_name"/>
+                                <field name="analysis_date"/>
+                                <field name="fat"/>
+                                <field name="protein"/>
+                                <field name="dry_extract"/>
+                                <field name="bacteriology"/>
+                                <field name="cs"/>
+                            </group>
+                            <group>
+                                <field name="inhibitors"/>
+                                <field name="cryoscope"/>
+                                <field name="urea"/>
+                                <field name="state"/>
+                                <field name="butyric"/>
+                                <field name="water"/>
+                                <field name="yearmonth"/>
+                                <field name="route"/>
+                                <field name="analysis_line_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="milk_analysis_tree" model="ir.ui.view">
+            <field name="name">milk.analysis.tree</field>
+            <field name="model">milk.analysis</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Milk analysis">
+                    <field name="date"/>
+                    <field name="exploitation_id"/>
+                    <field name="state"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="milk_analysis_form" model="ir.ui.view">
+            <field name="name">milk.analysis.form</field>
+            <field name="model">milk.analysis</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Milk analysis">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="date"/>
+                            <field name="exploitation_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <separator string="Lines"/>
+                        <field name="line_ids" nolabel="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="milk_analysis_filter" model="ir.ui.view">
+            <field name="name">milk.analysis.search</field>
+            <field name="model">milk.analysis</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Milk analysis">
+                    <field name="date"/>
+                    <field name="exploitation_id"/>
+                    <field name="state"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_milk_analysis">
+            <field name="name">Milk analysis</field>
+            <field name="res_model">milk.analysis</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="milk_analysis_tree"/>
+            <field name="search_view_id" ref="milk_analysis_filter"/>
+        </record>
+
+        <menuitem name="Milk analysis" parent="custom_menu.feeding_management"
+            action="action_milk_analysis" id="menu_milk_analysis"/>
+
+    </data>
+</openerp>

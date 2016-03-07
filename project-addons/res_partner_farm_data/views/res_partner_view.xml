@@ -118,6 +118,7 @@
                     <page string="General data" attrs="{'invisible': [('farm', '=', False)]}">
                         <group>
                             <group>
+                                <field name="milk_analysis_type"/>
                                 <field name="partner_of"/>
                                 <field name="exploitation_technician"/>
                                 <field name="barn_type"/>

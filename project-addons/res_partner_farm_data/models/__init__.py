@@ -30,3 +30,4 @@ from . import account_fiscalyear
 from . import stock
 from . import product
 from . import lot_analysis
+from . import milk_analysis

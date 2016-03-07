@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record id="milk_analysis_import_form" model="ir.ui.view">
+            <field name="name">milk.analysis.form</field>
+            <field name="model">milk.analysis.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Milk analysis import">
+                    <group>
+                        <field name="import_file"/>
+                        <field name="milk_analysis_type" invisible="1"/>
+                        <field name="analysis" invisible="1"/>
+                        <field name="year" attrs="{'invisible': [('milk_analysis_type', '=', 'ligal')], 'required': [('milk_analysis_type', '=', 'lila')]}"/>
+                    </group>
+                    <footer>
+                        <button name="import_milk_analysis" string="Import" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Import milk analysis"
+            res_model="milk.analysis.import"
+            src_model="milk.analysis"
+            view_id="milk_analysis_import_form"
+            view_mode="form"
+            target="new"
+            id="milk_analysis_act"/>
+
+    </data>
+</openerp>
+

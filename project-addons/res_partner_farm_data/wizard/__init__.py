@@ -19,3 +19,4 @@
 #
 ##############################################################################
 from . import lot_analysis_import
+from . import milk_analysis_import

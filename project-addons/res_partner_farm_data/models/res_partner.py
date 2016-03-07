@@ -89,13 +89,17 @@ class ResPartner(models.Model):
     manure_pit_outdoor = fields.Integer('Manure pit outdoor')
     trailer_access = fields.Boolean('Trailer access')
     employees_quantity = fields.Integer('Employees quantity')
-    employee_count_ids = fields.One2many('employee.farm.count', 'partner_id', 'Employees')
+    employee_count_ids = fields.One2many('employee.farm.count', 'partner_id',
+                                         'Employees')
     cow_count_ids = fields.One2many('cow.count', 'partner_id', 'Cows')
     heifer_0_3 = fields.Integer('Heifer 0-3 months')
     heifer_3_12 = fields.Integer('Heifer 3-12 months')
     heifer_plus_12 = fields.Integer('Heifer >12 months')
     milk_cow = fields.Integer('Milk cows')
     dry_cow = fields.Integer('Dry cows')
+    milk_analysis_type = fields.Selection(
+        (('ligal', 'LIGAL'), ('lila', 'LILA')),
+        'Milk analysis type')
 
     @api.model
     def create(self, vals):
