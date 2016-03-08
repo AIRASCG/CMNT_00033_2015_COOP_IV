@@ -20,5 +20,11 @@
             <field name="domain_force">[('company_id','child_of',[user.company_id.id])]</field>
         </record>
 
+        <record model="ir.rule" id="milk_control_multicompany_rule">
+            <field name="name">milk control multicompany</field>
+            <field name="model_id" ref="res_partner_farm_data.model_milk_control"/>
+            <field name="domain_force">[('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
     </data>
 </openerp>

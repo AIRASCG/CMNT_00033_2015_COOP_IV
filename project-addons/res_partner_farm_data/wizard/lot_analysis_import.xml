@@ -21,16 +21,15 @@
             </field>
         </record>
 
-        <act_window name="Import analysis"
+        <act_window name="Import lot analysis"
             res_model="lot.analysis.import"
             view_id="lot_analysis_import_from"
             view_mode="form"
             target="new"
             id="lot_analysis_import_act"/>
 
-        <menuitem name="Import analysis" parent="custom_menu.feeding_management"
+        <menuitem name="Import lot analysis" parent="custom_menu.feeding_management"
             action="lot_analysis_import_act" id="menu_lot_analysis_import"/>
 
     </data>
 </openerp>
-

@@ -31,3 +31,4 @@ from . import stock
 from . import product
 from . import lot_analysis
 from . import milk_analysis
+from . import milk_control

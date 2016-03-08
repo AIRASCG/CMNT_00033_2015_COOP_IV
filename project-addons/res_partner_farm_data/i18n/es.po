@@ -159,6 +159,7 @@ msgstr "Empresa láctea"
 #: field:lot.detail,date:0
 #: field:lot.partner,date:0
 #: field:output.quota,date:0
+#: field:milk.control,date:0
 #: field:milk.analysis,date:0
 #: field:yearly.data,date:0
 msgid "Date"
@@ -452,6 +453,8 @@ msgstr "Coste carro (€/vaca y día)"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,name:0
+#: field:lot.detail.sequence,name:0
+#: field:milk.control.line,name:0
 msgid "Name"
 msgstr "Nombre"
 
@@ -616,13 +619,14 @@ msgstr "Pienso estándar"
 #: field:cow.count,state:0
 #: field:employee.farm.count,state:0
 #: field:lot,state:0
+#: field:lot.partner,state:0
 #: field:milk.analysis,state:0
 #: field:milk.analysis.line,state:0
+#: field:milk.control,state:0
 #: field:output.quota,state:0
 #: field:yearly.data,state:0
 msgid "State"
 msgstr "Estado"
-
 
 #. module: res_partner_farm_data
 #: view:lot:res_partner_farm_data.lot_partner_form
@@ -911,6 +915,7 @@ msgstr "Calcio"
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
+#: view:milk.control.import:res_partner_farm_data.milk_control_import_form
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -932,6 +937,7 @@ msgstr "Clostridium"
 #. module: res_partner_farm_data
 #: field:lot.analysis,company_id:0
 #: field:milk.analysis,company_id:0
+#: field:milk.control,company_id:0
 msgid "Company"
 msgstr "Compañía"
 
@@ -1014,6 +1020,7 @@ msgstr "FND"
 #. module: res_partner_farm_data
 #: field:lot.analysis.import,import_file:0
 #: field:milk.analysis.import,import_file:0
+#: field:milk.control.import,import_file:0
 msgid "File to import"
 msgstr "Fichero a importar"
 
@@ -1025,14 +1032,15 @@ msgstr "Equiv. grano"
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
+#: view:milk.control.import:res_partner_farm_data.milk_control_import_form
 msgid "Import"
 msgstr "Importar"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.lot_analysis_import_act
 #: model:ir.ui.menu,name:res_partner_farm_data.menu_lot_analysis_import
-msgid "Import analysis"
-msgstr "Importar análisis"
+msgid "Import lot analysis"
+msgstr "Importar análisis de lote"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,iron:0
@@ -1231,8 +1239,109 @@ msgstr "Nº de corte"
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
+#: view:milk.control.import:res_partner_farm_data.milk_control_import_form
 msgid "or"
 msgstr "O"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,cea:0
+msgid "CEA"
+msgstr "CEA"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,cib:0
+msgid "CIB"
+msgstr "CIB"
+
+#. module: res_partner_farm_data
+#: field:milk.control.import,control:0
+#: field:milk.control.line,control_id:0
+msgid "Control"
+msgstr "Control"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,cumulative_fat:0
+msgid "Cumulative fat"
+msgstr "Grasa-ACUM"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,cumulative_milk:0
+msgid "Cumulative milk"
+msgstr "Leche-ACUM"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,cumulative_protein:0
+msgid "Cumulative protein"
+msgstr "Proteina-ACUM"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,days:0
+msgid "DEL"
+msgstr "DEL"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,date_birth:0
+msgid "Date of birth"
+msgstr "Fecha de nacimiento"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,fat:0
+msgid "Fat %"
+msgstr "Grasa %"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.milk_control_act
+msgid "Import milk control"
+msgstr "Importar control lechero"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_milk_control
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_milk_control
+#: view:milk.control:res_partner_farm_data.milk_control_filter
+#: view:milk.control:res_partner_farm_data.milk_control_form
+#: view:milk.control:res_partner_farm_data.milk_control_tree
+msgid "Milk control"
+msgstr "Control lechero"
+
+#. module: res_partner_farm_data
+#: view:milk.control.import:res_partner_farm_data.milk_control_import_form
+msgid "Milk control import"
+msgstr "Importar control lechero"
+
+#. module: res_partner_farm_data
+#: view:milk.control.line:res_partner_farm_data.milk_control_line_form
+msgid "Milk control line"
+msgstr "Milk control line"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,milk_liters:0
+msgid "Milk liters"
+msgstr "Litros leche"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,birth_number:0
+msgid "Number of births"
+msgstr "Nº de partos"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,control_number:0
+msgid "Number of controls"
+msgstr "Nº de controles"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,protein:0
+msgid "Protein %"
+msgstr "Proteina %"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,rcs:0
+msgid "RCS"
+msgstr "RCS"
+
+#. module: res_partner_farm_data
+#: field:milk.control.line,crotal:0
+msgid "crotal corto"
+msgstr "crotal corto"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,ph:0
@@ -1272,6 +1381,7 @@ msgstr "CS"
 
 #. module: res_partner_farm_data
 #: selection:milk.analysis,state:0
+#: selection:milk.control,state:0
 msgid "Correct"
 msgstr "Correcto"
 
@@ -1292,6 +1402,7 @@ msgstr "Extracto seco"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis,exploitation_id:0
+#: field:milk.control,exploitation_id:0
 msgid "Exploitation"
 msgstr "Explotación"
 
@@ -1317,6 +1428,7 @@ msgstr "Importar análisis de leche"
 
 #. module: res_partner_farm_data
 #: selection:milk.analysis,state:0
+#: selection:milk.control,state:0
 msgid "Incorrect"
 msgstr "Incorrecto"
 
@@ -1338,6 +1450,8 @@ msgstr "LILA"
 #. module: res_partner_farm_data
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
 #: field:milk.analysis,line_ids:0
+#: view:milk.control:res_partner_farm_data.milk_control_form
+#: field:milk.control,line_ids:0
 msgid "Lines"
 msgstr "Lineas"
 
@@ -1382,6 +1496,7 @@ msgstr "Fecha muestra"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,urea:0
+#: field:milk.control.line,urea:0
 msgid "Urea"
 msgstr "Urea"
 

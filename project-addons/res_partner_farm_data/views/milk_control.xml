@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="milk_control_line_tree" model="ir.ui.view">
+            <field name="name">milk.control.line.tree</field>
+            <field name="model">milk.control.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="cea"/>
+                    <field name="cib"/>
+                    <field name="crotal"/>
+                    <field name="name"/>
+                    <field name="date_birth"/>
+                    <field name="birth_number"/>
+                    <field name="control_number"/>
+                    <field name="days"/>
+                    <field name="milk_liters"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="milk_control_line_form" model="ir.ui.view">
+            <field name="name">milk.control.line.form</field>
+            <field name="model">milk.control.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Milk control line">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="cea"/>
+                                <field name="cib"/>
+                                <field name="crotal"/>
+                                <field name="name"/>
+                                <field name="date_birth"/>
+                                <field name="birth_number"/>
+                                <field name="control_number"/>
+                                <field name="days"/>
+                            </group>
+                            <group>
+                                <field name="milk_liters"/>
+                                <field name="fat"/>
+                                <field name="protein"/>
+                                <field name="rcs"/>
+                                <field name="urea"/>
+                                <field name="cumulative_milk"/>
+                                <field name="cumulative_fat"/>
+                                <field name="cumulative_protein"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="milk_control_tree" model="ir.ui.view">
+            <field name="name">milk.control.tree</field>
+            <field name="model">milk.control</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Milk control">
+                    <field name="date"/>
+                    <field name="exploitation_id"/>
+                    <field name="state"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="milk_control_form" model="ir.ui.view">
+            <field name="name">milk.control.form</field>
+            <field name="model">milk.control</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Milk control">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="date"/>
+                            <field name="exploitation_id"/>
+                            <field name="company_id"/>
+                        </group>
+                        <separator string="Lines"/>
+                        <field name="line_ids" nolabel="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="milk_control_filter" model="ir.ui.view">
+            <field name="name">milk.control.search</field>
+            <field name="model">milk.control</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Milk control">
+                    <field name="date"/>
+                    <field name="exploitation_id"/>
+                    <field name="state"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_milk_control">
+            <field name="name">Milk control</field>
+            <field name="res_model">milk.control</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="milk_control_tree"/>
+            <field name="search_view_id" ref="milk_control_filter"/>
+        </record>
+
+        <menuitem name="Milk control" parent="custom_menu.feeding_management"
+            action="action_milk_control" id="menu_milk_control"/>
+
+    </data>
+</openerp>

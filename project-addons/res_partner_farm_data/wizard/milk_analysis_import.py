@@ -115,5 +115,5 @@ class MilkAnalysisImport(models.TransientModel):
                     self.analysis.with_env(new_env).write({'state': 'incorrect'})
                     self.analysis.line_ids.with_env(new_env).unlink()
                     new_env.cr.commit()
+        finally:
             return {'type': 'ir.actions.act_window_close'}
-        return {'type': 'ir.actions.act_window_close'}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record id="milk_control_import_form" model="ir.ui.view">
+            <field name="name">milk.control.form</field>
+            <field name="model">milk.control.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Milk control import">
+                    <group>
+                        <field name="import_file"/>
+                    </group>
+                    <footer>
+                        <button name="import_control" string="Import" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Import milk control"
+            res_model="milk.control.import"
+            src_model="milk.control"
+            view_id="milk_control_import_form"
+            view_mode="form"
+            target="new"
+            id="milk_control_act"/>
+
+    </data>
+</openerp>
