@@ -34,7 +34,12 @@ class MilkControl(models.Model):
     state = fields.Selection(
         (('correct', 'Correct'), ('incorrect', 'Incorrect')), 'State')
     line_ids = fields.One2many('milk.control.line', 'control_id', 'Lines')
+    num_records = fields.Integer('Number of records', compute = '_get_num_records')
 
+    @api.multi
+    def _get_num_records(self):
+        for obj in self:
+            obj.num_records = len(obj.line_ids)
 
 class MilkControlLine(models.Model):
 

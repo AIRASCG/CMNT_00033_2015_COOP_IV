@@ -59,6 +59,7 @@
                     <field name="date"/>
                     <field name="exploitation_id"/>
                     <field name="state"/>
+                    <field name="num_records"/>
                     <field name="company_id"/>
                 </tree>
             </field>

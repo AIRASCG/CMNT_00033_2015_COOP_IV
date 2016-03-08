@@ -28,6 +28,16 @@ msgid "ADSG certification supplier"
 msgstr "Proveedor certificación ADSG"
 
 #. module: res_partner_farm_data
+#: field:milk.analysis,num_records:0
+msgid "Number of records"
+msgstr "Número de registros"
+
+#. module: res_partner_farm_data
+#: field:milk.control,num_records:0
+msgid "Number of records"
+msgstr "Número de registros"
+
+#. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/res_partner.py:205
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
