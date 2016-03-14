@@ -25,16 +25,17 @@ class MilkControl(models.Model):
 
     _name = 'milk.control'
 
-    def _get_company(self):
-        return self.env.user.company_id.id
-
-    company_id = fields.Many2one('res.company', 'Company', required=True, default=_get_company)
     date = fields.Datetime('Date', required=True)
-    exploitation_id = fields.Many2one('res.partner', 'Exploitation', required=True)
+    exploitation_id = fields.\
+        Many2one('res.partner', 'Exploitation', required=True,
+                 default=lambda self: self.env.user.company_id.partner_id.id)
     state = fields.Selection(
         (('correct', 'Correct'), ('incorrect', 'Incorrect')), 'State')
+    company_id = fields.Many2one("res.company", readonly=True,
+                                 related="exploitation_id.company_id")
     line_ids = fields.One2many('milk.control.line', 'control_id', 'Lines')
     num_records = fields.Integer('Number of records', compute = '_get_num_records')
+    exception_txt = fields.Text("Exceptions", readonly=True)
 
     @api.multi
     def _get_num_records(self):
