@@ -109,8 +109,5 @@
             <field name="search_view_id" ref="milk_analysis_filter"/>
         </record>
 
-        <menuitem name="Milk analysis" parent="custom_menu.feeding_management"
-            action="action_milk_analysis" id="menu_milk_analysis"/>
-
     </data>
 </openerp>

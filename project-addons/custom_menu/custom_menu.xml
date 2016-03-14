@@ -270,6 +270,18 @@
             </field>
         </record>
 
+        <menuitem name="Lot analysis" parent="custom_menu.feeding_management"
+            action="res_partner_farm_data.action_lot_analysis" id="menu_lot_analysis"/>
+
+        <menuitem name="Milk analysis" parent="custom_menu.feeding_management"
+            action="res_partner_farm_data.action_milk_analysis" id="menu_milk_analysis"/>
+
+        <menuitem name="Milk control" parent="custom_menu.feeding_management"
+            action="res_partner_farm_data.action_milk_control" id="menu_milk_control"/>
+
+        <menuitem name="Import lot analysis" parent="custom_menu.feeding_management"
+            action="res_partner_farm_data.lot_analysis_import_act" id="menu_lot_analysis_import"/>
+
 
     </data>
 </openerp>

@@ -28,8 +28,5 @@
             target="new"
             id="lot_analysis_import_act"/>
 
-        <menuitem name="Import lot analysis" parent="custom_menu.feeding_management"
-            action="lot_analysis_import_act" id="menu_lot_analysis_import"/>
-
     </data>
 </openerp>

@@ -1048,7 +1048,6 @@ msgstr "Importar"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.lot_analysis_import_act
-#: model:ir.ui.menu,name:res_partner_farm_data.menu_lot_analysis_import
 msgid "Import lot analysis"
 msgstr "Importar análisis de lote"
 
@@ -1306,7 +1305,6 @@ msgstr "Importar control lechero"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_milk_control
-#: model:ir.ui.menu,name:res_partner_farm_data.menu_milk_control
 #: view:milk.control:res_partner_farm_data.milk_control_filter
 #: view:milk.control:res_partner_farm_data.milk_control_form
 #: view:milk.control:res_partner_farm_data.milk_control_tree
@@ -1467,7 +1465,6 @@ msgstr "Lineas"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_milk_analysis
-#: model:ir.ui.menu,name:res_partner_farm_data.menu_milk_analysis
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_filter
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_tree

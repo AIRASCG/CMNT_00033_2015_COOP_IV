@@ -163,6 +163,21 @@ msgid "Farm management"
 msgstr "Gestión de explotaciones"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_lot_analysis_import
+msgid "Import lot analysis"
+msgstr "Importar análisis de lote"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_milk_analysis
+msgid "Milk analysis"
+msgstr "Análisis de leche"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_milk_control
+msgid "Milk control"
+msgstr "Control lechero"
+
+#. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_partner_farm_form
 #: model:ir.ui.menu,name:custom_menu.partner_farm
 #: view:res.partner:custom_menu.res_partner_farm_tree

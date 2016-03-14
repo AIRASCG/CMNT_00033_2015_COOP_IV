@@ -134,8 +134,5 @@
             <field name="search_view_id" ref="lot_analysis_filter"/>
         </record>
 
-        <menuitem name="Lot analysis" parent="custom_menu.feeding_management"
-            action="action_lot_analysis" id="menu_lot_analysis"/>
-
     </data>
 </openerp>

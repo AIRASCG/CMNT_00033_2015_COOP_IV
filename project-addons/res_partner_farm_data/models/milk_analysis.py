@@ -45,7 +45,7 @@ class MilkAnalysisLine(models.Model):
 
     _name = 'milk.analysis.line'
 
-    analysis_id = fields.Many2one('milk.Analysis', 'Analysis')
+    analysis_id = fields.Many2one('milk.analysis', 'Analysis')
     sample_date = fields.Date('Sample date')
     dni = fields.Char('DNI')
     exploitation_name = fields.Char('Exploitation name')

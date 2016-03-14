@@ -114,8 +114,5 @@
             <field name="search_view_id" ref="milk_control_filter"/>
         </record>
 
-        <menuitem name="Milk control" parent="custom_menu.feeding_management"
-            action="action_milk_control" id="menu_milk_control"/>
-
     </data>
 </openerp>
