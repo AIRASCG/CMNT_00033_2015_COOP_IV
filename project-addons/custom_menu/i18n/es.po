@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * custom_menu
+#       * custom_menu
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-11 11:41+0000\n"
-"PO-Revision-Date: 2015-12-11 11:41+0000\n"
+"POT-Creation-Date: 2016-03-14 16:34+0000\n"
+"PO-Revision-Date: 2016-03-14 16:34+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -107,9 +107,9 @@ msgid "Anaytic report"
 msgstr "Informe de contabilidad analítica"
 
 #. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_action_account_asset_asset_tree
-msgid "Asset Hierarchy"
-msgstr "Jerarquía de activos"
+#: model:ir.ui.menu,name:custom_menu.menu_action_account_asset_category_form
+msgid "Asset Categories"
+msgstr "Categorías de activo"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_account_asset_asset_form
@@ -152,6 +152,11 @@ msgid "Denominations"
 msgstr "Denominaciones"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.documental_management
+msgid "Documental management"
+msgstr "Gestión doumental"
+
+#. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_partner_farm_group_category_form
 #: model:ir.ui.menu,name:custom_menu.partner_farm_group
 msgid "Farm groups"
@@ -163,26 +168,26 @@ msgid "Farm management"
 msgstr "Gestión de explotaciones"
 
 #. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_lot_analysis_import
-msgid "Import lot analysis"
-msgstr "Importar análisis de lote"
-
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_milk_analysis
-msgid "Milk analysis"
-msgstr "Análisis de leche"
-
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_milk_control
-msgid "Milk control"
-msgstr "Control lechero"
-
-#. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_partner_farm_form
 #: model:ir.ui.menu,name:custom_menu.partner_farm
 #: view:res.partner:custom_menu.res_partner_farm_tree
 msgid "Farms"
 msgstr "Explotaciones"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.feeding_management
+msgid "Feeding management"
+msgstr "Gestión de alimentación"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_lot_analysis_import
+msgid "Import lot analysis"
+msgstr "Importar análisis de lote"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.information
+msgid "Information"
+msgstr "Información"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_tech_invoices
@@ -195,9 +200,29 @@ msgid "Logs"
 msgstr "Registros"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_lot
+msgid "Lot"
+msgstr "Lotes"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_lot_analysis
+msgid "Lot analysis"
+msgstr "Análisis lotes"
+
+#. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_calendar
 msgid "Meetings"
 msgstr "Calendario"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_milk_analysis
+msgid "Milk analysis"
+msgstr "Análisis de leche"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_milk_control
+msgid "Milk control"
+msgstr "Control lechero"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.parent_menu
@@ -215,45 +240,30 @@ msgid "Rules"
 msgstr "Reglas"
 
 #. module: custom_menu
-#: model:res.groups,name:custom_menu.group_standard_menus
-msgid "Show standard menus"
-msgstr "Mostrar menús standard"
-
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree2
-msgid "Supplier Invoices"
-msgstr "Facturas de proveedor"
-
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.documental_management
-msgid "Dcoumental management"
-msgstr "Gestión documental"
-
-#. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.configuration
 msgid "Settings"
 msgstr "Configuración"
 
 #. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.information
-msgid "Information"
-msgstr "Información"
+#: model:res.groups,name:custom_menu.group_standard_menus
+msgid "Show standard menus"
+msgstr "Mostrar menús standard"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_wizard_valuation_history
+msgid "Stock Valuation"
+msgstr "Valoración de existencias"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_action_production_lot_form
+msgid "Stock lots"
+msgstr "Lotes existencias"
 
 #. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree2
 #: model:ir.ui.menu,name:custom_menu.menu_action_invoice_line_tree2
 msgid "Supplier Invoice lines"
 msgstr "Lineas de factura de proveedor"
-
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.feeding_management
-msgid "Feeding management"
-msgstr "Gestión de alimentación"
-
-#. module: custom_menu
-#: model:ir.ui.menu,name:custom_menu.menu_lot
-msgid "Lot"
-msgstr "Lotes"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_invoice_tree2
@@ -280,9 +290,3 @@ msgstr "Usuarios"
 #: model:ir.ui.menu,name:custom_menu.visitor_management
 msgid "Visitor management"
 msgstr "Gestión de visitas"
-
-#. module: custom_menu
-#: view:account.invoice.line:custom_menu.view_invoice_line_tree_editable
-msgid "top"
-msgstr "top"
-
