@@ -39,7 +39,7 @@ class MilkAnalysisImport(models.TransientModel):
 
     def get_positions(self):
         if self.milk_analysis_type == 'lila':
-            return 0, False, False, False, 4, 5, 6, 7, 8, False, 10, \
+            return 0, False, False, False, 1, 2, 3, 4, 5, False, 6, \
                 False, False, False, False, False, False, False
         else:
             return range(0, 18)
@@ -107,12 +107,14 @@ class MilkAnalysisImport(models.TransientModel):
                     analysis_vals['analysis_line_id'] = row[id_pos]
                 analysis_vals['analysis_id'] = self.analysis.id
                 self.env['milk.analysis.line'].create(analysis_vals)
-            self.analysis.write({'state': 'correct'})
-        except:
+            self.analysis.write({'state': 'correct', 'exception_txt': ''})
+        except Exception as e:
             with api.Environment.manage():
                 with registry(self.env.cr.dbname).cursor() as new_cr:
                     new_env = api.Environment(new_cr, self.env.uid, self.env.context)
-                    self.analysis.with_env(new_env).write({'state': 'incorrect'})
+                    self.analysis.with_env(new_env).\
+                        write({'state': 'incorrect',
+                               'exception_txt': e.message})
                     self.analysis.line_ids.with_env(new_env).unlink()
                     new_env.cr.commit()
         finally:

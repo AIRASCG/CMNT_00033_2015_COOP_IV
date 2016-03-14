@@ -25,16 +25,17 @@ class MilkAnalysis(models.Model):
 
     _name = 'milk.analysis'
 
-    def _get_company(self):
-        return self.env.user.company_id.id
-
-    company_id = fields.Many2one('res.company', 'Company', required=True, default=_get_company)
     date = fields.Datetime('Date', required=True)
-    exploitation_id = fields.Many2one('res.partner', 'Exploitation', required=True)
+    exploitation_id = fields.\
+        Many2one('res.partner', 'Exploitation', required=True,
+                 default=lambda self: self.env.user.company_id.partner_id.id)
+    company_id = fields.Many2one("res.company", readonly=True,
+                                 related="exploitation_id.company_id")
     state = fields.Selection(
         (('correct', 'Correct'), ('incorrect', 'Incorrect')), 'State')
     line_ids = fields.One2many('milk.analysis.line', 'analysis_id', 'Lines')
     num_records = fields.Integer('Number of records', compute = '_get_num_records')
+    exception_txt = fields.Text("Exceptions", readonly=True)
 
     @api.multi
     def _get_num_records(self):
@@ -54,7 +55,7 @@ class MilkAnalysisLine(models.Model):
     protein = fields.Float('Protein')
     dry_extract = fields.Float('Dry extract')
     bacteriology = fields.Float('Bacteriology')
-    cs = fields.Float('CS')
+    cs = fields.Char('CS')
     inhibitors = fields.Float('Inhibitors')
     cryoscope = fields.Float('Cryoscope')
     urea = fields.Float('Urea')

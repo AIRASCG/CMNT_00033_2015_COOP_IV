@@ -60,7 +60,6 @@
                     <field name="exploitation_id"/>
                     <field name="state"/>
                     <field name="num_records"/>
-                    <field name="company_id"/>
                 </tree>
             </field>
         </record>
@@ -78,10 +77,16 @@
                         <group>
                             <field name="date"/>
                             <field name="exploitation_id"/>
-                            <field name="company_id"/>
                         </group>
-                        <separator string="Lines"/>
-                        <field name="line_ids" nolabel="1"/>
+                        <notebook colspan="4">
+                            <page string="Lines">
+                                <field name="line_ids" nolabel="1" colspan="4"/>
+                            </page>
+                            <page string="Notes">
+                                <separator string="Errors" colspan="4"/>
+                                <field name="exception_txt" nolabel="1" colspan="4"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
