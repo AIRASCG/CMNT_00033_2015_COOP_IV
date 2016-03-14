@@ -25,11 +25,7 @@ class LotAnalysis(models.Model):
 
     _name = 'lot.analysis'
 
-    def _get_company(self):
-        return self.env.user.company_id
-
     name = fields.Char('Reference', required=True)
-    company_id = fields.Many2one('res.company', 'Company', default=_get_company)
     lot_id = fields.Many2one('stock.production.lot', 'Lot')
     tipo_material = fields.Selection(
         (('hierba', 'Silo hierba'), ('maiz', 'Silo maiz'),
@@ -37,6 +33,8 @@ class LotAnalysis(models.Model):
     cooperative_id = fields.Many2one('res.partner', 'Cooperative')
     lab_id = fields.Many2one('res.partner', 'Laboratory')
     explotation_id = fields.Many2one('res.partner', 'Explotation')
+    company_id = fields.Many2one('res.company', 'Company',
+                                 related='explotation_id.company_id')
     year = fields.Integer('Year')
     product_name = fields.Char('Product name')
     notes = fields.Text('Notes')

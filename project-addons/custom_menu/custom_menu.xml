@@ -282,6 +282,9 @@
         <menuitem name="Import lot analysis" parent="custom_menu.feeding_management"
             action="res_partner_farm_data.lot_analysis_import_act" id="menu_lot_analysis_import"/>
 
+        <menuitem action="stock.action_production_lot_form" id="menu_action_production_lot_form"
+            parent="custom_menu.feeding_management" name="Stock lots"/>
+
 
     </data>
 </openerp>

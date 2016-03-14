@@ -35,7 +35,6 @@
                                 <field name="analysis_date"/>
                                 <field name="cooperative_id"/>
                                 <field name="lot_id"/>
-                                <field name="company_id" />
                             </group>
                             <group>
                                 <field name="tipo_material"/>

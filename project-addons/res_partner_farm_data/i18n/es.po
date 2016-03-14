@@ -1360,6 +1360,7 @@ msgstr "pH"
 #: field:lot.analysis,ph_stability:0
 msgid "pH stability"
 msgstr "pH estabilidad"
+
 #. module: res_partner_farm_data
 #: field:milk.analysis.import,analysis:0
 #: field:milk.analysis.line,analysis_id:0
