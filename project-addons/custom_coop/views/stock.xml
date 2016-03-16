@@ -2,6 +2,28 @@
 <openerp>
     <data>
 
+        <record id="view_production_lot_tree_inherit" model="ir.ui.view">
+            <field name="name">stock.production.lot.tree</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='name']" position="after">
+                    <field name="stock_available"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_production_lot_form_inherit" model="ir.ui.view">
+            <field name="name">stock.production.lot.form</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="stock_available"/>
+                </xpath>
+            </field>
+        </record>
+
         <record id="view_location_form" model="ir.ui.view">
             <field name="name">stock.location.form</field>
             <field name="model">stock.location</field>

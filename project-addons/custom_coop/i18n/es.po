@@ -16,6 +16,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_coop
+#: field:stock.production.lot,stock_available:0
+msgid "Stock available"
+msgstr "Stock disponible"
+
+#. module: custom_coop
 #: field:account.asset.category,subvention_analytic_account_id:0
 msgid "Subvention analytic account"
 msgstr "Cuenta analítica subvenciones"
@@ -244,4 +249,3 @@ msgstr "Error en escritura: view:stock.location.update.stock.wizard:custom_coop.
 #: view:calendar.event:custom_coop.calendar_event_checkbox
 msgid "many2many_checkboxes"
 msgstr "many2many_checkboxes"
-

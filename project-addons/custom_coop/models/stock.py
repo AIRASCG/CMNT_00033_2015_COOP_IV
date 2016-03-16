@@ -30,3 +30,19 @@ class StockLocation(models.Model):
         return self.env.ref('stock.stock_location_locations').id
 
     location_id = fields.Many2one(default=_get_default_location)
+
+class stock_production_lot(models.Model):
+    _inherit = 'stock.production.lot'
+
+    stock_available = fields.Float(string="Stock available",
+                                   compute="_compute_stock_available",
+                                   readonly=True)
+
+    @api.one
+    @api.depends("stock_available")
+    def _compute_stock_available(self):
+        sum_quants = 0.0
+        for quant in self.quant_ids:
+            if self.quant_ids.location_id.usage == u'internal':
+                sum_quants += self.quant_ids.qty
+        self.stock_available = sum_quants
