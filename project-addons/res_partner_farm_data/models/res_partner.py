@@ -100,6 +100,64 @@ class ResPartner(models.Model):
     milk_analysis_type = fields.Selection(
         (('ligal', 'LIGAL'), ('lila', 'LILA')),
         'Milk analysis type')
+    plantation_ids = fields.One2many('res.partner.fields', 'partner_id',
+                                     string='Plantations')
+    use_fo = fields.Float(string="Use Forest",
+                          readonly=True, multi=True,
+                          compute="_compute_net_surfaces")
+    use_hu = fields.Float(string="Use Vegetable Garden",
+                          readonly=True, multi=True,
+                          compute="_compute_net_surfaces")
+    use_ta = fields.Float(string="Use Corn",
+                          readonly=True, multi=True,
+                          compute="_compute_net_surfaces")
+    use_pa = fields.Float(string="Use Wooded Grass",
+                          readonly=True, multi=True,
+                          compute="_compute_net_surfaces")
+    use_pr = fields.Float(string="Use Shrubby Grass",
+                          readonly=True, multi=True,
+                          compute="_compute_net_surfaces")
+    use_ps = fields.Float(string="Use Grass > 5 Years",
+                          readonly=True, multi=True,
+                          compute="_compute_net_surfaces")
+    use_pm = fields.Float(string="Use Grass < 5 Years",
+                          readonly=True, multi=True,
+                          compute="_compute_net_surfaces")
+    total_net_surface = fields.Float(string="Total Net Surface",
+                                     readonly=True, multi=True,
+                                     compute="_compute_net_surfaces")
+
+    @api.one
+    @api.depends('use_fo','use_hu','use_ta','use_pa','use_pr','use_ps',
+                 'use_pm','total_net_surface')
+    def _compute_net_surfaces(self):
+        use_obj = self.env['res.partner.fields']
+        use_ids = use_obj.search([('partner_id', '=', self.id)])
+        sumtotal = sumfo = sumhu = sumta = sumpa = sumpr = sumps = sumpm = 0.0
+        for use_id in use_ids:
+            if use_id.use == u'FO':
+                sumfo += use_id.net_surface
+            elif use_id.use == u'HU':
+                sumhu += use_id.net_surface
+            elif use_id.use == u'TA':
+                sumta += use_id.net_surface
+            elif use_id.use == u'PA':
+                sumpa += use_id.net_surface
+            elif use_id.use == u'PR':
+                sumpr += use_id.net_surface
+            elif use_id.use == u'PS':
+                sumps += use_id.net_surface
+            elif use_id.use == u'PM':
+                sumpm += use_id.net_surface
+            sumtotal += use_id.net_surface
+        self.use_fo = sumfo
+        self.use_hu = sumhu
+        self.use_ta = sumta
+        self.use_pa = sumpa
+        self.use_pr = sumpr
+        self.use_ps = sumps
+        self.use_pm = sumpm
+        self.total_net_surface = sumtotal
 
     @api.model
     def create(self, vals):
@@ -222,3 +280,33 @@ class ResPartnerCategory(models.Model):
     description = fields.Text('Description')
     partner_id = fields.Many2many('res.partner', 'res_partner_res_partner_category_rel',
                                   'category_id', 'partner_id', 'Partners')
+
+class ResPartnerFarmData(models.Model):
+    _name = 'res.partner.fields'
+    # _rec_name = 'product_name'
+
+    partner_id = fields.Many2one("res.partner", "Res Partner")
+    province_id = fields.Many2one("res.country.state", "Province Code")
+    townhall_id = fields.Char("Town Hall Code")
+    added = fields.Boolean("Added")
+    zone = fields.Integer("Zone")
+    industrial_estate = fields.Char("Industrial Estate")
+    # plot = fields.Char("Plot")
+    enclosure = fields.Char("Enclosure")
+    use = fields.Selection(
+        (('FO', 'Forest'),
+         ('HU', 'Vegetable Garden'),
+         ('TA', 'Corn'),
+         ('PA', 'Wooded Grass'),
+         ('PR', 'Shrubby Grass'),
+         ('PS', 'Grass > 5 Years'),
+         ('PM', 'Grass < 5 Years')),"Use", required=True)
+    sixpac_surface = fields.Float("Sixpac Surface")
+    cap = fields.Float("CAP")
+    declared_surface = fields.Float("Declared Surface")
+    net_surface = fields.Float("Net Surface")
+    product_code = fields.Char("Product Code")
+    product_name = fields.Char("Product")
+    variety = fields.Integer("Variety")
+    location_name = fields.Char("Location Name")
+    rent = fields.Boolean("Rent")

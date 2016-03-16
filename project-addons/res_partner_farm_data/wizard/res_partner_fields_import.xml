@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+      <record id="res_partner_fields_import_form" model="ir.ui.view">
+          <field name="name">res.partner.fields.import.form</field>
+          <field name="model">res.partner.fields.import</field>
+          <field name="type">form</field>
+          <field name="arch" type="xml">
+              <form string="Plantations import">
+                  <group>
+                      <field name="import_file"/>
+                  </group>
+                  <footer>
+                      <button name="import_control" string="Import" type="object" class="oe_highlight"/>
+                      or
+                      <button string="Cancel" class="oe_link" special="cancel"/>
+                  </footer>
+              </form>
+          </field>
+      </record>
+
+      <act_window name="Import plantations"
+          res_model="res.partner.fields.import"
+          src_model="res.partner.fields"
+          view_id="res_partner_fields_import_form"
+          view_mode="form"
+          target="new"
+          id="import_fields_act"/>
+    </data>
+</openerp>

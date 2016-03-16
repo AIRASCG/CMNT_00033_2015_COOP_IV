@@ -16,3 +16,4 @@ access_milk_control,access_milk_control,model_milk_control,base.group_user,1,1,1
 access_milk_control_line,access_milk_control_line,model_milk_control_line,base.group_user,1,1,1,1
 access_milk_analysis,access_milk_analysis,model_milk_analysis,base.group_user,1,1,1,1
 access_milk_analysis_line,access_milk_analysis_line,model_milk_analysis_line,base.group_user,1,1,1,1
+access_milk_farm_line,access_milk_farm_line,model_res_partner_fields,base.group_user,1,1,1,1
