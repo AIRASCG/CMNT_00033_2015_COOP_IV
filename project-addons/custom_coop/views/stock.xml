@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        <record id="view_stock_quant_tree_inherit" model="ir.ui.view">
+            <field name="name">stock.quant.tree.inherit</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.view_stock_quant_tree"/>
+            <field name="arch" type="xml">
+                  <xpath expr="//tree/field[@name='qty']" position="after">
+                      <field name="lot_id"/>
+                  </xpath>
+            </field>
+        </record>
 
         <record id="view_production_lot_tree_inherit" model="ir.ui.view">
             <field name="name">stock.production.lot.tree</field>
