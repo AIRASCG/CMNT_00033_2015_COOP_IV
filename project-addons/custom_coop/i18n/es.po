@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * custom_coop
+#	* custom_coop
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 10:58+0000\n"
-"PO-Revision-Date: 2015-12-14 10:58+0000\n"
+"POT-Creation-Date: 2016-03-17 11:34+0000\n"
+"PO-Revision-Date: 2016-03-17 11:34+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,29 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_coop
-#: field:stock.production.lot,stock_available:0
-msgid "Stock available"
-msgstr "Stock disponible"
+#: field:account.chart.template,account_asset_id:0
+msgid "Account asset id"
+msgstr "Account asset id"
 
 #. module: custom_coop
-#: field:account.asset.category,subvention_analytic_account_id:0
-msgid "Subvention analytic account"
-msgstr "Cuenta analítica subvenciones"
+#: field:account.chart.template,account_depreciation_id:0
+msgid "Account depreciation id"
+msgstr "Account depreciation id"
+
+#. module: custom_coop
+#: field:account.chart.template,account_deterioration_depreciation_id:0
+msgid "Account deterioration depreciation id"
+msgstr "Account deterioration depreciation id"
+
+#. module: custom_coop
+#: field:account.chart.template,account_deterioration_expense_depreciation_id:0
+msgid "Account deterioration expense depreciation id"
+msgstr "Account deterioration expense depreciation id"
+
+#. module: custom_coop
+#: field:account.chart.template,account_expense_depreciation_id:0
+msgid "Account expense depreciation id"
+msgstr "Account expense depreciation id"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_account_analytic_account
@@ -31,25 +46,56 @@ msgid "Analytic Account"
 msgstr "Cuenta analítica"
 
 #. module: custom_coop
-#: code:addons/custom_coop/models/account.py:90
+#: model:ir.model,name:custom_coop.model_account_analytic_journal
+msgid "Analytic Journal"
+msgstr "Diario analítico"
+
+#. module: custom_coop
+#: field:account.asset.asset,account_analytic_id:0
+msgid "Analytic account"
+msgstr "Analytic account"
+
+#. module: custom_coop
+#: field:account.asset.asset,analytic_plan:0
+#: field:account.asset.category,analytic_plan:0
+msgid "Analytic plan"
+msgstr "Analytic plan"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_account_asset_asset
+msgid "Asset"
+msgstr "Activo"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_account_asset_category
+msgid "Asset category"
+msgstr "Categoría de activo"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_account_asset_depreciation_line
+msgid "Asset depreciation line"
+msgstr "Línea de depreciación del activo"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/account.py:96
 #, python-format
 msgid "Assets journal"
 msgstr "Diario de activos"
 
 #. module: custom_coop
-#: field:account.asset.category,account_deterioration_depreciation_id:0
-msgid "Deterioration depreciation account"
-msgstr "Cuenta de amortización de deterioro"
+#: field:mail.attachment.partner,attachment_id:0
+msgid "Attachment"
+msgstr "Adjunto"
 
 #. module: custom_coop
-#: field:account.asset.category,account_deterioration_expense_depreciation_id:0
-msgid "Deterioration depr. expense dccount"
-msgstr "Cuenta gastos amortización de deterioro"
+#: view:res.company:custom_coop.res_company_hide_conf
+msgid "Bank Accounts"
+msgstr "Cuentas bancarias"
 
 #. module: custom_coop
-#: field:account.asset.asset,subvention:0
-msgid "Subvention"
-msgstr "Subvención"
+#: field:mail.attachment.partner,body:0
+msgid "Body"
+msgstr "Mensaje"
 
 #. module: custom_coop
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
@@ -67,44 +113,12 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: custom_coop
-#: model:ir.model,name:custom_coop.model_res_users
-msgid "Users"
-msgstr "Usuarios"
-
-#. module: custom_coop
-#: field:mail.attachment.partner,attachment_id:0
-msgid "Attachment"
-msgstr "Adjunto"
-
-#. module: custom_coop
-#: field:mail.attachment.partner,body:0
-msgid "Body"
-msgstr "Mensaje"
-
-#. module: custom_coop
-#: field:mail.attachment.partner,name:0
-msgid "Subject"
-msgstr "Asunto"
-
-#. module: custom_coop
-#: field:mail.attachment.partner,datas:0
-msgid "File Content"
-msgstr "Adjunto"
-
-
-#. module: custom_coop
-#: code:addons/custom_coop/models/res_users.py:32
 #: code:addons/custom_coop/models/account_analytic.py:31
 #: code:addons/custom_coop/models/res_company.py:33
 #: code:addons/custom_coop/models/res_company.py:40
 #, python-format
 msgid "Create error"
-msgstr "Error al crear"
-
-#. module: custom_coop
-#: view:res.partner:custom_coop.res_partner_add_action_mails
-msgid "Notifications"
-msgstr "Notificaciones"
+msgstr "Create error"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,create_uid:0
@@ -122,6 +136,17 @@ msgid "Date"
 msgstr "Fecha"
 
 #. module: custom_coop
+#: field:account.asset.category,account_deterioration_expense_depreciation_id:0
+msgid "Deterioration depr. expense dccount"
+msgstr "Cuenta gastos amortización de deterioro"
+
+#. module: custom_coop
+#: field:account.asset.category,account_deterioration_depreciation_id:0
+msgid "Deterioration depreciation account"
+msgstr "Cuenta de amortización de deterioro"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,id:0
 #: field:stock.location.update.stock.wizard,id:0
 msgid "ID"
 msgstr "ID"
@@ -153,6 +178,32 @@ msgid "Lot"
 msgstr "Lote"
 
 #. module: custom_coop
+#: view:stock.production.lot:custom_coop.view_production_lot_form_inherit2
+msgid "Lot Analysis"
+msgstr "Análisis"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "Lote/Nº de serie"
+
+#. module: custom_coop
+#: field:stock.production.lot,lot_analysis_ids:0
+msgid "Lots"
+msgstr "Lots"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/res_partner.py:32
+#, python-format
+msgid "Mails"
+msgstr "Mails"
+
+#. module: custom_coop
+#: view:res.partner:custom_coop.res_partner_add_action_mails
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#. module: custom_coop
 #: code:addons/custom_coop/models/res_users.py:32
 #, python-format
 msgid "Only %s can edit his user"
@@ -174,6 +225,12 @@ msgstr "Propietario"
 #, python-format
 msgid "Parent required"
 msgstr "Parent required"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_res_partner
+#: field:mail.attachment.partner,partner_id:0
+msgid "Partner"
+msgstr "Empresa"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_res_partner_passwd
@@ -200,6 +257,31 @@ msgstr "La cantidad no puede ser negativa."
 #: view:res.company:custom_coop.res_company_hide_conf
 msgid "Report Configuration"
 msgstr "Configuración de informes"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,name:0
+msgid "Subject"
+msgstr "Asunto"
+
+#. module: custom_coop
+#: field:account.asset.asset,subvention:0
+msgid "Subvention"
+msgstr "Subvención"
+
+#. module: custom_coop
+#: field:account.asset.category,subvention_analytic_plan:0
+msgid "Subvention Analytic plan"
+msgstr "Subvention Analytic plan"
+
+#. module: custom_coop
+#: field:account.asset.category,subvention_analytic_account_id:0
+msgid "Subvention analytic account"
+msgstr "Cuenta analítica subvenciones"
+
+#. module: custom_coop
+#: model:ir.model,name:custom_coop.model_account_chart_template
+msgid "Templates for Account Chart"
+msgstr "Plantillas para el plan contable"
 
 #. module: custom_coop
 #: view:res.users:custom_coop.view_users_form_preferences_remove_sale_team
@@ -249,3 +331,9 @@ msgstr "Error en escritura: view:stock.location.update.stock.wizard:custom_coop.
 #: view:calendar.event:custom_coop.calendar_event_checkbox
 msgid "many2many_checkboxes"
 msgstr "many2many_checkboxes"
+
+#. module: custom_coop
+#: view:account.asset.asset:custom_coop.account_asset_add_subvention
+msgid "onchange_category_id_subvention(category_id, subvention)"
+msgstr "onchange_category_id_subvention(category_id, subvention)"
+

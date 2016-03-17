@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+
+        <record id="view_production_lot_form_inherit2" model="ir.ui.view">
+          <field name="name">stock.production.lot.form.inherit2</field>
+          <field name="model">stock.production.lot</field>
+          <field name="inherit_id" ref="stock.view_production_lot_form"/>
+          <field name="arch" type="xml">
+              <xpath expr="//notebook/page[@string='Products']" position="after">
+                  <page string="Lot Analysis">
+                      <field name="lot_analysis_ids">
+                          <tree>
+                              <field name="name"/>
+                              <field name="lot_id"/>
+                              <field name="sampling_date"/>
+                              <field name="analysis_date"/>
+                              <field name="cooperative_id"/>
+                              <field name="explotation_id"/>
+                              <field name="tipo_material"/>
+                              <field name="lab_id"/>
+                              <field name="year"/>
+                          </tree>
+                      </field>
+                  </page>
+              </xpath>
+          </field>
+        </record>
+
         <record id="view_stock_quant_tree_inherit" model="ir.ui.view">
             <field name="name">stock.quant.tree.inherit</field>
             <field name="model">stock.quant</field>

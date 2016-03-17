@@ -37,6 +37,8 @@ class stock_production_lot(models.Model):
     stock_available = fields.Float(string="Stock available",
                                    compute="_compute_stock_available",
                                    readonly=True)
+    lot_analysis_ids = fields.One2many("lot.analysis", "lot_id", string="Lots",
+                                       readonly=True)
 
     @api.one
     @api.depends("stock_available")
