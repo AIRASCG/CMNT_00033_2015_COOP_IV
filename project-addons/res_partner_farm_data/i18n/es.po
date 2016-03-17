@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* res_partner_farm_data
+#       * res_partner_farm_data
 #
 msgid ""
 msgstr ""
@@ -417,6 +417,46 @@ msgstr "Actual"
 #: field:milk.control.line,days:0
 msgid "DEL"
 msgstr "DEL"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_fo:0
+msgid "Use Forest"
+msgstr "Uso forestal"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_hu:0
+msgid "Use Vegetable Garden"
+msgstr "Uso huerta"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_ta:0
+msgid "Use Corn"
+msgstr "Uso maíz"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_pa:0
+msgid "Use Wooded Grass"
+msgstr "Uso pasto arboleado"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_pr:0
+msgid "Use Shrubby Grass"
+msgstr "Uso pasto arbustivo"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_ps:0
+msgid "Use Grass > 5 Years"
+msgstr "Uso pasto de > 5 años"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_pm:0
+msgid "Use Grass < 5 Years"
+msgstr "Uso pasto de < 5 años"
+
+#. module: res_partner_farm_data
+#: field:res.partner,total_net_surface:0
+msgid "Total Net Surface"
+msgstr "Superficie neta total"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,dni:0
@@ -1370,7 +1410,7 @@ msgstr "Frecuencia recogida"
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.view_password_partner_form_add_plantations
 msgid "Plantation"
-msgstr "Finca"
+msgstr "Fincas"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.view_password_partner_form_add_plantations

@@ -32,13 +32,13 @@
                 'automatic_company', 'partner_passwd', 'custom_groups'],
     "data": ['views/cost_imputation.xml', 'views/stock.xml',
              'views/output_quota_view.xml', 'views/lot_view.xml',
+             'wizard/res_partner_fields_import.xml',
              'security/ir.model.access.csv', 'views/res_partner_view.xml',
              'views/lot_analysis.xml', 'views/res_company.xml',
              'views/product.xml', 'views/lot_report_template.xml',
              'lot_report.xml', 'data/lot_detail_sequence.xml',
              'wizard/lot_analysis_import.xml', 'wizard/milk_analysis_import.xml',
              'wizard/milk_control_import.xml', 'security/security.xml',
-             'views/milk_analysis.xml', 'views/milk_control.xml',
-             'wizard/res_partner_fields_import.xml'],
+             'views/milk_analysis.xml', 'views/milk_control.xml'],
     "installable": True
 }
