@@ -21,6 +21,7 @@
 from openerp import models, fields, api, exceptions, _
 from datetime import date
 
+
 class YearlyData(models.Model):
 
     _name = 'yearly.data'
@@ -30,7 +31,8 @@ class YearlyData(models.Model):
         return self.env.user.id
 
     farm_id = fields.Many2one('res.partner', 'Farm', required=True)
-    company_id = fields.Many2one('res.company', 'Company', related='farm_id.company_id')
+    company_id = fields.Many2one('res.company', 'Company',
+                                 related='farm_id.company_id')
     user_id = fields.Many2one('res.users', 'User', default=_get_user_id,
                               required=True)
     date = fields.Date('Date',

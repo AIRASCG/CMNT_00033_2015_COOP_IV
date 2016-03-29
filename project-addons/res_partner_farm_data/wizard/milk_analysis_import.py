@@ -63,15 +63,22 @@ class MilkAnalysisImport(models.TransientModel):
                     dates = row[date_pos].split('/')
                     sample_date = dates[0] + '-' + str(self.year)
                     sample_date_list = [int(x) for x in sample_date.split('-')]
-                    analysis_vals['sample_date'] = date(sample_date_list[2], sample_date_list[1], sample_date_list[0])
+                    analysis_vals['sample_date'] = date(sample_date_list[2],
+                                                        sample_date_list[1],
+                                                        sample_date_list[0])
                     analysis_date = dates[1] + '-' + str(self.year)
-                    analysis_date_list = [int(x) for x in analysis_date.split('-')]
-                    analysis_vals['analysis_date'] = date(analysis_date_list[2], analysis_date_list[1], analysis_date_list[0])
+                    analysis_date_list = [int(x) for x in
+                                          analysis_date.split('-')]
+                    analysis_vals['analysis_date'] = date(
+                        analysis_date_list[2], analysis_date_list[1],
+                        analysis_date_list[0])
 
                 else:
-                    sample_date = xlrd.xldate_as_tuple(row[date_pos], data.datemode)[:-3]
+                    sample_date = xlrd.xldate_as_tuple(row[date_pos],
+                                                       data.datemode)[:-3]
                     analysis_vals['sample_date'] = date(*sample_date)
-                    an_date = xlrd.xldate_as_tuple(row[an_date], data.datemode)[:-3]
+                    an_date = xlrd.xldate_as_tuple(row[an_date],
+                                                   data.datemode)[:-3]
                     analysis_vals['analysis_date'] = date(*an_date)
                 if dni_pos:
                     analysis_vals['dni'] = row[dni_pos]
@@ -111,7 +118,8 @@ class MilkAnalysisImport(models.TransientModel):
         except Exception as e:
             with api.Environment.manage():
                 with registry(self.env.cr.dbname).cursor() as new_cr:
-                    new_env = api.Environment(new_cr, self.env.uid, self.env.context)
+                    new_env = api.Environment(new_cr, self.env.uid,
+                                              self.env.context)
                     self.analysis.with_env(new_env).\
                         write({'state': 'incorrect',
                                'exception_txt': e.message})

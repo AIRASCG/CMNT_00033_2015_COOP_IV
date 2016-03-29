@@ -7,23 +7,25 @@
           <field name="type">tree</field>
           <field name="arch" type="xml">
             <tree string="Plantations">
-              <field name="province_id"/>
-              <field name="townhall_id"/>
-              <field name="added"/>
-              <field name="zone"/>
-              <field name="industrial_estate"/>
-              <!-- <field name="plot"/> -->
-              <field name="enclosure"/>
-              <field name="use"/>
-              <field name="sixpac_surface"/>
-              <field name="cap"/>
-              <field name="declared_surface"/>
-              <field name="net_surface"/>
-              <field name="product_code"/>
-              <field name="product_name"/>
-              <field name="variety"/>
-              <field name="location_name"/>
-              <field name="rent"/>
+                <field name="partner_id"/>
+                <field name="province_id"/>
+                <field name="townhall_id"/>
+                <field name="added"/>
+                <field name="zone"/>
+                <field name="industrial_estate"/>
+                <!-- <field name="plot"/> -->
+                <field name="enclosure"/>
+                <field name="use"/>
+                <field name="sixpac_surface"/>
+                <field name="cap"/>
+                <field name="declared_surface"/>
+                <field name="net_surface"/>
+                <field name="product_code"/>
+                <field name="product_name"/>
+                <field name="variety"/>
+                <field name="location_name"/>
+                <field name="rent"/>
+                <field name="year"/>
             </tree>
           </field>
         </record>
@@ -34,61 +36,56 @@
           <field name="type">form</field>
           <field name="arch" type="xml">
             <form string="Plantations">
-              <group colspan="4">
-                <group col="2">
-                  <field name="province_id"/>
-                  <field name="townhall_id"/>
-                  <field name="added"/>
-                  <field name="zone"/>
-                  <field name="industrial_estate"/>
-                  <!-- <field name="plot"/> -->
-                  <field name="enclosure"/>
-                  <field name="use"/>
-                  <field name="sixpac_surface"/>
-                </group>
-                <group col="2">
-                  <field name="cap"/>
-                  <field name="declared_surface"/>
-                  <field name="net_surface"/>
-                  <field name="product_code"/>
-                  <field name="product_name"/>
-                  <field name="variety"/>
-                  <field name="location_name"/>
-                  <field name="rent"/>
-                </group>
-              </group>
+                <sheet>
+                    <group colspan="4">
+                        <group col="2">
+                            <field name="province_id"/>
+                            <field name="partner_id" domain="[('farm', '=', True)]"/>
+                            <field name="townhall_id"/>
+                            <field name="added"/>
+                            <field name="zone"/>
+                            <field name="industrial_estate"/>
+                            <!-- <field name="plot"/> -->
+                            <field name="enclosure"/>
+                            <field name="use"/>
+                            <field name="sixpac_surface"/>
+                        </group>
+                        <group col="2">
+                            <field name="cap"/>
+                            <field name="declared_surface"/>
+                            <field name="net_surface"/>
+                            <field name="product_code"/>
+                            <field name="product_name"/>
+                            <field name="variety"/>
+                            <field name="location_name"/>
+                            <field name="rent"/>
+                            <field name="year"/>
+                        </group>
+                    </group>
+                </sheet>
             </form>
           </field>
         </record>
 
-        <record id="view_password_partner_form_add_plantations" model="ir.ui.view">
-                <field name="name">res.partner.passwd.form2</field>
-                <field name="model">res.partner</field>
-                <field name="inherit_id" ref="partner_passwd.view_password_partner_form"/>
-                <field name="arch" type="xml">
-                  <xpath expr="//page[@name='passwd']" position="after">
-                    <page string="Plantation">
-                      <separator string="Net Surface"/>
-                      <group colspan="4">
-                        <group col="2">
-                          <field name="use_fo"/>
-                          <field name="use_hu"/>
-                          <field name="use_ps"/>
-                          <field name="use_pm"/>
-                        </group>
-                        <group col="2">
-                          <field name="use_ta"/>
-                          <field name="use_pa"/>
-                          <field name="use_pr"/>
-                          <field name="total_net_surface"/>
-                        </group>
-                      </group>
-                      <separator string="Plantations"/>
-                      <button string="Import Data" type="action" name="%(import_fields_act)d"/>
-                      <field name="plantation_ids"/>
-                    </page>
-                  </xpath>
-                </field>
+        <record id="res_partner_fields_filter" model="ir.ui.view">
+            <field name="name">res.partner.fields.search</field>
+            <field name="model">res.partner.fields</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Partner fields">
+                   <field name="partner_id"/>
+                   <field name="year"/>
+               </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_res_partner_fields">
+            <field name="name">Plantations</field>
+            <field name="res_model">res.partner.fields</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_res_partner_fields_tree"/>
+            <field name="search_view_id" ref="res_partner_fields_filter"/>
         </record>
 
         <!-- Se ocultan partes del formulario de res.partner innecesarias. -->
@@ -342,6 +339,23 @@
                                     <field name="state"/>
                                 </tree>
                             </field>
+                        </group>
+                    </page>
+                    <page string="Plantation">
+                        <separator string="Net Surface"/>
+                        <group colspan="4">
+                            <group col="2">
+                                <field name="use_fo"/>
+                                <field name="use_hu"/>
+                                <field name="use_ps"/>
+                                <field name="use_pm"/>
+                            </group>
+                            <group col="2">
+                                <field name="use_ta"/>
+                                <field name="use_pa"/>
+                                <field name="use_pr"/>
+                                <field name="total_net_surface"/>
+                            </group>
                         </group>
                     </page>
                 </notebook>

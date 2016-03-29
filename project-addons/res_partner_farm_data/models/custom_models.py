@@ -21,15 +21,17 @@
 from openerp import models, fields, api, exceptions, _
 from datetime import date
 
+
 class HistoricalModel(models.Model):
     """
-        Los modelos que hereden de esta clase deberán tener un campo state con al
-        menos un estado history, un campo date y un campo user destinados a registrar los cambios
+        Los modelos que hereden de esta clase deberán tener un campo state con
+        al menos un estado history, un campo date y un campo user destinados a
+        registrar los cambios
     """
 
     _auto = True
-    _register = False # not visible in ORM registry, meant to be python-inherited only
-    _transient = False # True in a TransientModel
+    _register = False
+    _transient = False
 
     @api.multi
     def write(self, vals):

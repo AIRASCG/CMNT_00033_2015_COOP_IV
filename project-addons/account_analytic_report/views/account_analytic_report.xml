@@ -35,6 +35,7 @@
                                     <field name="total_cows_1"/>
                                     <field name="employees_1"/>
                                     <field name="total_heifer_1"/>
+                                    <field name="hectare_1"/>
                                 </group>
                                 <group colspan="1">
                                     <separator string="Company 2" colspan="3"/>
@@ -45,6 +46,57 @@
                                     <field name="total_cows_2"/>
                                     <field name="employees_2"/>
                                     <field name="total_heifer_2"/>
+                                    <field name="hectare_2"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Technical economics configuration">
+                            <group col="2" colspan="4">
+                                <group colspan="1">
+                                    <separator string="Company 1" colspan="3"/>
+                                    <field name="milk_and_dry_1"/>
+                                    <field name="milk_cows_1"/>
+                                    <field name="zero_three_heifer_1"/>
+                                    <field name="three_twelve_heifer_1"/>
+                                    <field name="plus_twelve_heifer_1"/>
+                                    <field name="months_1"/>
+                                    <field name="cost_feed_milk_cow_day_1"/>
+                                    <field name="cost_feed_dry_cow_day_1"/>
+                                    <field name="corn_hectares_1"/>
+                                    <field name="kg_corn_1"/>
+                                    <field name="grass_hectares_1"/>
+                                    <field name="kg_grass_1"/>
+                                    <field name="cereal_hectares_1"/>
+                                    <field name="kg_cereal_1"/>
+                                    <field name="dry_grass_hectares_1"/>
+                                    <field name="kg_dry_grass_1"/>
+                                    <field name="another_hectares_1"/>
+                                    <field name="kg_another_1"/>
+                                    <field name="cow_buy_1"/>
+                                    <field name="inventory_difference_1"/>
+                                </group>
+                                <group colspan="1">
+                                    <separator string="Company 2" colspan="3"/>
+                                    <field name="milk_and_dry_2"/>
+                                    <field name="milk_cows_2"/>
+                                    <field name="zero_three_heifer_2"/>
+                                    <field name="three_twelve_heifer_2"/>
+                                    <field name="plus_twelve_heifer_2"/>
+                                    <field name="months_2"/>
+                                    <field name="cost_feed_milk_cow_day_2"/>
+                                    <field name="cost_feed_dry_cow_day_2"/>
+                                    <field name="corn_hectares_2"/>
+                                    <field name="kg_corn_2"/>
+                                    <field name="grass_hectares_2"/>
+                                    <field name="kg_grass_2"/>
+                                    <field name="cereal_hectares_2"/>
+                                    <field name="kg_cereal_2"/>
+                                    <field name="dry_grass_hectares_2"/>
+                                    <field name="kg_dry_grass_2"/>
+                                    <field name="another_hectares_2"/>
+                                    <field name="kg_another_2"/>
+                                    <field name="cow_buy_2"/>
+                                    <field name="inventory_difference_2"/>
                                 </group>
                             </group>
                         </page>

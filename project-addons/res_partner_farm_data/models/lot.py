@@ -404,7 +404,8 @@ class LotDetail(models.Model):
                 res['lot_threshold_point_slaughterhouse'] = res['ration_carriage_cost_eur_cow_day_real'] / (lot.milk_price / 1000)
                 res['lot_threshold_point_dry'] = (res['ration_carriage_cost_eur_cow_day_real'] - lot.dry_cow_ration_cost) / (lot.milk_price / 1000)
             else:
-                res['lot_threshold_point_slaughterhouse'] = res['lot_threshold_point_dry'] = 0.0
+                res['lot_threshold_point_slaughterhouse'] = 0.0
+                res['lot_threshold_point_dry'] = 0.0
 
             for field in res.keys():
                 lot_detail[field] = res[field]
@@ -423,10 +424,14 @@ class LotContent(models.Model):
     enl = fields.Float('ENL')
     pb = fields.Float('%PB')
     theorical_kg_ration = fields.Float('Kg/Ration',
-                                       compute='_get_theorical_values', inverse='_set_theorical_values')
-    theorical_ms = fields.Float('%MS', compute='_get_theorical_values', inverse='_set_theorical_values')
-    theorical_enl = fields.Float('ENL', compute='_get_theorical_values', inverse='_set_theorical_values')
-    theorical_pb = fields.Float('%PB', compute='_get_theorical_values', inverse='_set_theorical_values')
+                                       compute='_get_theorical_values',
+                                       inverse='_set_theorical_values')
+    theorical_ms = fields.Float('%MS', compute='_get_theorical_values',
+                                inverse='_set_theorical_values')
+    theorical_enl = fields.Float('ENL', compute='_get_theorical_values',
+                                 inverse='_set_theorical_values')
+    theorical_pb = fields.Float('%PB', compute='_get_theorical_values',
+                                inverse='_set_theorical_values')
     manual_setted = fields.Boolean('')
     _theorical_kg_ration = fields.Float('Kg/Ration')
     _theorical_ms = fields.Float('%MS')
@@ -470,6 +475,6 @@ class LotContent(models.Model):
             content.write(
                 {'manual_setted': True,
                  '_theorical_kg_ration': content.theorical_kg_ration,
-                 '_theorical_ms':content.theorical_ms,
+                 '_theorical_ms': content.theorical_ms,
                  '_theorical_enl': content.theorical_enl,
                  '_theorical_pb': content.theorical_pb})

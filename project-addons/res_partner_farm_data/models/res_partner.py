@@ -21,6 +21,7 @@
 from openerp import models, fields, api, exceptions, _
 from datetime import date
 
+
 class ResPartner(models.Model):
 
     _inherit = 'res.partner'
@@ -31,8 +32,11 @@ class ResPartner(models.Model):
     ]
 
     farm = fields.Boolean('Farm')
-    temporary_farm = fields.Boolean('Temporary farm', readonly=True, related='company_id.not_configured_accounting')
-    is_cooperative = fields.Boolean('Cooperative', readonly=True, related='company_id.is_cooperative')
+    temporary_farm = fields.Boolean(
+        'Temporary farm', readonly=True,
+        related='company_id.not_configured_accounting')
+    is_cooperative = fields.Boolean(
+        'Cooperative', readonly=True, related='company_id.is_cooperative')
     partner_of = fields.Char('Partner of')
     exploitation_technician = fields.Many2one('res.users',
                                               'Exploitation technician')
@@ -128,11 +132,17 @@ class ResPartner(models.Model):
                                      compute="_compute_net_surfaces")
 
     @api.one
-    @api.depends('use_fo','use_hu','use_ta','use_pa','use_pr','use_ps',
-                 'use_pm','total_net_surface')
+    @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
+                 'use_pm', 'total_net_surface')
     def _compute_net_surfaces(self):
         use_obj = self.env['res.partner.fields']
-        use_ids = use_obj.search([('partner_id', '=', self.id)])
+        if self._context.get('use_year', False):
+            cur_year = self._context.get('use_year', False) and \
+                self._context['use_year'] or str(date.today().year)
+        else:
+            cur_year = date.today().year
+        use_ids = use_obj.search([('partner_id', '=', self.id),
+                                  ('year', '=', cur_year)])
         sumtotal = sumfo = sumhu = sumta = sumpa = sumpr = sumps = sumpm = 0.0
         for use_id in use_ids:
             if use_id.use == u'FO':
@@ -165,7 +175,9 @@ class ResPartner(models.Model):
             vals['farm'] = True
         elif vals.get('farm', False):
             # El partner ha sido creado a mano.
-            raise exceptions.Warning(_('Farm creation error'), _('To create farm must do it from the menu farm High'))
+            raise exceptions.Warning(
+                _('Farm creation error'),
+                _('To create farm must do it from the menu farm High'))
         res = super(ResPartner, self).create(vals)
         if vals.get('exploitation_technician', False):
             res.message_subscribe([res.exploitation_technician.partner_id.id])
@@ -173,10 +185,10 @@ class ResPartner(models.Model):
             res.message_subscribe([res.secondary_technician.partner_id.id])
         if res.employees_quantity:
             count_args = {
-                        'partner_id': res.id,
-                        'date': date.today(),
-                        'user_id': self.env.user.id,
-                        'quantity': res.employees_quantity,
+                'partner_id': res.id,
+                'date': date.today(),
+                'user_id': self.env.user.id,
+                'quantity': res.employees_quantity,
             }
             self.env['employee.farm.count'].create(count_args)
         return res
@@ -196,12 +208,14 @@ class ResPartner(models.Model):
                     }
                     self.env['employee.farm.count'].create(count_args)
                 else:
-                    current = self.employee_count_ids.filtered(lambda record: record.state == 'current')
-                    current.sudo().write({'quantity': vals.get('employees_quantity'),
+                    current = self.employee_count_ids.filtered(
+                        lambda record: record.state == 'current')
+                    current.sudo().write({'quantity':
+                                          vals.get('employees_quantity'),
                                           'user_id': self.env.user.id})
             if vals.get('heifer_0_3', False) or vals.get('heifer_3_12', False) or \
-                    vals.get('heifer_plus_12', False) or vals.get('milk_cow', False) or \
-                    vals.get('dry_cow', False):
+                    vals.get('heifer_plus_12', False) or \
+                    vals.get('milk_cow', False) or vals.get('dry_cow', False):
 
                 if not self.cow_count_ids:
                     count_args = {
@@ -216,11 +230,14 @@ class ResPartner(models.Model):
                     }
                     self.env['cow.count'].create(count_args)
                 else:
-                    current = self.cow_count_ids.filtered(lambda record: record.state == 'current')
+                    current = self.cow_count_ids.filtered(
+                        lambda record: record.state == 'current')
                     current.sudo().write({
                         'heifer_0_3': vals.get('heifer_0_3', self.heifer_0_3),
-                        'heifer_3_12': vals.get('heifer_3_12', self.heifer_3_12),
-                        'heifer_plus_12': vals.get('heifer_plus_12', self.heifer_plus_12),
+                        'heifer_3_12': vals.get('heifer_3_12',
+                                                self.heifer_3_12),
+                        'heifer_plus_12': vals.get('heifer_plus_12',
+                                                   self.heifer_plus_12),
                         'milk_cow': vals.get('milk_cow', self.milk_cow),
                         'dry_cow': vals.get('dry_cow', self.dry_cow),
                         'user_id': self.env.user.id,
@@ -271,21 +288,24 @@ class ResPartner(models.Model):
             'context': {'default_company_id': self.company_id.id},
             'res_model': 'account.analytic.default',
             'type': 'ir.actions.act_window',
-                }
+        }
+
 
 class ResPartnerCategory(models.Model):
 
     _inherit = 'res.partner.category'
 
     description = fields.Text('Description')
-    partner_id = fields.Many2many('res.partner', 'res_partner_res_partner_category_rel',
+    partner_id = fields.Many2many('res.partner',
+                                  'res_partner_res_partner_category_rel',
                                   'category_id', 'partner_id', 'Partners')
+
 
 class ResPartnerFarmData(models.Model):
     _name = 'res.partner.fields'
-    # _rec_name = 'product_name'
+    _rec_name = 'location_name'
 
-    partner_id = fields.Many2one("res.partner", "Res Partner")
+    partner_id = fields.Many2one("res.partner", "Exploitation")
     province_id = fields.Many2one("res.country.state", "Province Code")
     townhall_id = fields.Char("Town Hall Code")
     added = fields.Boolean("Added")
@@ -300,7 +320,7 @@ class ResPartnerFarmData(models.Model):
          ('PA', 'Wooded Grass'),
          ('PR', 'Shrubby Grass'),
          ('PS', 'Grass > 5 Years'),
-         ('PM', 'Grass < 5 Years')),"Use", required=True)
+         ('PM', 'Grass < 5 Years')), 'Use', required=True)
     sixpac_surface = fields.Float("Sixpac Surface")
     cap = fields.Float("CAP")
     declared_surface = fields.Float("Declared Surface")
@@ -310,3 +330,4 @@ class ResPartnerFarmData(models.Model):
     variety = fields.Integer("Variety")
     location_name = fields.Char("Location Name")
     rent = fields.Boolean("Rent")
+    year = fields.Char("Year")

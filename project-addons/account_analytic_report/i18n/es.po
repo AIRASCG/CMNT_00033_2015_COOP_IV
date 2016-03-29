@@ -16,12 +16,145 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_analytic_report
+#: field:account.analytic.report,zero_three_heifer_1:0
+#: field:account.analytic.report,zero_three_heifer_2:0
+msgid "0-3 months heifer"
+msgstr "novillas 0-3 meses"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,three_twelve_heifer_1:0
+#: field:account.analytic.report,three_twelve_heifer_2:0
+msgid "3-12 months heifer"
+msgstr "Novillas 3-12 meses"
+
+#. module: account_analytic_report
 #: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
 #: view:account.analytic.report:account_analytic_report.view_account_analytic_report_tree
 #: model:ir.actions.act_window,name:account_analytic_report.action_view_account_analytic_report
 msgid "Account analytic report"
 msgstr "Informe de contabilidad analítica"
 
+
+#. module: account_analytic_report
+#: field:account.analytic.report,kg_another_1:0
+#: field:account.analytic.report,kg_another_2:0
+msgid "Another Kg"
+msgstr "Kg otros cultivos"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,another_hectares_1:0
+#: field:account.analytic.report,another_hectares_2:0
+msgid "Another hectares"
+msgstr "Hectareas otros cultivos"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+msgid "Calculate fields"
+msgstr "Calcular campos"
+
+
+#. module: account_analytic_report
+#: field:account.analytic.report,kg_cereal_1:0
+#: field:account.analytic.report,kg_cereal_2:0
+msgid "Cereal Kg"
+msgstr "Kg cereales"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,cereal_hectares_1:0
+#: field:account.analytic.report,cereal_hectares_2:0
+msgid "Cereal hectares"
+msgstr "Hectareas cereales"
+
+
+#. module: account_analytic_report
+#: field:account.analytic.report,kg_corn_1:0
+#: field:account.analytic.report,kg_corn_2:0
+msgid "Corn Kg"
+msgstr "Kg maiz"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,corn_hectares_1:0
+#: field:account.analytic.report,corn_hectares_2:0
+msgid "Corn hectares"
+msgstr "Hectareas maíz"
+
+
+#. module: account_analytic_report
+#: code:addons/account_analytic_report/models/account_analytic_report.py:375
+#, python-format
+msgid "Division by zero in %s"
+msgstr "División por cero en  %s"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,kg_dry_grass_1:0
+#: field:account.analytic.report,kg_dry_grass_2:0
+msgid "Dry grass Kg"
+msgstr "Kg hierba seca"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,dry_grass_hectares_1:0
+#: field:account.analytic.report,dry_grass_hectares_2:0
+msgid "Dry grass hectares"
+msgstr "Hectareas hierba seca"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,kg_grass_1:0
+#: field:account.analytic.report,kg_grass_2:0
+msgid "Grass Kg"
+msgstr "Kg hierba"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,grass_hectares_1:0
+#: field:account.analytic.report,grass_hectares_2:0
+msgid "Grass hectares"
+msgstr "Hectareas hierba"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,hectare_1:0
+#: field:account.analytic.report,hectare_2:0
+msgid "Hectare"
+msgstr "Hectareas"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,inventory_difference_1:0
+#: field:account.analytic.report,inventory_difference_2:0
+msgid "Inventory difference"
+msgstr "Diferencia de inventario"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,cow_buy_1:0
+#: field:account.analytic.report,cow_buy_2:0
+msgid "Livestock purchased"
+msgstr "Ganado comprado"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,milk_and_dry_1:0
+#: field:account.analytic.report,milk_and_dry_2:0
+msgid "Milk and dry cows"
+msgstr "Vacas lactación+secas"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,milk_cows_1:0
+#: field:account.analytic.report,milk_cows_2:0
+msgid "Milk cows"
+msgstr "Vacas lactación"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,months_1:0
+#: field:account.analytic.report,months_2:0
+msgid "Months"
+msgstr "Meses analizados"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+msgid "Technical economics configuration"
+msgstr "Configuración informe tecnico-económico"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,plus_twelve_heifer_1:0
+#: field:account.analytic.report,plus_twelve_heifer_2:0
+msgid "plus 12 months heifer"
+msgstr "Novillas >12 meses"
 
 
 #. module: account_analytic_report

@@ -24,6 +24,7 @@ import xlrd
 import StringIO
 from datetime import date
 
+
 class LotAnalysisImport(models.TransientModel):
 
     _name = 'lot.analysis.import'
@@ -44,7 +45,8 @@ class LotAnalysisImport(models.TransientModel):
                 lot_name = str(int(lot_name))
             elif isinstance(lot_name, int):
                 lot_name = str(lot_name)
-            lot = self.env['stock.production.lot'].search([('name', '=', lot_name)])
+            lot = self.env['stock.production.lot'].search(
+                [('name', '=', lot_name)])
             analysis_vals['lot_id'] = lot and lot.id or False
             analysis_vals['name'] = row[1]
             analysis_vals['tipo_material'] = row[2]
@@ -60,9 +62,9 @@ class LotAnalysisImport(models.TransientModel):
             analysis_vals['year'] = row[8]
             analysis_vals['product_name'] = row[9]
             analysis_vals['notes'] = row[10]
-            sampling_date =  xlrd.xldate_as_tuple(row[11], data.datemode)[:-3]
+            sampling_date = xlrd.xldate_as_tuple(row[11], data.datemode)[:-3]
             analysis_vals['sampling_date'] = date(*sampling_date)
-            analysis_date =  xlrd.xldate_as_tuple(row[12], data.datemode)[:-3]
+            analysis_date = xlrd.xldate_as_tuple(row[12], data.datemode)[:-3]
             analysis_vals['analysis_date'] = date(*analysis_date)
 
             analysis_vals['cut_number'] = row[13]

@@ -20,6 +20,7 @@
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
 import time
+from datetime import date, datetime
 
 
 class AccountAnalyticReport(models.Model):
@@ -40,6 +41,27 @@ class AccountAnalyticReport(models.Model):
     total_cows_1 = fields.Integer('Total cows')
     employees_1 = fields.Integer('Total employees')
     total_heifer_1 = fields.Integer('Total heifer')
+    hectare_1 = fields.Float('Hectare')
+    milk_and_dry_1 = fields.Integer('Milk and dry cows')
+    milk_cows_1 = fields.Integer('Milk cows')
+    zero_three_heifer_1 = fields.Integer('0-3 months heifer')
+    three_twelve_heifer_1 = fields.Integer('3-12 months heifer')
+    plus_twelve_heifer_1 = fields.Integer('plus 12 months heifer')
+    months_1 = fields.Float('Months')
+    cost_feed_milk_cow_day_1 = fields.Float('Coste de Alimentación vaca lactación/día (€)')
+    cost_feed_dry_cow_day_1 = fields.Float('Coste de Alimentación vaca seca/día (€)')
+    corn_hectares_1 = fields.Float('Corn hectares')
+    kg_corn_1 = fields.Float('Corn Kg')
+    grass_hectares_1 = fields.Float('Grass hectares')
+    kg_grass_1 = fields.Float('Grass Kg')
+    cereal_hectares_1 = fields.Float('Cereal hectares')
+    kg_cereal_1 = fields.Float('Cereal Kg')
+    dry_grass_hectares_1 = fields.Float('Dry grass hectares')
+    kg_dry_grass_1 = fields.Float('Dry grass Kg')
+    another_hectares_1 = fields.Float('Another hectares')
+    kg_another_1 = fields.Float('Another Kg')
+    cow_buy_1 = fields.Float('Livestock purchased')
+    inventory_difference_1 = fields.Float('Inventory difference')
 
     ref_2 = fields.Reference(
         selection=[('res.company', 'Company'),
@@ -50,6 +72,27 @@ class AccountAnalyticReport(models.Model):
     total_cows_2 = fields.Integer('Total cows')
     employees_2 = fields.Integer('Total employees')
     total_heifer_2 = fields.Integer('Total heifer')
+    hectare_2 = fields.Float('Hectare')
+    milk_and_dry_2 = fields.Integer('Milk and dry cows')
+    milk_cows_2 = fields.Integer('Milk cows')
+    zero_three_heifer_2 = fields.Integer('0-3 months heifer')
+    three_twelve_heifer_2 = fields.Integer('3-12 months heifer')
+    plus_twelve_heifer_2 = fields.Integer('plus 12 months heifer')
+    months_2 = fields.Float('Months')
+    cost_feed_milk_cow_day_2 = fields.Float('Coste de Alimentación vaca lactación/día (€)')
+    cost_feed_dry_cow_day_2 = fields.Float('Coste de Alimentación vaca seca/día (€)')
+    corn_hectares_2 = fields.Float('Corn hectares')
+    kg_corn_2 = fields.Float('Corn Kg')
+    grass_hectares_2 = fields.Float('Grass hectares')
+    kg_grass_2 = fields.Float('Grass Kg')
+    cereal_hectares_2 = fields.Float('Cereal hectares')
+    kg_cereal_2 = fields.Float('Cereal Kg')
+    dry_grass_hectares_2 = fields.Float('Dry grass hectares')
+    kg_dry_grass_2 = fields.Float('Dry grass Kg')
+    another_hectares_2 = fields.Float('Another hectares')
+    kg_another_2 = fields.Float('Another Kg')
+    cow_buy_2 = fields.Float('Livestock purchased')
+    inventory_difference_2 = fields.Float('Inventory difference')
 
     line_ids = fields.One2many('account.analytic.report.line', 'report_id',
                                'Lines')
@@ -105,6 +148,11 @@ class AccountAnalyticReport(models.Model):
             companies = self._get_companies(i)
             partner_companies = companies.mapped('partner_id')
             total_cows = 0
+            tota_heifer = 0
+            milk_and_dry = 0
+            milk_cows = 0
+            zero_three_heifer = 0
+            plus_twelve_heifer = 0
             for partner in partner_companies:
                 cow_counts = self.env['cow.count'].search(
                     [('partner_id', '=', partner.id),
@@ -119,7 +167,17 @@ class AccountAnalyticReport(models.Model):
                 milk_cow = sum(cow_counts.mapped('milk_cow')) / total_count
                 dry_cow = sum(cow_counts.mapped('dry_cow')) / total_count
                 total_cows += sum((heifer_0_3, heifer_3_12, heifer_plus_12, milk_cow, dry_cow))
+                tota_heifer += sum((heifer_0_3, heifer_3_12, heifer_plus_12))
+                milk_and_dry += milk_cow + dry_cow
+                milk_cows += milk_cow
+                zero_three_heifer += heifer_3_12
+                plus_twelve_heifer += heifer_plus_12
             self['total_cows_' + str(i)] = total_cows
+            self['total_heifer_' + str(i)] = tota_heifer
+            self['milk_and_dry_' + str(i)] = milk_and_dry
+            self['milk_cows_' + str(i)] = milk_cows
+            self['zero_three_heifer_' + str(i)] = zero_three_heifer
+            self['plus_twelve_heifer_' + str(i)] = plus_twelve_heifer
 
     @api.multi
     def _set_employee_fields(self):
@@ -141,29 +199,36 @@ class AccountAnalyticReport(models.Model):
                 total_employee += sum(employee_count.mapped('quantity')) / total_count
             self['employees_' + str(i)] = total_employee
 
-
     @api.multi
-    def _set_total_heifer_fields(self):
+    def _set_hectare_fields(self):
         self.ensure_one()
         for i in (1, 2):
             from_date = 'from_date_' + str(i)
             to_date = 'to_date_' + str(i)
+            if self[from_date] and self[to_date]:
+                years = [str(self[from_date][:4]), str(self[to_date][:4])]
+                years = list(set(years))
+            else:
+                years = [str(date.today().year)]
             companies = self._get_companies(i)
             partner_companies = companies.mapped('partner_id')
-            total_cows = 0
+            hectare = 0
             for partner in partner_companies:
-                cow_counts = self.env['cow.count'].search(
-                    [('partner_id', '=', partner.id),
-                     ('date', '>=', self[from_date]),
-                     ('date', '<=', self[to_date])])
-                if not cow_counts:
-                    continue
-                total_count = len(cow_counts)
-                heifer_0_3 = sum(cow_counts.mapped('heifer_0_3')) / total_count
-                heifer_3_12 = sum(cow_counts.mapped('heifer_3_12')) / total_count
-                heifer_plus_12 = sum(cow_counts.mapped('heifer_plus_12')) / total_count
-                total_cows += sum((heifer_0_3, heifer_3_12, heifer_plus_12))
-            self['total_heifer_' + str(i)] = total_cows
+                total = 0
+                for year in years:
+                    total += partner.with_context(use_year=year).total_net_surface
+                hectare += total / len(years)
+            self['hectare_' + str(i)] = hectare
+
+    @api.multi
+    def _set_months(self):
+        self.ensure_one()
+        for i in (1, 2):
+            from_date_str = self['from_date_' + str(i)]
+            to_date_str = self['to_date_' + str(i)]
+            from_date = datetime.strptime(from_date_str, '%Y-%m-%d')
+            to_date = datetime.strptime(to_date_str, '%Y-%m-%d')
+            self['months_' + str(i)] = abs((from_date - to_date).days) / 30.0
 
     @api.multi
     def act_button_update_fields(self):
@@ -171,7 +236,8 @@ class AccountAnalyticReport(models.Model):
             report._set_milk_fields()
             report._set_total_cows_fields()
             report._set_employee_fields()
-            report._set_total_heifer_fields()
+            report._set_hectare_fields()
+            report._set_months()
         return True
 
     @api.multi
@@ -262,10 +328,14 @@ class AccountAnalyticReportLine(models.Model):
         vals = self.template_line_id[field].replace(' ', '').split(',')
         final_vals = []
         for val in vals:
+            # Se controla si hay parentesis en el valor
+            init_par = val.count('(')
+            end_par = val.count(')')
+            val = val.replace('(', '').replace(')', '')
             if val[0] in '+-*/':
-                sign = val[0]
+                sign = init_par and val[0] + ('(' * init_par) or val[0]
             else:
-                sign = '+'
+                sign = init_par and '+' + ('(' * init_par) or '+'
                 val = '+' + val
             if val[1] == '[': # se referencia a otro valor de la misma linea
                 another_field = 'value_' + val[2:-1]
@@ -281,7 +351,7 @@ class AccountAnalyticReportLine(models.Model):
                         _('Line with code %s not found') % code_line)
                 val = sign + str(line[field])
             elif val[1] == "'":  # Valor literal
-                val = val.replace("'", "")
+                val = sign + val[2:]
             elif val[1] == '#':  # Se referencia a un campo del informe.
                 called_field = val.replace('#', '')[1:] + '_' + field[-3]
                 val = sign + str(self.report_id[called_field])
@@ -296,6 +366,8 @@ class AccountAnalyticReportLine(models.Model):
                 to_date = self.report_id.to_date_1
                 val = sign + str(account.with_context(company_id=company.id,
                                  from_date=from_date, to_date=to_date).balance)
+            if end_par:
+                val += ')' * end_par
             final_vals.append(val)
         try:
             result = eval(''.join(final_vals))

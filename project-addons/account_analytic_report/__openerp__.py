@@ -30,6 +30,6 @@
     "data": ['views/account_analytic_report_template.xml', 'views/account_analytic_report.xml',
              'views/account_analytic_report_menu.xml', 'security/ir.model.access.csv',
              'views/report_account_analytic_report.xml', 'qweb_analytic_report.xml',
-             'data/template_data.xml'],
+             'data/pyg_1000.xml', 'data/pyg_cow.xml', 'data/pyg_employee.xml', 'data/pyg_ha.xml', 'data/technical_economic.xml'],
     "installable": True
 }

@@ -11,6 +11,7 @@
               <form string="Plantations import">
                   <group>
                       <field name="import_file"/>
+                      <field name="year"/>
                   </group>
                   <footer>
                       <button name="import_control" string="Import" type="object" class="oe_highlight"/>

@@ -34,13 +34,15 @@ class MilkControl(models.Model):
     company_id = fields.Many2one("res.company", readonly=True,
                                  related="exploitation_id.company_id")
     line_ids = fields.One2many('milk.control.line', 'control_id', 'Lines')
-    num_records = fields.Integer('Number of records', compute = '_get_num_records')
+    num_records = fields.Integer('Number of records',
+                                 compute='_get_num_records')
     exception_txt = fields.Text("Exceptions", readonly=True)
 
     @api.multi
     def _get_num_records(self):
         for obj in self:
             obj.num_records = len(obj.line_ids)
+
 
 class MilkControlLine(models.Model):
 

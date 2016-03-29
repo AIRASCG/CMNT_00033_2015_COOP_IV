@@ -29,7 +29,8 @@ class AccountFiscalYear(models.Model):
     def write(self, vals):
         if 'state' in vals.keys() and vals['state'] == 'done':
             for year in self:
-                for model in ('output.quota', 'cost.imputation', 'lot.partner'):
+                for model in ('output.quota', 'cost.imputation',
+                              'lot.partner'):
                     records_year = self.env[model].search([('year_id', '=',
                                                             year.id)])
                     records_year.write({'state': 'old'})
