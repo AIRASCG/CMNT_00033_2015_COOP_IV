@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="tech_rec_index" model="account.analytic.report.template">
+            <field name="name">Informe de recría</field>
+            <field name="title_1">Total</field>
+            <field name="title_2">Por novilla</field>
+        </record>
+
+        <record id="tech_rec_index_l_4" model="account.analytic.report.template.line">
+            <field name="code">4</field>
+            <field name="sequence">4</field>
+            <field name="name">Producto bruto</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="css_style">green_bold</field>
+        </record>
+
+        <record id="tech_rec_index_l_1" model="account.analytic.report.template.line">
+            <field name="code">1</field>
+            <field name="sequence">1</field>
+            <field name="name">Ganado</field>
+            <field name="value_1_1">7012,7013,7014</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">7012,7013,7014</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_4"/>
+        </record>
+
+        <record id="tech_rec_index_l_2" model="account.analytic.report.template.line">
+            <field name="code">2</field>
+            <field name="sequence">2</field>
+            <field name="name">Suministros</field>
+            <field name="value_1_1">75912,75913,75914</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">75912,75913,75914</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_4"/>
+        </record>
+
+        <record id="tech_rec_index_l_3" model="account.analytic.report.template.line">
+            <field name="code">3</field>
+            <field name="sequence">3</field>
+            <field name="name">Otros</field>
+            <field name="value_1_1">74912,74913,74914,74922,74923,74924, 75222,75223,75224,70512,70513,70514,74932,74933,74934</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">74912,74913,74914,74922,74923,74924, 75222,75223,75224,70512,70513,70514,74932,74933,74934</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_4"/>
+        </record>
+
+
+        <record id="tech_rec_index_l_21" model="account.analytic.report.template.line">
+            <field name="code">21</field>
+            <field name="sequence">21</field>
+            <field name="name">Costes totales</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="css_style">bold</field>
+        </record>
+
+        <record id="tech_rec_index_l_16" model="account.analytic.report.template.line">
+            <field name="code">16</field>
+            <field name="sequence">16</field>
+            <field name="name">Costes variables</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="css_style">green_bold</field>
+            <field name="parent_id" ref="tech_rec_index_l_21"/>
+        </record>
+
+        <record id="tech_rec_index_l_5" model="account.analytic.report.template.line">
+            <field name="code">5</field>
+            <field name="sequence">5</field>
+            <field name="name">Alimentación</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_16"/>
+        </record>
+
+        <record id="tech_rec_index_l_6" model="account.analytic.report.template.line">
+            <field name="code">6</field>
+            <field name="sequence">6</field>
+            <field name="name">Leche artificial</field>
+            <field name="value_1_1">7002,7003, 7004, 7005</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">7002,7003, 7004, 7005</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_5"/>
+        </record>
+
+        <record id="tech_rec_index_l_7" model="account.analytic.report.template.line">
+            <field name="code">7</field>
+            <field name="sequence">7</field>
+            <field name="name">Leche artificial</field>
+            <field name="value_1_1">7002,7003, 7004, 7005</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">7002,7003, 7004, 7005</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_5"/>
+        </record>
+
+        <record id="tech_rec_index_l_8" model="account.analytic.report.template.line">
+            <field name="code">8</field>
+            <field name="sequence">8</field>
+            <field name="name">Leche natural</field>
+            <field name="value_1_1">6033</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">6033</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_5"/>
+        </record>
+
+        <record id="tech_rec_index_l_9" model="account.analytic.report.template.line">
+            <field name="code">9</field>
+            <field name="sequence">9</field>
+            <field name="name">Concentrados</field>
+            <field name="value_1_1">60232,60233,60234,60242,60243,60244, 60252,60253,60254,60262,60263,60264,60272, 60273,60274,60282, 60283,60284, 60292,60293,60294,60312, 60313,60314</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">60232,60233,60234,60242,60243,60244, 60252,60253,60254,60262,60263,60264,60272, 60273,60274,60282, 60283,60284, 60292,60293,60294,60312, 60313,60314</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_5"/>
+        </record>
+
+        <record id="tech_rec_index_l_10" model="account.analytic.report.template.line">
+            <field name="code">10</field>
+            <field name="sequence">10</field>
+            <field name="name">Forrajes</field>
+            <field name="value_1_1">60112,60113,60114,60142,60143,60144, 60152,60154,60162,60163,60164,60173,60174, 60182,60183,60184</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">60112,60113,60114,60142,60143,60144, 60152,60154,60162,60163,60164,60173,60174, 60182,60183,60184</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_5"/>
+        </record>
+
+        <record id="tech_rec_index_l_11" model="account.analytic.report.template.line">
+            <field name="code">11</field>
+            <field name="sequence">11</field>
+            <field name="name">Mezcla completa</field>
+            <field name="value_1_1">60412,60413,60414,605,60612,60613,60614</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">60412,60413,60414,605,60612,60613,60614</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_5"/>
+        </record>
+
+        <record id="tech_rec_index_l_12" model="account.analytic.report.template.line">
+            <field name="code">12</field>
+            <field name="sequence">12</field>
+            <field name="name">Sanidad</field>
+            <field name="value_1_1">62374,60714,60722,60723,60724,62382,62383, 62384,60734,60744</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">62374,60714,60722,60723,60724,62382,62383, 62384,60734,60744</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_16"/>
+        </record>
+
+        <record id="tech_rec_index_l_13" model="account.analytic.report.template.line">
+            <field name="code">13</field>
+            <field name="sequence">13</field>
+            <field name="name">Silo hierba</field>
+            <field name="value_1_1">60123,60124</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">60123,60124</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_16"/>
+        </record>
+
+        <record id="tech_rec_index_l_14" model="account.analytic.report.template.line">
+            <field name="code">14</field>
+            <field name="sequence">14</field>
+            <field name="name">Silo maiz</field>
+            <field name="value_1_1">60133,60134</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">60133,60134</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_16"/>
+        </record>
+
+        <record id="tech_rec_index_l_15" model="account.analytic.report.template.line">
+            <field name="code">15</field>
+            <field name="sequence">15</field>
+            <field name="name">Otros</field>
+            <field name="value_1_1">62222,62223,6224,6236,62412,62413,62414, 62422,62423,62424,60812,60813,60814,60822,60823,60824, 60832,60833,60834,60842,60843,60844,60852,60853,60854,60862, 60863,60864,6087,62232,62233,62234,623112,623113, 623114,623132,623133,623134,62822,62823,62824</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">62222,62223,6224,6236,62412,62413,62414, 62422,62423,62424,60812,60813,60814,60822,60823,60824, 60832,60833,60834,60842,60843,60844,60852,60853,60854,60862, 60863,60864,6087,62232,62233,62234,623112,623113, 623114,623132,623133,623134,62822,62823,62824</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_16"/>
+        </record>
+
+        <record id="tech_rec_index_l_20" model="account.analytic.report.template.line">
+            <field name="code">20</field>
+            <field name="sequence">20</field>
+            <field name="name">Costes fijos</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="css_style">green_bold</field>
+            <field name="parent_id" ref="tech_rec_index_l_21"/>
+        </record>
+
+        <record id="tech_rec_index_l_17" model="account.analytic.report.template.line">
+            <field name="code">17</field>
+            <field name="sequence">17</field>
+            <field name="name">Mano de obra</field>
+            <field name="value_1_1">64062,64063,64064,64072,64073, 64074,64212,64213,64214, 64912,64913,64914,623162, 623163,623164</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">64062,64063,64064,64072,64073, 64074,64212,64213,64214, 64912,64913,64914,623162, 623163,623164</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_20"/>
+        </record>
+
+        <record id="tech_rec_index_l_18" model="account.analytic.report.template.line">
+            <field name="code">18</field>
+            <field name="sequence">18</field>
+            <field name="name">Amortizaciones</field>
+            <field name="value_1_1">68112,68113,68114,68132,68133,68134, 68142,68143,68144,68162, 68163,68164</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1">68112,68113,68114,68132,68133,68134, 68142,68143,68144,68162, 68163,68164</field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_20"/>
+        </record>
+
+        <record id="tech_rec_index_l_19" model="account.analytic.report.template.line">
+            <field name="code">19</field>
+            <field name="sequence">19</field>
+            <field name="name">Otros</field>
+            <field name="value_1_1">62522,62523,62524,62612,62613, 62614,-76222,-76223, -76224,62172,62173,62174</field>
+            <field name="value_1_2">[1_1],/#total_heifer</field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2">[2_1],/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+            <field name="parent_id" ref="tech_rec_index_l_20"/>
+        </record>
+
+        <record id="tech_rec_index_l_22" model="account.analytic.report.template.line">
+            <field name="code">22</field>
+            <field name="sequence">22</field>
+            <field name="name">Margen neto</field>
+            <field name="value_1_1">.4,-.21</field>
+            <field name="value_2_1">.4,-.21</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_23" model="account.analytic.report.template.line">
+            <field name="code">23</field>
+            <field name="sequence">23</field>
+            <field name="name">Número de novillas jata/día</field>
+            <field name="value_1_1">#total_heifer,/'30.42</field>
+            <field name="value_2_1">#total_heifer,/'30.42</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_24" model="account.analytic.report.template.line">
+            <field name="code">24</field>
+            <field name="sequence">24</field>
+            <field name="name">Número de novillas jata/mes</field>
+            <field name="value_1_1">#total_heifer</field>
+            <field name="value_2_1">#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_25" model="account.analytic.report.template.line">
+            <field name="code">25</field>
+            <field name="sequence">25</field>
+            <field name="name">Balance de reposición jata/día</field>
+            <field name="value_1_1">(((7011,7018),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)),/'30.42</field>
+            <field name="value_2_1">(((7011,7018),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)),/'30.42</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_26" model="account.analytic.report.template.line">
+            <field name="code">26</field>
+            <field name="sequence">26</field>
+            <field name="name">Balance de reposición jata/mes</field>
+            <field name="value_1_1">((7011,7018),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)</field>
+            <field name="value_2_1">((7011,7018),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_27" model="account.analytic.report.template.line">
+            <field name="code">27</field>
+            <field name="sequence">27</field>
+            <field name="name">Concentrado/novilla (Kg) jata/día</field>
+            <field name="value_1_1">((60016,60006,6211,6401,60011,60012,6232,60013,60014,60015,60021),/#total_heifer),/'30.42</field>
+            <field name="value_2_1">((60016,60006,6211,6401,60011,60012,6232,60013,60014,60015,60021),/#total_heifer),/'30.42</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_28" model="account.analytic.report.template.line">
+            <field name="code">28</field>
+            <field name="sequence">28</field>
+            <field name="name">Concentrado/novilla (Kg) jata/mes</field>
+            <field name="value_1_1">(60016,60006,6211,6401,60011,60012,6232,60013,60014,60015,60021),/#total_heifer</field>
+            <field name="value_2_1">(60016,60006,6211,6401,60011,60012,6232,60013,60014,60015,60021),/#total_heifer</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_29" model="account.analytic.report.template.line">
+            <field name="code">29</field>
+            <field name="sequence">29</field>
+            <field name="name">Coste alimentación mensual jatas 0-3 meses jata/día</field>
+            <field name="value_1_1">((60112,60142,60152,60162,60182, 60212, 60222,60232,60242,60252,60262,60272, 60282,60292,60312,6032, 6033,60412,60512,60522,60612),/#months),/'30.42</field>
+            <field name="value_2_1">((60112,60142,60152,60162,60182, 60212, 60222,60232,60242,60252,60262,60272,60282,60292,60312,6032, 6033,60412,60512,60522,60612),/#months),/'30.42</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_30" model="account.analytic.report.template.line">
+            <field name="code">30</field>
+            <field name="sequence">30</field>
+            <field name="name">Coste alimentación mensual jatas 0-3 meses jata/mes</field>
+            <field name="value_1_1">(60112,60142,60152,60162,60182,60212, 60222,60232,60242,60252,60262,60272, 60282,60292,60312,6032,6033,60412,60512,60522,60612),/#months</field>
+            <field name="value_2_1">(60112,60142,60152,60162,60182,60212, 60222,60232,60242,60252,60262,60272,60282,60292,60312,6032,6033,60412,60512,60522,60612),/#months</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_31" model="account.analytic.report.template.line">
+            <field name="code">31</field>
+            <field name="sequence">31</field>
+            <field name="name">Coste alimentación mensual novillas 3-12 meses jata/día</field>
+            <field name="value_1_1">((60113,60123,60133,60143,60163,60173, 60183,60213,60223,60233,60243, 60253,60263,60273,60283,60293, 60313,60413,60513,60523,60613),/#months),/'30.42</field>
+            <field name="value_2_1">((60113,60123,60133,60143,60163,60173, 60183,60213,60223,60233,60243, 60253,60263,60273,60283,60293, 60313,60413,60513,60523,60613),/#months),/'30.42</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_32" model="account.analytic.report.template.line">
+            <field name="code">32</field>
+            <field name="sequence">32</field>
+            <field name="name">Coste alimentación mensual novillas 3-12 meses jata/mes</field>
+            <field name="value_1_1">(60113,60123,60133,60143,60163,60173, 60183,60213,60223,60233,60243,60253,60263,60273,60283, 60293,60313,60413,60513,60523,60613),/#months</field>
+            <field name="value_2_1">(60113,60123,60133,60143,60163,60173, 60183,60213,60223,60233,60243,60253,60263,60273,60283, 60293,60313,60413,60513,60523,60613),/#months</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_33" model="account.analytic.report.template.line">
+            <field name="code">33</field>
+            <field name="sequence">33</field>
+            <field name="name">Coste alimentación mensual novillas 12 meses-parto jata/día</field>
+            <field name="value_1_1">((60114,60124,60134,60144,60154,60164, 60174,60184,60214,60224,60234,60244,60254,60264, 60274,60284,60294, 60314,60414,60514,60524,60614),/#months),/'30.42</field>
+            <field name="value_2_1">((60114,60124,60134,60144,60154,60164, 60174,60184,60214,60224,60234,60244,60254,60264, 60274,60284,60294, 60314,60414,60514,60524,60614),/#months),/'30.42</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+        <record id="tech_rec_index_l_34" model="account.analytic.report.template.line">
+            <field name="code">34</field>
+            <field name="sequence">34</field>
+            <field name="name">Coste alimentación mensual novillas 12 meses-parto jata/mes</field>
+            <field name="value_1_1">(60114,60124,60134,60144,60154,60164, 60174,60184,60214,60224,60234, 60244,60254,60264, 60274,60284,60294, 60314,60414,60514,60524,60614),/#months</field>
+            <field name="value_2_1">(60114,60124,60134,60144,60154,60164, 60174,60184,60214,60224,60234, 60244,60254,60264, 60274,60284,60294, 60314,60414,60514,60524,60614),/#months</field>
+            <field name="template_id" ref="tech_rec_index"/>
+        </record>
+
+    </data>
+</openerp>
