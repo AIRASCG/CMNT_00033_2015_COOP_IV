@@ -80,7 +80,7 @@
                         </group>
                         <notebook colspan="4">
                             <page string="Lines">
-                                <field name="line_ids" nolabel="1" colspan="4"/>
+                                <field name="line_ids" nolabel="1" colspan="4" context="{'analysis_id': exploitation_id}"/>
                             </page>
                             <page string="Notes">
                                 <separator string="Errors" colspan="4"/>

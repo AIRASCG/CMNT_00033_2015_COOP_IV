@@ -65,3 +65,17 @@ class MilkAnalysisLine(models.Model):
     yearmonth = fields.Char('Year/month')
     route = fields.Float('Route')
     analysis_line_id = fields.Char('Id')
+
+    def default_get(self, cr, uid, fields, context=None):
+        import ipdb; ipdb.set_trace()
+        if not context:
+            context = {}
+        res = super(MilkAnalysisLine, self).default_get(cr, uid, fields,
+                                                        context=context)
+        if context.get('analysis_id'):
+            exploitation_id = context.get('analysis_id')
+            res_partner_obj = self.pool.get('res.partner')
+            res_partner_id = res_partner_obj.browse(cr, uid, exploitation_id)
+            res.update({'exploitation_name': res_partner_id.name,
+                        'dni': res_partner_id.vat})
+        return res
