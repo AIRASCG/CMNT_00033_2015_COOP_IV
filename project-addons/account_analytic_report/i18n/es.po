@@ -50,7 +50,7 @@ msgstr "Hectareas otros cultivos"
 #. module: account_analytic_report
 #: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
 msgid "Calculate fields"
-msgstr "Calcular campos"
+msgstr "Obtener datos"
 
 
 #. module: account_analytic_report

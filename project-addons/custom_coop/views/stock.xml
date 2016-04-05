@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
+    <data noupdate="1">
+        <delete model="ir.actions.report.xml" id="stock.action_report_lot_barcode"/>
+    </data>
     <data>
-
         <record id="view_production_lot_form_inherit2" model="ir.ui.view">
           <field name="name">stock.production.lot.form.inherit2</field>
           <field name="model">stock.production.lot</field>
           <field name="inherit_id" ref="stock.view_production_lot_form"/>
           <field name="arch" type="xml">
+                <button name="action_traceability" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
               <xpath expr="//notebook/page[@string='Products']" position="after">
                   <page string="Lot Analysis">
                       <field name="lot_analysis_ids">

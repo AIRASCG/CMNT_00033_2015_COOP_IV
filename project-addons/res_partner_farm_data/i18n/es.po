@@ -421,7 +421,7 @@ msgstr "DEL"
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,dni:0
 msgid "DNI"
-msgstr "DNI"
+msgstr "NIF"
 
 #. module: res_partner_farm_data
 #: field:res.partner,dairy_company:0
@@ -834,7 +834,7 @@ msgstr "Importar"
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.lot_analysis_import_act
 msgid "Import lot analysis"
-msgstr "Importar análisis de lote"
+msgstr "Importar análisis de materias primas"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.milk_analysis_act
@@ -1064,12 +1064,12 @@ msgstr "Lote"
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_form
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_tree
 msgid "Lot analysis"
-msgstr "Análisis de lote"
+msgstr "Análisis de materias primas"
 
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 msgid "Lot analysis import"
-msgstr "Importar análisis de lote"
+msgstr "Importar análisis de materias primas"
 
 #. module: res_partner_farm_data
 #: field:lot,lot_details:0
@@ -1918,7 +1918,7 @@ msgstr "pH"
 #. module: res_partner_farm_data
 #: field:lot.analysis,ph_stability:0
 msgid "pH stability"
-msgstr "pH estabilidad. module: res_partner_farm_dat: field:milk.analysis.import,analysis:: field:milk.analysis.line,analysis_id:sgid \"Analysissgstr \"Análisis"
+msgstr "pH estabilidad."
 
 #. module: res_partner_farm_data
 #: field:cow.count,sequence:0
