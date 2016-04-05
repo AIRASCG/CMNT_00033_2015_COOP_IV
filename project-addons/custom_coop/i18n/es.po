@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-17 11:34+0000\n"
-"PO-Revision-Date: 2016-03-17 11:34+0000\n"
+"POT-Creation-Date: 2016-04-04 09:13+0000\n"
+"PO-Revision-Date: 2016-04-04 09:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -53,13 +53,13 @@ msgstr "Diario analítico"
 #. module: custom_coop
 #: field:account.asset.asset,account_analytic_id:0
 msgid "Analytic account"
-msgstr "Analytic account"
+msgstr "Cuenta analítica"
 
 #. module: custom_coop
 #: field:account.asset.asset,analytic_plan:0
 #: field:account.asset.category,analytic_plan:0
 msgid "Analytic plan"
-msgstr "Analytic plan"
+msgstr "Plan analítico"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_account_asset_asset
@@ -271,7 +271,7 @@ msgstr "Subvención"
 #. module: custom_coop
 #: field:account.asset.category,subvention_analytic_plan:0
 msgid "Subvention Analytic plan"
-msgstr "Subvention Analytic plan"
+msgstr "Subvención plan analítico"
 
 #. module: custom_coop
 #: field:account.asset.category,subvention_analytic_account_id:0

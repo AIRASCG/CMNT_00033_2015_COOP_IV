@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#       * res_partner_farm_data
+#	* res_partner_farm_data
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-16 12:00+0000\n"
-"PO-Revision-Date: 2016-03-16 12:00+0000\n"
+"POT-Creation-Date: 2016-04-04 08:30+0000\n"
+"PO-Revision-Date: 2016-04-04 08:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -87,14 +87,14 @@ msgid "Analytic"
 msgstr "Analítica"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:268
+#: code:addons/res_partner_farm_data/models/res_partner.py:285
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Analytic Plan"
 msgstr "Plan analítico"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:240
+#: code:addons/res_partner_farm_data/models/res_partner.py:257
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Assets"
@@ -248,7 +248,7 @@ msgstr "Cooperativa"
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
 msgid "Cooperative Partners"
-msgstr "Cooperative Partners"
+msgstr "Socios cooperativos"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
@@ -401,7 +401,7 @@ msgstr "Leche-ACUM"
 #. module: res_partner_farm_data
 #: field:milk.control.line,cumulative_protein:0
 msgid "Cumulative protein"
-msgstr "Proteina-ACUM"
+msgstr "Proteína-ACUM"
 
 #. module: res_partner_farm_data
 #: selection:cost.imputation,state:0
@@ -417,46 +417,6 @@ msgstr "Actual"
 #: field:milk.control.line,days:0
 msgid "DEL"
 msgstr "DEL"
-
-#. module: res_partner_farm_data
-#: field:res.partner,use_fo:0
-msgid "Use Forest"
-msgstr "Uso forestal"
-
-#. module: res_partner_farm_data
-#: field:res.partner,use_hu:0
-msgid "Use Vegetable Garden"
-msgstr "Uso huerta"
-
-#. module: res_partner_farm_data
-#: field:res.partner,use_ta:0
-msgid "Use Corn"
-msgstr "Uso maíz"
-
-#. module: res_partner_farm_data
-#: field:res.partner,use_pa:0
-msgid "Use Wooded Grass"
-msgstr "Uso pasto arboleado"
-
-#. module: res_partner_farm_data
-#: field:res.partner,use_pr:0
-msgid "Use Shrubby Grass"
-msgstr "Uso pasto arbustivo"
-
-#. module: res_partner_farm_data
-#: field:res.partner,use_ps:0
-msgid "Use Grass > 5 Years"
-msgstr "Uso pasto de > 5 años"
-
-#. module: res_partner_farm_data
-#: field:res.partner,use_pm:0
-msgid "Use Grass < 5 Years"
-msgstr "Uso pasto de < 5 años"
-
-#. module: res_partner_farm_data
-#: field:res.partner,total_net_surface:0
-msgid "Total Net Surface"
-msgstr "Superficie neta total"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,dni:0
@@ -609,17 +569,17 @@ msgstr "Enterobacterias"
 #: sql_constraint:lot.partner:0
 #, python-format
 msgid "Error! Only one lot by year and company."
-msgstr "Error! Solo un lote por año y compañía."
+msgstr "Error! Sólo un lote por año y compañía."
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/output_quota.py:34
 #: sql_constraint:output.quota:0
 #, python-format
 msgid "Error! Only one quota by year and company."
-msgstr "Error! Solo una cuota por año y compañía."
+msgstr "Error! Sólo una cuota por año y compañía."
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:30
+#: code:addons/res_partner_farm_data/models/res_partner.py:31
 #: sql_constraint:res.partner:0
 #, python-format
 msgid "Error! Specified VAT Number already exists for any other registered partner."
@@ -640,6 +600,7 @@ msgstr "Excepciones"
 #. module: res_partner_farm_data
 #: field:milk.analysis,exploitation_id:0
 #: field:milk.control,exploitation_id:0
+#: field:res.partner.fields,partner_id:0
 msgid "Exploitation"
 msgstr "Explotación"
 
@@ -689,7 +650,7 @@ msgid "Farm Partners"
 msgstr "Explotaciones"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:168
+#: code:addons/res_partner_farm_data/models/res_partner.py:179
 #, python-format
 msgid "Farm creation error"
 msgstr "Error al crear explotación"
@@ -871,11 +832,6 @@ msgid "Import"
 msgstr "Importar"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_password_partner_form_add_plantations
-msgid "Import Data"
-msgstr "Importar datos"
-
-#. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.lot_analysis_import_act
 msgid "Import lot analysis"
 msgstr "Importar análisis de materias primas"
@@ -1041,7 +997,7 @@ msgstr "Lignina"
 #: view:milk.control:res_partner_farm_data.milk_control_form
 #: field:milk.control,line_ids:0
 msgid "Lines"
-msgstr "Lineas"
+msgstr "Líneas"
 
 #. module: res_partner_farm_data
 #: field:lot,liters_discarded_per_day:0
@@ -1079,7 +1035,7 @@ msgid "Location Name"
 msgstr "Nombre paraje"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:253
+#: code:addons/res_partner_farm_data/models/res_partner.py:270
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Locations"
@@ -1271,7 +1227,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_password_partner_form_add_plantations
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #: field:res.partner.fields,net_surface:0
 msgid "Net Surface"
 msgstr "Superficie neta"
@@ -1387,9 +1343,26 @@ msgid "Partner Tags"
 msgstr "Etiquetas de empresa"
 
 #. module: res_partner_farm_data
+#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
+msgid "Partner fields"
+msgstr "Campos Partner"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/res_partner_fields_import.py:49
+#, python-format
+msgid "Partner not found"
+msgstr "Partner no encontrado"
+
+#. module: res_partner_farm_data
 #: field:res.partner,partner_of:0
 msgid "Partner of"
 msgstr "Socio de"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/res_partner_fields_import.py:50
+#, python-format
+msgid "Partner with code %s not found"
+msgstr "Partner con código %s no encontrado"
 
 #. module: res_partner_farm_data
 #: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
@@ -1408,12 +1381,12 @@ msgid "Pickup frequency"
 msgstr "Frecuencia recogida"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_password_partner_form_add_plantations
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "Plantation"
-msgstr "Fincas"
+msgstr "Finca"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_password_partner_form_add_plantations
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_res_partner_fields
 #: field:res.partner,plantation_ids:0
 #: view:res.partner.fields:res_partner_farm_data.view_res_partner_fields_form
 #: view:res.partner.fields:res_partner_farm_data.view_res_partner_fields_tree
@@ -1423,12 +1396,7 @@ msgstr "Fincas"
 #. module: res_partner_farm_data
 #: view:res.partner.fields.import:res_partner_farm_data.res_partner_fields_import_form
 msgid "Plantations import"
-msgstr "Plantations import"
-
-#. module: res_partner_farm_data
-#: field:res.partner.fields,plot:0
-msgid "Plot"
-msgstr "Parcela"
+msgstr "Importar fincas"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,kg_plucking:0
@@ -1480,12 +1448,12 @@ msgstr "Orientación productiva"
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,protein:0
 msgid "Protein"
-msgstr "Proteina"
+msgstr "Proteína"
 
 #. module: res_partner_farm_data
 #: field:milk.control.line,protein:0
 msgid "Protein %"
-msgstr "Proteina %"
+msgstr "Proteína %"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,province_id:0
@@ -1531,11 +1499,6 @@ msgstr "Proveedor sustitución"
 #: field:res.partner,reproduction_supplier:0
 msgid "Reproduction supplier"
 msgstr "Proveedor reproducción"
-
-#. module: res_partner_farm_data
-#: field:res.partner.fields,partner_id:0
-msgid "Res Partner"
-msgstr "Res Partner"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,retired_liters:0
@@ -1664,7 +1627,7 @@ msgstr "Suministros alimentación"
 #. module: res_partner_farm_data
 #: field:res.partner,supplies_technician:0
 msgid "Supplies technician"
-msgstr "Tecnico de suministros"
+msgstr "Técnico de suministros"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,surplus:0
@@ -1727,7 +1690,7 @@ msgid "Tipo de material"
 msgstr "Tipo de material"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:168
+#: code:addons/res_partner_farm_data/models/res_partner.py:180
 #, python-format
 msgid "To create farm must do it from the menu farm High"
 msgstr "Para crear explotaciones debe hacerse desde el menú 'Alta explotaciones'"
@@ -1868,6 +1831,8 @@ msgstr "Pasto arbolado"
 #: field:lot.partner,year_id:0
 #: field:milk.analysis.import,year:0
 #: field:output.quota,year_id:0
+#: field:res.partner.fields,year:0
+#: field:res.partner.fields.import,year:0
 #: field:yearly.data,year_id:0
 msgid "Year"
 msgstr "Año"
@@ -1975,3 +1940,4 @@ msgstr "{'invisible': [('farm', '=', False)]}"
 #: field:lot.content,eur_ton_mf:0
 msgid "€/Tn MF"
 msgstr "€/Tn MF"
+
