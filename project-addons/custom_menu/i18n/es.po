@@ -104,7 +104,7 @@ msgstr "Parámetros avanzados"
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.account_analytic_report_menu
 msgid "Anaytic report"
-msgstr "Informe de contabilidad analítica"
+msgstr "Informes técnicos"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_account_asset_category_form
@@ -182,7 +182,7 @@ msgstr "Gestión de alimentación"
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_lot_analysis_import
 msgid "Import lot analysis"
-msgstr "Importar análisis de lote"
+msgstr "Importar análisis de materias primas"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.information
@@ -207,7 +207,7 @@ msgstr "Lotes"
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_lot_analysis
 msgid "Lot analysis"
-msgstr "Análisis lotes"
+msgstr "Análisis de materias primas"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_calendar
