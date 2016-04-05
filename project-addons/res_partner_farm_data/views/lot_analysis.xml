@@ -33,7 +33,7 @@
                                 <field name="name"/>
                                 <field name="sampling_date"/>
                                 <field name="analysis_date"/>
-                                <field name="cooperative_id"/>
+                                <field name="cooperative_id" domain="[('is_cooperative','=',True)]"/>
                                 <field name="lot_id"/>
                             </group>
                             <group>
