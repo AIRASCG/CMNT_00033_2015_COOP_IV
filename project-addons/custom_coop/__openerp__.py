@@ -41,6 +41,7 @@
              'views/res_partner.xml', 'views/mail_attachment_partner.xml',
              'views/account_asset_asset.xml', 'security/ir.model.access.csv',
              'data/account_account.xml',
-             'views/analytic_view.xml'],
+             'views/analytic_view.xml',
+             'views/base_view.xml'],
     "installable": True
 }

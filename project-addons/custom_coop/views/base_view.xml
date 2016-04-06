@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+      <record id="view_base_adapted_fields" model="ir.ui.view">
+          <field name="name">view.base.adapted.fields</field>
+          <field name="model">res.company</field>
+          <field name="inherit_id" ref="base.view_company_tree"/>
+          <field name="arch" type="xml">
+              <field name="partner_id" position="replace">
+                  <field name="phone"/>
+                  <field name="email"/>
+                  <field name="not_configured_accounting"/>
+              </field>
+          </field>
+      </record>
+
+    </data>
+</openerp>
