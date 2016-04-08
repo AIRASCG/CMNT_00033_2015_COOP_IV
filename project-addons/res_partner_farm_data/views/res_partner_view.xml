@@ -412,7 +412,7 @@
                     <separator string="Description"/>
                     <field name="description"/>
                     <separator string="Partners"/>
-                    <field name="partner_id" domain="[('farm', '=', True)]"/>
+                    <field name="partner_id" domain="[('farm', '=', True), ('is_cooperative','=', False)]"/>
                 </xpath>
             </field>
         </record>
