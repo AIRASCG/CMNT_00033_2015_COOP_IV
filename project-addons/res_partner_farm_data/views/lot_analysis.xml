@@ -34,12 +34,14 @@
                                 <field name="sampling_date"/>
                                 <field name="analysis_date"/>
                                 <field name="cooperative_id" domain="[('is_cooperative','=',True)]"/>
-                                <field name="lot_id"/>
+                                <field name="explotation_company_id" invisible="1"/>
+                                <field name="lot_id" domain="[('company_id', '=', explotation_company_id)]"/>
                             </group>
                             <group>
                                 <field name="tipo_material"/>
                                 <field name="explotation_id"/>
                                 <field name="lab_id"/>
+                                <field name="lab_ref"/>
                                 <field name="year"/>
                                 <field name="product_name"/>
                             </group>
@@ -119,6 +121,7 @@
                     <field name="cooperative_id"/>
                     <field name="explotation_id"/>
                     <field name="lab_id"/>
+                    <field name="lab_ref"/>
                     <field name="year"/>
                </search>
             </field>

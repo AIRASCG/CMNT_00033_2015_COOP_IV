@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* company_automatic_account_config
+#   * company_automatic_account_config
 #
 msgid ""
 msgstr ""
@@ -34,5 +34,5 @@ msgstr "Configurar contabilidad"
 #. module: company_automatic_account_config
 #: view:res.company:company_automatic_account_config.res_company_add_configure_accounting
 msgid "This action will configure the accounting for the company."
-msgstr "Esta aplicación actualmente es temporal, si pulsa en el botón aceptar la explotación pasará a formar parte de la cooperativa, estadísticas del sistema ..."
+msgstr "Esta aplicación actualmente es temporal, si pulsa en el botón aceptar la explotación pasará a formar parte de la cooperativa, estadísticas del sistema..."
 

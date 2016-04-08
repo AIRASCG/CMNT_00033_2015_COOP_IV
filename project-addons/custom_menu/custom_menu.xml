@@ -96,7 +96,6 @@
 
         <menuitem id="myreport" name="Reports" parent="parent_menu" sequence="2"/>
 
-        <!-- <menuitem id="menu_action_wizard_valuation_history" action="stock_account.action_wizard_stock_valuation_history" parent="myreport"/> -->
 
         <record id="view_stock_history_report_tree_rm_value" model="ir.ui.view">
             <field name="name">Stock Value At Date</field>
