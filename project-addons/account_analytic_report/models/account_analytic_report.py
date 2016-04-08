@@ -38,7 +38,7 @@ class AccountAnalyticReport(models.Model):
     from_date_1 = fields.Date('From date')
     to_date_1 = fields.Date('To date')
     milk_1 = fields.Float('Milk')
-    total_cows_1 = fields.Integer('Total cows')
+    total_cows_1 = fields.Float('Total cows')
     employees_1 = fields.Integer('Total employees')
     total_heifer_1 = fields.Integer('Total heifer')
     hectare_1 = fields.Float('Hectare')
@@ -69,7 +69,7 @@ class AccountAnalyticReport(models.Model):
     from_date_2 = fields.Date('From date')
     to_date_2 = fields.Date('To date')
     milk_2 = fields.Float('Milk')
-    total_cows_2 = fields.Integer('Total cows')
+    total_cows_2 = fields.Float('Total cows')
     employees_2 = fields.Integer('Total employees')
     total_heifer_2 = fields.Integer('Total heifer')
     hectare_2 = fields.Float('Hectare')
@@ -226,9 +226,10 @@ class AccountAnalyticReport(models.Model):
         for i in (1, 2):
             from_date_str = self['from_date_' + str(i)]
             to_date_str = self['to_date_' + str(i)]
-            from_date = datetime.strptime(from_date_str, '%Y-%m-%d')
-            to_date = datetime.strptime(to_date_str, '%Y-%m-%d')
-            self['months_' + str(i)] = abs((from_date - to_date).days) / 30.0
+            if from_date_str and to_date_str:
+                from_date = datetime.strptime(from_date_str, '%Y-%m-%d')
+                to_date = datetime.strptime(to_date_str, '%Y-%m-%d')
+                self['months_' + str(i)] = abs((from_date - to_date).days) / 30.0
 
     @api.multi
     def act_button_update_fields(self):
@@ -370,7 +371,7 @@ class AccountAnalyticReportLine(models.Model):
                 val += ')' * end_par
             final_vals.append(val)
         try:
-            result = eval(''.join(final_vals))
+            result = round(eval(''.join(final_vals)),2)
         except ZeroDivisionError:
             raise exceptions.Warning(_('Calc error'), _('Division by zero in %s') % self.template_line_id[field])
         return result
