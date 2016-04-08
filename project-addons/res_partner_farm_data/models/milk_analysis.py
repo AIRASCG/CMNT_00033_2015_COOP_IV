@@ -67,7 +67,6 @@ class MilkAnalysisLine(models.Model):
     analysis_line_id = fields.Char('Id')
 
     def default_get(self, cr, uid, fields, context=None):
-        import ipdb; ipdb.set_trace()
         if not context:
             context = {}
         res = super(MilkAnalysisLine, self).default_get(cr, uid, fields,

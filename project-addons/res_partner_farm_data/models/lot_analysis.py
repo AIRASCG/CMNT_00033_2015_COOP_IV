@@ -32,7 +32,12 @@ class LotAnalysis(models.Model):
          ('unifeed', 'Mezcla unifeed')), 'Tipo de material')
     cooperative_id = fields.Many2one('res.partner', 'Cooperative')
     lab_id = fields.Many2one('res.partner', 'Laboratory')
+    lab_ref = fields.Char('Laboratory reference')
     explotation_id = fields.Many2one('res.partner', 'Explotation')
+    explotation_company_id = fields.Many2one('res.company',
+                                             'Explotation',
+                                             compute='_get_exp_company',
+                                             store=True)
     company_id = fields.Many2one('res.company', 'Company',
                                  related='explotation_id.company_id')
     year = fields.Integer('Year')
@@ -90,3 +95,9 @@ class LotAnalysis(models.Model):
     zearelenone = fields.Float('Zearelenone')
     vomitoxin = fields.Float('Vomitoxin')
     afla_b1 = fields.Float('AFLA B1')
+
+    @api.multi
+    @api.depends('explotation_id.company_id')
+    def _get_exp_company(self):
+        for analysis in self:
+            analysis.explotation_company_id = analysis.explotation_id.company_id

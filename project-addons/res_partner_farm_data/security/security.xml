@@ -32,5 +32,13 @@
             <field name="domain_force">[('partner_id.company_id','child_of',[user.company_id.id])]</field>
         </record>
 
+        <delete model="ir.rule" id="stock_production_lot_multi_company.production_lot_comp_rule"/>
+
+        <record model="ir.rule" id="stock_production_lot_multi_company.production_lot_comp_rule">
+            <field name="name">Serial number multi-company</field>
+            <field name="model_id" ref="stock.model_stock_production_lot"/>
+            <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]),('company_id', '=', False)]</field>
+        </record>
+
     </data>
 </openerp>
