@@ -62,6 +62,33 @@ class AccountAssetAsset(models.Model):
                                         'open': [('readonly', True)],
                                         'close': [('readonly', True)]})
 
+    @api.model
+    def create(self, vals):
+        if vals.get('category_id', False):
+            category = self.env['account.asset.category'].\
+                browse(vals['category_id'])
+            vals['method'] = category.method
+            vals['ext_method_time'] = category.ext_method_time
+            vals['prorata'] = category.prorata
+            vals['method_number'] = category.method_number
+            vals['method_period'] = category.method_period
+            vals['method_end'] = category.method_end
+
+        return super(AccountAssetAsset, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if vals.get('category_id', False):
+            category = self.env['account.asset.category'].\
+                browse(vals['category_id'])
+            vals['method'] = category.method
+            vals['ext_method_time'] = category.ext_method_time
+            vals['prorata'] = category.prorata
+            vals['method_number'] = category.method_number
+            vals['method_period'] = category.method_period
+            vals['method_end'] = category.method_end
+        return super(AccountAssetAsset, self).write(vals)
+
     @api.multi
     def onchange_category_id_subvention(self, category_id, subvention):
         res = super(AccountAssetAsset, self).onchange_category_id(category_id)

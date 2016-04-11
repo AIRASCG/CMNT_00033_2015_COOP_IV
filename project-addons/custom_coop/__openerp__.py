@@ -29,7 +29,7 @@
     'author': 'Comunitea',
     'website': '',
     "depends": ['account', 'acc_analytic_acc_distribution_between',
-                'automatic_company', 'account_asset', 'analytic',
+                'automatic_company', 'l10n_es_account_asset', 'analytic',
                 'partner_passwd','company_assign_users', 'company_automatic_account_config',
                 'company_open_fiscalyear', 'custom_colors', 'custom_email_template',
                 'custom_groups', 'custom_menu', 'protect_cud_parent_companies',
