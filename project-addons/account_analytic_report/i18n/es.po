@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * account_analytic_report
+#	* account_analytic_report
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-01 17:03+0000\n"
-"PO-Revision-Date: 2015-12-01 17:03+0000\n"
+"POT-Creation-Date: 2016-04-11 12:35+0000\n"
+"PO-Revision-Date: 2016-04-11 12:35+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,48 @@ msgstr "Novillas 3-12 meses"
 msgid "Account analytic report"
 msgstr "Informe de contabilidad analítica"
 
+#. module: account_analytic_report
+#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
+#: model:ir.actions.act_window,name:account_analytic_report.action_view_account_analytic_report_template
+msgid "Account analytic report template"
+msgstr "Plantilla de informe de contabilidad analítica"
+
+#. module: account_analytic_report
+#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_tree
+msgid "Account analytic report templates"
+msgstr "Plantillas de informe de contabilidad analítica"
+
+#. module: account_analytic_report
+#: code:addons/account_analytic_report/models/account_analytic_report.py:364
+#, python-format
+msgid "Account not found"
+msgstr "Cuenta no encontrada"
+
+#. module: account_analytic_report
+#: code:addons/account_analytic_report/models/account_analytic_report.py:365
+#, python-format
+msgid "Account with code %s not found"
+msgstr "La cuenta analítica con el código %s no ha sido encontrada"
+
+#. module: account_analytic_report
+#: model:ir.model,name:account_analytic_report.model_account_analytic_account
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: account_analytic_report
+#: model:ir.model,name:account_analytic_report.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea analítica"
+
+#. module: account_analytic_report
+#: model:ir.actions.report.xml,name:account_analytic_report.print_analytic_report
+msgid "Analytic report"
+msgstr "Informe"
+
+#. module: account_analytic_report
+#: model:ir.ui.menu,name:account_analytic_report.account_analytic_report_template_menu
+msgid "Anaytic report template"
+msgstr "Plantilla de informe de contabilidad analítica"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,kg_another_1:0
@@ -48,10 +90,47 @@ msgid "Another hectares"
 msgstr "Hectareas otros cultivos"
 
 #. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Bold"
+msgstr "Negrita"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,calc_date:0
+msgid "Calc date"
+msgstr "Fecha de cálculo"
+
+#. module: account_analytic_report
+#: code:addons/account_analytic_report/models/account_analytic_report.py:376
+#, python-format
+msgid "Calc error"
+msgstr "Error en el cálculo"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+msgid "Calculate"
+msgstr "Calcular"
+
+#. module: account_analytic_report
 #: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
 msgid "Calculate fields"
 msgstr "Obtener datos"
 
+#. module: account_analytic_report
+#: selection:account.analytic.report,state:0
+msgid "Calculated"
+msgstr "Calculado"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report,state:0
+msgid "Calculating"
+msgstr "Calculando"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+#: selection:account.analytic.report,state:0
+msgid "Cancel"
+msgstr "Cancelado"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,kg_cereal_1:0
@@ -65,6 +144,49 @@ msgstr "Kg cereales"
 msgid "Cereal hectares"
 msgstr "Hectareas cereales"
 
+#. module: account_analytic_report
+#: field:account.analytic.report.line,child_ids:0
+#: field:account.analytic.report.template.line,child_ids:0
+msgid "Childs"
+msgstr "Childs"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,code:0
+#: field:account.analytic.report.template.line,code:0
+msgid "Code"
+msgstr "Código"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,company_id:0
+#: selection:account.analytic.report,ref_1:0
+#: selection:account.analytic.report,ref_2:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+msgid "Company 1"
+msgstr "Compañía 1"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+msgid "Company 2"
+msgstr "Compañía 2"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Company 2:"
+msgstr "Compañía 2:"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Compnay 1:"
+msgstr "Compañía 1:"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+msgid "Configuration"
+msgstr "Configuración"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,kg_corn_1:0
@@ -78,12 +200,55 @@ msgstr "Kg maiz"
 msgid "Corn hectares"
 msgstr "Hectareas maíz"
 
+#. module: account_analytic_report
+#: field:account.analytic.report,cost_feed_milk_cow_day_1:0
+#: field:account.analytic.report,cost_feed_milk_cow_day_2:0
+msgid "Coste de Alimentación vaca lactación/día (€)"
+msgstr "Coste de Alimentación vaca lactación/día (€)"
 
 #. module: account_analytic_report
-#: code:addons/account_analytic_report/models/account_analytic_report.py:375
-#, python-format
-msgid "Division by zero in %s"
-msgstr "División por cero en  %s"
+#: field:account.analytic.report,cost_feed_dry_cow_day_1:0
+#: field:account.analytic.report,cost_feed_dry_cow_day_2:0
+msgid "Coste de Alimentación vaca seca/día (€)"
+msgstr "Coste de Alimentación vaca seca/día (€)"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,create_uid:0
+#: field:account.analytic.report.line,create_uid:0
+#: field:account.analytic.report.template,create_uid:0
+#: field:account.analytic.report.template.line,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,create_date:0
+#: field:account.analytic.report.line,create_date:0
+#: field:account.analytic.report.template,create_date:0
+#: field:account.analytic.report.template.line,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,css_style:0
+#: field:account.analytic.report.template.line,css_style:0
+msgid "Css style"
+msgstr "Estílo CSS"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.template,description:0
+msgid "Description"
+msgstr "Descripción"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+#: selection:account.analytic.report,state:0
+msgid "Done"
+msgstr "Finalizado"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report,state:0
+msgid "Draft"
+msgstr "Borrador"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,kg_dry_grass_1:0
@@ -98,6 +263,28 @@ msgid "Dry grass hectares"
 msgstr "Hectareas hierba seca"
 
 #. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Employees:"
+msgstr "Empleados:"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report,ref_1:0
+#: selection:account.analytic.report,ref_2:0
+msgid "Farm group"
+msgstr "Grupo de explotaciones"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,from_date_1:0
+#: field:account.analytic.report,from_date_2:0
+msgid "From date"
+msgstr "Desde"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "From date:"
+msgstr "Desde:"
+
+#. module: account_analytic_report
 #: field:account.analytic.report,kg_grass_1:0
 #: field:account.analytic.report,kg_grass_2:0
 msgid "Grass Kg"
@@ -110,10 +297,29 @@ msgid "Grass hectares"
 msgstr "Hectareas hierba"
 
 #. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Green bold"
+msgstr "Verde negrita"
+
+#. module: account_analytic_report
 #: field:account.analytic.report,hectare_1:0
 #: field:account.analytic.report,hectare_2:0
 msgid "Hectare"
 msgstr "Hectareas"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,id:0
+#: field:account.analytic.report.line,id:0
+#: field:account.analytic.report.template,id:0
+#: field:account.analytic.report.template.line,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: account_analytic_report
+#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
+msgid "Information"
+msgstr "Información"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,inventory_difference_1:0
@@ -122,10 +328,51 @@ msgid "Inventory difference"
 msgstr "Diferencia de inventario"
 
 #. module: account_analytic_report
+#: field:account.analytic.report,write_uid:0
+#: field:account.analytic.report.line,write_uid:0
+#: field:account.analytic.report.template,write_uid:0
+#: field:account.analytic.report.template.line,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,write_date:0
+#: field:account.analytic.report.line,write_date:0
+#: field:account.analytic.report.template,write_date:0
+#: field:account.analytic.report.template.line,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: account_analytic_report
+#: code:addons/account_analytic_report/models/account_analytic_report.py:351
+#, python-format
+msgid "Line not found"
+msgstr "Linea no encontrada"
+
+#. module: account_analytic_report
+#: code:addons/account_analytic_report/models/account_analytic_report.py:352
+#, python-format
+msgid "Line with code %s not found"
+msgstr "La línea con el código %s no ha sido encontrada"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,line_ids:0
+#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
+#: field:account.analytic.report.template,line_ids:0
+msgid "Lines"
+msgstr "Lineas"
+
+#. module: account_analytic_report
 #: field:account.analytic.report,cow_buy_1:0
 #: field:account.analytic.report,cow_buy_2:0
 msgid "Livestock purchased"
 msgstr "Ganado comprado"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,milk_1:0
+#: field:account.analytic.report,milk_2:0
+msgid "Milk"
+msgstr "Leche"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,milk_and_dry_1:0
@@ -140,10 +387,68 @@ msgid "Milk cows"
 msgstr "Vacas lactación"
 
 #. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Milk:"
+msgstr "Leche:"
+
+#. module: account_analytic_report
+#: code:addons/account_analytic_report/models/account_analytic_report.py:376
+#, python-format
+msgid "Missing data cover"
+msgstr "Faltan datos por cubrir"
+
+#. module: account_analytic_report
 #: field:account.analytic.report,months_1:0
 #: field:account.analytic.report,months_2:0
 msgid "Months"
 msgstr "Meses analizados"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,name:0
+#: field:account.analytic.report.line,name:0
+#: field:account.analytic.report.template,name:0
+#: field:account.analytic.report.template.line,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,notes:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.line,parent_id:0
+#: field:account.analytic.report.template.line,parent_id:0
+msgid "Parent"
+msgstr "Padre"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Red"
+msgstr "Rojo"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.line,css_style:0
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Red bold"
+msgstr "Rojo negrita"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,ref_1:0
+#: field:account.analytic.report,ref_2:0
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: account_analytic_report
+#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
+msgid "Report lines"
+msgstr "Lineas de informe"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,state:0
+msgid "State"
+msgstr "Estado"
 
 #. module: account_analytic_report
 #: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
@@ -151,50 +456,61 @@ msgid "Technical economics configuration"
 msgstr "Configuración informe tecnico-económico"
 
 #. module: account_analytic_report
-#: field:account.analytic.report,plus_twelve_heifer_1:0
-#: field:account.analytic.report,plus_twelve_heifer_2:0
-msgid "plus 12 months heifer"
-msgstr "Novillas >12 meses"
+#: field:account.analytic.report,template_id:0
+#: field:account.analytic.report.template.line,template_id:0
+msgid "Template"
+msgstr "Plantilla"
 
+#. module: account_analytic_report
+#: field:account.analytic.report.line,template_line_id:0
+msgid "Template line"
+msgstr "Linea de plantilla"
 
 #. module: account_analytic_report
 #: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
-#: model:ir.actions.act_window,name:account_analytic_report.action_view_account_analytic_report_template
-msgid "Account analytic report template"
-msgstr "Plantilla de informe de contabilidad analítica"
+msgid "Template lines"
+msgstr "Linea de plantilla"
 
 #. module: account_analytic_report
-#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_tree
-msgid "Account analytic report templates"
-msgstr "Plantillas de informe de contabilidad analítica"
-
-#. module: account_analytic_report
-#: code:addons/account_analytic_report/models/account_analytic_report.py:144
+#: sql_constraint:account.analytic.report.template.line:0
+#: code:addons/account_analytic_report/models/account_analytic_report_template.py:58
 #, python-format
-msgid "Account not found"
-msgstr "Cuenta no encontrada"
+msgid "The code must be unique for this report!"
+msgstr "¡El código debe de ser único!"
 
 #. module: account_analytic_report
-#: code:addons/account_analytic_report/models/account_analytic_report.py:145
-#, python-format
-msgid "Account with code %s not found"
-msgstr "La cuenta analítica con el código %s no ha sido encontrada"
+#: field:account.analytic.report,title_1:0
+#: field:account.analytic.report.template,title_1:0
+msgid "Title value 1"
+msgstr "Título valor 1"
 
 #. module: account_analytic_report
-#: model:ir.model,name:account_analytic_report.model_account_analytic_account
-msgid "Analytic Account"
-msgstr "Cuenta analítica"
+#: field:account.analytic.report,title_2:0
+#: field:account.analytic.report.template,title_2:0
+msgid "Title value 2"
+msgstr "Título valor 2"
 
 #. module: account_analytic_report
-#: field:account.analytic.report,milk_1:0
-#: field:account.analytic.report,milk_2:0
-msgid "Milk"
-msgstr "Leche"
+#: field:account.analytic.report,to_date_1:0
+#: field:account.analytic.report,to_date_2:0
+msgid "To date"
+msgstr "Hasta"
 
 #. module: account_analytic_report
 #: view:website:account_analytic_report.report_analytic_report_document
-msgid "Milk:"
-msgstr "Leche:"
+msgid "To date:"
+msgstr "Hasta:"
+
+#. module: account_analytic_report
+#: field:account.analytic.report,total_cows_1:0
+#: field:account.analytic.report,total_cows_2:0
+msgid "Total cows"
+msgstr "Total vacas"
+
+#. module: account_analytic_report
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "Total cows:"
+msgstr "Total vacas:"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,employees_1:0
@@ -203,46 +519,15 @@ msgid "Total employees"
 msgstr "Empleados"
 
 #. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "Employees:"
-msgstr "Empleados:"
-
-#. module: account_analytic_report
 #: field:account.analytic.report,total_heifer_1:0
 #: field:account.analytic.report,total_heifer_2:0
 msgid "Total heifer"
 msgstr "Total novillas"
 
 #. module: account_analytic_report
-#: field:account.analytic.report.line,css_style:0
-#: field:account.analytic.report.template.line,css_style:0
-msgid "Css style"
-msgstr "Estílo CSS"
-
-#. module: account_analytic_report
 #: view:website:account_analytic_report.report_analytic_report_document
-msgid "Company 2:"
-msgstr "Compañía 2:"
-
-#. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "Compnay 1:"
-msgstr "Compañía 1:"
-
-#. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "code"
-msgstr "Código"
-
-#. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "name"
-msgstr "Nombre"
-
-#. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "notes"
-msgstr "Notas"
+msgid "Total heifer:"
+msgstr "Total novillas:"
 
 #. module: account_analytic_report
 #: field:account.analytic.report.line,value_1_1:0
@@ -269,312 +554,25 @@ msgid "Value 2.2"
 msgstr "Valor 2.2"
 
 #. module: account_analytic_report
-#: field:account.analytic.report,title_1:0
-#: field:account.analytic.report.template,title_1:0
-msgid "Title value 1"
-msgstr "Título valor 1"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,title_2:0
-#: field:account.analytic.report.template,title_2:0
-msgid "Title value 2"
-msgstr "Título valor 2"
-
-#. module: account_analytic_report
 #: view:website:account_analytic_report.report_analytic_report_document
-msgid "From date:"
-msgstr "Desde:"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report.line,css_style:0
-#: selection:account.analytic.report.template.line,css_style:0
-msgid "Red"
-msgstr "Rojo"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report.line,css_style:0
-#: selection:account.analytic.report.template.line,css_style:0
-msgid "Red bold"
-msgstr "Rojo negrita"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report.line,css_style:0
-#: selection:account.analytic.report.template.line,css_style:0
-msgid "Green bold"
-msgstr "Verde negrita"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report.line,css_style:0
-#: selection:account.analytic.report.template.line,css_style:0
-msgid "Bold"
-msgstr "Negrita"
-
-#. module: account_analytic_report
-#: model:ir.actions.report.xml,name:account_analytic_report.print_analytic_report
-msgid "Analytic report"
-msgstr "Informe"
-
-#. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "To date:"
-msgstr "Hasta:"
-
-#. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "Total heifer:"
-msgstr "Total novillas:"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,total_cows_1:0
-#: field:account.analytic.report,total_cows_2:0
-msgid "Total cows"
-msgstr "Total vacas"
-
-#. module: account_analytic_report
-#: view:website:account_analytic_report.report_analytic_report_document
-msgid "Total cows:"
-msgstr "Total vacas:"
-
-#. module: account_analytic_report
-#: model:ir.model,name:account_analytic_report.model_account_analytic_line
-msgid "Analytic Line"
-msgstr "Línea analítica"
-
-#. module: account_analytic_report
-#: model:ir.ui.menu,name:account_analytic_report.account_analytic_report_menu
-msgid "Anaytic report"
-msgstr "Informe de contabilidad analítica"
-
-#. module: account_analytic_report
-#: model:ir.ui.menu,name:account_analytic_report.account_analytic_report_template_menu
-msgid "Anaytic report template"
-msgstr "Plantilla de informe de contabilidad analítica"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,calc_date:0
-msgid "Calc date"
-msgstr "Fecha de cálculo"
-
-#. module: account_analytic_report
-#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
-msgid "Calculate"
-msgstr "Calcular"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report,state:0
-msgid "Calculated"
-msgstr "Calculado"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report,state:0
-msgid "Calculating"
-msgstr "Calculando"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report,state:0
-msgid "Cancel"
-msgstr "Cancelado"
-
-#. module: account_analytic_report
-#: field:account.analytic.report.line,child_ids:0
-#: field:account.analytic.report.template.line,child_ids:0
-msgid "Childs"
-msgstr "Childs"
-
-#. module: account_analytic_report
-#: field:account.analytic.report.line,code:0
-#: field:account.analytic.report.template.line,code:0
-msgid "Code"
+msgid "code"
 msgstr "Código"
 
 #. module: account_analytic_report
-#: selection:account.analytic.report,ref_1:0
-#: selection:account.analytic.report,ref_2:0
-msgid "Company"
-msgstr "Compañía"
-
-#. module: account_analytic_report
-#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
-msgid "Company 1"
-msgstr "Compañía 1"
-
-#. module: account_analytic_report
-#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
-msgid "Company 2"
-msgstr "Compañía 2"
-
-#. module: account_analytic_report
-#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
-msgid "Configuration"
-msgstr "Configuración"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,create_uid:0
-#: field:account.analytic.report.line,create_uid:0
-#: field:account.analytic.report.template,create_uid:0
-#: field:account.analytic.report.template.line,create_uid:0
-msgid "Created by"
-msgstr "Created by"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,create_date:0
-#: field:account.analytic.report.line,create_date:0
-#: field:account.analytic.report.template,create_date:0
-#: field:account.analytic.report.template.line,create_date:0
-msgid "Created on"
-msgstr "Created on"
-
-#. module: account_analytic_report
-#: field:account.analytic.report.template,description:0
-msgid "Description"
-msgstr "Descripción"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report,state:0
-msgid "Done"
-msgstr "Finalizado"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report,state:0
-msgid "Draft"
-msgstr "Borrador"
-
-#. module: account_analytic_report
-#: selection:account.analytic.report,ref_1:0
-#: selection:account.analytic.report,ref_2:0
-msgid "Farm group"
-msgstr "Grupo de explotaciones"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,from_date_1:0
-#: field:account.analytic.report,from_date_2:0
-msgid "From date"
-msgstr "Desde"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,id:0
-#: field:account.analytic.report.line,id:0
-#: field:account.analytic.report.template,id:0
-#: field:account.analytic.report.template.line,id:0
-msgid "ID"
-msgstr "ID"
-
-#. module: account_analytic_report
-#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
-msgid "Information"
-msgstr "Información"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,write_uid:0
-#: field:account.analytic.report.line,write_uid:0
-#: field:account.analytic.report.template,write_uid:0
-#: field:account.analytic.report.template.line,write_uid:0
-msgid "Last Updated by"
-msgstr "Last Updated by"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,write_date:0
-#: field:account.analytic.report.line,write_date:0
-#: field:account.analytic.report.template,write_date:0
-#: field:account.analytic.report.template.line,write_date:0
-msgid "Last Updated on"
-msgstr "Last Updated on"
-
-#. module: account_analytic_report
-#: code:addons/account_analytic_report/models/account_analytic_report.py:136
-#, python-format
-msgid "Line not found"
-msgstr "Linea no encontrada"
-
-#. module: account_analytic_report
-#: code:addons/account_analytic_report/models/account_analytic_report.py:137
-#, python-format
-msgid "Line with code %s not found"
-msgstr "La línea con el código %s no ha sido encontrada"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,line_ids:0
-#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
-#: field:account.analytic.report.template,line_ids:0
-msgid "Lines"
-msgstr "Lineas"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,name:0
-#: field:account.analytic.report.line,name:0
-#: field:account.analytic.report.template,name:0
-#: field:account.analytic.report.template.line,name:0
-msgid "Name"
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "name"
 msgstr "Nombre"
 
 #. module: account_analytic_report
-#: field:account.analytic.report.line,notes:0
-msgid "Notes"
+#: view:website:account_analytic_report.report_analytic_report_document
+msgid "notes"
 msgstr "Notas"
 
 #. module: account_analytic_report
-#: field:account.analytic.report.line,parent_id:0
-#: field:account.analytic.report.template.line,parent_id:0
-msgid "Parent"
-msgstr "Padre"
-
-
-#. module: account_analytic_report
-#: field:account.analytic.report,ref_1:0
-#: field:account.analytic.report,ref_2:0
-msgid "Reference"
-msgstr "Referencia"
-
-#. module: account_analytic_report
-#: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
-msgid "Report lines"
-msgstr "Lineas de informe"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,state:0
-msgid "State"
-msgstr "Estado"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,template_id:0
-#: field:account.analytic.report.template.line,template_id:0
-msgid "Template"
-msgstr "Plantilla"
-
-#. module: account_analytic_report
-#: field:account.analytic.report.line,template_line_id:0
-msgid "Template line"
-msgstr "Linea de plantilla"
-
-#. module: account_analytic_report
-#: view:account.analytic.report.template:account_analytic_report.view_account_analytic_report_template_form
-msgid "Template lines"
-msgstr "Linea de plantilla"
-
-#. module: account_analytic_report
-#: sql_constraint:account.analytic.report.template.line:0
-#: code:addons/account_analytic_report/models/account_analytic_report_template.py:51
-#, python-format
-msgid "The code must be unique for this report!"
-msgstr "¡El código debe de ser único!"
-
-#. module: account_analytic_report
-#: field:account.analytic.report,to_date_1:0
-#: field:account.analytic.report,to_date_2:0
-msgid "To date"
-msgstr "Hasta"
-
-#. module: account_analytic_report
-#: field:account.analytic.report.template.line,value_1:0
-#: field:account.analytic.report.line,value_1:0
-msgid "Value 1"
-msgstr "Valor 1"
-
-#. module: account_analytic_report
-#: field:account.analytic.report.template.line,value_2:0
-#: field:account.analytic.report.line,value_2:0
-msgid "Value 2"
-msgstr "Valor 2"
+#: field:account.analytic.report,plus_twelve_heifer_1:0
+#: field:account.analytic.report,plus_twelve_heifer_2:0
+msgid "plus 12 months heifer"
+msgstr "Novillas >12 meses"
 
 #. module: account_analytic_report
 #: field:account.analytic.report.line,report_id:0

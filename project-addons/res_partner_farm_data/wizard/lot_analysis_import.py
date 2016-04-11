@@ -52,7 +52,7 @@ class LotAnalysisImport(models.TransientModel):
             analysis_vals['tipo_material'] = row[2]
             ref_coop = str(row[3])
             coop_id = self.env['res.partner'].search([('ref', '=', ref_coop)])
-            analysis_vals['cooperative_id'] = coop_id and coop_id.id or False
+            # analysis_vals['cooperative_id'] = coop_id and coop_id.id or False
             ref_lab = str(row[4])
             lab_id = self.env['res.partner'].search([('ref', '=', ref_lab)])
             if lab_id:

@@ -341,7 +341,7 @@
                             </field>
                         </group>
                     </page>
-                    <page string="Plantation">
+                    <page string="Plantation"  attrs="{'invisible': [('farm', '=', False)]}">
                         <separator string="Net Surface"/>
                         <group colspan="4">
                             <group col="2">

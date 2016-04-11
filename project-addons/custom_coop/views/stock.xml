@@ -20,7 +20,7 @@
                               <field name="lot_id"/>
                               <field name="sampling_date"/>
                               <field name="analysis_date"/>
-                              <field name="cooperative_id"/>
+                              <!-- <field name="cooperative_id"/> -->
                               <field name="explotation_id"/>
                               <field name="tipo_material"/>
                               <field name="lab_id"/>

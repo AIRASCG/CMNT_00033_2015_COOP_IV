@@ -373,5 +373,5 @@ class AccountAnalyticReportLine(models.Model):
         try:
             result = round(eval(''.join(final_vals)),2)
         except ZeroDivisionError:
-            raise exceptions.Warning(_('Calc error'), _('Division by zero in %s') % self.template_line_id[field])
+            raise exceptions.Warning(_('Calc error'), _('Missing data cover'))
         return result

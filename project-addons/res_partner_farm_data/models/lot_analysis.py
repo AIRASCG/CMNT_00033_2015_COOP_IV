@@ -30,7 +30,7 @@ class LotAnalysis(models.Model):
     tipo_material = fields.Selection(
         (('hierba', 'Silo hierba'), ('maiz', 'Silo maiz'),
          ('unifeed', 'Mezcla unifeed')), 'Tipo de material')
-    cooperative_id = fields.Many2one('res.partner', 'Cooperative')
+    # cooperative_id = fields.Many2one('res.partner', 'Cooperative')
     lab_id = fields.Many2one('res.partner', 'Laboratory')
     lab_ref = fields.Char('Laboratory reference')
     explotation_id = fields.Many2one('res.partner', 'Explotation')
@@ -101,3 +101,13 @@ class LotAnalysis(models.Model):
     def _get_exp_company(self):
         for analysis in self:
             analysis.explotation_company_id = analysis.explotation_id.company_id
+
+    def default_get(self, cr, uid, fields, context=None):
+        if not context:
+            context = {}
+        res = super(LotAnalysis, self).default_get(cr, uid, fields,
+                                                   context=context)
+        user_id = self.pool.get('res.users').browse(cr, uid, uid)
+        explotation_id = user_id.company_id.partner_id.id
+        res.update({'explotation_id': user_id.company_id.partner_id.id})
+        return res
