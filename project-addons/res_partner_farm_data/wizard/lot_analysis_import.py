@@ -23,7 +23,7 @@ import base64
 import xlrd
 import StringIO
 from datetime import date
-
+from openerp.exceptions import Warning
 
 class LotAnalysisImport(models.TransientModel):
 
@@ -50,8 +50,8 @@ class LotAnalysisImport(models.TransientModel):
             analysis_vals['lot_id'] = lot and lot.id or False
             analysis_vals['name'] = row[1]
             analysis_vals['tipo_material'] = row[2]
-            ref_coop = str(row[3])
-            coop_id = self.env['res.partner'].search([('ref', '=', ref_coop)])
+            # ref_coop = str(row[3])
+            # coop_id = self.env['res.partner'].search([('ref', '=', ref_coop)])
             # analysis_vals['cooperative_id'] = coop_id and coop_id.id or False
             ref_lab = str(row[4])
             lab_id = self.env['res.partner'].search([('ref', '=', ref_lab)])
@@ -61,7 +61,12 @@ class LotAnalysisImport(models.TransientModel):
                 analysis_vals['lab_ref'] = ref_lab
             ref_exp = str(row[6])
             exp_id = self.env['res.partner'].search([('ref', '=', ref_exp)])
-            analysis_vals['explotation_id'] = exp_id and exp_id.id or False
+            if exp_id:
+                analysis_vals['explotation_id'] = exp_id.id
+            else:
+                raise Warning(_('Error!'),
+                                     _("Explotation %s does not exist") \
+                                       % ref_exp )
             analysis_vals['year'] = row[8]
             analysis_vals['product_name'] = row[9]
             analysis_vals['notes'] = row[10]
@@ -69,7 +74,6 @@ class LotAnalysisImport(models.TransientModel):
             analysis_vals['sampling_date'] = date(*sampling_date)
             analysis_date = xlrd.xldate_as_tuple(row[12], data.datemode)[:-3]
             analysis_vals['analysis_date'] = date(*analysis_date)
-
             analysis_vals['cut_number'] = row[13]
             analysis_vals['dry_material'] = row[14]
             analysis_vals['cinder'] = row[15]

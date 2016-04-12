@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 08:30+0000\n"
-"PO-Revision-Date: 2016-04-04 08:30+0000\n"
+"POT-Creation-Date: 2016-04-12 10:16+0000\n"
+"PO-Revision-Date: 2016-04-12 10:16+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -241,14 +241,9 @@ msgid "Control"
 msgstr "Control"
 
 #. module: res_partner_farm_data
-#: field:lot.analysis,cooperative_id:0
-msgid "Cooperative"
-msgstr "Cooperativa"
-
-#. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
 msgid "Cooperative Partners"
-msgstr "Socios cooperativos"
+msgstr "Cooperative Partners"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
@@ -386,7 +381,7 @@ msgstr "Creado el"
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,cryoscope:0
 msgid "Cryoscope"
-msgstr "Ciroscópico"
+msgstr "Crioscópico"
 
 #. module: res_partner_farm_data
 #: field:milk.control.line,cumulative_fat:0
@@ -421,7 +416,7 @@ msgstr "DEL"
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,dni:0
 msgid "DNI"
-msgstr "NIF"
+msgstr "DNI"
 
 #. module: res_partner_farm_data
 #: field:res.partner,dairy_company:0
@@ -565,18 +560,24 @@ msgid "Enterobacteriaceae"
 msgstr "Enterobacterias"
 
 #. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/lot_analysis_import.py:67
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/lot.py:34
 #: sql_constraint:lot.partner:0
 #, python-format
 msgid "Error! Only one lot by year and company."
-msgstr "Error! Sólo un lote por año y compañía."
+msgstr "Error! Solo un lote por año y compañía."
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/output_quota.py:34
 #: sql_constraint:output.quota:0
 #, python-format
 msgid "Error! Only one quota by year and company."
-msgstr "Error! Sólo una cuota por año y compañía."
+msgstr "Error! Solo una cuota por año y compañía."
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/res_partner.py:31
@@ -615,9 +616,16 @@ msgid "Exploitation technician"
 msgstr "Técnico explotación"
 
 #. module: res_partner_farm_data
+#: field:lot.analysis,explotation_company_id:0
 #: field:lot.analysis,explotation_id:0
 msgid "Explotation"
 msgstr "Explotación"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/lot_analysis_import.py:68
+#, python-format
+msgid "Explotation %s does not exist"
+msgstr "La explotación %s no existe"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,fad:0
@@ -834,7 +842,7 @@ msgstr "Importar"
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.lot_analysis_import_act
 msgid "Import lot analysis"
-msgstr "Importar análisis de materias primas"
+msgstr "Importar análisis de lote"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.milk_analysis_act
@@ -929,6 +937,11 @@ msgid "Laboratory"
 msgstr "Laboratorio"
 
 #. module: res_partner_farm_data
+#: field:lot.analysis,lab_ref:0
+msgid "Laboratory reference"
+msgstr "Laboratory reference"
+
+#. module: res_partner_farm_data
 #: field:res.partner,lactating_cows:0
 msgid "Lactating cows"
 msgstr "Vacas lactación"
@@ -997,7 +1010,7 @@ msgstr "Lignina"
 #: view:milk.control:res_partner_farm_data.milk_control_form
 #: field:milk.control,line_ids:0
 msgid "Lines"
-msgstr "Líneas"
+msgstr "Lineas"
 
 #. module: res_partner_farm_data
 #: field:lot,liters_discarded_per_day:0
@@ -1064,12 +1077,12 @@ msgstr "Lote"
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_form
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_tree
 msgid "Lot analysis"
-msgstr "Análisis de materias primas"
+msgstr "Análisis de lote"
 
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 msgid "Lot analysis import"
-msgstr "Importar análisis de materias primas"
+msgstr "Importar análisis de lote"
 
 #. module: res_partner_farm_data
 #: field:lot,lot_details:0
@@ -1152,7 +1165,7 @@ msgstr "Importar análisis de leche"
 #. module: res_partner_farm_data
 #: view:milk.analysis.line:res_partner_farm_data.milk_analysis_line_form
 msgid "Milk analysis line"
-msgstr "Milk analysis line"
+msgstr "Linea análisis leche"
 
 #. module: res_partner_farm_data
 #: field:res.partner,milk_analysis_type:0
@@ -1175,7 +1188,7 @@ msgstr "Importar control lechero"
 #. module: res_partner_farm_data
 #: view:milk.control.line:res_partner_farm_data.milk_control_line_form
 msgid "Milk control line"
-msgstr "Milk control line"
+msgstr "Linea control lechero"
 
 #. module: res_partner_farm_data
 #: field:cow.count,milk_cow:0
@@ -1368,7 +1381,7 @@ msgstr "Partner con código %s no encontrado"
 #: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
 #: field:res.partner.category,partner_id:0
 msgid "Partners"
-msgstr "Partners"
+msgstr "Explotaciones"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,phosphor:0
@@ -1383,7 +1396,7 @@ msgstr "Frecuencia recogida"
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "Plantation"
-msgstr "Finca"
+msgstr "Fincas"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_res_partner_fields
@@ -1396,7 +1409,7 @@ msgstr "Fincas"
 #. module: res_partner_farm_data
 #: view:res.partner.fields.import:res_partner_farm_data.res_partner_fields_import_form
 msgid "Plantations import"
-msgstr "Importar fincas"
+msgstr "Plantations import"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,kg_plucking:0
@@ -1627,7 +1640,7 @@ msgstr "Suministros alimentación"
 #. module: res_partner_farm_data
 #: field:res.partner,supplies_technician:0
 msgid "Supplies technician"
-msgstr "Técnico de suministros"
+msgstr "Tecnico de suministros"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,surplus:0
@@ -1870,7 +1883,7 @@ msgstr "Capacidad concentrado"
 #. module: res_partner_farm_data
 #: field:milk.control.line,crotal:0
 msgid "crotal corto"
-msgstr "crotal corto"
+msgstr "Crotal corto"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,cut_number:0
@@ -1918,7 +1931,7 @@ msgstr "pH"
 #. module: res_partner_farm_data
 #: field:lot.analysis,ph_stability:0
 msgid "pH stability"
-msgstr "pH estabilidad."
+msgstr "pH estabilidad"
 
 #. module: res_partner_farm_data
 #: field:cow.count,sequence:0
