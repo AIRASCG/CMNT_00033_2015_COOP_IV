@@ -38,6 +38,7 @@
                 <field name="method_end" position="attributes">
                     <attribute name="readonly">1</attribute>
                 </field>
+                <xpath expr="//button[@name='open_entries']" position="replace"/>
             </field>
         </record>
 
