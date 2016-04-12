@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-12 10:16+0000\n"
-"PO-Revision-Date: 2016-04-12 10:16+0000\n"
+"POT-Creation-Date: 2016-04-12 15:27+0000\n"
+"PO-Revision-Date: 2016-04-12 15:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -732,6 +732,11 @@ msgid "Grass > 5 Years"
 msgstr "Pasto > 5 años"
 
 #. module: res_partner_farm_data
+#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
+msgid "Group By"
+msgstr "Agrupado por"
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Grs grasa/vaca y día"
 msgstr "Grs grasa/vaca y día"
@@ -1347,6 +1352,7 @@ msgstr "PS"
 #: field:cow.count,partner_id:0
 #: field:employee.farm.count,partner_id:0
 #: model:ir.model,name:res_partner_farm_data.model_res_partner
+#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
 msgid "Partner"
 msgstr "Empresa"
 
@@ -1467,6 +1473,16 @@ msgstr "Proteína"
 #: field:milk.control.line,protein:0
 msgid "Protein %"
 msgstr "Proteína %"
+
+#. module: res_partner_farm_data
+#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
+msgid "Province"
+msgstr "Provincia"
+
+#. module: res_partner_farm_data
+#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
+msgid "Year"
+msgstr "Año"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,province_id:0
@@ -1761,6 +1777,7 @@ msgid "Urea"
 msgstr "Urea"
 
 #. module: res_partner_farm_data
+#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
 #: field:res.partner.fields,use:0
 msgid "Use"
 msgstr "Uso"
@@ -1844,6 +1861,7 @@ msgstr "Pasto arbolado"
 #: field:lot.partner,year_id:0
 #: field:milk.analysis.import,year:0
 #: field:output.quota,year_id:0
+#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
 #: field:res.partner.fields,year:0
 #: field:res.partner.fields.import,year:0
 #: field:yearly.data,year_id:0

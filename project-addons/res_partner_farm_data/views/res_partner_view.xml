@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+
         <record id="view_res_partner_fields_tree" model="ir.ui.view">
           <field name="name">view.res.partner.fields.tree</field>
           <field name="model">res.partner.fields</field>
@@ -73,8 +74,12 @@
             <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Partner fields">
-                   <field name="partner_id"/>
-                   <field name="year"/>
+                   <group expand="0" string="Group By">
+                       <filter string="Year" icon="terp-personal" domain="[]" context="{'group_by':'year'}"/>
+                       <filter string="Use" icon="terp-personal" domain="[]" context="{'group_by':'use'}"/>
+                       <filter string="Partner" icon="terp-personal" domain="[]" context="{'group_by':'partner_id'}"/>
+                       <filter string="Province" icon="terp-personal" domain="[]" context="{'group_by':'province_id'}"/>
+                   </group>
                </search>
             </field>
         </record>
