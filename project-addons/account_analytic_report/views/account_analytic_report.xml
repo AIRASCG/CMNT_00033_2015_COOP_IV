@@ -22,7 +22,7 @@
                     <notebook>
                         <page string="Configuration">
                             <group col="6">
-                                <field name="template_id"/>
+                                <field name="template_id" widget="selection"/>
                                 <field name="calc_date" states="calc_done,done"/>
                             </group>
                             <group colspan="4" col="2">
