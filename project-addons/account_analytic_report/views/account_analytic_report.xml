@@ -134,6 +134,7 @@
                     <!--field name="company_id" groups="base.group_multi_company"/-->
                     <field name="template_id" select="2" colspan="4"/>
                     <field name="state" colspan="4" select="2"/>
+                    <field name="create_date"/>
                 </tree>
             </field>
         </record>
