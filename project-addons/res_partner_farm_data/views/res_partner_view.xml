@@ -190,16 +190,16 @@
                 <xpath expr="//div[@name='buttons']" position="inside">
                     <button name="action_account_assets" icon="fa-bars" class="oe_stat_button"
                             string="Assets" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
-                    <button name="action_analytic_plan" icon="fa-money" class="oe_stat_button"
+                    <button name="action_analytic_plan" icon="fa-database" class="oe_stat_button"
                             string="Analytic Plan" type="object" attrs="{'invisible': [('farm','=',False)]}"
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
-                    <button name="%(action_output_quota)d" icon="fa-money" class="oe_stat_button"
+                    <button name="%(action_output_quota)d" icon="fa-line-chart" class="oe_stat_button"
                             string="Output Quota" type="action" attrs="{'invisible': [('farm','=',False)]}"
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
-                    <button name="%(action_lot_partner)d" icon="fa-money" class="oe_stat_button"
+                    <button name="%(action_lot_partner)d" icon="fa-cubes" class="oe_stat_button"
                             string="Lots" type="action" attrs="{'invisible': [('farm','=',False)]}"
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
-                    <button name="action_locations" icon="fa-building" class="oe_stat_button"
+                    <button name="action_locations" icon="fa-map-marker" class="oe_stat_button"
                             string="Locations" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
                 </xpath>
 
