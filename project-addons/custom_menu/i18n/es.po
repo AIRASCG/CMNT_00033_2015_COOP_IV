@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* custom_menu
+#   * custom_menu
 #
 msgid ""
 msgstr ""
@@ -206,8 +206,8 @@ msgstr "Registros"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_lot
-msgid "Lot"
-msgstr "Lotes"
+msgid "Reads"
+msgstr "Lecturas"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_lot_analysis
@@ -310,4 +310,3 @@ msgstr "Gestión de visitas"
 #: view:account.invoice.line:custom_menu.view_invoice_line_tree_editable
 msgid "top"
 msgstr "top"
-

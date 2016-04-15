@@ -72,7 +72,7 @@
             <field name="model">lot</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="Lot">
+                <tree string="Read">
                     <field name="date"/>
                     <field name="user_id"/>
                     <field name="farm_id"/>
@@ -87,7 +87,7 @@
             <field name="model">lot</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="Lot">
+                <form string="Read">
                     <header>
                         <button name="button_validate" type="object" string="Validate" attrs="{'invisible': [('state', '=', 'validated')]}"/>
                         <field name="state" widget="statusbar"/>
@@ -136,7 +136,7 @@
             <field name="model">lot</field>
             <field name="type">search</field>
             <field name="arch" type="xml">
-                <search string="Lot">
+                <search string="Read">
                     <field name="date"/>
                     <field name="user_id"/>
                     <field name="farm_id"/>
@@ -145,7 +145,7 @@
         </record>
 
         <record model="ir.actions.act_window" id="action_lot">
-            <field name="name">Lot</field>
+            <field name="name">Reads</field>
             <field name="res_model">lot</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>

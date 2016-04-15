@@ -1060,11 +1060,19 @@ msgid "Locations"
 msgstr "Ubicaciones"
 
 #. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
-#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot_partner
 #: view:lot:res_partner_farm_data.lot_filter
 #: view:lot:res_partner_farm_data.lot_partner_form
 #: view:lot:res_partner_farm_data.lot_tree
+msgid "Read"
+msgstr "Lectura"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
+msgid "Reads"
+msgstr "Lecturas"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot_partner
 #: field:lot.analysis,lot_id:0
 #: view:lot.content:res_partner_farm_data.lot_content_form
 #: view:lot.content:res_partner_farm_data.lot_content_tree
