@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* custom_coop
+#   * custom_coop
 #
 msgid ""
 msgstr ""
@@ -196,7 +196,7 @@ msgstr "Lots"
 #: code:addons/custom_coop/models/res_partner.py:32
 #, python-format
 msgid "Mails"
-msgstr "Mails"
+msgstr "Notificaciones"
 
 #. module: custom_coop
 #: view:res.partner:custom_coop.res_partner_add_action_mails
@@ -336,4 +336,3 @@ msgstr "many2many_checkboxes"
 #: view:account.asset.asset:custom_coop.account_asset_add_subvention
 msgid "onchange_category_id_subvention(category_id, subvention)"
 msgstr "onchange_category_id_subvention(category_id, subvention)"
-

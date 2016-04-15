@@ -57,10 +57,10 @@ class ResPartner(models.Model):
     pickup_frequency = fields.Integer('Pickup frequency')
     milk_tank_liter = fields.Integer('Milk tank liter')
     supplies_technician = fields.Many2one('res.users', 'Supplies technician')
-    lactating_cows = fields.Many2one('product.product', 'Lactating cows')
-    dry_cows = fields.Many2one('product.product', 'Dry cows')
-    heifers = fields.Many2one('product.product', 'Heifers')
-    bait = fields.Many2one('product.product', 'Bait')
+    lactating_cows = fields.Many2one('res.partner', 'Lactating cows', domain=[('supplier', '=', True)])
+    dry_cows = fields.Many2one('res.partner', 'Dry cows', domain=[('supplier', '=', True)])
+    heifers = fields.Many2one('res.partner', 'Heifers', domain=[('supplier', '=', True)])
+    bait = fields.Many2one('res.partner', 'Bait', domain=[('supplier', '=', True)])
     feeding_supplier = fields.Many2one('res.partner', 'Feeding supplier',
                                        domain=[('supplier', '=', True)])
     milk_quality_supplier = fields.Many2one('res.partner',

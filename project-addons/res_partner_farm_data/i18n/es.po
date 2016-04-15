@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* res_partner_farm_data
+#   * res_partner_farm_data
 #
 msgid ""
 msgstr ""
@@ -944,7 +944,7 @@ msgstr "Laboratorio"
 #. module: res_partner_farm_data
 #: field:lot.analysis,lab_ref:0
 msgid "Laboratory reference"
-msgstr "Laboratory reference"
+msgstr "Referencia laboratorio"
 
 #. module: res_partner_farm_data
 #: field:res.partner,lactating_cows:0
@@ -1971,4 +1971,3 @@ msgstr "{'invisible': [('farm', '=', False)]}"
 #: field:lot.content,eur_ton_mf:0
 msgid "€/Tn MF"
 msgstr "€/Tn MF"
-

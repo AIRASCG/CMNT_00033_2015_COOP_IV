@@ -105,6 +105,7 @@
             <xpath expr="//field[@name='category_id']" position="attributes">
               <attribute name="attrs">{'invisible': [('farm', '=', False)]}</attribute>
             </xpath>
+            <button name="open_mailform" position="replace"/>
           </field>
         </record>
 
@@ -433,5 +434,9 @@
                 </field>
             </field>
         </record>
+
+        <delete model="ir.actions.act_window" id="account.act_account_invoice_partner_relation"/>
+        <delete model="ir.actions.act_window" id="account.action_account_partner_ledger"/>
+        <delete model="ir.actions.report.xml" id="account.action_report_print_overdue"/>
     </data>
 </openerp>
