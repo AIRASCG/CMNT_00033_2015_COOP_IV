@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='buttons']" position="inside">
-                    <button name="action_mails" icon="fa-building" class="oe_stat_button"
+                    <button name="action_mails" icon="fa-envelope-o" class="oe_stat_button"
                             string="Notifications" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
                 </xpath>
             </field>
