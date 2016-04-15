@@ -1072,8 +1072,12 @@ msgid "Reads"
 msgstr "Lecturas"
 
 #. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot_partner
 #: field:lot.analysis,lot_id:0
+msgid "Raw material lot"
+msgstr "Lote materia prima"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot_partner
 #: view:lot.content:res_partner_farm_data.lot_content_form
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
@@ -1090,7 +1094,7 @@ msgstr "Lote"
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_form
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_tree
 msgid "Lot analysis"
-msgstr "Análisis de lote"
+msgstr "Análisis de materias primas"
 
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from

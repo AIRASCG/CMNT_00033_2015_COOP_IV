@@ -26,7 +26,7 @@ class LotAnalysis(models.Model):
     _name = 'lot.analysis'
 
     name = fields.Char('Reference', required=True)
-    lot_id = fields.Many2one('stock.production.lot', 'Lot')
+    lot_id = fields.Many2one('stock.production.lot', 'Raw material lot')
     tipo_material = fields.Selection(
         (('hierba', 'Silo hierba'), ('maiz', 'Silo maiz'),
          ('unifeed', 'Mezcla unifeed')), 'Tipo de material')
