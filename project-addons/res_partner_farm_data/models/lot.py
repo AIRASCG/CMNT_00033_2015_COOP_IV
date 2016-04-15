@@ -38,6 +38,7 @@ class LotPartner(models.Model):
 class Lot(models.Model):
 
     _name = 'lot'
+    _rec_name = 'date'
 
     date = fields.Datetime('Date', required=True, readonly=True, states={'draft': [('readonly', False)]},
                            default=lambda a: datetime.now())
