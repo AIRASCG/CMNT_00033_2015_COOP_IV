@@ -29,7 +29,7 @@ class EmployeeFarmCount(custom_models.HistoricalModel):
 
     sequence = fields.Integer('sequence', default=0)
     partner_id = fields.Many2one('res.partner', 'Partner', readonly=True)
-    date = fields.Date('Date', readonly=True)
+    date = fields.Date('Date', states={'current': [('readonly', True)]})
     user_id = fields.Many2one('res.users', 'User', readonly=True)
     quantity = fields.Integer('Employees',
                               states={'current': [('readonly', True)]})
