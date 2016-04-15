@@ -38,26 +38,26 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-6" t-if="o.total_cows_1">
-                            Total cows: <span t-field="o.total_cows_1"/>
+                            Total cows: <span t-esc="round(o.total_cows_1, 2)"/>
                         </div>
                         <div class="col-xs-6" t-if="o.total_cows_2">
-                            Total cows: <span t-field="o.total_cows_2"/>
+                            Total cows: <span t-esc="round(o.total_cows_2, 2)"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6" t-if="o.employees_1">
-                            Employees: <span t-field="o.employees_1"/>
+                            Employees: <span t-esc="round(o.employees_1, 2)"/>
                         </div>
                         <div class="col-xs-6" t-if="o.employees_2">
-                            Employees: <span t-field="o.employees_2"/>
+                            Employees: <span t-esc="round(o.employees_2, 2)"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-6" t-if="o.total_heifer_1">
-                            Total heifer: <span t-field="o.total_heifer_1"/>
+                            Total heifer: <span t-esc="round(o.total_heifer_1, 2)"/>
                         </div>
                         <div class="col-xs-6" t-if="o.total_heifer_2">
-                            Total heifer: <span t-field="o.total_heifer_2"/>
+                            Total heifer: <span t-esc="round(o.total_heifer_2, 2)"/>
                         </div>
                     </div>
                     <table class="table table-condensed">

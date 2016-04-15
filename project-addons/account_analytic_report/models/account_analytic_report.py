@@ -44,9 +44,9 @@ class AccountAnalyticReport(models.Model):
     hectare_1 = fields.Float('Hectare')
     milk_and_dry_1 = fields.Integer('Milk and dry cows')
     milk_cows_1 = fields.Integer('Milk cows')
-    zero_three_heifer_1 = fields.Integer('0-3 months heifer')
-    three_twelve_heifer_1 = fields.Integer('3-12 months heifer')
-    plus_twelve_heifer_1 = fields.Integer('plus 12 months heifer')
+    zero_three_heifer_1 = fields.Float('0-3 months heifer')
+    three_twelve_heifer_1 = fields.Float('3-12 months heifer')
+    plus_twelve_heifer_1 = fields.Float('plus 12 months heifer')
     months_1 = fields.Float('Months')
     cost_feed_milk_cow_day_1 = fields.Float('Coste de Alimentación vaca lactación/día (€)')
     cost_feed_dry_cow_day_1 = fields.Float('Coste de Alimentación vaca seca/día (€)')
@@ -75,9 +75,9 @@ class AccountAnalyticReport(models.Model):
     hectare_2 = fields.Float('Hectare')
     milk_and_dry_2 = fields.Integer('Milk and dry cows')
     milk_cows_2 = fields.Integer('Milk cows')
-    zero_three_heifer_2 = fields.Integer('0-3 months heifer')
-    three_twelve_heifer_2 = fields.Integer('3-12 months heifer')
-    plus_twelve_heifer_2 = fields.Integer('plus 12 months heifer')
+    zero_three_heifer_2 = fields.Float('0-3 months heifer')
+    three_twelve_heifer_2 = fields.Float('3-12 months heifer')
+    plus_twelve_heifer_2 = fields.Float('plus 12 months heifer')
     months_2 = fields.Float('Months')
     cost_feed_milk_cow_day_2 = fields.Float('Coste de Alimentación vaca lactación/día (€)')
     cost_feed_dry_cow_day_2 = fields.Float('Coste de Alimentación vaca seca/día (€)')
@@ -152,31 +152,61 @@ class AccountAnalyticReport(models.Model):
             milk_and_dry = 0
             milk_cows = 0
             zero_three_heifer = 0
+            three_twelve_heifer = 0
             plus_twelve_heifer = 0
             for partner in partner_companies:
                 cow_counts = self.env['cow.count'].search(
                     [('partner_id', '=', partner.id),
                      ('date', '>=', self[from_date]),
-                     ('date', '<=', self[to_date])])
+                     ('date', '<=', self[to_date])], order="date asc")
                 if not cow_counts:
                     continue
                 total_count = len(cow_counts)
-                heifer_0_3 = sum(cow_counts.mapped('heifer_0_3')) / total_count
-                heifer_3_12 = sum(cow_counts.mapped('heifer_3_12')) / total_count
-                heifer_plus_12 = sum(cow_counts.mapped('heifer_plus_12')) / total_count
-                milk_cow = sum(cow_counts.mapped('milk_cow')) / total_count
-                dry_cow = sum(cow_counts.mapped('dry_cow')) / total_count
-                total_cows += sum((heifer_0_3, heifer_3_12, heifer_plus_12, milk_cow, dry_cow))
+                indice = 0
+                first_date = datetime.strptime(cow_counts[indice].date, '%Y-%m-%d')
+                heifer_0_3 = 0
+                heifer_3_12 = 0
+                heifer_plus_12 = 0
+                milk_cow = 0
+                dry_cow = 0
+                sum_days = 0
+                for j in range(total_count):
+                    if indice+1 < total_count:
+                        second_date = datetime.strptime(cow_counts[indice+1].date, '%Y-%m-%d')
+                    else:
+                        second_date = datetime.strptime(self[to_date], '%Y-%m-%d')
+                    dif_dates = second_date - first_date
+                    heifer_0_3 += cow_counts[j].heifer_0_3 * dif_dates.days
+                    import ipdb; ipdb.set_trace()
+                    heifer_3_12 += cow_counts[j].heifer_3_12 * dif_dates.days
+                    heifer_plus_12 += cow_counts[j].heifer_plus_12 * dif_dates.days
+                    dry_cow += cow_counts[j].dry_cow * dif_dates.days
+                    milk_cow += cow_counts[j].milk_cow * dif_dates.days
+                    first_date = second_date
+                    sum_days += dif_dates.days
+                    indice += 1
+                if sum_days > 0:
+                    heifer_0_3 = float(heifer_0_3) / sum_days
+                    import ipdb; ipdb.set_trace()
+                    heifer_3_12 = float(heifer_3_12) / sum_days
+                    heifer_plus_12 = float(heifer_plus_12) / sum_days
+                    milk_cow = float(milk_cow) / sum_days
+                    dry_cow = float(dry_cow) / sum_days
+
+                total_cows += round(sum((heifer_0_3, heifer_3_12, heifer_plus_12, milk_cow, dry_cow)), 2)
                 tota_heifer += sum((heifer_0_3, heifer_3_12, heifer_plus_12))
                 milk_and_dry += milk_cow + dry_cow
                 milk_cows += milk_cow
-                zero_three_heifer += heifer_3_12
+                zero_three_heifer += heifer_0_3
+                three_twelve_heifer += heifer_3_12
                 plus_twelve_heifer += heifer_plus_12
+            import ipdb; ipdb.set_trace()
             self['total_cows_' + str(i)] = total_cows
             self['total_heifer_' + str(i)] = tota_heifer
             self['milk_and_dry_' + str(i)] = milk_and_dry
             self['milk_cows_' + str(i)] = milk_cows
             self['zero_three_heifer_' + str(i)] = zero_three_heifer
+            self['three_twelve_heifer_' + str(i)] = three_twelve_heifer
             self['plus_twelve_heifer_' + str(i)] = plus_twelve_heifer
 
     @api.multi
@@ -192,11 +222,26 @@ class AccountAnalyticReport(models.Model):
                 employee_count = self.env['employee.farm.count'].search(
                     [('partner_id', '=', partner.id),
                      ('date', '>=', self[from_date]),
-                     ('date', '<=', self[to_date])])
+                     ('date', '<=', self[to_date])], order="date asc")
                 if not employee_count:
                     continue
+                indice = 0
+                first_date = datetime.strptime(employee_count[indice].date, '%Y-%m-%d')
+                employees = 0
+                sum_days = 0
                 total_count = len(employee_count)
-                total_employee += sum(employee_count.mapped('quantity')) / total_count
+                for j in range(total_count):
+                    if indice+1 < total_count:
+                        second_date = datetime.strptime(employee_count[indice+1].date, '%Y-%m-%d')
+                    else:
+                        second_date = datetime.strptime(self[to_date], '%Y-%m-%d')
+                    dif_dates = second_date - first_date
+                    employees += employee_count[j].quantity * dif_dates.days
+                    first_date = second_date
+                    sum_days += dif_dates.days
+                    indice += 1
+                if sum_days > 0:
+                    total_employee += float(employees) / sum_days
             self['employees_' + str(i)] = total_employee
 
     @api.multi
