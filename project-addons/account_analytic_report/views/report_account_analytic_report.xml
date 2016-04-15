@@ -52,7 +52,7 @@
                             Employees: <span t-esc="round(o.employees_2, 2)"/>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-bottom: 20px;">
                         <div class="col-xs-6" t-if="o.total_heifer_1">
                             Total heifer: <span t-esc="round(o.total_heifer_1, 2)"/>
                         </div>
