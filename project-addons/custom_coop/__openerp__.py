@@ -42,6 +42,7 @@
              'views/account_asset_asset.xml', 'security/ir.model.access.csv',
              'data/account_account.xml',
              'views/analytic_view.xml',
+             'views/product.xml',
              'views/base_view.xml'],
     "installable": True
 }
