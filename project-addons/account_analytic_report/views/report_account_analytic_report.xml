@@ -106,16 +106,20 @@
                 .red_bold{
                     color: red;
                     font-weight: bold;
+                    background-color: lightgrey;
                 }
                 .green_bold{
                     color: green;
                     font-weight: bold;
+                    background-color: lightgrey;
                 }
                 .bold{
                     font-weight: bold;
+                    background-color: lightgrey;
                 }
                 .red{
                     color: red;
+                    background-color: lightgrey;
                 }
             </style>
             <t t-call="report.html_container">

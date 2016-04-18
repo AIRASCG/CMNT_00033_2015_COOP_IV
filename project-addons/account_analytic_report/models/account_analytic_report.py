@@ -177,7 +177,6 @@ class AccountAnalyticReport(models.Model):
                         second_date = datetime.strptime(self[to_date], '%Y-%m-%d')
                     dif_dates = second_date - first_date
                     heifer_0_3 += cow_counts[j].heifer_0_3 * dif_dates.days
-                    import ipdb; ipdb.set_trace()
                     heifer_3_12 += cow_counts[j].heifer_3_12 * dif_dates.days
                     heifer_plus_12 += cow_counts[j].heifer_plus_12 * dif_dates.days
                     dry_cow += cow_counts[j].dry_cow * dif_dates.days
@@ -187,7 +186,6 @@ class AccountAnalyticReport(models.Model):
                     indice += 1
                 if sum_days > 0:
                     heifer_0_3 = float(heifer_0_3) / sum_days
-                    import ipdb; ipdb.set_trace()
                     heifer_3_12 = float(heifer_3_12) / sum_days
                     heifer_plus_12 = float(heifer_plus_12) / sum_days
                     milk_cow = float(milk_cow) / sum_days
@@ -200,7 +198,6 @@ class AccountAnalyticReport(models.Model):
                 zero_three_heifer += heifer_0_3
                 three_twelve_heifer += heifer_3_12
                 plus_twelve_heifer += heifer_plus_12
-            import ipdb; ipdb.set_trace()
             self['total_cows_' + str(i)] = total_cows
             self['total_heifer_' + str(i)] = tota_heifer
             self['milk_and_dry_' + str(i)] = milk_and_dry
