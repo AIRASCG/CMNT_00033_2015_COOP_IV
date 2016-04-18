@@ -30,7 +30,7 @@ class IrAttachment(models.Model):
         if self.env.context.get('apply_multicompany'):
             args = args + ['|', ('company_id', 'child_of', [self.env.user.company_id.id]),
                            ('company_id', '=', False)]
-            self.env.cr.execute('SELECT attachment_id from message_attachment_rel')
+            self.env.cr.execute('SELECT attachment_id from mail_attachment_partner')
             res = self.env.cr.fetchall()
             args.append(('id', 'not in', [x[0] for x in res]))
         return super(IrAttachment, self).search(args, offset=offset, limit=limit,
