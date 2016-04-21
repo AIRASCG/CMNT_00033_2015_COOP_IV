@@ -26,7 +26,7 @@
     'description': """It closes the fiscal year and a new one is created for the company and its children""",
     'author': 'Comunitea',
     'website': '',
-    "depends": ['base', 'account', 'company_assign_users', 'custom_groups'],
+    "depends": ['base', 'account', 'company_assign_users', 'custom_groups', 'company_automatic_account_config'],
     "data": ['views/res_company.xml'],
     "installable": True
 }
