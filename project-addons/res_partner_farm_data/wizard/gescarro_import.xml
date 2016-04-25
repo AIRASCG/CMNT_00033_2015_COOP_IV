@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+
+        <record id="gescarro_import_form" model="ir.ui.view">
+            <field name="name">gescarro.import.form</field>
+            <field name="model">gescarro.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Gescarro import">
+                    <group>
+                        <field name="filename" invisible="1" />
+                        <field name="import_file" filename="filename"/>
+                    </group>
+                    <footer>
+                        <button name="import_gescarro" string="Import" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Import gescarro data"
+            res_model="gescarro.import"
+            view_id="gescarro_import_form"
+            view_mode="form"
+            target="new"
+            id="gescarro_import_action"/>
+
+    </data>
+</openerp>

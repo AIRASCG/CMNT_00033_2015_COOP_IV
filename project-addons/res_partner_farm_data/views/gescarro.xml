@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="gescarro_data_view_tree" model="ir.ui.view">
+            <field name="name">gescarro.data.tree</field>
+            <field name="model">gescarro.data</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="exploitation_id"/>
+                    <field name="date"/>
+                    <field name="milk_cows_lot"/>
+                    <field name="milking_cows"/>
+                    <field name="tank_cows"/>
+                    <field name="dry_cows_lot"/>
+                    <field name="tank_liters"/>
+                    <field name="retired_liters"/>
+                    <field name="kg_leftover"/>
+                    <field name="leftover_reused"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="gescarro_data_view_form" model="ir.ui.view">
+            <field name="name">gescarro.data.form</field>
+            <field name="model">gescarro.data</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Gescarro">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="exploitation_id" domain="[('farm','=',True),('is_cooperative','=',False)]"/>
+                                <field name="date"/>
+                                <field name="milk_cows_lot"/>
+                                <field name="milking_cows"/>
+                                <field name="tank_cows"/>
+                                <field name="dry_cows_lot"/>
+                                <field name="minutes_first_ration"/>
+                                <field name="minutes_next_ration"/>
+                            </group>
+                            <group>
+                                <field name="first_ration_cost"/>
+                                <field name="tank_liters"/>
+                                <field name="retired_liters"/>
+                                <field name="kg_leftover"/>
+                                <field name="leftover_reused"/>
+                                <field name="partner_number"/>
+                                <field name="next_ration_cost"/>
+                                <field name="fix_cost"/>
+                            </group>
+                            <group string="Wet mixture">
+                                <field name="wet_mixture"/>
+                                <field name="wet_mixture_ms"/>
+                                <field name="wet_mixture_ms_fodder"/>
+                                <field name="wet_mixture_ms_concentrated"/>
+                                <field name="wet_mixture_enl"/>
+                                <field name="wet_raw_protein"/>
+                                <field name="wet_cost"/>
+                            </group>
+                            <group string="Fodder">
+                                <field name="ms_fodder"/>
+                                <field name="ms_kg_cow_fodder"/>
+                                <field name="enl_fodder"/>
+                                <field name="raw_protein_fodder"/>
+                                <field name="cost_fodder"/>
+                            </group>
+                            <group string="Concentrated">
+                                <field name="ms_concentrated"/>
+                                <field name="ms_kg_cow_concentrated"/>
+                                <field name="enl_concentrated"/>
+                                <field name="raw_protein_concentrated"/>
+                                <field name="cost_concentrated"/>
+                            </group>
+                            <group string="Total ration">
+                                <field name="total_ration_ms"/>
+                                <field name="total_ration_intake"/>
+                                <field name="total_ration_ms_fodder"/>
+                                <field name="total_ration_ms_concentrated"/>
+                                <field name="total_ration_enl"/>
+                                <field name="total_ration_raw_protein"/>
+                                <field name="total_ration_cost_eur_ton_mf"/>
+                                <field name="total_ration_cost_eur_ton_ms"/>
+                                <field name="total_cost_carriage"/>
+                                <field name="total_ration_cost"/>
+                            </group>
+                            <group>
+                                <field name="tank_average"/>
+                                <field name="present_cow_average"/>
+                                <field name="milk_average"/>
+                                <field name="conversion_index"/>
+                                <field name="tank_liter_cost"/>
+                                <field name="produced_liter_cost"/>
+                            </group>
+                            <group string="Quality">
+                                <button name="get_milk_analysis_vals" type="object" string="Get analysis vals" colspan="2"/>
+                                <field name="fat"/>
+                                <field name="protein"/>
+                                <field name="urea"/>
+                            </group>
+                        </group>
+                        <field name="lines">
+                            <tree editable="top">
+                                <field name="description"/>
+                                <field name="kg"/>
+                                <field name="ms"/>
+                                <field name="enl"/>
+                                <field name="raw_protein"/>
+                                <field name="cost"/>
+                                <field name="type"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="gescarro_data_view_search" model="ir.ui.view">
+            <field name="name">gescarro.data.search</field>
+            <field name="model">gescarro.data</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                   <field name="date"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="gescarro_data_action" model="ir.actions.act_window">
+            <field name="name">Gescarro</field>
+            <field name="res_model">gescarro.data</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="gescarro_data_view_tree"/>
+            <field name="search_view_id" ref="gescarro_data_view_search"/>
+        </record>
+
+        <menuitem name="Gescarro" parent="custom_menu.feeding_management" action="gescarro_data_action" id="menu_gescarro_data"/>
+
+    </data>
+</openerp>

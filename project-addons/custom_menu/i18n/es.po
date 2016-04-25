@@ -168,6 +168,11 @@ msgid "Farm management"
 msgstr "Gestión de explotaciones"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_gescarro_import
+msgid "Import gescarro data"
+msgstr "Importar datos gescarro"
+
+#. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_partner_farm_form
 #: model:ir.ui.menu,name:custom_menu.partner_farm
 #: view:res.partner:custom_menu.res_partner_farm_tree
