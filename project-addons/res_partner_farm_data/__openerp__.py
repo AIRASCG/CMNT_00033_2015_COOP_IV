@@ -37,6 +37,7 @@
              'security/ir.model.access.csv', 'views/res_partner_view.xml',
              'views/lot_analysis.xml', 'views/res_company.xml',
              'views/product.xml', 'views/lot_report_template.xml',
+             'data/gescarro_data_sequence.xml',
              'lot_report.xml', 'data/lot_detail_sequence.xml',
              'wizard/lot_analysis_import.xml', 'wizard/milk_analysis_import.xml',
              'wizard/milk_control_import.xml', 'security/security.xml',

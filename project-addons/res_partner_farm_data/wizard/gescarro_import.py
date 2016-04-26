@@ -51,7 +51,7 @@ class GescarroImport(models.TransientModel):
         for line in range(9, sh.nrows):
             row = sh.row_values(line)
             gescarro_vals = {}
-            if not row[0]:
+            if not row[11]:
                 continue
             gescarro_date = xlrd.xldate_as_tuple(row[1], data.datemode)[:-3]
             gescarro_vals['date'] = date(*gescarro_date)
@@ -63,7 +63,11 @@ class GescarroImport(models.TransientModel):
             gescarro_vals['retired_liters'] = row[7]
             gescarro_vals['kg_leftover'] = row[8]
             gescarro_vals['leftover_reused'] = row[9] # Esto es un booleano
-            gescarro_vals['partner_number'] = row[11]
+            exp_ref = str(int(row[11]))
+            exploitation = self.env['res.partner'].search([('ref', '=', exp_ref)])
+            if not exploitation:
+                raise exceptions.Warning(_('Import error'), _('Exploitation with reference %s not found') % exp_ref)
+            gescarro_vals['exploitation_id'] = exploitation.id
             gescarro_vals['minutes_first_ration'] = row[12 + number_of_lines]
             gescarro_vals['minutes_next_ration'] = row[13 + number_of_lines]
             gescarro_vals['first_ration_cost'] = row[14 + number_of_lines]

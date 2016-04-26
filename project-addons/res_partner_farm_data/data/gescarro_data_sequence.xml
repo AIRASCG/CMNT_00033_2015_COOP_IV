@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="sequence_gescarro_data" model="ir.sequence.type">
+            <field name="name">Gescarro data</field>
+            <field name="code">gescarro.data</field>
+        </record>
+
+       <record id="gescarro_data_sequence" model="ir.sequence">
+            <field name="name">Gescarro</field>
+            <field name="code">gescarro.data</field>
+            <field eval="1" name="number_next"/>
+            <field eval="4" name="padding"/>
+            <field eval="1" name="number_increment"/>
+        </record>
+
+    </data>
+</openerp>

@@ -8,6 +8,7 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree>
+                    <field name="name"/>
                     <field name="exploitation_id"/>
                     <field name="date"/>
                     <field name="milk_cows_lot"/>
@@ -46,7 +47,6 @@
                                 <field name="retired_liters"/>
                                 <field name="kg_leftover"/>
                                 <field name="leftover_reused"/>
-                                <field name="partner_number"/>
                                 <field name="next_ration_cost"/>
                                 <field name="fix_cost"/>
                             </group>

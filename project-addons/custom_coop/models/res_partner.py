@@ -21,7 +21,7 @@
 from openerp import models, fields, api, exceptions, _
 
 
-class ui(models.Model):
+class ResPartner(models.Model):
 
     _inherit = 'res.partner'
 

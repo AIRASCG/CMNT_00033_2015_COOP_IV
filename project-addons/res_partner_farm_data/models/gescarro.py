@@ -26,11 +26,15 @@ class GescarroData(models.Model):
 
     _name = 'gescarro.data'
 
+    def _get_name_sequence(self):
+        return self.env['ir.sequence'].get('gescarro.data')
+
     exploitation_id = fields.Many2one(
         'res.partner', 'Exploitation', required=True,
         default=lambda self: self.env.user.company_id.partner_id.id)
     company_id = fields.Many2one("res.company", readonly=True,
                                  related="exploitation_id.company_id")
+    name = fields.Char(default=_get_name_sequence)
     date = fields.Date(required=True)
     milk_cows_lot = fields.Float()
     milking_cows = fields.Float()
@@ -40,7 +44,6 @@ class GescarroData(models.Model):
     retired_liters = fields.Float()
     kg_leftover = fields.Float()
     leftover_reused = fields.Float()
-    partner_number = fields.Char()
     minutes_first_ration = fields.Float()
     minutes_next_ration = fields.Float()
     first_ration_cost = fields.Float()

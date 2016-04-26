@@ -32,6 +32,12 @@
             <field name="domain_force">[('partner_id.company_id','child_of',[user.company_id.id])]</field>
         </record>
 
+        <record model="ir.rule" id="gescarro_data_multicompany">
+            <field name="name">gescarro data multicompany</field>
+            <field name="model_id" ref="res_partner_farm_data.model_gescarro_data"/>
+            <field name="domain_force">[('company_id','child_of',[user.company_id.id])]</field>
+        </record>
+
         <delete model="ir.rule" id="stock_production_lot_multi_company.production_lot_comp_rule"/>
 
         <record model="ir.rule" id="stock_production_lot_multi_company.production_lot_comp_rule">
