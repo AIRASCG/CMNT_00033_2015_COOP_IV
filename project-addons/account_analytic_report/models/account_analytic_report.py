@@ -131,12 +131,19 @@ class AccountAnalyticReport(models.Model):
         for i in (1, 2):
             from_date = 'from_date_' + str(i)
             to_date = 'to_date_' + str(i)
+            if self[from_date] and self[to_date]:
+                first_year = str(self[from_date][:4])
+                last_year = str(self[to_date][:4])
+            else:
+                first_year = str(date.today().year)
+                last_year = first_year
+
             companies = self._get_companies(i)
             partner_companies = companies.mapped('partner_id')
             quotas = self.env['output.quota'].search(
                 [('farm_id', 'in', partner_companies._ids),
-                 ('date', '>=', self[from_date]),
-                 ('date', '<=', self[to_date])])
+                 ('date', '>=', first_year + "-01-01"),
+                 ('date', '<=', last_year + "-12-31")])
             self['milk_' + str(i)] = sum([x.value for x in quotas])
 
     @api.multi
@@ -159,17 +166,31 @@ class AccountAnalyticReport(models.Model):
                     [('partner_id', '=', partner.id),
                      ('date', '>=', self[from_date]),
                      ('date', '<=', self[to_date])], order="date asc")
-                if not cow_counts:
+                last_cow = self.env['cow.count'].search(
+                    [('partner_id', '=', partner.id),
+                     ('date', '<', self[from_date])], order="date desc",
+                    limit=1)
+                if not cow_counts and not last_cow:
                     continue
-                total_count = len(cow_counts)
+                if cow_counts:
+                    sorted(cow_counts, key=lambda x: x.date)
+
+                total_count = cow_counts and len(cow_counts) or 0
                 indice = 0
-                first_date = datetime.strptime(cow_counts[indice].date, '%Y-%m-%d')
-                heifer_0_3 = 0
-                heifer_3_12 = 0
-                heifer_plus_12 = 0
-                milk_cow = 0
-                dry_cow = 0
-                sum_days = 0
+                first_date = datetime.strptime(self[from_date], '%Y-%m-%d')
+
+                if cow_counts:
+                    second_date = datetime.strptime(cow_counts[0].date, '%Y-%m-%d')
+                else:
+                    second_date = datetime.strptime(self[to_date], '%Y-%m-%d')
+                sum_days = (second_date - first_date).days
+                heifer_0_3 = (last_cow and last_cow.heifer_0_3 or 0) * sum_days
+                heifer_3_12 = (last_cow and last_cow.heifer_3_12 or 0) * sum_days
+                heifer_plus_12 = (last_cow and last_cow.heifer_plus_12 or 0) * sum_days
+                milk_cow = (last_cow and last_cow.milk_cow or 0) * sum_days
+                dry_cow = (last_cow and last_cow.dry_cow or 0) * sum_days
+
+                first_date = second_date
                 for j in range(total_count):
                     if indice+1 < total_count:
                         second_date = datetime.strptime(cow_counts[indice+1].date, '%Y-%m-%d')
@@ -220,13 +241,26 @@ class AccountAnalyticReport(models.Model):
                     [('partner_id', '=', partner.id),
                      ('date', '>=', self[from_date]),
                      ('date', '<=', self[to_date])], order="date asc")
-                if not employee_count:
+                last_employee =  self.env['employee.farm.count'].search(
+                    [('partner_id', '=', partner.id),
+                     ('date', '<', self[from_date])], order="date desc",
+                    limit=1)
+                if not employee_count and not last_employee:
                     continue
+                if employee_count:
+                    sorted(employee_count, key=lambda x: x.date)
                 indice = 0
-                first_date = datetime.strptime(employee_count[indice].date, '%Y-%m-%d')
-                employees = 0
-                sum_days = 0
-                total_count = len(employee_count)
+                first_date = datetime.strptime(self[from_date], '%Y-%m-%d')
+
+                if employee_count:
+                    second_date = datetime.strptime(employee_count[0].date,
+                                                    '%Y-%m-%d')
+                else:
+                    second_date = datetime.strptime(self[to_date], '%Y-%m-%d')
+                sum_days = (second_date - first_date).days
+                employees = (last_employee and last_employee.quantity or 0) * sum_days
+                first_date = second_date
+                total_count = employee_count and len(employee_count) or 0
                 for j in range(total_count):
                     if indice+1 < total_count:
                         second_date = datetime.strptime(employee_count[indice+1].date, '%Y-%m-%d')
@@ -248,10 +282,12 @@ class AccountAnalyticReport(models.Model):
             from_date = 'from_date_' + str(i)
             to_date = 'to_date_' + str(i)
             if self[from_date] and self[to_date]:
-                years = [str(self[from_date][:4]), str(self[to_date][:4])]
-                years = list(set(years))
+                first_year = int(self[from_date][:4])
+                last_year = int(self[to_date][:4])+1
             else:
-                years = [str(date.today().year)]
+                first_year = int(date.today().year)
+                last_year = first_year + 1
+            years = range(first_year, last_year)
             companies = self._get_companies(i)
             partner_companies = companies.mapped('partner_id')
             hectare = 0
