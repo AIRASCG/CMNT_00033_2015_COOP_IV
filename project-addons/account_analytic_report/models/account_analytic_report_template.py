@@ -48,7 +48,12 @@ class AccountAnalyticReportTemplateLine(models.Model):
                                 ondelete='cascade')
     child_ids = fields.One2many('account.analytic.report.template.line', 'parent_id', 'Childs')
     css_style = fields.Selection(
-        [('red_bold', 'Red bold'), ('green_bold', 'Green bold'), ('bold', 'Bold'), ('red', 'Red')],
+        [('red_bold', 'Red bold'), ('green_bold', 'Green bold'),
+         ('bold', 'Bold'), ('red', 'Red'),
+         ('red_bold_light_bkg', 'Red bold with light background'),
+         ('green_bold_light_bkg', 'Green bold with light background'),
+         ('bold_light_bkg', 'Bold with light background'),
+         ('red_light_bkg', 'Red with light background'),],
         'Css style')
 
     _order = "sequence, code"

@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* account_analytic_report
+#       * account_analytic_report
 #
 msgid ""
 msgstr ""
@@ -96,12 +96,17 @@ msgid "Bold"
 msgstr "Negrita"
 
 #. module: account_analytic_report
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Bold with light background"
+msgstr "Negrita con fondo clar"
+
+#. module: account_analytic_report
 #: field:account.analytic.report,calc_date:0
 msgid "Calc date"
 msgstr "Fecha de cálculo"
 
 #. module: account_analytic_report
-#: code:addons/account_analytic_report/models/account_analytic_report.py:376
+#: code:addons/account_analytic_report/models/account_analytic_report.py:454
 #, python-format
 msgid "Calc error"
 msgstr "Error en el cálculo"
@@ -148,7 +153,7 @@ msgstr "Hectareas cereales"
 #: field:account.analytic.report.line,child_ids:0
 #: field:account.analytic.report.template.line,child_ids:0
 msgid "Childs"
-msgstr "Childs"
+msgstr "Hijos"
 
 #. module: account_analytic_report
 #: field:account.analytic.report.line,code:0
@@ -240,6 +245,14 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: account_analytic_report
+#: field:account.analytic.report,display_name:0
+#: field:account.analytic.report.line,display_name:0
+#: field:account.analytic.report.template,display_name:0
+#: field:account.analytic.report.template.line,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: account_analytic_report
 #: view:account.analytic.report:account_analytic_report.view_account_analytic_report_form
 #: selection:account.analytic.report,state:0
 msgid "Done"
@@ -301,6 +314,11 @@ msgstr "Hectareas hierba"
 #: selection:account.analytic.report.template.line,css_style:0
 msgid "Green bold"
 msgstr "Verde negrita"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Green bold with light background"
+msgstr "Verde negrita con fondo claro"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,hectare_1:0
@@ -433,6 +451,16 @@ msgstr "Rojo"
 #: selection:account.analytic.report.template.line,css_style:0
 msgid "Red bold"
 msgstr "Rojo negrita"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Red bold with light background"
+msgstr "Rojo negrita con fondo claro"
+
+#. module: account_analytic_report
+#: selection:account.analytic.report.template.line,css_style:0
+msgid "Red with light background"
+msgstr "Rojo con fondo claro"
 
 #. module: account_analytic_report
 #: field:account.analytic.report,ref_1:0

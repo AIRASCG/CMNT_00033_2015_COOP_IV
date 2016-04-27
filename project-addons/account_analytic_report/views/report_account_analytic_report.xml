@@ -106,18 +106,32 @@
                 .red_bold{
                     color: red;
                     font-weight: bold;
-                    background-color: lightgrey;
                 }
                 .green_bold{
                     color: green;
                     font-weight: bold;
-                    background-color: lightgrey;
                 }
                 .bold{
                     font-weight: bold;
-                    background-color: lightgrey;
                 }
                 .red{
+                    color: red;
+                }
+                .red_bold_light_bkg{
+                    color: red;
+                    font-weight: bold;
+                    background-color: lightgrey;
+                }
+                .green_bold_light_bkg{
+                    color: green;
+                    font-weight: bold;
+                    background-color: lightgrey;
+                }
+                .bold_light_bkg{
+                    font-weight: bold;
+                    background-color: lightgrey;
+                }
+                .red_light_bkg{
                     color: red;
                     background-color: lightgrey;
                 }
