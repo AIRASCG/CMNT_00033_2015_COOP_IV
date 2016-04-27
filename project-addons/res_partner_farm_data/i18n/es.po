@@ -222,7 +222,7 @@ msgstr "Concentrado"
 #. module: res_partner_farm_data
 #: selection:gescarro.data.line,type:0
 msgid "concentrated"
-msgstr "concentrado"
+msgstr "Concentrado"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,protein:0

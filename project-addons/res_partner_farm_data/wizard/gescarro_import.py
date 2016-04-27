@@ -63,7 +63,7 @@ class GescarroImport(models.TransientModel):
             gescarro_vals['retired_liters'] = row[7]
             gescarro_vals['kg_leftover'] = row[8]
             gescarro_vals['leftover_reused'] = row[9] # Esto es un booleano
-            exp_ref = str(int(row[11]))
+            exp_ref = str(row[11])
             exploitation = self.env['res.partner'].search([('ref', '=', exp_ref)])
             if not exploitation:
                 raise exceptions.Warning(_('Import error'), _('Exploitation with reference %s not found') % exp_ref)
