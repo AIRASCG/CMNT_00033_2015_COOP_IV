@@ -19,3 +19,5 @@
 #
 ##############################################################################
 from . import ir_attachment
+from . import product
+from . import res_partner
