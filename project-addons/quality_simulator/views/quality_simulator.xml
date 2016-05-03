@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="quality_simulator_view_tree" model="ir.ui.view">
+            <field name="name">quality.simulator.tree</field>
+            <field name="model">quality.simulator</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="exploitation"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="quality_simulator_view_form" model="ir.ui.view">
+            <field name="name">quality.simulator.form</field>
+            <field name="model">quality.simulator</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <group>
+                                    <field name="exploitation"/>
+                                    <field name="date"/>
+                                </group>
+                                <group>
+                                    <field name="pay_fat"/>
+                                    <field name="pay_protein"/>
+                                    <field name="cow_liveweight"/>
+                                    <field name="ration_overrun"/>
+                                </group>
+                                <group string="Now">
+                                    <field name="milk_price_now"/>
+                                    <field name="fat_percentage_now"/>
+                                    <field name="protein_percentage_now"/>
+                                    <field name="lactose_percentage_now"/>
+                                    <field name="liters_now"/>
+                                    <field name="entry_now"/>
+                                    <field name="ration_cost_now"/>
+                                    <field name="benefit_now"/>
+                                </group>
+
+                                <group string="Future">
+                                    <field name="milk_price_future"/>
+                                    <field name="fat_percentage_future"/>
+                                    <field name="protein_percentage_future"/>
+                                    <field name="lactose_percentage_future"/>
+                                    <field name="liters_future"/>
+                                    <field name="entry_future"/>
+                                    <field name="ration_cost_future"/>
+                                    <field name="benefit_future"/>
+                                </group>
+                                <group>
+                                    <field name="production_increase"/>
+                                    <field name="profit_increase"/>
+                                </group>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="quality_simulator_view_search" model="ir.ui.view">
+            <field name="name">quality.simulator.search</field>
+            <field name="model">quality.simulator</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="exploitation"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="quality_simulator_action" model="ir.actions.act_window">
+            <field name="name">Quality simulator</field>
+            <field name="res_model">quality.simulator</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="quality_simulator_view_tree"/>
+            <field name="search_view_id" ref="quality_simulator_view_search"/>
+        </record>
+
+    </data>
+</openerp>

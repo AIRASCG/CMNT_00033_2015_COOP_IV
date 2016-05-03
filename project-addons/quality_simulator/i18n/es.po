@@ -1,0 +1,314 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * quality_simulator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-03 11:22+0000\n"
+"PO-Revision-Date: 2016-05-03 11:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: quality_simulator
+#: field:quality.simulator,fat_percentage_future:0
+#: field:quality.simulator,fat_percentage_now:0
+msgid "% Fat"
+msgstr "% Grasa"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "% MG"
+msgstr "% MG"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "% MP"
+msgstr "% MP"
+
+#. module: quality_simulator
+#: field:quality.simulator,protein_percentage_future:0
+#: field:quality.simulator,protein_percentage_now:0
+msgid "% Protein"
+msgstr "% Proteina"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "% grasa 1"
+msgstr "% grasa 1"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "% lactosa 1"
+msgstr "% lactosa 1"
+
+#. module: quality_simulator
+#: field:quality.simulator,lactose_percentage_future:0
+#: field:quality.simulator,lactose_percentage_now:0
+msgid "% lactose"
+msgstr "% Lactosa"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "% proteína 1"
+msgstr "% proteína 1"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "%lactosa"
+msgstr "% lactosa"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "AHORA"
+msgstr "AHORA"
+
+#. module: quality_simulator
+#: field:quality.simulator,ration_cost_now:0
+msgid "Actual ration cost (€/cow and day)"
+msgstr "Coste actual de la ración (€/vaca y día)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Beneficio 1"
+msgstr "Beneficio 1"
+
+#. module: quality_simulator
+#: field:quality.simulator,benefit_future:0
+#: field:quality.simulator,benefit_now:0
+msgid "Benefit"
+msgstr "Beneficio"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Coste actual de la ración(€/vaca y día)"
+msgstr "Coste actual de la ración(€/vaca y día)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Coste futuro de la ración(€/vaca y día)"
+msgstr "Coste futuro de la ración(€/vaca y día)"
+
+#. module: quality_simulator
+#: field:quality.simulator,cow_liveweight:0
+msgid "Cow liveweight"
+msgstr "Peso vivo vaca"
+
+#. module: quality_simulator
+#: field:quality.simulator,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: quality_simulator
+#: field:quality.simulator,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: quality_simulator
+#: field:quality.simulator,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: quality_simulator
+#: field:quality.simulator,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "El % de grasa debe pasar de un:"
+msgstr "El % de grasa debe pasar de un:"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "El % de lactosa debe pasar de un"
+msgstr "El % de lactosa debe pasar de un"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "El % de proteína debe pasar de un:"
+msgstr "El % de proteína debe pasar de un:"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Energéticamente es posible, e incluso se podrían producir a mayores otros:"
+msgstr "Energéticamente es posible, e incluso se podrían producir a mayores otros:"
+
+#. module: quality_simulator
+#: field:quality.simulator,entry_future:0
+#: field:quality.simulator,entry_now:0
+msgid "Entry"
+msgstr "Ingreso"
+
+#. module: quality_simulator
+#: field:quality.simulator,exploitation:0
+msgid "Exploitation"
+msgstr "Explotación"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "FUTURO"
+msgstr "FUTURO"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Fecha simulación"
+msgstr "Fecha simulación"
+
+#. module: quality_simulator
+#: view:quality.simulator:quality_simulator.quality_simulator_view_form
+msgid "Future"
+msgstr "Futuro"
+
+#. module: quality_simulator
+#: field:quality.simulator,ration_cost_future:0
+msgid "Future ration cost (€/cow and day)"
+msgstr "Coste futuro ración (€/cow and day)"
+
+#. module: quality_simulator
+#: field:quality.simulator,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Informe SIMUCAL"
+msgstr "Informe SIMUCAL"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "La propuesta supone un encarecimiento de la ración de"
+msgstr "La propuesta supone un encarecimiento de la ración de"
+
+#. module: quality_simulator
+#: field:quality.simulator,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: quality_simulator
+#: field:quality.simulator,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: quality_simulator
+#: field:quality.simulator,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: quality_simulator
+#: field:quality.simulator,liters_future:0
+#: field:quality.simulator,liters_now:0
+msgid "Liters"
+msgstr "Litros"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Litros"
+msgstr "Litros"
+
+#. module: quality_simulator
+#: field:quality.simulator,milk_price_future:0
+#: field:quality.simulator,milk_price_now:0
+msgid "Milk price (€/l)"
+msgstr "Precio leche (€/l)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Nombre de la ganadería"
+msgstr "Nombre de la ganadería"
+
+#. module: quality_simulator
+#: view:quality.simulator:quality_simulator.quality_simulator_view_form
+msgid "Now"
+msgstr "Ahora"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Pago grasa(€/déc.)"
+msgstr "Pago grasa(€/déc.)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Pago proteína(€/déc.)"
+msgstr "Pago proteína(€/déc.)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Paramantener beneficio la producción debe pasar de:"
+msgstr "Paramantener beneficio la producción debe pasar de:"
+
+#. module: quality_simulator
+#: field:quality.simulator,pay_fat:0
+msgid "Pay fat (€/dec)"
+msgstr "Pago grasa (€/dec)"
+
+#. module: quality_simulator
+#: field:quality.simulator,pay_protein:0
+msgid "Pay protein (€/dec)"
+msgstr "Pago proteína (€/dec)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Peso vivo vaca"
+msgstr "Peso vivo vaca"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Por lo tanto ganaremos a mayores:"
+msgstr "Por lo tanto ganaremos a mayores:"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Precio leche 1(€/lt)"
+msgstr "Precio leche 1(€/lt)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Premisas de la simulación:"
+msgstr "Premisas de la simulación:"
+
+#. module: quality_simulator
+#: field:quality.simulator,production_increase:0
+msgid "Production increase"
+msgstr "Incremento producción"
+
+#. module: quality_simulator
+#: field:quality.simulator,profit_increase:0
+msgid "Profit increase"
+msgstr "Incremento beneficio(€/vaca y día)"
+
+#. module: quality_simulator
+#: model:ir.actions.act_window,name:quality_simulator.quality_simulator_action
+#: model:ir.actions.report.xml,name:quality_simulator.report_quality_simulator_action
+msgid "Quality simulator"
+msgstr "Simulador de calidad"
+
+#. module: quality_simulator
+#: field:quality.simulator,ration_overrun:0
+msgid "Ration overrun"
+msgstr "sobrecoste ración(€/vaca y día)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "Sobrecoste ración (€/vaca y día)"
+msgstr "Sobrecoste ración (€/vaca y día)"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "ingreso 1"
+msgstr "ingreso 1"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "litros 1"
+msgstr "litros 1"
+
+#. module: quality_simulator
+#: view:website:quality_simulator.quality_simulator_view_qweb
+msgid "€/vaca y día"
+msgstr "€/vaca y día"
