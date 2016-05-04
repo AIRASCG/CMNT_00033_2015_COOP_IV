@@ -50,7 +50,7 @@ class LotReport(models.AbstractModel):
                 line['product'] = product
                 for detail in lots[o.id]:
                     content_detail = self.env['lot.content'].search([('product_id', '=', product.id), ('detail_id', '=', detail.id)])
-                    line[detail.id] = content_detail and content_detail[0].kg_ration * content_detail[0].eur_ton_mf or 0
+                    line[detail.id] = content_detail and content_detail[0].kg_ration * detail.rations_make_number or 0
                     if detail.id not in totals[o.id].keys():
                         totals[o.id][detail.id] = line[detail.id]
                     else:
@@ -68,7 +68,7 @@ class LotReport(models.AbstractModel):
                 ('b', 'Kg MF en el carro:', 'lot.kf_mf_carriage', 'sum([x.kf_mf_carriage for x in lot_details])'),
                 ('c', 'Sobrantes (kg)', 'lot.surplus', 'sum([x.surplus for x in lot_details])'),
                 ('d', 'Nº vacas a comer:', 'lot.cows_eat_number', 'sum([x.cows_eat_number for x in lot_details])'),
-                ('e', 'Nº vacas en ordeño:', 'o.number_milking_cows', 'sum([o.number_milking_cows for x in lot_details])'),
+                ('e', 'Nº vacas en ordeño:', 'lot.number_milking_cows', 'sum([x.number_milking_cows for x in lot_details])'),
                 ('f', 'Nº vacas al tanque:', 'lot.cows_tank_number', 'sum([x.cows_tank_number for x in lot_details])'),
                 ('g', 'Ingesta kg MF/vaca y día:', 'lot.imf_real', '(table["b"]["total"] - table["c"]["total"]) / (table["e"]["total"] + (table["d"]["total"] - table["e"]["total"]) / 2)'),
                 ('h', 'Ingesta kg MS/vaca y día:', 'lot.perc_ms_ration_anal==0 and lot.ims_total_kg_cow_day_real or lot.ims_total_kg_cow_day_anal', 'sum([table["h"][x] * table["d"][x] for x in table["h"].keys() if x not in ("title", "total")]) / table["d"]["total"]'),

@@ -26,6 +26,51 @@ msgid "%MP"
 msgstr "%MP"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,ingress_milk_cow_day:0
+msgid "Ingress milk/milk cow and day"
+msgstr "Ingreso leche/vaca ordeñada y día"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,feed_cost_cow_day:0
+msgid "Feed cost cow day"
+msgstr "Coste alimentación/vaca y día"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,diff_ing_cost:0
+msgid "Diff ing cost"
+msgstr "Diferencia"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_purchased_feed_milk_ingress:0
+msgid "Perc purchased feed milk ingress"
+msgstr "% alimentación comprada sobre ingresos leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_concentrated_milk_ingress:0
+msgid "Perc concentrated milk ingress"
+msgstr "% concentrado sobre ingresos leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,lot_threshold_point_slaughterhouse:0
+msgid "Lot threshold point slaughterhouse"
+msgstr "Punto umbral de este lote (destino matadero)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,lot_threshold_point_dry:0
+msgid "Lot threshold point dry"
+msgstr "Punto umbral de este lote (destino lote secas)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,liters_produced_kg_concentrated_used:0
+msgid "Liters produced kg concentrated used"
+msgstr "Lts producidos/kg de concentrado gastado"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_feed_milk_ingress:0
+msgid "Perc feed milk ingress"
+msgstr "% alimentación sobre ingresos leche"
+
+#. module: res_partner_farm_data
 #: field:lot.content,_theorical_ms:0
 #: field:gescarro.data,ms_concentrated:0
 #: field:gescarro.data,ms_fodder:0

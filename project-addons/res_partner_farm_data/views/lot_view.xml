@@ -193,6 +193,7 @@
                                 <field name="cows_tank_number"/>
                                 <field name="liters_on_farm_consumption"/>
                                 <field name="kf_mf_carriage"/>
+                                <field name="number_milking_cows"/>
                             </group>
                             <group>
                                 <field name="cows_eat_number"/>
@@ -200,6 +201,8 @@
                                 <field name="retired_liters"/>
                                 <field name="number_cubicles_in_lot"/>
                                 <field name="kg_plucking"/>
+                                <field name="kg_plucking_theo"/>
+                                <field name="ms_plucking"/>
                             </group>
                         </group>
                         <field name="lot_contents"/>

@@ -85,25 +85,25 @@
             <field name="template_id" ref="pyg_1000"/>
         </record>
 
-        <!--record id="pyg_1000_l_8" model="account.analytic.report.template.line">
+        <record id="pyg_1000_l_8" model="account.analytic.report.template.line">
             <field name="code">8</field>
             <field name="sequence">8</field>
             <field name="name">Variación existencias vacas</field>
-            <field name="value_1_1">749</field>
-            <field name="value_1_2">749,/#milk,*'1000</field>
-            <field name="value_2_1">749</field>
-            <field name="value_2_2">749,/#milk,*'1000</field>
+            <field name="value_1_1">611</field>
+            <field name="value_1_2">611,/#milk,*'1000</field>
+            <field name="value_2_1">611</field>
+            <field name="value_2_2">611,/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
-        </record-->
-        <!-- Falta .8-->
+        </record>
+
         <record id="pyg_1000_l_9" model="account.analytic.report.template.line">
             <field name="code">9</field>
             <field name="sequence">9</field>
             <field name="name">Producto bruto</field>
-            <field name="value_1_1">.1,.2,.3,.4,.5,.6,.7</field>
-            <field name="value_1_2">.1,.2,.3,.4,.5,.6,.7</field>
-            <field name="value_2_1">.1,.2,.3,.4,.5,.6,.7</field>
-            <field name="value_2_2">.1,.2,.3,.4,.5,.6,.7</field>
+            <field name="value_1_1">.1,.2,.3,.4,.5,.6,.7,.8</field>
+            <field name="value_1_2">.1,.2,.3,.4,.5,.6,.7,.8</field>
+            <field name="value_2_1">.1,.2,.3,.4,.5,.6,.7,.8</field>
+            <field name="value_2_2">.1,.2,.3,.4,.5,.6,.7,.8</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style">bold</field>
         </record>
