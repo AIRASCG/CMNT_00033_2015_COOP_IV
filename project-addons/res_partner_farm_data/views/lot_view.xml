@@ -33,7 +33,7 @@
                                 <field name="lot_number" attrs="{'readonly': [('state', '=', 'old')]}"/>
                             </group>
                             <group>
-                                <field name="farm_id" domain="[('farm', '=', True)]" attrs="{'readonly': [('state', '=', 'old')]}"/>
+                                <field name="farm_id" domain="[('farm','=',True),('is_cooperative','=',False)]" attrs="{'readonly': [('state', '=', 'old')]}"/>
                                 <field name="user_id" attrs="{'readonly': [('state', '=', 'old')]}"/>
                                 <field name="date" attrs="{'readonly': [('state', '=', 'old')]}"/>
                             </group>

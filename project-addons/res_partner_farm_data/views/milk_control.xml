@@ -81,7 +81,7 @@
                     <sheet>
                         <group>
                             <field name="date"/>
-                            <field name="exploitation_id"/>
+                            <field name="exploitation_id" domain="[('farm','=',True),('is_cooperative','=',False)]"/>
                         </group>
                         <notebook colspan="4">
                             <page string="Lines">

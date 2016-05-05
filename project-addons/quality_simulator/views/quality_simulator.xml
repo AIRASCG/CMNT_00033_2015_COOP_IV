@@ -27,7 +27,7 @@
                         <group>
                             <group>
                                 <group>
-                                    <field name="exploitation"/>
+                                    <field name="exploitation" domain="[('farm','=',True),('is_cooperative','=',False)]"/>
                                     <field name="date"/>
                                 </group>
                                 <group>

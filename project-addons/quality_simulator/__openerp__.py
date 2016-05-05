@@ -17,6 +17,7 @@
     "data": [
         'views/quality_simulator.xml',
         'views/report_quality_simulator.xml',
-        'report.xml'
+        'report.xml',
+        'security/ir.model.access.csv'
     ],
 }

@@ -291,7 +291,7 @@ msgstr "Simulador de calidad"
 #. module: quality_simulator
 #: field:quality.simulator,ration_overrun:0
 msgid "Ration overrun"
-msgstr "sobrecoste ración(€/vaca y día)"
+msgstr "Sobrecoste ración(€/vaca y día)"
 
 #. module: quality_simulator
 #: view:website:quality_simulator.quality_simulator_view_qweb
