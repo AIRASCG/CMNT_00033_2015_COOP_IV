@@ -129,6 +129,10 @@ class Lot(models.Model):
     def button_validate(self):
         self.state = 'validated'
 
+    @api.multi
+    def button_draft(self):
+        self.state = 'draft'
+
 
 class LotDetailSequence(models.Model):
 

@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * custom_coop
+#       * custom_coop
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-06 12:06+0000\n"
-"PO-Revision-Date: 2016-04-06 12:06+0000\n"
+"POT-Creation-Date: 2016-05-05 18:17+0000\n"
+"PO-Revision-Date: 2016-05-05 18:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,29 +16,34 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_coop
+#: field:res.users,adsg_certification_supplier:0
+msgid "ADSG certification supplier"
+msgstr "Proveedor certificación ADSG"
+
+#. module: custom_coop
 #: field:account.chart.template,account_asset_id:0
 msgid "Account asset id"
-msgstr "Account asset id"
+msgstr "Cuenta activo"
 
 #. module: custom_coop
 #: field:account.chart.template,account_depreciation_id:0
 msgid "Account depreciation id"
-msgstr "Account depreciation id"
+msgstr "Cuenta depreciación"
 
 #. module: custom_coop
 #: field:account.chart.template,account_deterioration_depreciation_id:0
 msgid "Account deterioration depreciation id"
-msgstr "Account deterioration depreciation id"
+msgstr "Cuenta deterioro"
 
 #. module: custom_coop
 #: field:account.chart.template,account_deterioration_expense_depreciation_id:0
 msgid "Account deterioration expense depreciation id"
-msgstr "Account deterioration expense depreciation id"
+msgstr "Cuenta gasto deterioro"
 
 #. module: custom_coop
 #: field:account.chart.template,account_expense_depreciation_id:0
 msgid "Account expense depreciation id"
-msgstr "Account expense depreciation id"
+msgstr "Cuenta gasto depreciación"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_account_analytic_account
@@ -59,7 +64,7 @@ msgstr "Cuenta analítica"
 #: field:account.asset.asset,analytic_plan:0
 #: field:account.asset.category,analytic_plan:0
 msgid "Analytic plan"
-msgstr "Plan analítico"
+msgstr "Distribución analítica"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_account_asset_asset
@@ -88,9 +93,29 @@ msgid "Attachment"
 msgstr "Adjunto"
 
 #. module: custom_coop
+#: field:res.users,average_annual_consumption:0
+msgid "Average annual consumption"
+msgstr "Consumo medio anual"
+
+#. module: custom_coop
+#: field:res.users,bait:0
+msgid "Bait"
+msgstr "Cebo"
+
+#. module: custom_coop
 #: view:res.company:custom_coop.res_company_hide_conf
 msgid "Bank Accounts"
 msgstr "Cuentas bancarias"
+
+#. module: custom_coop
+#: field:res.users,barn_type:0
+msgid "Barn type"
+msgstr "Tipo de establo"
+
+#. module: custom_coop
+#: field:res.users,bed_suppliers:0
+msgid "Bed suppliers"
+msgstr "Proveedor de camas"
 
 #. module: custom_coop
 #: field:mail.attachment.partner,body:0
@@ -100,7 +125,12 @@ msgstr "Mensaje"
 #. module: custom_coop
 #: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_form
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Cancelar"
+
+#. module: custom_coop
+#: field:res.users,clinic_supplier:0
+msgid "Clinic supplier"
+msgstr "Proveedor clínica"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_res_company
@@ -113,27 +143,59 @@ msgid "Configuration"
 msgstr "Configuración"
 
 #. module: custom_coop
+#: field:res.users,is_cooperative:0
+msgid "Cooperative"
+msgstr "Cooperativa"
+
+#. module: custom_coop
+#: field:res.users,cornadizas:0
+msgid "Cornadizas quantity"
+msgstr "Cantidad cornadizas"
+
+#. module: custom_coop
+#: field:res.users,counselling_supplier:0
+msgid "Counselling supplier"
+msgstr "Proveedor asesoramiento"
+
+#. module: custom_coop
+#: field:res.users,cow_count_ids:0
+msgid "Cows"
+msgstr "Vacas"
+
+#. module: custom_coop
 #: code:addons/custom_coop/models/account_analytic.py:31
 #: code:addons/custom_coop/models/res_company.py:33
 #: code:addons/custom_coop/models/res_company.py:40
 #, python-format
 msgid "Create error"
-msgstr "Create error"
+msgstr "Error en creación"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,create_uid:0
 msgid "Created by"
-msgstr "Created by"
+msgstr "Creado por"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,create_date:0
 msgid "Created on"
-msgstr "Created on"
+msgstr "Creado el"
+
+#. module: custom_coop
+#: field:res.users,dairy_company:0
+msgid "Dairy company"
+msgstr "Empresa láctea"
 
 #. module: custom_coop
 #: view:ir.attachment:custom_coop.view_attach_filter_inherit3
 msgid "Date"
 msgstr "Fecha"
+
+#. module: custom_coop
+#: view:account.invoice:custom_coop.invoice_product_no_create
+#: view:account.invoice:custom_coop.invoice_supplier_product_no_create
+#: view:account.invoice.line:custom_coop.invoice_line_product_no_create
+msgid "Denomination"
+msgstr "Denominación"
 
 #. module: custom_coop
 #: field:account.asset.category,account_deterioration_expense_depreciation_id:0
@@ -144,6 +206,88 @@ msgstr "Cuenta gastos amortización de deterioro"
 #: field:account.asset.category,account_deterioration_depreciation_id:0
 msgid "Deterioration depreciation account"
 msgstr "Cuenta de amortización de deterioro"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,display_name:0
+#: field:stock.location.update.stock.wizard,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: custom_coop
+#: field:res.users,dry_cow:0
+#: field:res.users,dry_cows:0
+msgid "Dry cows"
+msgstr "Vacas secas"
+
+#. module: custom_coop
+#: field:res.users,dry_mix:0
+msgid "Dry mix"
+msgstr "Mezcla seca"
+
+#. module: custom_coop
+#: field:res.users,electric_power:0
+msgid "Electric power"
+msgstr "Potencia eléctrica"
+
+#. module: custom_coop
+#: field:res.users,employee_count_ids:0
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: custom_coop
+#: field:res.users,employees_quantity:0
+msgid "Employees quantity"
+msgstr "Cant. empleados"
+
+#. module: custom_coop
+#: field:res.users,exploitation_technician:0
+msgid "Exploitation technician"
+msgstr "Técnico explotación"
+
+#. module: custom_coop
+#: field:res.users,farm:0
+msgid "Farm"
+msgstr "Explotación"
+
+#. module: custom_coop
+#: field:res.users,feeding_supplier:0
+msgid "Feeding supplier"
+msgstr "Proveedor alimentación"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,datas:0
+msgid "File Content"
+msgstr "Adjunto"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,datas_fname:0
+msgid "File Name"
+msgstr "Nombre fichero"
+
+#. module: custom_coop
+#: field:res.users,forage_silos:0
+msgid "Forage silos"
+msgstr "Silos forraje"
+
+#. module: custom_coop
+#: field:res.users,heifer_0_3:0
+msgid "Heifer 0-3 months"
+msgstr "Novillas 0-3 meses"
+
+#. module: custom_coop
+#: field:res.users,heifer_3_12:0
+msgid "Heifer 3-12 months"
+msgstr "Novillas 3-12 meses"
+
+#. module: custom_coop
+#: field:res.users,heifer_plus_12:0
+msgid "Novillas >12 months"
+msgstr "Heifer >12 meses"
+
+#. module: custom_coop
+#: field:res.users,heifers:0
+msgid "Heifers"
+msgstr "Novillas"
 
 #. module: custom_coop
 #: field:mail.attachment.partner,id:0
@@ -163,14 +307,25 @@ msgid "Inventory Locations"
 msgstr "Ubicaciones de inventario"
 
 #. module: custom_coop
+#: field:res.users,lactating_cows:0
+msgid "Lactating cows"
+msgstr "Vacas lactación"
+
+#. module: custom_coop
+#: field:mail.attachment.partner,__last_update:0
+#: field:stock.location.update.stock.wizard,__last_update:0
+msgid "Last Modified on"
+msgstr "Últ. actialización en"
+
+#. module: custom_coop
 #: field:stock.location.update.stock.wizard,write_uid:0
 msgid "Last Updated by"
-msgstr "Last Updated by"
+msgstr "Últ. actialización por"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,write_date:0
 msgid "Last Updated on"
-msgstr "Last Updated on"
+msgstr "Últ. actialización el"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,lot_id:0
@@ -190,13 +345,48 @@ msgstr "Lote/Nº de serie"
 #. module: custom_coop
 #: field:stock.production.lot,lot_analysis_ids:0
 msgid "Lots"
-msgstr "Lots"
+msgstr "Lotes"
 
 #. module: custom_coop
 #: code:addons/custom_coop/models/res_partner.py:32
 #, python-format
 msgid "Mails"
 msgstr "Notificaciones"
+
+#. module: custom_coop
+#: field:res.users,manure_pit:0
+msgid "Manure pit"
+msgstr "Fosa purín"
+
+#. module: custom_coop
+#: field:res.users,manure_pit_outdoor:0
+msgid "Manure pit outdoor"
+msgstr "Fosa purín descubierta"
+
+#. module: custom_coop
+#: field:res.users,milk_analysis_type:0
+msgid "Milk analysis type"
+msgstr "Tipo de análisis"
+
+#. module: custom_coop
+#: field:res.users,milk_cow:0
+msgid "Milk cows"
+msgstr "Vacas leche"
+
+#. module: custom_coop
+#: field:res.users,milk_quality_supplier:0
+msgid "Milk quality supplier"
+msgstr "Proveedor calidad leche"
+
+#. module: custom_coop
+#: field:res.users,milk_tank_liter:0
+msgid "Milk tank liter"
+msgstr "Litros tanque leche"
+
+#. module: custom_coop
+#: field:res.users,mixer_truck_supplier:0
+msgid "Mixer truck supplier"
+msgstr "Proveedor carro mezclador"
 
 #. module: custom_coop
 #: view:res.partner:custom_coop.res_partner_add_action_mails
@@ -207,7 +397,7 @@ msgstr "Notificaciones"
 #: code:addons/custom_coop/models/res_users.py:32
 #, python-format
 msgid "Only %s can edit his user"
-msgstr "Solo %s puede editar su usuario"
+msgstr "Sólo %s puede editar su usuario"
 
 #. module: custom_coop
 #: view:res.company:custom_coop.res_company_hide_overdue
@@ -224,7 +414,7 @@ msgstr "Propietario"
 #: code:addons/custom_coop/models/res_company.py:40
 #, python-format
 msgid "Parent required"
-msgstr "Parent required"
+msgstr "Padre obligatorio"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_res_partner
@@ -233,14 +423,35 @@ msgid "Partner"
 msgstr "Empresa"
 
 #. module: custom_coop
+#: field:res.users,partner_of:0
+msgid "Partner of"
+msgstr "Socio de"
+
+#. module: custom_coop
 #: model:ir.model,name:custom_coop.model_res_partner_passwd
+#: field:res.users,passwd_ids:0
 msgid "Password"
 msgstr "Contraseña"
+
+#. module: custom_coop
+#: field:res.users,pickup_frequency:0
+msgid "Pickup frequency"
+msgstr "Frecuencia recogida"
+
+#. module: custom_coop
+#: field:res.users,plantation_ids:0
+msgid "Plantations"
+msgstr "Fincas"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,product_id:0
 msgid "Product"
 msgstr "Producto"
+
+#. module: custom_coop
+#: field:res.users,production_orientation:0
+msgid "Production orientation"
+msgstr "Orientación productiva"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,quantity:0
@@ -254,9 +465,39 @@ msgid "Quantity cannot be negative."
 msgstr "La cantidad no puede ser negativa."
 
 #. module: custom_coop
+#: field:res.users,replacement_supplier:0
+msgid "Replacement supplier"
+msgstr "Proveedor sustitución"
+
+#. module: custom_coop
 #: view:res.company:custom_coop.res_company_hide_conf
 msgid "Report Configuration"
 msgstr "Configuración de informes"
+
+#. module: custom_coop
+#: field:res.users,reproduction_supplier:0
+msgid "Reproduction supplier"
+msgstr "Proveedor reproducción"
+
+#. module: custom_coop
+#: field:res.users,secondary_technician:0
+msgid "Secondary technician"
+msgstr "Técnico secundario"
+
+#. module: custom_coop
+#: field:res.users,special_mix:0
+msgid "Special mix"
+msgstr "Mezcla especial"
+
+#. module: custom_coop
+#: field:res.users,standard_fodder:0
+msgid "Standard fodder"
+msgstr "Pienso estándar"
+
+#. module: custom_coop
+#: field:stock.production.lot,stock_available:0
+msgid "Stock available"
+msgstr "Stock disponible"
 
 #. module: custom_coop
 #: field:mail.attachment.partner,name:0
@@ -271,7 +512,7 @@ msgstr "Subvención"
 #. module: custom_coop
 #: field:account.asset.category,subvention_analytic_plan:0
 msgid "Subvention Analytic plan"
-msgstr "Subvención plan analítico"
+msgstr "Distribución analítica subvenciones"
 
 #. module: custom_coop
 #: field:account.asset.category,subvention_analytic_account_id:0
@@ -279,14 +520,29 @@ msgid "Subvention analytic account"
 msgstr "Cuenta analítica subvenciones"
 
 #. module: custom_coop
+#: field:res.users,supplies_technician:0
+msgid "Supplies technician"
+msgstr "Tecnico suministros"
+
+#. module: custom_coop
 #: model:ir.model,name:custom_coop.model_account_chart_template
 msgid "Templates for Account Chart"
 msgstr "Plantillas para el plan contable"
 
 #. module: custom_coop
-#: view:res.users:custom_coop.view_users_form_preferences_remove_sale_team
-msgid "True"
-msgstr "True"
+#: field:res.users,temporary_farm:0
+msgid "Temporary farm"
+msgstr "Explotación temporal"
+
+#. module: custom_coop
+#: field:res.users,total_net_surface:0
+msgid "Total Net Surface"
+msgstr "Superficie neta total"
+
+#. module: custom_coop
+#: field:res.users,trailer_access:0
+msgid "Trailer access"
+msgstr "Acceso trailer"
 
 #. module: custom_coop
 #: field:res.partner.passwd,url:0
@@ -311,6 +567,41 @@ msgid "Update stock"
 msgstr "Actualizar stock"
 
 #. module: custom_coop
+#: field:res.users,use_ta:0
+msgid "Use Corn"
+msgstr "Uso maíz"
+
+#. module: custom_coop
+#: field:res.users,use_fo:0
+msgid "Use Forest"
+msgstr "Uso forestal"
+
+#. module: custom_coop
+#: field:res.users,use_pm:0
+msgid "Use Grass < 5 Years"
+msgstr "Uso pasto de < 5 años"
+
+#. module: custom_coop
+#: field:res.users,use_ps:0
+msgid "Use Grass > 5 Years"
+msgstr "Uso pasto de > 5 años"
+
+#. module: custom_coop
+#: field:res.users,use_pr:0
+msgid "Use Shrubby Grass"
+msgstr "Uso pasto arbustivo"
+
+#. module: custom_coop
+#: field:res.users,use_hu:0
+msgid "Use Vegetable Garden"
+msgstr "Uso huerta"
+
+#. module: custom_coop
+#: field:res.users,use_pa:0
+msgid "Use Wooded Grass"
+msgstr "Uso pasto arboleado"
+
+#. module: custom_coop
 #: model:ir.model,name:custom_coop.model_res_users
 msgid "Users"
 msgstr "Usuarios"
@@ -319,7 +610,7 @@ msgstr "Usuarios"
 #: code:addons/custom_coop/wizard/stock_location_update_stock.py:37
 #, python-format
 msgid "Warning!"
-msgstr "Warning!"
+msgstr "¡Aviso!"
 
 #. module: custom_coop
 #: code:addons/custom_coop/models/res_users.py:32
@@ -328,11 +619,11 @@ msgid "Write error"
 msgstr "Error en escritura: view:stock.location.update.stock.wizard:custom_coop.stock_location_update_wizard_forsgid \"Cancelsgstr \"Cancelar"
 
 #. module: custom_coop
-#: view:calendar.event:custom_coop.calendar_event_checkbox
-msgid "many2many_checkboxes"
-msgstr "many2many_checkboxes"
+#: field:res.users,concentrate_capacity:0
+msgid "concentrate capacity"
+msgstr "Capacidad concentrado"
 
 #. module: custom_coop
-#: view:account.asset.asset:custom_coop.account_asset_add_subvention
-msgid "onchange_category_id_subvention(category_id, subvention)"
-msgstr "onchange_category_id_subvention(category_id, subvention)"
+#: field:res.users,mh:0
+msgid "mh"
+msgstr "mh"

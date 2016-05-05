@@ -90,6 +90,7 @@
                 <form string="Read">
                     <header>
                         <button name="button_validate" type="object" string="Validate" attrs="{'invisible': [('state', '=', 'validated')]}"/>
+                        <button name="button_draft" type="object" string="Back to draft" attrs="{'invisible': [('state', '=', 'draft')]}"/>
                         <field name="state" widget="statusbar"/>
                     </header>
                     <sheet>
