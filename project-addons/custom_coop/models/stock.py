@@ -45,6 +45,6 @@ class stock_production_lot(models.Model):
     def _compute_stock_available(self):
         sum_quants = 0.0
         for quant in self.quant_ids:
-            if self.quant_ids.location_id.usage == u'internal':
-                sum_quants += self.quant_ids.qty
+            if quant.location_id.usage == u'internal':
+                sum_quants += quant.qty
         self.stock_available = sum_quants
