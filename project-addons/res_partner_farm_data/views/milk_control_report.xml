@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="milk_control_report_view_tree" model="ir.ui.view">
+            <field name="name">milk.control.report.tree</field>
+            <field name="model">milk.control.report</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Milk control reports">
+                    <field name="exploitation_1"/>
+                    <field name="exploitation_2"/>
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="milk_control_report_view_form" model="ir.ui.view">
+            <field name="name">milk.control.report.form</field>
+            <field name="model">milk.control.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Milk control report">
+                    <style>
+                        .milk_control td, .milk_control th, .milk_control_2 td, .milk_control_2 th{
+                                text-align: center;
+                        }
+
+                        .milk_control tr{
+                            height: 30px !important;
+                        }
+                        .milk_control td, .milk_control th, .milk_control .oe_form_field, .milk_control .oe_form_field, .milk_control .oe_form_field span, .milk_control .oe_form_field input{
+                            width: 50px !important;
+                            min-width: 50px !important;
+                        }
+                        .milk_control{
+                            height: 120px;
+                            width: 400px;
+                        }
+
+                        .milk_control_2 tr{
+                            height: 30px !important;
+                        }
+                        .milk_control_2 td, .milk_control_2 th, .milk_control_2 .oe_form_field, .milk_control_2 .oe_form_field, .milk_control_2 .oe_form_field span, .milk_control_2 .oe_form_field input{
+                            width: 143px !important;
+                            min-width: 143px !important;
+                        }
+                        .milk_control_2{
+                            margin-top: 30px;
+                            height: 60px;
+                            width: 430px;
+                        }
+                    </style>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="exploitation_1"/>
+                                <field name="milking_type_1"/>
+                                <field name="exploitation_2"/>
+                                <field name="milking_type_2"/>
+                            </group>
+                            <group>
+                                <field name="from_date"/>
+                                <field name="to_date"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <table class="milk_control" colspan="2">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Vacas</th>
+                                            <th>DEL</th>
+                                            <th>Litros</th>
+                                            <th>% grasa</th>
+                                            <th>% prot.</th>
+                                            <th>Cél.</th>
+                                            <th>Urea</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Primerizas</td>
+                                            <td><field name="primerizas_cant_1" nolabel="1"/></td>
+                                            <td><field name="primerizas_del_1" nolabel="1"/></td>
+                                            <td><field name="primerizas_litros_1" nolabel="1"/></td>
+                                            <td><field name="primerizas_grasa_1" nolabel="1"/></td>
+                                            <td><field name="primerizas_proteina_1" nolabel="1"/></td>
+                                            <td><field name="primerizas_celulas_1" nolabel="1"/></td>
+                                            <td><field name="primerizas_urea_1" nolabel="1"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adultas</td>
+                                            <td><field name="adultas_cant_1" nolabel="1"/></td>
+                                            <td><field name="adultas_del_1" nolabel="1"/></td>
+                                            <td><field name="adultas_litros_1" nolabel="1"/></td>
+                                            <td><field name="adultas_grasa_1" nolabel="1"/></td>
+                                            <td><field name="adultas_proteina_1" nolabel="1"/></td>
+                                            <td><field name="adultas_celulas_1" nolabel="1"/></td>
+                                            <td><field name="adultas_urea_1" nolabel="1"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total</td>
+                                            <td><field name="total_cant_1" nolabel="1"/></td>
+                                            <td><field name="total_del_1" nolabel="1"/></td>
+                                            <td><field name="total_litros_1" nolabel="1"/></td>
+                                            <td><field name="total_grasa_1" nolabel="1"/></td>
+                                            <td><field name="total_proteina_1" nolabel="1"/></td>
+                                            <td><field name="total_celulas_1" nolabel="1"/></td>
+                                            <td><field name="total_urea_1" nolabel="1"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <field name="vacas_invertidas_1"/>
+                                <field name="coeficiente_persistencia_1"/>
+                                <field name="leche_corregida_a_del_1"/>
+                                <field name="prod_media_lact_acumulada_1"/>
+                                <field name="num_medio_partos_1"/>
+                                <field name="relacion_grasa_prot_1"/>
+                                <table class="milk_control_2" colspan="2">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Pico producción novillas</strong></td>
+                                            <td><strong>DEL</strong></td>
+                                            <td><strong>Nº novillas entre 60-90 DEL</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><field name="pico_novillas_1"/></td>
+                                            <td><field name="pico_novillas_del_1"/></td>
+                                            <td><field name="num_novillas_pico_del_1"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Pico producción adultas</strong></td>
+                                            <td><strong>DEL</strong></td>
+                                            <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><field name="pico_adultas_1"/></td>
+                                            <td><field name="pico_adultas_del_1"/></td>
+                                            <td><field name="num_adultas_pico_del_1"/></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfooter>
+                                        <tr>
+                                            <td><field name="relacion_entre_picos_2"/></td>
+                                            <td>= Relación entre picos</td>
+                                        </tr>
+                                    </tfooter>
+                                </table>
+
+                            </group>
+                            <group>
+                                <table class="milk_control" colspan="2">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Vacas</th>
+                                            <th>DEL</th>
+                                            <th>Litros</th>
+                                            <th>% grasa</th>
+                                            <th>% prot.</th>
+                                            <th>Cél.</th>
+                                            <th>Urea</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Primerizas</td>
+                                            <td><field name="primerizas_cant_2" nolabel="1"/></td>
+                                            <td><field name="primerizas_del_2" nolabel="1"/></td>
+                                            <td><field name="primerizas_litros_2" nolabel="1"/></td>
+                                            <td><field name="primerizas_grasa_2" nolabel="1"/></td>
+                                            <td><field name="primerizas_proteina_2" nolabel="1"/></td>
+                                            <td><field name="primerizas_celulas_2" nolabel="1"/></td>
+                                            <td><field name="primerizas_urea_2" nolabel="1"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adultas</td>
+                                            <td><field name="adultas_cant_2" nolabel="1"/></td>
+                                            <td><field name="adultas_del_2" nolabel="1"/></td>
+                                            <td><field name="adultas_litros_2" nolabel="1"/></td>
+                                            <td><field name="adultas_grasa_2" nolabel="1"/></td>
+                                            <td><field name="adultas_proteina_2" nolabel="1"/></td>
+                                            <td><field name="adultas_celulas_2" nolabel="1"/></td>
+                                            <td><field name="adultas_urea_2" nolabel="1"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total</td>
+                                            <td><field name="total_cant_2" nolabel="1"/></td>
+                                            <td><field name="total_del_2" nolabel="1"/></td>
+                                            <td><field name="total_litros_2" nolabel="1"/></td>
+                                            <td><field name="total_grasa_2" nolabel="1"/></td>
+                                            <td><field name="total_proteina_2" nolabel="1"/></td>
+                                            <td><field name="total_celulas_2" nolabel="1"/></td>
+                                            <td><field name="total_urea_2" nolabel="1"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <field name="vacas_invertidas_2"/>
+                                <field name="coeficiente_persistencia_2"/>
+                                <field name="leche_corregida_a_del_2"/>
+                                <field name="prod_media_lact_acumulada_2"/>
+                                <field name="num_medio_partos_2"/>
+                                <field name="relacion_grasa_prot_2"/>
+                                <table class="milk_control_2" colspan="2">
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Pico producción novillas</strong></td>
+                                            <td><strong>DEL</strong></td>
+                                            <td><strong>Nº novillas entre 60-90 DEL</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><field name="pico_novillas_2"/></td>
+                                            <td><field name="pico_novillas_del_2"/></td>
+                                            <td><field name="num_novillas_pico_del_2"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Pico producción adultas</strong></td>
+                                            <td><strong>DEL</strong></td>
+                                            <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><field name="pico_adultas_2"/></td>
+                                            <td><field name="pico_adultas_del_2"/></td>
+                                            <td><field name="num_adultas_pico_del_2"/></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfooter>
+                                        <tr>
+                                            <td><field name="relacion_entre_picos_2"/></td>
+                                            <td>= Relación entre picos</td>
+                                        </tr>
+                                    </tfooter>
+                                </table>
+                            </group>
+                            <group colspan="2">
+                                <div style="width:500px;">
+                                    <field name="graphic_img" widget="image"/>
+                                </div>
+                            </group>
+                            <group>
+                                <table class="milk_control">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Nº animales</th>
+                                            <th>% Animales</th>
+                                            <th>Media</th>
+                                            <th>L totales</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1º tercio lactación</strong></td>
+                                            <td><field name="prim_terc_lact_num_animales_1"/></td>
+                                            <td><field name="prim_terc_lact_porcen_animales_1"/></td>
+                                            <td><field name="prim_terc_lact_media_1"/></td>
+                                            <td><field name="prim_terc_lact_litros_total_1"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2º tercio lactación</strong></td>
+                                            <td><field name="seg_terc_lact_num_animales_1"/></td>
+                                            <td><field name="seg_terc_lact_porcen_animales_1"/></td>
+                                            <td><field name="seg_terc_lact_media_1"/></td>
+                                            <td><field name="seg_terc_lact_litros_total_1"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3º tercio lactación</strong></td>
+                                            <td><field name="terc_terc_lact_num_animales_1"/></td>
+                                            <td><field name="terc_terc_lact_porcen_animales_1"/></td>
+                                            <td><field name="terc_terc_lact_media_1"/></td>
+                                            <td><field name="terc_terc_lact_litros_total_1"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                            <group>
+                                <table class="milk_control">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Nº animales</th>
+                                            <th>% Animales</th>
+                                            <th>Media</th>
+                                            <th>L totales</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>1º tercio lactación</strong></td>
+                                            <td><field name="prim_terc_lact_num_animales_2"/></td>
+                                            <td><field name="prim_terc_lact_porcen_animales_2"/></td>
+                                            <td><field name="prim_terc_lact_media_2"/></td>
+                                            <td><field name="prim_terc_lact_litros_total_2"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>2º tercio lactación</strong></td>
+                                            <td><field name="seg_terc_lact_num_animales_2"/></td>
+                                            <td><field name="seg_terc_lact_porcen_animales_2"/></td>
+                                            <td><field name="seg_terc_lact_media_2"/></td>
+                                            <td><field name="seg_terc_lact_litros_total_2"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>3º tercio lactación</strong></td>
+                                            <td><field name="terc_terc_lact_num_animales_2"/></td>
+                                            <td><field name="terc_terc_lact_porcen_animales_2"/></td>
+                                            <td><field name="terc_terc_lact_media_2"/></td>
+                                            <td><field name="terc_terc_lact_litros_total_2"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="milk_control_report_view_search" model="ir.ui.view">
+            <field name="name">milk.control.report.search</field>
+            <field name="model">milk.control.report</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="exploitation_1"/>
+                    <field name="exploitation_2"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="milk_control_report_action" model="ir.actions.act_window">
+            <field name="name">Milk control report</field>
+            <field name="res_model">milk.control.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="milk_control_report_view_tree"/>
+            <field name="search_view_id" ref="milk_control_report_view_search"/>
+        </record>
+
+
+
+    </data>
+</openerp>

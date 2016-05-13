@@ -282,6 +282,7 @@
 
         <menuitem name="Milk control" parent="custom_menu.feeding_management"
             action="res_partner_farm_data.action_milk_control" id="menu_milk_control"/>
+        <menuitem name="Milk control report" parent="feeding_management" action="res_partner_farm_data.milk_control_report_action" id="milk_control_report_menu"/>
 
         <menuitem name="Import lot analysis" parent="custom_menu.feeding_management"
             action="res_partner_farm_data.lot_analysis_import_act" id="menu_lot_analysis_import"/>
