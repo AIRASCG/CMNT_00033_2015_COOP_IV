@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <report
+            string="Report"
+            id="action_milk_control_qweb_report"
+            model="milk.control.report"
+            report_type="qweb-pdf"
+            name="res_partner_farm_data.milk_control_qweb_report"
+            file="res_partner_farm_data.milk_control_qweb_report"
+        />
+
+    </data>
+</openerp>

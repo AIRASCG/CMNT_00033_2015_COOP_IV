@@ -26,6 +26,9 @@
     'description': """This module adds the fields required for a farm""",
     'author': 'Comunitea',
     'website': '',
+    'external_dependencies': {
+        'python': ['cairoplot']
+    },
     "depends": ['base', 'product', 'stock', 'account', 'account_asset',
                 'account_analytic_plans', 'supplier_type', 'base_vat',
                 'email_template', 'company_automatic_account_config',
@@ -42,6 +45,8 @@
              'wizard/lot_analysis_import.xml', 'wizard/milk_analysis_import.xml',
              'wizard/milk_control_import.xml', 'security/security.xml',
              'views/milk_analysis.xml', 'views/milk_control.xml',
+             'views/milk_control_qweb_report.xml', 'milk_control_qweb_report.xml',
+             'data/decimal_precision.xml',
              'views/gescarro.xml', 'wizard/gescarro_import.xml'],
     "installable": True
 }
