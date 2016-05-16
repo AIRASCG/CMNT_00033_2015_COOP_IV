@@ -2460,3 +2460,9 @@ msgstr "Latitud"
 #: field:res.partner,longitude:0
 msgid "Longitude"
 msgstr "Longitud"
+
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
+msgid "Get lot data"
+msgstr "Obtener datos en lote"

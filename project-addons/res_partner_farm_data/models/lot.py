@@ -60,7 +60,7 @@ class Lot(models.Model):
                              states={'draft': [('readonly', False)]})
     lot_details = fields.One2many('lot.detail', 'lot_id', 'Lot details',
                                   readonly=True,
-                                  states={'draft': [('readonly', False)]}, copy=True)
+                                  states={'draft': [('readonly', False)]})
 
     total_liters_sold = fields.Integer('Total liters sold',
                                        readonly=True,
@@ -133,6 +133,16 @@ class Lot(models.Model):
     def button_draft(self):
         self.state = 'draft'
 
+    @api.multi
+    def get_data_lot(self):
+        self.ensure_one()
+        last_lot = self.env['lot'].search(
+                [('farm_id', '=', self.farm_id.id),
+                 ('id', '!=', self.id), ('date', '<=', self.date)],
+                order='date desc', limit=1)
+        last_lot.lot_details.copy({'lot_id': self.id, 'date': datetime.now()})
+        self.mapped('lot_details.lot_contents').write(
+            {'kg_ration': 0, 'ms': 0, 'enl': 0, 'pb': 0})
 
 class LotDetailSequence(models.Model):
 
@@ -154,7 +164,8 @@ class LotDetail(models.Model):
     user_id = fields.Many2one('res.users', 'User', required=True,
                               default=lambda self: self.env.user.id)
     lot_id = fields.Many2one('lot', 'Lot')
-    lot_contents = fields.One2many('lot.content', 'detail_id', 'Content')
+    lot_contents = fields.One2many('lot.content', 'detail_id', 'Content',
+                                   copy=True)
     date = fields.Datetime('Date', required=True,
                            default=lambda a: datetime.now())
     rations_make_number = fields.Integer('Number of maked rations')
