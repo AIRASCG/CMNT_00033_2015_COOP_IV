@@ -18,6 +18,7 @@
         'views/quality_simulator.xml',
         'views/report_quality_simulator.xml',
         'report.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'security/security.xml'
     ],
 }
