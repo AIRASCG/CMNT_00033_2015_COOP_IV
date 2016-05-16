@@ -750,6 +750,7 @@ msgstr "Explotación"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,milking_cows:0
+#: field:lot.detail,number_milking_cows:0
 msgid "Milking cows"
 msgstr "Vacas en ordeño"
 
@@ -762,6 +763,17 @@ msgstr "Minutos 1ª ración"
 #: field:gescarro.data,minutes_next_ration:0
 msgid "Minutes next ration"
 msgstr "Minutos ración siguiente"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_plucking_theo:0
+msgid "Plucking kg theoric"
+msgstr "Kg teoricos punteo"
+
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ms_plucking:0
+msgid "Ms plucking"
+msgstr "Ms punteo"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,exploitation_name:0
@@ -1770,6 +1782,7 @@ msgid "Secondary technician"
 msgstr "Técnico secundario"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,sequence:0
 #: field:lot.detail,sequence_id:0
 msgid "Sequence"
 msgstr "Secuencia"
@@ -2436,3 +2449,14 @@ msgstr "Informe de control lechero"
 #: model:ir.actions.report.xml,name:res_partner_farm_data.action_milk_control_qweb_report
 msgid "Report"
 msgstr "Informe"
+
+
+#. module: res_partner_farm_data
+#: field:res.partner,latitude:0
+msgid "Latitude"
+msgstr "Latitud"
+
+#. module: res_partner_farm_data
+#: field:res.partner,longitude:0
+msgid "Longitude"
+msgstr "Longitud"

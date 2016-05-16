@@ -31,6 +31,8 @@ class ResPartner(models.Model):
          _('Error! Specified VAT Number already exists for any other registered partner.'))
     ]
 
+    latitude = fields.Char()
+    longitude = fields.Char()
     farm = fields.Boolean('Farm')
     temporary_farm = fields.Boolean(
         'Temporary farm', readonly=True,

@@ -60,7 +60,7 @@ class Lot(models.Model):
                              states={'draft': [('readonly', False)]})
     lot_details = fields.One2many('lot.detail', 'lot_id', 'Lot details',
                                   readonly=True,
-                                  states={'draft': [('readonly', False)]})
+                                  states={'draft': [('readonly', False)]}, copy=True)
 
     total_liters_sold = fields.Integer('Total liters sold',
                                        readonly=True,

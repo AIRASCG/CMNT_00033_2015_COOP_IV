@@ -207,6 +207,10 @@
                 <xpath expr="//page[@name='sales_purchases']/group/group[2]/field[@name='customer']" position="before">
                     <field name="farm"/>
                 </xpath>
+                <field name="title" position="after">
+                    <field name="latitude"/>
+                    <field name="longitude"/>
+                </field>
                 <notebook position="inside">
                     <page string="General data" attrs="{'invisible': [('farm', '=', False)]}">
                         <group>
