@@ -124,7 +124,10 @@ class Lot(models.Model):
             lot.liters_produced_per_day = sum(
                 [x.tank_liters + x.liters_on_farm_consumption +
                  x.retired_liters for x in lot.lot_details])
-            lot.liters_sold_per_day = lot.total_liters_sold / lot.collection_frequency
+            if lot.collection_frequency:
+                lot.liters_sold_per_day = lot.total_liters_sold / lot.collection_frequency
+            else:
+                lot.liters_sold_per_day = 0
     @api.multi
     def button_validate(self):
         self.state = 'validated'
@@ -338,7 +341,8 @@ class LotDetail(models.Model):
     @api.multi
     def _set_kf_mf_carriage(self):
         for lot_detail in self:
-            lot_detail.rations_make_number = lot_detail.kf_mf_carriage / sum([x.kg_ration for x in lot_detail.lot_contents])
+            if sum([x.kg_ration for x in lot_detail.lot_contents]) > 0:
+                lot_detail.rations_make_number = lot_detail.kf_mf_carriage / sum([x.kg_ration for x in lot_detail.lot_contents])
 
     @api.multi
     def _get_kf_mf_carraige(self):
