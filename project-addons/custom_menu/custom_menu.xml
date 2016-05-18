@@ -254,7 +254,19 @@
 
         <menuitem id="advanced_parameters" name="Advanced parameters" parent="parent_menu"  sequence="6"/>
             <menuitem id="configuration" parent="advanced_parameters" name="Settings" groups="custom_groups.group_admin"/>
-            <menuitem action="base.action_res_users" id="menu_action_res_users" parent="configuration"/>
+
+            <record id="action_res_users" model="ir.actions.act_window">
+                <field name="name">Users</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.users</field>
+                <field name="view_type">form</field>
+                <field name="view_id" ref="base.view_users_tree"/>
+                <field name="search_view_id" ref="base.view_users_search"/>
+                <field name="domain">[('id', '!=', 1)]</field>
+                <field name="help">Create and manage users that will connect to the system. Users can be deactivated should there be a period of time during which they will/should not connect to the system. You can assign them groups in order to give them specific access to the applications they need to use in the system.</field>
+            </record>
+
+            <menuitem action="action_res_users" id="menu_action_res_users" parent="configuration"/>
             <menuitem
                 id="company" name="Create Farm"
                 string="Create farm"
