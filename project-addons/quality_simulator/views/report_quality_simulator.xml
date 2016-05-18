@@ -13,246 +13,248 @@
             </style>
             <t t-call="report.html_container">
                 <t t-foreach="docs" t-as="o">
-                    <div class="page">
-                        <div class="row">
-                            <div class="col-xs-2">Nombre de la ganadería</div>
-                            <div class="col-xs-4"><span t-field="o.exploitation"/></div>
-                        </div>
-                        <div class="row m-t-20">
-                            <div class="col-xs-2">Fecha simulación</div>
-                            <div class="col-xs-4"><span t-field="o.date"/></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-5">Premisas de la simulación:</div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-3">Pago grasa(€/déc.)</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.pay_fat"/>
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-2">Nombre de la ganadería</div>
+                                <div class="col-xs-4"><span t-field="o.exploitation"/></div>
                             </div>
-                            <div class="col-xs-3">Pago proteína(€/déc.)</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.pay_protein"/>
+                            <div class="row m-t-20">
+                                <div class="col-xs-2">Fecha simulación</div>
+                                <div class="col-xs-4"><span t-field="o.date"/></div>
                             </div>
-                        </div>
-                        <div class="row" style="margin-top: 25px;">
-                            <div class="col-xs-2 col-xs-offset-3">
-                                AHORA
+                            <div class="row">
+                                <div class="col-xs-5">Premisas de la simulación:</div>
                             </div>
-                            <div class="col-xs-2 col-xs-offset-3">
-                                FUTURO
+                            <div class="row">
+                                <div class="col-xs-3">Pago grasa(€/déc.)</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.pay_fat"/>
+                                </div>
+                                <div class="col-xs-3">Pago proteína(€/déc.)</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.pay_protein"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">Precio leche 1(€/lt)</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.milk_price_now"/>
+                            <div class="row" style="margin-top: 25px;">
+                                <div class="col-xs-2 col-xs-offset-3">
+                                    AHORA
+                                </div>
+                                <div class="col-xs-2 col-xs-offset-3">
+                                    FUTURO
+                                </div>
                             </div>
-                            <div class="col-xs-3">Precio leche 1(€/lt)</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.milk_price_future"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">Precio leche 1(€/lt)</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.milk_price_now"/>
+                                </div>
+                                <div class="col-xs-3">Precio leche 1(€/lt)</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.milk_price_future"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">% grasa 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.fat_percentage_now"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">% grasa 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.fat_percentage_now"/>
+                                </div>
+                                <div class="col-xs-3">% grasa 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.fat_percentage_future"/>
+                                </div>
                             </div>
-                            <div class="col-xs-3">% grasa 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.fat_percentage_future"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">% proteína 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.protein_percentage_now"/>
+                                </div>
+                                <div class="col-xs-3">% proteína 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.protein_percentage_future"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">% proteína 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.protein_percentage_now"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">% lactosa 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.lactose_percentage_now"/>
+                                </div>
+                                <div class="col-xs-3">% lactosa 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.lactose_percentage_future"/>
+                                </div>
                             </div>
-                            <div class="col-xs-3">% proteína 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.protein_percentage_future"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">litros 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.liters_now"/>
+                                </div>
+                                <div class="col-xs-3">litros 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.liters_future"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">% lactosa 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.lactose_percentage_now"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">ingreso 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.entry_now"/>
+                                </div>
+                                <div class="col-xs-3">ingreso 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.entry_future"/>
+                                </div>
                             </div>
-                            <div class="col-xs-3">% lactosa 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.lactose_percentage_future"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">Coste actual de la ración(€/vaca y día)</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.ration_cost_now"/>
+                                </div>
+                                <div class="col-xs-3">Coste futuro de la ración(€/vaca y día)</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.ration_cost_future"/>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">litros 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.liters_now"/>
+                            <div class="row mt2">
+                                <div class="col-xs-3">Beneficio 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.benefit_now"/>
+                                </div>
+                                <div class="col-xs-3">Beneficio 1</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.benefit_future"/>
+                                </div>
                             </div>
-                            <div class="col-xs-3">litros 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.liters_future"/>
-                            </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">ingreso 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.entry_now"/>
-                            </div>
-                            <div class="col-xs-3">ingreso 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.entry_future"/>
-                            </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">Coste actual de la ración(€/vaca y día)</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.ration_cost_now"/>
-                            </div>
-                            <div class="col-xs-3">Coste futuro de la ración(€/vaca y día)</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.ration_cost_future"/>
-                            </div>
-                        </div>
-                        <div class="row mt2">
-                            <div class="col-xs-3">Beneficio 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.benefit_now"/>
-                            </div>
-                            <div class="col-xs-3">Beneficio 1</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.benefit_future"/>
-                            </div>
-                        </div>
 
-                        <div class="row" style="margin-top: 40px;">
-                            <div class="col-xs-3">Peso vivo vaca</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.cow_liveweight"/>
+                            <div class="row" style="margin-top: 40px;">
+                                <div class="col-xs-3">Peso vivo vaca</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.cow_liveweight"/>
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="col-xs-5 col-xs-offset-3">Sobrecoste ración (€/vaca y día)</div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.ration_overrun"/>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 2cm;">
+                                <div class="col-xs-3"><b>Informe SIMUCAL</b></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6 col-xs-offset-1">
+                                    La propuesta supone un encarecimiento de la ración de
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.ration_overrun"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    €/vaca y día
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    Para mantener beneficio la producción debe pasar de:
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.liters_now"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    a
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.liters_future"/>
+
+                                </div>
+                                <div class="col-xs-2">
+                                    Litros
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    El % de grasa debe pasar de un:
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.fat_percentage_now"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    a
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.fat_percentage_future"/>
+
+                                </div>
+                                <div class="col-xs-2">
+                                    % MG
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    El % de proteína debe pasar de un:
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.protein_percentage_now"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    a
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.protein_percentage_future"/>
+
+                                </div>
+                                <div class="col-xs-2">
+                                    % MP
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    El % de lactosa debe pasar de un
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.lactose_percentage_now"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    a
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.lactose_percentage_future"/>
+
+                                </div>
+                                <div class="col-xs-2">
+                                    %lactosa
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    Energéticamente es posible, e incluso se podrían producir a mayores otros:
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.production_increase"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    Litros
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-7">
+                                    Por lo tanto ganaremos a mayores:
+                                </div>
+                                <div class="col-xs-2">
+                                    <span t-field="o.profit_increase"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    €/vaca y día
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-xs-5 col-xs-offset-3">Sobrecoste ración (€/vaca y día)</div>
-                            <div class="col-xs-2">
-                                <span t-field="o.ration_overrun"/>
-                            </div>
-                        </div>
-
-                        <div class="row" style="margin-top: 2cm;">
-                            <div class="col-xs-3"><b>Informe SIMUCAL</b></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-xs-offset-1">
-                                La propuesta supone un encarecimiento de la ración de
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.ration_overrun"/>
-                            </div>
-                            <div class="col-xs-2">
-                                €/vaca y día
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-3">
-                                Para mantener beneficio la producción debe pasar de:
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.liters_now"/>
-                            </div>
-                            <div class="col-xs-2">
-                                a
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.liters_future"/>
-
-                            </div>
-                            <div class="col-xs-2">
-                                Litros
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-3">
-                                El % de grasa debe pasar de un:
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.fat_percentage_now"/>
-                            </div>
-                            <div class="col-xs-2">
-                                a
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.fat_percentage_future"/>
-
-                            </div>
-                            <div class="col-xs-2">
-                                % MG
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-3">
-                                El % de proteína debe pasar de un:
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.protein_percentage_now"/>
-                            </div>
-                            <div class="col-xs-2">
-                                a
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.protein_percentage_future"/>
-
-                            </div>
-                            <div class="col-xs-2">
-                                % MP
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-3">
-                                El % de lactosa debe pasar de un
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.lactose_percentage_now"/>
-                            </div>
-                            <div class="col-xs-2">
-                                a
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.lactose_percentage_future"/>
-
-                            </div>
-                            <div class="col-xs-2">
-                                %lactosa
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-7">
-                                Energéticamente es posible, e incluso se podrían producir a mayores otros:
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.production_increase"/>
-                            </div>
-                            <div class="col-xs-2">
-                                Litros
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xs-7">
-                                Por lo tanto ganaremos a mayores:
-                            </div>
-                            <div class="col-xs-2">
-                                <span t-field="o.profit_increase"/>
-                            </div>
-                            <div class="col-xs-2">
-                                €/vaca y día
-                            </div>
-                        </div>
-
-                    </div>
+                    </t>
                 </t>
             </t>
         </template>

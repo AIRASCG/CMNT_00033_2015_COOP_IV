@@ -33,6 +33,7 @@
                 'account_analytic_plans', 'supplier_type', 'base_vat',
                 'email_template', 'company_automatic_account_config',
                 'automatic_company', 'partner_passwd', 'custom_groups',
+                'custom_report',
                 'stock_production_lot_multi_company'],
     "data": ['views/cost_imputation.xml', 'views/stock.xml',
              'views/output_quota_view.xml', 'views/lot_view.xml',

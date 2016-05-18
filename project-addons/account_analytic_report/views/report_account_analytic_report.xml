@@ -3,6 +3,7 @@
     <data>
 
         <template id="report_analytic_report_document">
+            <t t-call="report.external_layout">
                 <div class="page">
                     <div class="row">
                         <div class="col-xs-6" t-if="o.ref_1">
@@ -99,6 +100,7 @@
                         </tbody>
                     </table>
                 </div>
+            </t>
         </template>
 
         <template id="report_analytic_report">
