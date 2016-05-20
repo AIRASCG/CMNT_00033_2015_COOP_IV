@@ -21,6 +21,11 @@ msgid "%MG"
 msgstr "%MG"
 
 #. module: res_partner_farm_data
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_gescarro_import
+msgid "Import gescarro data"
+msgstr "Importar datos gescarro"
+
+#. module: res_partner_farm_data
 #: field:lot,mp:0
 msgid "%MP"
 msgstr "%MP"

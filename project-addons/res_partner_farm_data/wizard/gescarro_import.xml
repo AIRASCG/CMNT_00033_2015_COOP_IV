@@ -29,5 +29,8 @@
             target="new"
             id="gescarro_import_action"/>
 
+        <menuitem name="Import gescarro data" parent="menu_gescarro"
+            action="gescarro_import_action" id="menu_gescarro_import" sequence="99"/>
+
     </data>
 </openerp>

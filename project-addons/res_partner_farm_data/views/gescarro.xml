@@ -136,7 +136,9 @@
             <field name="search_view_id" ref="gescarro_data_view_search"/>
         </record>
 
-        <menuitem name="Gescarro" parent="custom_menu.feeding_management" action="gescarro_data_action" id="menu_gescarro_data"/>
+        <menuitem name="Gescarro" parent="custom_menu.feeding_management" id="menu_gescarro"/>
+
+        <menuitem name="Lecturas" parent="menu_gescarro" action="gescarro_data_action" id="menu_gescarro_data"/>
 
     </data>
 </openerp>
