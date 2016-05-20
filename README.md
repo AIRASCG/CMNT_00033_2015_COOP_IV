@@ -27,6 +27,8 @@ $ sudo apt-get install openerp-server-system-build-deps
 - Para poder compilar e instalar postgres (debemos valorar si queremos hacerlo siempre), es necesario instalar el siguiente paquete (no e sla solución ideal, debería poder hacerlo el propio buildout, pero de momento queda así)
 ```
 $ sudo apt-get install libreadline-dev
+$ sudo apt-get install libcairo2-dev
+$ sudo apt-get install libffi-dev
 ```
 - Descargar el  repositorio de buildouts :
 ```
@@ -90,6 +92,9 @@ postgres_port = 5434        (5432 default postgres)
 
 # TODO
 - Generar Apache and Nginx config for virualhost with Buildout
+
+# TROUBLESHOOT
+- Si falla con que no encuentra cairo importando el cairoplot, entrar en el fichero cairplot.py y cambiar import cairo por impor import cairocffi as cairo
 
 # Contributors
 
