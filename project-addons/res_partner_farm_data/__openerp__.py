@@ -26,10 +26,14 @@
     'description': """This module adds the fields required for a farm""",
     'author': 'Comunitea',
     'website': '',
+    'external_dependencies': {
+        'python': ['cairoplot']
+    },
     "depends": ['base', 'product', 'stock', 'account', 'account_asset',
                 'account_analytic_plans', 'supplier_type', 'base_vat',
                 'email_template', 'company_automatic_account_config',
                 'automatic_company', 'partner_passwd', 'custom_groups',
+                'custom_report',
                 'stock_production_lot_multi_company'],
     "data": ['views/cost_imputation.xml', 'views/stock.xml',
              'views/output_quota_view.xml', 'views/lot_view.xml',
@@ -37,11 +41,13 @@
              'security/ir.model.access.csv', 'views/res_partner_view.xml',
              'views/lot_analysis.xml', 'views/res_company.xml',
              'views/product.xml', 'views/lot_report_template.xml',
-             'data/gescarro_data_sequence.xml',
+             'data/gescarro_data_sequence.xml', 'views/milk_control_report.xml',
              'lot_report.xml', 'data/lot_detail_sequence.xml',
              'wizard/lot_analysis_import.xml', 'wizard/milk_analysis_import.xml',
              'wizard/milk_control_import.xml', 'security/security.xml',
              'views/milk_analysis.xml', 'views/milk_control.xml',
+             'views/milk_control_qweb_report.xml', 'milk_control_qweb_report.xml',
+             'data/decimal_precision.xml',
              'views/gescarro.xml', 'wizard/gescarro_import.xml'],
     "installable": True
 }

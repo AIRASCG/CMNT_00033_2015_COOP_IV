@@ -19,7 +19,16 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
+import openerp.addons.decimal_precision as dp
+from cairoplot import VerticalBarPlot
+import base64
 
+
+
+def average(lst):
+    if not lst:
+        return 0
+    return reduce(lambda x, y: x + y, lst) / len(lst)
 
 class MilkControl(models.Model):
 
@@ -65,3 +74,253 @@ class MilkControlLine(models.Model):
     cumulative_milk = fields.Integer('')
     cumulative_fat = fields.Float('')
     cumulative_protein = fields.Float('')
+
+
+    def get_liters(self, type):
+        if type == 'total':
+            return self.milk_liters
+        elif type == 'morning':
+            return self.milk_liters * 1.8
+        else:
+            return self.milk_liters * 2.1
+
+MILKING_TYPES = (('total', 'Total'), ('morning', 'morning Liters'),
+                 ('late', 'late_liters'))
+
+class MilkControlReport(models.Model):
+
+    _name = 'milk.control.report'
+
+    exploitation_1 = fields.Many2one('res.partner', 'Exploitation 1', required=True)
+    exploitation_2 = fields.Many2one('res.partner', 'Exploitation 2')
+    from_date = fields.Date('From date', required=True)
+    to_date = fields.Date('To date', required=True)
+
+    milking_type_1 = fields.Selection(MILKING_TYPES, required=True)
+    milking_type_2 = fields.Selection(MILKING_TYPES)
+    primerizas_cant_1 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_litros_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_grasa_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_proteina_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_celulas_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_urea_1 = fields.Float()
+    adultas_cant_1 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_litros_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_grasa_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_proteina_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_celulas_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_urea_1 = fields.Float()
+    total_cant_1 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_litros_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_grasa_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_proteina_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_celulas_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_urea_1 = fields.Float()
+    vacas_invertidas_1 = fields.Char(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    coeficiente_persistencia_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    leche_corregida_a_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prod_media_lact_acumulada_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    num_medio_partos_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    relacion_grasa_prot_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_novillas_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_novillas_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    num_novillas_pico_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_adultas_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_adultas_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    num_adultas_pico_del_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    relacion_entre_picos_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_num_animales_1 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_porcen_animales_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_media_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_litros_total_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_num_animales_1 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_porcen_animales_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_media_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_litros_total_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_num_animales_1 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_porcen_animales_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_media_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_litros_total_1 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_cant_2 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_litros_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_grasa_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_proteina_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_celulas_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    primerizas_urea_2 = fields.Float()
+    adultas_cant_2 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_litros_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_grasa_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_proteina_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_celulas_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    adultas_urea_2 = fields.Float()
+    total_cant_2 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_litros_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_grasa_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_proteina_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_celulas_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    total_urea_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    vacas_invertidas_2 = fields.Char(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    coeficiente_persistencia_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    leche_corregida_a_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prod_media_lact_acumulada_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    num_medio_partos_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    relacion_grasa_prot_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_novillas_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_novillas_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    num_novillas_pico_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_adultas_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    pico_adultas_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    num_adultas_pico_del_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    relacion_entre_picos_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_num_animales_2 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_porcen_animales_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_media_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    prim_terc_lact_litros_total_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_num_animales_2 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_porcen_animales_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_media_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    seg_terc_lact_litros_total_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_num_animales_2 = fields.Integer(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_porcen_animales_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_media_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    terc_terc_lact_litros_total_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
+    graphic_img = fields.Binary(compute='_calculate_vals')
+
+    def _get_company(self):
+        return self.env.user.company_id
+
+    company_id = fields.Many2one('res.company', 'Company', default=_get_company)
+
+
+    @api.multi
+    def _get_data(self, num):
+        self.ensure_one()
+        suffix = u'_%s' % num
+        milk_control = self.env['milk.control'].search([('date', '>=', self.from_date), ('date', '<=', self.to_date), ('exploitation_id', '=', self['exploitation%s' % suffix].id)])
+        milk_data = milk_control.mapped('line_ids')
+        if not milk_data:
+            return
+        self['primerizas_cant%s' % suffix] = sum([1 for x in milk_data if x.cib and x.birth_number == 1])
+        self['primerizas_del%s' % suffix] = average([x.days for x in milk_data if x.birth_number == 1])
+        self['primerizas_litros%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1])
+        self['primerizas_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100) for x in milk_data if x.birth_number == 1 and x.fat > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.fat > 0 and x.birth_number == 1])) * 100
+        self['primerizas_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100) for x in milk_data if x.birth_number == 1 and x.protein > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.protein > 0 and x.birth_number == 1])) * 100
+        self['primerizas_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1 and x.fat > 0]) * 1000)
+
+
+        self['adultas_cant%s' % suffix] = sum([1 for x in milk_data if x.birth_number > 1])
+        self['adultas_del%s' % suffix] = average([x.days for x in milk_data if x.birth_number > 1])
+        self['adultas_litros%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1])
+
+
+        self['adultas_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100) for x in milk_data if x.birth_number > 1 and x.fat > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.fat > 0])) * 100
+        self['adultas_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100) for x in milk_data if x.birth_number > 1 and x.protein > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.protein > 0])) * 100
+        self['adultas_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.fat > 0]) * 1000)
+
+
+        self['total_cant%s' % suffix] = sum([1 for x in milk_data if x.get_liters(self['milking_type%s' % suffix]) > 0])
+        self['total_del%s' % suffix] = average([x.days for x in milk_data])
+        self['total_litros%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data])
+
+        self['total_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100)]) / sum([x.get_liters(self['milking_type%s' % suffix])])) * 100
+        self['total_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100)]) / sum([x.get_liters(self['milking_type%s' % suffix])])) * 100
+        self['total_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.fat > 0]) * 1000)
+
+        invertidas = sum([1 for x in milk_data if x.protein > x.fat])
+        self['vacas_invertidas%s' % suffix] =  '%s (%0.2f%%)' % (invertidas, (float(invertidas) / self['total_cant%s' % suffix]) * 100)
+
+        self['coeficiente_persistencia%s' % suffix] = (average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 29 and x.days < 91]) - average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 179 and x.days < 306])) / (average([x.days for x in milk_data if x.days > 179 and x.days < 306]) - average([x.days for x in milk_data if x.days > 29 and x.days < 91]))
+
+        # TODO: Cambiar 165 por campo !!!!!
+
+
+
+
+        self['leche_corregida_a_del%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data]) + ((average([x.days for x in milk_data]) - 165) * self['coeficiente_persistencia%s' % suffix])
+        self['prod_media_lact_acumulada%s' % suffix] = average([x.cumulative_milk for x in milk_data]) / average([x.days for x in milk_data])
+        self['num_medio_partos%s' % suffix] = average([x.birth_number for x in milk_data])
+        self['relacion_grasa_prot%s' % suffix] = self['total_grasa%s' % suffix] / self['total_proteina%s' % suffix]
+
+        self['pico_novillas%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1 and x.days > 29 and x.days < 91])
+        self['pico_novillas_del%s' % suffix] = average([x.days for x in milk_data  if x.birth_number == 1 and x.days > 29 and x.days < 91])
+        self['num_novillas_pico_del%s' % suffix] = sum([1 for x in milk_data  if x.birth_number == 1 and x.days > 29 and x.days < 91])
+
+        self['pico_adultas%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.days > 29 and x.days < 61])
+        self['pico_adultas_del%s' % suffix] = average([x.days for x in milk_data  if x.birth_number > 1 and x.days > 29 and x.days < 61])
+        self['num_adultas_pico_del%s' % suffix] = sum([1 for x in milk_data  if x.birth_number > 1 and x.days > 29 and x.days < 61])
+        if self['pico_adultas%s' % suffix]:
+            self['relacion_entre_picos%s' % suffix] = self['pico_novillas%s' % suffix] / self['pico_adultas%s' % suffix]
+        else:
+            self['relacion_entre_picos%s' % suffix] = 0
+
+        self['prim_terc_lact_num_animales%s' % suffix] = len(milk_data.filtered(lambda r: r.days < 91))
+        self['prim_terc_lact_porcen_animales%s' % suffix] = (self['prim_terc_lact_num_animales%s' % suffix] / float(len(milk_data))) * 100
+        self['prim_terc_lact_litros_total%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days < 91])
+        self['prim_terc_lact_media%s' % suffix] = self['prim_terc_lact_litros_total%s' % suffix] / self['prim_terc_lact_num_animales%s' % suffix]
+        self['seg_terc_lact_num_animales%s' % suffix] = len(milk_data.filtered(lambda r: r.days > 90 and r.days < 181))
+        self['seg_terc_lact_porcen_animales%s' % suffix] = (self['seg_terc_lact_num_animales%s' % suffix] / float(len(milk_data))) * 100
+        self['seg_terc_lact_litros_total%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 90 and x.days < 181])
+        self['seg_terc_lact_media%s' % suffix] = self['seg_terc_lact_litros_total%s' % suffix] / self['seg_terc_lact_num_animales%s' % suffix]
+        self['terc_terc_lact_num_animales%s' % suffix] = len(milk_data.filtered(lambda r : r.days > 180))
+        self['terc_terc_lact_porcen_animales%s' % suffix] = (self['terc_terc_lact_num_animales%s' % suffix] / float(len(milk_data))) * 100
+        self['terc_terc_lact_litros_total%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 180])
+        self['terc_terc_lact_media%s' % suffix] = self['terc_terc_lact_litros_total%s' % suffix] / self['terc_terc_lact_num_animales%s' % suffix]
+
+
+
+
+    @api.multi
+    def _calculate_vals(self):
+        for report in self:
+            report._get_data(1)
+            report._get_data(2)
+
+        milk_control_1 = self.env['milk.control'].search([('date', '>=', self.from_date), ('date', '<=', self.to_date), ('exploitation_id', '=', self.exploitation_1.id)])
+        milk_data_1 = milk_control_1.mapped('line_ids')
+        if self.exploitation_2:
+            milk_control_2 = self.env['milk.control'].search([('date', '>=', self.from_date), ('date', '<=', self.to_date), ('exploitation_id', '=', self.exploitation_2.id)])
+            milk_data_2 = milk_control_1.mapped('line_ids')
+        if not milk_data_1:
+            return
+        graph_vals = []
+        for vals  in [(0, 31), (30, 91), (90, 121), (120, 181), (180, 241), (240, 305)]:
+            av = average([x.get_liters(self.milking_type_1) for x in milk_data_1 if x.days > vals[0] and x.days < vals[1]])
+            cont = sum([1 for x in milk_data_1 if x.days > vals[0] and x.days < vals[1] and x.get_liters(self.milking_type_1) > 0])
+            if self.exploitation_2:
+                av_2 = average([x.get_liters(self.milking_type_2) for x in milk_data_2 if x.days > vals[0] and x.days < vals[1]])
+                cont_2 = sum([1 for x in milk_data_2 if x.days > vals[0] and x.days < vals[1] and x.get_liters(self.milking_type_2) > 0])
+                graph_vals.append([round(av, 2), cont, round(av_2, 2), cont_2])
+            else:
+                graph_vals.append([round(av, 2), cont])
+
+        av = average([x.get_liters(self.milking_type_1) for x in milk_data_1 if x.days > 305])
+        cont = sum([1 for x in milk_data_1 if x.days > 305 and x.get_liters(self.milking_type_1) > 0])
+        if self.exploitation_2:
+            av_2 = average([x.get_liters(self.milking_type_2) for x in milk_data_2 if x.days > 305])
+            cont_2 = sum([1 for x in milk_data_2 if x.days > 305 and x.get_liters(self.milking_type_2) > 0])
+            graph_vals.append([round(av, 2), cont, round(av_2, 2), cont_2])
+        else:
+            graph_vals.append([round(av, 2), cont])
+
+        if not self.exploitation_2:
+            y_vals = [x[0] for x in graph_vals] + [x[1] for x in graph_vals]
+            series_labels=[u'Media(lts/vaca y dia)', u'n de animales']
+            series_colors=['red', 'blue']
+        else:
+            y_vals = [x[0] for x in graph_vals] + [x[1] for x in graph_vals] + [x[2] for x in graph_vals] + [x[3] for x in graph_vals]
+            series_labels=[u'Media(lts/vaca y dia) %s' % self.exploitation_1.name, u'n de animales %s' % self.exploitation_1.name, u'Media(lts/vaca y dia) %s' % self.exploitation_2.name, u'n de animales %s' % self.exploitation_2.name]
+            series_colors=['red', 'blue', 'green', 'yellow']
+        max_y = int(max(y_vals)) + 10
+        min_y = int(min(y_vals)) - 5
+        min_y = min_y > 0 and min_y or 0
+        test = VerticalBarPlot("/tmp/object_way.png", graph_vals, 900, 700, display_values=True, series_labels=series_labels, series_colors=series_colors, y_bounds=[min_y, max_y], x_labels=['DEL <30', 'DE 31-90 DEL', 'DE 91-120 DEL', 'DE 121-180 DEL', 'DE 181-240 DEL', 'DE 241-305 DEL', 'DEL>305'], border=20)
+        test.render()
+        test.commit()
+        f = open("/tmp/object_way.png", "rb")
+        self.graphic_img = base64.b64encode(f.read())

@@ -321,3 +321,9 @@ msgstr "Gestión de visitas"
 #: view:account.invoice.line:custom_menu.view_invoice_line_tree_editable
 msgid "top"
 msgstr "top"
+
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.milk_control_report_menu
+msgid "Milk control report"
+msgstr "Informe de control lechero"

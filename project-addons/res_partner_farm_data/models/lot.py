@@ -124,7 +124,10 @@ class Lot(models.Model):
             lot.liters_produced_per_day = sum(
                 [x.tank_liters + x.liters_on_farm_consumption +
                  x.retired_liters for x in lot.lot_details])
-            lot.liters_sold_per_day = lot.total_liters_sold / lot.collection_frequency
+            if lot.collection_frequency:
+                lot.liters_sold_per_day = lot.total_liters_sold / lot.collection_frequency
+            else:
+                lot.liters_sold_per_day = 0
     @api.multi
     def button_validate(self):
         self.state = 'validated'
@@ -133,6 +136,16 @@ class Lot(models.Model):
     def button_draft(self):
         self.state = 'draft'
 
+    @api.multi
+    def get_data_lot(self):
+        self.ensure_one()
+        last_lot = self.env['lot'].search(
+                [('farm_id', '=', self.farm_id.id),
+                 ('id', '!=', self.id), ('date', '<=', self.date)],
+                order='date desc', limit=1)
+        last_lot.lot_details.copy({'lot_id': self.id, 'date': datetime.now()})
+        self.mapped('lot_details.lot_contents').write(
+            {'kg_ration': 0, 'ms': 0, 'enl': 0, 'pb': 0})
 
 class LotDetailSequence(models.Model):
 
@@ -154,7 +167,8 @@ class LotDetail(models.Model):
     user_id = fields.Many2one('res.users', 'User', required=True,
                               default=lambda self: self.env.user.id)
     lot_id = fields.Many2one('lot', 'Lot')
-    lot_contents = fields.One2many('lot.content', 'detail_id', 'Content')
+    lot_contents = fields.One2many('lot.content', 'detail_id', 'Content',
+                                   copy=True)
     date = fields.Datetime('Date', required=True,
                            default=lambda a: datetime.now())
     rations_make_number = fields.Integer('Number of maked rations')
@@ -327,7 +341,8 @@ class LotDetail(models.Model):
     @api.multi
     def _set_kf_mf_carriage(self):
         for lot_detail in self:
-            lot_detail.rations_make_number = lot_detail.kf_mf_carriage / sum([x.kg_ration for x in lot_detail.lot_contents])
+            if sum([x.kg_ration for x in lot_detail.lot_contents]) > 0:
+                lot_detail.rations_make_number = lot_detail.kf_mf_carriage / sum([x.kg_ration for x in lot_detail.lot_contents])
 
     @api.multi
     def _get_kf_mf_carraige(self):

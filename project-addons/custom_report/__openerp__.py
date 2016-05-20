@@ -2,7 +2,7 @@
 # © 2016 Comunitea
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Quality simulator",
+    "name": "Report customizations",
     "summary": "",
     "version": "8.0.1.0.0",
     "category": "Uncategorized",
@@ -13,13 +13,9 @@
     "installable": True,
     "depends": [
         "base",
-        "custom_report",
+        "report"
     ],
     "data": [
-        'views/quality_simulator.xml',
-        'views/report_quality_simulator.xml',
-        'report.xml',
-        'security/ir.model.access.csv',
-        'security/security.xml'
+    'views/layouts.xml'
     ],
 }

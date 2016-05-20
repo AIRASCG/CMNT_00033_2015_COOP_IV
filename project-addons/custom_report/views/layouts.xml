@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <template id="report.external_layout">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.cooperative_company"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <t t-call="report.external_layout_header" />
+            <t t-raw="0" />
+            <t t-call="report.external_layout_footer" />
+        </template>
+
+        <template id="report.external_layout_header">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 70px;"/>
+                        <div t-field="company.sudo().partner_id"
+                            t-field-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": true, "no_tag_br": true}'
+                        />
+                    </div>
+                    <div class="col-xs-3">
+                        <p><strong>Fecha del informe</strong></p>
+                        <p><span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/></p>
+                        <p><strong>Autor</strong></p>
+                        <p><span t-esc="o.env.user.name"/></p>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="report.external_layout_footer">
+
+        </template>
+
+    </data>
+</openerp>

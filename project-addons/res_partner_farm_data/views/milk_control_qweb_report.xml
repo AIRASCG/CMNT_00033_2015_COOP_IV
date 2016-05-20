@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <template id="milk_control_qweb_report">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong>Desde: </strong><span t-field="o.from_date"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong>Hasta: </strong><span t-field="o.to_date"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <h3><span t-field="o.exploitation_1"/></h3>
+                                </div>
+                                <div class="col-xs-6">
+                                    <h3><span t-field="o.exploitation_2"/></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <table class="table" style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Vacas</th>
+                                                <th>DEL</th>
+                                                <th>Litros</th>
+                                                <th>% grasa</th>
+                                                <th>% prot.</th>
+                                                <th>Cél.</th>
+                                                <th>Urea</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Primerizas</td>
+                                                <td><span t-field="o.primerizas_cant_1"/></td>
+                                                <td><span t-field="o.primerizas_del_1"/></td>
+                                                <td><span t-field="o.primerizas_litros_1"/></td>
+                                                <td><span t-field="o.primerizas_grasa_1"/></td>
+                                                <td><span t-field="o.primerizas_proteina_1"/></td>
+                                                <td><span t-field="o.primerizas_celulas_1"/></td>
+                                                <td><span t-field="o.primerizas_urea_1"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Adultas</td>
+                                                <td><span t-field="o.adultas_cant_1"/></td>
+                                                <td><span t-field="o.adultas_del_1"/></td>
+                                                <td><span t-field="o.adultas_litros_1"/></td>
+                                                <td><span t-field="o.adultas_grasa_1"/></td>
+                                                <td><span t-field="o.adultas_proteina_1"/></td>
+                                                <td><span t-field="o.adultas_celulas_1"/></td>
+                                                <td><span t-field="o.adultas_urea_1"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td><span t-field="o.total_cant_1"/></td>
+                                                <td><span t-field="o.total_del_1"/></td>
+                                                <td><span t-field="o.total_litros_1"/></td>
+                                                <td><span t-field="o.total_grasa_1"/></td>
+                                                <td><span t-field="o.total_proteina_1"/></td>
+                                                <td><span t-field="o.total_celulas_1"/></td>
+                                                <td><span t-field="o.total_urea_1"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xs-6">
+                                    <table class="table"  style="font-size: 12px;">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Vacas</th>
+                                                <th>DEL</th>
+                                                <th>Litros</th>
+                                                <th>% grasa</th>
+                                                <th>% prot.</th>
+                                                <th>Cél.</th>
+                                                <th>Urea</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Primerizas</td>
+                                                <td><span t-field="o.primerizas_cant_2"/></td>
+                                                <td><span t-field="o.primerizas_del_2"/></td>
+                                                <td><span t-field="o.primerizas_litros_2"/></td>
+                                                <td><span t-field="o.primerizas_grasa_2"/></td>
+                                                <td><span t-field="o.primerizas_proteina_2"/></td>
+                                                <td><span t-field="o.primerizas_celulas_2"/></td>
+                                                <td><span t-field="o.primerizas_urea_2"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Adultas</td>
+                                                <td><span t-field="o.adultas_cant_2"/></td>
+                                                <td><span t-field="o.adultas_del_2"/></td>
+                                                <td><span t-field="o.adultas_litros_2"/></td>
+                                                <td><span t-field="o.adultas_grasa_2"/></td>
+                                                <td><span t-field="o.adultas_proteina_2"/></td>
+                                                <td><span t-field="o.adultas_celulas_2"/></td>
+                                                <td><span t-field="o.adultas_urea_2"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total</td>
+                                                <td><span t-field="o.total_cant_2"/></td>
+                                                <td><span t-field="o.total_del_2"/></td>
+                                                <td><span t-field="o.total_litros_2"/></td>
+                                                <td><span t-field="o.total_grasa_2"/></td>
+                                                <td><span t-field="o.total_proteina_2"/></td>
+                                                <td><span t-field="o.total_celulas_2"/></td>
+                                                <td><span t-field="o.total_urea_2"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Vacas invertidas</strong>
+                                    <span t-field="o.vacas_invertidas_1"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Vacas invertidas</strong>
+                                    <span t-field="o.vacas_invertidas_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Coeficiente de persistencia</strong>
+                                    <span t-field="o.coeficiente_persistencia_1"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Coeficiente de persistencia</strong>
+                                    <span t-field="o.coeficiente_persistencia_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Leche corregida a 165 DEL</strong>
+                                    <span t-field="o.leche_corregida_a_del_1"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Leche corregida a 165 DEL</strong>
+                                    <span t-field="o.leche_corregida_a_del_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Producción media lact. acumulada</strong>
+                                    <span t-field="o.prod_media_lact_acumulada_1"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Producción media lact. acumulada</strong>
+                                    <span t-field="o.prod_media_lact_acumulada_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Nº medio de partos</strong>
+                                    <span t-field="o.num_medio_partos_1"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong style="padding-right: 10px;">Nº medio de partos</strong>
+                                    <span t-field="o.num_medio_partos_2"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong>Relación % grasa/%Prot.</strong><span style="padding-right: 10px;">(Debe estar entre 1,10 - 1,50)</span>
+                                    <span t-field="o.relacion_grasa_prot_1"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong>Relación % grasa/%Prot.</strong><span style="padding-right: 10px;">(Debe estar entre 1,10 - 1,50)</span>
+                                    <span t-field="o.relacion_grasa_prot_2"/>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-xs-6">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Pico producción novillas</strong></td>
+                                                <td><strong>DEL</strong></td>
+                                                <td><strong>Nº novillas entre 60-90 DEL</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span t-field="o.pico_novillas_2"/></td>
+                                                <td><span t-field="o.pico_novillas_del_2"/></td>
+                                                <td><span t-field="o.num_novillas_pico_del_2"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Pico producción adultas</strong></td>
+                                                <td><strong>DEL</strong></td>
+                                                <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span t-field="o.pico_adultas_2"/></td>
+                                                <td><span t-field="o.pico_adultas_del_2"/></td>
+                                                <td><span t-field="o.num_adultas_pico_del_2"/></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfooter>
+                                            <tr>
+                                                <td><span t-field="o.relacion_entre_picos_2"/></td>
+                                                <td colspan="2" align="left">= Relación entre picos</td>
+                                            </tr>
+                                        </tfooter>
+                                    </table>
+                                </div>
+                                <div class="col-xs-6">
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Pico producción novillas</strong></td>
+                                                <td><strong>DEL</strong></td>
+                                                <td><strong>Nº novillas entre 60-90 DEL</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span t-field="o.pico_novillas_2"/></td>
+                                                <td><span t-field="o.pico_novillas_del_2"/></td>
+                                                <td><span t-field="o.num_novillas_pico_del_2"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Pico producción adultas</strong></td>
+                                                <td><strong>DEL</strong></td>
+                                                <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span t-field="o.pico_adultas_2"/></td>
+                                                <td><span t-field="o.pico_adultas_del_2"/></td>
+                                                <td><span t-field="o.num_adultas_pico_del_2"/></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfooter>
+                                            <tr>
+                                                <td><span t-field="o.relacion_entre_picos_2"/></td>
+                                                <td colspan="2" align="left">= Relación entre picos</td>
+                                            </tr>
+                                        </tfooter>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 text-center">
+                                    <img t-if="o.graphic_img" t-att-src="'data:image/png;base64,%s' % o.graphic_img" style="height:400px"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nº animales</th>
+                                                <th>% Animales</th>
+                                                <th>Media</th>
+                                                <th>L totales</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>1º tercio lactación</strong></td>
+                                                <td><span t-field="o.prim_terc_lact_num_animales_1"/></td>
+                                                <td><span t-field="o.prim_terc_lact_porcen_animales_1"/></td>
+                                                <td><span t-field="o.prim_terc_lact_media_1"/></td>
+                                                <td><span t-field="o.prim_terc_lact_litros_total_1"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2º tercio lactación</strong></td>
+                                                <td><span t-field="o.seg_terc_lact_num_animales_1"/></td>
+                                                <td><span t-field="o.seg_terc_lact_porcen_animales_1"/></td>
+                                                <td><span t-field="o.seg_terc_lact_media_1"/></td>
+                                                <td><span t-field="o.seg_terc_lact_litros_total_1"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>3º tercio lactación</strong></td>
+                                                <td><span t-field="o.terc_terc_lact_num_animales_1"/></td>
+                                                <td><span t-field="o.terc_terc_lact_porcen_animales_1"/></td>
+                                                <td><span t-field="o.terc_terc_lact_media_1"/></td>
+                                                <td><span t-field="o.terc_terc_lact_litros_total_1"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xs-6">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nº animales</th>
+                                                <th>% Animales</th>
+                                                <th>Media</th>
+                                                <th>L totales</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>1º tercio lactación</strong></td>
+                                                <td><span t-field="o.prim_terc_lact_num_animales_2"/></td>
+                                                <td><span t-field="o.prim_terc_lact_porcen_animales_2"/></td>
+                                                <td><span t-field="o.prim_terc_lact_media_2"/></td>
+                                                <td><span t-field="o.prim_terc_lact_litros_total_2"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2º tercio lactación</strong></td>
+                                                <td><span t-field="o.seg_terc_lact_num_animales_2"/></td>
+                                                <td><span t-field="o.seg_terc_lact_porcen_animales_2"/></td>
+                                                <td><span t-field="o.seg_terc_lact_media_2"/></td>
+                                                <td><span t-field="o.seg_terc_lact_litros_total_2"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>3º tercio lactación</strong></td>
+                                                <td><span t-field="o.terc_terc_lact_num_animales_2"/></td>
+                                                <td><span t-field="o.terc_terc_lact_porcen_animales_2"/></td>
+                                                <td><span t-field="o.terc_terc_lact_media_2"/></td>
+                                                <td><span t-field="o.terc_terc_lact_litros_total_2"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</openerp>

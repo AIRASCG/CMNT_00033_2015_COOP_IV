@@ -115,11 +115,17 @@ class LotReport(models.AbstractModel):
                 for lot_ind in range(0, len(lot_details)):
                     lot = lot_details[lot_ind]
                     if checked:
-                        table[line_struct[0]][lot_ind] = round(eval(line_struct[2]), 2)
+                        try:
+                            table[line_struct[0]][lot_ind] = round(eval(line_struct[2]), 2)
+                        except ZeroDivisionError:
+                            table[line_struct[0]][lot_ind] = 0.0
                     else:
                         table[line_struct[0]][lot_ind] = 0.0
                 if checked:
-                    table[line_struct[0]]['total'] = round(eval(line_struct[3]), 2)
+                    try:
+                        table[line_struct[0]]['total'] = round(eval(line_struct[3]), 2)
+                    except ZeroDivisionError:
+                        table[line_struct[0]]['total'] = 0.0
                 else:
                     table[line_struct[0]]['total'] = 0.0
 
