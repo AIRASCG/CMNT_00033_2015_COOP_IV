@@ -91,8 +91,13 @@ class MilkControlReport(models.Model):
 
     _name = 'milk.control.report'
 
-    exploitation_1 = fields.Many2one('res.partner', 'Exploitation 1', required=True)
-    exploitation_2 = fields.Many2one('res.partner', 'Exploitation 2')
+    exploitation_1 = fields.Many2one('res.partner', 'Exploitation 1',
+                                     required=True,
+                                     domain=[('farm', '=', True),
+                                             ('is_cooperative','=',False)])
+    exploitation_2 = fields.Many2one('res.partner', 'Exploitation 2',
+                                     domain=[('farm', '=', True),
+                                             ('is_cooperative','=',False)])
     from_date = fields.Date('From date', required=True)
     to_date = fields.Date('To date', required=True)
 
@@ -209,9 +214,9 @@ class MilkControlReport(models.Model):
         self['primerizas_cant%s' % suffix] = sum([1 for x in milk_data if x.cib and x.birth_number == 1])
         self['primerizas_del%s' % suffix] = average([x.days for x in milk_data if x.birth_number == 1])
         self['primerizas_litros%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1])
-        self['primerizas_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100) for x in milk_data if x.birth_number == 1 and x.fat > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.fat > 0 and x.birth_number == 1])) * 100
-        self['primerizas_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100) for x in milk_data if x.birth_number == 1 and x.protein > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.protein > 0 and x.birth_number == 1])) * 100
-        self['primerizas_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1 and x.fat > 0]) * 1000)
+        self['primerizas_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100) for x in milk_data if x.birth_number == 1 and x.fat > 0]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.fat > 0 and x.birth_number == 1]) or 1.0)) * 100
+        self['primerizas_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100) for x in milk_data if x.birth_number == 1 and x.protein > 0]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.protein > 0 and x.birth_number == 1]) or 1.0)) * 100
+        self['primerizas_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1]) / ((sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1 and x.fat > 0]) or 1.0) * 1000)
 
 
         self['adultas_cant%s' % suffix] = sum([1 for x in milk_data if x.birth_number > 1])
@@ -219,23 +224,23 @@ class MilkControlReport(models.Model):
         self['adultas_litros%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1])
 
 
-        self['adultas_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100) for x in milk_data if x.birth_number > 1 and x.fat > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.fat > 0])) * 100
-        self['adultas_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100) for x in milk_data if x.birth_number > 1 and x.protein > 0]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.protein > 0])) * 100
-        self['adultas_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.fat > 0]) * 1000)
+        self['adultas_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100) for x in milk_data if x.birth_number > 1 and x.fat > 0]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.fat > 0]) or 1.0)) * 100
+        self['adultas_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100) for x in milk_data if x.birth_number > 1 and x.protein > 0]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.protein > 0]) or 1.0)) * 100
+        self['adultas_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1]) / ((sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number > 1 and x.fat > 0]) or 1.0) * 1000)
 
 
         self['total_cant%s' % suffix] = sum([1 for x in milk_data if x.get_liters(self['milking_type%s' % suffix]) > 0])
         self['total_del%s' % suffix] = average([x.days for x in milk_data])
         self['total_litros%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data])
 
-        self['total_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100)]) / sum([x.get_liters(self['milking_type%s' % suffix])])) * 100
-        self['total_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100)]) / sum([x.get_liters(self['milking_type%s' % suffix])])) * 100
-        self['total_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data]) / (sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.fat > 0]) * 1000)
+        self['total_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100)]) / (sum([x.get_liters(self['milking_type%s' % suffix])]) or 1.0)) * 100
+        self['total_proteina%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.protein / 100)]) / (sum([x.get_liters(self['milking_type%s' % suffix])]) or 1.0)) * 100
+        self['total_celulas%s' % suffix] = sum([x.rcs * 1000 * x.get_liters(self['milking_type%s' % suffix]) for x in milk_data]) / ((sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.fat > 0]) or 1.0) * 1000)
 
         invertidas = sum([1 for x in milk_data if x.protein > x.fat])
-        self['vacas_invertidas%s' % suffix] =  '%s (%0.2f%%)' % (invertidas, (float(invertidas) / self['total_cant%s' % suffix]) * 100)
+        self['vacas_invertidas%s' % suffix] =  '%s (%0.2f%%)' % (invertidas, (float(invertidas) / (self['total_cant%s' % suffix] or 1.0)) * 100)
 
-        self['coeficiente_persistencia%s' % suffix] = (average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 29 and x.days < 91]) - average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 179 and x.days < 306])) / (average([x.days for x in milk_data if x.days > 179 and x.days < 306]) - average([x.days for x in milk_data if x.days > 29 and x.days < 91]))
+        self['coeficiente_persistencia%s' % suffix] = (average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 29 and x.days < 91]) - average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 179 and x.days < 306])) / ((average([x.days for x in milk_data if x.days > 179 and x.days < 306]) - average([x.days for x in milk_data if x.days > 29 and x.days < 91])) or 1.0)
 
         # TODO: Cambiar 165 por campo !!!!!
 
@@ -243,9 +248,9 @@ class MilkControlReport(models.Model):
 
 
         self['leche_corregida_a_del%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data]) + ((average([x.days for x in milk_data]) - 165) * self['coeficiente_persistencia%s' % suffix])
-        self['prod_media_lact_acumulada%s' % suffix] = average([x.cumulative_milk for x in milk_data]) / average([x.days for x in milk_data])
+        self['prod_media_lact_acumulada%s' % suffix] = average([x.cumulative_milk for x in milk_data]) / (average([x.days for x in milk_data]) or 1.0)
         self['num_medio_partos%s' % suffix] = average([x.birth_number for x in milk_data])
-        self['relacion_grasa_prot%s' % suffix] = self['total_grasa%s' % suffix] / self['total_proteina%s' % suffix]
+        self['relacion_grasa_prot%s' % suffix] = self['total_grasa%s' % suffix] / (self['total_proteina%s' % suffix] or 1.0)
 
         self['pico_novillas%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.birth_number == 1 and x.days > 29 and x.days < 91])
         self['pico_novillas_del%s' % suffix] = average([x.days for x in milk_data  if x.birth_number == 1 and x.days > 29 and x.days < 91])
@@ -255,22 +260,22 @@ class MilkControlReport(models.Model):
         self['pico_adultas_del%s' % suffix] = average([x.days for x in milk_data  if x.birth_number > 1 and x.days > 29 and x.days < 61])
         self['num_adultas_pico_del%s' % suffix] = sum([1 for x in milk_data  if x.birth_number > 1 and x.days > 29 and x.days < 61])
         if self['pico_adultas%s' % suffix]:
-            self['relacion_entre_picos%s' % suffix] = self['pico_novillas%s' % suffix] / self['pico_adultas%s' % suffix]
+            self['relacion_entre_picos%s' % suffix] = self['pico_novillas%s' % suffix] / (self['pico_adultas%s' % suffix] or 1.0)
         else:
             self['relacion_entre_picos%s' % suffix] = 0
 
         self['prim_terc_lact_num_animales%s' % suffix] = len(milk_data.filtered(lambda r: r.days < 91))
-        self['prim_terc_lact_porcen_animales%s' % suffix] = (self['prim_terc_lact_num_animales%s' % suffix] / float(len(milk_data))) * 100
+        self['prim_terc_lact_porcen_animales%s' % suffix] = (self['prim_terc_lact_num_animales%s' % suffix] / (float(len(milk_data)) or 1.0)) * 100
         self['prim_terc_lact_litros_total%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days < 91])
-        self['prim_terc_lact_media%s' % suffix] = self['prim_terc_lact_litros_total%s' % suffix] / self['prim_terc_lact_num_animales%s' % suffix]
+        self['prim_terc_lact_media%s' % suffix] = self['prim_terc_lact_litros_total%s' % suffix] / (self['prim_terc_lact_num_animales%s' % suffix] or 1.0)
         self['seg_terc_lact_num_animales%s' % suffix] = len(milk_data.filtered(lambda r: r.days > 90 and r.days < 181))
-        self['seg_terc_lact_porcen_animales%s' % suffix] = (self['seg_terc_lact_num_animales%s' % suffix] / float(len(milk_data))) * 100
+        self['seg_terc_lact_porcen_animales%s' % suffix] = (self['seg_terc_lact_num_animales%s' % suffix] / (float(len(milk_data)) or 1.0)) * 100
         self['seg_terc_lact_litros_total%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 90 and x.days < 181])
-        self['seg_terc_lact_media%s' % suffix] = self['seg_terc_lact_litros_total%s' % suffix] / self['seg_terc_lact_num_animales%s' % suffix]
+        self['seg_terc_lact_media%s' % suffix] = self['seg_terc_lact_litros_total%s' % suffix] / (self['seg_terc_lact_num_animales%s' % suffix] or 1.0)
         self['terc_terc_lact_num_animales%s' % suffix] = len(milk_data.filtered(lambda r : r.days > 180))
-        self['terc_terc_lact_porcen_animales%s' % suffix] = (self['terc_terc_lact_num_animales%s' % suffix] / float(len(milk_data))) * 100
+        self['terc_terc_lact_porcen_animales%s' % suffix] = (self['terc_terc_lact_num_animales%s' % suffix] / (float(len(milk_data)) or 1.0)) * 100
         self['terc_terc_lact_litros_total%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 180])
-        self['terc_terc_lact_media%s' % suffix] = self['terc_terc_lact_litros_total%s' % suffix] / self['terc_terc_lact_num_animales%s' % suffix]
+        self['terc_terc_lact_media%s' % suffix] = self['terc_terc_lact_litros_total%s' % suffix] / (self['terc_terc_lact_num_animales%s' % suffix] or 1.0)
 
 
 
@@ -285,7 +290,7 @@ class MilkControlReport(models.Model):
         milk_data_1 = milk_control_1.mapped('line_ids')
         if self.exploitation_2:
             milk_control_2 = self.env['milk.control'].search([('date', '>=', self.from_date), ('date', '<=', self.to_date), ('exploitation_id', '=', self.exploitation_2.id)])
-            milk_data_2 = milk_control_1.mapped('line_ids')
+            milk_data_2 = milk_control_2.mapped('line_ids')
         if not milk_data_1:
             return
         graph_vals = []
