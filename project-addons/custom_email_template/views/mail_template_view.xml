@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
+    <data noupdate="1">
 
         <record id="reset_password_email" model="email.template">
-            <field name="name">Reset Password</field>
+            <field name="name">Reset Password Milkoop</field>
             <field name="model_id" ref="base.model_res_users"/>
             <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
             <field name="email_to">${object.email|safe}</field>
             <field name="subject">Password reset</field>
             <field name="body_html"><![CDATA[
-<p>Se acaba de solicitar la creación de una nueva contraseña para acceder al panel de control de gesga.</p>
+<p>Se acaba de solicitar la creación de una nueva contraseña para acceder al panel de control de Milkoop.</p>
 <p>Para proceder deberá acceder a la herramienta utilizando el siguiente <a href="${object.signup_url}">enlace</a>.</p>
 <p>${object.signup_url}</p>
 
@@ -26,17 +26,17 @@ por la ley.</span></p>
 
 
         <record id="set_password_email" model="email.template">
-            <field name="name">Odoo Enterprise Connection</field>
+            <field name="name">Milkoop Connection</field>
             <field name="model_id" ref="base.model_res_users"/>
             <field name="email_from"><![CDATA[${object.company_id.name} <${(object.company_id.email or user.email)|safe}>]]></field>
             <field name="email_to">${object.email|safe}</field>
-            <field name="subject"><![CDATA[${object.company_id.name} invitation to connect on Odoo]]></field>
+            <field name="subject"><![CDATA[${object.company_id.name} invitation to connect on Milkoop]]></field>
             <field name="body_html">
                 <![CDATA[
 <p>
     ${object.name},
 </p>
-<p>Acaba de ser dado de alta en el sistema de gestión de explotaciones Gesga</p>
+<p>Acaba de ser dado de alta en el sistema de gestión de explotaciones Milkoop</p>
 <p>Para proceder deberá acceder a la herramienta utilizando el siguiente <a href="${object.signup_url}">enlace</a>.</p>
 <p>${object.signup_url}</p>
 

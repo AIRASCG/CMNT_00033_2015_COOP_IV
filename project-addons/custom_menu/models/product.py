@@ -23,5 +23,13 @@ class ProductProduct(models.Model):
                 for t in doc.xpath("//"+view_type):
                     t.attrib['create'] = 'false'
             res['arch'] = etree.tostring(doc)
+        no_unlink = context.get('no_unlink', False)
+        update = (no_unlink and view_type in ['form', 'tree']) or False
+        if update:
+            doc = etree.XML(res['arch'])
+            if no_unlink:
+                for t in doc.xpath("//"+view_type):
+                    t.attrib['delete'] = 'false'
+            res['arch'] = etree.tostring(doc)
 
         return res
