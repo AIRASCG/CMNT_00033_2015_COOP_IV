@@ -54,6 +54,9 @@ class ResCompany(models.Model):
     @api.multi
     def configure_accounting(self):
         self.ensure_one()
+        if not self.vat:
+            raise exceptions.Warning(_(u"Debe escribir el cif en la explotación "
+                                       "para poder configurar la contabilidad"))
         self._launch_account_configure_wizards()
 
         journal_sequence = self.env['ir.sequence'].create(
