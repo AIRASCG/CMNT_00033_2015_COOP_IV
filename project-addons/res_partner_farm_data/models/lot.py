@@ -120,7 +120,7 @@ class Lot(models.Model):
             lot.number_milking_cows = sum(
                 [x.number_milking_cows for x in lot.lot_details])
             lot.carriage_cost_cow_day = (lot.carriage_cost / 30) / \
-                (lot.number_milking_cows + lot.number_dry_cows)
+                ((lot.number_milking_cows + lot.number_dry_cows) or 1.0)
             lot.liters_produced_per_day = sum(
                 [x.tank_liters + x.liters_on_farm_consumption +
                  x.retired_liters for x in lot.lot_details])
@@ -574,10 +574,12 @@ class LotDetail(models.Model):
                 res['ration_carriage_cost_eur_liter_theo'] = (res['ration_carriage_cost_eur_cow_day_theo'] / res['milk_cow_production']) * 100
                 res['ration_carriage_cost_eur_liter_real'] = (res['ration_carriage_cost_eur_cow_day_real'] / res['milk_cow_production']) * 100
                 res['ration_carriage_cost_eur_liter_anal'] = (res['ration_carriage_cost_eur_cow_day_anal'] / res['milk_cow_production']) * 100
-
-                res['ration_carriage_cost_corrected_milk_eur_liter_theo'] = (res['ration_carriage_cost_eur_cow_day_theo'] / res['milk_cow_production_corrected']) * 100
-                res['ration_carriage_cost_corrected_milk_eur_liter_real'] = (res['ration_carriage_cost_eur_cow_day_real'] / res['milk_cow_production_corrected']) * 100
-                res['ration_carriage_cost_corrected_milk_eur_liter_anal'] = (res['ration_carriage_cost_eur_cow_day_anal'] / res['milk_cow_production_corrected']) * 100
+                if res['milk_cow_production_corrected'] != 0:
+                    res['ration_carriage_cost_corrected_milk_eur_liter_theo'] = (res['ration_carriage_cost_eur_cow_day_theo'] / res['milk_cow_production_corrected']) * 100
+                    res['ration_carriage_cost_corrected_milk_eur_liter_real'] = (res['ration_carriage_cost_eur_cow_day_real'] / res['milk_cow_production_corrected']) * 100
+                    res['ration_carriage_cost_corrected_milk_eur_liter_anal'] = (res['ration_carriage_cost_eur_cow_day_anal'] / res['milk_cow_production_corrected']) * 100
+                else:
+                    res['ration_carriage_cost_corrected_milk_eur_liter_theo'] = res['ration_carriage_cost_corrected_milk_eur_liter_real'] = res['ration_carriage_cost_corrected_milk_eur_liter_theo'] = 0.0
             else:
                 res['ration_carriage_cost_eur_liter_theo'] = res['ration_carriage_cost_eur_liter_real'] = res['ration_carriage_cost_eur_liter_anal'] = 0.0
                 res['ration_carriage_cost_corrected_milk_eur_liter_theo'] = res['ration_carriage_cost_corrected_milk_eur_liter_real'] = res['ration_carriage_cost_corrected_milk_eur_liter_theo'] = 0.0
@@ -605,7 +607,7 @@ class LotDetail(models.Model):
             res['perc_purchased_feed_milk_ingress'] = 0
             y3 = sum([x.kg_ration * x.eur_ton_mf / 1000 for x in
                       lot_detail.lot_contents if x.product_id.concenctrate])
-            if res['ingress_milk_cow_day'] != 0:
+            if res['ingress_milk_cow_day'] != 0 and lot_detail.cows_eat_number:
                 res['perc_concentrated_milk_ingress'] = (
                     (y3 * lot_detail.rations_make_number) /
                     lot_detail.cows_eat_number /
