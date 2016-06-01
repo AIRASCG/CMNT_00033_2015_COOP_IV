@@ -32,6 +32,11 @@ msgid "Configure accounting"
 msgstr "Configurar contabilidad"
 
 #. module: company_automatic_account_config
+#: field:res.company,not_configured_accounting:0
+msgid "Configured accounting"
+msgstr "Explotación temporal"
+
+#. module: company_automatic_account_config
 #: view:res.company:company_automatic_account_config.res_company_add_configure_accounting
 msgid "This action will configure the accounting for the company."
 msgstr "Esta aplicación actualmente es temporal, si pulsa en el botón aceptar la explotación pasará a formar parte de la cooperativa, estadísticas del sistema..."
