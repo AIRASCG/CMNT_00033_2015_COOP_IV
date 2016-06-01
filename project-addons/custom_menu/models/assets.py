@@ -5,14 +5,13 @@
 from lxml import etree
 from openerp import models, fields, api, exceptions, _
 
+class AccountAssetCategory(models.Model):
 
-class ResPartner(models.Model):
-
-    _inherit = 'res.partner'
+    _inherit = 'account.asset.category'
 
     def fields_view_get(self, cr, uid, view_id=None, view_type='form',
                         context=None, toolbar=False, submenu=False):
-        res = super(ResPartner, self).\
+        res = super(AccountAssetCategory, self).\
             fields_view_get(cr, uid, view_id=view_id, view_type=view_type,
                             context=context, toolbar=toolbar, submenu=submenu)
         no_create = context.get('no_create', False)

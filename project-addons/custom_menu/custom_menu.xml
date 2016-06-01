@@ -54,7 +54,7 @@
             <field name="res_model">res.partner</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="context">{'default_farm': 1,'default_customer': 0,'default_supplier': 0, 'default_is_company': 1, 'no_create': 1}</field>
+            <field name="context">{'default_farm': 1,'default_customer': 0,'default_supplier': 0, 'default_is_company': 1, 'no_create': 1, 'no_unlink': 1}</field>
             <field name="domain">[('farm', '=', True),('is_cooperative','=',False)]</field>
             <field name="search_view_id" ref="base.view_res_partner_filter"/>
             <field name="view_id" ref="res_partner_farm_tree"/>
@@ -169,7 +169,16 @@
 
             <menuitem id="menu_finance_assets" name="Assets" parent="tech_economic_management"/>
                 <menuitem parent="menu_finance_assets" id="menu_action_account_asset_asset_form" action="account_asset.action_account_asset_asset_form"/>
-                <menuitem parent="menu_finance_assets" id="menu_action_account_asset_category_form" action="account_asset.action_account_asset_asset_list_normal"/>
+
+            <record model="ir.actions.act_window" id="action_account_asset_asset_list_milkoop">
+                <field name="name">Categorías de activos</field>
+                <field name="res_model">account.asset.category</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="context">{'no_create': 1, 'no_unlink': 1}</field>
+            </record>
+
+            <menuitem parent="menu_finance_assets" id="menu_action_account_asset_category_form" action="action_account_asset_asset_list_milkoop"/>
 
             <record id="product_product_action_denominations" model="ir.actions.act_window">
                 <field name="name">Denominations</field>
