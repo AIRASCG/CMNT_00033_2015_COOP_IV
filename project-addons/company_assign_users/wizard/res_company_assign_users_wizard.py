@@ -29,7 +29,8 @@ class ResCompanyAssignUsersWizard(models.TransientModel):
                                  compute='_get_company_id')
     user_ids = fields.Many2many('res.users',
                                 'company_assign_users_wizard_res_user_rel',
-                                'wizard_id', 'user_id', 'Users')
+                                'wizard_id', 'user_id', 'Users',
+                                domain=[('id', '!=', 1)])
 
     @api.one
     def _get_company_id(self):
