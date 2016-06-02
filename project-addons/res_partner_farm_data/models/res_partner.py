@@ -26,11 +26,6 @@ class ResPartner(models.Model):
 
     _inherit = 'res.partner'
 
-    _sql_constraints = [
-        ('vat_uniq', 'unique (vat)',
-         _('Error! Specified VAT Number already exists for any other registered partner.'))
-    ]
-
     latitude = fields.Char()
     longitude = fields.Char()
     farm = fields.Boolean('Farm')
