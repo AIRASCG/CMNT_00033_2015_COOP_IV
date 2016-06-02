@@ -18,13 +18,12 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, _
+from openerp import models, fields, api
 
 
 class ResPartner(models.Model):
 
     _inherit = 'res.partner'
-
 
     def _get_coop_company_id(self, company_id):
         company_setted = self.env['res.company'].browse(company_id)
@@ -48,18 +47,21 @@ class ResPartnerCategory(models.Model):
 
     _inherit = 'res.partner.category'
 
-    def _get_company(self):
-        return self.env.user.company_id
-
-    company_id = fields.Many2one('res.company', 'Company', default=_get_company)
-
     def _get_coop_company_id(self, company_id):
-        company_setted = self.env['res.company'].browse(company_id)
+        company_setted = self.sudo().env['res.company'].browse(company_id)
         coop_company = company_setted.cooperative_company
-        return coop_company.id
+        return coop_company
+
+    def _get_company(self):
+        return self._get_coop_company_id(self.env.user.company_id.id)
+
+    company_id = fields.Many2one('res.company', 'Company',
+                                 default=_get_company,
+                                 domain=[('is_cooperative', '=', True)])
 
     @api.model
     def create(self, vals):
-        if vals.get('company_id', False):
-            vals['company_id'] = self._get_coop_company_id(vals['company_id'])
+        if not vals.get('company_id', False):
+            vals['company_id'] = \
+                self._get_company().id
         return super(ResPartnerCategory, self).create(vals)
