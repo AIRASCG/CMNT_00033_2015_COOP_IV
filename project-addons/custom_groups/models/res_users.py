@@ -26,6 +26,38 @@ class ResUsers(models.Model):
 
     _inherit = 'res.users'
 
+    @api.one
+    @api.depends('groups_id')
+    def _get_user_profile(self):
+        admin_id = self.env.ref('custom_groups.group_admin')
+        self.profile = False
+        if admin_id in self.groups_id:
+            self.profile = 'admin'
+        else:
+            adtech_id = self.env.ref('custom_groups.group_tech_mngnt')
+            if adtech_id in self.groups_id:
+                self.profile = 'tech_admin'
+            else:
+                feedTec_id = self.env.ref('custom_groups.group_tech_feed')
+                if feedTec_id in self.groups_id:
+                    self.profile = 'tech_feed'
+                else:
+                    salesTec = self.env.ref('custom_groups.group_tech_sales')
+                    if salesTec in self.groups_id:
+                        self.profile = 'tech_sales'
+                    else:
+                        farmer_id = self.env.ref('custom_groups.group_rancher')
+                        if farmer_id in self.groups_id:
+                            self.profile = 'farmer'
+
+    profile = fields.Selection([('admin', 'Administrator'),
+                                ('tech_admin', 'Technical management'),
+                                ('tech_feed', 'Technical feed'),
+                                ('tech_sales', 'Technical sales'),
+                                ('farmer', 'Farmer')], readonly=True,
+                                compute="_get_user_profile", store=True)
+
+
     @api.model
     def fields_view_get(self, view_id=None, view_type='form', toolbar=False,
                         submenu=False):

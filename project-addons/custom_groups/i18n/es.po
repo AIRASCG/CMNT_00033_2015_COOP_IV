@@ -21,6 +21,26 @@ msgid "Admin"
 msgstr "Administrador"
 
 #. module: custom_groups
+#: selection:res.users,profile:0
+msgid "Administrator"
+msgstr "Administrador"
+
+#. module: custom_groups
+#: field:res.users,ref_companies:0
+msgid "Companies that refers to partner"
+msgstr "Compañías que referencian al contacto"
+
+#. module: custom_groups
+#: selection:res.users,profile:0
+msgid "Farmer"
+msgstr "Ganadero"
+
+#. module: custom_groups
+#: field:res.users,profile:0
+msgid "Profile"
+msgstr "Perfil"
+
+#. module: custom_groups
 #: code:addons/custom_groups/models/res_users.py:38
 #: model:ir.module.category,name:custom_groups.category_custom
 msgid "User types"
@@ -38,16 +58,19 @@ msgstr "Ganadero"
 
 #. module: custom_groups
 #: model:res.groups,name:custom_groups.group_tech_feed
+#: selection:res.users,profile:0
 msgid "Technical feed"
 msgstr "Técnico alimentación"
 
 #. module: custom_groups
 #: model:res.groups,name:custom_groups.group_tech_mngnt
+#: selection:res.users,profile:0
 msgid "Technical management"
 msgstr "Técnico gestión"
 
 #. module: custom_groups
 #: model:res.groups,name:custom_groups.group_tech_sales
+#: selection:res.users,profile:0
 msgid "Technical sales"
 msgstr "Técnico comercial"
 
