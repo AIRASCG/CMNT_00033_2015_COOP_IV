@@ -18,26 +18,38 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
-from datetime import date, timedelta
+from openerp import models, api, exceptions, _
+from datetime import date
 
 
 class ResCompany(models.Model):
 
     _inherit = 'res.company'
 
+    _defaults = {
+        'parent_id': lambda self, cr, uid, context:
+        self.pool['res.users'].browse(cr, uid, uid).company_id.id
+    }
+
     @api.model
     def create(self, vals):
         if not vals.get('parent_id', False):
             if self.env.user.id != 1:
-                raise exceptions.Warning(_('Create error'), _('Parent required'))
+                raise exceptions.Warning(_('Create error'),
+                                         _('Parent is required'))
+        else:
+            parent = self.browse(vals['parent_id'])
+            if not parent.is_cooperative and self.env.user.id != 1:
+                raise exceptions.Warning(_('Create error'),
+                                         _('Parent must be a cooperative'))
         return super(ResCompany, self).create(vals)
 
     @api.multi
     def write(self, vals):
         if 'parent_id' in vals.keys() and not vals.get('parent_id'):
             if self.env.user.id != 1:
-                raise exceptions.Warning(_('Create error'), _('Parent required'))
+                raise exceptions.Warning(_('Create error'),
+                                         _('Parent is required'))
         return super(ResCompany, self).write(vals)
 
     @api.model

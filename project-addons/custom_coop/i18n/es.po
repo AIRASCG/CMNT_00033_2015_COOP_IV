@@ -164,8 +164,9 @@ msgstr "Vacas"
 
 #. module: custom_coop
 #: code:addons/custom_coop/models/account_analytic.py:31
-#: code:addons/custom_coop/models/res_company.py:33
-#: code:addons/custom_coop/models/res_company.py:40
+#: code:addons/custom_coop/models/res_company.py:38
+#: code:addons/custom_coop/models/res_company.py:43
+#: code:addons/custom_coop/models/res_company.py:51
 #, python-format
 msgid "Create error"
 msgstr "Error en creación"
@@ -282,7 +283,7 @@ msgstr "Novillas 3-12 meses"
 #. module: custom_coop
 #: field:res.users,heifer_plus_12:0
 msgid "Novillas >12 months"
-msgstr "Heifer >12 meses"
+msgstr "Novillas >12 meses"
 
 #. module: custom_coop
 #: field:res.users,heifers:0
@@ -326,6 +327,16 @@ msgstr "Últ. actialización por"
 #: field:stock.location.update.stock.wizard,write_date:0
 msgid "Last Updated on"
 msgstr "Últ. actialización el"
+
+#. module: custom_coop
+#: field:res.users,latitude:0
+msgid "Latitude"
+msgstr "Latitud"
+
+#. module: custom_coop
+#: field:res.users,longitude:0
+msgid "Longitude"
+msgstr "Longitud"
 
 #. module: custom_coop
 #: field:stock.location.update.stock.wizard,lot_id:0
@@ -410,11 +421,17 @@ msgid "Owner"
 msgstr "Propietario"
 
 #. module: custom_coop
-#: code:addons/custom_coop/models/res_company.py:33
-#: code:addons/custom_coop/models/res_company.py:40
+#: code:addons/custom_coop/models/res_company.py:39
+#: code:addons/custom_coop/models/res_company.py:52
 #, python-format
-msgid "Parent required"
-msgstr "Padre obligatorio"
+msgid "Parent is required"
+msgstr "La compañía matriz es obligatoria"
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/res_company.py:44
+#, python-format
+msgid "Parent must be a cooperative"
+msgstr "La compañía matriz debe ser una cooperativa"
 
 #. module: custom_coop
 #: model:ir.model,name:custom_coop.model_res_partner
