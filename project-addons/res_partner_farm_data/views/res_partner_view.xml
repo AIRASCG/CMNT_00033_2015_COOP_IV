@@ -219,7 +219,7 @@
                                 <field name="partner_of"/>
                                 <field name="exploitation_technician"/>
                                 <field name="barn_type"/>
-                                <field name="bed_suppliers" widget="many2many_tags" domain="[('is_bed_supplier', '=', True)]"/>
+                                <field name="bed_suppliers" widget="many2many_tags" domain="[('is_bed_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_bed_supplier': True}"/>
                                 <label for="milk_tank_liter"/>
                                 <div>
                                     <field name="milk_tank_liter" class="oe_inline"/>L
@@ -262,14 +262,14 @@
                         <separator string="Servicios"/>
                         <group>
                             <group>
-                                <field name="feeding_supplier"/>
-                                <field name="milk_quality_supplier"/>
-                                <field name="counselling_supplier"/>
-                                <field name="clinic_supplier"/>
-                                <field name="mixer_truck_supplier"/>
-                                <field name="replacement_supplier"/>
-                                <field name="reproduction_supplier"/>
-                                <field name="adsg_certification_supplier"/>
+                                <field name="feeding_supplier" domain="['|',('is_seed_supplier', '=', True),('is_raw_material_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_raw_material_supplier': True}"/>
+                                <field name="milk_quality_supplier" domain="[('is_lab_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_lab_supplier': True}"/>
+                                <field name="counselling_supplier" domain="[('is_financial_service_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_financial_service_supplier': True}"/>
+                                <field name="clinic_supplier" domain="['|',('is_chiropody_supplier', '=', True),('is_vet_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_vet_supplier': True}"/>
+                                <field name="mixer_truck_supplier" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False}"/>
+                                <field name="replacement_supplier" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False}"/>
+                                <field name="reproduction_supplier" domain="[('is_vet_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_vet_supplier': True}"/>
+                                <field name="adsg_certification_supplier" domain="[('is_vet_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_vet_supplier': True}"/>
                                 <label for="special_mix"/>
                                 <div>
                                     <field name="special_mix" class="oe_inline"/>tn
