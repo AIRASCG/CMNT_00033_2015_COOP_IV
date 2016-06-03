@@ -52,6 +52,15 @@ class ResCompany(models.Model):
                                          _('Parent is required'))
         return super(ResCompany, self).write(vals)
 
+    @api.multi
+    def unlink(self):
+        partners = self.env["res.partner"]
+        for comp in self:
+            partners += comp.partner_id
+        res = super(ResCompany, self).unlink()
+        partners.unlink()
+        return res
+
     @api.model
     def calc_assets(self):
         for company in self.search([]):

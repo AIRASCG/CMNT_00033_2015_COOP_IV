@@ -31,3 +31,13 @@ class ResUsers(models.Model):
             if user.id == 1 and self.env.user.id != 1:
                 raise exceptions.Warning(_('Write error'), _('Only %s can edit his user') % user.name)
         return super(ResUsers, self).write(vals)
+
+    @api.multi
+    def unlink(self):
+        partners = self.env["res.partner"]
+        for user in self:
+            if user.partner_id:
+                partners += user.partner_id
+        res = super(ResUsers, self).unlink()
+        partners.unlink()
+        return res
