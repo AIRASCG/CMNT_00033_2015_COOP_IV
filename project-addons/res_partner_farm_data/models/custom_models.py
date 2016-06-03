@@ -35,7 +35,9 @@ class HistoricalModel(models.Model):
 
     @api.multi
     def write(self, vals):
-        if vals.get('state', False) == 'history' or self[0].state == 'history':
+        if vals.get('state', False) == 'history' or \
+                self[0].state == 'history' or \
+                not self.env.context.get('from_partner', False):
             return super(HistoricalModel, self).write(vals)
         for record in self:
             vals['sequence'] = record.sequence + 1

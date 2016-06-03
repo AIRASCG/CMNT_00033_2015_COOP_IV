@@ -207,10 +207,11 @@ class ResPartner(models.Model):
                 else:
                     current = self.employee_count_ids.filtered(
                         lambda record: record.state == 'current')
-                    current.sudo().write({'quantity':
-                                          vals.get('employees_quantity'),
-                                          'user_id': self.env.user.id})
-            if vals.get('heifer_0_3', False) or vals.get('heifer_3_12', False) or \
+                    current.sudo().with_context(from_partner=True).\
+                        write({'quantity': vals.get('employees_quantity'),
+                               'user_id': self.env.user.id})
+            if vals.get('heifer_0_3', False) or \
+                    vals.get('heifer_3_12', False) or \
                     vals.get('heifer_plus_12', False) or \
                     vals.get('milk_cow', False) or vals.get('dry_cow', False):
 
@@ -229,7 +230,7 @@ class ResPartner(models.Model):
                 else:
                     current = self.cow_count_ids.filtered(
                         lambda record: record.state == 'current')
-                    current.sudo().write({
+                    current.sudo().with_context(from_partner=True).write({
                         'heifer_0_3': vals.get('heifer_0_3', self.heifer_0_3),
                         'heifer_3_12': vals.get('heifer_3_12',
                                                 self.heifer_3_12),
