@@ -13,5 +13,7 @@
             </field>
         </record>
 
+        <delete model="ir.actions.act_window" id="account_analytic_default.analytic_rule_action_partner"/>
+
     </data>
 </openerp>
