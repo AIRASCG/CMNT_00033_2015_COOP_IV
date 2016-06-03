@@ -40,6 +40,8 @@ class LotReport(models.AbstractModel):
             product_lines[o.id] = []
             all_products = []
             totals[o.id] = {'total': 0.0, 'ration': 0.0}
+            if not o.lot_details:
+                raise exceptions.Warning(_("Cannot print report without lots"))
             for detail in o.lot_details:
                 lots[o.id].append(detail)
                 for content in detail.lot_contents:

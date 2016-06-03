@@ -247,6 +247,12 @@ msgid "Carriage cost (€/ cow and day)"
 msgstr "Coste carro (€/vaca y día)"
 
 #. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/lot_report.py:44
+#, python-format
+msgid "Cannot print report without lots"
+msgstr "No puede imprimir el informe sin lotes."
+
+#. module: res_partner_farm_data
 #: field:lot,carriage_cost:0
 msgid "Carriage cost (€/month)"
 msgstr "Coste carro (€/mes)"
