@@ -88,7 +88,7 @@
             <menuitem id="partner_farm_group" name="Farm groups" parent="farm_managemen" action="action_partner_farm_group_category_form"/>
             <menuitem name="Plantations management" parent="farm_managemen" id="menu_plantation_management"/>
                 <menuitem name="Plantations" parent="menu_plantation_management" action="res_partner_farm_data.action_res_partner_fields" id="menu_res_partner_fields"/>
-                <menuitem name="Import plantations" parent="menu_plantation_management" action="res_partner_farm_data.import_fields_act" id="menu_res_partner_fields_import"/>
+                <menuitem name="Import plantations" parent="menu_plantation_management" action="res_partner_farm_data.import_fields_act2" id="menu_res_partner_fields_import"/>
 
         <menuitem id="myreport" name="Reports" parent="parent_menu" sequence="2" groups="account.group_account_invoice"/>
 

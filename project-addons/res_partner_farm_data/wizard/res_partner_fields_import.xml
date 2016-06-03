@@ -24,10 +24,9 @@
 
       <act_window name="Import plantations"
           res_model="res.partner.fields.import"
-          src_model="res.partner.fields"
           view_id="res_partner_fields_import_form"
           view_mode="form"
           target="new"
-          id="import_fields_act"/>
+          id="import_fields_act2"/>
     </data>
 </openerp>
