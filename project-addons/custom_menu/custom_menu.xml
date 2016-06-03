@@ -240,9 +240,6 @@
             <menuitem action="res_partner_farm_data.action_lot" id="menu_lot" parent="feeding_management"/>
 
 
-        <menuitem id="visitor_management" name="Visitor management" parent="parent_menu"  sequence="4"/>
-            <menuitem action="calendar.action_calendar_event" id="menu_calendar" parent="visitor_management"/>
-
         <menuitem name="Quality simulator" parent="feeding_management" action="quality_simulator.quality_simulator_action" id="quality_simulator_menu"/>
 
         <record model="ir.actions.act_window" id="action_ir_attachment">
