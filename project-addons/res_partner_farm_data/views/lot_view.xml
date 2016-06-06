@@ -128,6 +128,7 @@
                             </group>
                             </group>
                         <field name="lot_details"/>
+                        <field name="notes" placeholder="Notes..."/>
                     </sheet>
                 </form>
             </field>
@@ -207,6 +208,7 @@
                                 <field name="ms_plucking"/>
                             </group>
                         </group>
+                        <field name="notes" placeholder="Notes..."/>
                         <field name="lot_contents"/>
                         <group>
                             <group col="4">

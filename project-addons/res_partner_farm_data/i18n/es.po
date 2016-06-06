@@ -26,6 +26,12 @@ msgid "Import gescarro data"
 msgstr "Importar datos gescarro"
 
 #. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
+#: view:lot.detail:res_partner_farm_data.lot_detail_form
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: res_partner_farm_data
 #: field:lot,mp:0
 msgid "%MP"
 msgstr "%MP"

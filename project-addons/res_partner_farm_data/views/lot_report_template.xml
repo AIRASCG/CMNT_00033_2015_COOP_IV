@@ -63,7 +63,7 @@
                                     </t>
                                 </tbody>
                             </table>
-
+                            <p t-field="o.notes"/>
                         </div>
                     </t>
                 </t>

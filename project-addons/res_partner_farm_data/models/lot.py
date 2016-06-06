@@ -55,6 +55,7 @@ class Lot(models.Model):
     state = fields.Selection(
         (('draft', 'Draft'), ('validated', 'Validated')), 'State',
         default='draft')
+    notes = fields.Text()
     lot_number = fields.Char('Lot number', compute='_get_lot_data',
                              readonly=True,
                              states={'draft': [('readonly', False)]})
@@ -171,6 +172,7 @@ class LotDetail(models.Model):
                                    copy=True)
     date = fields.Datetime('Date', required=True,
                            default=lambda a: datetime.now())
+    notes = fields.Text()
     rations_make_number = fields.Integer('Number of maked rations')
     surplus = fields.Float('Surplus (Kg)')
     cows_tank_number = fields.Integer('Cows tank number')
