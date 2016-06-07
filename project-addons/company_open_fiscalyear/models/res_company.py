@@ -26,7 +26,7 @@ class ResCompany(models.Model):
     _inherit = 'res.company'
 
     @api.multi
-    def open_fiscalyear(self):
+    def open_fiscalyear(self, year):
         self.ensure_one()
         if self.env.user.id != 1:
             raise exceptions.Warning(_('Access error'), _('Only administrator can open fiscal year'))
@@ -35,13 +35,12 @@ class ResCompany(models.Model):
             period_close = self.env['account.period.close'].create({'sure': True})
             period_close.with_context(active_ids=fiscalyear.period_ids._ids).data_save()
             fiscalyear.write({'state': 'done'})
-            curyear = date.today().year
             year_vals = {
-                'name': str(curyear),
-                'code': str(curyear),
+                'name': year,
+                'code': year,
                 'company_id': company.id,
-                'date_start': date(curyear, 01, 01),
-                'date_stop': date(curyear, 12, 31),
+                'date_start': date(int(year), 01, 01),
+                'date_stop': date(int(year), 12, 31),
             }
             new_fiscalyear = self.env['account.fiscalyear'].create(year_vals)
             new_fiscalyear.create_period3()

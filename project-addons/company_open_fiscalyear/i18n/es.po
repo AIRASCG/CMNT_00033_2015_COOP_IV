@@ -16,16 +16,49 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: company_open_fiscalyear
+#: code:addons/company_open_fiscalyear/models/res_company.py:32
+#, python-format
+msgid "Access error"
+msgstr "Error de acceso"
+
+#. module: company_open_fiscalyear
+#: view:company.open.fiscal.year:company_open_fiscalyear.company_open_fiscal_year_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: company_open_fiscalyear
 #: model:ir.model,name:company_open_fiscalyear.model_res_company
 msgid "Companies"
 msgstr "Compañías"
 
 #. module: company_open_fiscalyear
+#: model:ir.actions.act_window,name:company_open_fiscalyear.company_open_fiscal_year_action
 #: view:res.company:company_open_fiscalyear.res_company_add_open_fiscalyear
 msgid "Open fiscal year"
 msgstr "Abrir año fiscal"
 
 #. module: company_open_fiscalyear
-#: view:res.company:company_open_fiscalyear.res_company_add_open_fiscalyear
+#: view:company.open.fiscal.year:company_open_fiscalyear.company_open_fiscal_year_form
+msgid "Open"
+msgstr "Abrir"
+
+#. module: company_open_fiscalyear
+#: view:company.open.fiscal.year:company_open_fiscalyear.company_open_fiscal_year_form
 msgid "This action will close the current fiscal year and a new one will be created for the company and its children."
 msgstr "Esta acción cerrará el año fiscal actual y creara uno nuevo para la compañía y sus hijas."
+
+#. module: company_open_fiscalyear
+#: code:addons/company_open_fiscalyear/models/res_company.py:32
+#, python-format
+msgid "Only administrator can open fiscal year"
+msgstr "Solo el administrador puede abrir el año fiscal"
+
+#. module: company_open_fiscalyear
+#: field:company.open.fiscal.year,year:0
+msgid "Year"
+msgstr "Año"
+
+#. module: company_open_fiscalyear
+#: view:company.open.fiscal.year:company_open_fiscalyear.company_open_fiscal_year_form
+msgid "or"
+msgstr "o"

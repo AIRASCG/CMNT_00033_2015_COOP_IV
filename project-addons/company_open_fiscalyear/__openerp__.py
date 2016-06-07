@@ -27,6 +27,6 @@
     'author': 'Comunitea',
     'website': '',
     "depends": ['base', 'account', 'company_assign_users', 'custom_groups', 'company_automatic_account_config'],
-    "data": ['views/res_company.xml'],
+    "data": ['wizard/open_fiscal_year.xml', 'views/res_company.xml'],
     "installable": True
 }
