@@ -19,8 +19,34 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api
+from datetime import datetime
+import os
+import logging
+import csv
+_logger = logging.getLogger(__name__)
 
+
+class DecodeDictReader(csv.DictReader):
+
+    def __init__(self, f, fieldnames=None, restkey=None, restval=None,
+                 dialect="excel", encoding=False, *args, **kwds):
+        self.encoding = encoding
+        return csv.DictReader.__init__(
+            self, f, fieldnames=fieldnames, restkey=restkey,
+            restval=restval, dialect=dialect, *args, **kwds)
+
+    def next(self):
+        res = csv.DictReader.next(self)
+        final_dict = {}
+        for rk in res.keys():
+            final_dict[rk] = res[rk].decode(self.encoding)
+        return final_dict
+
+    @property
+    def fieldnames(self):
+        res = csv.DictReader.fieldnames.fget(self)
+        return [x.decode(self.encoding) for x in res]
 
 class GescarroData(models.Model):
 
@@ -263,6 +289,67 @@ class GescarroData(models.Model):
                 gescarro.write({'fat': analysis_line[0].fat,
                                 'protein': analysis_line[0].protein,
                                 'urea': analysis_line[0].urea})
+
+    @api.model
+    def import_ftp_data(self):
+        folder = self.env['ir.config_parameter'].get_param('gescarro.folder')
+        if not folder:
+            _logger.error('Not found config parameter %s' % 'gescarro.folder')
+            return
+        importation_folder = '%s%slecturas' % (folder, os.sep)
+        process_folder = '%s%sprocesados' % (folder, os.sep)
+        if 'lecturas' not in os.listdir(folder):
+            os.mkdir(importation_folder)
+        if 'procesados' not in os.listdir(folder):
+            os.mkdir(process_folder)
+        csv_files = [x for x in os.listdir(importation_folder)
+                     if x.endswith('.csv')]
+        for csv_file in csv_files:
+            file_dir = importation_folder + os.sep + csv_file
+            with open(file_dir, 'rb') as csv_content:
+                freader = DecodeDictReader(csv_content, delimiter=';',
+                                           quotechar='"',
+                                           encoding='iso8859-15')
+                line_names = freader.fieldnames[2:]
+                date_field = freader.fieldnames[0]
+                partner_field = freader.fieldnames[1]
+
+                for row in freader:
+                    exploitation_ref = row[partner_field]
+                    exploitation = self.env['res.partner'].search(
+                        [('ref', '=', exploitation_ref)])
+                    if len(exploitation) != 1:
+                        _logger.error(
+                            'Not found a partner with reference %s' %
+                            exploitation_ref)
+                        continue
+
+                    gescarro_vals = {
+                        'date': datetime.strptime(
+                            row[date_field], '%d/%m/%Y').date(),
+                        'exploitation_id': exploitation.id,
+                        'lines': []
+                    }
+
+                    for line_name in line_names:
+                        kg = float(row[line_name].replace(',', '.'))
+                        if not kg:
+                            continue
+                        line_vals = {'description': line_name,
+                                     'kg': kg}
+
+                        if line_name.encode('utf-8') in [
+                                'Silo Maíz (Kg)', 'Silo Hierba (Kg)',
+                                'Silo Hierba 2 (Kg)', 'Alfalfa (Kg)',
+                                'Paja (Kg)', 'Hierba Seca (Kg)', 'Veza (Kg)']:
+                            line_vals['type'] = 'fodder'
+                        else:
+                            line_vals['type'] = 'concentrated'
+
+                        gescarro_vals['lines'].append(
+                            (0, 0, line_vals))
+                    self.env['gescarro.data'].create(gescarro_vals)
+            os.rename(file_dir, process_folder + os.sep + csv_file)
 
 
 class GescarroDataLine(models.Model):
