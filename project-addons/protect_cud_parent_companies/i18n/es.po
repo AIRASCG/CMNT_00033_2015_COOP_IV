@@ -27,7 +27,7 @@ msgid "Models"
 msgstr "Modelos"
 
 #. module: protect_cud_parent_companies
-#: code:addons/protect_cud_parent_companies/models/base_cud_patch.py:34
+#: code:addons/protect_cud_parent_companies/models/base_cud_patch.py:37
 #, python-format
-msgid "you can not do the operation on the model %s with a parent company"
-msgstr "No es posible realizar la operación en el modelo %s con una compañía padre."
+msgid "you can not do the operation, please access to %s with a exploitation"
+msgstr "No es posible realizar la operación, por favor acceda a  %s desde una cuenta de la explotación"

@@ -31,10 +31,10 @@ def check_company(self):
             if not allowed_modules:
                 return
             if str(self._model) not in allowed_modules.value.split(','):
+                model_name = self.env['ir.model'].search([('model', '=', str(self._model))]).name
                 raise exceptions.Warning(
                     _('Error'),
-                    _('you can not do the operation on the model %s '
-                      'with a parent company') % str(self._model))
+                    _('you can not do the operation, please access to %s with a exploitation') % model_name)
 
 models.BaseModel.check_company = check_company
 
