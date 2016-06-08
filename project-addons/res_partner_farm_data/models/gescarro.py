@@ -48,6 +48,7 @@ class DecodeDictReader(csv.DictReader):
         res = csv.DictReader.fieldnames.fget(self)
         return [x.decode(self.encoding) for x in res]
 
+
 class GescarroData(models.Model):
 
     _name = 'gescarro.data'
@@ -338,17 +339,33 @@ class GescarroData(models.Model):
                         line_vals = {'description': line_name,
                                      'kg': kg}
 
-                        if line_name.encode('utf-8') in [
-                                'Silo Maíz (Kg)', 'Silo Hierba (Kg)',
-                                'Silo Hierba 2 (Kg)', 'Alfalfa (Kg)',
-                                'Paja (Kg)', 'Hierba Seca (Kg)', 'Veza (Kg)']:
+                        if line_name in [
+                                u'Silo Maíz (Kg)', u'Silo Hierba (Kg)',
+                                u'Silo Hierba 2 (Kg)', u'Alfalfa (Kg)',
+                                u'Paja (Kg)', u'Hierba Seca (Kg)',
+                                u'Veza (Kg)']:
                             line_vals['type'] = 'fodder'
                         else:
                             line_vals['type'] = 'concentrated'
 
                         gescarro_vals['lines'].append(
                             (0, 0, line_vals))
-                    self.env['gescarro.data'].create(gescarro_vals)
+                    old_data = self.env['gescarro.data'].search(
+                        [('date', '=', gescarro_vals['date']),
+                         ('exploitation_id', '=',
+                          gescarro_vals['exploitation_id'])])
+                    if old_data:
+                        for line in gescarro_vals.pop('lines'):
+                            data_line = self.env['gescarro.data.line'].search(
+                                [('description', '=', line[2]['description']),
+                                 ('data_id', '=', old_data.id)])
+                            if data_line:
+                                data_line.kg += line[2]['kg']
+                            else:
+                                line[2]['data_id'] = old_data.id
+                                self.env['gescarro.data.line'].create(line[2])
+                    else:
+                        self.env['gescarro.data'].create(gescarro_vals)
             os.rename(file_dir, process_folder + os.sep + csv_file)
 
 

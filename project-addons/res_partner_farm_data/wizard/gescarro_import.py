@@ -63,10 +63,15 @@ class GescarroImport(models.TransientModel):
             gescarro_vals['retired_liters'] = row[7]
             gescarro_vals['kg_leftover'] = row[8]
             gescarro_vals['leftover_reused'] = row[9] # Esto es un booleano
-            exp_ref = str(row[11])
-            exploitation = self.env['res.partner'].search([('ref', '=', exp_ref)])
+            try:
+                exp_ref = str(int(row[11]))
+            except ValueError:
+                exp_ref = str(row[11])
+            exploitation = self.env['res.partner'].search([('ref', '=', exp_ref), ('farm', '=', True)])
             if not exploitation:
                 raise exceptions.Warning(_('Import error'), _('Exploitation with reference %s not found') % exp_ref)
+            elif len(exploitation) > 1:
+                raise exceptions.Warning(_('Import error'), _('Multiple exploitation with reference %s ') % exp_ref)
             gescarro_vals['exploitation_id'] = exploitation.id
             gescarro_vals['minutes_first_ration'] = row[12 + number_of_lines]
             gescarro_vals['minutes_next_ration'] = row[13 + number_of_lines]
@@ -109,5 +114,31 @@ class GescarroImport(models.TransientModel):
                   'cost': row[121],
                   'type': 'concentrated',
                  }))
-            gescarro = self.env['gescarro.data'].create(gescarro_vals)
+            gescarro = self.env['gescarro.data'].search(
+                [('date', '=', gescarro_vals['date']),
+                 ('exploitation_id', '=', gescarro_vals['exploitation_id'])])
+            if gescarro:
+                mod = row[128]
+                if mod:
+                    gescarro.lines.unlink()
+                    gescarro.write(gescarro_vals)
+                else:
+                    gescarro_vals.pop('date')
+                    gescarro_vals.pop('exploitation_id')
+                    for line in gescarro_vals.pop('lines'):
+                        data_line = self.env['gescarro.data.line'].search(
+                            [('description', '=', line[2]['description']),
+                             ('data_id', '=', gescarro.id)])
+                        if data_line:
+                            for k in list(set(line[2].keys()) - set(['description', 'type'])):
+                                if line[2][k]:
+                                    data_line[k] += line[2][k]
+                        else:
+                            line[2]['data_id'] = old_data.id
+                            self.env['gescarro.data.line'].create(line[2])
+                    for k in gescarro_vals.keys():
+                        if gescarro_vals[k]:
+                            gescarro[k] += gescarro_vals[k]
+            else:
+                gescarro = self.env['gescarro.data'].create(gescarro_vals)
             gescarro.get_milk_analysis_vals()
