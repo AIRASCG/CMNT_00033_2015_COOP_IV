@@ -367,6 +367,9 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Lot">
+                    <header>
+                        <button name="set_real_by_theorical" type="object" string="Set real values"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="eur_ton_mf"/>

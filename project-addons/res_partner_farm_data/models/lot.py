@@ -129,6 +129,7 @@ class Lot(models.Model):
                 lot.liters_sold_per_day = lot.total_liters_sold / lot.collection_frequency
             else:
                 lot.liters_sold_per_day = 0
+
     @api.multi
     def button_validate(self):
         self.state = 'validated'
@@ -141,12 +142,12 @@ class Lot(models.Model):
     def get_data_lot(self):
         self.ensure_one()
         last_lot = self.env['lot'].search(
-                [('farm_id', '=', self.farm_id.id),
-                 ('id', '!=', self.id), ('date', '<=', self.date)],
-                order='date desc', limit=1)
+            [('farm_id', '=', self.farm_id.id),
+             ('id', '!=', self.id), ('date', '<=', self.date),
+             ('state', '=', 'validated')],
+            order='date desc', limit=1)
         last_lot.lot_details.copy({'lot_id': self.id, 'date': datetime.now()})
-        self.mapped('lot_details.lot_contents').write(
-            {'kg_ration': 0, 'ms': 0, 'enl': 0, 'pb': 0})
+
 
 class LotDetailSequence(models.Model):
 
@@ -668,6 +669,14 @@ class LotContent(models.Model):
     _theorical_ms = fields.Float('%MS')
     _theorical_enl = fields.Float('ENL')
     _theorical_pb = fields.Float('%PB')
+
+    @api.multi
+    def set_real_by_theorical(self):
+        for content in self:
+            content.kg_ration = content.theorical_kg_ration
+            content.ms = content.theorical_ms
+            content.enl = content.theorical_enl
+            content.pb = content.theorical_pb
 
     @api.multi
     @api.depends('product_id', 'detail_id.lot_id')

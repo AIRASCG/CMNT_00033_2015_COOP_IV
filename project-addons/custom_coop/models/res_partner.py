@@ -36,3 +36,8 @@ class ResPartner(models.Model):
             'res_model': 'mail.attachment.partner',
             'type': 'ir.actions.act_window',
         }
+
+    _sql_constraints = [
+        ('ref_uniq', 'unique (ref)',
+         _('Error! Partner reference must be unique.'))
+    ]

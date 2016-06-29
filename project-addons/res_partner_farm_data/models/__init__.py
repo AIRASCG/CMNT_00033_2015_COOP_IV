@@ -33,3 +33,4 @@ from . import lot_analysis
 from . import milk_analysis
 from . import milk_control
 from . import gescarro
+from . import calendar

@@ -47,7 +47,7 @@
              'wizard/milk_control_import.xml', 'security/security.xml',
              'views/milk_analysis.xml', 'views/milk_control.xml',
              'views/milk_control_qweb_report.xml', 'milk_control_qweb_report.xml',
-             'data/decimal_precision.xml',
+             'data/decimal_precision.xml', 'views/calendar.xml',
              'views/gescarro.xml', 'wizard/gescarro_import.xml', 'data/ir_cron.xml'],
     "installable": True
 }

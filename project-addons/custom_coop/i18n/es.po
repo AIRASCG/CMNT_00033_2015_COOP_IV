@@ -26,6 +26,20 @@ msgid "Account asset id"
 msgstr "Cuenta activo"
 
 #. module: custom_coop
+#: code:addons/custom_coop/models/res_partner.py:42
+#: sql_constraint:res.partner:0
+#, python-format
+msgid "Error! Partner reference must be unique."
+msgstr "Error! La referencia de contacto debe ser única."
+
+#. module: custom_coop
+#: code:addons/custom_coop/models/product.py:14
+#: sql_constraint:product.product:0
+#, python-format
+msgid "Error! Product reference must be unique."
+msgstr "Error! La referencia interna debe ser única."
+
+#. module: custom_coop
 #: field:account.chart.template,account_depreciation_id:0
 msgid "Account depreciation id"
 msgstr "Cuenta depreciación"

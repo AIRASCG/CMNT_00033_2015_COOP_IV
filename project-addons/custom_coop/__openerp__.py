@@ -59,6 +59,7 @@
              'views/account_asset_asset.xml',
              'security/ir.model.access.csv',
              'data/account_account.xml',
+             'data/paperformat.xml',
              'views/analytic_view.xml',
              'views/product.xml',
              'views/account_invoice.xml',

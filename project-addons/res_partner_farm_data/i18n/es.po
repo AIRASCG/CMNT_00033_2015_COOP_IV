@@ -32,6 +32,11 @@ msgid "Notes..."
 msgstr "Notas..."
 
 #. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_form
+msgid "Set real values"
+msgstr "Establecer valores teóricos como reales"
+
+#. module: res_partner_farm_data
 #: field:lot,mp:0
 msgid "%MP"
 msgstr "%MP"
@@ -1274,6 +1279,7 @@ msgstr "Lote materia prima"
 #: field:lot.detail,lot_id:0
 #: view:lot.partner:res_partner_farm_data.lot_partner_filter
 #: view:lot.partner:res_partner_farm_data.lot_partner_tree
+#: field:calendar.event,lot_id:0
 msgid "Lot"
 msgstr "Lote"
 
@@ -1298,7 +1304,7 @@ msgstr "Detalle de lote"
 #. module: res_partner_farm_data
 #: field:lot.partner,lot_number:0
 msgid "Lot number"
-msgstr "Número lote"
+msgstr "Número de lotes del año en curso"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.report.xml,name:res_partner_farm_data.action_lot_report
