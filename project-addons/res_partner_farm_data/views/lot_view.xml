@@ -106,25 +106,27 @@
                         </group>
                         <group>
                             <group>
-                                <field name="total_liters_sold"/>
-                                <field name="number_milking_cows"/>
-                                <field name="liters_produced_per_day"/>
-                                <field name="cs"/>
-                                <field name="live_weight"/>
-                                <field name="collection_frequency"/>
-                                <field name="number_dry_cows"/>
                                 <field name="liters_sold_per_day"/>
+                                <field name="liters_reused_day"/>
+                                <field name="liters_discarded_per_day"/>
+                                <field name="number_milking_cows"/>
+                                <field name="number_dry_cows"/>
+                                <field name="mg"/>
+                                <field name="mp"/>
+                                <field name="cs"/>
+
                             </group>
                             <group>
-                                <field name="milk_price"/>
-                                <field name="liters_discarded_per_day"/>
-                                <field name="carriage_cost"/>
+                                <field name="liters_produced_per_day"/>
+                                <field name="collection_frequency"/>
                                 <field name="number_cubicle_lactation"/>
-                                <field name="mg"/>
-                                <field name="dry_cow_ration_cost"/>
-                                <field name="liters_reused_day"/>
-                                <field name="mp"/>
+                                <field name="milk_price"/>
+                                <field name="carriage_cost"/>
                                 <field name="carriage_cost_cow_day"/>
+                                <field name="dry_cow_ration_cost"/>
+                                <field name="live_weight"/>
+                                <field name="total_liters_sold"/>
+
                             </group>
                             </group>
                         <field name="lot_details"/>
