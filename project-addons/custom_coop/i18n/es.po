@@ -26,6 +26,11 @@ msgid "Account asset id"
 msgstr "Cuenta activo"
 
 #. module: custom_coop
+#: field:res.company,mobile:0
+msgid "Mobile"
+msgstr "Móvil"
+
+#. module: custom_coop
 #: code:addons/custom_coop/models/res_partner.py:42
 #: sql_constraint:res.partner:0
 #, python-format

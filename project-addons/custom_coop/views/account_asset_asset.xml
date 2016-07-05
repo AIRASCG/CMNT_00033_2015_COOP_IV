@@ -20,9 +20,6 @@
                 <field name="method" position="attributes">
                     <attribute name="readonly">1</attribute>
                 </field>
-                <field name="method_time" position="attributes">
-                    <attribute name="readonly">1</attribute>
-                </field>
                 <field name="prorata" position="attributes">
                     <attribute name="readonly">1</attribute>
                 </field>
@@ -50,7 +47,7 @@
             <field name="model">account.asset.asset</field>
             <field name="inherit_id" ref="l10n_es_account_asset.view_account_asset_asset_form_l10n_es"/>
             <field name="arch" type="xml">
-                <field name="ext_method_time" position="attributes">
+                <field name="method_time" position="attributes">
                     <attribute name="readonly">1</attribute>
                 </field>
             </field>

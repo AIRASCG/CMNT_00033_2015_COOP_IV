@@ -18,13 +18,15 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, api, exceptions, _
+from openerp import models, fields, api, exceptions, _
 from datetime import date
 
 
 class ResCompany(models.Model):
 
     _inherit = 'res.company'
+
+    mobile = fields.Char('Mobile', related='partner_id.mobile', store=True)
 
     _defaults = {
         'parent_id': lambda self, cr, uid, context:

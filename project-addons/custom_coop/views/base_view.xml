@@ -9,6 +9,7 @@
           <field name="arch" type="xml">
               <field name="partner_id" position="replace">
                   <field name="phone"/>
+                  <field name="mobile"/>
                   <field name="email"/>
                   <field name="not_configured_accounting"/>
               </field>
