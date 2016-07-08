@@ -15,7 +15,7 @@
                         <field name="year"/>
                     </group>
                     <footer>
-                        <button name="open_fiscalyear" string="Open" type="object" class="oe_highlight" confirm="This action will close the current fiscal year and a new one will be created for the company and its children."/>
+                        <button name="open_fiscalyear" string="Open" type="object" class="oe_highlight" confirm="This action will create for the company and its children the new year."/>
                         or
                         <button string="Cancel" class="oe_link" special="cancel"/>
                     </footer>

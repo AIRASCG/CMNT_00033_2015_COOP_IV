@@ -44,8 +44,8 @@ msgstr "Abrir"
 
 #. module: company_open_fiscalyear
 #: view:company.open.fiscal.year:company_open_fiscalyear.company_open_fiscal_year_form
-msgid "This action will close the current fiscal year and a new one will be created for the company and its children."
-msgstr "Esta acción cerrará el año fiscal actual y creara uno nuevo para la compañía y sus hijas."
+msgid "This action will create for the company and its children the new year"
+msgstr "Esta acción creará uno nuevo año para la compañía y sus hijas."
 
 #. module: company_open_fiscalyear
 #: code:addons/company_open_fiscalyear/models/res_company.py:32

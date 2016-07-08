@@ -32,12 +32,12 @@ class ResCompany(models.Model):
 
     @api.one
     def _get_not_configured_accounting(self):
-        fiscalyear = self.env['account.fiscalyear'].search(
+        accounts = self.env['account.account'].search(
             [('company_id', '=', self.id)])
         if self.is_cooperative:
             self.not_configured_accounting = False
         else:
-            self.not_configured_accounting = not fiscalyear and True or False
+            self.not_configured_accounting = not accounts and True or False
 
     @api.model
     def create(self, vals):

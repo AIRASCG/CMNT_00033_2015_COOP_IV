@@ -31,10 +31,10 @@ class ResCompany(models.Model):
         if self.env.user.id != 1:
             raise exceptions.Warning(_('Access error'), _('Only administrator can open fiscal year'))
         for company in self.search([('id', 'child_of', self.id)]):
-            fiscalyear = self.env['account.fiscalyear'].search([('company_id', '=', company.id), ('state', '=', 'draft')])
-            period_close = self.env['account.period.close'].create({'sure': True})
-            period_close.with_context(active_ids=fiscalyear.period_ids._ids).data_save()
-            fiscalyear.write({'state': 'done'})
+            fiscalyear = self.env['account.fiscalyear'].search([('company_id', '=', company.id),('code', '=', year)])
+            if fiscalyear:
+                continue
+
             year_vals = {
                 'name': year,
                 'code': year,

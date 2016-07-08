@@ -10,9 +10,9 @@ class CompanyOpenFiscalYear(models.TransientModel):
     _name = 'company.open.fiscal.year'
 
     def _get_curryear(self):
-        return str(date.today().year)
+        return date.today().year
 
-    year = fields.Char(default=_get_curryear)
+    year = fields.Integer(default=_get_curryear)
 
     @api.multi
     def open_fiscalyear(self):
