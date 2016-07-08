@@ -108,6 +108,7 @@ class Lot(models.Model):
                       states={'draft': [('readonly', False)]})
     carriage_cost_cow_day = fields.Float('Carriage cost (€/ cow and day)',
                                          readonly=True, compute='_get_lot_data')
+    urea = fields.Float('Urea')
 
     @api.multi
     def _get_lot_data(self):
@@ -147,6 +148,17 @@ class Lot(models.Model):
              ('state', '=', 'validated')],
             order='date desc', limit=1)
         last_lot.lot_details.copy({'lot_id': self.id, 'date': datetime.now()})
+        self.collection_frequency = last_lot.collection_frequency
+        self.number_cubicle_lactation = last_lot.number_cubicle_lactation
+        self.milk_price = last_lot.milk_price
+        self.carriage_cost = last_lot.carriage_cost
+        self.dry_cow_ration_cost = last_lot.dry_cow_ration_cost
+        self.live_weight = last_lot.live_weight
+        analysis = self.env['milk.analysis.line'].search(
+            [('analysis_id.exploitation_id', '=', self.farm_id.id),
+             ('sample_date', '<=', self.date[:10])],
+            order='sample_date desc', limit=1)
+        self.urea = analysis.urea
 
 
 class LotDetailSequence(models.Model):

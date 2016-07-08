@@ -1263,7 +1263,7 @@ msgstr "Lectura"
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
 msgid "Reads"
-msgstr "Lecturas"
+msgstr "Visita de alimentación"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,lot_id:0

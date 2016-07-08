@@ -213,7 +213,7 @@ msgstr "Simulador de calidad"
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_lot
 msgid "Reads"
-msgstr "Lecturas"
+msgstr "Visitas de alimentación"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_lot_analysis_parent
@@ -278,7 +278,7 @@ msgstr "Valoración de existencias"
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_action_production_lot_form
 msgid "Stock lots"
-msgstr "Lotes existencias"
+msgstr "Listado de existencias"
 
 #. module: custom_menu
 #: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree2

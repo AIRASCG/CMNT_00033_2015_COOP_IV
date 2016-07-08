@@ -21,5 +21,14 @@
             <field name="groups" eval="[(4, ref('custom_groups.group_rancher')),]"/>
         </record>
 
+        <delete id="base.res_users_rule" model="ir.rule"/>
+
+        <record id="base.res_users_rule" model="ir.rule">
+            <field name="name">user rule</field>
+            <field name="model_id" ref="model_res_users"/>
+            <field eval="True" name="global"/>
+            <field name="domain_force">['|','|',('company_id.child_ids','child_of',[user.company_id.id]),('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        </record>
+
     </data>
 </openerp>
