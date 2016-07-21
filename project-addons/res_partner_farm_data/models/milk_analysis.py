@@ -46,35 +46,19 @@ class MilkAnalysisLine(models.Model):
 
     _name = 'milk.analysis.line'
 
-    analysis_id = fields.Many2one('milk.analysis', 'Analysis')
+    analysis_id = fields.Many2one('milk.analysis', 'Analysis', ondelete='cascade')
+    analysis_line_id = fields.Char('Id')
+    route = fields.Float('Route')
+    yearmonth = fields.Char('Year/month')
     sample_date = fields.Date('Sample date')
-    dni = fields.Char('DNI')
-    exploitation_name = fields.Char('Exploitation name')
+    reception_date = fields.Date('Reception date')
     analysis_date = fields.Date('Analysis date')
+    state = fields.Selection((('accepted', 'Accepted'), ('rejected', 'Rejected'), ('waiting', 'Waiting')), 'State')
     fat = fields.Float('Fat')
     protein = fields.Float('Protein')
     dry_extract = fields.Float('Dry extract')
-    bacteriology = fields.Float('Bacteriology')
-    cs = fields.Char('CS')
-    inhibitors = fields.Float('Inhibitors')
+    bacteriology = fields.Char('Bacteriology')
+    cs = fields.Float('CS')
+    inhibitors = fields.Char('Inhibitors')
     cryoscope = fields.Float('Cryoscope')
     urea = fields.Float('Urea')
-    state = fields.Char('State')
-    butyric = fields.Float('Butyric')
-    water = fields.Float('Water')
-    yearmonth = fields.Char('Year/month')
-    route = fields.Float('Route')
-    analysis_line_id = fields.Char('Id')
-
-    def default_get(self, cr, uid, fields, context=None):
-        if not context:
-            context = {}
-        res = super(MilkAnalysisLine, self).default_get(cr, uid, fields,
-                                                        context=context)
-        if context.get('analysis_id'):
-            exploitation_id = context.get('analysis_id')
-            res_partner_obj = self.pool.get('res.partner')
-            res_partner_id = res_partner_obj.browse(cr, uid, exploitation_id)
-            res.update({'exploitation_name': res_partner_id.name,
-                        'dni': res_partner_id.vat})
-        return res

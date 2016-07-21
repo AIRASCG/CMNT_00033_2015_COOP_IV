@@ -23,26 +23,23 @@
                     <sheet>
                         <group>
                             <group>
+                                <field name="analysis_line_id"/>
+                                <field name="route"/>
+                                <field name="yearmonth"/>
                                 <field name="sample_date"/>
-                                <field name="dni"/>
-                                <field name="exploitation_name"/>
+                                <field name="reception_date"/>
                                 <field name="analysis_date"/>
+                                <field name="state"/>
+                            </group>
+                            <group>
                                 <field name="fat"/>
                                 <field name="protein"/>
                                 <field name="dry_extract"/>
                                 <field name="bacteriology"/>
                                 <field name="cs"/>
-                            </group>
-                            <group>
                                 <field name="inhibitors"/>
                                 <field name="cryoscope"/>
                                 <field name="urea"/>
-                                <field name="state"/>
-                                <field name="butyric"/>
-                                <field name="water"/>
-                                <field name="yearmonth"/>
-                                <field name="route"/>
-                                <field name="analysis_line_id"/>
                             </group>
                         </group>
                     </sheet>

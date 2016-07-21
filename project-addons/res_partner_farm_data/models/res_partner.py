@@ -329,3 +329,11 @@ class ResPartnerFarmData(models.Model):
     location_name = fields.Char("Location Name")
     rent = fields.Boolean("Rent")
     year = fields.Char("Year")
+
+
+class ResPartnerPasswd(models.Model):
+
+    _inherit = 'res.partner.passwd'
+
+    token = fields.Char('Token')
+    expire_time = fields.Datetime('Expire time')
