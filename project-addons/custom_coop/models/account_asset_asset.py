@@ -68,7 +68,7 @@ class AccountAssetAsset(models.Model):
             category = self.env['account.asset.category'].\
                 browse(vals['category_id'])
             vals['method'] = category.method
-            vals['ext_method_time'] = category.ext_method_time
+            vals['method_time'] = category.method_time
             vals['prorata'] = category.prorata
             vals['method_number'] = category.method_number
             vals['method_period'] = category.method_period
@@ -82,7 +82,7 @@ class AccountAssetAsset(models.Model):
             category = self.env['account.asset.category'].\
                 browse(vals['category_id'])
             vals['method'] = category.method
-            vals['ext_method_time'] = category.ext_method_time
+            vals['method_time'] = category.method_time
             vals['prorata'] = category.prorata
             vals['method_number'] = category.method_number
             vals['method_period'] = category.method_period
