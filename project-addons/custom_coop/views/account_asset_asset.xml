@@ -16,6 +16,7 @@
                 </field>
                 <field name="category_id" position="attributes">
                     <attribute name="on_change">onchange_category_id_subvention(category_id, subvention)</attribute>
+                    <attribute name="options">{'no_create': True}</attribute>
                 </field>
                 <field name="method" position="attributes">
                     <attribute name="readonly">1</attribute>
