@@ -41,3 +41,7 @@ msgstr "Explotación temporal"
 msgid "This action will configure the accounting for the company."
 msgstr "Esta aplicación actualmente es temporal, si pulsa en el botón aceptar la explotación pasará a formar parte de la cooperativa, estadísticas del sistema..."
 
+#. module: company_automatic_account_config
+#: field:res.company,with_complete_account:0
+msgid "Install complete account"
+msgstr "Instalar contabilidad completa"

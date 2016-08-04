@@ -27,6 +27,7 @@ class ResCompany(models.Model):
 
     not_configured_accounting = fields.Boolean(
         'Configured accounting', compute="_get_not_configured_accounting")
+    with_complete_account = fields.Boolean('Install complete account')
 
     @api.one
     def _get_not_configured_accounting(self):
@@ -70,3 +71,39 @@ class ResCompany(models.Model):
                                 'purchase_refund'):
                 write_vals['invoice_sequence_id'] = journal.sequence_id.id
             journal.write(write_vals)
+
+
+class AccountAccountTemplate(models.Model):
+
+    _inherit = 'account.account.template'
+
+    @api.model
+    def generate_account(self, chart_template_id, tax_template_ref,
+                         acc_template_ref, code_digits, company_id):
+        return super(AccountAccountTemplate,
+                     self.with_context(company_configura=company_id)).generate_account(
+            chart_template_id, tax_template_ref, acc_template_ref, code_digits, company_id)
+
+    @api.model
+    def search(self, args, offset=0, limit=None, order=None, count=False):
+        if self._context.get('company_configura', False):
+            company = self.env['res.company'].browse(self._context['company_configura'])
+            if not company.with_complete_account:
+                args = [('type', '!=', 'view')] + args
+        return super(AccountAccountTemplate, self).search(
+            args, offset=offset, limit=limit, order=order, count=count)
+
+
+
+class WizardMultiChartsAccounts(models.TransientModel):
+
+    _inherit='wizard.multi.charts.accounts'
+
+    @api.model
+    def _prepare_bank_account(self, line, new_code, acc_template_ref, ref_acc_bank, company_id):
+        company = self.env['res.company'].browse(company_id)
+        acc_template_ref_2 = acc_template_ref
+        if not company.with_complete_account:
+            if ref_acc_bank.id not in acc_template_ref_2:
+                acc_template_ref_2[ref_acc_bank.id] = False
+        return super(WizardMultiChartsAccounts, self)._prepare_bank_account(line, new_code, acc_template_ref, ref_acc_bank, company_id)

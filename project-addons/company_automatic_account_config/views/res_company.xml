@@ -12,6 +12,9 @@
                             type="object" attrs="{'invisible': [('not_configured_accounting', '=', False)]}"
                             confirm="This action will configure the accounting for the company."/>
                 </header>
+                <field name="website" position="after">
+                    <field name="with_complete_account" groups="base.group_no_one"/>
+                </field>
             </field>
         </record>
     </data>
