@@ -169,13 +169,18 @@ class MilkAnalysisImport(models.TransientModel):
                     continue
                 if 'Customer' in sample:
                     vat = sample['Customer']['VATReg']
+                    if vat[0] == '0':
+                        vat = vat[1:]
                     if vat[-1].isalpha():
                         vat = vat[-1] + vat[:-1]
                     vat = 'ES'+vat
                     partner = self.env['res.partner'].search(
-                        [('vat', '=', vat)])
+                        [('vat', '=', vat), ('farm', '=', True)])
                     if not partner:
-                        logger('Not found partner with vat %s' % vat)
+                        logger.error('Not found partner with vat %s' % vat)
+                        continue
+                    if len(partner) > 1:
+                        logger.error('Various partners with vat %s' % vat)
                         continue
                 else:
                     partner = passwd.partner_id

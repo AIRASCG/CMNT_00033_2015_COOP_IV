@@ -676,7 +676,7 @@ class LotContent(models.Model):
                                  inverse='_set_theorical_values')
     theorical_pb = fields.Float('%PB', compute='_get_theorical_values',
                                 inverse='_set_theorical_values')
-    manual_setted = fields.Boolean('')
+    manual_setted = fields.Boolean()
     _theorical_kg_ration = fields.Float('Kg/Ration')
     _theorical_ms = fields.Float('%MS')
     _theorical_enl = fields.Float('ENL')
@@ -723,6 +723,7 @@ class LotContent(models.Model):
 
     @api.multi
     def _set_theorical_values(self):
+
         for content in self:
             content.write(
                 {'manual_setted': True,
