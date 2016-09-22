@@ -211,119 +211,119 @@
                         </group>
                         <field name="notes" placeholder="Notes..."/>
                         <field name="lot_contents"/>
+
+                        <group col="4">
+                            <span colspan="1"></span>
+                            <span colspan="1">Teorical</span>
+                            <span colspan="1">Real</span>
+                            <span colspan="1">Analytic</span>
+
+                            <span colspan="1">Kg MF de la ración:</span>
+                            <field name="kg_mf_ration_theo" nolabel="1"/>
+                            <field name="kg_mf_ration_real" nolabel="1"/>
+                            <field name="kg_mf_ration_anal" nolabel="1"/>
+
+                            <span colspan="1">%MS de la ración:</span>
+                            <field name="perc_ms_ration_theo" nolabel="1"/>
+                            <field name="perc_ms_ration_real" nolabel="1"/>
+                            <field name="perc_ms_ration_anal" nolabel="1"/>
+
+                            <span colspan="1">Kg MS de la ración:</span>
+                            <field name="kg_ms_ration_theo" nolabel="1"/>
+                            <field name="kg_ms_ration_real" nolabel="1"/>
+                            <field name="kg_ms_ration_anal" nolabel="1"/>
+
+                            <span colspan="1">IMF (kg/vaca y día):</span>
+                            <field name="imf_theo" nolabel="1"/>
+                            <field name="imf_real" nolabel="1"/>
+                            <field name="imf_anal" nolabel="1"/>
+
+                            <span colspan="1">Kg punteo/vaca y día:</span>
+                            <field name="kg_plucking_cow_day_theo" nolabel="1"/>
+                            <field name="kg_plucking_cow_day_real" nolabel="1"/>
+                            <field name="kg_plucking_cow_day_anal" nolabel="1"/>
+
+                            <span colspan="1">IMSunifed  (Kg/vaca y día):</span>
+                            <field name="ims_unifed_kg_cow_day_theo" nolabel="1"/>
+                            <field name="ims_unifed_kg_cow_day_real" nolabel="1"/>
+                            <field name="ims_unifed_kg_cow_day_anal" nolabel="1"/>
+
+                            <span colspan="1">IMS de punteo (kg/vaca y día):</span>
+                            <field name="ims_plucking_kg_cow_day_theo" nolabel="1"/>
+                            <field name="ims_plucking_kg_cow_day_real" nolabel="1"/>
+                            <field name="ims_plucking_kg_cow_day_anal" nolabel="1"/>
+
+                            <span colspan="1">IMSTOTAL (kg/vaca y día):</span>
+                            <field name="ims_total_kg_cow_day_theo" nolabel="1"/>
+                            <field name="ims_total_kg_cow_day_real" nolabel="1"/>
+                            <field name="ims_total_kg_cow_day_anal" nolabel="1"/>
+
+                            <span colspan="1">IC (litros/kg MS:</span>
+                            <field name="ic_liters_kg_theo" nolabel="1"/>
+                            <field name="ic_liters_kg_real" nolabel="1"/>
+                            <field name="ic_liters_kg_anal" nolabel="1"/>
+
+                            <span colspan="1">ICcorregido (litros/kg MS:</span>
+                            <field name="ic_corrected_liters_kg_theo" nolabel="1"/>
+                            <field name="ic_corrected_liters_kg_real" nolabel="1"/>
+                            <field name="ic_corrected_liters_kg_anal" nolabel="1"/>
+
+                            <span colspan="1">Grs grasa/vaca y día</span>
+                            <span colspan="1"></span>
+                            <field name="grs_fat_cow_day" nolabel="1"/>
+                            <span colspan="1"></span>
+
+                            <span colspan="1">Grs proteína/vaca y día</span>
+                            <span colspan="1"></span>
+                            <field name="grs_protein_cow_day" nolabel="1"/>
+                            <span colspan="1"></span>
+
+                            <span colspan="1">Predicción de leche por ENL:</span>
+                            <field name="milk_prediction_by_enl_theo" nolabel="1"/>
+                            <field name="milk_prediction_by_enl_real" nolabel="1"/>
+                            <field name="milk_prediction_by_enl_anal" nolabel="1"/>
+
+                            <span colspan="1">Predicción de leche por PB:</span>
+                            <field name="milk_prediction_by_pb_theo" nolabel="1"/>
+                            <field name="milk_prediction_by_pb_real" nolabel="1"/>
+                            <field name="milk_prediction_by_pb_anal" nolabel="1"/>
+
+                            <span colspan="1">Desviación con produc. Real:</span>
+                            <field name="real_production_deviation_theo" nolabel="1"/>
+                            <field name="real_production_deviation_real" nolabel="1"/>
+                            <field name="real_production_deviation_anal" nolabel="1"/>
+
+                            <span colspan="1">Coste de la ración (€):</span>
+                            <field name="ration_cost_eur_theo" nolabel="1"/>
+                            <field name="ration_cost_eur_real" nolabel="1"/>
+                            <field name="ration_cost_eur_anal" nolabel="1"/>
+
+                            <span colspan="1">Coste ración (€/Tn MF):</span>
+                            <field name="ration_cost_eur_ton_mf_theo" nolabel="1"/>
+                            <field name="ration_cost_eur_ton_mf_real" nolabel="1"/>
+                            <field name="ration_cost_eur_ton_mf_anal" nolabel="1"/>
+
+                            <span colspan="1">Coste ración (€/Tn MS):</span>
+                            <field name="ration_cost_eur_ton_ms_theo" nolabel="1"/>
+                            <field name="ration_cost_eur_ton_ms_real" nolabel="1"/>
+                            <field name="ration_cost_eur_ton_ms_anal" nolabel="1"/>
+
+                            <span colspan="1">Coste ración+ carro (€/vaca y día):</span>
+                            <field name="ration_carriage_cost_eur_cow_day_theo" nolabel="1"/>
+                            <field name="ration_carriage_cost_eur_cow_day_real" nolabel="1"/>
+                            <field name="ration_carriage_cost_eur_cow_day_anal" nolabel="1"/>
+
+                            <span colspan="1">Coste ración + carro (€/100 litros):</span>
+                            <field name="ration_carriage_cost_eur_liter_theo" nolabel="1"/>
+                            <field name="ration_carriage_cost_eur_liter_real" nolabel="1"/>
+                            <field name="ration_carriage_cost_eur_liter_anal" nolabel="1"/>
+
+                            <span colspan="1">Coste ración+ carroleche corregida(€/100 litros):</span>
+                            <field name="ration_carriage_cost_corrected_milk_eur_liter_theo" nolabel="1"/>
+                            <field name="ration_carriage_cost_corrected_milk_eur_liter_real" nolabel="1"/>
+                            <field name="ration_carriage_cost_corrected_milk_eur_liter_anal" nolabel="1"/>
+                        </group>
                         <group>
-                            <group col="4">
-                                <span colspan="1"></span>
-                                <span colspan="1">Teorical</span>
-                                <span colspan="1">Real</span>
-                                <span colspan="1">Analytic</span>
-
-                                <span colspan="1">Kg MF de la ración:</span>
-                                <field name="kg_mf_ration_theo" nolabel="1"/>
-                                <field name="kg_mf_ration_real" nolabel="1"/>
-                                <field name="kg_mf_ration_anal" nolabel="1"/>
-
-                                <span colspan="1">%MS de la ración:</span>
-                                <field name="perc_ms_ration_theo" nolabel="1"/>
-                                <field name="perc_ms_ration_real" nolabel="1"/>
-                                <field name="perc_ms_ration_anal" nolabel="1"/>
-
-                                <span colspan="1">Kg MS de la ración:</span>
-                                <field name="kg_ms_ration_theo" nolabel="1"/>
-                                <field name="kg_ms_ration_real" nolabel="1"/>
-                                <field name="kg_ms_ration_anal" nolabel="1"/>
-
-                                <span colspan="1">IMF (kg/vaca y día):</span>
-                                <field name="imf_theo" nolabel="1"/>
-                                <field name="imf_real" nolabel="1"/>
-                                <field name="imf_anal" nolabel="1"/>
-
-                                <span colspan="1">Kg punteo/vaca y día:</span>
-                                <field name="kg_plucking_cow_day_theo" nolabel="1"/>
-                                <field name="kg_plucking_cow_day_real" nolabel="1"/>
-                                <field name="kg_plucking_cow_day_anal" nolabel="1"/>
-
-                                <span colspan="1">IMSunifed  (Kg/vaca y día):</span>
-                                <field name="ims_unifed_kg_cow_day_theo" nolabel="1"/>
-                                <field name="ims_unifed_kg_cow_day_real" nolabel="1"/>
-                                <field name="ims_unifed_kg_cow_day_anal" nolabel="1"/>
-
-                                <span colspan="1">IMS de punteo (kg/vaca y día):</span>
-                                <field name="ims_plucking_kg_cow_day_theo" nolabel="1"/>
-                                <field name="ims_plucking_kg_cow_day_real" nolabel="1"/>
-                                <field name="ims_plucking_kg_cow_day_anal" nolabel="1"/>
-
-                                <span colspan="1">IMSTOTAL (kg/vaca y día):</span>
-                                <field name="ims_total_kg_cow_day_theo" nolabel="1"/>
-                                <field name="ims_total_kg_cow_day_real" nolabel="1"/>
-                                <field name="ims_total_kg_cow_day_anal" nolabel="1"/>
-
-                                <span colspan="1">IC (litros/kg MS:</span>
-                                <field name="ic_liters_kg_theo" nolabel="1"/>
-                                <field name="ic_liters_kg_real" nolabel="1"/>
-                                <field name="ic_liters_kg_anal" nolabel="1"/>
-
-                                <span colspan="1">ICcorregido (litros/kg MS:</span>
-                                <field name="ic_corrected_liters_kg_theo" nolabel="1"/>
-                                <field name="ic_corrected_liters_kg_real" nolabel="1"/>
-                                <field name="ic_corrected_liters_kg_anal" nolabel="1"/>
-
-                                <span colspan="1">Grs grasa/vaca y día</span>
-                                <span colspan="1"></span>
-                                <field name="grs_fat_cow_day" nolabel="1"/>
-                                <span colspan="1"></span>
-
-                                <span colspan="1">Grs proteína/vaca y día</span>
-                                <span colspan="1"></span>
-                                <field name="grs_protein_cow_day" nolabel="1"/>
-                                <span colspan="1"></span>
-
-                                <span colspan="1">Predicción de leche por ENL:</span>
-                                <field name="milk_prediction_by_enl_theo" nolabel="1"/>
-                                <field name="milk_prediction_by_enl_real" nolabel="1"/>
-                                <field name="milk_prediction_by_enl_anal" nolabel="1"/>
-
-                                <span colspan="1">Predicción de leche por PB:</span>
-                                <field name="milk_prediction_by_pb_theo" nolabel="1"/>
-                                <field name="milk_prediction_by_pb_real" nolabel="1"/>
-                                <field name="milk_prediction_by_pb_anal" nolabel="1"/>
-
-                                <span colspan="1">Desviación con produc. Real:</span>
-                                <field name="real_production_deviation_theo" nolabel="1"/>
-                                <field name="real_production_deviation_real" nolabel="1"/>
-                                <field name="real_production_deviation_anal" nolabel="1"/>
-
-                                <span colspan="1">Coste de la ración (€):</span>
-                                <field name="ration_cost_eur_theo" nolabel="1"/>
-                                <field name="ration_cost_eur_real" nolabel="1"/>
-                                <field name="ration_cost_eur_anal" nolabel="1"/>
-
-                                <span colspan="1">Coste ración (€/Tn MF):</span>
-                                <field name="ration_cost_eur_ton_mf_theo" nolabel="1"/>
-                                <field name="ration_cost_eur_ton_mf_real" nolabel="1"/>
-                                <field name="ration_cost_eur_ton_mf_anal" nolabel="1"/>
-
-                                <span colspan="1">Coste ración (€/Tn MS):</span>
-                                <field name="ration_cost_eur_ton_ms_theo" nolabel="1"/>
-                                <field name="ration_cost_eur_ton_ms_real" nolabel="1"/>
-                                <field name="ration_cost_eur_ton_ms_anal" nolabel="1"/>
-
-                                <span colspan="1">Coste ración+ carro (€/vaca y día):</span>
-                                <field name="ration_carriage_cost_eur_cow_day_theo" nolabel="1"/>
-                                <field name="ration_carriage_cost_eur_cow_day_real" nolabel="1"/>
-                                <field name="ration_carriage_cost_eur_cow_day_anal" nolabel="1"/>
-
-                                <span colspan="1">Coste ración + carro (€/100 litros):</span>
-                                <field name="ration_carriage_cost_eur_liter_theo" nolabel="1"/>
-                                <field name="ration_carriage_cost_eur_liter_real" nolabel="1"/>
-                                <field name="ration_carriage_cost_eur_liter_anal" nolabel="1"/>
-
-                                <span colspan="1">Coste ración+ carroleche corregida(€/100 litros):</span>
-                                <field name="ration_carriage_cost_corrected_milk_eur_liter_theo" nolabel="1"/>
-                                <field name="ration_carriage_cost_corrected_milk_eur_liter_real" nolabel="1"/>
-                                <field name="ration_carriage_cost_corrected_milk_eur_liter_anal" nolabel="1"/>
-                            </group>
-                            <group>
                                 <field name="ingress_milk_cow_day"/>
                                 <field name="feed_cost_cow_day"/>
                                 <field name="diff_ing_cost"/>
@@ -334,8 +334,6 @@
                                 <field name="lot_threshold_point_slaughterhouse"/>
                                 <field name="lot_threshold_point_dry"/>
                             </group>
-                        </group>
-
                     </sheet>
                 </form>
             </field>

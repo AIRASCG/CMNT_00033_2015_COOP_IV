@@ -29,6 +29,7 @@
     'author': 'Comunitea',
     'website': '',
     "depends": ['account',
+                'account_asset',
                 'acc_analytic_acc_distribution_between',
                 'automatic_company',
                 'l10n_es_account_asset',
