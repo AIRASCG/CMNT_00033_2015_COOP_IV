@@ -277,8 +277,7 @@ class LotDetail(models.Model):
 
     kg_mf_ration_anal = fields.Float('', compute='_get_lot_calcs',
                                      readonly=True)
-    perc_ms_ration_anal = fields.Float('', compute='_get_lot_calcs',
-                                       readonly=True)
+    perc_ms_ration_anal = fields.Float('')
     kg_ms_ration_anal = fields.Float('', compute='_get_lot_calcs',
                                      readonly=True)
     imf_anal = fields.Float('', compute='_get_lot_calcs', readonly=True)
@@ -402,13 +401,12 @@ class LotDetail(models.Model):
                     total_kg_ration
             else:
                 res['perc_ms_ration_real'] = 0.0
-            res['perc_ms_ration_anal'] = 50.0
             res['kg_ms_ration_theo'] = res['kg_mf_ration_theo'] * \
                 (res['perc_ms_ration_theo'] / 100.0)
             res['kg_ms_ration_real'] = res['kg_mf_ration_real'] * \
                 (res['perc_ms_ration_real'] / 100.0)
             res['kg_ms_ration_anal'] = res['kg_mf_ration_anal'] * \
-                (res['perc_ms_ration_anal'] / 100.0)
+                (lot_detail.perc_ms_ration_anal / 100.0)
             if lot_detail.number_milking_cows + \
                     ((lot_detail.cows_eat_number - lot_detail.number_milking_cows)
                      / 2) != 0:
@@ -450,7 +448,7 @@ class LotDetail(models.Model):
                 res['ims_total_kg_cow_day_real'] = 0
             if res['imf_anal'] != 0:
                 res['ims_total_kg_cow_day_anal'] = \
-                    res['perc_ms_ration_anal'] / 100 * res['imf_anal']
+                    lot_detail.perc_ms_ration_anal / 100 * res['imf_anal']
             else:
                 res['ims_total_kg_cow_day_anal'] = 0
             res['ims_unifed_kg_cow_day_theo'] = res['ims_total_kg_cow_day_theo'] - res['ims_plucking_kg_cow_day_theo']
@@ -576,8 +574,8 @@ class LotDetail(models.Model):
                 res['ration_cost_eur_ton_ms_real'] = res['ration_cost_eur_ton_mf_real'] / (res['perc_ms_ration_real'] / 100.0)
             else:
                 res['ration_cost_eur_ton_ms_real'] = 0.0
-            if res['perc_ms_ration_anal'] != 0:
-                res['ration_cost_eur_ton_ms_anal'] = res['ration_cost_eur_ton_mf_anal'] / (res['perc_ms_ration_anal'] / 100.0)
+            if lot_detail.perc_ms_ration_anal != 0:
+                res['ration_cost_eur_ton_ms_anal'] = res['ration_cost_eur_ton_mf_anal'] / (lot_detail.perc_ms_ration_anal / 100.0)
             else:
                 res['ration_cost_eur_ton_ms_anal'] = 0.0
 
@@ -667,15 +665,6 @@ class LotContent(models.Model):
     ms = fields.Float('%MS')
     enl = fields.Float('ENL')
     pb = fields.Float('%PB')
-    theorical_kg_ration = fields.Float('Kg/Ration',
-                                       compute='_get_theorical_values',
-                                       inverse='_set_theorical_values')
-    theorical_ms = fields.Float('%MS', compute='_get_theorical_values',
-                                inverse='_set_theorical_values')
-    theorical_enl = fields.Float('ENL', compute='_get_theorical_values',
-                                 inverse='_set_theorical_values')
-    theorical_pb = fields.Float('%PB', compute='_get_theorical_values',
-                                inverse='_set_theorical_values')
     manual_setted = fields.Boolean()
     _theorical_kg_ration = fields.Float('Kg/Ration')
     _theorical_ms = fields.Float('%MS')
@@ -690,44 +679,67 @@ class LotContent(models.Model):
             content.enl = content.theorical_enl
             content.pb = content.theorical_pb
 
-    @api.multi
-    @api.depends('product_id', 'detail_id.lot_id')
-    def _get_theorical_values(self):
-        for content in self:
+
+from openerp.osv import fields as fields2
+
+
+class LotContentOld(models.Model):
+
+    _inherit = 'lot.content'
+
+    def _get_theorical_values(self, cr, uid, ids, name, arg, context=None):
+        res = {}
+        for content in self.browse(cr, uid, ids, context):
+            content_fields = {}
             if content.manual_setted:
-                content.theorical_kg_ration = content._theorical_kg_ration
-                content.theorical_ms = content._theorical_ms
-                content.theorical_enl = content._theorical_enl
-                content.theorical_pb = content._theorical_pb
+                content_fields['theorical_kg_ration'] = content._theorical_kg_ration
+                content_fields['theorical_ms'] = content._theorical_ms
+                content_fields['theorical_enl'] = content._theorical_enl
+                content_fields['theorical_pb'] = content._theorical_pb
+                res[content.id] = content_fields
                 continue
             if not content.detail_id.lot_id:
                 continue
             curr_lot = content.detail_id.lot_id
-            last_lot = self.env['lot'].search(
-                [('farm_id', '=', curr_lot.farm_id.id),
-                 ('id', '!=', curr_lot.id), ('date', '<=', curr_lot.date)],
-                order='date desc', limit=1)
-            if last_lot:
-                detail = self.env['lot.detail'].search(
-                    [('lot_id', '=', last_lot.id),
+            last_lot_id = self.pool.get('lot').search(
+                cr, uid, [('farm_id', '=', curr_lot.farm_id.id),
+                          ('id', '!=', curr_lot.id),
+                          ('date', '<=', curr_lot.date)],
+                order='date desc', limit=1, context=context)
+            if last_lot_id:
+                detail_id = self.env['lot.detail'].search(
+                    [('lot_id', '=', last_lot_id),
                      ('sequence', '=', content.detail_id.sequence)], limit=1)
-                if detail:
-                    last_content = self.env['lot.content'].search(
-                        [('detail_id', '=', detail.id),
+                if detail_id:
+                    last_content_id = self.env['lot.content'].search(
+                        [('detail_id', '=', detail_id),
                          ('product_id', '=', content.product_id.id)])
-                    if last_content:
-                        content.theorical_kg_ration = last_content.kg_ration
-                        content.theorical_ms = last_content.ms
-                        content.theorical_enl = last_content.enl
-                        content.theorical_pb = last_content.pb
+                    if last_content_id:
+                        content_fields = {}
+                        last_content = self.pool.get('lot.content').browse(cr, uid, last_content_id, context)
+                        content_fields['theorical_kg_ration'] = last_content.kg_ration
+                        content_fields['theorical_ms'] = last_content.ms
+                        content_fields['theorical_enl'] = last_content.enl
+                        content_fields['theorical_pb'] = last_content.pb
+                        res[content.id] = content_fields
+        return res
 
-    @api.multi
-    def _set_theorical_values(self):
+    def _set_theorical_values(self, cr, uid, id, name, value, arg,
+                              context=None):
+        return self.write(cr, uid, id,
+                          {'manual_setted': True, '_%s' % name: value})
 
-        for content in self:
-            content.write(
-                {'manual_setted': True,
-                 '_theorical_kg_ration': content.theorical_kg_ration,
-                 '_theorical_ms': content.theorical_ms,
-                 '_theorical_enl': content.theorical_enl,
-                 '_theorical_pb': content.theorical_pb})
+    _columns = {
+        'theorical_kg_ration': fields2.function(
+            _get_theorical_values, fnct_inv=_set_theorical_values,
+            type='float', string='Kg/Ration', multi='theo_vals'),
+        'theorical_ms': fields2.function(
+            _get_theorical_values, fnct_inv=_set_theorical_values,
+            type='float', string='%MS', multi='theo_vals'),
+        'theorical_enl': fields2.function(
+            _get_theorical_values, fnct_inv=_set_theorical_values,
+            type='float', string='ENL', multi='theo_vals'),
+        'theorical_pb': fields2.function(
+            _get_theorical_values, fnct_inv=_set_theorical_values,
+            type='float', string='%PB', multi='theo_vals'),
+    }
