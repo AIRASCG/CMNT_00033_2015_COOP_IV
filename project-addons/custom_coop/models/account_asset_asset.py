@@ -42,7 +42,7 @@ class AccountAssetCategory(models.Model):
                                     'Analytic plan')
     subvention_analytic_plan = fields.Many2one(
         'account.analytic.plan.instance', 'Subvention Analytic plan')
-    company_id = fields.Many2one(required=False)
+    company_id = fields.Many2one(required=False, default=False)
 
 
 class AccountAssetAsset(models.Model):

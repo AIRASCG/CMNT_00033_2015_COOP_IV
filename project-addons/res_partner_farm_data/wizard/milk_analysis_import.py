@@ -209,6 +209,8 @@ class MilkAnalysisImport(models.TransientModel):
                 for test_code in test_map.keys():
                     test_val = ast.literal_eval(sample[test_code])['Result']
                     try:
+                        if test_val == '-':
+                            test_val = '0'
                         test_val = float(test_val.replace(',', '.'))
                     except:
                         pass
