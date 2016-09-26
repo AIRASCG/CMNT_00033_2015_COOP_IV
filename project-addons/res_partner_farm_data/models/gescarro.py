@@ -310,7 +310,7 @@ class GescarroData(models.Model):
             with open(file_dir, 'rb') as csv_content:
                 freader = DecodeDictReader(csv_content, delimiter=';',
                                            quotechar='"',
-                                           encoding='iso8859-15')
+                                           encoding='cp1252')
                 line_names = freader.fieldnames[2:]
                 date_field = freader.fieldnames[0]
                 partner_field = freader.fieldnames[1]
