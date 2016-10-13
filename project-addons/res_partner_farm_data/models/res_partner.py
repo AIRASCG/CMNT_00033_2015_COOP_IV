@@ -195,8 +195,9 @@ class ResPartner(models.Model):
         res = super(ResPartner, self).write(vals)
         for partner in self:
             if vals.get('employees_quantity', False):
-
-                if not self.employee_count_ids:
+                current = self.employee_count_ids.filtered(
+                    lambda record: record.state == 'current')
+                if not current:
                     count_args = {
                         'partner_id': self.id,
                         'date': date.today(),
@@ -205,8 +206,6 @@ class ResPartner(models.Model):
                     }
                     self.env['employee.farm.count'].create(count_args)
                 else:
-                    current = self.employee_count_ids.filtered(
-                        lambda record: record.state == 'current')
                     current.sudo().with_context(from_partner=True).\
                         write({'quantity': vals.get('employees_quantity'),
                                'user_id': self.env.user.id})
@@ -215,7 +214,9 @@ class ResPartner(models.Model):
                     vals.get('heifer_plus_12', False) or \
                     vals.get('milk_cow', False) or vals.get('dry_cow', False):
 
-                if not self.cow_count_ids:
+                current = self.cow_count_ids.filtered(
+                    lambda record: record.state == 'current')
+                if not current:
                     count_args = {
                         'partner_id': self.id,
                         'date': date.today(),
@@ -228,8 +229,6 @@ class ResPartner(models.Model):
                     }
                     self.env['cow.count'].create(count_args)
                 else:
-                    current = self.cow_count_ids.filtered(
-                        lambda record: record.state == 'current')
                     current.sudo().with_context(from_partner=True).write({
                         'heifer_0_3': vals.get('heifer_0_3', self.heifer_0_3),
                         'heifer_3_12': vals.get('heifer_3_12',
