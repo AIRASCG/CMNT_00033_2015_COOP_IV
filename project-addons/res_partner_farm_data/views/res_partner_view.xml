@@ -183,6 +183,28 @@
             </field>
         </record>
 
+        <record id="crm_partner_remove_button_leads" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="crm.view_partners_form_crm1"/>
+            <field name="arch" type="xml">
+                <button name="%(crm.crm_case_category_act_oppor11)d" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+            </field>
+        </record>
+
+        <record id="crm_partner_remove_button_call" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="crm.view_partners_form_crm_calls"/>
+            <field name="arch" type="xml">
+                <button name="%(crm.crm_case_categ_phone_incoming0)d" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+            </field>
+        </record>
+
         <record id="res_partner_add_farm_data" model="ir.ui.view">
             <field name="name">res.partner.form</field>
             <field name="model">res.partner</field>
@@ -202,8 +224,13 @@
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
                     <button name="action_locations" icon="fa-map-marker" class="oe_stat_button"
                             string="Locations" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
-                </xpath>
 
+                    <button name="action_private_attachments" icon="fa-file" class="oe_stat_button"
+                            string="Private documents" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_feed,custom_groups.group_tech_sales"/>
+
+                    <button name="action_public_attachments" icon="fa-file" class="oe_stat_button"
+                            string="Public documents" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
+                </xpath>
                 <xpath expr="//page[@name='sales_purchases']/group/group[2]/field[@name='customer']" position="before">
                     <field name="farm"/>
                 </xpath>
@@ -442,5 +469,86 @@
         <delete model="ir.actions.act_window" id="account.act_account_invoice_partner_relation"/>
         <delete model="ir.actions.act_window" id="account.action_account_partner_ledger"/>
         <delete model="ir.actions.report.xml" id="account.action_report_print_overdue"/>
+
+
+        <record id="res_partner_attachment_view_tree" model="ir.ui.view">
+            <field name="name">res.partner.attachment.tree</field>
+            <field name="model">res.partner.attachment</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Attachments">
+                    <field name="author"/>
+                    <field name="upload_date"/>
+                    <field name="cooperative"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_partner_attachment_view_form" model="ir.ui.view">
+            <field name="name">res.partner.attachment.form</field>
+            <field name="model">res.partner.attachment</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Attachment">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="author"/>
+                                <field name="upload_date"/>
+                                <field name="cooperative"/>
+                            </group>
+                            <group>
+                                <field name="description"/>
+                                <field name="recipient_ids" widget="many2many_tags"/>
+                                <field name="private"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_partner_attachment_view_search" model="ir.ui.view">
+            <field name="name">res.partner.attachment.search</field>
+            <field name="model">res.partner.attachment</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                   <field name="description"/>
+                   <field name="author"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="res_partner_attachment_public_action" model="ir.actions.act_window">
+            <field name="name">Public documents</field>
+            <field name="res_model">res.partner.attachment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="res_partner_attachment_view_tree"/>
+            <field name="search_view_id" ref="res_partner_attachment_view_search"/>
+            <field name="domain">[('private', '=', False)]</field>
+        </record>
+
+        <menuitem name="Public documents" parent="custom_menu.documental_management"
+                  action="res_partner_attachment_public_action"
+                  id="res_partner_attachment_public_menu" sequence="1"/>
+
+        <record id="res_partner_attachment_private_action" model="ir.actions.act_window">
+            <field name="name">Private documents</field>
+            <field name="res_model">res.partner.attachment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="res_partner_attachment_view_tree"/>
+            <field name="search_view_id" ref="res_partner_attachment_view_search"/>
+            <field name="domain">[('private', '=', True)]</field>
+        </record>
+
+        <menuitem name="Private documents" parent="custom_menu.documental_management"
+                  action="res_partner_attachment_private_action"
+                  groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_feed,custom_groups.group_tech_sales"
+                  id="res_partner_attachment_private_menu" sequence="2"/>
+
     </data>
 </openerp>

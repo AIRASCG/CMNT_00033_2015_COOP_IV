@@ -590,6 +590,7 @@ msgstr "Superficie declarada"
 #. module: res_partner_farm_data
 #: field:gescarro.data.line,description:0
 #: field:lot.detail,description:0
+#: field:res.partner.attachment,description:0
 #: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
 #: field:res.partner.category,description:0
 msgid "Description"
@@ -2489,3 +2490,57 @@ msgstr "Longitud"
 #: view:lot:res_partner_farm_data.lot_partner_form
 msgid "Get lot data"
 msgstr "Obtener datos en lote"
+
+
+#. module: res_partner_farm_data
+#: view:res.partner.attachment:res_partner_farm_data.res_partner_attachment_view_form
+msgid "Attachment"
+msgstr "Adjunto"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:304
+#: code:addons/res_partner_farm_data/models/res_partner.py:316
+#: view:res.partner.attachment:res_partner_farm_data.res_partner_attachment_view_tree
+#, python-format
+msgid "Attachments"
+msgstr "Adjuntos"
+
+#. module: res_partner_farm_data
+#: field:res.partner.attachment,author:0
+msgid "Author"
+msgstr "Autor"
+
+#. module: res_partner_farm_data
+#: field:res.partner,is_cooperative:0
+#: field:res.partner.attachment,cooperative:0
+msgid "Cooperative"
+msgstr "Cooperativa"
+
+#. module: res_partner_farm_data
+#: field:res.partner.attachment,private:0
+msgid "Private"
+msgstr "Privado"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_attachment_private_action
+#: model:ir.ui.menu,name:res_partner_farm_data.res_partner_attachment_private_menu
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Private documents"
+msgstr "Documentos privados"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_attachment_public_action
+#: model:ir.ui.menu,name:res_partner_farm_data.res_partner_attachment_public_menu
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Public documents"
+msgstr "Documentos públicos"
+
+#. module: res_partner_farm_data
+#: field:res.partner.attachment,upload_date:0
+msgid "Upload date"
+msgstr "Fecha de subida"
+
+#. module: res_partner_farm_data
+#: field:res.partner.attachment,recipient_ids:0
+msgid "recipients"
+msgstr "Destinatarios"

@@ -19,7 +19,7 @@
 #
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
-from datetime import date
+from datetime import datetime, date
 
 
 class ResPartner(models.Model):
@@ -127,6 +127,16 @@ class ResPartner(models.Model):
     total_net_surface = fields.Float(string="Total Net Surface",
                                      readonly=True, multi=True,
                                      compute="_compute_net_surfaces")
+    public_attachment_ids = fields.Many2many(
+        'res.partner.attachment',
+        'res_partner_attachment_rel',
+        'partner_id',
+        'attachment_id', domain=[('private', '=', False)])
+    private_attachment_ids = fields.Many2many(
+        'res.partner.attachment',
+        'res_partner_attachment_rel',
+        'partner_id',
+        'attachment_id', domain=[('private', '=', True)])
 
     @api.one
     @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
@@ -287,6 +297,29 @@ class ResPartner(models.Model):
             'type': 'ir.actions.act_window',
         }
 
+    @api.multi
+    def action_private_attachments(self):
+        return {
+            'domain': "[('id','in'," + str(self.private_attachment_ids.ids) + ")]",
+            'name': _('Attachments'),
+            'context': {'default_private': True, 'default_dest_ids': [(6, 0,[self.id])]},
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'res_model': 'res.partner.attachment',
+            'type': 'ir.actions.act_window',
+        }
+
+    @api.multi
+    def action_public_attachments(self):
+        return {
+            'domain': "[('id','in'," + str(self.public_attachment_ids.ids) + ")]",
+            'name': _('Attachments'),
+            'context': {'default_dest_ids': [(6, 0,[self.id])]},
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'res_model': 'res.partner.attachment',
+            'type': 'ir.actions.act_window',
+        }
 
 class ResPartnerCategory(models.Model):
 
@@ -336,3 +369,18 @@ class ResPartnerPasswd(models.Model):
 
     token = fields.Char('Token')
     expire_time = fields.Datetime('Expire time')
+
+
+class ResPartnerAttachment(models.Model):
+
+    _name = 'res.partner.attachment'
+
+    upload_date = fields.Date(default=lambda self:datetime.now().strftime('%Y-%m-%d'))
+    author = fields.Many2one('res.users', default=lambda self:self.env.user.id)
+    cooperative = fields.Many2one('res.company', default=lambda self:self.env.user.company_id.cooperative_company.id)
+    description = fields.Text()
+    recipient_ids = fields.Many2many('res.partner',
+                                     'res_partner_attachment_rel',
+                                     'attachment_id',
+                                     'partner_id', 'recipients')
+    private = fields.Boolean()

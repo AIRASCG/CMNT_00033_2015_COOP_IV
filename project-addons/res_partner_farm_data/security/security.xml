@@ -52,5 +52,23 @@
             <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]),('company_id', '=', False)]</field>
         </record>
 
+        <record model="ir.rule" id="res_partner_attachment_rancher">
+            <field name="name">rancher partner attachment</field>
+            <field name="groups" eval="[(4, ref('custom_groups.group_rancher'))]"/>
+            <field name="model_id" ref="res_partner_farm_data.model_res_partner_attachment"/>
+            <field name="domain_force">[('recipient_ids','=',user.company_id.partner_id.id), ('private','=',False)]</field>
+        </record>
+
+        <record model="ir.rule" id="res_partner_attachment_tech">
+            <field name="name">tech partner attachment</field>
+            <field name="groups" eval="[(6, 0,
+                                         [ref('custom_groups.group_admin'),
+                                          ref('custom_groups.group_tech_mngnt'),
+                                          ref('custom_groups.group_tech_feed'),
+                                          ref('custom_groups.group_tech_sales')])]"/>
+            <field name="model_id" ref="res_partner_farm_data.model_res_partner_attachment"/>
+            <field name="domain_force">[('cooperative', '=', user.company_id.cooperative_company.id)]</field>
+        </record>
+
     </data>
 </openerp>

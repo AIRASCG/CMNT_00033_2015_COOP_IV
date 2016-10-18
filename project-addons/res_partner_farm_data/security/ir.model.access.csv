@@ -22,3 +22,4 @@ access_milk_farm_line,access_milk_farm_line,model_res_partner_fields,base.group_
 access_gescarro_data,access_gescarro_data,model_gescarro_data,base.group_user,1,1,1,1
 access_gescarro_data_line,access_gescarro_data_line,model_gescarro_data_line,base.group_user,1,1,1,1
 access_milk_control_report,access_milk_control_report,model_milk_control_report,base.group_user,1,1,1,1
+access_res_partner_attachment,access_res_partner_attachment,model_res_partner_attachment,base.group_user,1,1,1,1
