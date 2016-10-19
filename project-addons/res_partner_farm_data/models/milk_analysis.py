@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api, exceptions, _, tools
 
 
 class MilkAnalysis(models.Model):
@@ -53,7 +53,9 @@ class MilkAnalysisLine(models.Model):
     sample_date = fields.Date('Sample date')
     reception_date = fields.Date('Reception date')
     analysis_date = fields.Date('Analysis date')
-    state = fields.Selection((('accepted', 'Accepted'), ('rejected', 'Rejected'), ('waiting', 'Waiting')), 'State')
+    state = fields.Selection((('accepted', 'Accepted'),
+                              ('rejected', 'Rejected'),
+                              ('waiting', 'Waiting')), 'State')
     fat = fields.Float('Fat')
     protein = fields.Float('Protein')
     dry_extract = fields.Float('Dry extract')
@@ -62,3 +64,34 @@ class MilkAnalysisLine(models.Model):
     inhibitors = fields.Char('Inhibitors')
     cryoscope = fields.Float('Cryoscope')
     urea = fields.Float('Urea')
+
+
+
+class MilkAnalysisReport(models.Model):
+
+    _name = 'milk.analysis.report'
+    _auto = False
+
+    exploitation_id = fields.Many2one('res.partner')
+    date = fields.Date()
+    state = fields.Selection((('accepted', 'Accepted'),
+                              ('rejected', 'Rejected'),
+                              ('waiting', 'Waiting')))
+    fat = fields.Float()
+    protein = fields.Float()
+    dry_extract = fields.Float()
+    bacteriology = fields.Char()
+    cs = fields.Float('CS')
+    inhibitors = fields.Char()
+    cryoscope = fields.Float()
+    urea = fields.Float()
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, self._table)
+        cr.execute("""CREATE VIEW milk_analysis_report as(
+SELECT l.fat as fat, l.protein as protein, l.dry_extract as dry_extract,
+       l.bacteriology as bacteriology, l.cs as cs, l.inhibitors as inhibitors,
+       l.cryoscope as cryoscope, l.urea as urea, l.sample_date as date,
+       m.exploitation_id as exploitation_id, l.id as id, l.state as state
+FROM milk_analysis_line l join milk_analysis m on l.analysis_id = m.id
+)""")

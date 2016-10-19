@@ -224,10 +224,11 @@
                             context="{'search_default_farm_id': active_id,'default_farm_id': active_id}"/>
                     <button name="action_locations" icon="fa-map-marker" class="oe_stat_button"
                             string="Locations" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
+                    <button name="action_milk_analysis_report" icon="fa-flask" class="oe_stat_button"
+                            string="Milk analysis" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
 
                     <button name="action_private_attachments" icon="fa-file" class="oe_stat_button"
                             string="Private documents" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_feed,custom_groups.group_tech_sales"/>
-
                     <button name="action_public_attachments" icon="fa-file" class="oe_stat_button"
                             string="Public documents" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
                 </xpath>
@@ -542,6 +543,7 @@
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="res_partner_attachment_view_tree"/>
             <field name="search_view_id" ref="res_partner_attachment_view_search"/>
+            <field name="context">{'default_private': True}</field>
             <field name="domain">[('private', '=', True)]</field>
         </record>
 

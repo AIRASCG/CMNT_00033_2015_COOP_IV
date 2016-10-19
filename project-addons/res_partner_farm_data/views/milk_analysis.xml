@@ -111,5 +111,24 @@
             <field name="search_view_id" ref="milk_analysis_filter"/>
         </record>
 
+        <record id="milk_analysis_report_view_tree" model="ir.ui.view">
+            <field name="name">milk.analysis.report.tree</field>
+            <field name="model">milk.analysis.report</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Milk analysis" create="false">
+                    <field name="date"/>
+                    <field name="state"/>
+                    <field name="fat"/>
+                    <field name="protein"/>
+                    <field name="dry_extract"/>
+                    <field name="bacteriology"/>
+                    <field name="cs"/>
+                    <field name="inhibitors"/>
+                    <field name="cryoscope"/>
+                    <field name="urea"/>
+                </tree>
+            </field>
+        </record>
     </data>
 </openerp>

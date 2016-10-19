@@ -185,6 +185,7 @@ msgstr "Consumo medio anual"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,bacteriology:0
+#: field:milk.analysis.report,bacteriology:0
 msgid "Bacteriology"
 msgstr "Bacteriología"
 
@@ -519,6 +520,7 @@ msgstr "Creado el"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,cryoscope:0
+#: field:milk.analysis.report,cryoscope:0
 msgid "Cryoscope"
 msgstr "Crioscópico"
 
@@ -566,11 +568,12 @@ msgstr "Empresa láctea"
 #: field:cost.imputation,date:0
 #: field:cow.count,date:0
 #: field:employee.farm.count,date:0
+#: field:gescarro.data,date:0
 #: field:lot,date:0
 #: field:lot.detail,date:0
 #: field:lot.partner,date:0
-#: field:gescarro.data,date:0
 #: field:milk.analysis,date:0
+#: field:milk.analysis.report,date:0
 #: field:milk.control,date:0
 #: field:output.quota,date:0
 #: field:yearly.data,date:0
@@ -636,6 +639,7 @@ msgstr "Vacas secas"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,dry_extract:0
+#: field:milk.analysis.report,dry_extract:0
 msgid "Dry extract"
 msgstr "Extracto seco"
 
@@ -863,6 +867,7 @@ msgstr "Explotaciones"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,fat:0
+#: field:milk.analysis.report,fat:0
 msgid "Fat"
 msgstr "Grasa"
 
@@ -1077,6 +1082,7 @@ msgstr "Ingrediente"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,inhibitors:0
+#: field:milk.analysis.report,inhibitors:0
 msgid "Inhibitors"
 msgstr "Inhibidores"
 
@@ -1363,10 +1369,14 @@ msgid "Milk"
 msgstr "Leche"
 
 #. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:328
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_milk_analysis
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_filter
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_tree
+#: view:milk.analysis.report:res_partner_farm_data.milk_analysis_report_view_tree
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#, python-format
 msgid "Milk analysis"
 msgstr "Análisis de leche"
 
@@ -1674,6 +1684,7 @@ msgstr "Orientación productiva"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,protein:0
+#: field:milk.analysis.report,protein:0
 msgid "Protein"
 msgstr "Proteína"
 
@@ -1869,6 +1880,7 @@ msgstr "Almidón"
 #: field:lot.partner,state:0
 #: field:milk.analysis,state:0
 #: field:milk.analysis.line,state:0
+#: field:milk.analysis.report,state:0
 #: field:milk.control,state:0
 #: field:output.quota,state:0
 #: field:yearly.data,state:0
@@ -2107,8 +2119,12 @@ msgid "UFL"
 msgstr "UFL"
 
 #. module: res_partner_farm_data
+#: field:lot,urea:0
 #: field:milk.analysis.line,urea:0
+#: field:milk.analysis.report,urea:0
 #: field:milk.control.line,urea:0
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
 msgid "Urea"
 msgstr "Urea"
 
