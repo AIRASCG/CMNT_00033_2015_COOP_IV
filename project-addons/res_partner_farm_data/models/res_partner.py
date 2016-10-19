@@ -385,13 +385,18 @@ class ResPartnerPasswd(models.Model):
 class ResPartnerAttachment(models.Model):
 
     _name = 'res.partner.attachment'
+    _rec_name = "description"
 
-    upload_date = fields.Date(default=lambda self:datetime.now().strftime('%Y-%m-%d'))
-    author = fields.Many2one('res.users', default=lambda self:self.env.user.id)
-    cooperative = fields.Many2one('res.company', default=lambda self:self.env.user.company_id.cooperative_company.id)
+    upload_date = fields.Date(default=lambda self:datetime.now().strftime('%Y-%m-%d'),
+                              required=True)
+    author = fields.Many2one('res.users', default=lambda self:self.env.user.id,
+                             required=True)
+    cooperative = fields.Many2one('res.company', default=lambda self:self.env.user.company_id.cooperative_company.id,
+                                  required=True)
     description = fields.Text()
     recipient_ids = fields.Many2many('res.partner',
                                      'res_partner_attachment_rel',
                                      'attachment_id',
-                                     'partner_id', 'recipients')
+                                     'partner_id', 'recipients',
+                                     domain=[('farm', '=', True)])
     private = fields.Boolean()

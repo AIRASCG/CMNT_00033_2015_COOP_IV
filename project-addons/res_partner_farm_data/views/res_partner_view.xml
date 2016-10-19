@@ -497,7 +497,7 @@
                             <group>
                                 <field name="author"/>
                                 <field name="upload_date"/>
-                                <field name="cooperative"/>
+                                <field name="cooperative" domain="[('is_cooperative', '=', True)]"/>
                             </group>
                             <group>
                                 <field name="description"/>
