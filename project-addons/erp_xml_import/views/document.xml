@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="erp_document_view_tree" model="ir.ui.view">
+            <field name="name">erp.document.tree</field>
+            <field name="model">erp.document</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Documents" colors="blue:state=='new'; green:state=='imported'; red:state=='error'">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="erp_document_view_form" model="ir.ui.view">
+            <field name="name">erp.document.form</field>
+            <field name="model">erp.document</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Document">
+                    <header>
+                        <button string="test" name="import_files" type="object"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="type"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Document">
+                                <field name="document"/>
+                            </page>
+                            <page string="Errors">
+                                <field name="errors" readonly="1"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="erp_document_view_search" model="ir.ui.view">
+            <field name="name">erp.document.search</field>
+            <field name="model">erp.document</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                   <field name="name"/>
+                   <filter name="not_imported" string="Not imported" domain="[('state', 'in', ('new', 'error'))]" context="{}"/>
+                   <group expand="0" string="Group By">
+                       <filter string="State" domain="[]" context="{'group_by':'state'}"/>
+                   </group>
+
+               </search>
+            </field>
+        </record>
+
+        <record id="erp_document_action" model="ir.actions.act_window">
+            <field name="name">Erp importation documents</field>
+            <field name="res_model">erp.document</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="erp_document_view_tree"/>
+            <field name="search_view_id" ref="erp_document_view_search"/>
+            <field name="context">{'search_default_not_imported': 1}</field>
+        </record>
+
+        <menuitem parent="custom_menu.documental_management" action="erp_document_action" id="erp_document_menu" groups="custom_menu.group_standard_menus"/>
+
+    </data>
+</openerp>

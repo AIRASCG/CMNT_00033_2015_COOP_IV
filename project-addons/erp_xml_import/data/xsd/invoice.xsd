@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="create_invoice">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="invoice" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="codigo_empresa" minOccurs="1" maxOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="16"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="numero" minOccurs="1" maxOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="24"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="fecha_factura" minOccurs="1" maxOccurs="1" type="xs:date"/>
+                            <xs:element name="notas" minOccurs="0" maxOccurs="1" type="xs:string"/>
+                            <xs:element name="codigo_explo" minOccurs="1" maxOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:maxLength value="16"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="tipo" minOccurs="1" maxOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="venta"/>
+                                        <xs:enumeration value="compra"/>
+                                        <xs:enumeration value="abono_venta"/>
+                                        <xs:enumeration value="abono_compra"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="eliminar" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="lines" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="line" minOccurs="1" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="referencia_interna" minOccurs="0" maxOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="16"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="concepto" minOccurs="1" maxOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="128"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="cantidad" minOccurs="1" maxOccurs="1" type="xs:decimal"/>
+                                                    <xs:element name="precio_unidad" minOccurs="1" maxOccurs="1" type="xs:decimal"/>
+                                                    <xs:element name="descuento" minOccurs="1" maxOccurs="1" type="xs:decimal"/>
+                                                    <xs:element name="taxes" minOccurs="0" maxOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="tax" minOccurs="1" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="tipo_aplicado" minOccurs="1" maxOccurs="1" type="xs:decimal"/>
+                                                                            <xs:element name="tipo" minOccurs="1" maxOccurs="1">
+                                                                                <xs:simpleType>
+                                                                                    <xs:restriction base="xs:string">
+                                                                                        <xs:enumeration value="venta"/>
+                                                                                        <xs:enumeration value="compra"/>
+                                                                                        <xs:enumeration value="recargo_eq"/>
+                                                                                        <xs:enumeration value="irpf"/>
+                                                                                    </xs:restriction>
+                                                                                </xs:simpleType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

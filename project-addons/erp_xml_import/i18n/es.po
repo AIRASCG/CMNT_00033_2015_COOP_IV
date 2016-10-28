@@ -1,0 +1,205 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * erp_xml_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-28 12:42+0000\n"
+"PO-Revision-Date: 2016-10-28 12:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:41
+#: code:addons/erp_xml_import/models/document.py:65
+#, python-format
+msgid "Code error"
+msgstr "Code error"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:41
+#, python-format
+msgid "Cooperative with code %s not found"
+msgstr "Cooperativa con código %s no encontrada"
+
+#. module: erp_xml_import
+#: field:erp.document,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: erp_xml_import
+#: field:erp.document,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: erp_xml_import
+#: field:erp.document,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: erp_xml_import
+#: view:erp.document:erp_xml_import.erp_document_view_form
+#: field:erp.document,document:0
+msgid "Document"
+msgstr "Documento"
+
+#. module: erp_xml_import
+#: view:erp.document:erp_xml_import.erp_document_view_tree
+msgid "Documents"
+msgstr "Documentos"
+
+#. module: erp_xml_import
+#: model:ir.actions.act_window,name:erp_xml_import.erp_document_action
+#: model:ir.ui.menu,name:erp_xml_import.erp_document_menu
+msgid "Erp importation documents"
+msgstr "Documentos importados de ERP externo"
+
+#. module: erp_xml_import
+#: selection:erp.document,state:0
+msgid "Error"
+msgstr "Error"
+
+#. module: erp_xml_import
+#: view:erp.document:erp_xml_import.erp_document_view_form
+#: field:erp.document,errors:0
+msgid "Errors"
+msgstr "Errores"
+
+#. module: erp_xml_import
+#: view:erp.document:erp_xml_import.erp_document_view_search
+msgid "Group By"
+msgstr "Group By"
+
+#. module: erp_xml_import
+#: field:erp.document,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: erp_xml_import
+#: selection:erp.document,state:0
+msgid "Imported"
+msgstr "Importado"
+
+#. module: erp_xml_import
+#: selection:erp.document,type:0
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:99
+#, python-format
+msgid "Invoice exists"
+msgstr "Invoice exists"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:99
+#, python-format
+msgid "Invoice with number %s already exists"
+msgstr "La factura con número %s ya existe"
+
+#. module: erp_xml_import
+#: field:erp.document,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: erp_xml_import
+#: field:erp.document,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: erp_xml_import
+#: field:erp.document,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: erp_xml_import
+#: field:erp.document,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: erp_xml_import
+#: selection:erp.document,state:0
+msgid "New"
+msgstr "Nuevo"
+
+#. module: erp_xml_import
+#: view:erp.document:erp_xml_import.erp_document_view_search
+msgid "Not imported"
+msgstr "No importado"
+
+#. module: erp_xml_import
+#: selection:erp.document,type:0
+msgid "Partner"
+msgstr "Partner"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:102
+#: code:addons/erp_xml_import/models/document.py:106
+#, python-format
+msgid "Partner with code %s not found"
+msgstr "Partner con código %s no existe"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:119
+#, python-format
+msgid "Product with code %s not found"
+msgstr "Producto con código %s no existe"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:119
+#: code:addons/erp_xml_import/models/document.py:158
+#, python-format
+msgid "Reference error"
+msgstr "Reference error"
+
+#. module: erp_xml_import
+#: view:erp.document:erp_xml_import.erp_document_view_search
+#: field:erp.document,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:65
+#, python-format
+msgid "State with code %s not found"
+msgstr "Provincia con código %s no encontrada"
+
+#. module: erp_xml_import
+#: field:erp.document,type:0
+msgid "Type"
+msgstr "Tipo"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:292
+#, python-format
+msgid "Type not found: xsd not found in xml file"
+msgstr "Tipo no encontrado: xsd no encontrado en fichero xml"
+
+#. module: erp_xml_import
+#: selection:erp.document,type:0
+msgid "Undefined"
+msgstr "Indefinido"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:102
+#: code:addons/erp_xml_import/models/document.py:106
+#, python-format
+msgid "partner not found"
+msgstr "Partner no encontrado"
+
+#. module: erp_xml_import
+#: code:addons/erp_xml_import/models/document.py:158
+#, python-format
+msgid "tax with type %s and amount %s not found"
+msgstr "Impuesto con tipo %s e importe %s no encontrado"
+
+#. module: erp_xml_import
+#: view:erp.document:erp_xml_import.erp_document_view_form
+msgid "test"
+msgstr "test"
