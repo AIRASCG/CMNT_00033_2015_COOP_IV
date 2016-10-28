@@ -142,7 +142,7 @@
             <field name="inherit_id" ref="delete_vat_partner"/>
             <field name="arch" type="xml">
                 <page name="accounting" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="groups">custom_menu.group_standard_menus</attribute>
                 </page>
                 <field name="title" position="after">
                     <label for="vat"/>
@@ -166,7 +166,7 @@
                 <field name="ref" position="replace"/>
                 <field name="active" position="replace"/>
                 <page name="sales_purchases" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="groups">custom_menu.group_standard_menus</attribute>
                 </page>
                 <field name="website" position="after">
                     <field name="ref"/>

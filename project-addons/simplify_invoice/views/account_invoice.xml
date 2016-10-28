@@ -61,7 +61,7 @@
                     <field name="partner_bank_id" invisible="1"/>
                 </field>
                 <page string="Other Info" position="attributes">
-                    <attribute name="invisible">1</attribute>
+                    <attribute name="groups">custom_menu.group_standard_menus</attribute>
                 </page>
             </field>
         </record>
