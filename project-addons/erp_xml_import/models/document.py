@@ -326,7 +326,7 @@ class ErpXmlDocument(models.Model):
                 to_file = '%s%s%s' % (final_folder, os.sep, doc.name)
                 os.rename(from_file, to_file)
 
-    @api.multi
+    @api.model
     def import_files(self):
         folders = [x.xml_route for x in self.env['res.company'].search(
             [('xml_route', '!=', False)])]
