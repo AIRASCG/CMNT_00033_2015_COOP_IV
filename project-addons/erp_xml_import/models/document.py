@@ -2,11 +2,13 @@
 # © 2016 Comunitea
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _
+from openerp import models, fields, api, _, exceptions
+from openerp.modules.registry import RegistryManager
 from lxml import etree
 import os
 import errno
 import logging
+import codecs
 from StringIO import StringIO
 from datetime import datetime
 _logger = logging.getLogger(__name__)
@@ -64,7 +66,7 @@ class ErpXmlDocument(models.Model):
             partner_data['phone'] = partner['tlfn']
         if 'poblacion' in partner.keys():
             partner_data['city'] = partner['poblacion']
-        if 'cod_provincia' in partner.keys():
+        if 'cod_provincia' in partner.keys() and partner['cod_provincia']:
             state = self.env['res.country.state'].search(
                 [('code', '=', partner['cod_provincia'])])
             if not state:
@@ -174,7 +176,7 @@ class ErpXmlDocument(models.Model):
                     'abono_compra': 'P'
                 }
                 if tax['tipo'] == 'venta':
-                    tax_code = 'S_IVA%s_BC' % \
+                    tax_code = 'S_IVA%sB' % \
                         str(int(float(tax['tipo_aplicado'])))
                 elif tax['tipo'] == 'compra':
                     tax_code = 'P_IVA%s_BC' % \
@@ -186,15 +188,15 @@ class ErpXmlDocument(models.Model):
                     tax_type = invoice_type_to_tax_type[invoice['tipo']]
                     tax_code = '%s_IRPF%s' % \
                         (tax_type, str(int(float(tax['tipo_aplicado']))))
-                tax = self.env['account.tax'].search(
+                tax_r = self.env['account.tax'].search(
                     [('description', 'ilike', tax_code),
                      ('company_id', '=', invoice_data['company_id'])])
-                if not tax:
+                if not tax_r:
                     raise Exception(
                         _('Reference error'),
-                        _('tax with type %s and amount %s not found') %
-                        (tax['tipo'], tax['tipo_aplicado']))
-                taxes.append(tax.id)
+                        _('tax with type %s and amount %s not found for the company %s') %
+                        (tax['tipo'], tax['tipo_aplicado'], invoice_data['company_id']))
+                taxes.append(tax_r.id)
             if taxes:
                 line_data['invoice_line_tax_id'] = [(6, 0, taxes)]
             invoice_data['invoice_line'].append((0, 0, line_data))
@@ -216,77 +218,96 @@ class ErpXmlDocument(models.Model):
 
     @api.model
     def import_data(self):
+
         docs = self.search([('state', 'in', ('new', 'error')),
                             ('type', '!=', 'undefined')])
         data_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                     '..', 'data'))
         for doc in docs:
-            with_errors = False
-            if not doc.document:
-                continue
-            schema_file = doc.type == 'partner' and 'xsd/partner.xsd' or \
-                'xsd/invoice.xsd'
-            schema_file = '%s%s%s' % (data_path, os.sep, schema_file)
-            with open(schema_file, 'r') as f:
-                xmlschema_doc = etree.parse(f)
-                xmlschema = etree.XMLSchema(xmlschema_doc)
-                f2 = StringIO(doc.document.encode('utf-8'))
-                xml_doc = etree.parse(f2)
-                try:
-                    xmlschema.assertValid(xml_doc)
-                except etree.DocumentInvalid as e:
-                    doc.errors += '\n%s' % str(e)
-                    doc.state = 'error'
-                    continue
-                if doc.type == 'partner':
-                    for partner_element in xml_doc.getroot().iter('partner'):
-                        partner = {}
-                        for el in partner_element.iter():
-                            if el.tag in ('cliente', 'proveedor',
-                                          'explotacion', 'activo'):
-                                partner[el.tag] = bool(int(el.text))
-                            else:
-                                partner[el.tag] = el.text
+            with_error = False
+            with api.Environment.manage():
+                with RegistryManager.get(self.env.cr.dbname).cursor() as new_cr:
+                    new_env = api.Environment(new_cr, self.env.uid, self.env.context)
+                    #Se hace browse con un env diferente para guardar cambios
+                    doc_ = self.with_env(new_env).browse(doc.id)
+                    if not doc.document:
+                        continue
+                    schema_file = doc.type == 'partner' and 'xsd/partner.xsd' or \
+                        'xsd/invoice.xsd'
+                    schema_file = '%s%s%s' % (data_path, os.sep, schema_file)
+                    with open(schema_file, 'r') as f:
+                        xmlschema_doc = etree.parse(f)
+                        xmlschema = etree.XMLSchema(xmlschema_doc)
+                        f2 = StringIO(doc.document.encode('utf-8'))
+                        xml_doc = etree.parse(f2)
                         try:
-                            doc.parse_partner(partner)
-                        except Exception as e:
+                            xmlschema.assertValid(xml_doc)
+                        except etree.DocumentInvalid as e:
                             doc.errors += '\n%s' % str(e)
                             doc.state = 'error'
-                elif doc.type == 'invoice':
-                    for invoice_element in \
-                            xml_doc.getroot().iterchildren('invoice'):
-                        invoice = {}
-                        for el in invoice_element.iterchildren():
-                            if el.tag in ('eliminar'):
-                                invoice[el.tag] = bool(int(el.text))
-                            elif el.tag == 'lines':
-                                invoice[el.tag] = []
-                                for il in el.iterchildren(tag='line'):
-                                    line = {}
-                                    for il_el in il.iterchildren():
-                                        if il_el.tag == 'taxes':
-                                            line['taxes'] = []
-                                            for tax_l in il_el.iterchildren(
-                                                    tag='tax'):
-                                                tax = {}
-                                                for tax_l in \
-                                                        tax_l.iterchildren():
-                                                    tax[tax_l.tag] = tax_l.text
-                                                line['taxes'].append(tax)
+                            with_error = True
+                            continue
+                        if doc.type == 'partner':
+                            for partner_element in xml_doc.getroot().iter('partner'):
+                                if with_error:
+                                    break
+                                partner = {}
+                                for el in partner_element.iter():
+                                    if el.tag in ('cliente', 'proveedor',
+                                                  'explotacion', 'activo'):
+                                        partner[el.tag] = bool(int(el.text))
+                                    else:
+                                        partner[el.tag] = el.text
+                                try:
+                                    doc_.parse_partner(partner)
+                                except Exception as e:
+                                    doc.errors += '\n%s' % str(e)
+                                    doc.state = 'error'
+                                    new_env.cr.rollback()
+                                    with_error = True
+                                    continue
 
-                                        else:
-                                            line[il_el.tag] = il_el.text
-                                    invoice[el.tag].append(line)
-                            else:
-                                invoice[el.tag] = el.text
-                        try:
-                            doc.parse_invoice(invoice)
-                        except Exception as e:
-                            doc.errors += '\n%s' % str(e)
-                            doc.state = 'error'
-                            with_errors = True
-            if not with_errors:
-                doc.state = 'imported'
+                        elif doc.type == 'invoice':
+                            for invoice_element in \
+                                    xml_doc.getroot().iterchildren('invoice'):
+                                if with_error:
+                                    break
+                                invoice = {}
+                                for el in invoice_element.iterchildren():
+                                    if el.tag in ('eliminar'):
+                                        invoice[el.tag] = bool(int(el.text))
+                                    elif el.tag == 'lines':
+                                        invoice[el.tag] = []
+                                        for il in el.iterchildren(tag='line'):
+                                            line = {}
+                                            for il_el in il.iterchildren():
+                                                if il_el.tag == 'taxes':
+                                                    line['taxes'] = []
+                                                    for tax_l in il_el.iterchildren(
+                                                            tag='tax'):
+                                                        tax = {}
+                                                        for tax_l in \
+                                                                tax_l.iterchildren():
+                                                            tax[tax_l.tag] = tax_l.text
+                                                        line['taxes'].append(tax)
+
+                                                else:
+                                                    line[il_el.tag] = il_el.text
+                                            invoice[el.tag].append(line)
+                                    else:
+                                        invoice[el.tag] = el.text
+
+                                try:
+                                    doc_.parse_invoice(invoice)
+                                except Exception as e:
+                                    doc.errors += '\n%s' % str(e)
+                                    doc.state = 'error'
+                                    new_env.cr.rollback()
+                                    with_error = True
+                                    continue
+                    if not with_error:
+                        doc.state = 'imported'
+                        new_env.cr.commit()
 
     @api.multi
     def move_imported_files(self, importation_folder, process_folder):
@@ -307,46 +328,49 @@ class ErpXmlDocument(models.Model):
 
     @api.multi
     def import_files(self):
-        folder = self.env['ir.config_parameter'].get_param('erpxml.folder')
-        if not folder:
-            _logger.error('Not found config parameter erpxml.folder')
-            return
-        importation_folder = '%s%slecturas' % (folder, os.sep)
-        process_folder = '%s%sprocesados' % (folder, os.sep)
-        if 'lecturas' not in os.listdir(folder):
-            os.mkdir(importation_folder)
-        if 'procesados' not in os.listdir(folder):
-            os.mkdir(process_folder)
-        import_files = [x for x in os.listdir(importation_folder)
-                        if x.endswith('.xml')]
-        docs = self.env['erp.document']
-        for import_file in import_files:
-            errors = []
-            doc = self.env['erp.document'].search(
-                [('name', '=', import_file),
-                 ('state', 'in', ('new', 'error'))])
-            if not doc:
-                doc_vals = {
-                    'name': import_file,
-                    'state': 'new',
-                }
-                doc = self.env['erp.document'].create(doc_vals)
-            docs += doc
-            with open('%s%s%s' % (importation_folder, os.sep, import_file),
-                      'r') as f:
-                doc_content = f.read()
-                if 'partner.xsd' in doc_content:
-                    type = 'partner'
-                elif 'invoice.xsd' in doc_content:
-                    type = 'invoice'
-                else:
-                    errors.append(
-                        _('Type not found: xsd not found in xml file'))
-                    type = 'undefined'
-                state = 'new'
-                if errors:
-                    state = 'error'
-                doc.write({'type': type, 'document': doc_content,
-                           'errors': '\n'.join(errors), 'state': state})
-        self.import_data()
-        docs.move_imported_files(importation_folder, process_folder)
+        folders = [x.xml_route for x in self.env['res.company'].search(
+            [('xml_route', '!=', False)])]
+        for folder in folders:
+            if not folder:
+                _logger.error('Not found config parameter erpxml.folder')
+                return
+            importation_folder = '%s%slecturas' % (folder, os.sep)
+            process_folder = '%s%sprocesados' % (folder, os.sep)
+            if 'lecturas' not in os.listdir(folder):
+                os.mkdir(importation_folder)
+            if 'procesados' not in os.listdir(folder):
+                os.mkdir(process_folder)
+            import_files = [x for x in os.listdir(importation_folder)
+                            if x.endswith('.xml')]
+            docs = self.env['erp.document']
+            for import_file in import_files:
+                errors = []
+                doc = self.env['erp.document'].search(
+                    [('name', '=', import_file),
+                     ('state', 'in', ('new', 'error'))])
+                if not doc:
+                    doc_vals = {
+                        'name': import_file,
+                        'state': 'new',
+                    }
+                    doc = self.env['erp.document'].create(doc_vals)
+                docs += doc
+                with codecs.open(
+                        '%s%s%s' % (importation_folder, os.sep, import_file),
+                        'r', 'iso-8859-1') as f:
+                    doc_content = f.read()
+                    if 'partner.xsd' in doc_content:
+                        type = 'partner'
+                    elif 'invoice.xsd' in doc_content:
+                        type = 'invoice'
+                    else:
+                        errors.append(
+                            _('Type not found: xsd not found in xml file'))
+                        type = 'undefined'
+                    state = 'new'
+                    if errors:
+                        state = 'error'
+                    doc.write({'type': type, 'document': doc_content,
+                               'errors': '\n'.join(errors), 'state': state})
+            self.import_data()
+            docs.move_imported_files(importation_folder, process_folder)

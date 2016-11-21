@@ -39,7 +39,7 @@
                                     </xs:restriction>
                                 </xs:simpleType>
                             </xs:element>
-                            <xs:element name="eliminar" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+                            <xs:element name="eliminar" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
                             <xs:element name="lines" minOccurs="1" maxOccurs="1">
                                 <xs:complexType>
                                     <xs:sequence>
