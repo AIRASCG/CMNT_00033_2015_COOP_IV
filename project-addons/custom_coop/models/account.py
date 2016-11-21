@@ -20,6 +20,12 @@
 ##############################################################################
 from openerp import models, fields, api, exceptions, _
 
+class AccountAccount(models.Model):
+
+    _inherit = 'account.account'
+
+    _parent_store = False
+
 
 class AccountChartTemplate(models.Model):
 
