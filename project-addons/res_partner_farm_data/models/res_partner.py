@@ -142,6 +142,7 @@ class ResPartner(models.Model):
     @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
                  'use_pm', 'total_net_surface')
     def _compute_net_surfaces(self):
+        import ipdb; ipdb.set_trace()
         use_obj = self.env['res.partner.fields']
         if self._context.get('use_year', False):
             cur_year = self._context.get('use_year', False) and \
@@ -342,7 +343,7 @@ class ResPartnerCategory(models.Model):
                                   'category_id', 'partner_id', 'Partners')
 
 
-class ResPartnerFarmData(models.Model):
+class ResPartnerFields(models.Model):
     _name = 'res.partner.fields'
     _rec_name = 'location_name'
 
@@ -352,7 +353,7 @@ class ResPartnerFarmData(models.Model):
     added = fields.Boolean("Added")
     zone = fields.Integer("Zone")
     industrial_estate = fields.Char("Industrial Estate")
-    # plot = fields.Char("Plot")
+    plot = fields.Char("Plot")
     enclosure = fields.Char("Enclosure")
     use = fields.Selection(
         (('FO', 'Forest'),

@@ -14,7 +14,7 @@
                 <field name="added"/>
                 <field name="zone"/>
                 <field name="industrial_estate"/>
-                <!-- <field name="plot"/> -->
+                <field name="plot"/>
                 <field name="enclosure"/>
                 <field name="use"/>
                 <field name="sixpac_surface"/>
@@ -46,7 +46,7 @@
                             <field name="added"/>
                             <field name="zone"/>
                             <field name="industrial_estate"/>
-                            <!-- <field name="plot"/> -->
+                            <field name="plot"/>
                             <field name="enclosure"/>
                             <field name="use"/>
                             <field name="sixpac_surface"/>

@@ -43,14 +43,14 @@ class FieldsImport(models.TransientModel):
         for line in range(1, sh.nrows):
             row = sh.row_values(line)
             partner_id = self.env['res.partner'].search(
-                [('ref', '=', str(int(row[0])))])
+                [('ref', '=', row[0])])
             if not partner_id:
                 raise exceptions.Warning(
                     _('Partner not found'),
-                    _('Partner with code %s not found') % str(int(row[0])))
+                    _('Partner with code %s not found') % row[0])
             control_vals = {'partner_id': partner_id[0].id}
             province_ids = self.env['res.country.state'].search(
-                [('code', '=', str(int(row[0])))])
+                [('code', '=', row[0])])
             control_vals['year'] = self.year
             control_vals['province_id'] = province_ids and \
                 province_ids[0].id or False
@@ -61,8 +61,8 @@ class FieldsImport(models.TransientModel):
                 control_vals['added'] = True
             control_vals['zone'] = int(row[4])
             control_vals['industrial_estate'] = str(int(row[5]))
-            # control_vals['plot'] = str(int(row[6]))
-            control_vals['enclosure'] = str(int(row[7]))
+            control_vals['plot'] = str(int(row[6]))
+            control_vals['enclosure'] = row[7]
             control_vals['use'] = row[8]
             control_vals['sixpac_surface'] = row[9]
             control_vals['cap'] = row[10]

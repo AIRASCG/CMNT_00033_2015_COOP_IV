@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, api, _
+from openerp import models, fields, api, _
 
 
 class ResCompany(models.Model):
@@ -29,6 +29,8 @@ class ResCompany(models.Model):
         ('name_uniq', 'unique(name)',
          _('A company with the same name already exists'))
     ]
+
+    xml_route = fields.Char()
 
     @api.one
     def _get_not_configured_accounting(self):
