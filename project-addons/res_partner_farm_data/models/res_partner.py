@@ -142,7 +142,6 @@ class ResPartner(models.Model):
     @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
                  'use_pm', 'total_net_surface')
     def _compute_net_surfaces(self):
-        import ipdb; ipdb.set_trace()
         use_obj = self.env['res.partner.fields']
         if self._context.get('use_year', False):
             cur_year = self._context.get('use_year', False) and \
