@@ -436,7 +436,7 @@
             <field name="inherit_id" ref="account.partner_view_buttons"/>
             <field name="arch" type="xml">
                 <button name="%(account.action_invoice_refund_out_tree)d" position="attributes">
-                    <attribute name="attrs">{'invisible': [('customer', '=', False), ('farm', '=', False)]}</attribute>
+                    <attribute name="attrs">{'invisible': ['|', ('customer', '=', False), ('farm', '=', True)]}</attribute>
                 </button>
             </field>
         </record>

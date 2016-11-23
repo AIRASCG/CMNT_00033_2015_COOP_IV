@@ -16,5 +16,19 @@
             </field>
         </record>
 
+        <record id="calendar.action_view_calendar_event_tree" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="calendar.action_calendar_event"/>
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="calendar.view_calendar_event_tree"/>
+        </record>
+
+        <record id="calendar.action_view_calendar_event_calendar" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="calendar.action_calendar_event"/>
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="calendar.view_calendar_event_calendar"/>
+        </record>
+
     </data>
 </openerp>

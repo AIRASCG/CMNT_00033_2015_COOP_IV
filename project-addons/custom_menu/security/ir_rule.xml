@@ -5,13 +5,20 @@
         <record model="ir.rule" id="auditlog_tech">
             <field name="name">auditlog - tech</field>
             <field name="model_id" search="[('model','=','auditlog.log')]" model="ir.model"/>
-                        <field name="groups" eval="[(6, 0, [
-                                                       ref('custom_groups.group_tech_mngnt'),
-                                                       ref('custom_groups.group_tech_feed'),
-                                                       ref('custom_groups.group_tech_sales'),
-                                                   ])]"/>
+            <field name="groups" eval="[(6, 0, [
+                                           ref('custom_groups.group_tech_mngnt'),
+                                           ref('custom_groups.group_tech_feed'),
+                                           ref('custom_groups.group_tech_sales'),
+                                       ])]"/>
              <field name="global" eval="0"/>
             <field name="domain_force">[('user_id', '=', user.id)]</field>
+        </record>
+
+        <record model="ir.rule" id="auditlog_multicompany">
+            <field name="name">auditlog - tech</field>
+            <field name="model_id" search="[('model','=','auditlog.log')]" model="ir.model"/>
+             <field name="global" eval="1"/>
+            <field name="domain_force">['|','|',('user_id.company_id.child_ids','child_of',[user.company_id.id]),('user_id.company_id','child_of',[user.company_id.id]),('user_id.company_id','=',False)]</field>
         </record>
 
     </data>

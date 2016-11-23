@@ -212,7 +212,7 @@ class AccountAnalyticReport(models.Model):
                     milk_cow = float(milk_cow) / sum_days
                     dry_cow = float(dry_cow) / sum_days
 
-                total_cows += round(sum((heifer_0_3, heifer_3_12, heifer_plus_12, milk_cow, dry_cow)), 2)
+                total_cows += round(sum((milk_cow, dry_cow)), 2)
                 tota_heifer += sum((heifer_0_3, heifer_3_12, heifer_plus_12))
                 milk_and_dry += milk_cow + dry_cow
                 milk_cows += milk_cow
