@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2016 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="account_tax_template_s_iva21b" model="account.tax.template">
+            <field name="sequence" eval="0"/> <!-- Para que sea el impuesto por defecto de ventas -->
+            <field name="ref_base_sign" eval="-1.0"/>
+            <field name="description">S_IVA105B</field>
+            <field name="type_tax_use">sale</field>
+            <field name="account_paid_id" ref="l10n_es.pgc_477_child"/>
+            <field name="base_sign" eval="1.0"/>
+            <field name="ref_tax_sign" eval="-1.0"/>
+            <field name="name">IVA 10.5%</field>
+            <field name="account_collected_id" ref="l10n_es.pgc_477_child"/>
+            <field name="chart_template_id" ref="l10n_es.account_chart_template_common"/>
+            <field name="amount" eval="0.105"/>
+            <field name="tax_sign" eval="1.0"/>
+            <field name="type">percent</field>
+        </record>
+
+    </data>
+</openerp>

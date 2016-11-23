@@ -51,6 +51,7 @@
              'views/stock.xml',
              'views/partner_view.xml',
              'data/ir_cron.xml',
+             'data/tax.xml',
              'views/user_preferences.xml',
              'views/res_company.xml',
              'views/calendar_event.xml',
