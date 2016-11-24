@@ -34,3 +34,4 @@ from . import milk_analysis
 from . import milk_control
 from . import gescarro
 from . import calendar
+from . import res_users

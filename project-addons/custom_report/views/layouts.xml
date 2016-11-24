@@ -25,21 +25,42 @@
                     <div class="col-xs-9">
                         <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 70px;"/>
                         <div t-field="company.sudo().partner_id"
-                            t-field-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": true, "no_tag_br": true}'
+                            t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": true}'
                         />
                     </div>
-                    <div class="col-xs-3">
-                        <p><strong>Fecha del informe</strong></p>
-                        <p><span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/></p>
-                        <p><strong>Autor</strong></p>
-                        <p><span t-esc="o.env.user.name"/></p>
+                    <div class="col-xs-3 text-right">
+                        <p>
+                            <strong>Fecha del informe</strong>
+                        </p>
+                        <p>
+                            <span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/>
+                        </p>
+                        <p>
+                            <strong>Autor</strong>
+                        </p>
+                        <p>
+                            <span t-esc="o.env.user.name"/>
+                        </p>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-12"><span style="color: #D5D5D5">Informe generado con</span> milkoop.es</div>
+                </div>
+                <div style="border-top: 1px solid #D5D5D5; height: 15px;"/>
+                <img src="/web/static/src/img/logo-milkoop-min.png" style="width: 100%; position:fixed; top:500px; opacity:0.5; z-index:99; color:white;"/>
             </div>
         </template>
 
         <template id="report.external_layout_footer">
 
+        </template>
+
+        <template id="contact_inherit" inherit_id="base.contact">
+            <xpath expr="//span[@t-esc='name']" position="after">
+                <t t-if="vat and 'vat' in fields">
+                    <span itemprop="vat" t-esc="vat"/>
+                </t>
+            </xpath>
         </template>
 
     </data>

@@ -21,3 +21,4 @@
 from . import models
 from . import lot_report
 from . import wizard
+from . import controllers
