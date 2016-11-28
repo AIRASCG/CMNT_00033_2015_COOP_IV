@@ -370,7 +370,7 @@ class ResPartnerFields(models.Model):
     product_name = fields.Char("Product")
     variety = fields.Integer("Variety")
     location_name = fields.Char("Location Name")
-    rent = fields.Boolean("Rent")
+    rent = fields.Float("Rent")
     year = fields.Char("Year")
 
 

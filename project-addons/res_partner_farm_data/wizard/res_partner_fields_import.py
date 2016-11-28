@@ -72,10 +72,7 @@ class FieldsImport(models.TransientModel):
             control_vals['product_name'] = row[14]
             control_vals['variety'] = int(row[15])
             control_vals['location_name'] = row[16]
-            if row[17] == 'X' or row[17] == 'x' or row[17] == 1:
-                control_vals['rent'] = True
-            else:
-                control_vals['rent'] = False
+            control_vals['rent'] = row[17]
             self.env['res.partner.fields'].create(control_vals)
 
         return {'type': 'ir.actions.act_window_close'}
