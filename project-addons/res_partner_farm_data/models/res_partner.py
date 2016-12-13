@@ -98,6 +98,7 @@ class ResPartner(models.Model):
     heifer_plus_12 = fields.Integer('Heifer >12 months')
     milk_cow = fields.Integer('Milk cows')
     dry_cow = fields.Integer('Dry cows')
+    date_cow = fields.Date('Date')
     milk_analysis_type = fields.Selection(
         (('ligal', 'LIGAL'), ('lila', 'LILA')),
         'Milk analysis type')
@@ -202,7 +203,6 @@ class ResPartner(models.Model):
 
     @api.multi
     def write(self, vals):
-        res = super(ResPartner, self).write(vals)
         for partner in self:
             if vals.get('employees_quantity', False):
                 current = self.employee_count_ids.filtered(
@@ -222,40 +222,39 @@ class ResPartner(models.Model):
             if vals.get('heifer_0_3', False) or \
                     vals.get('heifer_3_12', False) or \
                     vals.get('heifer_plus_12', False) or \
-                    vals.get('milk_cow', False) or vals.get('dry_cow', False):
+                    vals.get('milk_cow', False) or \
+                    vals.get('dry_cow', False) or vals.get('date_cow', False):
 
-                current = self.cow_count_ids.filtered(
-                    lambda record: record.state == 'current')
-                if not current:
-                    count_args = {
-                        'partner_id': self.id,
-                        'date': date.today(),
-                        'user_id': self.env.user.id,
-                        'heifer_0_3': vals.get('heifer_0_3', 0),
-                        'heifer_3_12': vals.get('heifer_3_12', 0),
-                        'heifer_plus_12': vals.get('heifer_plus_12', 0),
-                        'milk_cow': vals.get('milk_cow', 0),
-                        'dry_cow': vals.get('dry_cow', 0),
-                    }
-                    self.env['cow.count'].create(count_args)
-                else:
-                    current.sudo().with_context(from_partner=True).write({
-                        'heifer_0_3': vals.get('heifer_0_3', self.heifer_0_3),
-                        'heifer_3_12': vals.get('heifer_3_12',
-                                                self.heifer_3_12),
-                        'heifer_plus_12': vals.get('heifer_plus_12',
-                                                   self.heifer_plus_12),
-                        'milk_cow': vals.get('milk_cow', self.milk_cow),
-                        'dry_cow': vals.get('dry_cow', self.dry_cow),
-                        'user_id': self.env.user.id,
-                    })
+                count_args = {
+                    'partner_id': self.id,
+                    'date': vals.get('date_cow', False),
+                    'user_id': self.env.user.id,
+                    'heifer_0_3': vals.get('heifer_0_3', 0),
+                    'heifer_3_12': vals.get('heifer_3_12', 0),
+                    'heifer_plus_12': vals.get('heifer_plus_12', 0),
+                    'milk_cow': vals.get('milk_cow', 0),
+                    'dry_cow': vals.get('dry_cow', 0),
+                }
+                self.env['cow.count'].create(count_args)
+                partner.cow_count_ids.write({'state': 'history'})
+                last = partner.cow_count_ids.sorted(key=lambda r: r.date)[-1]
+                last.state = 'current'
+                vals['date_cow'] = last.date
+                vals['heifer_0_3'] = last.heifer_0_3
+                vals['heifer_3_12'] = last.heifer_3_12
+                vals['heifer_plus_12'] = last.heifer_plus_12
+                vals['milk_cow'] = last.milk_cow
+                vals['dry_cow'] = last.dry_cow
+
             if vals.get('exploitation_technician', False):
-                partner.message_subscribe(
-                    [partner.exploitation_technician.partner_id.id])
+                technician = self.env['res.users'].browse(
+                    vals['exploitation_technician'])
+                partner.message_subscribe([technician.partner_id.id])
             if vals.get('secondary_technician', False):
-                partner.message_subscribe(
-                    [partner.secondary_technician.partner_id.id])
-        return res
+                technician = self.env['res.users'].browse(
+                    vals['secondary_technician'])
+                partner.message_subscribe([technician.partner_id.id])
+        return super(ResPartner, self).write(vals)
 
     @api.multi
     def action_account_assets(self):

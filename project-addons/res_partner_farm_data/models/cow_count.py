@@ -18,16 +18,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from . import custom_models
-from openerp import fields, api, exceptions, _
+from openerp import models, fields, api, exceptions, _
 
 
-class CowCount(custom_models.HistoricalModel):
+class CowCount(models.Model):
 
     _name = 'cow.count'
-    _order = 'sequence desc'
+    _order = 'date desc'
 
-    sequence = fields.Integer('sequence', default=0)
     partner_id = fields.Many2one('res.partner', 'Partner', readonly=True)
     date = fields.Date('Date')
     user_id = fields.Many2one('res.users', 'User', readonly=True)

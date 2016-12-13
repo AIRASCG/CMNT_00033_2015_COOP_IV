@@ -362,6 +362,7 @@
                                 </group>
                                 <group>
                                     <field name="heifer_plus_12"/>
+                                    <field name="date_cow"/>
                                 </group>
                             </group>
                             <label for="cow_count_ids" string="History"/>

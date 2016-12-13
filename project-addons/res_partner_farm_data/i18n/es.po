@@ -576,6 +576,8 @@ msgstr "Empresa láctea"
 #: field:milk.analysis.report,date:0
 #: field:milk.control,date:0
 #: field:output.quota,date:0
+#: field:res.partner,date_cow:0
+#: field:res.users,date_cow:0
 #: field:yearly.data,date:0
 msgid "Date"
 msgstr "Fecha"
