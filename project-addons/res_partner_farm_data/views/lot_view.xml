@@ -348,14 +348,14 @@
                 <tree string="Lot">
                     <field name="eur_ton_mf"/>
                     <field name="product_id"/>
-                    <field name="theorical_kg_ration" string="Theorical Kg/Ration"/>
-                    <field name="theorical_ms" string="Theorical %MS"/>
-                    <field name="theorical_enl" string="Theorical ENL"/>
-                    <field name="theorical_pb" string="Theorical %PB"/>
-                    <field name="kg_ration"/>
-                    <field name="ms"/>
-                    <field name="enl"/>
-                    <field name="pb"/>
+                    <field name="theorical_kg_ration" string="Theorical Kg/Ration" sum="total"/>
+                    <field name="theorical_ms" string="Theorical %MS" sum="total"/>
+                    <field name="theorical_enl" string="Theorical ENL" sum="total"/>
+                    <field name="theorical_pb" string="Theorical %PB" sum="total"/>
+                    <field name="kg_ration" string="Real Kg/Ration" sum="total"/>
+                    <field name="ms" string="Real %MS" sum="total"/>
+                    <field name="enl" string="Real ENL" sum="total"/>
+                    <field name="pb" string="Real %PB" sum="total"/>
                 </tree>
             </field>
         </record>
@@ -373,18 +373,22 @@
                         <group>
                             <field name="eur_ton_mf"/>
                             <field name="product_id"/>
-                            <group string="Theorical ration">
-                                <field name="theorical_kg_ration"/>
-                                <field name="theorical_ms"/>
-                                <field name="theorical_enl"/>
-                                <field name="theorical_pb"/>
-                            </group>
-                            <group string="Real ration">
-                                <field name="kg_ration"/>
-                                <field name="ms"/>
-                                <field name="enl"/>
-                                <field name="pb"/>
-                            </group>
+                                <group string="Theorical ration">
+                                    <field name="theorical_kg_ration"/>
+                                    <field name="theorical_ms"/>
+                                    <field name="theorical_enl"/>
+                                    <field name="theorical_pb"/>
+                                </group>
+                                <group string="Real ration" col="4">
+                                    <field name="kg_ration"/>
+                                    <field name="message_kg" nolabel="1" colspan="2"/>
+                                    <field name="ms"/>
+                                    <field name="message_ms" nolabel="1" colspan="2"/>
+                                    <field name="enl"/>
+                                    <field name="message_enl" nolabel="1" colspan="2"/>
+                                    <field name="pb"/>
+                                    <field name="message_pb" nolabel="1" colspan="2"/>
+                                </group>
                         </group>
                     </sheet>
                 </form>

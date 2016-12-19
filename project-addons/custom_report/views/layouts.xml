@@ -11,7 +11,7 @@
                 <t t-set="company" t-value="o.company_id.cooperative_company"></t>
             </t>
             <t t-if="not o or not 'company_id' in o">
-                <t t-set="company" t-value="res_company"></t>
+                <t t-set="company" t-value="res_company.cooperative_company"></t>
             </t>
 
             <t t-call="report.external_layout_header" />
@@ -22,13 +22,13 @@
         <template id="report.external_layout_header">
             <div class="header">
                 <div class="row">
-                    <div class="col-xs-9">
+                    <div class="col-xs-7">
                         <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 70px;"/>
                         <div t-field="company.sudo().partner_id"
                             t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": true}'
                         />
                     </div>
-                    <div class="col-xs-3 text-right">
+                    <div class="col-xs-5 text-right">
                         <p>
                             <strong>Fecha del informe</strong>
                         </p>

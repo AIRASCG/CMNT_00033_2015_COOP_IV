@@ -1124,6 +1124,27 @@ msgstr "Kg punteo/vaca y día:"
 msgid "Kg/Ration"
 msgstr "Kg/ración"
 
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real %MS"
+msgstr "%MS Real"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real %PB"
+msgstr "%PB Real"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real ENL"
+msgstr "ENl (Mcal/kg MS) Real"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real Kg/Ration"
+msgstr "Kg/Ration Real"
+
 #. module: res_partner_farm_data
 #: view:output.quota:res_partner_farm_data.output_quota_form
 msgid "Kgs"
@@ -1664,10 +1685,14 @@ msgstr "Predicción de leche por PB:"
 
 #. module: res_partner_farm_data
 #: model:ir.model,name:res_partner_farm_data.model_product_product
-#: field:lot.content,product_id:0
 #: field:res.partner.fields,product_name:0
 msgid "Product"
 msgstr "Producto"
+
+#. module: res_partner_farm_data
+#: field:lot.content,product_id:0
+msgid "Product"
+msgstr "Ingrediente"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,product_code:0
@@ -1981,22 +2006,22 @@ msgstr "¡El nombre de la secuencia debe ser único!"
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical %MS"
-msgstr "%MS Teórico"
+msgstr "%MS Teórica"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical %PB"
-msgstr "%PB Teórico"
+msgstr "% PB Teóricaórico"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical ENL"
-msgstr "ENL Teórico"
+msgstr "ENl (Mcal/kg MS) Teórica"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical Kg/Ration"
-msgstr "Kg/Ración teóricos"
+msgstr "Kg/Ración teórica"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_form
@@ -2328,8 +2353,8 @@ msgstr "{'invisible': [('farm', '=', False)]}"
 
 #. module: res_partner_farm_data
 #: field:lot.content,eur_ton_mf:0
-msgid "€/Tn MF"
-msgstr "€/Tn MF"
+msgid "€/Tn MH"
+msgstr "€/Tn MH"
 
 #. module: res_partner_farm_data
 #: field:res.partner,use_fo:0

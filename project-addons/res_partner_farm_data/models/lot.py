@@ -121,8 +121,8 @@ class Lot(models.Model):
             lot.lot_number = '%s/%s' % (len(lot.lot_details), total_lots)
             lot.number_milking_cows = sum(
                 [x.number_milking_cows for x in lot.lot_details])
-            lot.carriage_cost_cow_day = (lot.carriage_cost / 30) / \
-                ((lot.number_milking_cows + lot.number_dry_cows) or 1.0)
+            lot.carriage_cost_cow_day = (lot.carriage_cost / 30.0) / \
+                float((lot.number_milking_cows + lot.number_dry_cows) or 1.0)
             lot.liters_produced_per_day = sum(
                 [x.tank_liters + x.liters_on_farm_consumption +
                  x.retired_liters for x in lot.lot_details])
@@ -187,13 +187,13 @@ class LotDetail(models.Model):
                            default=lambda a: datetime.now())
     notes = fields.Text()
     rations_make_number = fields.Integer('Number of maked rations')
-    surplus = fields.Float('Surplus (Kg)')
+    surplus = fields.Integer('Surplus (Kg)')
     cows_tank_number = fields.Integer('Cows tank number')
     liters_on_farm_consumption = fields.Integer('Liters on-farm consumption')
-    kf_mf_carriage = fields.Float('kf MF carriage', compute='_get_kf_mf_carraige', inverse='_set_kf_mf_carriage')
+    kf_mf_carriage = fields.Integer('kf MF carriage', compute='_get_kf_mf_carraige', inverse='_set_kf_mf_carriage')
     cows_eat_number = fields.Integer('Cows eat number')
-    tank_liters = fields.Float('Tank liters')
-    retired_liters = fields.Float('Retired liters')
+    tank_liters = fields.Integer('Tank liters')
+    retired_liters = fields.Integer('Retired liters')
     number_milking_cows = fields.Integer('Milking cows')
     number_cubicles_in_lot = fields.Integer('Number of cubicles in this lot')
     kg_plucking = fields.Integer('Plucking kg')
@@ -356,7 +356,7 @@ class LotDetail(models.Model):
     def _set_kf_mf_carriage(self):
         for lot_detail in self:
             if sum([x.kg_ration for x in lot_detail.lot_contents]) > 0:
-                lot_detail.rations_make_number = lot_detail.kf_mf_carriage / sum([x.kg_ration for x in lot_detail.lot_contents])
+                lot_detail.rations_make_number = float(lot_detail.kf_mf_carriage) / sum([x.kg_ration for x in lot_detail.lot_contents])
 
     @api.multi
     def _get_kf_mf_carraige(self):
@@ -378,6 +378,7 @@ class LotDetail(models.Model):
     ]
 
     @api.multi
+    @api.depends('perc_ms_ration_anal')
     def _get_lot_calcs(self):
         for lot_detail in self:
             lot = lot_detail.lot_id
@@ -412,7 +413,7 @@ class LotDetail(models.Model):
                      / 2) != 0:
                 res['imf_theo'] = (
                     (lot_detail.rations_make_number * total_theo_kg_ration) -
-                    lot_detail.surplus) / \
+                    float(lot_detail.surplus)) / \
                     (lot_detail.number_milking_cows + ((lot_detail.cows_eat_number -
                                                  lot_detail.number_milking_cows) / 2))
             else:
@@ -421,7 +422,7 @@ class LotDetail(models.Model):
                 ((lot_detail.cows_eat_number - lot_detail.number_milking_cows) /
                  2)) != 0:
                 res['imf_real'] = (lot_detail.kf_mf_carriage -
-                                   lot_detail.surplus) / \
+                                   float(lot_detail.surplus)) / \
                     (lot_detail.number_milking_cows + ((lot_detail.cows_eat_number -
                                                 lot_detail.number_milking_cows) / 2))
             else:
@@ -457,14 +458,14 @@ class LotDetail(models.Model):
 
             if lot_detail.number_milking_cows != 0:
                 res['milk_cow_production'] = (
-                    lot_detail.tank_liters + lot_detail.retired_liters +
+                    float(lot_detail.tank_liters) + lot_detail.retired_liters +
                     lot_detail.liters_on_farm_consumption) / \
                     lot_detail.number_milking_cows
             else:
                 res['milk_cow_production'] = 0
             if lot_detail.cows_eat_number != 0:
                 res['eat_cow_production'] = (
-                    lot_detail.tank_liters + lot_detail.retired_liters +
+                    float(lot_detail.tank_liters) + lot_detail.retired_liters +
                     lot_detail.liters_on_farm_consumption) / \
                     lot_detail.cows_eat_number
             else:
@@ -602,7 +603,7 @@ class LotDetail(models.Model):
                 lot.mp * 10
 
             if lot_detail.number_milking_cows != 0:
-                res['ingress_milk_cow_day'] = (lot_detail.tank_liters /
+                res['ingress_milk_cow_day'] = (float(lot_detail.tank_liters) /
                                                lot_detail.number_milking_cows) * \
                     lot.milk_price / 1000
             else:
@@ -631,7 +632,7 @@ class LotDetail(models.Model):
                       if x.product_id.concenctrate])
             if i3 * lot_detail.rations_make_number != 0:
                 res['liters_produced_kg_concentrated_used'] = (
-                    lot_detail.tank_liters + lot_detail.retired_liters +
+                    float(lot_detail.tank_liters) + lot_detail.retired_liters +
                     lot_detail.liters_on_farm_consumption) / \
                     (i3 * lot_detail.rations_make_number)
             else:
@@ -662,14 +663,18 @@ class LotContent(models.Model):
     product_id = fields.Many2one('product.product', 'Product', required=True,
                                  domain=[('type', '!=', 'service')])
     kg_ration = fields.Float('Kg/Ration')
-    ms = fields.Float('%MS')
-    enl = fields.Float('ENL')
-    pb = fields.Float('%PB')
+    ms = fields.Float('%MS', digits=(12, 2))
+    enl = fields.Float('ENL', digits=(12, 2))
+    pb = fields.Float('%PB', digits=(12, 2))
     manual_setted = fields.Boolean()
     _theorical_kg_ration = fields.Float('Kg/Ration')
     _theorical_ms = fields.Float('%MS')
     _theorical_enl = fields.Float('ENL')
     _theorical_pb = fields.Float('%PB')
+    message_kg = fields.Char(compute='_compute_message')
+    message_ms = fields.Char(compute='_compute_message')
+    message_enl = fields.Char(compute='_compute_message')
+    message_pb = fields.Char(compute='_compute_message')
 
     @api.multi
     def set_real_by_theorical(self):
@@ -678,6 +683,27 @@ class LotContent(models.Model):
             content.ms = content.theorical_ms
             content.enl = content.theorical_enl
             content.pb = content.theorical_pb
+
+    @api.depends('kg_ration', 'ms', 'enl', 'pb', 'theorical_kg_ration',
+                 'theorical_ms', 'theorical_enl', 'theorical_pb')
+    def _compute_message(self):
+        for content in self:
+            if content.kg_ration != content.theorical_kg_ration:
+                content.message_kg = 'Cantidades diferentes'
+            else:
+                content.message_kg = ''
+            if content.ms != content.theorical_ms:
+                content.message_ms = 'Cantidades diferentes'
+            else:
+                content.message_kg = ''
+            if content.enl != content.theorical_enl:
+                content.message_enl = 'Cantidades diferentes'
+            else:
+                content.message_kg = ''
+            if content.pb != content.theorical_pb:
+                content.message_pb = 'Cantidades diferentes'
+            else:
+                content.message_kg = ''
 
 
 from openerp.osv import fields as fields2
@@ -732,14 +758,14 @@ class LotContentOld(models.Model):
     _columns = {
         'theorical_kg_ration': fields2.function(
             _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='Kg/Ration', multi='theo_vals'),
+            type='float', string='Kg/Ration', multi='theo_vals', digits=(12, 2)),
         'theorical_ms': fields2.function(
             _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='%MS', multi='theo_vals'),
+            type='float', string='%MS', multi='theo_vals', digits=(12, 2)),
         'theorical_enl': fields2.function(
             _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='ENL', multi='theo_vals'),
+            type='float', string='ENL', multi='theo_vals', digits=(12, 2)),
         'theorical_pb': fields2.function(
             _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='%PB', multi='theo_vals'),
+            type='float', string='%PB', multi='theo_vals', digits=(12, 2)),
     }
