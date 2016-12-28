@@ -252,7 +252,7 @@
                             <group>
                                 <field name="milk_analysis_type"/>
                                 <field name="partner_of"/>
-                                <field name="exploitation_technician"/>
+                                <field name="exploitation_technician" widget="selection"/>
                                 <field name="barn_type"/>
                                 <field name="bed_suppliers" widget="many2many_tags" domain="[('is_bed_supplier', '=', True)]" context="{'default_supplier': True, 'default_is_company': True, 'default_customer': False, 'default_is_bed_supplier': True}"/>
                                 <label for="milk_tank_liter"/>
@@ -265,7 +265,7 @@
                                 </div>
                             </group>
                             <group>
-                                <field name="secondary_technician"/>
+                                <field name="secondary_technician" widget="selection"/>
                                 <field name="production_orientation"/>
                                 <field name="dairy_company"/>
                                 <field name="cornadizas"/>
@@ -286,7 +286,7 @@
                             <group>
                                 <field name="lactating_cows"/>
                                 <field name="heifers"/>
-                                <field name="supplies_technician"/>
+                                <field name="supplies_technician" widget="selection"/>
                             </group>
                             <group>
                                 <field name="dry_cows"/>
