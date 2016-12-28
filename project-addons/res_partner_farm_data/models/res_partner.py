@@ -90,6 +90,7 @@ class ResPartner(models.Model):
     manure_pit_outdoor = fields.Integer('Manure pit outdoor')
     trailer_access = fields.Boolean('Trailer access')
     employees_quantity = fields.Integer('Employees quantity')
+    employees_date = fields.Date('Date')
     employee_count_ids = fields.One2many('employee.farm.count', 'partner_id',
                                          'Employees')
     cow_count_ids = fields.One2many('cow.count', 'partner_id', 'Cows')
@@ -193,10 +194,10 @@ class ResPartner(models.Model):
             res.message_subscribe([res.exploitation_technician.partner_id.id])
         if vals.get('secondary_technician', False):
             res.message_subscribe([res.secondary_technician.partner_id.id])
-        if res.employees_quantity:
+        if res.employees_quantity or res.employees_date:
             count_args = {
                 'partner_id': res.id,
-                'date': date.today(),
+                'date': res.employees_date or date.today(),
                 'user_id': self.env.user.id,
                 'quantity': res.employees_quantity,
             }
@@ -205,14 +206,16 @@ class ResPartner(models.Model):
 
     @api.multi
     def write(self, vals):
+        print "vals: ", vals
         for partner in self:
-            if vals.get('employees_quantity', False):
+            if vals.get('employees_quantity', False) or \
+                    vals.get('employees_date'):
                 current = self.employee_count_ids.filtered(
                     lambda record: record.state == 'current')
                 if not current:
                     count_args = {
                         'partner_id': self.id,
-                        'date': date.today(),
+                        'date': vals.get('employees_date', date.today()),
                         'user_id': self.env.user.id,
                         'quantity': vals.get('employees_quantity'),
                     }
@@ -229,7 +232,7 @@ class ResPartner(models.Model):
 
                 count_args = {
                     'partner_id': self.id,
-                    'date': vals.get('date_cow', False),
+                    'date': vals.get('date_cow', date.today()),
                     'user_id': self.env.user.id,
                     'heifer_0_3': vals.get('heifer_0_3', 0),
                     'heifer_3_12': vals.get('heifer_3_12', 0),
