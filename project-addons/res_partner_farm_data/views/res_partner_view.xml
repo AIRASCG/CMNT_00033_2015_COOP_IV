@@ -240,6 +240,12 @@
                     <field name="latitude"/>
                     <field name="longitude"/>
                 </field>
+                <xpath expr="//field[@name='child_ids']/form//field[@name='category_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <field name="category_id" position="attributes">
+                    <attribute name="attrs">{'invisible': [('farm','=',False)]}</attribute>
+                </field>
                 <notebook position="inside">
                     <page string="General data" attrs="{'invisible': [('farm', '=', False)]}">
                         <group>
@@ -411,6 +417,17 @@
                     <filter string="Farms" name="farm" domain="[('farm','=',1), ('is_cooperative', '=', 0)]" help="Farm Partners"/>
                     <filter string="Cooperatives" name="coop" domain="[('farm','=',1), ('is_cooperative', '=', 1)]" help="Cooperative Partners"/>
                 </filter>
+            </field>
+        </record>
+
+        <record id="view_partner_simple_form_hide_tags" model="ir.ui.view">
+            <field name="name">res.partner.simplified.form.hide_tags</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_simple_form"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
             </field>
         </record>
 
