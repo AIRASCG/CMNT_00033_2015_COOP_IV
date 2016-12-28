@@ -303,7 +303,7 @@ class ResPartner(models.Model):
         return {
             'domain': "[('id','in'," + str(self.private_attachment_ids.ids) + ")]",
             'name': _('Attachments'),
-            'context': {'default_private': True, 'default_dest_ids': [(6, 0,[self.id])]},
+            'context': {'default_private': True, 'default_recipient_ids': [(6, 0,[self.id])]},
             'view_mode': 'tree,form',
             'view_type': 'form',
             'res_model': 'res.partner.attachment',
@@ -315,7 +315,7 @@ class ResPartner(models.Model):
         return {
             'domain': "[('id','in'," + str(self.public_attachment_ids.ids) + ")]",
             'name': _('Attachments'),
-            'context': {'default_dest_ids': [(6, 0,[self.id])]},
+            'context': {'default_recipient_ids': [(6, 0,[self.id])]},
             'view_mode': 'tree,form',
             'view_type': 'form',
             'res_model': 'res.partner.attachment',
@@ -404,8 +404,8 @@ class ResPartnerAttachment(models.Model):
     author = fields.Many2one('res.users', default=lambda self:self.env.user.id,
                              required=True)
     cooperative = fields.Many2one('res.company', default=lambda self:self.env.user.company_id.cooperative_company.id,
-                                  required=True)
-    description = fields.Text()
+                                  required=True, domain=[('is_cooperative', '=', True)])
+    description = fields.Char("Description", size=100)
     recipient_ids = fields.Many2many('res.partner',
                                      'res_partner_attachment_rel',
                                      'attachment_id',
