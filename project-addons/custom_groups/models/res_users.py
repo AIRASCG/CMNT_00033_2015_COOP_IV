@@ -86,11 +86,25 @@ class ResUsers(models.Model):
             res['arch'] = etree.tostring(view)
         if view_type == 'form' and view_id == view_obj.id:
             view = etree.XML(res['arch'])
-            description_text = _("<h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit,"
-                                 " sed do eiusmod tempor incididunt ut labore et dolore</h4>"
-                                 "<p>-Adminsitrador: Ut enim ad minim veniam</p>"
-                                 "<p>-Técnico alimentación: quis nostrud exercitation ullamco laboris nisi</p>"
-                                 "<p>-...</p><p>-...</p>")
+            description_text = \
+                _("<p>Desde aquí se permite la gestión (creación, borrado y "
+                  "modificaciones) de usuarios con sus contraseñas, y la "
+                  "asignación de esos usuarios a grupos de usuarios, cada uno "
+                  "de los cuales tiene un conjunto de permisos distinto.</p>"
+                  "<p><b>Administrador:</b> Acceso a todo tipo de "
+                  "funcionalidades de la administración, puede asociar "
+                  "nuevos permisos a otros usuarios, generar informes y "
+                  "visualizar todo tipo de datos.</p>"
+                  "<p><b>Técnico gestión:</b> Acceso a todas las "
+                  "funcionalidades de la administración, excepto a la "
+                  "gestión y control de usuarios.</p>"
+                  "<p><b>Técnico de alimentación:</b> Acceso a las "
+                  "funcionalidades del módulo de alimentación y visitas.</p>"
+                  "<p><b>Técnico comercial:</b> Acceso a las funcionalidades "
+                  "del módulo de visitas y a la ficha de las explotaciones."
+                  "</p>"
+                  "<p><b>Ganadero:</b> Este perfil únicamente accede a "
+                  "determinados datos de su explotación.</p>")
             separator = view.xpath("//notebook/page[1]/group[2]/separator[@string='" + _("User types") + "']")[0]
             separator.addnext(etree.XML('<group colspan="4"><div>%s</div></group>' % description_text))
             res['arch'] = etree.tostring(view)

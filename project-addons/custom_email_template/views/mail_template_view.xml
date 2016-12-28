@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="1">
+    <data noupdate="0">
 
         <record id="reset_password_email" model="email.template">
             <field name="name">Reset Password Milkoop</field>
@@ -40,7 +40,7 @@ por la ley.</span></p>
 <p>Para proceder deberá acceder a la herramienta utilizando el siguiente <a href="${object.signup_url}">enlace</a>.</p>
 <p>${object.signup_url}</p>
 
-<p>Recuerde que, una vez dentro ed la plataforma, podrá cambiar sus datos de acceso en su perfil de usuario.</p>
+<p>Recuerde que, una vez dentro de la plataforma, podrá cambiar sus datos de acceso en su perfil de usuario.</p>
 
 <p><span style="font-style: italic;">Este mensaje va dirigido, de manera exclusiva, a su destinatario y puede contener información confidencial y sujeta al
 secreto profesional, cuya divulgación no está permitida por la ley. En caso de haber recibido este mensaje por error,
