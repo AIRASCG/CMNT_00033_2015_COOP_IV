@@ -138,6 +138,8 @@ class ResPartner(models.Model):
         'res_partner_attachment_rel',
         'partner_id',
         'attachment_id', domain=[('private', '=', True)])
+    company_ids = fields.One2many("res.company", "partner_id",
+                                  "Related Company", readonly=True)
 
     @api.one
     @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
@@ -317,6 +319,17 @@ class ResPartner(models.Model):
             'view_mode': 'tree,form',
             'view_type': 'form',
             'res_model': 'res.partner.attachment',
+            'type': 'ir.actions.act_window',
+        }
+
+    @api.multi
+    def action_users_related(self):
+        return {
+            'domain': "[('company_ids','in'," + str(self.company_ids.ids) + ")]",
+            'name': _('Users'),
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'res_model': 'res.users',
             'type': 'ir.actions.act_window',
         }
 

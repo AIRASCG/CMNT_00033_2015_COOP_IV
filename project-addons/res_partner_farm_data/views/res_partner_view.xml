@@ -226,7 +226,8 @@
                             string="Locations" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
                     <button name="action_milk_analysis_report" icon="fa-flask" class="oe_stat_button"
                             string="Milk analysis" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
-
+                    <button name="action_users_related" icon="fa-user" class="oe_stat_button"
+                            string="Users" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin"/>
                     <button name="action_private_attachments" icon="fa-file" class="oe_stat_button"
                             string="Private documents" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_feed,custom_groups.group_tech_sales"/>
                     <button name="action_public_attachments" icon="fa-file" class="oe_stat_button"

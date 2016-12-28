@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * res_partner_farm_data
+#       * res_partner_farm_data
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-12 15:27+0000\n"
-"PO-Revision-Date: 2016-04-12 15:27+0000\n"
+"POT-Creation-Date: 2016-12-28 12:40+0000\n"
+"PO-Revision-Date: 2016-12-28 12:40+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,86 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: res_partner_farm_data
-#: field:lot,mg:0
-msgid "%MG"
-msgstr "%MG"
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "% Animales"
+msgstr "% Animales"
 
 #. module: res_partner_farm_data
-#: model:ir.ui.menu,name:res_partner_farm_data.menu_gescarro_import
-msgid "Import gescarro data"
-msgstr "Importar datos gescarro"
-
-#. module: res_partner_farm_data
-#: view:lot:res_partner_farm_data.lot_partner_form
-#: view:lot.detail:res_partner_farm_data.lot_detail_form
-msgid "Notes..."
-msgstr "Notas..."
-
-#. module: res_partner_farm_data
-#: view:lot.content:res_partner_farm_data.lot_content_form
-msgid "Set real values"
-msgstr "Establecer valores teóricos como reales"
-
-#. module: res_partner_farm_data
-#: field:lot,mp:0
-msgid "%MP"
-msgstr "%MP"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,ingress_milk_cow_day:0
-msgid "Ingress milk/milk cow and day"
-msgstr "Ingreso leche/vaca ordeñada y día"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,feed_cost_cow_day:0
-msgid "Feed cost cow day"
-msgstr "Coste alimentación/vaca y día"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,diff_ing_cost:0
-msgid "Diff ing cost"
-msgstr "Diferencia"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,perc_purchased_feed_milk_ingress:0
-msgid "Perc purchased feed milk ingress"
-msgstr "% alimentación comprada sobre ingresos leche"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,perc_concentrated_milk_ingress:0
-msgid "Perc concentrated milk ingress"
-msgstr "% concentrado sobre ingresos leche"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,lot_threshold_point_slaughterhouse:0
-msgid "Lot threshold point slaughterhouse"
-msgstr "Punto umbral de este lote (destino matadero)"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,lot_threshold_point_dry:0
-msgid "Lot threshold point dry"
-msgstr "Punto umbral de este lote (destino lote secas)"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,liters_produced_kg_concentrated_used:0
-msgid "Liters produced kg concentrated used"
-msgstr "Lts producidos/kg de concentrado gastado"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,perc_feed_milk_ingress:0
-msgid "Perc feed milk ingress"
-msgstr "% alimentación sobre ingresos leche"
-
-#. module: res_partner_farm_data
-#: field:lot.content,_theorical_ms:0
 #: field:gescarro.data,ms_concentrated:0
 #: field:gescarro.data,ms_fodder:0
 #: field:gescarro.data,total_ration_ms:0
 #: field:gescarro.data,wet_mixture_ms:0
 #: field:gescarro.data.line,ms:0
-#: field:lot.content,ms:0
-msgid "%MS"
-msgstr "%MS"
+msgid "% MS"
+msgstr "% MS"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,total_ration_ms_concentrated:0
@@ -110,6 +43,35 @@ msgid "% MS fodder / MS total"
 msgstr "% MS forraje / MS total"
 
 #. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "% grasa"
+msgstr "% grasa"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "% prot."
+msgstr "% prot."
+
+#. module: res_partner_farm_data
+#: field:lot,mg:0
+msgid "%MG"
+msgstr "%MG"
+
+#. module: res_partner_farm_data
+#: field:lot,mp:0
+msgid "%MP"
+msgstr "%MP"
+
+#. module: res_partner_farm_data
+#: field:lot.content,_theorical_ms:0
+#: field:lot.content,ms:0
+#: field:lot.content,theorical_ms:0
+msgid "%MS"
+msgstr "%MS"
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "%MS de la ración:"
 msgstr "%MS de la ración:"
@@ -117,8 +79,38 @@ msgstr "%MS de la ración:"
 #. module: res_partner_farm_data
 #: field:lot.content,_theorical_pb:0
 #: field:lot.content,pb:0
+#: field:lot.content,theorical_pb:0
 msgid "%PB"
 msgstr "%PB"
+
+#. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "(Debe estar entre 1,10 - 1,50)"
+msgstr "(Debe estar entre 1,10 - 1,50)"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "1º tercio lactación"
+msgstr "1º tercio lactación"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "2º tercio lactación"
+msgstr "2º tercio lactación"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "3º tercio lactación"
+msgstr "3º tercio lactación"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "= Relación entre picos"
+msgstr "= Relación entre picos"
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/res_company.py:30
@@ -138,6 +130,12 @@ msgid "AFLA B1"
 msgstr "AFLA B1"
 
 #. module: res_partner_farm_data
+#: selection:milk.analysis.line,state:0
+#: selection:milk.analysis.report,state:0
+msgid "Accepted"
+msgstr "Aceptado"
+
+#. module: res_partner_farm_data
 #: field:lot.analysis,acetic_acid:0
 msgid "Acetic acid"
 msgstr "Ácido acético"
@@ -146,6 +144,82 @@ msgstr "Ácido acético"
 #: field:res.partner.fields,added:0
 msgid "Added"
 msgstr "Añadido"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Adultas"
+msgstr "Adultas"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_cant_1:0
+msgid "Adultas cant 1"
+msgstr "Adultas cant 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_cant_2:0
+msgid "Adultas cant 2"
+msgstr "Adultas cant 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_celulas_1:0
+msgid "Adultas celulas 1"
+msgstr "Adultas células 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_celulas_2:0
+msgid "Adultas celulas 2"
+msgstr "Adultas células 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_del_1:0
+msgid "Adultas del 1"
+msgstr "Adultas del 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_del_2:0
+msgid "Adultas del 2"
+msgstr "Adultas del 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_grasa_1:0
+msgid "Adultas grasa 1"
+msgstr "Adultas grasa 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_grasa_2:0
+msgid "Adultas grasa 2"
+msgstr "Adultas grasa 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_litros_1:0
+msgid "Adultas litros 1"
+msgstr "Adultas litros 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_litros_2:0
+msgid "Adultas litros 2"
+msgstr "Adultas litros 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_proteina_1:0
+msgid "Adultas proteina 1"
+msgstr "Adultas proteína 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_proteina_2:0
+msgid "Adultas proteina 2"
+msgstr "Adultas proteína 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_urea_1:0
+msgid "Adultas urea 1"
+msgstr "Adultas urea 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,adultas_urea_2:0
+msgid "Adultas urea 2"
+msgstr "Adultas urea 2"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.import,analysis:0
@@ -165,23 +239,46 @@ msgid "Analytic"
 msgstr "Analítica"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:285
+#: code:addons/res_partner_farm_data/models/res_partner.py:293
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Analytic Plan"
 msgstr "Plan analítico"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:257
+#: code:addons/res_partner_farm_data/models/res_partner.py:265
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Assets"
 msgstr "Activos"
 
 #. module: res_partner_farm_data
+#: view:res.partner.attachment:res_partner_farm_data.res_partner_attachment_view_form
+msgid "Attachment"
+msgstr "Adjunto"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:305
+#: code:addons/res_partner_farm_data/models/res_partner.py:317
+#: view:res.partner.attachment:res_partner_farm_data.res_partner_attachment_view_tree
+#, python-format
+msgid "Attachments"
+msgstr "Adjuntos"
+
+#. module: res_partner_farm_data
+#: field:res.partner.attachment,author:0
+msgid "Author"
+msgstr "Autor"
+
+#. module: res_partner_farm_data
 #: field:res.partner,average_annual_consumption:0
 msgid "Average annual consumption"
 msgstr "Consumo medio anual"
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
+msgid "Back to draft"
+msgstr "Volver a borrador"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,bacteriology:0
@@ -205,11 +302,6 @@ msgid "Bed suppliers"
 msgstr "Proveedor de camas"
 
 #. module: res_partner_farm_data
-#: field:milk.analysis.line,butyric:0
-msgid "Butyric"
-msgstr "Butíricos"
-
-#. module: res_partner_farm_data
 #: field:lot.analysis,butyric_acid:0
 msgid "Butyric acid"
 msgstr "Ácido butírico"
@@ -231,6 +323,7 @@ msgstr "CIB"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,cs:0
+#: field:milk.analysis.report,cs:0
 msgid "CS"
 msgstr "CS"
 
@@ -254,64 +347,15 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #. module: res_partner_farm_data
-#: field:lot,carriage_cost_cow_day:0
-msgid "Carriage cost (€/ cow and day)"
-msgstr "Coste carro (€/vaca y día)"
-
-#. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/lot_report.py:44
 #, python-format
 msgid "Cannot print report without lots"
 msgstr "No puede imprimir el informe sin lotes."
 
 #. module: res_partner_farm_data
-#: field:lot,carriage_cost:0
-msgid "Carriage cost (€/month)"
-msgstr "Coste carro (€/mes)"
-
-
-#. module: res_partner_farm_data
-#: field:cost.imputation,company_id:0
-#: field:gescarro.data,company_id:0
-#: field:lot.analysis,company_id:0
-#: field:lot.partner,company_id:0
-#: field:milk.analysis,company_id:0
-#: field:milk.control,company_id:0
-#: field:output.quota,company_id:0
-#: field:yearly.data,company_id:0
-msgid "Company"
-msgstr "Compañía"
-
-#. module: res_partner_farm_data
-#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
-msgid "Concentrated"
-msgstr "Concentrado"
-
-#. module: res_partner_farm_data
-#: selection:gescarro.data.line,type:0
-msgid "concentrated"
-msgstr "Concentrado"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,protein:0
-msgid "Protein (%)"
-msgstr "Proteína (%)"
-
-
-#. module: res_partner_farm_data
-#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
-msgid "Get analysis vals"
-msgstr "Obtener valores de análisis"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,conversion_index:0
-msgid "Conversion index (L/Kg MS)"
-msgstr "Indice conversión (L/Kg MS)"
-
-#. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_partner_form_account
-msgid "Check Validity"
-msgstr "Verificar validez"
+#: field:lot,carriage_cost_cow_day:0
+msgid "Carriage cost (€/ cow and day)"
+msgstr "Coste carro (€/vaca y día)"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,total_cost_carriage:0
@@ -319,19 +363,19 @@ msgid "Carriage cost (€/cow and day)"
 msgstr "Coste carro (€/vaca y día)"
 
 #. module: res_partner_farm_data
+#: field:lot,carriage_cost:0
+msgid "Carriage cost (€/month)"
+msgstr "Coste carro (€/mes)"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.view_partner_form_account
+msgid "Check Validity"
+msgstr "Verificar validez"
+
+#. module: res_partner_farm_data
 #: field:lot.analysis,chlorine:0
 msgid "Chlorine"
 msgstr "Cloro"
-
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,cost_concentrated:0
-#: field:gescarro.data,cost_fodder:0
-#: field:gescarro.data,total_ration_cost_eur_ton_mf:0
-#: field:gescarro.data,wet_cost:0
-#: field:gescarro.data.line,cost:0
-msgid "Cost (€/Ton MF)"
-msgstr "Coste (€/Ton MF)"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,cinder:0
@@ -349,6 +393,21 @@ msgid "Clostridium"
 msgstr "Clostridium"
 
 #. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Coeficiente de persistencia"
+msgstr "Coeficiente de persistencia"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,coeficiente_persistencia_1:0
+msgid "Coeficiente persistencia 1"
+msgstr "Coeficiente persistencia"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,coeficiente_persistencia_2:0
+msgid "Coeficiente persistencia 2"
+msgstr "Coeficiente persistencia"
+
+#. module: res_partner_farm_data
 #: field:lot,collection_frequency:0
 msgid "Collection frequency"
 msgstr "Frecuencia de recogida"
@@ -359,8 +418,26 @@ msgid "Companies"
 msgstr "Compañías"
 
 #. module: res_partner_farm_data
+#: field:cost.imputation,company_id:0
+#: field:gescarro.data,company_id:0
+#: field:lot.analysis,company_id:0
+#: field:lot.partner,company_id:0
+#: field:milk.analysis,company_id:0
+#: field:milk.control,company_id:0
+#: field:milk.control.report,company_id:0
+#: field:output.quota,company_id:0
+#: field:yearly.data,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: res_partner_farm_data
 #: field:product.product,concenctrate:0
 msgid "Concentrate"
+msgstr "Concentrado"
+
+#. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+msgid "Concentrated"
 msgstr "Concentrado"
 
 #. module: res_partner_farm_data
@@ -381,9 +458,20 @@ msgid "Control"
 msgstr "Control"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,conversion_index:0
+msgid "Conversion index (L/Kg MS)"
+msgstr "Indice conversión (L/Kg MS)"
+
+#. module: res_partner_farm_data
+#: field:res.partner,is_cooperative:0
+#: field:res.partner.attachment,cooperative:0
+msgid "Cooperative"
+msgstr "Cooperativa"
+
+#. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
 msgid "Cooperative Partners"
-msgstr "Cooperative Partners"
+msgstr "Cooperativas"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_filter_add_farm
@@ -410,6 +498,20 @@ msgstr "Nº de cornadizas"
 #: selection:milk.control,state:0
 msgid "Correct"
 msgstr "Correcto"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,cost_concentrated:0
+#: field:gescarro.data,cost_fodder:0
+#: field:gescarro.data,total_ration_cost_eur_ton_mf:0
+#: field:gescarro.data,wet_cost:0
+#: field:gescarro.data.line,cost:0
+msgid "Cost (€/Ton MF)"
+msgstr "Coste (€/Ton MF)"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,total_ration_cost_eur_ton_ms:0
+msgid "Cost (€/Ton MS)"
+msgstr "Coste (€/Ton MS)"
 
 #. module: res_partner_farm_data
 #: view:cost.imputation:res_partner_farm_data.cost_imputation_filter
@@ -442,12 +544,12 @@ msgstr "Coste ración + carro (€/100 litros):"
 #. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Coste ración+ carro (€/vaca y día):"
-msgstr "Coste ración+ carro (€/vaca y día):"
+msgstr "Coste ración + carro (€/vaca y día):"
 
 #. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Coste ración+ carroleche corregida(€/100 litros):"
-msgstr "Coste ración+ carroleche corregida(€/100 litros):"
+msgstr "Coste ración + carroleche corregida(€/100 litros):"
 
 #. module: res_partner_farm_data
 #: field:res.partner,counselling_supplier:0
@@ -474,6 +576,9 @@ msgstr "Nº vacas al tanque"
 #: field:cost.imputation,create_uid:0
 #: field:cow.count,create_uid:0
 #: field:employee.farm.count,create_uid:0
+#: field:gescarro.data,create_uid:0
+#: field:gescarro.data.line,create_uid:0
+#: field:gescarro.import,create_uid:0
 #: field:lot,create_uid:0
 #: field:lot.analysis,create_uid:0
 #: field:lot.analysis.import,create_uid:0
@@ -487,7 +592,9 @@ msgstr "Nº vacas al tanque"
 #: field:milk.control,create_uid:0
 #: field:milk.control.import,create_uid:0
 #: field:milk.control.line,create_uid:0
+#: field:milk.control.report,create_uid:0
 #: field:output.quota,create_uid:0
+#: field:res.partner.attachment,create_uid:0
 #: field:res.partner.fields,create_uid:0
 #: field:res.partner.fields.import,create_uid:0
 #: field:yearly.data,create_uid:0
@@ -498,6 +605,9 @@ msgstr "Creado por"
 #: field:cost.imputation,create_date:0
 #: field:cow.count,create_date:0
 #: field:employee.farm.count,create_date:0
+#: field:gescarro.data,create_date:0
+#: field:gescarro.data.line,create_date:0
+#: field:gescarro.import,create_date:0
 #: field:lot,create_date:0
 #: field:lot.analysis,create_date:0
 #: field:lot.analysis.import,create_date:0
@@ -511,7 +621,9 @@ msgstr "Creado por"
 #: field:milk.control,create_date:0
 #: field:milk.control.import,create_date:0
 #: field:milk.control.line,create_date:0
+#: field:milk.control.report,create_date:0
 #: field:output.quota,create_date:0
+#: field:res.partner.attachment,create_date:0
 #: field:res.partner.fields,create_date:0
 #: field:res.partner.fields.import,create_date:0
 #: field:yearly.data,create_date:0
@@ -550,19 +662,27 @@ msgid "Current"
 msgstr "Actual"
 
 #. module: res_partner_farm_data
-#: field:milk.control.line,days:0
-msgid "DEL"
-msgstr "DEL"
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Cél."
+msgstr "Cél."
 
 #. module: res_partner_farm_data
-#: field:milk.analysis.line,dni:0
-msgid "DNI"
-msgstr "DNI"
+#: field:milk.control.line,days:0
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "DEL"
+msgstr "DEL"
 
 #. module: res_partner_farm_data
 #: field:res.partner,dairy_company:0
 msgid "Dairy company"
 msgstr "Empresa láctea"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data.line,data_id:0
+msgid "Data"
+msgstr "Dato"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,date:0
@@ -602,6 +722,11 @@ msgid "Description"
 msgstr "Descripción"
 
 #. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Desde:"
+msgstr "Desde:"
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Desviación con produc. Real:"
 msgstr "Desviación con produc. Real:"
@@ -611,16 +736,46 @@ msgstr "Desviación con produc. Real:"
 msgid "Detail"
 msgstr "Detalle"
 
-
 #. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.gescarro_import_action
-msgid "Import gescarro data"
-msgstr "Importar datos gescarro"
+#: field:lot.detail,diff_ing_cost:0
+msgid "Diff ing cost"
+msgstr "Diferencia"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,digestibility:0
 msgid "Digestibility"
 msgstr "Digestibilidad"
+
+#. module: res_partner_farm_data
+#: field:cost.imputation,display_name:0
+#: field:cow.count,display_name:0
+#: field:employee.farm.count,display_name:0
+#: field:gescarro.data,display_name:0
+#: field:gescarro.data.line,display_name:0
+#: field:gescarro.import,display_name:0
+#: field:lot,display_name:0
+#: field:lot.analysis,display_name:0
+#: field:lot.analysis.import,display_name:0
+#: field:lot.content,display_name:0
+#: field:lot.detail,display_name:0
+#: field:lot.detail.sequence,display_name:0
+#: field:lot.partner,display_name:0
+#: field:milk.analysis,display_name:0
+#: field:milk.analysis.import,display_name:0
+#: field:milk.analysis.line,display_name:0
+#: field:milk.analysis.report,display_name:0
+#: field:milk.control,display_name:0
+#: field:milk.control.import,display_name:0
+#: field:milk.control.line,display_name:0
+#: field:milk.control.report,display_name:0
+#: field:output.quota,display_name:0
+#: field:report.res_partner_farm_data.lot_report,display_name:0
+#: field:res.partner.attachment,display_name:0
+#: field:res.partner.fields,display_name:0
+#: field:res.partner.fields.import,display_name:0
+#: field:yearly.data,display_name:0
+msgid "Display Name"
+msgstr "Nombre a mostrar"
 
 #. module: res_partner_farm_data
 #: selection:lot,state:0
@@ -638,6 +793,11 @@ msgstr "Coste ración vacas secas(€/vaca y día)"
 #: field:res.partner,dry_cows:0
 msgid "Dry cows"
 msgstr "Vacas secas"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,dry_cows_lot:0
+msgid "Dry cows lot"
+msgstr "Vacas lote secas"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,dry_extract:0
@@ -678,8 +838,32 @@ msgstr "EE"
 #. module: res_partner_farm_data
 #: field:lot.content,_theorical_enl:0
 #: field:lot.content,enl:0
+#: field:lot.content,theorical_enl:0
 msgid "ENL"
 msgstr "ENL"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,enl_concentrated:0
+#: field:gescarro.data,enl_fodder:0
+#: field:gescarro.data,wet_mixture_enl:0
+#: field:gescarro.data.line,enl:0
+msgid "ENL (Mcal/Kg MS)"
+msgstr "ENL (Mcal/Kg MS)"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,total_ration_enl:0
+msgid "ENL(Mcal/Kg MS)"
+msgstr "ENL(Mcal/Kg MS)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,eat_cow_production:0
+msgid "Eat cow production"
+msgstr "Producción comida vaca"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,eat_cow_production_corrected:0
+msgid "Eat cow production corrected"
+msgstr "Producción comida vaca corregida"
 
 #. module: res_partner_farm_data
 #: field:res.partner,electric_power:0
@@ -717,28 +901,21 @@ msgstr "Enterobacterias"
 #: code:addons/res_partner_farm_data/wizard/lot_analysis_import.py:67
 #, python-format
 msgid "Error!"
-msgstr "Error!"
+msgstr "¡Error!"
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/lot.py:34
 #: sql_constraint:lot.partner:0
 #, python-format
 msgid "Error! Only one lot by year and company."
-msgstr "Error! Solo un lote por año y compañía."
+msgstr "¡Error! Solo un lote por año y compañía."
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/output_quota.py:34
 #: sql_constraint:output.quota:0
 #, python-format
 msgid "Error! Only one quota by year and company."
-msgstr "Error! Solo una cuota por año y compañía."
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:31
-#: sql_constraint:res.partner:0
-#, python-format
-msgid "Error! Specified VAT Number already exists for any other registered partner."
-msgstr "Error! El CIF ya está establecido en otro partner."
+msgstr "¡Error! Solo una cuota por año y compañía."
 
 #. module: res_partner_farm_data
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
@@ -747,26 +924,20 @@ msgid "Errors"
 msgstr "Errores"
 
 #. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_calendar_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: res_partner_farm_data
 #: field:milk.analysis,exception_txt:0
 #: field:milk.control,exception_txt:0
 msgid "Exceptions"
 msgstr "Excepciones"
 
 #. module: res_partner_farm_data
-#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
-#: field:gescarro.data,wet_mixture:0
-msgid "Wet mixture"
-msgstr "Mezcla húmeda"
-
-#. module: res_partner_farm_data
-#: selection:gescarro.data.line,type:0
-msgid "fodder"
-msgstr "Forraje"
-
-#. module: res_partner_farm_data
-#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
-msgid "Fodder"
-msgstr "Forraje"
+#: field:res.partner.passwd,expire_time:0
+msgid "Expire time"
+msgstr "Tiempo expiración"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,exploitation_id:0
@@ -776,43 +947,31 @@ msgstr "Forraje"
 msgid "Exploitation"
 msgstr "Explotación"
 
+#. module: res_partner_farm_data
+#: field:milk.control.report,exploitation_1:0
+msgid "Exploitation 1"
+msgstr "Explotación 1"
 
 #. module: res_partner_farm_data
-#: field:gescarro.data,milking_cows:0
-#: field:lot.detail,number_milking_cows:0
-msgid "Milking cows"
-msgstr "Vacas en ordeño"
+#: field:milk.control.report,exploitation_2:0
+msgid "Exploitation 2"
+msgstr "Explotación 2"
 
 #. module: res_partner_farm_data
-#: field:gescarro.data,minutes_first_ration:0
-msgid "Minutes first ration"
-msgstr "Minutos 1ª ración"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,minutes_next_ration:0
-msgid "Minutes next ration"
-msgstr "Minutos ración siguiente"
-
-#. module: res_partner_farm_data
-#: field:lot.detail,kg_plucking_theo:0
-msgid "Plucking kg theoric"
-msgstr "Kg teoricos punteo"
-
-
-#. module: res_partner_farm_data
-#: field:lot.detail,ms_plucking:0
-msgid "Ms plucking"
-msgstr "Ms punteo"
-
-#. module: res_partner_farm_data
-#: field:milk.analysis.line,exploitation_name:0
-msgid "Exploitation name"
-msgstr "Nombre explotación"
+#: field:milk.analysis.report,exploitation_id:0
+msgid "Exploitation id"
+msgstr "Explotación id"
 
 #. module: res_partner_farm_data
 #: field:res.partner,exploitation_technician:0
 msgid "Exploitation technician"
 msgstr "Técnico explotación"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/gescarro_import.py:72
+#, python-format
+msgid "Exploitation with reference %s not found"
+msgstr "La explotación con la referencia %s no ha sido encontrada"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,explotation_company_id:0
@@ -857,7 +1016,7 @@ msgid "Farm Partners"
 msgstr "Explotaciones"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:179
+#: code:addons/res_partner_farm_data/models/res_partner.py:189
 #, python-format
 msgid "Farm creation error"
 msgstr "Error al crear explotación"
@@ -879,23 +1038,59 @@ msgid "Fat %"
 msgstr "Grasa %"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,fat:0
+msgid "Fat (%)"
+msgstr "Grasa (%)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,feed_cost_cow_day:0
+msgid "Feed cost cow day"
+msgstr "Coste alimentación/vaca y día"
+
+#. module: res_partner_farm_data
 #: field:res.partner,feeding_supplier:0
 msgid "Feeding supplier"
 msgstr "Proveedor alimentación"
 
 #. module: res_partner_farm_data
+#: field:gescarro.import,import_file:0
 #: field:lot.analysis.import,import_file:0
 #: field:milk.analysis.import,import_file:0
 #: field:milk.control.import,import_file:0
-#: field:gescarro.import,import_file:0
 #: field:res.partner.fields.import,import_file:0
 msgid "File to import"
 msgstr "Fichero a importar"
 
 #. module: res_partner_farm_data
+#: field:gescarro.import,filename:0
+msgid "Filename"
+msgstr "Nombre fichero"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/gescarro_import.py:42
+#, python-format
+msgid "Filename error"
+msgstr "Error fichero"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,first_ration_cost:0
+msgid "First ration cost"
+msgstr "Coste 1ª ración (€/min)"
+
+#. module: res_partner_farm_data
 #: model:ir.model,name:res_partner_farm_data.model_account_fiscalyear
 msgid "Fiscal Year"
 msgstr "Ejercicio fiscal"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,fix_cost:0
+msgid "Fix cost"
+msgstr "Coste fijo (€/mes)"
+
+#. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+msgid "Fodder"
+msgstr "Forraje"
 
 #. module: res_partner_farm_data
 #: field:res.partner,forage_silos:0
@@ -913,14 +1108,46 @@ msgid "Free"
 msgstr "Libre"
 
 #. module: res_partner_farm_data
+#: field:milk.control.report,from_date:0
+msgid "From date"
+msgstr "Desde"
+
+#. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "General data"
 msgstr "Datos generales"
 
 #. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+#: model:ir.actions.act_window,name:res_partner_farm_data.gescarro_data_action
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_gescarro
+msgid "Gescarro"
+msgstr "Gescarro"
+
+#. module: res_partner_farm_data
+#: view:gescarro.import:res_partner_farm_data.gescarro_import_form
+msgid "Gescarro import"
+msgstr "Importación Gescarro"
+
+#. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+msgid "Get analysis vals"
+msgstr "Obtener valores de análisis"
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
+msgid "Get lot data"
+msgstr "Obtener datos en lote"
+
+#. module: res_partner_farm_data
 #: field:lot.analysis,grain_equivalence:0
 msgid "Grain equivalence"
 msgstr "Equiv. grano"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,graphic_img:0
+msgid "Graphic img"
+msgstr "Gráfico"
 
 #. module: res_partner_farm_data
 #: selection:res.partner.fields,use:0
@@ -938,14 +1165,29 @@ msgid "Group By"
 msgstr "Agrupado por"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,grs_fat_cow_day:0
+msgid "Grs fat cow day"
+msgstr "Grs grasa/vaca y día"
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Grs grasa/vaca y día"
 msgstr "Grs grasa/vaca y día"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,grs_protein_cow_day:0
+msgid "Grs protein cow day"
+msgstr "Grs proteína/vaca y día"
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Grs proteína/vaca y día"
 msgstr "Grs proteína/vaca y día"
+
+#. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Hasta:"
+msgstr "Hasta:"
 
 #. module: res_partner_farm_data
 #: field:cow.count,heifer_0_3:0
@@ -991,6 +1233,9 @@ msgstr "ICcorregido (litros/kg MS):"
 #: field:cost.imputation,id:0
 #: field:cow.count,id:0
 #: field:employee.farm.count,id:0
+#: field:gescarro.data,id:0
+#: field:gescarro.data.line,id:0
+#: field:gescarro.import,id:0
 #: field:lot,id:0
 #: field:lot.analysis,id:0
 #: field:lot.analysis.import,id:0
@@ -1001,11 +1246,14 @@ msgstr "ICcorregido (litros/kg MS):"
 #: field:milk.analysis,id:0
 #: field:milk.analysis.import,id:0
 #: field:milk.analysis.line,id:0
+#: field:milk.analysis.report,id:0
 #: field:milk.control,id:0
 #: field:milk.control.import,id:0
 #: field:milk.control.line,id:0
+#: field:milk.control.report,id:0
 #: field:output.quota,id:0
 #: field:report.res_partner_farm_data.lot_report,id:0
+#: field:res.partner.attachment,id:0
 #: field:res.partner.fields,id:0
 #: field:res.partner.fields.import,id:0
 #: field:yearly.data,id:0
@@ -1033,18 +1281,76 @@ msgid "IMSunifed  (Kg/vaca y día):"
 msgstr "IMS unificado (Kg/vaca y día):"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,ic_corrected_liters_kg_anal:0
+msgid "Ic corrected liters kg anal"
+msgstr "Ic corregido litros/kg anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ic_corrected_liters_kg_real:0
+msgid "Ic corrected liters kg real"
+msgstr "Ic corregifo litros/kg real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ic_corrected_liters_kg_theo:0
+msgid "Ic corrected liters kg theo"
+msgstr "Ic corregido litros/kg teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ic_liters_kg_anal:0
+msgid "Ic liters kg anal"
+msgstr "Ic listros/kg anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ic_liters_kg_real:0
+msgid "Ic liters kg real"
+msgstr "Ic litrso/kg real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ic_liters_kg_theo:0
+msgid "Ic liters kg theo"
+msgstr "Ic litros/kg teór."
+
+#. module: res_partner_farm_data
 #: field:milk.analysis.line,analysis_line_id:0
 msgid "Id"
 msgstr "Id"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,imf_anal:0
+msgid "Imf anal"
+msgstr "Imf anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,imf_real:0
+msgid "Imf real"
+msgstr "Imf real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,imf_theo:0
+msgid "Imf theo"
+msgstr "Imf teór."
+
+#. module: res_partner_farm_data
+#: view:gescarro.import:res_partner_farm_data.gescarro_import_form
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
 #: view:milk.control.import:res_partner_farm_data.milk_control_import_form
 #: view:res.partner.fields.import:res_partner_farm_data.res_partner_fields_import_form
-#: view:gescarro.import:res_partner_farm_data.gescarro_import_form
 msgid "Import"
 msgstr "Importar"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/gescarro_import.py:72
+#: code:addons/res_partner_farm_data/wizard/gescarro_import.py:74
+#, python-format
+msgid "Import error"
+msgstr "Error importación"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.gescarro_import_action
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_gescarro_import
+msgid "Import gescarro data"
+msgstr "Importar datos gescarro"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.lot_analysis_import_act
@@ -1062,9 +1368,54 @@ msgid "Import milk control"
 msgstr "Importar control lechero"
 
 #. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.import_fields_act
+#: model:ir.actions.act_window,name:res_partner_farm_data.import_fields_act2
 msgid "Import plantations"
-msgstr "Import plantations"
+msgstr "Importar fincas"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_plucking_kg_cow_day_anal:0
+msgid "Ims plucking kg cow day anal"
+msgstr "Ims punteo kg vaca/día anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_plucking_kg_cow_day_real:0
+msgid "Ims plucking kg cow day real"
+msgstr "Ims punteo kg vaca/día real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_plucking_kg_cow_day_theo:0
+msgid "Ims plucking kg cow day theo"
+msgstr "Ims punteo kg vaca/día teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_total_kg_cow_day_anal:0
+msgid "Ims total kg cow day anal"
+msgstr "Ims total kg vaca/día anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_total_kg_cow_day_real:0
+msgid "Ims total kg cow day real"
+msgstr "Ims total kg vaca/día real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_total_kg_cow_day_theo:0
+msgid "Ims total kg cow day theo"
+msgstr "Ims total kg vaca/día teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_unifed_kg_cow_day_anal:0
+msgid "Ims unifed kg cow day anal"
+msgstr "Ims unificado kg vaca/día anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_unifed_kg_cow_day_real:0
+msgid "Ims unifed kg cow day real"
+msgstr "Ims unificado kg vaca/día real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ims_unifed_kg_cow_day_theo:0
+msgid "Ims unifed kg cow day theo"
+msgstr "Ims unificado kg vaca/día teór."
 
 #. module: res_partner_farm_data
 #: selection:milk.analysis,state:0
@@ -1083,10 +1434,20 @@ msgid "Ingrediente"
 msgstr "Ingrediente"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,ingress_milk_cow_day:0
+msgid "Ingress milk/milk cow and day"
+msgstr "Ingresos leche/vaca ordeñada y día"
+
+#. module: res_partner_farm_data
 #: field:milk.analysis.line,inhibitors:0
 #: field:milk.analysis.report,inhibitors:0
 msgid "Inhibitors"
 msgstr "Inhibidores"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,total_ration_intake:0
+msgid "Intake (Kg MS/cow)"
+msgstr "Ingesta (Kg MS/Vaca)"
 
 #. module: res_partner_farm_data
 #: model:ir.model,name:res_partner_farm_data.model_stock_location
@@ -1104,6 +1465,11 @@ msgid "KWs"
 msgstr "KWs"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data.line,kg:0
+msgid "Kg"
+msgstr "Kg"
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Kg MF de la ración:"
 msgstr "Kg MF de la ración:"
@@ -1114,6 +1480,56 @@ msgid "Kg MS de la ración:"
 msgstr "Kg MS de la ración:"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,kg_leftover:0
+msgid "Kg leftover"
+msgstr "Sobras (Kg)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_mf_ration_anal:0
+msgid "Kg mf ration anal"
+msgstr "Kg mf ración anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_mf_ration_real:0
+msgid "Kg mf ration real"
+msgstr "Kg mf ración real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_mf_ration_theo:0
+msgid "Kg mf ration theo"
+msgstr "Kg mf ración teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_ms_ration_anal:0
+msgid "Kg ms ration anal"
+msgstr "Kg ms ración anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_ms_ration_real:0
+msgid "Kg ms ration real"
+msgstr "Kg ms ración real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_ms_ration_theo:0
+msgid "Kg ms ration theo"
+msgstr "Kg ms ración teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_plucking_cow_day_anal:0
+msgid "Kg plucking cow day anal"
+msgstr "Kg punteo vaca/día anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_plucking_cow_day_real:0
+msgid "Kg plucking cow day real"
+msgstr "Kg punteo vaca/día real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_plucking_cow_day_theo:0
+msgid "Kg plucking cow day theo"
+msgstr "Kg punteo vaca/día teór."
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Kg punteo/vaca y día:"
 msgstr "Kg punteo/vaca y día:"
@@ -1121,34 +1537,20 @@ msgstr "Kg punteo/vaca y día:"
 #. module: res_partner_farm_data
 #: field:lot.content,_theorical_kg_ration:0
 #: field:lot.content,kg_ration:0
+#: field:lot.content,theorical_kg_ration:0
 msgid "Kg/Ration"
 msgstr "Kg/ración"
-
-
-#. module: res_partner_farm_data
-#: view:lot.content:res_partner_farm_data.lot_content_tree
-msgid "Real %MS"
-msgstr "%MS Real"
-
-#. module: res_partner_farm_data
-#: view:lot.content:res_partner_farm_data.lot_content_tree
-msgid "Real %PB"
-msgstr "%PB Real"
-
-#. module: res_partner_farm_data
-#: view:lot.content:res_partner_farm_data.lot_content_tree
-msgid "Real ENL"
-msgstr "ENl (Mcal/kg MS) Real"
-
-#. module: res_partner_farm_data
-#: view:lot.content:res_partner_farm_data.lot_content_tree
-msgid "Real Kg/Ration"
-msgstr "Kg/Ration Real"
 
 #. module: res_partner_farm_data
 #: view:output.quota:res_partner_farm_data.output_quota_form
 msgid "Kgs"
 msgstr "Kgs"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "L totales"
+msgstr "L totales"
 
 #. module: res_partner_farm_data
 #: selection:res.partner,milk_analysis_type:0
@@ -1181,9 +1583,43 @@ msgid "Lactic acid"
 msgstr "Ácido láctico"
 
 #. module: res_partner_farm_data
+#: field:cost.imputation,__last_update:0
+#: field:cow.count,__last_update:0
+#: field:employee.farm.count,__last_update:0
+#: field:gescarro.data,__last_update:0
+#: field:gescarro.data.line,__last_update:0
+#: field:gescarro.import,__last_update:0
+#: field:lot,__last_update:0
+#: field:lot.analysis,__last_update:0
+#: field:lot.analysis.import,__last_update:0
+#: field:lot.content,__last_update:0
+#: field:lot.detail,__last_update:0
+#: field:lot.detail.sequence,__last_update:0
+#: field:lot.partner,__last_update:0
+#: field:milk.analysis,__last_update:0
+#: field:milk.analysis.import,__last_update:0
+#: field:milk.analysis.line,__last_update:0
+#: field:milk.analysis.report,__last_update:0
+#: field:milk.control,__last_update:0
+#: field:milk.control.import,__last_update:0
+#: field:milk.control.line,__last_update:0
+#: field:milk.control.report,__last_update:0
+#: field:output.quota,__last_update:0
+#: field:report.res_partner_farm_data.lot_report,__last_update:0
+#: field:res.partner.attachment,__last_update:0
+#: field:res.partner.fields,__last_update:0
+#: field:res.partner.fields.import,__last_update:0
+#: field:yearly.data,__last_update:0
+msgid "Last Modified on"
+msgstr "Últ. modificación el"
+
+#. module: res_partner_farm_data
 #: field:cost.imputation,write_uid:0
 #: field:cow.count,write_uid:0
 #: field:employee.farm.count,write_uid:0
+#: field:gescarro.data,write_uid:0
+#: field:gescarro.data.line,write_uid:0
+#: field:gescarro.import,write_uid:0
 #: field:lot,write_uid:0
 #: field:lot.analysis,write_uid:0
 #: field:lot.analysis.import,write_uid:0
@@ -1197,7 +1633,9 @@ msgstr "Ácido láctico"
 #: field:milk.control,write_uid:0
 #: field:milk.control.import,write_uid:0
 #: field:milk.control.line,write_uid:0
+#: field:milk.control.report,write_uid:0
 #: field:output.quota,write_uid:0
+#: field:res.partner.attachment,write_uid:0
 #: field:res.partner.fields,write_uid:0
 #: field:res.partner.fields.import,write_uid:0
 #: field:yearly.data,write_uid:0
@@ -1208,6 +1646,9 @@ msgstr "Úl. actualización por"
 #: field:cost.imputation,write_date:0
 #: field:cow.count,write_date:0
 #: field:employee.farm.count,write_date:0
+#: field:gescarro.data,write_date:0
+#: field:gescarro.data.line,write_date:0
+#: field:gescarro.import,write_date:0
 #: field:lot,write_date:0
 #: field:lot.analysis,write_date:0
 #: field:lot.analysis.import,write_date:0
@@ -1221,7 +1662,9 @@ msgstr "Úl. actualización por"
 #: field:milk.control,write_date:0
 #: field:milk.control.import,write_date:0
 #: field:milk.control.line,write_date:0
+#: field:milk.control.report,write_date:0
 #: field:output.quota,write_date:0
+#: field:res.partner.attachment,write_date:0
 #: field:res.partner.fields,write_date:0
 #: field:res.partner.fields.import,write_date:0
 #: field:yearly.data,write_date:0
@@ -1229,11 +1672,42 @@ msgid "Last Updated on"
 msgstr "Últ. actualización el"
 
 #. module: res_partner_farm_data
+#: field:res.partner,latitude:0
+msgid "Latitude"
+msgstr "Latitud"
+
+#. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Leche corregida a 165 DEL"
+msgstr "Leche corregida a 165 DEL"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,leche_corregida_a_del_1:0
+msgid "Leche corregida a del 1"
+msgstr "Leche corregida a 165 del"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,leche_corregida_a_del_2:0
+msgid "Leche corregida a del 2"
+msgstr "Leche corregida a 165 del"
+
+#. module: res_partner_farm_data
+#: model:ir.ui.menu,name:res_partner_farm_data.menu_gescarro_data
+msgid "Lecturas"
+msgstr "Lecturas"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,leftover_reused:0
+msgid "Leftover reused"
+msgstr "Reutiliza sobras"
+
+#. module: res_partner_farm_data
 #: field:lot.analysis,lignina:0
 msgid "Lignina"
 msgstr "Lignina"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,lines:0
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
 #: field:milk.analysis,line_ids:0
 #: view:milk.control:res_partner_farm_data.milk_control_form
@@ -1252,6 +1726,11 @@ msgid "Liters on-farm consumption"
 msgstr "Litros autoconsumo"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,liters_produced_kg_concentrated_used:0
+msgid "Liters produced kg concentrated used"
+msgstr "Litros producidos/Kg de concentrado gastado"
+
+#. module: res_partner_farm_data
 #: field:lot,liters_produced_per_day:0
 msgid "Liters produced per day"
 msgstr "Litros producidos/día"
@@ -1267,6 +1746,12 @@ msgid "Liters sold per day"
 msgstr "Litros vendidos/día"
 
 #. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Litros"
+msgstr "Litros"
+
+#. module: res_partner_farm_data
 #: field:lot,live_weight:0
 msgid "Live weight"
 msgstr "Peso vivo"
@@ -1277,30 +1762,19 @@ msgid "Location Name"
 msgstr "Nombre paraje"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:270
+#: code:addons/res_partner_farm_data/models/res_partner.py:278
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Locations"
 msgstr "Ubicaciones"
 
 #. module: res_partner_farm_data
-#: view:lot:res_partner_farm_data.lot_filter
-#: view:lot:res_partner_farm_data.lot_partner_form
-#: view:lot:res_partner_farm_data.lot_tree
-msgid "Read"
-msgstr "Lectura"
+#: field:res.partner,longitude:0
+msgid "Longitude"
+msgstr "Longitud"
 
 #. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
-msgid "Reads"
-msgstr "Visita de alimentación"
-
-#. module: res_partner_farm_data
-#: field:lot.analysis,lot_id:0
-msgid "Raw material lot"
-msgstr "Lote materia prima"
-
-#. module: res_partner_farm_data
+#: field:calendar.event,lot_id:0
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_lot_partner
 #: view:lot.content:res_partner_farm_data.lot_content_form
 #: view:lot.content:res_partner_farm_data.lot_content_tree
@@ -1309,7 +1783,6 @@ msgstr "Lote materia prima"
 #: field:lot.detail,lot_id:0
 #: view:lot.partner:res_partner_farm_data.lot_partner_filter
 #: view:lot.partner:res_partner_farm_data.lot_partner_tree
-#: field:calendar.event,lot_id:0
 msgid "Lot"
 msgstr "Lote"
 
@@ -1319,7 +1792,7 @@ msgstr "Lote"
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_form
 #: view:lot.analysis:res_partner_farm_data.lot_analysis_tree
 msgid "Lot analysis"
-msgstr "Análisis de materias primas"
+msgstr "Análisis de lote"
 
 #. module: res_partner_farm_data
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
@@ -1332,9 +1805,10 @@ msgid "Lot details"
 msgstr "Detalle de lote"
 
 #. module: res_partner_farm_data
+#: field:lot,lot_number:0
 #: field:lot.partner,lot_number:0
 msgid "Lot number"
-msgstr "Número de lotes del año en curso"
+msgstr "Número de lotes"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.report.xml,name:res_partner_farm_data.action_lot_report
@@ -1342,9 +1816,25 @@ msgid "Lot report"
 msgstr "Informe lote"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,lot_threshold_point_dry:0
+msgid "Lot threshold point dry"
+msgstr "Punto umbral de lote (destino lote secas)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,lot_threshold_point_slaughterhouse:0
+msgid "Lot threshold point slaughterhouse"
+msgstr "Punto umbral de lote (destino matadero)"
+
+#. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "Lots"
 msgstr "Lotes"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,ms_kg_cow_concentrated:0
+#: field:gescarro.data,ms_kg_cow_fodder:0
+msgid "MS (Kg/Cow)"
+msgstr "MS (Kg/Vaca)"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,magnesium:0
@@ -1382,6 +1872,32 @@ msgid "Meat"
 msgstr "Carne"
 
 #. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Media"
+msgstr "Media"
+
+#. module: res_partner_farm_data
+#: field:lot.content,message_enl:0
+msgid "Message enl"
+msgstr "Mensaje enl"
+
+#. module: res_partner_farm_data
+#: field:lot.content,message_kg:0
+msgid "Message kg"
+msgstr "Mensaje kg"
+
+#. module: res_partner_farm_data
+#: field:lot.content,message_ms:0
+msgid "Message ms"
+msgstr "Mensaje ms"
+
+#. module: res_partner_farm_data
+#: field:lot.content,message_pb:0
+msgid "Message pb"
+msgstr "Mensaje pb"
+
+#. module: res_partner_farm_data
 #: selection:lot.analysis,tipo_material:0
 msgid "Mezcla unifeed"
 msgstr "Mezcla unifeed"
@@ -1392,7 +1908,7 @@ msgid "Milk"
 msgstr "Leche"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:328
+#: code:addons/res_partner_farm_data/models/res_partner.py:340
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_milk_analysis
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_filter
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
@@ -1414,9 +1930,15 @@ msgid "Milk analysis line"
 msgstr "Linea análisis leche"
 
 #. module: res_partner_farm_data
+#: field:milk.analysis.import,milk_analysis_type:0
 #: field:res.partner,milk_analysis_type:0
 msgid "Milk analysis type"
 msgstr "Tipo de análisis"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,milk_average:0
+msgid "Milk average (L/Cow)"
+msgstr "Media lactación (L/Vaca)"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_milk_control
@@ -1437,15 +1959,71 @@ msgid "Milk control line"
 msgstr "Linea control lechero"
 
 #. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.milk_control_report_action
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+msgid "Milk control report"
+msgstr "Informe de control lechero"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_tree
+msgid "Milk control reports"
+msgstr "Informe de control lechero"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_cow_production:0
+msgid "Milk cow production"
+msgstr "Producción vacas de leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_cow_production_corrected:0
+msgid "Milk cow production corrected"
+msgstr "Producción vacas de leche corregida"
+
+#. module: res_partner_farm_data
 #: field:cow.count,milk_cow:0
 #: field:res.partner,milk_cow:0
 msgid "Milk cows"
 msgstr "Vacas de leche"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,milk_cows_lot:0
+msgid "Milk cows lot"
+msgstr "Vacas lote lactación"
+
+#. module: res_partner_farm_data
 #: field:milk.control.line,milk_liters:0
 msgid "Milk liters"
 msgstr "Litros leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_prediction_by_enl_anal:0
+msgid "Milk prediction by enl anal"
+msgstr "Predicción leche por enl anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_prediction_by_enl_real:0
+msgid "Milk prediction by enl real"
+msgstr "Predicción leche por enl real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_prediction_by_enl_theo:0
+msgid "Milk prediction by enl theo"
+msgstr "Predicción leche por enl teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_prediction_by_pb_anal:0
+msgid "Milk prediction by pb anal"
+msgstr "Predicción leche por pb anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_prediction_by_pb_real:0
+msgid "Milk prediction by pb real"
+msgstr "Predicción leche por pb real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,milk_prediction_by_pb_theo:0
+msgid "Milk prediction by pb theo"
+msgstr "Predicción leche por pb teór."
 
 #. module: res_partner_farm_data
 #: field:lot,milk_price:0
@@ -1461,6 +2039,32 @@ msgstr "Proveedor calidad leche"
 #: field:res.partner,milk_tank_liter:0
 msgid "Milk tank liter"
 msgstr "Litros tanque leche"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,milking_cows:0
+#: field:lot.detail,number_milking_cows:0
+msgid "Milking cows"
+msgstr "Vacas en ordeño"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,milking_type_1:0
+msgid "Milking type 1"
+msgstr "Tipo de ordeño 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,milking_type_2:0
+msgid "Milking type 2"
+msgstr "Tipo de ordeño 2"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,minutes_first_ration:0
+msgid "Minutes first ration"
+msgstr "Minutos 1ª ración"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,minutes_next_ration:0
+msgid "Minutes next ration"
+msgstr "Minutos ración siguiente"
 
 #. module: res_partner_farm_data
 #: selection:res.partner,barn_type:0
@@ -1479,6 +2083,18 @@ msgid "Mold"
 msgstr "Mohos"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,ms_plucking:0
+msgid "Ms plucking"
+msgstr "Ms punteo"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/gescarro_import.py:74
+#, python-format
+msgid "Multiple exploitation with reference %s "
+msgstr "Múltiples explotaciones con la referencia %s "
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,name:0
 #: field:lot.detail,name:0
 #: field:lot.detail.sequence,name:0
 #: field:milk.control.line,name:0
@@ -1492,11 +2108,54 @@ msgid "Net Surface"
 msgstr "Superficie neta"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,next_ration_cost:0
+msgid "Next ration cost"
+msgstr "Coste ración siguiente (€/min)"
+
+#. module: res_partner_farm_data
+#: field:lot,notes:0
 #: field:lot.analysis,notes:0
+#: field:lot.detail,notes:0
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
 #: view:milk.control:res_partner_farm_data.milk_control_form
 msgid "Notes"
 msgstr "Notas"
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
+#: view:lot.detail:res_partner_farm_data.lot_detail_form
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,num_adultas_pico_del_1:0
+msgid "Num adultas pico del 1"
+msgstr "Núm. adultas pico del 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,num_adultas_pico_del_2:0
+msgid "Num adultas pico del 2"
+msgstr "Núm. adultas pico del 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,num_medio_partos_1:0
+msgid "Num medio partos 1"
+msgstr "Núm. medio partos"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,num_medio_partos_2:0
+msgid "Num medio partos 2"
+msgstr "Núm. medio partos"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,num_novillas_pico_del_1:0
+msgid "Num novillas pico del 1"
+msgstr "Núm. novillas pico del 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,num_novillas_pico_del_2:0
+msgid "Num novillas pico del 2"
+msgstr "Núm. novillas pico del 2"
 
 #. module: res_partner_farm_data
 #: field:milk.control.line,birth_number:0
@@ -1529,9 +2188,38 @@ msgid "Number of milking cows"
 msgstr "Nº vacas en ordeño"
 
 #. module: res_partner_farm_data
+#: field:milk.analysis,num_records:0
+#: field:milk.control,num_records:0
+msgid "Number of records"
+msgstr "Número de registros"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Nº adultas entre 60-90 DEL"
+msgstr "Nº adultas entre 60-90 DEL"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Nº animales"
+msgstr "Nº animales"
+
+#. module: res_partner_farm_data
 #: field:lot,number_cubicle_lactation:0
 msgid "Nº cubicle lactation"
 msgstr "Nº cubículos lactación"
+
+#. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Nº medio de partos"
+msgstr "Nº medio de partos"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Nº novillas entre 60-90 DEL"
+msgstr "Nº novillas entre 60-90 DEL"
 
 #. module: res_partner_farm_data
 #: selection:cost.imputation,state:0
@@ -1554,7 +2242,7 @@ msgstr "Otra"
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "Output Quota"
-msgstr "Cuota de producción"
+msgstr "Producción"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_output_quota
@@ -1562,7 +2250,7 @@ msgstr "Cuota de producción"
 #: view:output.quota:res_partner_farm_data.output_quota_form
 #: view:output.quota:res_partner_farm_data.output_quota_tree
 msgid "Output quota"
-msgstr "Cuota de producción"
+msgstr "Producción"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,pb:0
@@ -1605,13 +2293,13 @@ msgstr "Etiquetas de empresa"
 #. module: res_partner_farm_data
 #: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
 msgid "Partner fields"
-msgstr "Campos Partner"
+msgstr "Campos Empresas"
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/wizard/res_partner_fields_import.py:49
 #, python-format
 msgid "Partner not found"
-msgstr "Partner no encontrado"
+msgstr "Empresa no encontrada"
 
 #. module: res_partner_farm_data
 #: field:res.partner,partner_of:0
@@ -1622,13 +2310,48 @@ msgstr "Socio de"
 #: code:addons/res_partner_farm_data/wizard/res_partner_fields_import.py:50
 #, python-format
 msgid "Partner with code %s not found"
-msgstr "Partner con código %s no encontrado"
+msgstr "Empresa con código %s no encontrado"
 
 #. module: res_partner_farm_data
 #: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
 #: field:res.partner.category,partner_id:0
 msgid "Partners"
 msgstr "Explotaciones"
+
+#. module: res_partner_farm_data
+#: model:ir.model,name:res_partner_farm_data.model_res_partner_passwd
+msgid "Password"
+msgstr "Contraseña"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_concentrated_milk_ingress:0
+msgid "Perc concentrated milk ingress"
+msgstr "% concentrado sobre ingresos leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_feed_milk_ingress:0
+msgid "Perc feed milk ingress"
+msgstr "% Alimentación sobre ingresos leche"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_ms_ration_anal:0
+msgid "Perc ms ration anal"
+msgstr "% ms ración anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_ms_ration_real:0
+msgid "Perc ms ration real"
+msgstr "% ms ración real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_ms_ration_theo:0
+msgid "Perc ms ration theo"
+msgstr "% ms ración teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,perc_purchased_feed_milk_ingress:0
+msgid "Perc purchased feed milk ingress"
+msgstr "% Alimentación comprada sobre ingresos leche"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,phosphor:0
@@ -1639,6 +2362,58 @@ msgstr "Fósforo"
 #: field:res.partner,pickup_frequency:0
 msgid "Pickup frequency"
 msgstr "Frecuencia recogida"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_adultas_1:0
+msgid "Pico adultas 1"
+msgstr "Pico adultas 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_adultas_2:0
+msgid "Pico adultas 2"
+msgstr "Pico adultas 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_adultas_del_1:0
+msgid "Pico adultas del 1"
+msgstr "Pico adultas del 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_adultas_del_2:0
+msgid "Pico adultas del 2"
+msgstr "Pico adultas del 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_novillas_1:0
+msgid "Pico novillas 1"
+msgstr "Pico novillas 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_novillas_2:0
+msgid "Pico novillas 2"
+msgstr "Pico novillas 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_novillas_del_1:0
+msgid "Pico novillas del 1"
+msgstr "Pico novillas del 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,pico_novillas_del_2:0
+msgid "Pico novillas del 2"
+msgstr "Pico novillas del 2"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Pico producción adultas"
+msgstr "Pico producción adultas"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Pico producción novillas"
+msgstr "Pico producción novillas"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
@@ -1656,12 +2431,22 @@ msgstr "Fincas"
 #. module: res_partner_farm_data
 #: view:res.partner.fields.import:res_partner_farm_data.res_partner_fields_import_form
 msgid "Plantations import"
-msgstr "Plantations import"
+msgstr "Importación fincas"
+
+#. module: res_partner_farm_data
+#: field:res.partner.fields,plot:0
+msgid "Plot"
+msgstr "Parcela"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,kg_plucking:0
 msgid "Plucking kg"
 msgstr "Kg punteo"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,kg_plucking_theo:0
+msgid "Plucking kg theoric"
+msgstr "Kg teóricos punteo"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,potassium:0
@@ -1684,15 +2469,169 @@ msgid "Predicción de leche por PB:"
 msgstr "Predicción de leche por PB:"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,present_cow_average:0
+msgid "Present cow average (L/ Cow)"
+msgstr "Media vaca presente (L/ Vaca)"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_litros_total_1:0
+msgid "Prim terc lact litros total 1"
+msgstr "Prim terc lact litros total 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_litros_total_2:0
+msgid "Prim terc lact litros total 2"
+msgstr "Prim terc lact litros total 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_media_1:0
+msgid "Prim terc lact media 1"
+msgstr "Prim terc lact media 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_media_2:0
+msgid "Prim terc lact media 2"
+msgstr "Prim terc lact media 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_num_animales_1:0
+msgid "Prim terc lact num animales 1"
+msgstr "Prim terc lact num animales 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_num_animales_2:0
+msgid "Prim terc lact num animales 2"
+msgstr "Prim terc lact num animales 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_porcen_animales_1:0
+msgid "Prim terc lact porcen animales 1"
+msgstr "Prim terc lact porcen animales 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prim_terc_lact_porcen_animales_2:0
+msgid "Prim terc lact porcen animales 2"
+msgstr "Prim terc lact porcen animales 2"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Primerizas"
+msgstr "Primerizas"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_cant_1:0
+msgid "Primerizas cant 1"
+msgstr "Primerizas cant 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_cant_2:0
+msgid "Primerizas cant 2"
+msgstr "Primerizas cant 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_celulas_1:0
+msgid "Primerizas celulas 1"
+msgstr "Primerizas células 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_celulas_2:0
+msgid "Primerizas celulas 2"
+msgstr "Primerizas células 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_del_1:0
+msgid "Primerizas del 1"
+msgstr "Primerizas del 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_del_2:0
+msgid "Primerizas del 2"
+msgstr "Primerizas del 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_grasa_1:0
+msgid "Primerizas grasa 1"
+msgstr "Primerizas grasa 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_grasa_2:0
+msgid "Primerizas grasa 2"
+msgstr "Primerizas grasa 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_litros_1:0
+msgid "Primerizas litros 1"
+msgstr "Primerizas litros 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_litros_2:0
+msgid "Primerizas litros 2"
+msgstr "Primerizas litros 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_proteina_1:0
+msgid "Primerizas proteina 1"
+msgstr "Primerizas proteína 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_proteina_2:0
+msgid "Primerizas proteina 2"
+msgstr "Primerizas proteína 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_urea_1:0
+msgid "Primerizas urea 1"
+msgstr "Primerizas urea 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,primerizas_urea_2:0
+msgid "Primerizas urea 2"
+msgstr "Primerizas urea 2"
+
+#. module: res_partner_farm_data
+#: field:res.partner.attachment,private:0
+msgid "Private"
+msgstr "Privado"
+
+#. module: res_partner_farm_data
+#: field:res.partner,private_attachment_ids:0
+msgid "Private attachment ids"
+msgstr "Docuemntos privados"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_attachment_private_action
+#: model:ir.ui.menu,name:res_partner_farm_data.res_partner_attachment_private_menu
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Private documents"
+msgstr "Documentos privados"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prod_media_lact_acumulada_1:0
+msgid "Prod media lact acumulada 1"
+msgstr "Prod media lact acumulada 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,prod_media_lact_acumulada_2:0
+msgid "Prod media lact acumulada 2"
+msgstr "Prod media lact acumulada 2"
+
+#. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Producción media lact. acumulada"
+msgstr "Producción media lact. acumulada"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,produced_liter_cost:0
+msgid "Produced liter cost €/l"
+msgstr "Coste litro producido €/l"
+
+#. module: res_partner_farm_data
 #: model:ir.model,name:res_partner_farm_data.model_product_product
+#: field:lot.content,product_id:0
 #: field:res.partner.fields,product_name:0
 msgid "Product"
 msgstr "Producto"
-
-#. module: res_partner_farm_data
-#: field:lot.content,product_id:0
-msgid "Product"
-msgstr "Ingrediente"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,product_code:0
@@ -1721,19 +2660,41 @@ msgid "Protein %"
 msgstr "Proteína %"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,protein:0
+msgid "Protein (%)"
+msgstr "Proteína (%)"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,wet_raw_protein:0
+msgid "Proteína bruta (% MS)"
+msgstr "Proteína bruta (% MS)"
+
+#. module: res_partner_farm_data
 #: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
 msgid "Province"
 msgstr "Provincia"
 
 #. module: res_partner_farm_data
-#: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
-msgid "Year"
-msgstr "Año"
-
-#. module: res_partner_farm_data
 #: field:res.partner.fields,province_id:0
 msgid "Province Code"
 msgstr "Cód. Provincia"
+
+#. module: res_partner_farm_data
+#: field:res.partner,public_attachment_ids:0
+msgid "Public attachment ids"
+msgstr "Documentos públicos"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_attachment_public_action
+#: model:ir.ui.menu,name:res_partner_farm_data.res_partner_attachment_public_menu
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Public documents"
+msgstr "Documentos públicos"
+
+#. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+msgid "Quality"
+msgstr "Calidad"
 
 #. module: res_partner_farm_data
 #: field:milk.control.line,rcs:0
@@ -1746,9 +2707,168 @@ msgid "Ración media"
 msgstr "Ración media"
 
 #. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_corrected_milk_eur_liter_anal:0
+msgid "Ration carriage cost corrected milk eur liter anal"
+msgstr "Coste carro ración corregido leche €/litro anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_corrected_milk_eur_liter_real:0
+msgid "Ration carriage cost corrected milk eur liter real"
+msgstr "Coste carro ración corregido leche €/litro real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_corrected_milk_eur_liter_theo:0
+msgid "Ration carriage cost corrected milk eur liter theo"
+msgstr "Coste carro ración corregido leche €/litro teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_eur_cow_day_anal:0
+msgid "Ration carriage cost eur cow day anal"
+msgstr "Coste carro ración € vaca/día anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_eur_cow_day_real:0
+msgid "Ration carriage cost eur cow day real"
+msgstr "Coste carro ración € vaca/día real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_eur_cow_day_theo:0
+msgid "Ration carriage cost eur cow day theo"
+msgstr "Coste carro ración € vaca/día teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_eur_liter_anal:0
+msgid "Ration carriage cost eur liter anal"
+msgstr "Coste carro ración €/litro anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_eur_liter_real:0
+msgid "Ration carriage cost eur liter real"
+msgstr "Coste carro ración €/litro real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_carriage_cost_eur_liter_theo:0
+msgid "Ration carriage cost eur liter theo"
+msgstr "Coste carro ración €/litro teór."
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,total_ration_cost:0
+msgid "Ration cost (€/vaca and day)"
+msgstr "Coste ración (€/vaca y día)"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_anal:0
+msgid "Ration cost eur anal"
+msgstr "Coste ración € anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_real:0
+msgid "Ration cost eur real"
+msgstr "Coste ración € real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_theo:0
+msgid "Ration cost eur theo"
+msgstr "Coste ración € teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_ton_mf_anal:0
+msgid "Ration cost eur ton mf anal"
+msgstr "Coste ración €/T mf anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_ton_mf_real:0
+msgid "Ration cost eur ton mf real"
+msgstr "Coste ración €/T mf real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_ton_mf_theo:0
+msgid "Ration cost eur ton mf theo"
+msgstr "Coste ración €/T mf teór."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_ton_ms_anal:0
+msgid "Ration cost eur ton ms anal"
+msgstr "Coste ración €/T ms anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_ton_ms_real:0
+msgid "Ration cost eur ton ms real"
+msgstr "Coste ración €/T ms real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,ration_cost_eur_ton_ms_theo:0
+msgid "Ration cost eur ton ms theo"
+msgstr "Coste ración €/T ms teór."
+
+#. module: res_partner_farm_data
+#: field:lot.analysis,lot_id:0
+msgid "Raw material lot"
+msgstr "Lote materias primas"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data.line,raw_protein:0
+msgid "Raw protein"
+msgstr "Proteína bruta"
+
+#. module: res_partner_farm_data
+#: field:gescarro.data,raw_protein_concentrated:0
+#: field:gescarro.data,raw_protein_fodder:0
+#: field:gescarro.data,total_ration_raw_protein:0
+msgid "Raw protein (% MS)"
+msgstr "Proteína bruta (% MS)"
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_filter
+#: view:lot:res_partner_farm_data.lot_partner_form
+#: view:lot:res_partner_farm_data.lot_tree
+msgid "Read"
+msgstr "Lectura"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
+msgid "Reads"
+msgstr "Lecturas"
+
+#. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Real"
 msgstr "Real"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real %MS"
+msgstr "%MS Real"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real %PB"
+msgstr "%PB Real"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real ENL"
+msgstr "ENl (Mcal/kg MS) Real"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "Real Kg/Ration"
+msgstr "Kg/ración real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,real_production_deviation_anal:0
+msgid "Real production deviation anal"
+msgstr "Desviación real producción anal."
+
+#. module: res_partner_farm_data
+#: field:lot.detail,real_production_deviation_real:0
+msgid "Real production deviation real"
+msgstr "Desviación real producción real"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,real_production_deviation_theo:0
+msgid "Real production deviation theo"
+msgstr "Desviación real producción teór."
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_form
@@ -1756,9 +2876,50 @@ msgid "Real ration"
 msgstr "Ración real"
 
 #. module: res_partner_farm_data
+#: field:milk.analysis.line,reception_date:0
+msgid "Reception date"
+msgstr "Fecha recepción"
+
+#. module: res_partner_farm_data
 #: field:lot.analysis,name:0
 msgid "Reference"
 msgstr "Referencia"
+
+#. module: res_partner_farm_data
+#: selection:milk.analysis.line,state:0
+#: selection:milk.analysis.report,state:0
+msgid "Rejected"
+msgstr "Rechazado"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,relacion_entre_picos_1:0
+msgid "Relacion entre picos 1"
+msgstr "Relacion entre picos 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,relacion_entre_picos_2:0
+msgid "Relacion entre picos 2"
+msgstr "Relacion entre picos 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,relacion_grasa_prot_1:0
+msgid "Relacion grasa prot 1"
+msgstr "Relación %grasa/%prot."
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,relacion_grasa_prot_2:0
+msgid "Relacion grasa prot 2"
+msgstr "Relación %grasa/%prot."
+
+#. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Relación % grasa/%Prot."
+msgstr "Relación % grasa/%Prot."
+
+#. module: res_partner_farm_data
+#: field:res.partner,company_ids:0
+msgid "Related Company"
+msgstr "Compañía relacionada"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,rent:0
@@ -1771,6 +2932,11 @@ msgid "Replacement supplier"
 msgstr "Proveedor sustitución"
 
 #. module: res_partner_farm_data
+#: model:ir.actions.report.xml,name:res_partner_farm_data.action_milk_control_qweb_report
+msgid "Report"
+msgstr "Informe"
+
+#. module: res_partner_farm_data
 #: field:res.partner,reproduction_supplier:0
 msgid "Reproduction supplier"
 msgstr "Proveedor reproducción"
@@ -1780,33 +2946,6 @@ msgstr "Proveedor reproducción"
 #: field:lot.detail,retired_liters:0
 msgid "Retired liters"
 msgstr "Litros retirados"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,kg_leftover:0
-msgid "Kg leftover"
-msgstr "Sobras (Kg)"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,leftover_reused:0
-msgid "Leftover reused"
-msgstr "Reutiliza sobras"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,raw_protein_concentrated:0
-#: field:gescarro.data,raw_protein_fodder:0
-#: field:gescarro.data,total_ration_raw_protein:0
-msgid "Raw protein (% MS)"
-msgstr "Proteina bruta (% MS)"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,partner_number:0
-msgid "Partner number"
-msgstr "Nº Socio"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,fix_cost:0
-msgid "Fix cost"
-msgstr "Coste fijo (€/mes)"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,route:0
@@ -1844,6 +2983,46 @@ msgid "Secondary technician"
 msgstr "Técnico secundario"
 
 #. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_litros_total_1:0
+msgid "Seg terc lact litros total 1"
+msgstr "Seg terc lact litros total 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_litros_total_2:0
+msgid "Seg terc lact litros total 2"
+msgstr "Seg terc lact litros total 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_media_1:0
+msgid "Seg terc lact media 1"
+msgstr "Seg terc lact media 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_media_2:0
+msgid "Seg terc lact media 2"
+msgstr "Seg terc lact media 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_num_animales_1:0
+msgid "Seg terc lact num animales 1"
+msgstr "Seg terc lact num animales 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_num_animales_2:0
+msgid "Seg terc lact num animales 2"
+msgstr "Seg terc lact num animales 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_porcen_animales_1:0
+msgid "Seg terc lact porcen animales 1"
+msgstr "Seg terc lact porcen animales 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,seg_terc_lact_porcen_animales_2:0
+msgid "Seg terc lact porcen animales 2"
+msgstr "Seg terc lact porcen animales 2"
+
+#. module: res_partner_farm_data
 #: field:lot.detail,sequence:0
 #: field:lot.detail,sequence_id:0
 msgid "Sequence"
@@ -1853,6 +3032,11 @@ msgstr "Secuencia"
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "Servicios"
 msgstr "Servicios"
+
+#. module: res_partner_farm_data
+#: view:lot.content:res_partner_farm_data.lot_content_form
+msgid "Set real values"
+msgstr "Establecer valores teóricos como reales"
 
 #. module: res_partner_farm_data
 #: selection:res.partner.fields,use:0
@@ -1867,7 +3051,7 @@ msgstr "Silo hierba"
 #. module: res_partner_farm_data
 #: selection:lot.analysis,tipo_material:0
 msgid "Silo maiz"
-msgstr "Silo maiz"
+msgstr "Silo maíz"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,sixpac_surface:0
@@ -1932,13 +3116,12 @@ msgstr "Suministros alimentación"
 #. module: res_partner_farm_data
 #: field:res.partner,supplies_technician:0
 msgid "Supplies technician"
-msgstr "Tecnico de suministros"
+msgstr "Técnico de suministros"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,surplus:0
 msgid "Surplus (Kg)"
 msgstr "Sobrantes (Kg)"
-
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,tank_average:0
@@ -1962,29 +3145,8 @@ msgid "Tank liters"
 msgstr "Litros al tanque"
 
 #. module: res_partner_farm_data
-#: field:gescarro.data,dry_cows_lot:0
-msgid "Dry cows lot"
-msgstr "Vacas lote secas"
-
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,first_ration_cost:0
-msgid "First ration cost"
-msgstr "Coste 1ª ración (€/min)"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,next_ration_cost:0
-msgid "Next ration cost"
-msgstr "Coste ración siguiente (€/min)"
-
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,milk_cows_lot:0
-msgid "Milk cows lot"
-msgstr "Vacas lote lactación"
-
-#. module: res_partner_farm_data
 #: view:res.company:res_partner_farm_data.res_company_add_temporary
+#: field:res.partner,temporary_farm:0
 msgid "Temporary farm"
 msgstr "Explotación temporal"
 
@@ -1992,6 +3154,52 @@ msgstr "Explotación temporal"
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "Teorical"
 msgstr "Teórica"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_litros_total_1:0
+msgid "Terc terc lact litros total 1"
+msgstr "Terc terc lact litros total 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_litros_total_2:0
+msgid "Terc terc lact litros total 2"
+msgstr "Terc terc lact litros total 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_media_1:0
+msgid "Terc terc lact media 1"
+msgstr "Terc terc lact media 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_media_2:0
+msgid "Terc terc lact media 2"
+msgstr "Terc terc lact media 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_num_animales_1:0
+msgid "Terc terc lact num animales 1"
+msgstr "Terc terc lact núm animales 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_num_animales_2:0
+msgid "Terc terc lact num animales 2"
+msgstr "Terc terc lact núm animales 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_porcen_animales_1:0
+msgid "Terc terc lact porcen animales 1"
+msgstr "Terc terc lact porcen animales 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,terc_terc_lact_porcen_animales_2:0
+msgid "Terc terc lact porcen animales 2"
+msgstr "Terc terc lact porcen animales 2"
+
+#. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/wizard/gescarro_import.py:42
+#, python-format
+msgid "The file must be a .xls"
+msgstr "Este fichero debe ser un .xls"
 
 #. module: res_partner_farm_data
 #: sql_constraint:lot.detail:0
@@ -2006,22 +3214,22 @@ msgstr "¡El nombre de la secuencia debe ser único!"
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical %MS"
-msgstr "%MS Teórica"
+msgstr "%MS Teórico"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical %PB"
-msgstr "% PB Teóricaórico"
+msgstr "%PB Teórico"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical ENL"
-msgstr "ENl (Mcal/kg MS) Teórica"
+msgstr "ENL Teórico"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_tree
 msgid "Theorical Kg/Ration"
-msgstr "Kg/Ración teórica"
+msgstr "Kg/Ración teóricos"
 
 #. module: res_partner_farm_data
 #: view:lot.content:res_partner_farm_data.lot_content_form
@@ -2034,15 +3242,44 @@ msgid "Tipo de material"
 msgstr "Tipo de material"
 
 #. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:180
+#: code:addons/res_partner_farm_data/models/res_partner.py:190
 #, python-format
 msgid "To create farm must do it from the menu farm High"
 msgstr "Para crear explotaciones debe hacerse desde el menú 'Alta explotaciones'"
 
 #. module: res_partner_farm_data
+#: field:milk.control.report,to_date:0
+msgid "To date"
+msgstr "Hasta"
+
+#. module: res_partner_farm_data
+#: field:res.partner.passwd,token:0
+msgid "Token"
+msgstr "Token"
+
+#. module: res_partner_farm_data
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: selection:milk.control.report,milking_type_1:0
+#: selection:milk.control.report,milking_type_2:0
 #: view:website:res_partner_farm_data.lot_report
+#: view:website:res_partner_farm_data.milk_control_qweb_report
 msgid "Total"
 msgstr "Total"
+
+#. module: res_partner_farm_data
+#: field:res.partner,total_net_surface:0
+msgid "Total Net Surface"
+msgstr "Superficie neta total"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_cant_1:0
+msgid "Total cant 1"
+msgstr "Total cant 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_cant_2:0
+msgid "Total cant 2"
+msgstr "Total cant 2"
 
 #. module: res_partner_farm_data
 #: field:stock.location,total_capacity:0
@@ -2050,14 +3287,79 @@ msgid "Total capacity"
 msgstr "Capacidad total"
 
 #. module: res_partner_farm_data
+#: field:milk.control.report,total_celulas_1:0
+msgid "Total celulas 1"
+msgstr "Total células 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_celulas_2:0
+msgid "Total celulas 2"
+msgstr "Total células 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_del_1:0
+msgid "Total del 1"
+msgstr "Total del 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_del_2:0
+msgid "Total del 2"
+msgstr "Total del 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_grasa_1:0
+msgid "Total grasa 1"
+msgstr "Total grasa 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_grasa_2:0
+msgid "Total grasa 2"
+msgstr "Total grasa 2"
+
+#. module: res_partner_farm_data
 #: field:lot,total_liters_sold:0
 msgid "Total liters sold"
 msgstr "Litros totales vendidos"
 
 #. module: res_partner_farm_data
+#: field:milk.control.report,total_litros_1:0
+msgid "Total litros 1"
+msgstr "Total litros 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_litros_2:0
+msgid "Total litros 2"
+msgstr "Total litros 2"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_proteina_1:0
+msgid "Total proteina 1"
+msgstr "Total proteína 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_proteina_2:0
+msgid "Total proteina 2"
+msgstr "Total proteína 2"
+
+#. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+msgid "Total ration"
+msgstr "Ración total"
+
+#. module: res_partner_farm_data
 #: view:website:res_partner_farm_data.lot_report
 msgid "Total rebaño lactación"
 msgstr "Total rebaño lactación"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_urea_1:0
+msgid "Total urea 1"
+msgstr "Total urea 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,total_urea_2:0
+msgid "Total urea 2"
+msgstr "Total urea 2"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,townhall_id:0
@@ -2082,68 +3384,14 @@ msgid "Type"
 msgstr "Tipo"
 
 #. module: res_partner_farm_data
-#: field:gescarro.data,ms_kg_cow_concentrated:0
-#: field:gescarro.data,ms_kg_cow_fodder:0
-msgid "MS (Kg/Cow)"
-msgstr "MS (Kg/Vaca)"
-
-#. module: res_partner_farm_data
-#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
-msgid "Total ration"
-msgstr "Ración total"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,total_ration_intake:0
-msgid "Intake (Kg MS/cow)"
-msgstr "Ingesta (Kg MS/Vaca)"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,total_ration_cost_eur_ton_ms:0
-msgid "Cost (€/Ton MS)"
-msgstr "Coste (€/Ton MS)"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,total_ration_cost:0
-msgid "Ration cost (€/vaca and day)"
-msgstr "Coste ración (€/vaca y día)"
-
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,present_cow_average:0
-msgid "Present cow average (L/ Cow)"
-msgstr "Media vaca presente (L/ Vaca)"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,milk_average:0
-msgid "Milk average (L/Cow)"
-msgstr "Media lactación (L/Vaca)"
-
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,produced_liter_cost:0
-msgid "Produced liter cost €/l"
-msgstr "Coste litro producido €/l"
-
-
-#. module: res_partner_farm_data
-#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
-msgid "Quality"
-msgstr "Calidad"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data,fat:0
-msgid "Fat (%)"
-msgstr "Grasa (%)"
-
-#. module: res_partner_farm_data
-#: field:gescarro.data.line,raw_protein:0
-msgid "Raw protein"
-msgstr "Proteina bruta"
-
-#. module: res_partner_farm_data
 #: field:lot.analysis,ufl:0
 msgid "UFL"
 msgstr "UFL"
+
+#. module: res_partner_farm_data
+#: field:res.partner.attachment,upload_date:0
+msgid "Upload date"
+msgstr "Fecha de subida"
 
 #. module: res_partner_farm_data
 #: field:lot,urea:0
@@ -2156,10 +3404,50 @@ msgid "Urea"
 msgstr "Urea"
 
 #. module: res_partner_farm_data
+#: field:gescarro.data,urea:0
+msgid "Urea (mg/kg)"
+msgstr "Urea (mg/kg)"
+
+#. module: res_partner_farm_data
 #: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
 #: field:res.partner.fields,use:0
 msgid "Use"
 msgstr "Uso"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_ta:0
+msgid "Use Corn"
+msgstr "Uso maíz"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_fo:0
+msgid "Use Forest"
+msgstr "Uso forestal"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_pm:0
+msgid "Use Grass < 5 Years"
+msgstr "Uso pasto de < 5 años"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_ps:0
+msgid "Use Grass > 5 Years"
+msgstr "Uso pasto de > 5 años"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_pr:0
+msgid "Use Shrubby Grass"
+msgstr "Uso pasto arbustivo"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_hu:0
+msgid "Use Vegetable Garden"
+msgstr "Uso huerta"
+
+#. module: res_partner_farm_data
+#: field:res.partner,use_pa:0
+msgid "Use Wooded Grass"
+msgstr "Uso pasto arboleado"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,user_id:0
@@ -2174,19 +3462,43 @@ msgid "User"
 msgstr "Usuario"
 
 #. module: res_partner_farm_data
+#: code:addons/res_partner_farm_data/models/res_partner.py:329
+#: model:ir.model,name:res_partner_farm_data.model_res_users
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+#, python-format
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: res_partner_farm_data
 #: field:lot.analysis,vrf:0
 msgid "VRF"
 msgstr "VRF"
 
 #. module: res_partner_farm_data
-#: view:lot:res_partner_farm_data.lot_partner_form
-msgid "Validate"
-msgstr "Validar"
+#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Vacas"
+msgstr "Vacas"
+
+#. module: res_partner_farm_data
+#: view:website:res_partner_farm_data.milk_control_qweb_report
+msgid "Vacas invertidas"
+msgstr "Vacas invertidas"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,vacas_invertidas_1:0
+msgid "Vacas invertidas 1"
+msgstr "Vacas invertidas 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,vacas_invertidas_2:0
+msgid "Vacas invertidas 2"
+msgstr "Vacas invertidas 2"
 
 #. module: res_partner_farm_data
 #: view:lot:res_partner_farm_data.lot_partner_form
-msgid "Back to draft"
-msgstr "Volver a borrador"
+msgid "Validate"
+msgstr "Validar"
 
 #. module: res_partner_farm_data
 #: selection:lot,state:0
@@ -2220,14 +3532,15 @@ msgid "Vomitoxin"
 msgstr "Vomitoxina"
 
 #. module: res_partner_farm_data
+#: selection:milk.analysis.line,state:0
+#: selection:milk.analysis.report,state:0
+msgid "Waiting"
+msgstr "Esperando"
+
+#. module: res_partner_farm_data
 #: selection:stock.location,type:0
 msgid "Walls"
 msgstr "Con paredes"
-
-#. module: res_partner_farm_data
-#: field:milk.analysis.line,water:0
-msgid "Water"
-msgstr "Agua"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
@@ -2235,9 +3548,20 @@ msgid "Watts"
 msgstr "Watts"
 
 #. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+#: field:gescarro.data,wet_mixture:0
+msgid "Wet mixture"
+msgstr "Mezcla húmeda"
+
+#. module: res_partner_farm_data
 #: selection:res.partner.fields,use:0
 msgid "Wooded Grass"
 msgstr "Pasto arbolado"
+
+#. module: res_partner_farm_data
+#: field:res.company,xml_route:0
+msgid "Xml route"
+msgstr "Ruta Xml"
 
 #. module: res_partner_farm_data
 #: field:cost.imputation,year_id:0
@@ -2283,6 +3607,11 @@ msgid "concentrate capacity"
 msgstr "Capacidad concentrado"
 
 #. module: res_partner_farm_data
+#: selection:gescarro.data.line,type:0
+msgid "concentrated"
+msgstr "Concentrado"
+
+#. module: res_partner_farm_data
 #: field:milk.control.line,crotal:0
 msgid "crotal corto"
 msgstr "Crotal corto"
@@ -2303,9 +3632,9 @@ msgid "e.g. BE0477472701"
 msgstr "Por ejemplo, ESA00000000"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_partner_tree_add_fields
-msgid "gray:is_cooperative == True or farm == True"
-msgstr "gray:is_cooperative == True or farm == True"
+#: selection:gescarro.data.line,type:0
+msgid "fodder"
+msgstr "Forraje"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,kf_mf_carriage:0
@@ -2313,17 +3642,30 @@ msgid "kf MF carriage"
 msgstr "Kg MF en el carro"
 
 #. module: res_partner_farm_data
+#: selection:milk.control.report,milking_type_1:0
+#: selection:milk.control.report,milking_type_2:0
+msgid "late_liters"
+msgstr "Litros tarde"
+
+#. module: res_partner_farm_data
 #: field:res.partner,mh:0
 msgid "mh"
 msgstr "mh"
 
 #. module: res_partner_farm_data
+#: selection:milk.control.report,milking_type_1:0
+#: selection:milk.control.report,milking_type_2:0
+msgid "morning Liters"
+msgstr "Litros matinal"
+
+#. module: res_partner_farm_data
+#: view:gescarro.import:res_partner_farm_data.gescarro_import_form
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
 #: view:milk.control.import:res_partner_farm_data.milk_control_import_form
 #: view:res.partner.fields.import:res_partner_farm_data.res_partner_fields_import_form
 msgid "or"
-msgstr "O"
+msgstr "o"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,ph:0
@@ -2336,25 +3678,24 @@ msgid "pH stability"
 msgstr "pH estabilidad"
 
 #. module: res_partner_farm_data
-#: field:cow.count,sequence:0
+#: field:res.partner.attachment,recipient_ids:0
+msgid "recipients"
+msgstr "Destinatarios"
+
+#. module: res_partner_farm_data
 #: field:employee.farm.count,sequence:0
 msgid "sequence"
-msgstr "sequence"
+msgstr "Secuencia"
 
 #. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.partner_view_buttons_add_farm
-msgid "{'invisible': [('customer', '=', False), ('farm', '=', False)]}"
-msgstr "{'invisible': [('customer', '=', False), ('farm', '=', False)]}"
-
-#. module: res_partner_farm_data
-#: view:res.partner:res_partner_farm_data.view_password_partner_form2
-msgid "{'invisible': [('farm', '=', False)]}"
-msgstr "{'invisible': [('farm', '=', False)]}"
+#: view:lot.content:res_partner_farm_data.lot_content_tree
+msgid "total"
+msgstr "Total"
 
 #. module: res_partner_farm_data
 #: field:lot.content,eur_ton_mf:0
-msgid "€/Tn MH"
-msgstr "€/Tn MH"
+msgid "€/Tn MF"
+msgstr "€/Tn MF"
 
 #. module: res_partner_farm_data
 #: field:res.partner,use_fo:0
@@ -2395,195 +3736,3 @@ msgstr "Uso pasto de < 5 años"
 #: field:res.partner,total_net_surface:0
 msgid "Total Net Surface"
 msgstr "Superficie neta total"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,exploitation_1:0
-msgid "Exploitation 1"
-msgstr "Explotación 1"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,exploitation_2:0
-msgid "Exploitation 2"
-msgstr "Explotación 2"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,milking_type_1:0
-msgid "Milking type 1"
-msgstr "Tipo de ordeño 1"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,milking_type_2:0
-msgid "Milking type 2"
-msgstr "Tipo de ordeño 2"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,from_date:0
-msgid "From date"
-msgstr "Desde"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,to_date:0
-msgid "To date"
-msgstr "Hasta"
-
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,vacas_invertidas_1:0
-msgid "Vacas invertidas 1"
-msgstr "Vacas invertidas"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,vacas_invertidas_2:0
-msgid "Vacas invertidas 2"
-msgstr "Vacas invertidas"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,coeficiente_persistencia_1:0
-msgid "Coeficiente persistencia 1"
-msgstr "Coeficiente persistencia"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,coeficiente_persistencia_2:0
-msgid "Coeficiente persistencia 2"
-msgstr "Coeficiente persistencia"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,leche_corregida_a_del_1:0
-msgid "Leche corregida a del 1"
-msgstr "Leche corregida a 165 del"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,leche_corregida_a_del_2:0
-msgid "Leche corregida a del 2"
-msgstr "Leche corregida a 165 del"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,prod_media_lact_acumulada_1:0
-msgid "Prod media lact acumulada 1"
-msgstr "Prod media lact acumulada"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,prod_media_lact_acumulada_2:0
-msgid "Prod media lact acumulada 2"
-msgstr "Prod media lact acumulada"
-
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,num_medio_partos_1:0
-msgid "Num medio partos 1"
-msgstr "Num medio partos"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,num_medio_partos_2:0
-msgid "Num medio partos 2"
-msgstr "Num medio partos"
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,relacion_grasa_prot_1:0
-msgid "Relacion grasa prot 1"
-msgstr "Relación %grasa/%prot."
-
-#. module: res_partner_farm_data
-#: field:milk.control.report,relacion_grasa_prot_2:0
-msgid "Relacion grasa prot 2"
-msgstr "Relación %grasa/%prot."
-
-
-#. module: res_partner_farm_data
-#: selection:milk.control.report,milking_type_1:0
-#: selection:milk.control.report,milking_type_2:0
-msgid "morning Liters"
-msgstr "Litros matinal"
-
-#. module: res_partner_farm_data
-#: selection:milk.control.report,milking_type_1:0
-#: selection:milk.control.report,milking_type_2:0
-msgid "late_liters"
-msgstr "Litros tarde"
-
-#. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.milk_control_report_action
-#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
-msgid "Milk control report"
-msgstr "Informe de control lecher"
-
-#. module: res_partner_farm_data
-#: view:milk.control.report:res_partner_farm_data.milk_control_report_view_tree
-msgid "Milk control reports"
-msgstr "Informe de control lechero"
-
-#. module: res_partner_farm_data
-#: model:ir.actions.report.xml,name:res_partner_farm_data.action_milk_control_qweb_report
-msgid "Report"
-msgstr "Informe"
-
-
-#. module: res_partner_farm_data
-#: field:res.partner,latitude:0
-msgid "Latitude"
-msgstr "Latitud"
-
-#. module: res_partner_farm_data
-#: field:res.partner,longitude:0
-msgid "Longitude"
-msgstr "Longitud"
-
-
-#. module: res_partner_farm_data
-#: view:lot:res_partner_farm_data.lot_partner_form
-msgid "Get lot data"
-msgstr "Obtener datos en lote"
-
-
-#. module: res_partner_farm_data
-#: view:res.partner.attachment:res_partner_farm_data.res_partner_attachment_view_form
-msgid "Attachment"
-msgstr "Adjunto"
-
-#. module: res_partner_farm_data
-#: code:addons/res_partner_farm_data/models/res_partner.py:304
-#: code:addons/res_partner_farm_data/models/res_partner.py:316
-#: view:res.partner.attachment:res_partner_farm_data.res_partner_attachment_view_tree
-#, python-format
-msgid "Attachments"
-msgstr "Adjuntos"
-
-#. module: res_partner_farm_data
-#: field:res.partner.attachment,author:0
-msgid "Author"
-msgstr "Autor"
-
-#. module: res_partner_farm_data
-#: field:res.partner,is_cooperative:0
-#: field:res.partner.attachment,cooperative:0
-msgid "Cooperative"
-msgstr "Cooperativa"
-
-#. module: res_partner_farm_data
-#: field:res.partner.attachment,private:0
-msgid "Private"
-msgstr "Privado"
-
-#. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_attachment_private_action
-#: model:ir.ui.menu,name:res_partner_farm_data.res_partner_attachment_private_menu
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
-msgid "Private documents"
-msgstr "Documentos privados"
-
-#. module: res_partner_farm_data
-#: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_attachment_public_action
-#: model:ir.ui.menu,name:res_partner_farm_data.res_partner_attachment_public_menu
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
-msgid "Public documents"
-msgstr "Documentos públicos"
-
-#. module: res_partner_farm_data
-#: field:res.partner.attachment,upload_date:0
-msgid "Upload date"
-msgstr "Fecha de subida"
-
-#. module: res_partner_farm_data
-#: field:res.partner.attachment,recipient_ids:0
-msgid "recipients"
-msgstr "Destinatarios"
