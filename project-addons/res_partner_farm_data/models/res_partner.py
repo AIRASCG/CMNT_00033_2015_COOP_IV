@@ -402,7 +402,7 @@ class ResPartnerAttachment(models.Model):
     upload_date = fields.Date(default=lambda self:datetime.now().strftime('%Y-%m-%d'),
                               required=True)
     author = fields.Many2one('res.users', default=lambda self:self.env.user.id,
-                             required=True)
+                             required=True, readonly=True)
     cooperative = fields.Many2one('res.company', default=lambda self:self.env.user.company_id.cooperative_company.id,
                                   required=True, domain=[('is_cooperative', '=', True)])
     description = fields.Char("Description", size=100)

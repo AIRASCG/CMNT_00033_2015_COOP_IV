@@ -178,7 +178,7 @@ class LotDetail(models.Model):
 
     name = fields.Char('Name', required=True)
     description = fields.Char('Description', required=True)
-    user_id = fields.Many2one('res.users', 'User', required=True,
+    user_id = fields.Many2one('res.users', 'User', required=True, readonly=True,
                               default=lambda self: self.env.user.id)
     lot_id = fields.Many2one('lot', 'Lot')
     lot_contents = fields.One2many('lot.content', 'detail_id', 'Content',

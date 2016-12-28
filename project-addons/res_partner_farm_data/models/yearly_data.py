@@ -34,7 +34,7 @@ class YearlyData(models.Model):
     company_id = fields.Many2one('res.company', 'Company',
                                  related='farm_id.company_id')
     user_id = fields.Many2one('res.users', 'User', default=_get_user_id,
-                              required=True)
+                              required=True, readonly=True)
     date = fields.Date('Date',
                        default=lambda *a: date.today().strftime('%Y-%m-%d'),
                        required=True)
