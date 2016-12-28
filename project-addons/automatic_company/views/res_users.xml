@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="base.view_users_form"/>
             <field name="arch" type="xml">
                 <field name="company_ids" position="after">
-                    <button name="add_farms" string="add farms" type="object"/>
+                    <button name="add_farms" string="Add farms" type="object"/>
                 </field>
             </field>
         </record>
