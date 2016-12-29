@@ -7,7 +7,7 @@
             <field name="model">mail.attachment.partner</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
-                <tree string="">
+                <tree create="0">
                     <field name="name"/>
                 </tree>
             </field>
@@ -18,7 +18,7 @@
             <field name="model">mail.attachment.partner</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form string="">
+                <form create="0" edit="0">
                     <sheet>
                         <group>
                             <group>
