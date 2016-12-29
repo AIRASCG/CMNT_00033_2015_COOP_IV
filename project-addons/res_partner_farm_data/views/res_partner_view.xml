@@ -519,7 +519,6 @@
                             <group>
                                 <field name="author"/>
                                 <field name="upload_date"/>
-                                <field name="cooperative" domain="[('is_cooperative', '=', True)]"/>
                             </group>
                             <group>
                                 <field name="description"/>
@@ -573,6 +572,17 @@
                   action="res_partner_attachment_private_action"
                   groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_feed,custom_groups.group_tech_sales"
                   id="res_partner_attachment_private_menu" sequence="2"/>
+
+        <record id="res_partner_service_action" model="ir.actions.act_window">
+            <field name="name">Password services</field>
+            <field name="res_model">res.partner.service</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+         <menuitem name="Password services" parent="base.menu_config_address_book"
+                  action="res_partner_service_action"
+                  id="res_partner_service_menu"/>
 
     </data>
 </openerp>

@@ -396,18 +396,32 @@ class ResPartnerPasswd(models.Model):
     token = fields.Char('Token')
     expire_time = fields.Datetime('Expire time')
 
+class ResPartnerService(models.Model):
+
+    _inherit = 'res.partner.service'
+
+    company_id = fields.\
+        Many2one("res.company", "Company",
+                 default=
+                 lambda self: self.env.user.company_id.cooperative_company)
+
 
 class ResPartnerAttachment(models.Model):
 
     _name = 'res.partner.attachment'
     _rec_name = "description"
 
-    upload_date = fields.Date(default=lambda self:datetime.now().strftime('%Y-%m-%d'),
-                              required=True)
-    author = fields.Many2one('res.users', default=lambda self:self.env.user.id,
+    upload_date = fields.\
+        Date(default=lambda self: datetime.now().strftime('%Y-%m-%d'),
+             required=True)
+    author = fields.Many2one('res.users',
+                             default=lambda self: self.env.user.id,
                              required=True, readonly=True)
-    cooperative = fields.Many2one('res.company', default=lambda self:self.env.user.company_id.cooperative_company.id,
-                                  required=True, domain=[('is_cooperative', '=', True)])
+    cooperative = fields.\
+        Many2one('res.company',
+                 default=
+                 lambda self: self.env.user.company_id.cooperative_company,
+                 required=True, domain=[('is_cooperative', '=', True)])
     description = fields.Char("Description", size=100)
     recipient_ids = fields.Many2many('res.partner',
                                      'res_partner_attachment_rel',

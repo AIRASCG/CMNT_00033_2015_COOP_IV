@@ -76,5 +76,11 @@
             <field name="domain_force">[('cooperative', '=', user.company_id.cooperative_company.id)]</field>
         </record>
 
+        <record model="ir.rule" id="res_partner_service_all">
+            <field name="name">res_partner_service all</field>
+            <field name="model_id" ref="partner_passwd.model_res_partner_service"/>
+            <field name="domain_force">['|',('company_id', '=', user.company_id.cooperative_company.id),('company_id', '=', False)]</field>
+        </record>
+
     </data>
 </openerp>

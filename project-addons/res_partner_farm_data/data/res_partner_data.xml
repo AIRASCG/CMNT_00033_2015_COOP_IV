@@ -7,6 +7,7 @@
 
         <record forcecreate="True" id="service_ligal" model="res.partner.service">
             <field name="name">LIGAL</field>
+            <field name="company_id"></field>
         </record>
 
     </data>
