@@ -429,3 +429,11 @@ class ResPartnerAttachment(models.Model):
                                      'partner_id', 'recipients',
                                      domain=[('farm', '=', True)])
     private = fields.Boolean()
+
+    @api.multi
+    def load_companies(self):
+        for attach in self:
+            companies = [self.env.user.company_id.partner_id.id]
+            companies.\
+                extend([x.partner_id.id for x in self.env.user.company_id.child_ids])
+            attach.recipient_ids = [(6, 0, companies)]

@@ -141,6 +141,11 @@ msgid "Acetic acid"
 msgstr "Ácido acético"
 
 #. module: res_partner_farm_data
+#: view:res.partner.attachment:res_partner_farm_data.res_partner_attachment_view_form
+msgid "Add farms"
+msgstr "Añadir explotaciones"
+
+#. module: res_partner_farm_data
 #: field:res.partner.fields,added:0
 msgid "Added"
 msgstr "Añadido"
