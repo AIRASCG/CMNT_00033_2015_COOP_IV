@@ -7,7 +7,7 @@
                 <div class="page">
                     <div class="row">
                         <div class="col-xs-6" t-if="o.ref_1">
-                            Compnay 1: <span t-field="o.ref_1.name"/>
+                            Company 1: <span t-field="o.ref_1.name"/>
                         </div>
                         <div class="col-xs-6" t-if="o.ref_2">
                             Company 2: <span t-field="o.ref_2.name"/>

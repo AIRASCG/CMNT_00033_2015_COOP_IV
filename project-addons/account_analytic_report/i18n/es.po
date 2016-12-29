@@ -185,7 +185,7 @@ msgstr "Compañía 2:"
 
 #. module: account_analytic_report
 #: view:website:account_analytic_report.report_analytic_report_document
-msgid "Compnay 1:"
+msgid "Company 1:"
 msgstr "Compañía 1:"
 
 #. module: account_analytic_report

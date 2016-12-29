@@ -30,15 +30,13 @@
                     </div>
                     <div class="col-xs-5 text-right">
                         <p>
-                            <strong>Fecha del informe</strong>
-                        </p>
-                        <p>
-                            <span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/>
-                        </p>
-                        <p>
-                            <strong>Autor</strong>
-                        </p>
-                        <p>
+                            <strong>Fecha del informe</strong><br/>
+                            <span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/><br/>
+                        <t t-if="'name' in o">
+                                <strong>Nombre informe</strong><br/>
+                                <span t-esc="o.name"/><br/>
+                        </t>
+                            <strong>Autor</strong><br/>
                             <span t-esc="o.env.user.name"/>
                         </p>
                     </div>
