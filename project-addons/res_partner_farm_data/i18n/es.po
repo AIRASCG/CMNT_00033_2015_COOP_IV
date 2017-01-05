@@ -1143,6 +1143,11 @@ msgstr "Obtener valores de análisis"
 
 #. module: res_partner_farm_data
 #: view:lot:res_partner_farm_data.lot_partner_form
+msgid "Get data from LIGAL/LILA"
+msgstr "Obtener datos desde LIGAL/LILA"
+
+#. module: res_partner_farm_data
+#: view:lot:res_partner_farm_data.lot_partner_form
 msgid "Get lot data"
 msgstr "Obtener datos en lote"
 
@@ -1434,6 +1439,11 @@ msgstr "Incorrecto"
 #: field:res.partner.fields,industrial_estate:0
 msgid "Industrial Estate"
 msgstr "Polígono"
+
+#. module: res_partner_farm_data
+#: field:product.product,ingredient:0
+msgid "Ingredient"
+msgstr "Ingrediente"
 
 #. module: res_partner_farm_data
 #: view:website:res_partner_farm_data.lot_report

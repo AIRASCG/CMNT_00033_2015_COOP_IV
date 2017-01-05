@@ -160,6 +160,27 @@ class Lot(models.Model):
             order='sample_date desc', limit=1)
         self.urea = analysis.urea
 
+    @api.multi
+    def get_data_from_ligal(self):
+        for lot in self:
+            analysis_ids = self.env['milk.analysis.line'].\
+                search([('analysis_id.exploitation_id', '=',
+                         lot.farm_id.id), ('sample_date', '<=', lot.date),
+                        ('state', '=', 'accepted')],
+                       limit=3, order="sample_date desc")
+            mg_total = mp_total = 0
+            for line in analysis_ids:
+                mg_total += line.fat or 0.0
+                mp_total += line.protein or 0.0
+            if mg_total:
+                lot.mg = mg_total / len(analysis_ids)
+            else:
+                lot.mg = mg_total
+            if mp_total:
+                lot.mp = mp_total / len(analysis_ids)
+            else:
+                lot.mp = mp_total
+
 
 class LotDetailSequence(models.Model):
 

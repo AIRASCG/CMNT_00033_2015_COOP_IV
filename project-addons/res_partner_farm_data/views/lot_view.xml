@@ -90,6 +90,7 @@
                 <form string="Read">
                     <header>
                         <button name="get_data_lot" type="object" string="Get lot data" attrs="{'invisible': [('state', '=', 'validated')]}"/>
+                        <button name="get_data_from_ligal" type="object" string="Get data from LIGAL/LILA" attrs="{'invisible': [('state', '=', 'validated')]}"/>
                         <button name="button_validate" type="object" string="Validate" attrs="{'invisible': [('state', '=', 'validated')]}"/>
                         <button name="button_draft" type="object" string="Back to draft" attrs="{'invisible': [('state', '=', 'draft')]}"/>
                         <field name="state" widget="statusbar"/>
@@ -97,11 +98,11 @@
                     <sheet>
                         <group colspan="4">
                             <group>
-                                <field name="user_id"/>
+                                <field name="user_id" readonly="1"/>
                                 <field name="date"/>
                             </group>
                             <group>
-                                <field name="farm_id"/>
+                                <field name="farm_id" domain="[('farm','=',True),('is_cooperative','=',False)]"/>
                             </group>
                         </group>
                         <group>
@@ -372,7 +373,7 @@
                     <sheet>
                         <group>
                             <field name="eur_ton_mf"/>
-                            <field name="product_id"/>
+                            <field name="product_id" widget="selection"/>
                                 <group string="Theorical ration">
                                     <field name="theorical_kg_ration"/>
                                     <field name="theorical_ms"/>
