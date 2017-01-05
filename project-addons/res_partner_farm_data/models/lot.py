@@ -211,7 +211,10 @@ class LotDetail(models.Model):
     surplus = fields.Integer('Surplus (Kg)')
     cows_tank_number = fields.Integer('Cows tank number')
     liters_on_farm_consumption = fields.Integer('Liters on-farm consumption')
-    kf_mf_carriage = fields.Integer('kf MF carriage', compute='_get_kf_mf_carraige', inverse='_set_kf_mf_carriage')
+    kf_mf_carriage = fields.Integer('kf MF carriage', compute='_get_kf_mf_carraige', inverse='_set_kf_mf_carriage',
+                                    help="No hace falta escribirlo, porque se calcula multiplicando el 'Nº de raciones hechas' "
+                                         "por la suma de los 'KG/ración' de los ingredientes. Si se escribe, provocará que el campo "
+                                         "'Nº de raciones hechas' sea calculado consecuentemente")
     cows_eat_number = fields.Integer('Cows eat number')
     tank_liters = fields.Integer('Tank liters')
     retired_liters = fields.Integer('Retired liters')
@@ -380,6 +383,7 @@ class LotDetail(models.Model):
                 lot_detail.rations_make_number = float(lot_detail.kf_mf_carriage) / sum([x.kg_ration for x in lot_detail.lot_contents])
 
     @api.multi
+    @api.depends('rations_make_number', 'lot_contents.kg_ration')
     def _get_kf_mf_carraige(self):
         for lot_detail in self:
             lot_detail.kf_mf_carriage = lot_detail.rations_make_number * sum([x.kg_ration for x in lot_detail.lot_contents])

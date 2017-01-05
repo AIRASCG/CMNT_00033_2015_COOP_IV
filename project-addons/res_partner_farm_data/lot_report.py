@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, api, exceptions, _
 
 
 class LotReport(models.AbstractModel):
@@ -31,40 +31,49 @@ class LotReport(models.AbstractModel):
             'res_partner_farm_data.lot_report')
         objs = self.env[report.model].browse(self._ids)
         lots = {}
-        product_lines = {}
-        totals = {}
-        tables = {}
+
         for o in objs:
-            tables[o.id] = []
-            lots[o.id] = []
-            product_lines[o.id] = []
+            z = zip()
+            lots[o.id] = z
             all_products = []
-            totals[o.id] = {'total': 0.0, 'ration': 0.0}
             if not o.lot_details:
                 raise exceptions.Warning(_("Cannot print report without lots"))
+            # Cabeceras
+            headers = ['Ingrediente']
             for detail in o.lot_details:
-                lots[o.id].append(detail)
+                headers.append(detail.name)
                 for content in detail.lot_contents:
                     if content.product_id not in all_products:
                         all_products.append(content.product_id)
+
+            headers.extend(['Total', u'Ración media'])
+            z.append(headers)
+
+            # Productos
             for product in all_products:
-                line = {}
-                line['product'] = product
-                for detail in lots[o.id]:
+                body = [product]
+                subtotal = 0.0
+                for detail in o.lot_details:
                     content_detail = self.env['lot.content'].search([('product_id', '=', product.id), ('detail_id', '=', detail.id)])
-                    line[detail.id] = content_detail and content_detail[0].kg_ration * detail.rations_make_number or 0
-                    if detail.id not in totals[o.id].keys():
-                        totals[o.id][detail.id] = line[detail.id]
-                    else:
-                        totals[o.id][detail.id] += line[detail.id]
-                line['total'] = sum([line[x] for x in line.keys() if x != 'product'])
-                totals[o.id]['total'] += line['total']
+                    amount = content_detail and content_detail[0].kg_ration * detail.rations_make_number or 0
+                    body.append(amount)
+                    subtotal += amount
+                body.append(subtotal)
                 if o.number_milking_cows:
-                    line['ration'] = line['total'] / o.number_milking_cows
+                    body.append(subtotal / o.number_milking_cows)
                 else:
-                    line['ration'] = 0
-                totals[o.id]['ration'] += line['ration']
-                product_lines[o.id].append(line)
+                    body.append(0)
+                z.append(body)
+
+            #Pie
+            footer = [""]
+            for index in range(1, len(z[0])):
+                total_col = 0
+                for line in z[1:]:
+                    total_col += line[index]
+                footer.append(total_col)
+            z.append(footer)
+
             tab_struct = [
                 ('a', 'Nº raciones hechas: ', 'lot.rations_make_number', 'sum([x.rations_make_number for x in lot_details])'),
                 ('b', 'Kg MF en el carro:', 'lot.kf_mf_carriage', 'sum([x.kf_mf_carriage for x in lot_details])'),
@@ -107,10 +116,11 @@ class LotReport(models.AbstractModel):
                 'ag': 'o.dry_cow_ration_cost != 0.0 and o.milk_price != 0.0'
             }
             table = {}
+
             for line_struct in tab_struct:
                 checked = True
                 table[line_struct[0]] = {'title': line_struct[1]}
-                lot_details = lots[o.id]
+                lot_details = o.lot_details
                 if struct_checks.get(line_struct[0], False):
                     if not eval(struct_checks[line_struct[0]]):
                         checked = False
@@ -132,14 +142,13 @@ class LotReport(models.AbstractModel):
                     table[line_struct[0]]['total'] = 0.0
 
         table_keys = sorted(table.keys(), key=lambda item: (len(item), item))
+        import ipdb;ipdb.set_trace()
 
         docargs = {
             'doc_ids': self._ids,
             'doc_model': report.model,
             'docs': objs,
             'lots': lots,
-            'product_lines': product_lines,
-            'totals': totals,
             'table': table,
             'table_keys': table_keys,
         }
