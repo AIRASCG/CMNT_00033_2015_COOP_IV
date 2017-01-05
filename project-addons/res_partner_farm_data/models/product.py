@@ -26,3 +26,4 @@ class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     concenctrate = fields.Boolean('Concentrate')
+    ingredient = fields.Boolean("Ingredient")

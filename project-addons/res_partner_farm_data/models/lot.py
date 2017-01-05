@@ -661,7 +661,7 @@ class LotContent(models.Model):
                                 default=lambda a: datetime.now())
     eur_ton_mf = fields.Integer('€/Tn MF')
     product_id = fields.Many2one('product.product', 'Product', required=True,
-                                 domain=[('type', '!=', 'service')])
+                                 domain=[('ingredient', '=', True)])
     kg_ration = fields.Float('Kg/Ration')
     ms = fields.Float('%MS', digits=(12, 2))
     enl = fields.Float('ENL', digits=(12, 2))
