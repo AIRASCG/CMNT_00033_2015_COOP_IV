@@ -372,6 +372,10 @@ class LotDetail(models.Model):
                                       readonly=True)
     eat_cow_production_corrected = fields.Float('', compute='_get_lot_calcs',
                                                 readonly=True)
+    cubicle_production = fields.Float('', compute='_get_lot_calcs',
+                                      readonly=True)
+    cubicle_production_corrected = fields.Float('', compute='_get_lot_calcs',
+                                                readonly=True)
     sequence_id = fields.Many2one('lot.detail.sequence', 'Sequence')
     sequence = fields.Integer('Sequence', related='sequence_id.name')
     max_seq = fields.Integer('', compute='_get_max_sequence', store=True)
@@ -662,6 +666,20 @@ class LotDetail(models.Model):
                     (i3 * lot_detail.rations_make_number)
             else:
                 res['liters_produced_kg_concentrated_used'] = 0.0
+
+            if lot_detail.number_cubicles_in_lot:
+                res['cubicle_production'] = \
+                    (lot_detail.tank_liters +
+                     lot_detail.liters_on_farm_consumption +
+                     lot_detail.retired_liters) / \
+                     lot_detail.number_cubicles_in_lot
+                res['cubicle_production_corrected'] = \
+                    (12.82 * res['cubicle_production'] * (lot.mg / 100.0)) + \
+                    (7.13 * res['cubicle_production'] * (lot.mp / 100.0) + \
+                    (0.323 * res['cubicle_production']))
+            else:
+                res['cubicle_production'] = 0.0
+                res['cubicle_production_corrected'] = 0.0
 
             if lot.milk_price != 0.0:
                 res['lot_threshold_point_slaughterhouse'] = \
