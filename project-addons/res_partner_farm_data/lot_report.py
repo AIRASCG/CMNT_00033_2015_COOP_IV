@@ -142,7 +142,6 @@ class LotReport(models.AbstractModel):
                     table[line_struct[0]]['total'] = 0.0
 
         table_keys = sorted(table.keys(), key=lambda item: (len(item), item))
-        import ipdb;ipdb.set_trace()
 
         docargs = {
             'doc_ids': self._ids,
