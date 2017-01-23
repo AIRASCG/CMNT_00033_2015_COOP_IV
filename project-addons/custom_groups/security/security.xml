@@ -21,6 +21,12 @@
             <field name="groups" eval="[(4, ref('custom_groups.group_rancher')),]"/>
         </record>
 
+        <record model="ir.rule" id="auditlog_log_rule_all">
+            <field name="name">auditlog.log multicompany</field>
+            <field name="model_id" ref="auditlog.model_auditlog_log"/>
+            <field name="domain_force">[('user_id.company_id', 'child_of', [user.company_id.id])]</field>
+        </record>
+
         <delete id="base.res_users_rule" model="ir.rule"/>
 
         <record id="base.res_users_rule" model="ir.rule">
