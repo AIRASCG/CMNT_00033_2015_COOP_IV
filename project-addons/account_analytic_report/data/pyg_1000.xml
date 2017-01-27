@@ -156,9 +156,9 @@
             <field name="code">14</field>
             <field name="sequence">14</field>
             <field name="name">Ración completa vacas secas</field>
-            <field name="value_1_1">606</field>
+            <field name="value_1_1">6052</field>
             <field name="value_1_2">[1_1],/#milk,*'1000</field>
-            <field name="value_2_1">606</field>
+            <field name="value_2_1">6052</field>
             <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
         </record>
@@ -167,9 +167,9 @@
             <field name="code">15</field>
             <field name="sequence">15</field>
             <field name="name">Ración completa jatas</field>
-            <field name="value_1_1">6052</field>
+            <field name="value_1_1">606</field>
             <field name="value_1_2">[1_1],/#milk,*'1000</field>
-            <field name="value_2_1">6052</field>
+            <field name="value_2_1">606</field>
             <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
         </record>
