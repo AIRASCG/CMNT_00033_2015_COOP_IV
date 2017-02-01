@@ -170,6 +170,8 @@
                 </page>
                 <field name="website" position="after">
                     <field name="ref"/>
+                    <field name="gescarro_reference"/>
+                    <field name="erp_reference"/>
                     <field name="is_cooperative" invisible="1"/>
                     <field name="active" attrs="{'invisible': [('is_cooperative', '=', True)]}"/>
                     <field name="temporary_farm" attrs="{'invisible': [('farm', '=', False)]}"/>

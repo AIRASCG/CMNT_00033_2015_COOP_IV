@@ -39,7 +39,7 @@ class ErpXmlDocument(models.Model):
     @api.multi
     def parse_partner(self, partner):
         coop_partner = self.env['res.partner'].search(
-            [('ref', '=', partner['codigo_coop'])])
+            [('erp_reference', '=', partner['codigo_coop'])])
         if not coop_partner:
             raise Exception(
                 _('Code error'),
@@ -53,7 +53,7 @@ class ErpXmlDocument(models.Model):
             'supplier': partner['proveedor'],
             'farm': partner['explotacion'],
             'active': partner['activo'],
-            'ref': partner['codigo'],
+            'erp_reference': partner['codigo'],
             'country_id': country.id,
         }
         if 'nif' in partner.keys():
@@ -114,14 +114,14 @@ class ErpXmlDocument(models.Model):
                     _('Invoice with number %s already exists') %
                     invoice_data['number'])
         company_partner = self.env['res.partner'].search(
-            [('ref', '=', invoice['codigo_explo'])])
+            [('erp_reference', '=', invoice['codigo_explo'])])
         if not company_partner:
             raise Exception(
                 _('partner not found'),
                 _('Partner with code %s not found') % invoice['codigo_explo'])
         invoice_data['company_id'] = company_partner.company_id.id
         partner = self.env['res.partner'].search(
-            [('ref', '=', invoice['codigo_empresa'])])
+            [('erp_reference', '=', invoice['codigo_empresa'])])
         if not partner:
             raise Exception(
                 _('partner not found'),

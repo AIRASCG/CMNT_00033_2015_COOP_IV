@@ -28,6 +28,8 @@ class ResPartner(models.Model):
 
     latitude = fields.Char()
     longitude = fields.Char()
+    gescarro_reference = fields.Char()
+    erp_reference = fields.Char()
     farm = fields.Boolean('Farm')
     temporary_farm = fields.Boolean(
         'Temporary farm', readonly=True,
@@ -206,7 +208,6 @@ class ResPartner(models.Model):
 
     @api.multi
     def write(self, vals):
-        print "vals: ", vals
         for partner in self:
             if vals.get('employees_quantity', False) or \
                     vals.get('employees_date'):

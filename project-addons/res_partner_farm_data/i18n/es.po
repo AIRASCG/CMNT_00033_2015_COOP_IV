@@ -30,6 +30,20 @@ msgstr "% Animales"
 msgid "% MS"
 msgstr "% MS"
 
+
+#. module: res_partner_farm_data
+#: field:res.partner,gescarro_reference:0
+#: field:res.users,gescarro_reference:0
+msgid "Gescarro reference"
+msgstr "Referencia gescarro"
+
+
+#. module: res_partner_farm_data
+#: field:res.partner,erp_reference:0
+#: field:res.users,erp_reference:0
+msgid "Erp reference"
+msgstr "Referencia erp"
+
 #. module: res_partner_farm_data
 #: field:gescarro.data,total_ration_ms_concentrated:0
 #: field:gescarro.data,wet_mixture_ms_concentrated:0

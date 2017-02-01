@@ -13,6 +13,7 @@
     "installable": True,
     "depends": [
         "base",
+        'res_partner_farm_data'
     ],
     "data": [
         'views/document.xml',

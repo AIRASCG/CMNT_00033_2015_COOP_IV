@@ -67,7 +67,7 @@ class GescarroImport(models.TransientModel):
                 exp_ref = str(int(row[11]))
             except ValueError:
                 exp_ref = str(row[11])
-            exploitation = self.env['res.partner'].search([('ref', '=', exp_ref), ('farm', '=', True)])
+            exploitation = self.env['res.partner'].search([('gescarro_reference', '=', exp_ref), ('farm', '=', True)])
             if not exploitation:
                 raise exceptions.Warning(_('Import error'), _('Exploitation with reference %s not found') % exp_ref)
             elif len(exploitation) > 1:
