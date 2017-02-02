@@ -85,17 +85,21 @@ class ErpXmlDocument(models.Model):
             partner_data['website'] = partner['web']
         if 'socio_relacionado' in partner.keys():
             partner_data['partner_of'] = partner['socio_relacionado']
-
-        if partner.get('explotacion', False):
-            # se crea la compañía y se asigna a created_partner el partner
-            new_company = self.env['res.company'].create(
-                {'name': partner['nombre'],
-                 'parent_id': coop_partner.company_id.id})
-            created_partner = new_company.partner_id
+        created_partner = self.env['res.partner'].search(
+            [('erp_reference', '=', partner['codigo'])])
+        if created_partner:
             created_partner.write(partner_data)
-        elif partner.get('cliente', False) or partner.get('proveedor', False):
-            partner_data['company_id'] = coop_partner.company_id.id
-            self.env['res.partner'].create(partner_data)
+        else:
+            if partner.get('explotacion', False):
+                # se crea la compañía y se asigna a created_partner el partner
+                new_company = self.env['res.company'].create(
+                    {'name': partner['nombre'],
+                     'parent_id': coop_partner.company_id.id})
+                created_partner = new_company.partner_id
+                created_partner.write(partner_data)
+            elif partner.get('cliente', False) or partner.get('proveedor', False):
+                partner_data['company_id'] = coop_partner.company_id.id
+                self.env['res.partner'].create(partner_data)
 
     @api.multi
     def parse_invoice(self, invoice):
@@ -108,11 +112,6 @@ class ErpXmlDocument(models.Model):
             if 'eliminar' in invoice and invoice['eliminar']:
                 created_invoice.unlink()
                 return
-            else:
-                raise Exception(
-                    _('Invoice exists'),
-                    _('Invoice with number %s already exists') %
-                    invoice_data['number'])
         company_partner = self.env['res.partner'].search(
             [('erp_reference', '=', invoice['codigo_explo'])])
         if not company_partner:
@@ -213,8 +212,11 @@ class ErpXmlDocument(models.Model):
             invoice_data.update({k: onch_dict['value'][k]
                                  for k in onch_dict['value']
                                  if k not in invoice_data})
-
-        self.env['account.invoice'].create(invoice_data)
+        if created_invoice:
+            created_invoice.invoice_line.unlink()
+            created_invoice.write(invoice_data)
+        else:
+            self.env['account.invoice'].create(invoice_data)
 
     @api.model
     def import_data(self):
