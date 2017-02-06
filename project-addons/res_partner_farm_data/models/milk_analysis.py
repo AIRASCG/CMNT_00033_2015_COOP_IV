@@ -60,7 +60,7 @@ class MilkAnalysisLine(models.Model):
     protein = fields.Float('Protein')
     dry_extract = fields.Float('Dry extract')
     bacteriology = fields.Char('Bacteriology')
-    cs = fields.Float('CS')
+    cs = fields.Char('CS')
     inhibitors = fields.Char('Inhibitors')
     cryoscope = fields.Float('Cryoscope')
     urea = fields.Float('Urea')
