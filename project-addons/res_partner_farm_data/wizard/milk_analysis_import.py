@@ -207,6 +207,8 @@ class MilkAnalysisImport(models.TransientModel):
                     '_I00009': 'urea',
                 }
                 for test_code in test_map.keys():
+                    if not sample[test_code]:
+                        continue
                     test_val = ast.literal_eval(sample[test_code])['Result']
                     try:
                         if test_val == '-':

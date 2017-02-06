@@ -63,7 +63,7 @@ class MilkAnalysisLine(models.Model):
     cs = fields.Char('CS')
     inhibitors = fields.Char('Inhibitors')
     cryoscope = fields.Float('Cryoscope')
-    urea = fields.Float('Urea')
+    urea = fields.Char('Urea')
 
 
 
