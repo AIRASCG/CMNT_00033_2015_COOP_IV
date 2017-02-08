@@ -106,18 +106,19 @@ class ErpXmlDocument(models.Model):
         invoice_data = {}
         invoice_data['invoice_number'] = invoice['numero']
         invoice_data['number'] = invoice['numero']
-        created_invoice = self.env['account.invoice'].search(
-            [('number', '=', invoice_data['number'])])
-        if created_invoice:
-            if 'eliminar' in invoice and invoice['eliminar']:
-                created_invoice.unlink()
-                return
         company_partner = self.env['res.partner'].search(
             [('erp_reference', '=', invoice['codigo_explo'])])
         if not company_partner:
             raise Exception(
                 _('partner not found'),
                 _('Partner with code %s not found') % invoice['codigo_explo'])
+        created_invoice = self.env['account.invoice'].search(
+            [('number', '=', invoice_data['number']),
+             ('company_id', '=', company_partner.company_id.id)])
+        if created_invoice:
+            if 'eliminar' in invoice and invoice['eliminar']:
+                created_invoice.unlink()
+                return
         invoice_data['company_id'] = company_partner.company_id.id
         partner = self.env['res.partner'].search(
             [('erp_reference', '=', invoice['codigo_empresa'])])
