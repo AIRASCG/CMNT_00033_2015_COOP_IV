@@ -106,6 +106,7 @@ class ErpXmlDocument(models.Model):
         invoice_data = {}
         invoice_data['invoice_number'] = invoice['numero']
         invoice_data['number'] = invoice['numero']
+        invoice_data['currency_id'] = self.env.user.company_id.currency_id
         company_partner = self.env['res.partner'].search(
             [('erp_reference', '=', invoice['codigo_explo'])])
         if not company_partner:
