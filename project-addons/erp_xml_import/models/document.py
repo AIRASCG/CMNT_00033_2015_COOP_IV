@@ -2,8 +2,7 @@
 # © 2016 Comunitea
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _, exceptions
-from openerp.modules.registry import RegistryManager
+from openerp import models, fields, api, _, exceptions, registry
 from lxml import etree
 import os
 import errno
@@ -106,7 +105,7 @@ class ErpXmlDocument(models.Model):
         invoice_data = {}
         invoice_data['invoice_number'] = invoice['numero']
         invoice_data['number'] = invoice['numero']
-        invoice_data['currency_id'] = self.env.user.company_id.currency_id
+        invoice_data['currency_id'] = self.env.user.company_id.currency_id.id
         company_partner = self.env['res.partner'].search(
             [('erp_reference', '=', invoice['codigo_explo'])])
         if not company_partner:
@@ -196,12 +195,13 @@ class ErpXmlDocument(models.Model):
                     raise Exception(
                         _('Reference error'),
                         _('tax with type %s and amount %s not found for the company %s') %
-                        (tax['tipo'], tax['tipo_aplicado'], invoice_data['company_id']))
+                        (tax['tipo'], tax['tipo_aplicado'], company_partner.company_id.name))
                 taxes.append(tax_r.id)
             if taxes:
                 line_data['invoice_line_tax_id'] = [(6, 0, taxes)]
             invoice_data['invoice_line'].append((0, 0, line_data))
-        onch_dict = self.env['account.invoice'].onchange_partner_id(
+        onch_dict = self.env['account.invoice'].with_context(
+            force_company=invoice_data['company_id']).onchange_partner_id(
             'in_invoice', invoice_data['partner_id'],
             company_id=invoice_data['company_id'])
         if 'value' in onch_dict:
@@ -228,9 +228,10 @@ class ErpXmlDocument(models.Model):
         data_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                     '..', 'data'))
         for doc in docs:
+            doc.errors = ''
             with_error = False
             with api.Environment.manage():
-                with RegistryManager.get(self.env.cr.dbname).cursor() as new_cr:
+                with registry(self.env.cr.dbname).cursor() as new_cr:
                     new_env = api.Environment(new_cr, self.env.uid, self.env.context)
                     #Se hace browse con un env diferente para guardar cambios
                     doc_ = self.with_env(new_env).browse(doc.id)
