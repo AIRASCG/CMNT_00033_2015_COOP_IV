@@ -22,8 +22,8 @@ TIPO_MAP = {
 
 
 class ErpXmlDocument(models.Model):
-
     _name = 'erp.document'
+    _inherit = ['mail.thread']
 
     name = fields.Char()
     state = fields.Selection(
@@ -249,6 +249,8 @@ class ErpXmlDocument(models.Model):
                             doc.errors += '\n%s' % str(e)
                             doc.state = 'error'
                             with_error = True
+                            print 'ERROR VALIDACION'
+                            doc.send_mail_support()
                             continue
                         if doc.type == 'partner':
                             for partner_element in xml_doc.getroot().iter('partner'):
@@ -268,6 +270,8 @@ class ErpXmlDocument(models.Model):
                                     doc.state = 'error'
                                     new_env.cr.rollback()
                                     with_error = True
+                                    print 'ERROR 1' 
+                                    doc.send_mail_support()
                                     continue
 
                         elif doc.type == 'invoice':
@@ -307,6 +311,8 @@ class ErpXmlDocument(models.Model):
                                     doc.state = 'error'
                                     new_env.cr.rollback()
                                     with_error = True
+                                    print 'ERROR 2' 
+                                    doc.send_mail_support()
                                     continue
                     if not with_error:
                         doc.state = 'imported'
@@ -330,7 +336,7 @@ class ErpXmlDocument(models.Model):
                 os.rename(from_file, to_file)
 
     @api.model
-    def import_files(self):
+    def import_files(self):                
         folders = [x.xml_route for x in self.env['res.company'].search(
             [('xml_route', '!=', False)])]
         for folder in folders:
@@ -372,8 +378,32 @@ class ErpXmlDocument(models.Model):
                         type = 'undefined'
                     state = 'new'
                     if errors:
-                        state = 'error'
+                        print 'ERROR 3'       
+                        state = 'error' 
+                        doc.send_mail_support()
                     doc.write({'type': type, 'document': doc_content,
                                'errors': '\n'.join(errors), 'state': state})
             self.import_data()
             docs.move_imported_files(importation_folder, process_folder)
+
+
+    @api.multi
+    def send_mail_support(self):        
+        group = self.env['res.groups'].search([('name', '=', 'Support')])
+        recipient_partners = []
+        for recipient in group.users:            
+            recipient_partners.append(
+                (recipient.partner_id.id)
+            )
+        
+        # import ipdb;
+        # ipdb.set_trace()
+
+        for doc in self:
+            print 'envia aviso: ______', doc.name
+            doc.message_post(body=_("Hubo un error durante la importación del documento."),
+                                subtype='mt_comment',
+                                partner_ids=recipient_partners)        
+        return True
+
+
