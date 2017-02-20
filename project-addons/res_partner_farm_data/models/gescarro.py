@@ -19,13 +19,11 @@
 #
 ##############################################################################
 
-from openerp import models, fields, api
+from openerp import models, fields, api, exceptions, registry, _
 from datetime import datetime
 import os
-import logging
 import csv
 import pytz
-_logger = logging.getLogger(__name__)
 
 
 class DecodeDictReader(csv.DictReader):
@@ -294,96 +292,109 @@ class GescarroData(models.Model):
 
     @api.model
     def import_ftp_data(self):
-        folder = self.env['ir.config_parameter'].get_param('gescarro.folder')
-        if not folder:
-            _logger.error('Not found config parameter %s' % 'gescarro.folder')
-            return
-        importation_folder = '%s%slecturas' % (folder, os.sep)
-        process_folder = '%s%sprocesados' % (folder, os.sep)
-        if 'lecturas' not in os.listdir(folder):
-            os.mkdir(importation_folder)
-        if 'procesados' not in os.listdir(folder):
-            os.mkdir(process_folder)
-        csv_files = [x for x in os.listdir(importation_folder)
-                     if x.endswith('.csv')]
-        for csv_file in csv_files:
-            file_dir = importation_folder + os.sep + csv_file
-            with open(file_dir, 'rb') as csv_content:
-                freader = DecodeDictReader(csv_content, delimiter=';',
-                                           quotechar='"',
-                                           encoding='cp1252')
-                line_names = freader.fieldnames[2:]
-                date_field = freader.fieldnames[0]
-                partner_field = freader.fieldnames[1]
-                for row in freader:
-                    exploitation_ref = row[partner_field]
-                    if not exploitation_ref:
-                        continue
-                    exploitation = self.env['res.partner'].search(
-                        [('gescarro_reference', '=', exploitation_ref)])
-                    if len(exploitation) != 1:
-                        _logger.error(
-                            'Not found a partner with reference %s' %
-                            exploitation_ref)
-                        continue
-                    if len(row[date_field]) == 10:
-                        row[date_field] = '%s 00:00' % row[date_field]
+        try:
+            folder = self.env['ir.config_parameter'].get_param('gescarro.folder')
+            if not folder:
+                raise exceptions.Warning(_('Config error'), _('Not found config parameter %s') % 'gescarro.folder')
+            importation_folder = '%s%slecturas' % (folder, os.sep)
+            process_folder = '%s%sprocesados' % (folder, os.sep)
+            if 'lecturas' not in os.listdir(folder):
+                os.mkdir(importation_folder)
+            if 'procesados' not in os.listdir(folder):
+                os.mkdir(process_folder)
+            csv_files = [x for x in os.listdir(importation_folder)
+                         if x.endswith('.csv')]
+            for csv_file in csv_files:
+                file_dir = importation_folder + os.sep + csv_file
+                with open(file_dir, 'rb') as csv_content:
+                    freader = DecodeDictReader(csv_content, delimiter=';',
+                                               quotechar='"',
+                                               encoding='cp1252')
+                    line_names = freader.fieldnames[2:]
+                    date_field = freader.fieldnames[0]
+                    partner_field = freader.fieldnames[1]
+                    partner_errors = []
+                    for row in freader:
+                        exploitation_ref = row[partner_field]
+                        if not exploitation_ref:
+                            continue
+                        exploitation = self.env['res.partner'].search(
+                            [('gescarro_reference', '=', exploitation_ref)])
+                        if len(exploitation) != 1:
+                            partner_errors.append(exploitation_ref)
+                            continue
+                        if len(row[date_field]) == 10:
+                            row[date_field] = '%s 00:00' % row[date_field]
 
-                    gescarro_date = datetime.strptime(
-                        row[date_field], '%d/%m/%Y %H:%M')
-                    local_tz = pytz.timezone(self.env.user.partner_id.tz)
-                    gescarro_date = local_tz.localize(gescarro_date)
-                    gescarro_date = gescarro_date.astimezone(pytz.utc)
-                    gescarro_vals = {
-                        'date': gescarro_date,
-                        'exploitation_id': exploitation.id,
-                        'lines': []
-                    }
+                        gescarro_date = datetime.strptime(
+                            row[date_field], '%d/%m/%Y %H:%M')
+                        local_tz = pytz.timezone(self.env.user.partner_id.tz)
+                        gescarro_date = local_tz.localize(gescarro_date)
+                        gescarro_date = gescarro_date.astimezone(pytz.utc)
+                        gescarro_vals = {
+                            'date': gescarro_date,
+                            'exploitation_id': exploitation.id,
+                            'lines': []
+                        }
 
-                    for line_name in line_names:
-                        kg = float(row[line_name].replace(',', '.'))
-                        line_vals = {'description': line_name,
-                                     'kg': kg}
+                        for line_name in line_names:
+                            kg = float(row[line_name].replace(',', '.'))
+                            line_vals = {'description': line_name,
+                                         'kg': kg}
 
-                        if line_name in [
-                                u'Silo Maíz (Kg)', u'Silo Hierba (Kg)',
-                                u'Silo Hierba 2 (Kg)', u'Alfalfa (Kg)',
-                                u'Paja (Kg)', u'Hierba Seca (Kg)',
-                                u'Veza (Kg)']:
-                            line_vals['type'] = 'fodder'
-                        else:
-                            line_vals['type'] = 'concentrated'
-
-                        gescarro_vals['lines'].append(
-                            (0, 0, line_vals))
-                    old_data = self.env['gescarro.data'].search(
-                        [('date', '=', gescarro_vals['date'].strftime('%d/%m/%Y %H:%M')),
-                         ('exploitation_id', '=',
-                          gescarro_vals['exploitation_id'])])
-                    if old_data:
-                        for line in gescarro_vals.pop('lines'):
-                            data_line = self.env['gescarro.data.line'].search(
-                                [('description', '=', line[2]['description']),
-                                 ('data_id', '=', old_data.id)])
-                            if data_line:
-                                if line[2]['kg'] == 0:
-                                    data_line.unlink()
-                                else:
-                                    data_line.kg = line[2]['kg']
+                            if line_name in [
+                                    u'Silo Maíz (Kg)', u'Silo Hierba (Kg)',
+                                    u'Silo Hierba 2 (Kg)', u'Alfalfa (Kg)',
+                                    u'Paja (Kg)', u'Hierba Seca (Kg)',
+                                    u'Veza (Kg)']:
+                                line_vals['type'] = 'fodder'
                             else:
+                                line_vals['type'] = 'concentrated'
+
+                            gescarro_vals['lines'].append(
+                                (0, 0, line_vals))
+                        old_data = self.env['gescarro.data'].search(
+                            [('date', '=', gescarro_vals['date'].strftime('%d/%m/%Y %H:%M')),
+                             ('exploitation_id', '=',
+                              gescarro_vals['exploitation_id'])])
+                        if old_data:
+                            for line in gescarro_vals.pop('lines'):
+                                data_line = self.env['gescarro.data.line'].search(
+                                    [('description', '=', line[2]['description']),
+                                     ('data_id', '=', old_data.id)])
+                                if data_line:
+                                    if line[2]['kg'] == 0:
+                                        data_line.unlink()
+                                    else:
+                                        data_line.kg = line[2]['kg']
+                                else:
+                                    if line[2]['kg'] != 0:
+                                        line[2]['data_id'] = old_data.id
+                                        self.env['gescarro.data.line'].create(line[2])
+                            if not old_data.lines:
+                                old_data.unlink()
+                        else:
+                            final_lines = []
+                            for line in gescarro_vals['lines']:
                                 if line[2]['kg'] != 0:
-                                    line[2]['data_id'] = old_data.id
-                                    self.env['gescarro.data.line'].create(line[2])
-                        if not old_data.lines:
-                            old_data.unlink()
-                    else:
-                        final_lines = []
-                        for line in gescarro_vals['lines']:
-                            if line[2]['kg'] != 0:
-                                final_lines.append(line)
-                        gescarro_vals['lines'] = final_lines
-                        self.env['gescarro.data'].create(gescarro_vals)
-            os.rename(file_dir, process_folder + os.sep + csv_file)
+                                    final_lines.append(line)
+                            gescarro_vals['lines'] = final_lines
+                            self.env['gescarro.data'].create(gescarro_vals)
+                    if partner_errors:
+                        raise exceptions.Warning(
+                            _('Partner error'),
+                            _('Not found a partner with reference: %s') % (', '.join(partner_errors)))
+                os.rename(file_dir, process_folder + os.sep + csv_file)
+        except Exception as e:
+            with api.Environment.manage():
+                with registry(self.env.cr.dbname).cursor() as new_cr:
+                    new_env = api.Environment(new_cr, self.env.uid, self.env.context)
+                    group = new_env.ref('erp_xml_import.group_support')
+                    for partner in group.mapped('users.partner_id'):
+                        partner.message_post(
+                            body=_("Hubo un error durante la importación de gescarro: %s") % str(e),
+                            subtype='mt_comment', partner_ids=[partner])
+                    new_env.cr.commit()
 
 
 class GescarroDataLine(models.Model):
