@@ -33,6 +33,7 @@ class ErpXmlDocument(models.Model):
         (('partner', 'Partner'),
          ('invoice', 'Invoice'),
          ('undefined', 'Undefined')))
+    company_id = fields.Many2one('res.company')
     errors = fields.Text()
     document = fields.Text()
 
@@ -220,10 +221,10 @@ class ErpXmlDocument(models.Model):
             self.env['account.invoice'].create(invoice_data)
 
     @api.model
-    def import_data(self):
+    def import_data(self, company):
 
         docs = self.search([('state', 'in', ('new', 'error')),
-                            ('type', '!=', 'undefined')])
+                            ('type', '!=', 'undefined'), ('company_id', '=', company.id)])
         data_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                     '..', 'data'))
         for doc in docs:
@@ -249,7 +250,6 @@ class ErpXmlDocument(models.Model):
                             doc.errors += '\n%s' % str(e)
                             doc.state = 'error'
                             with_error = True
-                            print 'ERROR VALIDACION'
                             doc.send_mail_support()
                             continue
                         if doc.type == 'partner':
@@ -270,8 +270,6 @@ class ErpXmlDocument(models.Model):
                                     doc.state = 'error'
                                     new_env.cr.rollback()
                                     with_error = True
-                                    print 'ERROR 1' 
-                                    doc.send_mail_support()
                                     continue
 
                         elif doc.type == 'invoice':
@@ -311,12 +309,13 @@ class ErpXmlDocument(models.Model):
                                     doc.state = 'error'
                                     new_env.cr.rollback()
                                     with_error = True
-                                    print 'ERROR 2' 
-                                    doc.send_mail_support()
                                     continue
+
                     if not with_error:
                         doc.state = 'imported'
                         new_env.cr.commit()
+                    else:
+                        doc.send_mail_support()
 
     @api.multi
     def move_imported_files(self, importation_folder, process_folder):
@@ -336,10 +335,10 @@ class ErpXmlDocument(models.Model):
                 os.rename(from_file, to_file)
 
     @api.model
-    def import_files(self):                
-        folders = [x.xml_route for x in self.env['res.company'].search(
-            [('xml_route', '!=', False)])]
-        for folder in folders:
+    def import_files(self):
+        companies = self.env['res.company'].search([('xml_route', '!=', False)])
+        for company in companies:
+            folder = company.xml_route
             if not folder:
                 _logger.error('Not found config parameter erpxml.folder')
                 return
@@ -356,9 +355,11 @@ class ErpXmlDocument(models.Model):
                 errors = []
                 doc = self.env['erp.document'].search(
                     [('name', '=', import_file),
-                     ('state', 'in', ('new', 'error'))])
+                     ('state', 'in', ('new', 'error')),
+                     ('company_id', '=', company.id)])
                 if not doc:
                     doc_vals = {
+                        'company_id': company.id,
                         'name': import_file,
                         'state': 'new',
                     }
@@ -378,32 +379,24 @@ class ErpXmlDocument(models.Model):
                         type = 'undefined'
                     state = 'new'
                     if errors:
-                        print 'ERROR 3'       
-                        state = 'error' 
+                        state = 'error'
                         doc.send_mail_support()
                     doc.write({'type': type, 'document': doc_content,
                                'errors': '\n'.join(errors), 'state': state})
-            self.import_data()
+            self.import_data(company)
             docs.move_imported_files(importation_folder, process_folder)
 
 
     @api.multi
-    def send_mail_support(self):        
-        group = self.env['res.groups'].search([('name', '=', 'Support')])
+    def send_mail_support(self):
+        group = self.env.ref('erp_xml_import.group_support')
         recipient_partners = []
-        for recipient in group.users:            
+        for recipient in group.users:
             recipient_partners.append(
                 (recipient.partner_id.id)
             )
-        
-        # import ipdb;
-        # ipdb.set_trace()
-
         for doc in self:
-            print 'envia aviso: ______', doc.name
-            doc.message_post(body=_("Hubo un error durante la importación del documento."),
-                                subtype='mt_comment',
-                                partner_ids=recipient_partners)        
+            doc.message_post(
+                body=_("Hubo un error durante la importación del documento."),
+                subtype='mt_comment', partner_ids=recipient_partners)
         return True
-
-
