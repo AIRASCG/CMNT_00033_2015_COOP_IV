@@ -381,9 +381,13 @@ class GescarroData(models.Model):
                             gescarro_vals['lines'] = final_lines
                             self.env['gescarro.data'].create(gescarro_vals)
                     if partner_errors:
-                        raise exceptions.Warning(
-                            _('Partner error'),
-                            _('Not found a partner with reference: %s') % (', '.join(partner_errors)))
+                        group = self.env.ref('erp_xml_import.group_support')
+                        for partner in group.mapped('users.partner_id'):
+                            partner.message_post(
+                                body=_("Hubo un error durante la importación de gescarro: %s") %
+                                (_('Not found a partner with reference: %s') %
+                                 (', '.join(partner_errors))),
+                                subtype='mt_comment', partner_ids=[partner])
                 os.rename(file_dir, process_folder + os.sep + csv_file)
         except Exception as e:
             with api.Environment.manage():
