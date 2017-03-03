@@ -2,7 +2,7 @@
 # © 2016 Comunitea
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, _, exceptions, registry
+from openerp import models, fields, api, _, registry
 from lxml import etree
 import os
 import errno
@@ -338,7 +338,8 @@ class ErpXmlDocument(models.Model):
 
     @api.model
     def import_files(self):
-        companies = self.env['res.company'].search([('xml_route', '!=', False)])
+        companies = self.env['res.company'].search(
+            [('xml_route', '!=', False)])
         for company in companies:
             folder = company.xml_route
             if not folder:
@@ -388,7 +389,6 @@ class ErpXmlDocument(models.Model):
             self.import_data(company)
             docs.move_imported_files(importation_folder, process_folder)
 
-
     @api.multi
     def send_mail_support(self):
         group = self.env.ref('erp_xml_import.group_support')
@@ -399,6 +399,7 @@ class ErpXmlDocument(models.Model):
             )
         for doc in self:
             doc.message_post(
-                body=_("Hubo un error durante la importación del documento."),
+                body=_(u'Hubo un error durante la importación del \
+documento: %s' % self.errors),
                 subtype='mt_comment', partner_ids=recipient_partners)
         return True
