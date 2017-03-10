@@ -354,7 +354,7 @@ class GescarroData(models.Model):
                             gescarro_vals['lines'].append(
                                 (0, 0, line_vals))
                         old_data = self.env['gescarro.data'].search(
-                            [('date', '=', gescarro_vals['date'].strftime('%d/%m/%Y %H:%M')),
+                            [('date', '=', gescarro_vals['date'].strftime('%Y-%m-%d %H:%M:%S')),
                              ('exploitation_id', '=',
                               gescarro_vals['exploitation_id'])])
                         if old_data:
