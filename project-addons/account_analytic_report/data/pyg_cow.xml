@@ -85,7 +85,7 @@
             <field name="template_id" ref="pyg_cow"/>
         </record>
 
-        <record id="pyg_1000_l_8" model="account.analytic.report.template.line">
+        <record id="pyg_cow_l_8" model="account.analytic.report.template.line">
             <field name="code">8</field>
             <field name="sequence">8</field>
             <field name="name">Variación existencias vacas</field>
@@ -93,7 +93,7 @@
             <field name="value_1_2">611,/#milk,*'1000</field>
             <field name="value_2_1">611</field>
             <field name="value_2_2">611,/#milk,*'1000</field>
-            <field name="template_id" ref="pyg_1000"/>
+            <field name="template_id" ref="pyg_cow"/>
         </record>
 
         <!-- Falta .8-->
@@ -179,9 +179,9 @@
             <field name="code">16</field>
             <field name="sequence">16</field>
             <field name="name">Cultivos propios</field>
-            <field name="value_1_1">>600,6211,6212, 6213, 6214, 6215, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
+            <field name="value_1_1">600,6211,6212, 6213, 6214, 6215, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">>600,6211,6212, 6213, 6214, 6215, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
+            <field name="value_2_1">600,6211,6212, 6213, 6214, 6215, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
         </record>
