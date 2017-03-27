@@ -179,9 +179,9 @@
             <field name="code">16</field>
             <field name="sequence">16</field>
             <field name="name">Cultivos propios</field>
-            <field name="value_1_1">>600,6211,6212, 6213, 6214, 6215, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
+            <field name="value_1_1">600,6211,6212, 6213, 6214, 6215, 6216, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
             <field name="value_1_2">[1_1],/#hectare</field>
-            <field name="value_2_1">>600,6211,6212, 6213, 6214, 6215, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
+            <field name="value_2_1">600,6211,6212, 6213, 6214, 6215, 6216, 6401, 6402, 6403, 6404, 6405, 6231, 6232, 6233, 6234, 6235, 6281, 6221</field>
             <field name="value_2_2">[2_1],/#hectare</field>
             <field name="template_id" ref="pyg_ha"/>
         </record>

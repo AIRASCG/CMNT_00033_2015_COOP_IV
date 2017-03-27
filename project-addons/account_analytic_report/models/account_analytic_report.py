@@ -392,11 +392,15 @@ class AccountAnalyticReportLine(models.Model):
                 field_val = 0.0
                 for company in companies_1:
                     field_val += line.eval_field(company,field)
+                if companies_1:
+                    field_val = field_val / len(companies_1)
                 line[field] = field_val
             for field in ['value_2_1', 'value_2_2']:
                 field_val = 0.0
                 for company in companies_2:
                     field_val += line.eval_field(company,field)
+                if companies_2:
+                    field_val = field_val / len(companies_2)
                 line[field] = field_val
 
     @api.multi
