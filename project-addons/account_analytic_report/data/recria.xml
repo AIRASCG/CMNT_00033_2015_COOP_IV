@@ -247,8 +247,8 @@
             <field name="code">22</field>
             <field name="sequence">22</field>
             <field name="name">Margen neto</field>
-            <field name="value_1_1">.4,-.21</field>
-            <field name="value_2_1">.4,-.21</field>
+            <field name="value_1_1">.4,.21</field>
+            <field name="value_2_1">.4,.21</field>
             <field name="template_id" ref="tech_rec_index"/>
         </record>
 

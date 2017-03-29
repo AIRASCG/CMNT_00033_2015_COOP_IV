@@ -214,10 +214,10 @@
             <field name="code">19</field>
             <field name="sequence">19</field>
             <field name="name">I.S.C.A.</field>
-            <field name="value_1_1">.9,-.18</field>
-            <field name="value_1_2">.9,-.18</field>
-            <field name="value_2_1">.9,-.18</field>
-            <field name="value_2_2">.9,-.18</field>
+            <field name="value_1_1">.9,.18</field>
+            <field name="value_1_2">.9,.18</field>
+            <field name="value_2_1">.9,.18</field>
+            <field name="value_2_2">.9,.18</field>
             <field name="template_id" ref="pyg_ha"/>
             <field name="css_style">green_bold</field>
         </record>
@@ -282,9 +282,9 @@
             <field name="code">25</field>
             <field name="sequence">25</field>
             <field name="name">Margen de contribución</field>
-            <field name="value_1_1">.9,-.24</field>
+            <field name="value_1_1">.9,.24</field>
             <field name="value_1_2">[1_1],/#hectare</field>
-            <field name="value_2_1">.9,-.24</field>
+            <field name="value_2_1">.9,.24</field>
             <field name="value_2_2">[2_1],/#hectare</field>
             <field name="template_id" ref="pyg_ha"/>
             <field name="css_style">green_bold</field>
@@ -294,9 +294,9 @@
             <field name="code">26</field>
             <field name="sequence">26</field>
             <field name="name">Mantenimiento instalaciones</field>
-            <field name="value_1_1">6223</field>
+            <field name="value_1_1">6222,6223,6224</field>
             <field name="value_1_2">[1_1],/#hectare</field>
-            <field name="value_2_1">6223</field>
+            <field name="value_2_1">6222,6223,6224</field>
             <field name="value_2_2">[2_1],/#hectare</field>
             <field name="template_id" ref="pyg_ha"/>
         </record>
@@ -350,10 +350,10 @@
             <field name="code">31</field>
             <field name="sequence">31</field>
             <field name="name">Gastos totales</field>
-            <field name="value_1_1">.30,.34</field>
-            <field name="value_1_2">.30,.34</field>
-            <field name="value_2_1">.30,.34</field>
-            <field name="value_2_2">.30,.34</field>
+            <field name="value_1_1">.30,.24</field>
+            <field name="value_1_2">.30,.24</field>
+            <field name="value_2_1">.30,.24</field>
+            <field name="value_2_2">.30,.24</field>
             <field name="template_id" ref="pyg_ha"/>
             <field name="css_style">bold</field>
         </record>
@@ -514,10 +514,10 @@
             <field name="code">45</field>
             <field name="sequence">45</field>
             <field name="name">Margen neto</field>
-            <field name="value_1_1">.9,-.44</field>
-            <field name="value_1_2">.9,-.44</field>
-            <field name="value_2_1">.9,-.44</field>
-            <field name="value_2_2">.9,-.44</field>
+            <field name="value_1_1">.9,.44</field>
+            <field name="value_1_2">.9,.44</field>
+            <field name="value_2_1">.9,.44</field>
+            <field name="value_2_2">.9,.44</field>
             <field name="template_id" ref="pyg_ha"/>
             <field name="css_style">bold</field>
         </record>
