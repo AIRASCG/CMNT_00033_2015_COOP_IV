@@ -104,3 +104,20 @@ class WizardMultiChartsAccounts(models.TransientModel):
             'company_id': company_id,
         })
         return res
+
+
+class AccountInvoiceLine(models.Model):
+
+    _inherit = 'account.invoice.line'
+
+    date_invoice = fields.Date(related='invoice_id.date_invoice')
+    partner_id = fields.Many2one('res.partner',
+                                 related='invoice_id.partner_id')
+
+    @api.model
+    def search(self, args, offset=0, limit=None, order=None, count=False):
+        if self._context.get('only_coop_partner_id', False):
+            args = [('partner_id', '=',
+                     self.env.user.company_id.parent_id.partner_id.id)] + args
+        return super(AccountInvoiceLine, self).search(
+            args, offset=offset, limit=limit, order=order, count=count)

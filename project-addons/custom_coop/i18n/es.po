@@ -16,6 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_coop
+#: model:ir.actions.act_window,name:custom_coop.technical_account_invoice_line_action
+#: model:ir.ui.menu,name:custom_coop.menu_technical_account_invoice_line_action
+msgid "Business report by invoice line"
+msgstr " Informe comercial por líneas de factura"
+
+
+#. module: custom_coop
+#: field:account.invoice.line,date_invoice:0
+msgid "Invoice Date"
+msgstr "Fecha factura"
+
+
+#. module: custom_coop
 #: field:res.users,adsg_certification_supplier:0
 msgid "ADSG certification supplier"
 msgstr "Proveedor certificación ADSG"
