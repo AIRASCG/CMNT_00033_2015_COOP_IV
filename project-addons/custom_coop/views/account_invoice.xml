@@ -51,7 +51,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="date_invoice"/>
-                    <field name="product_id"/>
+                    <field name="name"/>
                     <field name="quantity"/>
                     <field name="uos_id"/>
                     <field name="price_unit"/>
