@@ -445,8 +445,8 @@ class AccountAnalyticReportLine(models.Model):
                     raise exceptions.Warning(
                         _('Account not found'),
                         _('Account with code %s not found') % val[1:])
-                from_date = self.report_id.from_date_1
-                to_date = self.report_id.to_date_1
+                from_date = self.report_id['from_date_' + field[6]]
+                to_date = self.report_id['to_date_' + field[6]]
                 val = sign + str(account.with_context(company_id=company.id,
                                  from_date=from_date, to_date=to_date).balance)
             if end_par:
