@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="commercial_account_report" model="account.analytic.report.template">
+            <field name="name">Informe comercial grupos de cuentas</field>
+            <field name="title_1">€ totales</field>
+        </record>
+
+
+        <record id="commercial_account_report_l_total_g" model="account.analytic.report.template.line">
+            <field name="code">total_g</field>
+            <field name="sequence">66</field>
+            <field name="name">TOTAL GENERAL</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+        </record>
+
+        <record id="commercial_account_report_l_3" model="account.analytic.report.template.line">
+            <field name="code">total_v</field>
+            <field name="sequence">3</field>
+            <field name="name">TOTAL VENTAS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_g"/>
+        </record>
+
+        <record id="commercial_account_report_l_1" model="account.analytic.report.template.line">
+            <field name="code">1</field>
+            <field name="sequence">1</field>
+            <field name="name">Venta de leche</field>
+            <field name="value_1_1">7000,7001,7002,7003,7004,7005</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">7000,7001,7002,7003,7004,7005</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_3"/>
+        </record>
+
+        <record id="commercial_account_report_l_2" model="account.analytic.report.template.line">
+            <field name="code">2</field>
+            <field name="sequence">2</field>
+            <field name="name">Venta de ganado</field>
+            <field name="value_1_1">701</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">701</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_3"/>
+        </record>
+
+        <record id="commercial_account_report_l_total_c" model="account.analytic.report.template.line">
+            <field name="code">total_c</field>
+            <field name="sequence">65</field>
+            <field name="name">TOTAL COMPRAS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_g"/>
+        </record>
+
+        <record id="commercial_account_report_l_4" model="account.analytic.report.template.line">
+            <field name="code">4</field>
+            <field name="sequence">4</field>
+            <field name="name">PIENSOS Y MMPP</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_5" model="account.analytic.report.template.line">
+            <field name="code">5</field>
+            <field name="sequence">5</field>
+            <field name="name">Mezcla húmeda</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_6" model="account.analytic.report.template.line">
+            <field name="code">6</field>
+            <field name="sequence">6</field>
+            <field name="name">Pienso leche</field>
+            <field name="value_1_1">6021</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6021</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_7" model="account.analytic.report.template.line">
+            <field name="code">7</field>
+            <field name="sequence">7</field>
+            <field name="name">Pienso recría</field>
+            <field name="value_1_1">6031</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6031</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_8" model="account.analytic.report.template.line">
+            <field name="code">8</field>
+            <field name="sequence">8</field>
+            <field name="name">Pienso secas</field>
+            <field name="value_1_1">6022</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6022</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_9" model="account.analytic.report.template.line">
+            <field name="code">9</field>
+            <field name="sequence">9</field>
+            <field name="name">Pienso</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_10" model="account.analytic.report.template.line">
+            <field name="code">10</field>
+            <field name="sequence">10</field>
+            <field name="name">MMPP</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_11" model="account.analytic.report.template.line">
+            <field name="code">11</field>
+            <field name="sequence">11</field>
+            <field name="name">Corrector</field>
+            <field name="value_1_1">6028</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6028</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_12" model="account.analytic.report.template.line">
+            <field name="code">12</field>
+            <field name="sequence">12</field>
+            <field name="name">leche artificial</field>
+            <field name="value_1_1">6032</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6032</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_4"/>
+        </record>
+
+        <record id="commercial_account_report_l_13" model="account.analytic.report.template.line">
+            <field name="code">13</field>
+            <field name="sequence">13</field>
+            <field name="name">FORRAJES</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_14" model="account.analytic.report.template.line">
+            <field name="code">14</field>
+            <field name="sequence">14</field>
+            <field name="name">Ración completa</field>
+            <field name="value_1_1">6051,6052,6061</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6051,6052,6061</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_13"/>
+        </record>
+
+        <record id="commercial_account_report_l_15" model="account.analytic.report.template.line">
+            <field name="code">15</field>
+            <field name="sequence">15</field>
+            <field name="name">Paja</field>
+            <field name="value_1_1">6014</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6014</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_13"/>
+        </record>
+
+
+        <record id="commercial_account_report_l_16" model="account.analytic.report.template.line">
+            <field name="code">16</field>
+            <field name="sequence">16</field>
+            <field name="name">Forrajes</field>
+            <field name="value_1_1">6015,6016</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6015,6016</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_13"/>
+        </record>
+
+        <record id="commercial_account_report_l_17" model="account.analytic.report.template.line">
+            <field name="code">17</field>
+            <field name="sequence">17</field>
+            <field name="name">Forrajes frescos</field>
+            <field name="value_1_1">6012,6013,6017</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6012,6013,6017</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_13"/>
+        </record>
+
+        <record id="commercial_account_report_l_18" model="account.analytic.report.template.line">
+            <field name="code">18</field>
+            <field name="sequence">18</field>
+            <field name="name">Grano húmedo</field>
+            <field name="value_1_1">6026</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6026</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_13"/>
+        </record>
+
+        <record id="commercial_account_report_l_19" model="account.analytic.report.template.line">
+            <field name="code">19</field>
+            <field name="sequence">19</field>
+            <field name="name">Otros</field>
+            <field name="value_1_1">6018</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6018</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_13"/>
+        </record>
+
+        <record id="commercial_account_report_l_20" model="account.analytic.report.template.line">
+            <field name="code">20</field>
+            <field name="sequence">20</field>
+            <field name="name">FERTILIZANTES</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_21" model="account.analytic.report.template.line">
+            <field name="code">21</field>
+            <field name="sequence">21</field>
+            <field name="name">Abono maíz</field>
+            <field name="value_1_1">60005</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60005</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_20"/>
+        </record>
+
+        <record id="commercial_account_report_l_22" model="account.analytic.report.template.line">
+            <field name="code">22</field>
+            <field name="sequence">22</field>
+            <field name="name">Abono no maíz</field>
+            <field name="value_1_1">60015,60025,60035,60045</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60015,60025,60035,60045</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_20"/>
+        </record>
+
+        <record id="commercial_account_report_l_23" model="account.analytic.report.template.line">
+            <field name="code">23</field>
+            <field name="sequence">23</field>
+            <field name="name">Enmiendas</field>
+            <field name="value_1_1">60006,60016,60026,60036,60046</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60006,60016,60026,60036,60046</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_20"/>
+        </record>
+
+        <record id="commercial_account_report_l_24" model="account.analytic.report.template.line">
+            <field name="code">24</field>
+            <field name="sequence">24</field>
+            <field name="name">SEMILLAS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_25" model="account.analytic.report.template.line">
+            <field name="code">25</field>
+            <field name="sequence">25</field>
+            <field name="name">Maíz</field>
+            <field name="value_1_1">60001</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60001</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_24"/>
+        </record>
+
+        <record id="commercial_account_report_l_26" model="account.analytic.report.template.line">
+            <field name="code">26</field>
+            <field name="sequence">26</field>
+            <field name="name">Pradera</field>
+            <field name="value_1_1">60011,60031</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2">60011,60031</field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_24"/>
+        </record>
+
+        <record id="commercial_account_report_l_27" model="account.analytic.report.template.line">
+            <field name="code">27</field>
+            <field name="sequence">27</field>
+            <field name="name">Cereales</field>
+            <field name="value_1_1">60021</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60021</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_24"/>
+        </record>
+
+        <record id="commercial_account_report_l_28" model="account.analytic.report.template.line">
+            <field name="code">28</field>
+            <field name="sequence">28</field>
+            <field name="name">Otros forrajes</field>
+            <field name="value_1_1">60041</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60041</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_24"/>
+        </record>
+
+        <record id="commercial_account_report_l_29" model="account.analytic.report.template.line">
+            <field name="code">29</field>
+            <field name="sequence">29</field>
+            <field name="name">Semen</field>
+            <field name="value_1_1">6073</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6073</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_24"/>
+        </record>
+
+        <record id="commercial_account_report_l_30" model="account.analytic.report.template.line">
+            <field name="code">30</field>
+            <field name="sequence">30</field>
+            <field name="name">FITOSANITARIOS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_31" model="account.analytic.report.template.line">
+            <field name="code">31</field>
+            <field name="sequence">31</field>
+            <field name="name">Fitos maíz</field>
+            <field name="value_1_1">60002</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60002</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_30"/>
+        </record>
+
+        <record id="commercial_account_report_l_32" model="account.analytic.report.template.line">
+            <field name="code">32</field>
+            <field name="sequence">32</field>
+            <field name="name">Fitos (no maíz)</field>
+            <field name="value_1_1">60012,60022,60032,60042</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60012,60022,60032,60042</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_30"/>
+        </record>
+
+        <record id="commercial_account_report_l_33" model="account.analytic.report.template.line">
+            <field name="code">33</field>
+            <field name="sequence">33</field>
+            <field name="name">CAMAS Y ORDEÑO</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_34" model="account.analytic.report.template.line">
+            <field name="code">34</field>
+            <field name="sequence">34</field>
+            <field name="name">Material camas</field>
+            <field name="value_1_1">608</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">608</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_33"/>
+        </record>
+
+        <record id="commercial_account_report_l_35" model="account.analytic.report.template.line">
+            <field name="code">35</field>
+            <field name="sequence">35</field>
+            <field name="name">Limpieza instalaciones</field>
+            <field name="value_1_1">6075</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6075</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_33"/>
+        </record>
+
+        <record id="commercial_account_report_l_36" model="account.analytic.report.template.line">
+            <field name="code">36</field>
+            <field name="sequence">36</field>
+            <field name="name">Ordeño</field>
+            <field name="value_1_1">6076</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6076</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_33"/>
+        </record>
+
+        <record id="commercial_account_report_l_37" model="account.analytic.report.template.line">
+            <field name="code">37</field>
+            <field name="sequence">37</field>
+            <field name="name">Productos podología</field>
+            <field name="value_1_1">6077</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6077</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_33"/>
+        </record>
+
+        <record id="commercial_account_report_l_38" model="account.analytic.report.template.line">
+            <field name="code">38</field>
+            <field name="sequence">38</field>
+            <field name="name">CONSERVANTES Y PLÁSTICOS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_39" model="account.analytic.report.template.line">
+            <field name="code">39</field>
+            <field name="sequence">39</field>
+            <field name="name">Conservantes</field>
+            <field name="value_1_1">60004,60014,60024,60034,60044</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60004,60014,60024,60034,60044</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_38"/>
+        </record>
+
+        <record id="commercial_account_report_l_40" model="account.analytic.report.template.line">
+            <field name="code">40</field>
+            <field name="sequence">40</field>
+            <field name="name">Plástico</field>
+            <field name="value_1_1">60003,60013,60023,60033,60043</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">60003,60013,60023,60033,60043</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_38"/>
+        </record>
+
+        <record id="commercial_account_report_l_41" model="account.analytic.report.template.line">
+            <field name="code">41</field>
+            <field name="sequence">41</field>
+            <field name="name">MEDICAMNENTOS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_42" model="account.analytic.report.template.line">
+            <field name="code">42</field>
+            <field name="sequence">42</field>
+            <field name="name">Medicamentos</field>
+            <field name="value_1_1">6071,6072</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6071,6072</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_41"/>
+        </record>
+
+
+        <record id="commercial_account_report_l_43" model="account.analytic.report.template.line">
+            <field name="code">43</field>
+            <field name="sequence">43</field>
+            <field name="name">TALLER Y COMBUSTIBLES</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_44" model="account.analytic.report.template.line">
+            <field name="code">44</field>
+            <field name="sequence">44</field>
+            <field name="name">Gasoleo</field>
+            <field name="value_1_1">6281,6286</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6281,6286</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_43"/>
+        </record>
+
+        <record id="commercial_account_report_l_45" model="account.analytic.report.template.line">
+            <field name="code">45</field>
+            <field name="sequence">45</field>
+            <field name="name">Gas</field>
+            <field name="value_1_1">6283</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6283</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_43"/>
+        </record>
+
+        <record id="commercial_account_report_l_46" model="account.analytic.report.template.line">
+            <field name="code">46</field>
+            <field name="sequence">46</field>
+            <field name="name">Reparación tanque-sala</field>
+            <field name="value_1_1">6224</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6224</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_43"/>
+        </record>
+
+        <record id="commercial_account_report_l_47" model="account.analytic.report.template.line">
+            <field name="code">47</field>
+            <field name="sequence">47</field>
+            <field name="name">Taller</field>
+            <field name="value_1_1">6222,6223,6225,6221</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6222,6223,6225,6221</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_43"/>
+        </record>
+
+        <record id="commercial_account_report_l_48" model="account.analytic.report.template.line">
+            <field name="code">48</field>
+            <field name="sequence">48</field>
+            <field name="name">SEGUROS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_49" model="account.analytic.report.template.line">
+            <field name="code">49</field>
+            <field name="sequence">49</field>
+            <field name="name">Agroseguro</field>
+            <field name="value_1_1">6251</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6251</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_48"/>
+        </record>
+
+        <record id="commercial_account_report_l_50" model="account.analytic.report.template.line">
+            <field name="code">50</field>
+            <field name="sequence">50</field>
+            <field name="name">Instalaciones</field>
+            <field name="value_1_1">6252</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6252</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_48"/>
+        </record>
+
+        <record id="commercial_account_report_l_51" model="account.analytic.report.template.line">
+            <field name="code">51</field>
+            <field name="sequence">51</field>
+            <field name="name">Maquinaria agricola</field>
+            <field name="value_1_1">6253</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6253</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_48"/>
+        </record>
+
+
+        <record id="commercial_account_report_l_52" model="account.analytic.report.template.line">
+            <field name="code">52</field>
+            <field name="sequence">52</field>
+            <field name="name">SERVICIOS</field>
+            <field name="value_1_1"></field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1"></field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="css_style">bold</field>
+            <field name="parent_id" ref="commercial_account_report_l_total_c"/>
+        </record>
+
+        <record id="commercial_account_report_l_53" model="account.analytic.report.template.line">
+            <field name="code">53</field>
+            <field name="sequence">53</field>
+            <field name="name">Alimentación</field>
+            <field name="value_1_1">62313</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">62313</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_54" model="account.analytic.report.template.line">
+            <field name="code">54</field>
+            <field name="sequence">54</field>
+            <field name="name">Analíticas</field>
+            <field name="value_1_1">62310</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">62310</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_55" model="account.analytic.report.template.line">
+            <field name="code">55</field>
+            <field name="sequence">55</field>
+            <field name="name">Asesoría</field>
+            <field name="value_1_1">62315</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">62315</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_56" model="account.analytic.report.template.line">
+            <field name="code">56</field>
+            <field name="sequence">56</field>
+            <field name="name">Calidad de leche</field>
+            <field name="value_1_1">62314</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">62314</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_57" model="account.analytic.report.template.line">
+            <field name="code">57</field>
+            <field name="sequence">57</field>
+            <field name="name">Clínica</field>
+            <field name="value_1_1">6238</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6238</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_58" model="account.analytic.report.template.line">
+            <field name="code">58</field>
+            <field name="sequence">58</field>
+            <field name="name">Gestión económica</field>
+            <field name="value_1_1">62312</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">62312</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_59" model="account.analytic.report.template.line">
+            <field name="code">59</field>
+            <field name="sequence">59</field>
+            <field name="name">Maquinaria</field>
+            <field name="value_1_1">6231,6232,6233,6234,6235</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6231,6232,6233,6234,6235</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_60" model="account.analytic.report.template.line">
+            <field name="code">60</field>
+            <field name="sequence">60</field>
+            <field name="name">Podología</field>
+            <field name="value_1_1">6239</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6239</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_61" model="account.analytic.report.template.line">
+            <field name="code">61</field>
+            <field name="sequence">61</field>
+            <field name="name">Reproducción</field>
+            <field name="value_1_1">6237</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6237</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_62" model="account.analytic.report.template.line">
+            <field name="code">62</field>
+            <field name="sequence">62</field>
+            <field name="name">Substitución</field>
+            <field name="value_1_1">62316</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">62316</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_63" model="account.analytic.report.template.line">
+            <field name="code">63</field>
+            <field name="sequence">63</field>
+            <field name="name">Transporte ganado</field>
+            <field name="value_1_1">6241</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">6241</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+        <record id="commercial_account_report_l_64" model="account.analytic.report.template.line">
+            <field name="code">64</field>
+            <field name="sequence">64</field>
+            <field name="name">Unifeed</field>
+            <field name="value_1_1">62311</field>
+            <field name="value_1_2"></field>
+            <field name="value_2_1">62311</field>
+            <field name="value_2_2"></field>
+            <field name="template_id" ref="commercial_account_report"/>
+            <field name="parent_id" ref="commercial_account_report_l_52"/>
+        </record>
+
+    </data>
+</openerp>
