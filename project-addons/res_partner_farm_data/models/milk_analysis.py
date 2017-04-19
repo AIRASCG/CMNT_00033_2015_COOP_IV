@@ -146,6 +146,18 @@ class MilkAnalysisMonthReport(models.Model):
     def init(self, cr):
         tools.drop_view_if_exists(cr, self._table)
 
+        cr.execute("""CREATE OR REPLACE FUNCTION isnumeric(text) RETURNS BOOLEAN AS $$
+DECLARE x NUMERIC;
+BEGIN
+    x = $1::NUMERIC;
+    RETURN TRUE;
+EXCEPTION WHEN others THEN
+    RETURN FALSE;
+END;
+$$
+STRICT
+LANGUAGE plpgsql IMMUTABLE;""")
+
         cr.execute("""CREATE VIEW milk_analysis_month_report as(
 SELECT ROW_NUMBER() OVER() AS id,
        m.exploitation_id as exploitation_id,
