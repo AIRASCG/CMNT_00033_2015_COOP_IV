@@ -146,36 +146,13 @@ class MilkAnalysisMonthReport(models.Model):
     def init(self, cr):
         tools.drop_view_if_exists(cr, self._table)
 
-        cr.execute("""CREATE OR REPLACE FUNCTION isnumeric(text) RETURNS BOOLEAN AS $$
-DECLARE x NUMERIC;
-BEGIN
-    x = $1::NUMERIC;
-    RETURN TRUE;
-EXCEPTION WHEN others THEN
-    RETURN FALSE;
-END;
-$$
-STRICT
-LANGUAGE plpgsql IMMUTABLE;""")
-
         cr.execute("""CREATE VIEW milk_analysis_month_report as(
 SELECT ROW_NUMBER() OVER() AS id,
        m.exploitation_id as exploitation_id,
        avg(l.fat) as fat,
        avg(l.protein) as protein,
        avg(l.dry_extract) as dry_extract,
-
-       avg(CASE WHEN isnumeric(l.cs) THEN
-           CAST(l.cs AS FLOAT)
-       ELSE
-           0
-       END) as cs,
-       to_char(l.sample_date, 'YYYY-MM') as date,
-       avg(CASE WHEN isnumeric(l.bacteriology) THEN
-           CAST(l.bacteriology AS FLOAT)
-       ELSE
-           0
-       END) as bacteriology
+       to_char(l.sample_date, 'YYYY-MM') as date
 FROM milk_analysis_line l
      JOIN milk_analysis m ON l.analysis_id = m.id
 GROUP BY m.exploitation_id, to_char(l.sample_date, 'YYYY-MM')
