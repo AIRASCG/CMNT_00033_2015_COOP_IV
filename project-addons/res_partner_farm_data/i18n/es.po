@@ -15,6 +15,12 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Milk analysis by month"
+msgstr "Análisis de leche por mes"
+
 #. module: res_partner_farm_data
 #: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
 #: view:website:res_partner_farm_data.milk_control_qweb_report
@@ -301,6 +307,7 @@ msgstr "Volver a borrador"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,bacteriology:0
+#: field:milk.analysis.month.report,bacteriology:0
 #: field:milk.analysis.report,bacteriology:0
 msgid "Bacteriology"
 msgstr "Bacteriología"
@@ -822,6 +829,7 @@ msgstr "Vacas lote secas"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,dry_extract:0
+#: field:milk.analysis.month.report,dry_extract:0
 #: field:milk.analysis.report,dry_extract:0
 msgid "Dry extract"
 msgstr "Extracto seco"
@@ -1049,6 +1057,7 @@ msgstr "Explotaciones"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,fat:0
+#: field:milk.analysis.month.report,fat:0
 #: field:milk.analysis.report,fat:0
 msgid "Fat"
 msgstr "Grasa"
@@ -2681,6 +2690,7 @@ msgstr "Orientación productiva"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,protein:0
+#: field:milk.analysis.month.report,protein:0
 #: field:milk.analysis.report,protein:0
 msgid "Protein"
 msgstr "Proteína"
@@ -3599,6 +3609,7 @@ msgstr "Ruta Xml"
 #: field:lot.analysis,year:0
 #: field:lot.partner,year_id:0
 #: field:milk.analysis.import,year:0
+#: field:milk.analysis.month.report,year:0
 #: field:output.quota,year_id:0
 #: view:res.partner.fields:res_partner_farm_data.res_partner_fields_filter
 #: field:res.partner.fields,year:0
@@ -3606,6 +3617,11 @@ msgstr "Ruta Xml"
 #: field:yearly.data,year_id:0
 msgid "Year"
 msgstr "Año"
+
+#. module: res_partner_farm_data
+#: field:milk.analysis.month.report,month:0
+msgid "Month"
+msgstr "Mes"
 
 #. module: res_partner_farm_data
 #: field:milk.analysis.line,yearmonth:0

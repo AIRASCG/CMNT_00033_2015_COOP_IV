@@ -348,6 +348,17 @@ class ResPartner(models.Model):
             'type': 'ir.actions.act_window',
         }
 
+    @api.multi
+    def action_milk_analysis_month_report(self):
+        return {
+            'domain': "[('exploitation_id','='," + str(self.id) + ")]",
+            'name': _('Milk analysis'),
+            'view_mode': 'tree',
+            'view_type': 'form',
+            'res_model': 'milk.analysis.month.report',
+            'type': 'ir.actions.act_window',
+        }
+
 class ResPartnerCategory(models.Model):
 
     _inherit = 'res.partner.category'

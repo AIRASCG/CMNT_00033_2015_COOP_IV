@@ -130,5 +130,22 @@
                 </tree>
             </field>
         </record>
+
+        <record id="milk_analysis_month_report_view_tree" model="ir.ui.view">
+            <field name="name">milk.analysis.month.report.tree</field>
+            <field name="model">milk.analysis.month.report</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Milk analysis" create="false">
+                    <field name="year"/>
+                    <field name="month"/>
+                    <field name="fat"/>
+                    <field name="protein"/>
+                    <field name="dry_extract"/>
+                    <field name="bacteriology"/>
+                    <field name="cs"/>
+                </tree>
+            </field>
+        </record>
     </data>
 </openerp>
