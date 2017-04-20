@@ -63,15 +63,33 @@
         </record>
 
 
+
+        <record id="account_invoice_line_search_tech" model="ir.ui.view">
+            <field name="name">account.invoice.line.search</field>
+            <field name="model">account.invoice.line</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="account_analytic_id"/>
+                    <group expand="0" string="Group By">
+                            <filter string="Description" context="{'group_by':'name'}"/>
+                            <filter string="analytic account" context="{'group_by':'account_analytic_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+
         <record id="technical_account_invoice_line_action" model="ir.actions.act_window">
             <field name="name">Business report by invoice line</field>
             <field name="res_model">account.invoice.line</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field ref="technical_account_invoice_line_view_tree" name="view_id"/>
-            <field ref="custom_menu.account_invoice_line_search" name="search_view_id"/>
+            <field ref="account_invoice_line_search_tech" name="search_view_id"/>
             <field name="domain">[]</field>
-            <field name="context">{'only_coop_partner_id': True}</field>
         </record>
 
 
