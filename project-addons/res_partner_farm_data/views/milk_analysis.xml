@@ -138,7 +138,7 @@
             <field name="arch" type="xml">
                 <tree string="Milk analysis" create="false">
                     <field name="year"/>
-                    <field name="month"/>
+                    <field name="month_name"/>
                     <field name="fat"/>
                     <field name="protein"/>
                     <field name="dry_extract"/>

@@ -3624,6 +3624,11 @@ msgid "Month"
 msgstr "Mes"
 
 #. module: res_partner_farm_data
+#: field:milk.analysis.month.report,month_name:0
+msgid "Month name"
+msgstr "Mes"
+
+#. module: res_partner_farm_data
 #: field:milk.analysis.line,yearmonth:0
 msgid "Year/month"
 msgstr "Año/mes"

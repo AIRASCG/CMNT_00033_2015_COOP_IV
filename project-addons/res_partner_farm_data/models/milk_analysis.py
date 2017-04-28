@@ -18,8 +18,8 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, tools
-from calendar import monthrange
+from openerp import models, fields, api, tools, _
+from calendar import monthrange, month_name
 
 
 class MilkAnalysis(models.Model):
@@ -110,6 +110,7 @@ class MilkAnalysisMonthReport(models.Model):
     date = fields.Char()
     year = fields.Char(compute='_get_date')
     month = fields.Char(compute='_get_date')
+    month_name = fields.Char(compute='_get_date')
     fat = fields.Float()
     protein = fields.Float()
     dry_extract = fields.Float()
@@ -120,6 +121,7 @@ class MilkAnalysisMonthReport(models.Model):
         for l in self:
             l.year = l.date[:4]
             l.month = l.date[5:]
+            l.month_name = month_name[int(l.date[5:])]
 
     def _get_bacteriology(self):
         for l in self:
