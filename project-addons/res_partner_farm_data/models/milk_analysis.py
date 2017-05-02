@@ -136,7 +136,7 @@ class MilkAnalysisMonthReport(models.Model):
             try:
                 bacteriology = sum(
                     [float(x.bacteriology) for x in analysis]) / len(analysis)
-                l.bacteriology = str(round(bacteriology, 2))
+                l.bacteriology = str(int(round(bacteriology)))
             except ValueError:
                 l.bacteriology = '-'
             try:
