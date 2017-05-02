@@ -18,8 +18,8 @@ msgstr ""
 #. module: custom_coop
 #: model:ir.actions.act_window,name:custom_coop.technical_account_invoice_line_action
 #: model:ir.ui.menu,name:custom_coop.menu_technical_account_invoice_line_action
-msgid "Business report by invoice line"
-msgstr " Informe comercial por líneas de factura"
+msgid "Invoice line search"
+msgstr " Búsqueda de líneas de factura"
 
 
 #. module: custom_coop

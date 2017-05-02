@@ -322,3 +322,10 @@ msgstr "top"
 #: model:ir.ui.menu,name:custom_menu.milk_control_report_menu
 msgid "Milk control report"
 msgstr "Informe de control lechero"
+
+
+#. module: custom_menu
+#: model:ir.actions.act_url,name:custom_menu.action_support_url
+#: model:ir.ui.menu,name:custom_menu.menu_support_url
+msgid "Support"
+msgstr "Soporte"

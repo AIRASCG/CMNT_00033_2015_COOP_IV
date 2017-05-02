@@ -11,5 +11,19 @@
             <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]), ('company_id', '=', False)]</field>
         </record>
 
+        <record model="ir.rule" id="commercial_access">
+            <field name="name">Access commercial for analytic report</field>
+            <field name="model_id" ref="account_analytic_report.model_account_analytic_report_template"/>
+            <field name="groups" eval="[(4, ref('custom_groups.group_tech_sales')),]"/>
+            <field name="domain_force">[('id','=',user.env.ref('account_analytic_report.commercial_account_report').id)]</field>
+        </record>
+
+        <record model="ir.rule" id="commercial_access_report">
+            <field name="name">Access commercial for analytic report</field>
+            <field name="model_id" ref="account_analytic_report.model_account_analytic_report"/>
+            <field name="groups" eval="[(4, ref('custom_groups.group_tech_sales')),]"/>
+            <field name="domain_force">[('template_id','=',user.env.ref('account_analytic_report.commercial_account_report').id)]</field>
+        </record>
+
     </data>
 </openerp>

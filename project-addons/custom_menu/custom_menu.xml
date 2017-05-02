@@ -27,6 +27,21 @@
 
         <menuitem name="Milkoop" id="parent_menu"/>
 
+
+        <record id="action_support_url" model="ir.actions.act_url">
+            <field name="name">Support</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="target">new</field>
+            <field name="url">https://www.google.es</field>
+        </record>
+
+        <menuitem action="action_support_url"
+                name="Support"
+                id="menu_support_url"
+                sequence="99"
+
+                />
+
         <record id="res_partner_farm_tree" model="ir.ui.view">
             <field name="name">res.partner.farm.tree</field>
             <field name="model">res.partner</field>
@@ -141,8 +156,8 @@
             <field name="res_model">account.invoice.line</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field eval="False" name="view_id"/>
-            <field eval="account_invoice_line_search" name="search_view_id"/>
+            <field ref="account.view_invoice_line_tree" name="view_id"/>
+            <field ref="account_invoice_line_search" name="search_view_id"/>
             <field name="domain">[('invoice_id.type','=','out_invoice'),('invoice_id.state', '=', 'draft')]</field>
         </record>
 
@@ -151,7 +166,8 @@
             <field name="res_model">account.invoice.line</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field eval="False" name="view_id"/>
+            <field ref="account.view_invoice_line_tree" name="view_id"/>
+            <field ref="account_invoice_line_search" name="search_view_id"/>
             <field name="domain">[('invoice_id.type','=','in_invoice'),('invoice_id.state', '=', 'draft')]</field>
         </record>
 
@@ -179,9 +195,11 @@
         <menuitem id="tech_economic_management" name="Technical economic management" parent="parent_menu"  sequence="3" groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_sales"/>
             <menuitem id="menu_tech_invoices" name="Invoices" parent="tech_economic_management"/>
                 <menuitem action="account.action_invoice_tree1" id="menu_action_invoice_tree1" parent="menu_tech_invoices" sequence="1"/>
-                <menuitem action="action_invoice_line_tree1" id="menu_action_invoice_line_tree1" parent="menu_tech_invoices"  sequence="2"/>
+                <menuitem action="action_invoice_line_tree1" id="menu_action_invoice_line_tree1" parent="menu_tech_invoices"  sequence="2"
+                     groups="custom_groups.group_tech_feed,custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_rancher"/>
                 <menuitem action="account.action_invoice_tree2" id="menu_action_invoice_tree2" parent="menu_tech_invoices"  sequence="3"/>
-                <menuitem action="action_invoice_line_tree2" id="menu_action_invoice_line_tree2" parent="menu_tech_invoices"  sequence="4"/>
+                <menuitem action="action_invoice_line_tree2" id="menu_action_invoice_line_tree2" parent="menu_tech_invoices"  sequence="4"
+                     groups="custom_groups.group_tech_feed,custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_rancher"/>
 
             <menuitem id="menu_finance_assets" name="Assets" parent="tech_economic_management"/>
                 <menuitem parent="menu_finance_assets" id="menu_action_account_asset_asset_form" action="account_asset.action_account_asset_asset_form"/>
@@ -206,7 +224,8 @@
                 <field name="domain"></field>
             </record>
 
-            <menuitem action="product_product_action_denominations" id="menu_products_menu" parent="tech_economic_management"/>
+            <menuitem action="product_product_action_denominations" id="menu_products_menu" parent="tech_economic_management"
+                groups="custom_groups.group_tech_feed,custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_rancher"/>
 
         <record id="action_partner_customer_form" model="ir.actions.act_window">
             <field name="name">Customers</field>
@@ -326,7 +345,6 @@
 
         <menuitem action="stock.action_production_lot_form" id="menu_action_production_lot_form"
             parent="custom_menu.feeding_management" name="Stock lots"/>
-
 
     </data>
 </openerp>

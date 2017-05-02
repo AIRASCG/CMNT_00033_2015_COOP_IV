@@ -83,7 +83,7 @@
 
 
         <record id="technical_account_invoice_line_action" model="ir.actions.act_window">
-            <field name="name">Business report by invoice line</field>
+            <field name="name">Invoice line search</field>
             <field name="res_model">account.invoice.line</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
@@ -92,13 +92,11 @@
             <field name="domain">[]</field>
         </record>
 
-
         <menuitem action="technical_account_invoice_line_action"
                   id="menu_technical_account_invoice_line_action"
                   parent="custom_menu.tech_economic_management"
                   groups="custom_groups.group_tech_sales"
                   sequence="99"/>
-
 
     </data>
 </openerp>
