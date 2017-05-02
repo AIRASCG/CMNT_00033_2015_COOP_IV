@@ -43,7 +43,6 @@
             </field>
         </record>
 
-
         <record id="technical_account_invoice_line_view_tree" model="ir.ui.view">
             <field name="name">account.invoice.line.tree</field>
             <field name="model">account.invoice.line</field>
@@ -51,18 +50,15 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="date_invoice"/>
+                    <field name="account_analytic_id"/>
                     <field name="name"/>
                     <field name="quantity"/>
                     <field name="uos_id"/>
                     <field name="price_unit"/>
-                    <field name="invoice_line_tax_id" widget="many2many_tags"/>
                     <field name="price_subtotal"/>
-                    <field name="company_id"/>
                 </tree>
             </field>
         </record>
-
-
 
         <record id="account_invoice_line_search_tech" model="ir.ui.view">
             <field name="name">account.invoice.line.search</field>
@@ -74,13 +70,12 @@
                     <field name="product_id"/>
                     <field name="account_analytic_id"/>
                     <group expand="0" string="Group By">
-                            <filter string="Description" context="{'group_by':'name'}"/>
-                            <filter string="analytic account" context="{'group_by':'account_analytic_id'}"/>
+                        <filter string="Description" context="{'group_by':'name'}"/>
+                        <filter string="analytic account" context="{'group_by':'account_analytic_id'}"/>
                     </group>
                 </search>
             </field>
         </record>
-
 
         <record id="technical_account_invoice_line_action" model="ir.actions.act_window">
             <field name="name">Invoice line search</field>
