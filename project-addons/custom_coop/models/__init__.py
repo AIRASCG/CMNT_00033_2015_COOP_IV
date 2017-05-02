@@ -28,3 +28,4 @@ from . import res_partner
 from . import account_analytic
 from . import account_asset_asset
 from . import product
+from . import calendar

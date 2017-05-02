@@ -21,6 +21,10 @@ msgstr ""
 msgid "Invoice line search"
 msgstr " Búsqueda de líneas de factura"
 
+#. module: custom_coop
+#: field:res.groups,default_event_categories:0
+msgid "Default event categories"
+msgstr "Etiquetas por defecto en eventos"
 
 #. module: custom_coop
 #: field:account.invoice.line,date_invoice:0

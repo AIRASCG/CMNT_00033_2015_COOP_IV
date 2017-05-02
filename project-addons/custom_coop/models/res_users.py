@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, api, fields, exceptions, _
 
 
 class ResUsers(models.Model):
@@ -29,7 +29,9 @@ class ResUsers(models.Model):
     def write(self, vals):
         for user in self:
             if user.id == 1 and self.env.user.id != 1:
-                raise exceptions.Warning(_('Write error'), _('Only %s can edit his user') % user.name)
+                raise exceptions.Warning(
+                    _('Write error'),
+                    _('Only %s can edit his user') % user.name)
         return super(ResUsers, self).write(vals)
 
     @api.multi
@@ -41,3 +43,11 @@ class ResUsers(models.Model):
         res = super(ResUsers, self).unlink()
         partners.unlink()
         return res
+
+
+class ResGroup(models.Model):
+
+    _inherit = 'res.groups'
+
+    default_event_categories = fields.Many2many(
+        'calendar.event.type')

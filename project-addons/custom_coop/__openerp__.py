@@ -64,6 +64,7 @@
              'data/paperformat.xml',
              'views/analytic_view.xml',
              'views/product.xml',
+             'views/res_group.xml',
              'views/account_invoice.xml',
              'views/base_view.xml'],
     "installable": True
