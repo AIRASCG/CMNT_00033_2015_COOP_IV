@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
+    <data noupdate="1">
+        <record id="action_support_url" model="ir.actions.act_url">
+            <field name="name">Support</field>
+            <field name="type">ir.actions.act_url</field>
+            <field name="target">new</field>
+            <field name="url">https://www.google.es</field>
+        </record>
+    </data>
+
     <data>
 
         <record model="ir.ui.menu" id="base.menu_base_partner">
@@ -26,14 +35,6 @@
         </record>
 
         <menuitem name="Milkoop" id="parent_menu"/>
-
-
-        <record id="action_support_url" model="ir.actions.act_url">
-            <field name="name">Support</field>
-            <field name="type">ir.actions.act_url</field>
-            <field name="target">new</field>
-            <field name="url">https://www.google.es</field>
-        </record>
 
         <menuitem action="action_support_url"
                 name="Support"
