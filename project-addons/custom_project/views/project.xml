@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+
+        <record id="project.open_view_project_all" model="ir.actions.act_window">
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
+
+        <record id="project_custom_tree" model="ir.ui.view">
+            <field name="name">project.project.custom.tree</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project"/>
+            <field name="arch" type="xml">
+                <field name="progress_rate" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="planned_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="task_custom_form" model="ir.ui.view">
+            <field name="name">project.task.custom.form</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <field name="planned_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="progress" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="date_deadline" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <label for="remaining_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </label>
+                <field name="remaining_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="total_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <page string="Extra Info" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </page>
+                <xpath expr="//field[@name='work_ids']/tree/field[@name='user_id']" position="after">
+                    <field name="category_id"/>
+                    <field name="exploitation_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="task_custom_tree" model="ir.ui.view">
+            <field name="name">project.task.custom.tree</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+                <field name="planned_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="effective_hours" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </field>
+                <field name="date_start" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="progress" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="project.action_view_task" model="ir.actions.act_window">
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+                <record id="project_task_work_view_tree" model="ir.ui.view">
+            <field name="name">project.task.work.tree</field>
+            <field name="model">project.task.work</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="hours" widget="float_time" sum="Spent Hours"/>
+                    <field name="date"/>
+                    <field name="user_id" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}"/>
+                    <field name="category_id"/>
+                    <field name="exploitation_id"/>
+                    <field name="task_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="project_task_work_view_search" model="ir.ui.view">
+            <field name="name">project.task.work.search</field>
+            <field name="model">project.task.work</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="name"/>
+                    <field name="date"/>
+                    <field name="user_id"/>
+                    <field name="category_id"/>
+                    <field name="exploitation_id"/>
+                    <field name="task_id"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="project_task_work_action" model="ir.actions.act_window">
+            <field name="name">Subtasks</field>
+            <field name="res_model">project.task.work</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="project_task_work_view_tree"/>
+            <field name="search_view_id" ref="project_task_work_view_search"/>
+        </record>
+
+
+        <delete id="project.open_view_task_list_kanban" model="ir.actions.act_window.view" />
+
+    </data>
+</openerp>

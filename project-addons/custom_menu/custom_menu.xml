@@ -291,10 +291,10 @@
             <field name="context">{'apply_multicompany': True}</field>
         </record>
 
-        <menuitem id="documental_management" name="Documental management" parent="parent_menu"  sequence="5"/>
+        <menuitem id="documental_management" name="Documental management" parent="parent_menu"  sequence="6"/>
             <menuitem name="Attachments" parent="documental_management" action="action_ir_attachment" id="menu_attachment"/>
 
-        <menuitem id="advanced_parameters" name="Advanced parameters" parent="parent_menu"  sequence="6"/>
+        <menuitem id="advanced_parameters" name="Advanced parameters" parent="parent_menu"  sequence="7"/>
             <menuitem id="configuration" parent="advanced_parameters" name="Settings" groups="custom_groups.group_admin"/>
 
             <record id="action_res_users" model="ir.actions.act_window">
@@ -347,5 +347,10 @@
         <menuitem action="stock.action_production_lot_form" id="menu_action_production_lot_form"
             parent="custom_menu.feeding_management" name="Stock lots"/>
 
+
+        <menuitem id="task_management" name="Task management" parent="parent_menu" sequence="5" groups="project.group_project_user"/>
+            <menuitem id="projects_menu" name="Projects" parent="task_management" action="project.open_view_project_all"/>
+            <menuitem id="task_menu" name="Tasks" parent="task_management" action="project.action_view_task"/>
+            <menuitem id="subtask_menu" name="Subtasks" parent="task_management" action="custom_project.project_task_work_action"/>
     </data>
 </openerp>

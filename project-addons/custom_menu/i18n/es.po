@@ -16,6 +16,27 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.task_management
+msgid "Task management"
+msgstr "Partes de trabajo"
+
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.projects_menu
+msgid "Projects"
+msgstr "Proyectos"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.subtask_menu
+msgid "Subtasks"
+msgstr "Subtareas"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.task_menu
+msgid "Tasks"
+msgstr "Tareas"
+
+#. module: custom_menu
 #: model:ir.actions.act_window,help:custom_menu.action_partner_customer_form
 msgid "<p class=\"oe_view_nocontent_create\">\n"
 "                Click to add a contact in your address book.\n"
