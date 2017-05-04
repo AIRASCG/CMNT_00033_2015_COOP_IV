@@ -38,6 +38,7 @@
                 'knowledge',
                 'mail',
                 'custom_groups',
+                'custom_project',
                 'account_analytic_report',
                 'quality_simulator'],
     "data": ['security/group.xml', 'security/ir_rule.xml', 'security/ir.model.access.csv', 'custom_menu.xml'],
