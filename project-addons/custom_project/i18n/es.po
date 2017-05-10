@@ -15,6 +15,17 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+
+#. module: project
+#: field:project.task.work,task_id:0
+msgid "Task"
+msgstr "Parte diario"
+
+#. module: custom_project
+#: model:ir.actions.act_window,name:custom_project.action_view_task
+msgid "Daily part"
+msgstr "Parte diario"
+
 #. module: custom_project
 #: field:project.task.work,exploitation_id:0
 msgid "Exploitation"
@@ -38,7 +49,7 @@ msgstr "Horas consumidas"
 #. module: custom_project
 #: model:ir.actions.act_window,name:custom_project.project_task_work_action
 msgid "Subtasks"
-msgstr "Subtareas"
+msgstr "Tareas"
 
 #. module: custom_project
 #: field:project.task.work,category_id:0

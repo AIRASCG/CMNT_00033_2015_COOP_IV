@@ -349,8 +349,8 @@
 
 
         <menuitem id="task_management" name="Task management" parent="parent_menu" sequence="5" groups="project.group_project_user"/>
-            <menuitem id="projects_menu" name="Projects" parent="task_management" action="project.open_view_project_all"/>
-            <menuitem id="task_menu" name="Tasks" parent="task_management" action="project.action_view_task"/>
-            <menuitem id="subtask_menu" name="Subtasks" parent="task_management" action="custom_project.project_task_work_action"/>
+            <menuitem id="projects_menu" name="Projects" parent="task_management" action="project.open_view_project_all" sequence="1"/>
+            <menuitem id="task_menu" name="Daily part" parent="task_management" action="custom_project.action_view_task" sequence="2"/>
+            <menuitem id="subtask_menu" name="Subtasks" parent="task_management" action="custom_project.project_task_work_action" sequence="3"/>
     </data>
 </openerp>

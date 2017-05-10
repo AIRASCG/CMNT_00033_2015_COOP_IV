@@ -11,6 +11,29 @@
             <field name="view_id" eval="False"/>
         </record>
 
+        <record id="project_custom_form" model="ir.ui.view">
+            <field name="name">project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <page string="Project Stages" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </page>
+                <field name="partner_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="resource_calendar_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="sequence" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="parent_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+            </field>
+        </record>
+
         <record id="project_custom_tree" model="ir.ui.view">
             <field name="name">project.project.custom.tree</field>
             <field name="model">project.project</field>
@@ -66,6 +89,9 @@
                 <field name="planned_hours" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
+                <field name="remaining_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
                 <field name="effective_hours" position="attributes">
                     <attribute name="invisible">0</attribute>
                 </field>
@@ -79,12 +105,21 @@
         </record>
 
 
-        <record id="project.action_view_task" model="ir.actions.act_window">
+        <record id="action_view_task" model="ir.actions.act_window">
+            <field name="name">Daily part</field>
+            <field name="res_model">project.task</field>
             <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="project.view_task_search_form"/>
+            <field name="help" type="html">
+                <p>
+                    Odoo's project management allows you to manage the pipeline
+                    of tasks in order to get things done efficiently. You can
+                    track progress, discuss on tasks, attach documents, etc.
+                </p>
+            </field>
         </record>
 
-
-                <record id="project_task_work_view_tree" model="ir.ui.view">
+        <record id="project_task_work_view_tree" model="ir.ui.view">
             <field name="name">project.task.work.tree</field>
             <field name="model">project.task.work</field>
             <field name="type">tree</field>

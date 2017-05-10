@@ -29,12 +29,12 @@ msgstr "Proyectos"
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.subtask_menu
 msgid "Subtasks"
-msgstr "Subtareas"
+msgstr "Tareas"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.task_menu
-msgid "Tasks"
-msgstr "Tareas"
+msgid "Daily part"
+msgstr "Parte diario"
 
 #. module: custom_menu
 #: model:ir.actions.act_window,help:custom_menu.action_partner_customer_form
