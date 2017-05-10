@@ -33,6 +33,9 @@
         <record model="ir.ui.menu" id="mail.mail_allgroups">
           <field name="groups_id" eval="[(6,0,[ref('group_standard_menus'),ref('custom_groups.group_admin')])]"/>
         </record>
+        <record model="ir.ui.menu" id="project.menu_project_management">
+          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+        </record>
 
         <menuitem name="Milkoop" id="parent_menu"/>
 
