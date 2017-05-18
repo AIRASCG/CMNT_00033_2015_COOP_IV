@@ -27,9 +27,11 @@ class ResCompany(models.Model):
 
     is_cooperative = fields.Boolean('Is a cooperative?')
     cooperative_company = fields.Many2one('res.company', 'Cooperative company',
-                                          compute='_get_cooperative_company')
+                                          compute='_get_cooperative_company',
+                                          store=True)
 
     @api.one
+    @api.depends('is_cooperative', 'parent_id')
     def _get_cooperative_company(self):
         if self.is_cooperative or not self.sudo().parent_id.is_cooperative:
             self.cooperative_company = self
