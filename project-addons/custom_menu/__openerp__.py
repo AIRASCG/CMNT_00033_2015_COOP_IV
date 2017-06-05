@@ -33,7 +33,6 @@
                 'acc_analytic_acc_distribution_between',
                 'stock_account',
                 'res_partner_farm_data',
-                'farm_notebook',
                 'auditlog',
                 'document',
                 'knowledge',
