@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_account_invoice_comercial_nocreate,account.invoice comercial,account.model_account_invoice,custom_groups.group_tech_sales,1,1,0,1
+stock.access_product_uom_stock_manager,product.uom stock_manager,product.model_product_uom,stock.group_stock_manager,1,0,0,0
+sale.access_product_uom_sale_manager,product.uom salemanager,product.model_product_uom,base.group_sale_manager,1,0,0,0
+access_product_uom_admin,product.uom admin,product.model_product_uom,custom_groups.group_admin,1,1,1,1

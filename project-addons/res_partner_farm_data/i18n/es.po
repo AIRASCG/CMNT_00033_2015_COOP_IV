@@ -1853,7 +1853,7 @@ msgstr "Número de lotes"
 #. module: res_partner_farm_data
 #: model:ir.actions.report.xml,name:res_partner_farm_data.action_lot_report
 msgid "Lot report"
-msgstr "Informe lote"
+msgstr "Informe visita"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,lot_threshold_point_dry:0
@@ -2637,7 +2637,7 @@ msgstr "Privado"
 #. module: res_partner_farm_data
 #: field:res.partner,private_attachment_ids:0
 msgid "Private attachment ids"
-msgstr "Docuemntos privados"
+msgstr "Documentos privados"
 
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_attachment_private_action
@@ -2869,7 +2869,7 @@ msgstr "Lectura"
 #. module: res_partner_farm_data
 #: model:ir.actions.act_window,name:res_partner_farm_data.action_lot
 msgid "Reads"
-msgstr "Lecturas"
+msgstr "Visitas de alimentación"
 
 #. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form

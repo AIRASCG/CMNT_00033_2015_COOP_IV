@@ -44,6 +44,12 @@ class ResUsers(models.Model):
         partners.unlink()
         return res
 
+    @api.model
+    def create(self, vals):
+        res = super(ResUsers, self).create(vals)
+        if res.company_id.cooperative_company.group_id:
+            res.company_id.cooperative_company.group_id.message_subscribe_users(user_ids=[res.id])
+        return res
 
 class ResGroup(models.Model):
 

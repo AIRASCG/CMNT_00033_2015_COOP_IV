@@ -10,7 +10,16 @@
                 <field name="alarm_ids" position="attributes">
                     <attribute name="widget">many2many_checkboxes</attribute>
                 </field>
+                <field name="partner_ids" position="attributes">
+                    <attribute name="domain">[('user_ids', '!=', False)]</attribute>
+                </field>
             </field>
+        </record>
+
+        <delete model="ir.actions.act_window.view" id="calendar.action_view_calendar_event_gantt"/>
+
+        <record id="calendar.action_calendar_event" model="ir.actions.act_window">
+            <field name="view_mode">calendar,tree,form</field>
         </record>
 
     </data>

@@ -27,6 +27,7 @@ class ResCompany(models.Model):
     _inherit = 'res.company'
 
     mobile = fields.Char('Mobile', related='partner_id.mobile', store=True)
+    group_id = fields.Many2one('mail.group', 'Cooperative mail group')
 
     _defaults = {
         'parent_id': lambda self, cr, uid, context:
