@@ -17,6 +17,7 @@
     ],
     'data': [
         'views/project.xml',
-        'security/ir_rule.xml'
+        'security/ir_rule.xml',
+        'security/ir.model.access.csv'
     ],
 }

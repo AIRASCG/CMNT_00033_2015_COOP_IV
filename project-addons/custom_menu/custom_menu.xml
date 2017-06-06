@@ -12,29 +12,29 @@
     <data>
 
         <record model="ir.ui.menu" id="base.menu_base_partner">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
 
         <record model="ir.ui.menu" id="account.menu_finance">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
         <record model="ir.ui.menu" id="stock.menu_stock_root">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
         <record model="ir.ui.menu" id="base.menu_reporting">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
         <record model="ir.ui.menu" id="knowledge.menu_document">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
         <record model="ir.ui.menu" id="base.menu_administration">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
         <record model="ir.ui.menu" id="mail.mail_allgroups">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus'),ref('custom_groups.group_admin')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus'),ref('custom_groups.group_admin')])]"/>
         </record>
         <record model="ir.ui.menu" id="project.menu_project_management">
-          <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
+            <field name="groups_id" eval="[(6,0,[ref('group_standard_menus')])]"/>
         </record>
 
         <menuitem name="Milkoop" id="parent_menu"/>

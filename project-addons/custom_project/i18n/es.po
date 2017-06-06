@@ -15,6 +15,20 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. module: custom_project
+#: field:project.task,km_company_car:0
+msgid "Km company car"
+msgstr "Km coche empresa"
+
+#. module: custom_project
+#: field:project.task,km_own_car:0
+msgid "Km own car"
+msgstr "Km coche propio"
+
+#. module: custom_project
+#: field:project.task,area:0
+msgid "Area"
+msgstr "Área"
 
 #. module: project
 #: field:project.task.work,task_id:0
@@ -22,9 +36,34 @@ msgid "Task"
 msgstr "Parte diario"
 
 #. module: custom_project
+#: field:project.task.work,date_end:0
+msgid "Date end"
+msgstr "Fecha fin"
+
+#. module: custom_project
+#: field:project.task.work,work_type:0
+msgid "Work type"
+msgstr "Tipo de trabajo"
+
+#. module: custom_project
+#: field:project.task.work,date_start:0
+msgid "Date start"
+msgstr "Fecha inicio"
+
+#. module: custom_project
+#: field:project.task,diet:0
+msgid "Diet"
+msgstr "Dietas"
+
+#. module: custom_project
 #: model:ir.actions.act_window,name:custom_project.action_view_task
 msgid "Daily part"
 msgstr "Parte diario"
+
+#. module: project
+#: field:project.task.work,name:0
+msgid "Work summary"
+msgstr "Descripción"
 
 #. module: custom_project
 #: field:project.task.work,exploitation_id:0
