@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_phytosanitary_use,access_phytosanitary_use,model_phytosanitary_use,base.group_user,1,1,1,1
+access_phytosanitary,access_phytosanitary,model_phytosanitary,base.group_user,1,1,1,1
+access_phytosanitary_machine,access_phytosanitary_machine,model_phytosanitary_machine,base.group_user,1,1,1,1
+access_phytosanitary_applicator,access_phytosanitary_applicator,model_phytosanitary_applicator,base.group_user,1,1,1,1
+access_farm_campaign,access_farm_campaign,model_farm_campaign,base.group_user,1,1,1,1
+access_farm_crop,access_farm_crop,model_farm_crop,base.group_user,1,1,1,1

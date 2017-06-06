@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="account_invoice_line_phytosanitary" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='price_subtotal']" position="after">
+                    <field name="phytosanitary" invisible="1"/>
+                    <field name="phytosanitary_created" invisible="1"/>
+                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" attrs="{'invisible': [('phytosanitary', '!=', True)]}" icon="terp-personal"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_invoice_line_phytosanitary_supplier" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='account_analytic_id']" position="after">
+                    <field name="campaign"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='price_subtotal']" position="after">
+                    <field name="phytosanitary" invisible="1"/>
+                    <field name="phytosanitary_created" invisible="1"/>
+                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" attrs="{'invisible': ['|', ('phytosanitary', '!=', True), ('phytosanitary_created', '=', True)]}" icon="terp-personal"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_invoice_line_tree_editable" model="ir.ui.view">
+            <field name="name">account.invoice.line.tree</field>
+            <field name="model">account.invoice.line</field>
+            <field name="inherit_id" ref="account.view_invoice_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="price_subtotal" position="after">
+                    <field name="phytosanitary" invisible="1"/>
+                    <field name="phytosanitary_created" invisible="1"/>
+                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" attrs="{'invisible': ['|', ('phytosanitary', '!=', True), ('phytosanitary_created', '=', True)]}" icon="terp-personal"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="account_analytic_plan_instance_add_campaign" model="ir.ui.view">
+            <field name="name">account.analytic.plan.instance.form</field>
+            <field name="model">account.analytic.plan.instance</field>
+            <field name="inherit_id" ref="account_analytic_plans.account_analytic_plan_instance_form"/>
+            <field name="arch" type="xml">
+                <field name="account_ids" />
+                <xpath expr="//field[@name='account_ids']/tree/field[@name='analytic_account_id']" position="after">
+                    <field name="campaign"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

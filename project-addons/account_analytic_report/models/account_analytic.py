@@ -57,6 +57,9 @@ class AccountAnalyticAccount(models.Model):
         if context.get('to_date', False):
             where_date += " AND l.date <= %s"
             where_clause_args += [context['to_date']]
+        if context.get('campaign', False):
+            where_date += " AND l.campaign = %s"
+            where_clause_args += [context['campaign']]
         if context.get('company_id', False):
             company_id = context['company_id']
         else:

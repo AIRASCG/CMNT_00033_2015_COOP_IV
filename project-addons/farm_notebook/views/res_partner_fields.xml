@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="res_partner_fields_add_phytosanitary" model="ir.ui.view">
+            <field name="name">res.partner.fields.form</field>
+            <field name="model">res.partner.fields</field>
+            <field name="inherit_id" ref="res_partner_farm_data.view_res_partner_fields_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/group[2]" position="after">
+                    <separator string="Phytosanitary uses"/>
+                    <field name="phytosanitary_uses">
+                        <tree editable="top">
+                            <field name="phytosanitary" domain="[('rest_qty', '&gt;', 0)]"/>
+                            <field name="used_qty"/>
+                            <field name="applicator"/>
+                            <field name="machine"/>
+                            <field name="notes"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

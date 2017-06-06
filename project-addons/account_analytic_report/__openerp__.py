@@ -26,7 +26,7 @@
     'description': """""",
     'author': 'Comunitea',
     'website': '',
-    "depends": ['account', 'custom_report'],
+    "depends": ['account', 'custom_report', 'farm_notebook'],
     "data": ['views/account_analytic_report_template.xml',
              'views/account_analytic_report.xml',
              'views/account_analytic_report_menu.xml',

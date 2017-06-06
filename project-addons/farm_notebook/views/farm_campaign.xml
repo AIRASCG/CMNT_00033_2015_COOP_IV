@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="farm_campaign_view_tree" model="ir.ui.view">
+            <field name="name">farm.campaign.tree</field>
+            <field name="model">farm.campaign</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="year"/>
+                    <field name="raw_material"/>
+                    <field name="cultivated_area"/>
+                    <field name="raw_material_produced"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="farm_campaign_view_form" model="ir.ui.view">
+            <field name="name">farm.campaign.form</field>
+            <field name="model">farm.campaign</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="progress,done" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title" style="width: 390px;">
+                            <label class="oe_edit_only" for="name" string="Name"/>
+                            <h1><field name="name" class="oe_inline"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="year"/>
+                                <field name="cultivated_area"/>
+                            </group>
+                            <group>
+                                <field name="raw_material"/>
+                                <field name="raw_material_produced"/>
+                            </group>
+                        </group>
+                        <separator string="Crops" />
+                        <field name="crops">
+                            <tree editable="bottom">
+                                <field name="field" context="{'show_year': True}"/>
+                                <field name="cultivated_area"/>
+                            </tree>
+                        </field>
+                        <separator string="Observations"/>
+                        <field name="notes"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="farm_campaign_view_search" model="ir.ui.view">
+            <field name="name">farm.campaign.search</field>
+            <field name="model">farm.campaign</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="year"/>
+                    <field name="raw_material"/>
+                    <field name="state"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Year" icon="terp-personal" domain="[]" context="{'group_by':'year'}"/>
+                        <filter string="raw material" icon="terp-personal" domain="[]" context="{'group_by':'raw_material'}"/>
+                        <filter string="state" icon="terp-personal" domain="[]" context="{'group_by':'state'}"/>
+                   </group>
+               </search>
+            </field>
+        </record>
+
+        <record id="farm_campaign_action" model="ir.actions.act_window">
+            <field name="name">Farm campaigns</field>
+            <field name="res_model">farm.campaign</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="farm_campaign_view_tree"/>
+            <field name="search_view_id" ref="farm_campaign_view_search"/>
+        </record>
+
+    </data>
+</openerp>

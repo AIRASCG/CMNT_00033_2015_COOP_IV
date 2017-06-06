@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="farm_notebook_view_tree" model="ir.ui.view">
+            <field name="name">farm.notebook.form</field>
+            <field name="model">farm.notebook</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="farm_notebook_view_form" model="ir.ui.view">
+            <field name="name">farm.notebook.form</field>
+            <field name="model">farm.notebook</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="partner"/>
+                            <field name="date"/>
+                        </group>
+                        <notebook>
+                            <page string="Applicators">
+                                <field name="phyotsanitary_applicators"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="farm_notebook_view_search" model="ir.ui.view">
+            <field name="name">farm.notebook.search</field>
+            <field name="model">farm.notebook</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="partner"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="farm_notebook_action" model="ir.actions.act_window">
+            <field name="name">Farm Notebook</field>
+            <field name="res_model">farm.notebook</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="farm_notebook_view_tree"/>
+            <field name="search_view_id" ref="farm_notebook_view_search"/>
+        </record>
+
+    </data>
+</openerp>
