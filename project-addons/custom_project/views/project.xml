@@ -59,6 +59,8 @@
                 <field name="planned_hours" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
+                <field name="planned_hours" position="after">
+                </field>
                 <field name="progress" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
@@ -71,6 +73,16 @@
                 <field name="remaining_hours" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
+                <field name="effective_hours" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="effective_hours" position="after">
+                    <field name="total_work_hours" widget="float_time"/>
+
+                    <field name="total_absence_hours" widget="float_time"/>
+
+                    <field name="total_time" widget="float_time"/>
+                </field>
                 <field name="total_hours" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
@@ -82,6 +94,7 @@
                     <field name="km_company_car"/>
                     <field name="km_own_car"/>
                     <field name="diet"/>
+                    <field name="contract_type"/>
                 </field>
                 <page string="Extra Info" position="attributes">
                     <attribute name="invisible">1</attribute>
@@ -90,10 +103,12 @@
                     <attribute name="context">{'task_date': name}</attribute>
                 </field>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='name']" position="before">
-                    <field name="work_type"/>
+                    <field name="area" invisible="1"/>
+                    <field name="work_type" domain="[('categ_id', '=', area)]"/>
                 </xpath>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='user_id']" position="after">
                     <field name="exploitation_id"/>
+                    <field name="absence"/>
                 </xpath>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='user_id']" position="attributes">
                     <attribute name="invisible">1</attribute>
@@ -119,8 +134,11 @@
                 <field name="remaining_hours" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
+                <field name="effective_hours" position="after">
+                    <field name="total_work_hours" widget="float_time"/>
+                </field>
                 <field name="effective_hours" position="attributes">
-                    <attribute name="invisible">0</attribute>
+                    <attribute name="invisible">1</attribute>
                 </field>
                 <field name="date_start" position="attributes">
                     <attribute name="invisible">1</attribute>
@@ -130,7 +148,6 @@
                 </field>
             </field>
         </record>
-
 
         <record id="action_view_task" model="ir.actions.act_window">
             <field name="name">Daily part</field>
@@ -152,12 +169,14 @@
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree editable="top">
-                    <field name="work_type"/>
+                    <field name="area" invisible="1"/>
+                    <field name="work_type" domain="[('categ_id', '=', area)]"/>
                     <field name="name"/>
                     <field name="hours" widget="float_time" sum="Spent Hours"/>
                     <field name="date_start"/>
                     <field name="date_end"/>
                     <field name="user_id" readonly="1" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}"/>
+                    <field name="absence"/>
                     <field name="exploitation_id"/>
                     <field name="task_id"/>
                 </tree>
@@ -179,6 +198,22 @@
                     <field name="exploitation_id"/>
                     <field name="task_id"/>
                </search>
+            </field>
+        </record>
+
+        <record id="project_category_add_work_types" model="ir.ui.view">
+            <field name="name">project.category.form</field>
+            <field name="model">project.category</field>
+            <field name="inherit_id" ref="project.project_category_form_view"/>
+            <field name="arch" type="xml">
+                <field name="name"  position="after">
+                    <separator string="Work types" colspan="4"/>
+                    <field name="work_type_ids" colspan="4" nolabel="1">
+                        <tree editable="top">
+                            <field name="name"/>
+                        </tree>
+                    </field>
+                </field>
             </field>
         </record>
 

@@ -16,6 +16,52 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_project
+#: field:res.users,reviewer_id:0
+msgid "Reviewer"
+msgstr "Revisor"
+
+#. module: custom_project
+#: view:res.users:custom_project.view_users_form_add_task_management_data
+msgid "Task management"
+msgstr "Partes de trabajo"
+
+#. module: custom_project
+#: field:project.task,contract_type:0
+#: field:res.users,contract_type:0
+msgid "Contract type"
+msgstr "Tipo de contrato"
+
+#. module: custom_project
+#: field:contract.type,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: custom_project
+#: field:contract.type,hours:0
+msgid "Hours"
+msgstr "Horas"
+
+#. module: custom_project
+#: field:project.task,total_work_hours:0
+msgid "Total work hours"
+msgstr "Total horas trabajadas"
+
+#. module: custom_project
+#: field:project.task,total_time:0
+msgid "Total time"
+msgstr "Diferencia jornada"
+
+#. module: custom_project
+#: field:project.task,total_absence_hours:0
+msgid "Total absence hours"
+msgstr "Total horas ausencia"
+
+#. module: custom_project
+#: field:project.task.work,absence:0
+msgid "Absence"
+msgstr "Ausencia"
+
+#. module: custom_project
 #: field:project.task,km_company_car:0
 msgid "Km company car"
 msgstr "Km coche empresa"
