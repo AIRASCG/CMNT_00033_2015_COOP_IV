@@ -23,14 +23,100 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button name="get_notebook_data" type="object" string="Get notebook data"/>
+                    </header>
                     <sheet>
                         <group>
                             <field name="partner"/>
                             <field name="date"/>
                         </group>
                         <notebook>
-                            <page string="Applicators">
-                                <field name="phyotsanitary_applicators"/>
+                            <page string="General information">
+                                <separator string="Applicators" colspan="4"/>
+                                <field name="phytosanitary_applicators" colspan="4">
+                                    <tree editable="top">
+                                        <field name="sequence"/>
+                                        <field name="name"/>
+                                        <field name="vat"/>
+                                        <field name="ropo"/>
+                                        <field name="license_type"/>
+                                        <field name="adviser"/>
+                                    </tree>
+                                </field>
+                                <separator string="Machines" colspan="4"/>
+                                <field name="phytosanitary_machines" colspan="4">
+                                    <tree editable="top">
+                                        <field name="sequence"/>
+                                        <field name="name"/>
+                                        <field name="ROMA_inscription_number"/>
+                                        <field name="acquisition_year"/>
+                                        <field name="inspection_date"/>
+                                    </tree>
+                                </field>
+                                <separator string="Advisor entities" colspan="4"/>
+                                <field name="advisor_entity" colspan="4">
+                                    <tree editable="top">
+                                        <field name="name"/>
+                                        <field name="vat"/>
+                                        <field name="id_number"/>
+                                        <field name="farm_type"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Fields">
+                                <field name="partner_fields" colspan="4"/>
+                            </page>
+                            <page string="Phytosanitary uses">
+                                <separator string="Phytosanitary uses" colspan="4"/>
+                                <field name="phytosanitary_uses" colspan="4"/>
+                                <separator string="Phytosanitary advised uses" colspan="4"/>
+                                <field name="phytosanitary_advised_uses" colspan="4"/>
+
+                                <separator string="Treated seed uses" colspan="4"/>
+                                <label for="apply_seeds_treatement"/>
+                                <field name="apply_seeds_treatement"/>
+                                <field name="treated_seed_uses" colspan="4">
+                                    <tree editable="top">
+                                        <field name="date"/>
+                                        <field name="field"/>
+                                        <field name="cultivation_specie"/>
+                                        <field name="cultivation_variety"/>
+                                        <field name="seeded_surface"/>
+                                        <field name="seed_quantity"/>
+                                        <field name="phytosanitary_name"/>
+                                        <field name="phytosanitary_registry_number"/>
+                                    </tree>
+                                </field>
+
+                                <separator string="Post-harvest treatments" colspan="4"/>
+                                <label for="apply_post_harvest_treatement"/>
+                                <field name="apply_post_harvest_treatement"/>
+                                <field name="post_harvest_treatements" colspan="4">
+                                    <tree editable="top">
+                                        <field name="date"/>
+                                        <field name="vegetable_product_treated"/>
+                                        <field name="phytosanitary_problem"/>
+                                        <field name="treated_qty"/>
+                                        <field name="phytosanitary_name"/>
+                                        <field name="phytosanitary_registry_number"/>
+                                        <field name="used_qty"/>
+                                        <field name="used_uom"/>
+                                    </tree>
+                                </field>
+
+                                <separator string="Storage treatements" colspan="4"/>
+                                <label for="apply_storage_treatement"/>
+                                <field name="apply_storage_treatement"/>
+                                <field name="storage_tratements" colspan="4"/>
+
+                                <separator string="Transport treatements" colspan="4"/>
+                                <label for="apply_transport_treatement"/>
+                                <field name="apply_transport_treatement"/>
+                                <field name="transport_tratements" colspan="4"/>
+                            </page>
+                            <page string="solded harvests">
+                                <field name="solded_harvests"/>
                             </page>
                         </notebook>
                     </sheet>

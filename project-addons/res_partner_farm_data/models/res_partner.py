@@ -405,9 +405,9 @@ class ResPartnerFields(models.Model):
     @api.multi
     def name_get(self):
         if self._context.get('show_year', False):
-            res = [(x.id, '%s (%s)' % (x.location_name, x.year)) for x in self]
+            res = [(x.id, '%s (%s)' % (x.location_name or _('No name'), x.year)) for x in self]
         else:
-            res = [(x.id, x.location_name) for x in self]
+            res = [(x.id, x.location_name or _('No name')) for x in self]
         return res
 
 

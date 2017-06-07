@@ -27,6 +27,7 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
+                        <button name="campaign_done" type="object" string="End campaign" states="progress"/>
                         <field name="state" widget="statusbar" statusbar_visible="progress,done" />
                     </header>
                     <sheet>

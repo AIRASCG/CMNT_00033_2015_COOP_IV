@@ -51,6 +51,7 @@ class PhytosanitaryUse(models.Model):
     _name = 'phytosanitary.use'
 
     phytosanitary = fields.Many2one('phytosanitary')
+    date = fields.Date(required=True)
     partner_field = fields.Many2one('res.partner.fields')
     used_qty = fields.Float()
     applicator = fields.Many2one('phytosanitary.applicator', required=True)
@@ -76,6 +77,7 @@ class PhytosanitaryMachine(models.Model):
     name = fields.Char(required=True)
     ROMA_inscription_number = fields.Char()
     acquisition_year = fields.Char()
+    inspection_date = fields.Date()
     company_id = fields.Many2one('res.company', 'Company',
                                  default=_get_company)
 
@@ -88,5 +90,10 @@ class PhytosanitaryApplicator(models.Model):
         return self.env.user.company_id.cooperative_company
 
     name = fields.Char(required=True)
+    vat = fields.Char()
+    ropo = fields.Char('ROPO number')
+    license_type = fields.Selection(
+        (('basic', 'Basic'), ('qualified', 'Qualified'), ('fumigation', 'Fumigation'), ('pilot', 'pilot')))
+    adviser = fields.Char()
     company_id = fields.Many2one('res.company', 'Company',
                                  default=_get_company)

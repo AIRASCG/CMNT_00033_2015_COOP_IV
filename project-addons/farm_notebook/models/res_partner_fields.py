@@ -10,3 +10,4 @@ class ResPartnerFields(models.Model):
     _inherit = 'res.partner.fields'
 
     phytosanitary_uses = fields.One2many('phytosanitary.use', 'partner_field')
+    campaigns = fields.One2many('farm.crop', 'field')

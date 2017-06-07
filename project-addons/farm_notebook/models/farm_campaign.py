@@ -26,6 +26,10 @@ class FarmCampaign(models.Model):
             campaign.cultivated_area = sum(
                 [x.cultivated_area for x in campaign.crops])
 
+    @api.multi
+    def campaign_done(self):
+        self.state = 'done'
+
 
 class FarmCrop(models.Model):
 
