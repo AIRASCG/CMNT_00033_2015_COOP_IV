@@ -94,6 +94,7 @@
                     <field name="km_company_car"/>
                     <field name="km_own_car"/>
                     <field name="diet"/>
+                    <field name="notes"/>
                     <field name="contract_type"/>
                 </field>
                 <page string="Extra Info" position="attributes">
@@ -103,12 +104,12 @@
                     <attribute name="context">{'task_date': name}</attribute>
                 </field>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='name']" position="before">
-                    <field name="area" invisible="1"/>
-                    <field name="work_type" domain="[('categ_id', '=', area)]"/>
+                    <field name="work_type" domain="[('categ_id', '=', parent.area)]"/>
                 </xpath>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='user_id']" position="after">
                     <field name="exploitation_id"/>
                     <field name="absence"/>
+                    <field name="absence_type" attrs="{'readonly': [('absence', '!=', True)]}"/>
                 </xpath>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='user_id']" position="attributes">
                     <attribute name="invisible">1</attribute>
@@ -177,6 +178,7 @@
                     <field name="date_end"/>
                     <field name="user_id" readonly="1" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}"/>
                     <field name="absence"/>
+                    <field name="absence_type" attrs="{'readonly': [('absence', '!=', True)]}"/>
                     <field name="exploitation_id"/>
                     <field name="task_id"/>
                 </tree>

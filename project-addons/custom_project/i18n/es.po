@@ -21,6 +21,17 @@ msgid "Reviewer"
 msgstr "Revisor"
 
 #. module: custom_project
+#: field:project.task.work,absence_type:0
+msgid "Absence type"
+msgstr "Tipo de ausencia"
+
+#. module: custom_project
+#: view:project.category:custom_project.project_category_add_work_types
+#: field:project.category,work_type_ids:0
+msgid "Work types"
+msgstr "Tipos de trabajo"
+
+#. module: custom_project
 #: view:res.users:custom_project.view_users_form_add_task_management_data
 msgid "Task management"
 msgstr "Partes de trabajo"
@@ -32,7 +43,9 @@ msgid "Contract type"
 msgstr "Tipo de contrato"
 
 #. module: custom_project
+#: field:absence.type,name:0
 #: field:contract.type,name:0
+#: field:project.work.type,name:0
 msgid "Name"
 msgstr "Nombre"
 

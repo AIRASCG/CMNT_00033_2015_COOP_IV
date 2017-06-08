@@ -12,6 +12,11 @@ class ProjectCategory(models.Model):
     work_type_ids = fields.One2many('project.work.type', 'categ_id',
                                     'Work types')
 
+class AbsenceType(models.Model):
+
+    _name = 'absence.type'
+    name = fields.Char()
+
 
 class ProkectWorkType(models.Model):
 
@@ -37,7 +42,8 @@ class ProjectTaskWork(models.Model):
     date_start = fields.Datetime(default=_get_task_date)
     date_end = fields.Datetime(default=_get_task_date)
     absence = fields.Boolean()
-    area = fields.Many2one('project.category', related='task_id.area')
+    absence_type = fields.Many2one('absence.type')
+    area = fields.Many2one('project.category', related='task_id.area', readonly=True)
 
     @api.onchange('date_start', 'date_end')
     def onchange_date_end(self):
@@ -108,6 +114,7 @@ class ProjectTask(models.Model):
     total_absence_hours = fields.Float(compute='_compute_total_hours',
                                        store=True)
     total_time = fields.Float(compute='_compute_total_hours', store=True)
+    notes = fields.Char()
 
     @api.depends('work_ids.hours', 'work_ids.absence', 'contract_type.hours')
     def _compute_total_hours(self):
