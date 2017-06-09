@@ -21,6 +21,20 @@ msgid "Reviewer"
 msgstr "Revisor"
 
 #. module: custom_project
+#: code:addons/custom_project/models/project.py:85
+#, python-format
+msgid "The work time collapses with other works"
+msgstr "El tiempo trabajado colapsa con otras tareas"
+
+#. module: custom_project
+#: code:addons/custom_project/models/project.py:84
+#, python-format
+msgid "Work time error"
+msgstr "Error en tiempo de trabajo"
+
+#. module: custom_project
+#: model:ir.actions.act_window,name:custom_project.absence_type_action
+#: model:ir.ui.menu,name:custom_project.absence_type_menu
 #: field:project.task.work,absence_type:0
 msgid "Absence type"
 msgstr "Tipo de ausencia"

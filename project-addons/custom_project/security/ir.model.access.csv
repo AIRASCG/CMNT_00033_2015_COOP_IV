@@ -1,8 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_project_work_type_base,access_project_work_type_base,model_project_work_type,custom_menu.group_standard_menus,1,0,0,0
+access_project_work_type_base,access_project_work_type_base,model_project_work_type,base.group_user,1,0,0,0
 access_project_work_type,access_project_work_type,model_project_work_type,custom_menu.group_standard_menus,1,1,1,1
 project.access_project_category_manager,project.project_category,project.model_project_category,project.group_project_manager,1,0,0,0
 access_project_category,access_project_category,project.model_project_category,custom_menu.group_standard_menus,1,1,1,1
 access_contract_type,access_contract_type,model_contract_type,base.group_user,1,0,0,0
 access_contract_type_admin,access_contract_type_admin,model_contract_type,custom_groups.group_admin,1,1,1,1
-access_absence_type,access_absence_type,model_absence_type,base.group_user,1,1,1,1
+access_absence_type,access_absence_type,model_absence_type,base.group_user,1,0,0,0
+access_absence_type_admin,access_absence_type_admin,model_absence_type,custom_menu.group_standard_menus,1,1,1,1

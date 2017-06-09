@@ -231,5 +231,51 @@
 
         <delete id="project.open_view_task_list_kanban" model="ir.actions.act_window.view" />
 
+
+
+        <record id="absence_type_view_tree" model="ir.ui.view">
+            <field name="name">absence.type.tree</field>
+            <field name="model">absence.type</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="absence_type_view_form" model="ir.ui.view">
+            <field name="name">absence.type.form</field>
+            <field name="model">absence.type</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="absence_type_view_search" model="ir.ui.view">
+            <field name="name">absence.type.search</field>
+            <field name="model">absence.type</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="name"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="absence_type_action" model="ir.actions.act_window">
+            <field name="name">Absence type</field>
+            <field name="res_model">absence.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="absence_type_view_tree"/>
+            <field name="search_view_id" ref="absence_type_view_search"/>
+        </record>
+
+        <menuitem name="Absence type" parent="base.menu_definitions" action="absence_type_action" id="absence_type_menu"/>
+
     </data>
 </openerp>
