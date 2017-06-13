@@ -156,6 +156,18 @@
                                         <td>Fumig</td>
                                         <td>Piloto</td>
                                     </tr>
+                                    <tr t-foreach="o.phytosanitary_applicators" t-as="applicator">
+                                        <td><span t-field="applicator.sequence"/></td>
+                                        <td><span t-field="applicator.name"/></td>
+                                        <td><span t-field="applicator.vat"/></td>
+                                        <td><span t-field="applicator.ropo"/></td>
+                                        <td><span t-if="applicator.license_type == 'basic'">X</span></td>
+                                        <td><span t-if="applicator.license_type == 'qualified'">X</span></td>
+                                        <td><span t-if="applicator.license_type == 'fumigation'">X</span></td>
+                                        <td><span t-if="applicator.license_type == 'pilot'">X</span></td>
+                                        <td><span t-field="applicator.adviser"/></td>
+
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -174,6 +186,13 @@
                                         <td>Fecha de adquisición</td>
                                         <td>Fecha de la última inspección</td>
                                     </tr>
+                                    <tr t-foreach="o.phytosanitary_machines" t-as="machine">
+                                        <td><span t-field="machine.sequence"/></td>
+                                        <td><span t-field="machine.name"/></td>
+                                        <td><span t-field="machine.ROMA_inscription_number"/></td>
+                                        <td><span t-field="machine.acquisition_year"/></td>
+                                        <td><span t-field="machine.inspection_date"/></td>
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -189,6 +208,12 @@
                                         <td>NIF</td>
                                         <td>Nº de identificación</td>
                                         <td>Tipo de explotación<sup>(5)</sup></td>
+                                    </tr>
+                                    <tr t-foreach="o.advisor_entity" t-as="advisor_entity">
+                                        <td><span t-field="advisor_entity.name"/></td>
+                                        <td><span t-field="advisor_entity.vat"/></td>
+                                        <td><span t-field="advisor_entity.id_number"/></td>
+                                        <td><span t-field="advisor_entity.farm_type"/></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -226,6 +251,25 @@
                                         <td>Secano/regadío</td>
                                         <td>Aire libre o protegido</td>
                                     </tr>
+
+                                    <tr t-foreach="o.partner_fields" t-as="field">
+                                        <td><span t-field="field.sequence"/></td>
+                                        <td><span t-field="field.province_id.code"/></td>
+                                        <td><span t-field="field.townhall_data"/></td>
+                                        <td><span t-field="field.aggregate_code"/></td>
+                                        <td><span t-field="field.zone"/></td>
+                                        <td><span t-field="field.industrial_estate"/></td>
+                                        <td><span t-field="field.plot"/></td>
+                                        <td><span t-field="field.enclosure"/></td>
+                                        <td><span t-field="field.sixpac_use"/></td>
+                                        <td><span t-field="field.sixpac_surface"/></td>
+                                        <td><span t-field="field.cultivated_area"/></td>
+                                        <td><span t-field="field.raw_material"/></td>
+                                        <td><span t-field="field.use"/></td>
+                                        <td><span t-field="field.irrigation_dry"/></td>
+                                        <td><span t-field="field.outdoor_protected"/></td>
+                                        <td><span t-field="field.location_name"/></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -258,6 +302,21 @@
                                         <td>Nombre comercial</td>
                                         <td>Nº registro</td>
                                         <td>Dosis (kg/ha o l/ha)</td>
+                                    </tr>
+                                    <tr t-foreach="o.phytosanitary_uses" t-as="use">
+                                        <td><span t-field="use.partner_field.sequence"/></td>
+                                        <td><span t-field="use.raw_material"/></td>
+                                        <td><span t-field="use.use"/></td>
+                                        <td><span t-field="use.date"/></td>
+                                        <td><span t-field="use.surface_treated"/></td>
+                                        <td><span t-field="use.phytosanitary_problem"/></td>
+                                        <td><span t-field="use.applicator.sequence"/></td>
+                                        <td><span t-field="use.machine.sequence"/></td>
+                                        <td><span t-field="use.phytosanitary_name"/></td>
+                                        <td><span t-field="use.phytosanitary_registry_number"/></td>
+                                        <td><span t-field="use.phytosanitary_dose"/></td>
+                                        <td><span t-field="use.efficacy"/></td>
+                                        <td><span t-field="use.notes"/></td>
                                     </tr>
                                 </tbody>
                             </table>

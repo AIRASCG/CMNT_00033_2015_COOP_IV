@@ -175,7 +175,6 @@
                     <field name="is_cooperative" invisible="1"/>
                     <field name="active" attrs="{'invisible': [('is_cooperative', '=', True)]}"/>
                     <field name="temporary_farm" attrs="{'invisible': [('farm', '=', False)]}"/>
-                    <field name="farm_representative" attrs="{'invisible': [('farm', '=', False)]}"/>
                 </field>
                 <field name="comment" position="before">
                     <group>

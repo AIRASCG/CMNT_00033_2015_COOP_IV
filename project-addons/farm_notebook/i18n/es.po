@@ -1,0 +1,1479 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * farm_notebook
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-06-12 16:28+0000\n"
+"PO-Revision-Date: 2017-06-12 16:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "(SOLAMENTE PARA CULTIVOS Y SUPERFICIES OBJETO DE ASESORAMIENTO)"
+msgstr "(SOLAMENTE PARA CULTIVOS Y SUPERFICIES OBJETO DE ASESORAMIENTO)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "1.1DATOS GENERALES DE LA EXPLOTACIÓN"
+msgstr "1.1DATOS GENERALES DE LA EXPLOTACIÓN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "1.2 PERSONAS O EMPRESAS QUE INTERVIENEN EN EL TRATATIMENTO CON PRODUCTOS FITOSANITARIOS"
+msgstr "1.2 PERSONAS O EMPRESAS QUE INTERVIENEN EN EL TRATATIMENTO CON PRODUCTOS FITOSANITARIOS"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "1.3 EQUIPOS DE APLICACIÓN DE PRODUCTOS FITOSANITARIOS PROPIOS DE LA EXPLOTACIÓN"
+msgstr "1.3 EQUIPOS DE APLICACIÓN DE PRODUCTOS FITOSANITARIOS PROPIOS DE LA EXPLOTACIÓN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "1.4 AGRUPACIÓN O ENTIDAD DE ASESORAMIENTO A LA QUE PERTENECE LA EXPLOTACIÓN"
+msgstr "1.4 AGRUPACIÓN O ENTIDAD DE ASESORAMIENTO A LA QUE PERTENECE LA EXPLOTACIÓN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "1.INFORMACIÓN GENERAL"
+msgstr "1.INFORMACIÓN GENERAL"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "2.1 DATOS IDENTIFICATIVOS Y AGRONÓMICOS DE LAS PARCELAS"
+msgstr "2.1 DATOS IDENTIFICATIVOS Y AGRONÓMICOS DE LAS PARCELAS"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "2.IDENTIFICACIÓN DE LAS PARCELAS DE LA EXPLOTACIÓN"
+msgstr "2.IDENTIFICACIÓN DE LAS PARCELAS DE LA EXPLOTACIÓN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "3. INFORMACIÓN SOBRE TRATAMIENTOS FITOSANITARIOS"
+msgstr "3. INFORMACIÓN SOBRE TRATAMIENTOS FITOSANITARIOS"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "3.1 REGISTRO DE ACTUACIONES FITOSANITARIAS DE LA PARCELA"
+msgstr "3.1 REGISTRO DE ACTUACIONES FITOSANITARIAS DE LA PARCELA"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "3.1 bis REGISTRO DE ACTUACIONES FITOSANITARIAS DE LA PARCELA"
+msgstr "3.1 bis REGISTRO DE ACTUACIONES FITOSANITARIAS DE LA PARCELA"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "3.2 REGISTRO DE TRATAMIENTO POSTCOSECHA (en producto vegetal)"
+msgstr "3.2 REGISTRO DE TRATAMIENTO POSTCOSECHA (en producto vegetal)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "3.2 REGISTRO DE USO DE SEMILLA TRATADA"
+msgstr "3.2 REGISTRO DE USO DE SEMILLA TRATADA"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "5. REGISTRO DE COSECHA COMERCIALIZADA"
+msgstr "5. REGISTRO DE COSECHA COMERCIALIZADA"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "ALTERNATIVAS NO QUÍMICAS DE INTERVENCIÓN"
+msgstr "ALTERNATIVAS NO QUÍMICAS DE INTERVENCIÓN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "ALTERNATIVAS QUÍMICAS DE INTERVENCIÓN"
+msgstr "ALTERNATIVAS QUÍMICAS DE INTERVENCIÓN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "APLICA TRATAMIENTO"
+msgstr "APLICA TRATAMIENTO"
+
+#. module: farm_notebook
+#: field:phytosanitary.machine,acquisition_year:0
+#: field:phytosanitary.machine.notebook,acquisition_year:0
+msgid "Acquisition year"
+msgstr "Fecha de adquisición"
+
+#. module: farm_notebook
+#: view:invoice.add.phytosanitary:farm_notebook.invoice_add_phytosanitary_view
+msgid "Add"
+msgstr "Add"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,added:0
+msgid "Added"
+msgstr "Added"
+
+#. module: farm_notebook
+#: field:phytosanitary.applicator,adviser:0
+#: field:phytosanitary.applicator.notebook,adviser:0
+msgid "Adviser"
+msgstr "Asesor"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Advisor entities"
+msgstr "Entidades de asesoramiento"
+
+#. module: farm_notebook
+#: field:farm.notebook,advisor_entity:0
+msgid "Advisor entity"
+msgstr "Entidad de asesoramiento"
+
+#. module: farm_notebook
+#: field:res.partner.fields,aggregate_code:0
+#: field:res.partner.fields.notebook,aggregate_code:0
+msgid "Aggregate code"
+msgstr "Código agregado"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Aire libre o protegido"
+msgstr "Aire libre o protegido"
+
+#. module: farm_notebook
+#: model:ir.model,name:farm_notebook.model_account_analytic_plan_instance_line
+msgid "Analytic Instance Line"
+msgstr "Línea de instancia analítica"
+
+#. module: farm_notebook
+#: model:ir.model,name:farm_notebook.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Línea analítica"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Aplicador"
+msgstr "Aplicador"
+
+#. module: farm_notebook
+#: field:phytosanitary.applicator.notebook,applicator:0
+#: field:phytosanitary.use.notebook,applicator:0
+msgid "Applicator"
+msgstr "Aplicador"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Applicators"
+msgstr "Aplicadores"
+
+#. module: farm_notebook
+#: field:farm.notebook,apply_post_harvest_treatement:0
+msgid "Apply post harvest treatement"
+msgstr "Apply post harvest treatement"
+
+#. module: farm_notebook
+#: field:farm.notebook,apply_seeds_treatement:0
+msgid "Apply seeds treatement"
+msgstr "Aplica uso de semilla tratada"
+
+#. module: farm_notebook
+#: field:farm.notebook,apply_storage_treatement:0
+msgid "Apply storage treatement"
+msgstr "Aplica tratamiento de locales de almacenamiento"
+
+#. module: farm_notebook
+#: field:farm.notebook,apply_transport_treatement:0
+msgid "Apply transport treatement"
+msgstr "Aplica tratamiento de los medios de transporte"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Asesor"
+msgstr "Asesor"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Asesor:"
+msgstr "Asesor:"
+
+#. module: farm_notebook
+#: selection:phytosanitary.applicator,license_type:0
+#: selection:phytosanitary.applicator.notebook,license_type:0
+msgid "Basic"
+msgstr "Básico"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Básico"
+msgstr "Básico"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "C.Postal:"
+msgstr "C.Postal:"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,cap:0
+msgid "CAP"
+msgstr "CAP"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "CULTIVO"
+msgstr "CULTIVO"
+
+#. module: farm_notebook
+#: field:account.analytic.line,campaign:0
+#: field:account.analytic.plan.instance.line,campaign:0
+#: field:account.invoice.line,campaign:0
+#: field:account.move.line,campaign:0
+#: field:farm.crop,campaign:0
+#: field:phytosanitary.use,campaign:0
+#: field:phytosanitary.use.notebook,campaign:0
+msgid "Campaign"
+msgstr "Campaña"
+
+#. module: farm_notebook
+#: view:res.partner.fields:farm_notebook.res_partner_fields_add_phytosanitary
+msgid "Campaign crops"
+msgstr "Cultivos de campaña"
+
+#. module: farm_notebook
+#: field:res.partner.fields,campaigns:0
+#: field:res.partner.fields.notebook,campaigns:0
+msgid "Campaigns"
+msgstr "Campañas"
+
+#. module: farm_notebook
+#: view:invoice.add.phytosanitary:farm_notebook.invoice_add_phytosanitary_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Cantidad de prod. veg. tratado (Tm)"
+msgstr "Cantidad de prod. veg. tratado (Tm)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Cantidad de producto (kg)"
+msgstr "Cantidad de producto (kg)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Cantidad de semilla(Kg)"
+msgstr "Cantidad de semilla(Kg)"
+
+#. module: farm_notebook
+#: code:addons/farm_notebook/models/phytosanitary.py:85
+#, python-format
+msgid "Cantidad disponible insuficiente"
+msgstr "Cantidad disponible insuficiente"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Cantidad utilizada (kg o l)"
+msgstr "Cantidad utilizada (kg o l)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Cliente"
+msgstr "Cliente"
+
+#. module: farm_notebook
+#: field:phytosanitary.applicator.notebook,company_id:0
+#: field:phytosanitary.machine.notebook,company_id:0
+msgid "Company"
+msgstr "Compañía"
+
+#. module: farm_notebook
+#: selection:res.partner.fields.notebook,use:0
+msgid "Corn"
+msgstr "Corn"
+
+#. module: farm_notebook
+#: field:advisor.entity,create_uid:0
+#: field:farm.campaign,create_uid:0
+#: field:farm.crop,create_uid:0
+#: field:farm.notebook,create_uid:0
+#: field:phytosanitary.advised.use.notebook,create_uid:0
+#: field:phytosanitary.applicator.notebook,create_uid:0
+#: field:phytosanitary.machine.notebook,create_uid:0
+#: field:phytosanitary.use.notebook,create_uid:0
+#: field:post.harvest.treatements.notebook,create_uid:0
+#: field:res.partner.fields.notebook,create_uid:0
+#: field:solded.harvest,create_uid:0
+#: field:storage.treatements.notebook,create_uid:0
+#: field:transport.treatements.notebook,create_uid:0
+#: field:treated.seed.use.notebook,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: farm_notebook
+#: field:advisor.entity,create_date:0
+#: field:farm.campaign,create_date:0
+#: field:farm.crop,create_date:0
+#: field:farm.notebook,create_date:0
+#: field:phytosanitary.advised.use.notebook,create_date:0
+#: field:phytosanitary.applicator.notebook,create_date:0
+#: field:phytosanitary.machine.notebook,create_date:0
+#: field:phytosanitary.use.notebook,create_date:0
+#: field:post.harvest.treatements.notebook,create_date:0
+#: field:res.partner.fields.notebook,create_date:0
+#: field:solded.harvest,create_date:0
+#: field:storage.treatements.notebook,create_date:0
+#: field:transport.treatements.notebook,create_date:0
+#: field:treated.seed.use.notebook,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,crop:0
+msgid "Crop"
+msgstr "Cultivo"
+
+#. module: farm_notebook
+#: view:farm.campaign:farm_notebook.farm_campaign_view_form
+#: field:farm.campaign,crops:0
+msgid "Crops"
+msgstr "Cultivos"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Cualif."
+msgstr "Cualif."
+
+#. module: farm_notebook
+#: field:farm.campaign,cultivated_area:0
+#: field:farm.crop,cultivated_area:0
+#: field:res.partner.fields.notebook,cultivated_area:0
+msgid "Cultivated area"
+msgstr "Area cultivada"
+
+#. module: farm_notebook
+#: field:treated.seed.use.notebook,cultivation_specie:0
+msgid "Cultivation specie"
+msgstr "Especie cultivada"
+
+#. module: farm_notebook
+#: field:treated.seed.use.notebook,cultivation_variety:0
+msgid "Cultivation variety"
+msgstr "Variedad cultivada"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Cultivo"
+msgstr "Cultivo"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Código agregado"
+msgstr "Código agregado"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Código provincia"
+msgstr "Código provincia"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "DATOS AGRONÓMICOS"
+msgstr "DATOS AGRONÓMICOS"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "DATOS DE LA PARCELA"
+msgstr "DATOS DE LA PARCELA"
+
+#. module: farm_notebook
+#: field:farm.notebook,date:0
+#: field:phytosanitary.use,date:0
+#: field:phytosanitary.use.notebook,date:0
+#: field:post.harvest.treatements.notebook,date:0
+#: field:treated.seed.use.notebook,date:0
+msgid "Date"
+msgstr "Fecha"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,declared_surface:0
+msgid "Declared Surface"
+msgstr "Superficie declarada"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Descripción del equipo"
+msgstr "Descripción del equipo"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Dirección"
+msgstr "Dirección"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Dirección:"
+msgstr "Dirección:"
+
+#. module: farm_notebook
+#: field:advisor.entity,display_name:0
+#: field:farm.campaign,display_name:0
+#: field:farm.crop,display_name:0
+#: field:farm.notebook,display_name:0
+#: field:phytosanitary.advised.use.notebook,display_name:0
+#: field:phytosanitary.applicator.notebook,display_name:0
+#: field:phytosanitary.machine.notebook,display_name:0
+#: field:phytosanitary.use.notebook,display_name:0
+#: field:post.harvest.treatements.notebook,display_name:0
+#: field:res.partner.fields.notebook,display_name:0
+#: field:solded.harvest,display_name:0
+#: field:storage.treatements.notebook,display_name:0
+#: field:transport.treatements.notebook,display_name:0
+#: field:treated.seed.use.notebook,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
+
+#. module: farm_notebook
+#: selection:farm.campaign,state:0
+msgid "Done"
+msgstr "Finalizado"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Dosis (kg/ha o l/ha)"
+msgstr "Dosis (kg/ha o l/ha)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Dosis utilizada(l o kg / ha)"
+msgstr "Dosis utilizada(l o kg / ha)"
+
+#. module: farm_notebook
+#: selection:res.partner.fields,irrigation_dry:0
+#: selection:res.partner.fields.notebook,irrigation_dry:0
+msgid "Dry land"
+msgstr "Secano"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "EFICACIA DE LA INTERVENCIÓN (buena, regular o mala)"
+msgstr "EFICACIA DE LA INTERVENCIÓN (buena, regular o mala)"
+
+#. module: farm_notebook
+#: field:phytosanitary.use,efficacy:0
+#: field:phytosanitary.use.notebook,efficacy:0
+msgid "Efficacy"
+msgstr "Eficacia"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Eficacia"
+msgstr "Eficacia"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,enclosure:0
+msgid "Enclosure"
+msgstr "Recinto"
+
+#. module: farm_notebook
+#: view:farm.campaign:farm_notebook.farm_campaign_view_form
+msgid "End campaign"
+msgstr "Finalizar campaña"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Equipo"
+msgstr "Equipo"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Especie"
+msgstr "Especie"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Especiel"
+msgstr "Especiel"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,partner_id:0
+msgid "Exploitation"
+msgstr "Explotación"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "FECHA DE APERTURA DEL CUADERNO"
+msgstr "FECHA DE APERTURA DEL CUADERNO"
+
+#. module: farm_notebook
+#: model:ir.actions.act_window,name:farm_notebook.farm_notebook_action
+msgid "Farm Notebook"
+msgstr "Cuaderno de explotación"
+
+#. module: farm_notebook
+#: model:ir.actions.act_window,name:farm_notebook.farm_campaign_action
+msgid "Farm campaigns"
+msgstr "Campañas"
+
+#. module: farm_notebook
+#: model:ir.actions.report.xml,name:farm_notebook.action_report_farm_notebook
+msgid "Farm notebook"
+msgstr "Cuaderno de explotación"
+
+#. module: farm_notebook
+#: field:advisor.entity,farm_type:0
+msgid "Farm type"
+msgstr "Tipo de explotación"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Fecha"
+msgstr "Fecha"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Fecha de actuación"
+msgstr "Fecha de actuación"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Fecha de adquisición"
+msgstr "Fecha de adquisición"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Fecha de la última inspección"
+msgstr "Fecha de la última inspección"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Fecha de siembra"
+msgstr "Fecha de siembra"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Fecha:"
+msgstr "Fecha:"
+
+#. module: farm_notebook
+#: field:farm.crop,field:0
+#: field:treated.seed.use.notebook,field:0
+msgid "Field"
+msgstr "Finca"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Fields"
+msgstr "Fincas"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Firma"
+msgstr "Firma"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Firma del titular o representante de la explotación"
+msgstr "Firma del titular o representante de la explotación"
+
+#. module: farm_notebook
+#: selection:res.partner.fields.notebook,use:0
+msgid "Forest"
+msgstr "Forestal"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Fumig"
+msgstr "Fumig"
+
+#. module: farm_notebook
+#: selection:phytosanitary.applicator,license_type:0
+#: selection:phytosanitary.applicator.notebook,license_type:0
+msgid "Fumigation"
+msgstr "Fumigación"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "General information"
+msgstr "Información general"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Get notebook data"
+msgstr "Generar información de cuaderno"
+
+#. module: farm_notebook
+#: selection:res.partner.fields.notebook,use:0
+msgid "Grass < 5 Years"
+msgstr "Grass < 5 Years"
+
+#. module: farm_notebook
+#: selection:res.partner.fields.notebook,use:0
+msgid "Grass > 5 Years"
+msgstr "Grass > 5 Years"
+
+#. module: farm_notebook
+#: view:farm.campaign:farm_notebook.farm_campaign_view_search
+msgid "Group By"
+msgstr "Group By"
+
+#. module: farm_notebook
+#: field:advisor.entity,id:0
+#: field:farm.campaign,id:0
+#: field:farm.crop,id:0
+#: field:farm.notebook,id:0
+#: field:phytosanitary.advised.use.notebook,id:0
+#: field:phytosanitary.applicator.notebook,id:0
+#: field:phytosanitary.machine.notebook,id:0
+#: field:phytosanitary.use.notebook,id:0
+#: field:post.harvest.treatements.notebook,id:0
+#: field:res.partner.fields.notebook,id:0
+#: field:solded.harvest,id:0
+#: field:storage.treatements.notebook,id:0
+#: field:transport.treatements.notebook,id:0
+#: field:treated.seed.use.notebook,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: farm_notebook
+#: field:advisor.entity,id_number:0
+msgid "Id number"
+msgstr "Id number"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Id. Parcelas"
+msgstr "Id. Parcelas"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Id. parcelas"
+msgstr "Id. parcelas"
+
+#. module: farm_notebook
+#: selection:farm.campaign,state:0
+msgid "In progress"
+msgstr "En progreso"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,industrial_estate:0
+msgid "Industrial Estate"
+msgstr "Industrial Estate"
+
+#. module: farm_notebook
+#: field:phytosanitary.machine,inspection_date:0
+#: field:phytosanitary.machine.notebook,inspection_date:0
+msgid "Inspection date"
+msgstr "Fecha de inspección"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Intensidad de la medida (Nº de trampas, nº de difusores, etc.)"
+msgstr "Intensidad de la medida (Nº de trampas, nº de difusores, etc.)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Intervalo de fechas"
+msgstr "Intervalo de fechas"
+
+#. module: farm_notebook
+#: model:ir.model,name:farm_notebook.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Línea factura"
+
+#. module: farm_notebook
+#: selection:res.partner.fields,irrigation_dry:0
+#: selection:res.partner.fields.notebook,irrigation_dry:0
+msgid "Irrigation"
+msgstr "Regadío"
+
+#. module: farm_notebook
+#: field:res.partner.fields,irrigation_dry:0
+#: field:res.partner.fields.notebook,irrigation_dry:0
+msgid "Irrigation/dry land"
+msgstr "Secano/Regadío"
+
+#. module: farm_notebook
+#: model:ir.model,name:farm_notebook.model_account_move_line
+msgid "Journal Items"
+msgstr "Apuntes contables"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Justificación de la actuación (Superación de umbrales, condiciones meteorologicas, etc.)"
+msgstr "Justificación de la actuación (Superación de umbrales, condiciones meteorologicas, etc.)"
+
+#. module: farm_notebook
+#: field:advisor.entity,__last_update:0
+#: field:farm.campaign,__last_update:0
+#: field:farm.crop,__last_update:0
+#: field:farm.notebook,__last_update:0
+#: field:phytosanitary.advised.use.notebook,__last_update:0
+#: field:phytosanitary.applicator.notebook,__last_update:0
+#: field:phytosanitary.machine.notebook,__last_update:0
+#: field:phytosanitary.use.notebook,__last_update:0
+#: field:post.harvest.treatements.notebook,__last_update:0
+#: field:res.partner.fields.notebook,__last_update:0
+#: field:solded.harvest,__last_update:0
+#: field:storage.treatements.notebook,__last_update:0
+#: field:transport.treatements.notebook,__last_update:0
+#: field:treated.seed.use.notebook,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: farm_notebook
+#: field:advisor.entity,write_uid:0
+#: field:farm.campaign,write_uid:0
+#: field:farm.crop,write_uid:0
+#: field:farm.notebook,write_uid:0
+#: field:phytosanitary.advised.use.notebook,write_uid:0
+#: field:phytosanitary.applicator.notebook,write_uid:0
+#: field:phytosanitary.machine.notebook,write_uid:0
+#: field:phytosanitary.use.notebook,write_uid:0
+#: field:post.harvest.treatements.notebook,write_uid:0
+#: field:res.partner.fields.notebook,write_uid:0
+#: field:solded.harvest,write_uid:0
+#: field:storage.treatements.notebook,write_uid:0
+#: field:transport.treatements.notebook,write_uid:0
+#: field:treated.seed.use.notebook,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: farm_notebook
+#: field:advisor.entity,write_date:0
+#: field:farm.campaign,write_date:0
+#: field:farm.crop,write_date:0
+#: field:farm.notebook,write_date:0
+#: field:phytosanitary.advised.use.notebook,write_date:0
+#: field:phytosanitary.applicator.notebook,write_date:0
+#: field:phytosanitary.machine.notebook,write_date:0
+#: field:phytosanitary.use.notebook,write_date:0
+#: field:post.harvest.treatements.notebook,write_date:0
+#: field:res.partner.fields.notebook,write_date:0
+#: field:solded.harvest,write_date:0
+#: field:storage.treatements.notebook,write_date:0
+#: field:transport.treatements.notebook,write_date:0
+#: field:treated.seed.use.notebook,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: farm_notebook
+#: field:phytosanitary.applicator,license_type:0
+#: field:phytosanitary.applicator.notebook,license_type:0
+msgid "License type"
+msgstr "Tipo de carnet"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Localidad"
+msgstr "Localidad"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Localidad:"
+msgstr "Localidad:"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,location_name:0
+msgid "Location Name"
+msgstr "Location Name"
+
+#. module: farm_notebook
+#: field:phytosanitary.machine.notebook,machine:0
+#: field:phytosanitary.use.notebook,machine:0
+msgid "Machine"
+msgstr "Máquina"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Machines"
+msgstr "Máquinas"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Materia activa / Nombre comercial"
+msgstr "Materia activa / Nombre comercial"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "NIF"
+msgstr "NIF"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "NIF:"
+msgstr "NIF:"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "NOMBRE Y APELLIDOS O RAZÓN SOCIAL:"
+msgstr "NOMBRE Y APELLIDOS O RAZÓN SOCIAL:"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "NOME DA FINCA"
+msgstr "NOME DA FINCA"
+
+#. module: farm_notebook
+#: field:advisor.entity,name:0
+#: view:farm.campaign:farm_notebook.farm_campaign_view_form
+#: field:farm.campaign,name:0
+#: field:phytosanitary.applicator.notebook,name:0
+#: field:phytosanitary.machine.notebook,name:0
+msgid "Name"
+msgstr "Nombre"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,net_surface:0
+msgid "Net Surface"
+msgstr "Net Surface"
+
+#. module: farm_notebook
+#: code:addons/farm_notebook/models/account_invoice.py:72
+#, python-format
+msgid "No Analytic Journal!"
+msgstr "No Analytic Journal!"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nombre comercial"
+msgstr "Nombre comercial"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nombre o razón social"
+msgstr "Nombre o razón social"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nombre y apellidos/empresa de servicios"
+msgstr "Nombre y apellidos/empresa de servicios"
+
+#. module: farm_notebook
+#: field:advisor.entity,notebook:0
+#: field:phytosanitary.advised.use.notebook,notebook:0
+#: field:phytosanitary.applicator.notebook,notebook:0
+#: field:phytosanitary.machine.notebook,notebook:0
+#: field:phytosanitary.use.notebook,notebook:0
+#: field:post.harvest.treatements.notebook,notebook:0
+#: field:res.partner.fields.notebook,notebook:0
+#: field:solded.harvest,notebook:0
+#: field:storage.treatements.notebook,notebook:0
+#: field:transport.treatements.notebook,notebook:0
+#: field:treated.seed.use.notebook,notebook:0
+msgid "Notebook"
+msgstr "Notebook"
+
+#. module: farm_notebook
+#: field:farm.campaign,notes:0
+#: field:phytosanitary.use.notebook,notes:0
+msgid "Notes"
+msgstr "Notas"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº DE ORDEN"
+msgstr "Nº DE ORDEN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº Inscripción ROPO"
+msgstr "Nº Inscripción ROPO"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº Inscripción ROPO:"
+msgstr "Nº Inscripción ROPO:"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº Registro de Explotaciones Autonómico:"
+msgstr "Nº Registro de Explotaciones Autonómico:"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº Registro de Explotaciones Nacional:"
+msgstr "Nº Registro de Explotaciones Nacional:"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de RGSEAA"
+msgstr "Nº de RGSEAA"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de albarán o factura"
+msgstr "Nº de albarán o factura"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de identificación"
+msgstr "Nº de identificación"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de lote"
+msgstr "Nº de lote"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de orden"
+msgstr "Nº de orden"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de orden parcela/s de origen"
+msgstr "Nº de orden parcela/s de origen"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de parcela"
+msgstr "Nº de parcela"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de poligono"
+msgstr "Nº de poligono"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de recinto"
+msgstr "Nº de recinto"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº de registro"
+msgstr "Nº de registro"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº inscrip. ROMA"
+msgstr "Nº inscrip. ROMA"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Nº registro"
+msgstr "Nº registro"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Número de registro"
+msgstr "Número de registro"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "OBSERVACIONES"
+msgstr "OBSERVACIONES"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Observaciones"
+msgstr "Observaciones"
+
+#. module: farm_notebook
+#: view:farm.campaign:farm_notebook.farm_campaign_view_form
+msgid "Observations"
+msgstr "Observaciones"
+
+#. module: farm_notebook
+#: selection:res.partner.fields,outdoor_protected:0
+#: selection:res.partner.fields.notebook,outdoor_protected:0
+msgid "Outdoor"
+msgstr "Aire libre"
+
+#. module: farm_notebook
+#: field:res.partner.fields,outdoor_protected:0
+#: field:res.partner.fields.notebook,outdoor_protected:0
+msgid "Outdoor/protected"
+msgstr "Aire libre/protegido"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "PLAGA A CONTROLAR"
+msgstr "PLAGA A CONTROLAR"
+
+#. module: farm_notebook
+#: field:farm.notebook,partner:0
+#: model:ir.model,name:farm_notebook.model_res_partner
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: farm_notebook
+#: field:phytosanitary.use.notebook,partner_field:0
+msgid "Partner field"
+msgstr "Finca"
+
+#. module: farm_notebook
+#: field:farm.notebook,partner_fields:0
+msgid "Partner fields"
+msgstr "Fincas"
+
+#. module: farm_notebook
+#: model:ir.actions.act_window,name:farm_notebook.phytosanitary_action
+msgid "Phytosanitaries"
+msgstr "Fitosanitarios"
+
+#. module: farm_notebook
+#: field:phytosanitary.use.notebook,phytosanitary:0
+msgid "Phytosanitary"
+msgstr "Fitosanitario"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+#: field:farm.notebook,phytosanitary_advised_uses:0
+msgid "Phytosanitary advised uses"
+msgstr "Phytosanitary advised uses"
+
+#. module: farm_notebook
+#: field:farm.notebook,phytosanitary_applicators:0
+msgid "Phytosanitary applicators"
+msgstr "Phytosanitary applicators"
+
+#. module: farm_notebook
+#: field:phytosanitary.use.notebook,phytosanitary_dose:0
+msgid "Phytosanitary dose"
+msgstr "Phytosanitary dose"
+
+#. module: farm_notebook
+#: field:farm.notebook,phytosanitary_machines:0
+msgid "Phytosanitary machines"
+msgstr "Phytosanitary machines"
+
+#. module: farm_notebook
+#: field:phytosanitary.use.notebook,phytosanitary_name:0
+#: field:post.harvest.treatements.notebook,phytosanitary_name:0
+#: field:treated.seed.use.notebook,phytosanitary_name:0
+msgid "Phytosanitary name"
+msgstr "Phytosanitary name"
+
+#. module: farm_notebook
+#: field:phytosanitary.use,phytosanitary_problem:0
+#: field:phytosanitary.use.notebook,phytosanitary_problem:0
+#: field:post.harvest.treatements.notebook,phytosanitary_problem:0
+msgid "Phytosanitary problem"
+msgstr "Problema"
+
+#. module: farm_notebook
+#: field:phytosanitary.use.notebook,phytosanitary_registry_number:0
+#: field:post.harvest.treatements.notebook,phytosanitary_registry_number:0
+#: field:treated.seed.use.notebook,phytosanitary_registry_number:0
+msgid "Phytosanitary registry number"
+msgstr "Phytosanitary registry number"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+#: field:farm.notebook,phytosanitary_uses:0
+#: view:phytosanitary:farm_notebook.phytosanitary_view_form
+#: view:res.partner.fields:farm_notebook.res_partner_fields_add_phytosanitary
+#: field:res.partner.fields.notebook,phytosanitary_uses:0
+msgid "Phytosanitary uses"
+msgstr "Usos de fitosanitarios"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Piloto"
+msgstr "Piloto"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Plaga"
+msgstr "Plaga"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,plot:0
+msgid "Plot"
+msgstr "Plot"
+
+#. module: farm_notebook
+#: field:farm.notebook,post_harvest_treatements:0
+msgid "Post harvest treatements"
+msgstr "Post harvest treatements"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Post-harvest treatments"
+msgstr "Post-harvest treatments"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Problema fitosanitario"
+msgstr "Problema fitosanitario"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Problemática fitosanitaria"
+msgstr "Problemática fitosanitaria"
+
+#. module: farm_notebook
+#: model:ir.model,name:farm_notebook.model_product_product
+#: field:res.partner.fields.notebook,product_name:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,product_code:0
+msgid "Product Code"
+msgstr "Product Code"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Producto"
+msgstr "Producto"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Producto fitosanitario"
+msgstr "Producto fitosanitario"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Producto vegetal tratado"
+msgstr "Producto vegetal tratado"
+
+#. module: farm_notebook
+#: selection:res.partner.fields,outdoor_protected:0
+#: selection:res.partner.fields.notebook,outdoor_protected:0
+msgid "Protected"
+msgstr "Protegido"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,province_id:0
+msgid "Province Code"
+msgstr "Código provincia"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Provincia:"
+msgstr "Provincia:"
+
+#. module: farm_notebook
+#: code:addons/farm_notebook/models/phytosanitary.py:85
+#, python-format
+msgid "Qty error"
+msgstr "Qty error"
+
+#. module: farm_notebook
+#: selection:phytosanitary.applicator,license_type:0
+#: selection:phytosanitary.applicator.notebook,license_type:0
+msgid "Qualified"
+msgstr "Cualificado"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "REFERENCIAS SIGPAC"
+msgstr "REFERENCIAS SIGPAC"
+
+#. module: farm_notebook
+#: field:phytosanitary.applicator,ropo:0
+#: field:phytosanitary.applicator.notebook,ropo:0
+msgid "ROPO number"
+msgstr "Número ROPO"
+
+#. module: farm_notebook
+#: field:farm.campaign,raw_material:0
+#: field:phytosanitary.use.notebook,raw_material:0
+#: field:res.partner.fields.notebook,raw_material:0
+msgid "Raw material"
+msgstr "Raw material"
+
+#. module: farm_notebook
+#: field:farm.campaign,raw_material_produced:0
+msgid "Raw material produced"
+msgstr "Materia prima producida"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,rent:0
+msgid "Rent"
+msgstr "Rent"
+
+#. module: farm_notebook
+#: field:phytosanitary.machine,ROMA_inscription_number:0
+#: field:phytosanitary.machine.notebook,ROMA_inscription_number:0
+msgid "Roma inscription number"
+msgstr "Nº de inscripción Roma"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Secano/regadío"
+msgstr "Secano/regadío"
+
+#. module: farm_notebook
+#: field:treated.seed.use.notebook,seed_quantity:0
+msgid "Seed quantity"
+msgstr "Seed quantity"
+
+#. module: farm_notebook
+#: field:treated.seed.use.notebook,seeded_surface:0
+msgid "Seeded surface"
+msgstr "Seeded surface"
+
+#. module: farm_notebook
+#: field:phytosanitary.applicator.notebook,sequence:0
+#: field:phytosanitary.machine.notebook,sequence:0
+#: field:res.partner.fields.notebook,sequence:0
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: farm_notebook
+#: selection:res.partner.fields.notebook,use:0
+msgid "Shrubby Grass"
+msgstr "Shrubby Grass"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,sixpac_surface:0
+msgid "Sixpac Surface"
+msgstr "Superficie sixpac"
+
+#. module: farm_notebook
+#: field:res.partner.fields,sixpac_use:0
+#: field:res.partner.fields.notebook,sixpac_use:0
+msgid "Sixpac use"
+msgstr "Uso sixpac"
+
+#. module: farm_notebook
+#: field:farm.notebook,solded_harvests:0
+msgid "Solded harvests"
+msgstr "Cosechas vendidas"
+
+#. module: farm_notebook
+#: field:farm.campaign,state:0
+msgid "State"
+msgstr "State"
+
+#. module: farm_notebook
+#: field:farm.notebook,storage_tratements:0
+msgid "Storage tratements"
+msgstr "Storage tratements"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Storage treatements"
+msgstr "Storage treatements"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Superficie SIGPAC(ha)"
+msgstr "Superficie SIGPAC(ha)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Superficie cultivada (ha)"
+msgstr "Superficie cultivada (ha)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Superficie cultivada(ha)"
+msgstr "Superficie cultivada(ha)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Superficie sembrada(Ha)"
+msgstr "Superficie sembrada(Ha)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Superficie tratada (ha)"
+msgstr "Superficie tratada (ha)"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Superficie tratada(ha)"
+msgstr "Superficie tratada(ha)"
+
+#. module: farm_notebook
+#: field:phytosanitary.use,surface_treated:0
+#: field:phytosanitary.use.notebook,surface_treated:0
+msgid "Surface treated"
+msgstr "Superficie tratada"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "TITULAR O REPRESENTANTE DE LA EXPLOTACIÓN"
+msgstr "TITULAR O REPRESENTANTE DE LA EXPLOTACIÓN"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Teléfono fijo:"
+msgstr "Teléfono fijo:"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Teléfono móvil:"
+msgstr "Teléfono móvil:"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Tipo de carné"
+msgstr "Tipo de carné"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Tipo de explotación"
+msgstr "Tipo de explotación"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Tipo de medida"
+msgstr "Tipo de medida"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,townhall_id:0
+msgid "Town Hall Code"
+msgstr "Código ayuntamiento"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,townhall_data:0
+msgid "Townhall data"
+msgstr "Townhall data"
+
+#. module: farm_notebook
+#: field:res.partner.fields,townhall_name:0
+#: field:res.partner.fields.notebook,townhall_name:0
+msgid "Townhall name"
+msgstr "Nombre ayuntamiento"
+
+#. module: farm_notebook
+#: field:farm.notebook,transport_tratements:0
+msgid "Transport tratements"
+msgstr "Transport tratements"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "Transport treatements"
+msgstr "Transport treatements"
+
+#. module: farm_notebook
+#: field:post.harvest.treatements.notebook,treated_qty:0
+msgid "Treated qty"
+msgstr "Treated qty"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+#: field:farm.notebook,treated_seed_uses:0
+msgid "Treated seed uses"
+msgstr "Treated seed uses"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Término municipal (código y nombre)"
+msgstr "Término municipal (código y nombre)"
+
+#. module: farm_notebook
+#: field:phytosanitary.use.notebook,use:0
+#: field:res.partner.fields.notebook,use:0
+msgid "Use"
+msgstr "Use"
+
+#. module: farm_notebook
+#: field:phytosanitary.use.notebook,used_qty:0
+#: field:post.harvest.treatements.notebook,used_qty:0
+msgid "Used qty"
+msgstr "Cantidad utilizada"
+
+#. module: farm_notebook
+#: field:post.harvest.treatements.notebook,used_uom:0
+msgid "Used uom"
+msgstr "UdM utilizada"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Uso SIGPAC"
+msgstr "Uso SIGPAC"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "VALIDACIÓN FINAL"
+msgstr "VALIDACIÓN FINAL"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "VALIDACIÓN INTERMEDIA"
+msgstr "VALIDACIÓN INTERMEDIA"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Variedad"
+msgstr "Variedad"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,variety:0
+msgid "Variety"
+msgstr "Variety"
+
+#. module: farm_notebook
+#: field:advisor.entity,vat:0
+#: field:phytosanitary.applicator,vat:0
+#: field:phytosanitary.applicator.notebook,vat:0
+msgid "Vat"
+msgstr "NIF"
+
+#. module: farm_notebook
+#: selection:res.partner.fields.notebook,use:0
+msgid "Vegetable Garden"
+msgstr "Vegetable Garden"
+
+#. module: farm_notebook
+#: field:post.harvest.treatements.notebook,vegetable_product_treated:0
+msgid "Vegetable product treated"
+msgstr "Vegetable product treated"
+
+#. module: farm_notebook
+#: selection:res.partner.fields.notebook,use:0
+msgid "Wooded Grass"
+msgstr "Wooded Grass"
+
+#. module: farm_notebook
+#: view:farm.campaign:farm_notebook.farm_campaign_view_search
+#: field:farm.campaign,year:0
+#: field:res.partner.fields.notebook,year:0
+msgid "Year"
+msgstr "Año"
+
+#. module: farm_notebook
+#: code:addons/farm_notebook/models/account_invoice.py:73
+#, python-format
+msgid "You have to define an analytic journal on the '%s' journal."
+msgstr "You have to define an analytic journal on the '%s' journal."
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "Zona"
+msgstr "Zona"
+
+#. module: farm_notebook
+#: field:res.partner.fields.notebook,zone:0
+msgid "Zone"
+msgstr "Zona"
+
+#. module: farm_notebook
+#: view:website:farm_notebook.report_farm_notebook
+msgid "e-mail:"
+msgstr "e-mail:"
+
+#. module: farm_notebook
+#: view:invoice.add.phytosanitary:farm_notebook.invoice_add_phytosanitary_view
+msgid "or"
+msgstr "or"
+
+#. module: farm_notebook
+#: selection:phytosanitary.applicator,license_type:0
+#: selection:phytosanitary.applicator.notebook,license_type:0
+msgid "pilot"
+msgstr "Piloto"
+
+#. module: farm_notebook
+#: view:farm.campaign:farm_notebook.farm_campaign_view_search
+msgid "raw material"
+msgstr "Materia prima"
+
+#. module: farm_notebook
+#: view:farm.notebook:farm_notebook.farm_notebook_view_form
+msgid "solded harvests"
+msgstr "solded harvests"
+
+#. module: farm_notebook
+#: view:farm.campaign:farm_notebook.farm_campaign_view_search
+msgid "state"
+msgstr "state"

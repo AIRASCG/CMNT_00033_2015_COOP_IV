@@ -50,13 +50,35 @@ class PhytosanitaryUse(models.Model):
 
     _name = 'phytosanitary.use'
 
-    phytosanitary = fields.Many2one('phytosanitary')
+    phytosanitary = fields.Many2one('phytosanitary', required=True)
     date = fields.Date(required=True)
-    partner_field = fields.Many2one('res.partner.fields')
+    partner_field = fields.Many2one('res.partner.fields', required=True)
+    campaign = fields.Many2one('farm.campaign', required=True)
+    surface_treated = fields.Float()
+    phytosanitary_problem = fields.Char()
+    efficacy = fields.Char()
     used_qty = fields.Float()
     applicator = fields.Many2one('phytosanitary.applicator', required=True)
     machine = fields.Many2one('phytosanitary.machine', required=True)
     notes = fields.Char()
+
+    @api.onchange('partner_field')
+    def onchange_partner_field(self):
+        if self.partner_field:
+            self.surface_treated = self.partner_field.net_surface
+            return {'domain': {'campaign':
+                    [('id', 'in',
+                      self.mapped('partner_field.campaigns.campaign.id'))]}}
+
+    @api.onchange('campaign')
+    def onchange_campaign(self):
+        if self.campaign:
+            crops = self.campaign.crops.filtered(
+                lambda r: r.field == self.partner_field)
+            if len(crops) > 1:
+                self.surface_treated = sum(crops.mapped('cultivated_area'))
+            else:
+                self.surface_treated = crops.cultivated_area
 
     @api.model
     def create(self, vals):
@@ -93,7 +115,8 @@ class PhytosanitaryApplicator(models.Model):
     vat = fields.Char()
     ropo = fields.Char('ROPO number')
     license_type = fields.Selection(
-        (('basic', 'Basic'), ('qualified', 'Qualified'), ('fumigation', 'Fumigation'), ('pilot', 'pilot')))
+        (('basic', 'Basic'), ('qualified', 'Qualified'),
+         ('fumigation', 'Fumigation'), ('pilot', 'pilot')))
     adviser = fields.Char()
     company_id = fields.Many2one('res.company', 'Company',
                                  default=_get_company)

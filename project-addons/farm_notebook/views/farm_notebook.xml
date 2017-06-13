@@ -65,13 +65,68 @@
                                 </field>
                             </page>
                             <page string="Fields">
-                                <field name="partner_fields" colspan="4"/>
+                                <field name="partner_fields" colspan="4">
+                                    <tree editable="top">
+                                        <field name="sequence"/>
+                                        <field name="province_id"/>
+                                        <field name="townhall_id"/>
+                                        <field name="townhall_name"/>
+                                        <field name="aggregate_code"/>
+                                        <field name="zone"/>
+                                        <field name="industrial_estate"/>
+                                        <field name="plot"/>
+                                        <field name="enclosure"/>
+                                        <field name="sixpac_use"/>
+                                        <field name="sixpac_surface"/>
+                                        <field name="cultivated_area"/>
+                                        <field name="raw_material"/>
+                                        <field name="use"/>
+                                        <field name="irrigation_dry"/>
+                                        <field name="outdoor_protected"/>
+                                        <field name="location_name"/>
+                                    </tree>
+                                </field>
                             </page>
                             <page string="Phytosanitary uses">
                                 <separator string="Phytosanitary uses" colspan="4"/>
-                                <field name="phytosanitary_uses" colspan="4"/>
+                                <field name="phytosanitary_uses" colspan="4">
+                                    <tree editable="top">
+                                        <field name="notebook" invisible="1"/>
+                                        <field name="partner_field" domain="[('notebook', '=', notebook)]"/>
+                                        <field name="raw_material"/>
+                                        <field name="use"/>
+                                        <field name="date"/>
+                                        <field name="surface_treated"/>
+                                        <field name="phytosanitary_problem"/>
+                                        <field name="applicator" domain="[('notebook', '=', notebook)]"/>
+                                        <field name="machine" domain="[('notebook', '=', notebook)]"/>
+                                        <field name="phytosanitary_name"/>
+                                        <field name="phytosanitary_registry_number"/>
+                                        <field name="phytosanitary_dose"/>
+                                        <field name="efficacy"/>
+                                        <field name="notes"/>
+                                    </tree>
+                                </field>
                                 <separator string="Phytosanitary advised uses" colspan="4"/>
-                                <field name="phytosanitary_advised_uses" colspan="4"/>
+                                <field name="phytosanitary_advised_uses" colspan="4">
+                                    <tree editable="top">
+                                        <field name="species"/>
+                                        <field name="use"/>
+                                        <field name="field"/>
+                                        <field name="cultivated_area"/>
+                                        <field name="treated_area"/>
+                                        <field name="plague"/>
+                                        <field name="action_justification"/>
+                                        <field name="non_chemical_action_type"/>
+                                        <field name="intensity"/>
+                                        <field name="non_chemical_action_date"/>
+                                        <field name="phytosanitary"/>
+                                        <field name="used_dose"/>
+                                        <field name="chemical_action_date"/>
+                                        <field name="efficiency"/>
+                                        <field name="notes"/>
+                                    </tree>
+                                </field>
 
                                 <separator string="Treated seed uses" colspan="4"/>
                                 <label for="apply_seeds_treatement"/>
@@ -84,8 +139,7 @@
                                         <field name="cultivation_variety"/>
                                         <field name="seeded_surface"/>
                                         <field name="seed_quantity"/>
-                                        <field name="phytosanitary_name"/>
-                                        <field name="phytosanitary_registry_number"/>
+                                        <field name="phytosanitary"/>
                                     </tree>
                                 </field>
 
@@ -98,8 +152,7 @@
                                         <field name="vegetable_product_treated"/>
                                         <field name="phytosanitary_problem"/>
                                         <field name="treated_qty"/>
-                                        <field name="phytosanitary_name"/>
-                                        <field name="phytosanitary_registry_number"/>
+                                        <field name="phytosanitary"/>
                                         <field name="used_qty"/>
                                         <field name="used_uom"/>
                                     </tree>
@@ -108,15 +161,46 @@
                                 <separator string="Storage treatements" colspan="4"/>
                                 <label for="apply_storage_treatement"/>
                                 <field name="apply_storage_treatement"/>
-                                <field name="storage_tratements" colspan="4"/>
+                                <field name="storage_tratements" colspan="4">
+                                    <tree editable="top">
+                                        <field name="date"/>
+                                        <field name="storage_treated"/>
+                                        <field name="phytosanitary_problem"/>
+                                        <field name="treated_volume"/>
+                                        <field name="phytosanitary"/>
+                                        <field name="product_used_qty"/>
+                                    </tree>
+                                </field>
 
                                 <separator string="Transport treatements" colspan="4"/>
                                 <label for="apply_transport_treatement"/>
                                 <field name="apply_transport_treatement"/>
-                                <field name="transport_tratements" colspan="4"/>
+                                <field name="transport_tratements" colspan="4">
+                                    <tree editable="top">
+                                        <field name="date"/>
+                                        <field name="vehicle"/>
+                                        <field name="phytosanitary_problem"/>
+                                        <field name="treated_volume"/>
+                                        <field name="phytosanitary"/>
+                                        <field name="product_used_qty"/>
+                                    </tree>
+                                </field>
                             </page>
                             <page string="solded harvests">
-                                <field name="solded_harvests"/>
+                                <field name="solded_harvests">
+                                    <tree editable="top">
+                                        <field name="date"/>
+                                        <field name="product"/>
+                                        <field name="product_qty"/>
+                                        <field name="order_number"/>
+                                        <field name="picking_number"/>
+                                        <field name="lot_number"/>
+                                        <field name="customer_name"/>
+                                        <field name="vat"/>
+                                        <field name="address"/>
+                                        <field name="rgseaa"/>
+                                    </tree>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>

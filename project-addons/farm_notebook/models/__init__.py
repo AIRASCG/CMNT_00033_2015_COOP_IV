@@ -7,3 +7,4 @@ from . import account_invoice
 from . import res_partner_fields
 from . import farm_campaign
 from . import farm_notebook
+from . import res_partner

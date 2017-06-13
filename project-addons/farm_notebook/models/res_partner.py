@@ -5,8 +5,8 @@
 from openerp import models, fields
 
 
-class ProductProduct(models.Model):
+class ResPartner(models.Model):
 
-    _inherit = 'product.product'
+    _inherit = 'res.partner'
 
-    phytosanitary = fields.Boolean()
+    farm_representative = fields.Many2one('res.partner')

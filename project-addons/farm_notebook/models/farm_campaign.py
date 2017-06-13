@@ -2,7 +2,7 @@
 # © 2017 Comunitea
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api
 
 
 class FarmCampaign(models.Model):
@@ -35,8 +35,8 @@ class FarmCrop(models.Model):
 
     _name = 'farm.crop'
 
-    campaign = fields.Many2one('farm.campaign')
-    field = fields.Many2one('res.partner.fields')
+    campaign = fields.Many2one('farm.campaign', required=True)
+    field = fields.Many2one('res.partner.fields', required=True)
     cultivated_area = fields.Float()
 
     @api.onchange('field')

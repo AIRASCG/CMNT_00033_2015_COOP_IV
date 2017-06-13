@@ -143,7 +143,6 @@ class ResPartner(models.Model):
         'attachment_id', domain=[('private', '=', True)])
     company_ids = fields.One2many("res.company", "partner_id",
                                   "Related Company", readonly=True)
-    farm_representative = fields.Many2one('res.partner')
 
     @api.one
     @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',

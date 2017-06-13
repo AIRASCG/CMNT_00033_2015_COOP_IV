@@ -20,8 +20,10 @@
     ],
     "data": [
         'wizard/invoice_add_phytosanitary.xml', 'views/account_invoice.xml',
-        'views/phytosanitary.xml', 'views/product.xml', 'views/farm_campaign.xml',
-        'views/res_partner_fields.xml', 'views/farm_notebook.xml', 'security/ir.model.access.csv',
-        'security/security.xml', 'farm_notebook_report.xml', 'views/farm_notebook_report.xml'
+        'views/phytosanitary.xml', 'views/product.xml',
+        'views/farm_campaign.xml', 'views/res_partner.xml',
+        'views/res_partner_fields.xml', 'views/farm_notebook.xml',
+        'security/ir.model.access.csv', 'security/security.xml',
+        'farm_notebook_report.xml', 'views/farm_notebook_report.xml'
     ],
 }

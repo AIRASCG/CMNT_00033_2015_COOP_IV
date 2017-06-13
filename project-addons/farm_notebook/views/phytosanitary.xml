@@ -43,6 +43,10 @@
                     <field name="phytosanitary_uses">
                         <tree editable="top">
                             <field name="partner_field"/>
+                            <field name="campaign"/>
+                            <field name="surface_treated"/>
+                            <field name="phytosanitary_problem"/>
+                            <field name="efficacy"/>
                             <field name="used_qty"/>
                             <field name="applicator"/>
                             <field name="machine"/>
