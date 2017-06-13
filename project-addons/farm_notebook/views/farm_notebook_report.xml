@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <template id="report_farm_notebook">
+            <style>
+                .section_head {
+                    text-align: center;
+                }
+
+                .section_head p {
+                    border: 1px solid black;
+                    border-radius:6px;
+                    -moz-border-radius:6px;
+                    padding-top:10px;
+                    padding-bottom:10px;
+                    margin-left: 200px;
+                    margin-right: 200px;
+                    font-weight: 900;
+                    font-size: 30px;
+
+                }
+
+                .padding_2 {
+                    padding-top: 20px;
+                }
+
+                .middle {
+                    vertical-align: middle;
+                }
+
+
+                .custom_table {
+                    width: 100%;
+                }
+
+                .custom_table, .custom_table th, .custom_table td{
+                    border: 1px solid black;
+                }
+
+                .custom_table th, .custom_table td{
+                    padding-top: 3px;
+                    padding-bottom: 2px;
+                    padding-left: 3px;
+                    padding-right: 2px;
+                }
+                .custom_table th{
+                    background-color: #D7D7D7;
+                    height: 40px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+
+                .custom_table th span, .custom_table td span{
+                    font-weight: bold;
+                }
+
+                .middle_table th, .middle_table td{
+                    vertical-align: middle;
+                }
+
+            </style>
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <div class="page_1">
+                            <div class="section_head">
+                                <p>1.INFORMACIÓN GENERAL</p>
+                            </div>
+
+                            <p class="padding_2"><strong>FECHA DE APERTURA DEL CUADERNO</strong> <span t-field="o.date"/></p>
+                            <br/>
+                            <br/>
+                            <table class="custom_table" style="height: 300px;">
+                                <thead>
+                                    <tr>
+                                        <th colspan="12">1.1DATOS GENERALES DE LA EXPLOTACIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="10"><span>NOMBRE Y APELLIDOS O RAZÓN SOCIAL: <span t-field="o.partner.name"/></span></td>
+                                        <td colspan="2"><span>NIF: <span t-field="o.partner.vat"/></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6"><span>Nº Registro de Explotaciones Nacional:</span></td>
+                                        <td colspan="6"><span>Nº Registro de Explotaciones Autonómico:</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><span>Dirección: <span t-field="o.partner.street"/> <span t-field="o.partner.street2"/></span></td>
+                                        <td colspan="3"><span>Localidad: <span t-field="o.partner.city"/></span></td>
+                                        <td colspan="2"><span>C.Postal: <span t-field="o.partner.zip"/></span></td>
+                                        <td colspan="2"><span>Provincia: <span t-field="o.partner.state_id.name"/></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><span>Teléfono fijo: <span t-field="o.partner.phone"/></span></td>
+                                        <td colspan="4"><span>Teléfono móvil: <span t-field="o.partner.mobile"/></span></td>
+                                        <td colspan="4"><span>e-mail: <span t-field="o.partner.email"/></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="12" class="text-center middle"><span>TITULAR O REPRESENTANTE DE LA EXPLOTACIÓN</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="10"><span>NOMBRE Y APELLIDOS O RAZÓN SOCIAL: <span t-field="o.partner.farm_representative.name"/></span></td>
+                                        <td colspan="2"><span>NIF: <span t-field="o.partner.farm_representative.vat"/></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><span>Dirección:  <span t-field="o.partner.farm_representative.street"/> <span t-field="o.partner.farm_representative.street2"/></span></td>
+                                        <td colspan="3"><span>Localidad <span t-field="o.partner.farm_representative.city"/></span></td>
+                                        <td colspan="2"><span>C.Postal: <span t-field="o.partner.farm_representative.zip"/></span></td>
+                                        <td colspan="2"><span>Provincia: <span t-field="o.partner.farm_representative.state_id.name"/></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4"><span>Teléfono fijo: <span t-field="o.partner.farm_representative.phone"/></span></td>
+                                        <td colspan="4"><span>Teléfono móvil: <span t-field="o.partner.farm_representative.mobile"/></span></td>
+                                        <td colspan="4"><span>e-mail: <span t-field="o.partner.farm_representative.email"/></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="row" style="margin-top: 50px;">
+                                <div class="col-xs-4 col-xs-offset-8" style="border: 1px solid black">
+                                    <p>Firma del titular o representante de la explotación<sup>(1)</sup></p>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <p>Fecha:</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page_2" style="page-break-before:always;">
+                            <div class="section_head">
+                                <p>1.INFORMACIÓN GENERAL</p>
+                            </div>
+
+                            <table class="custom_table text-center middle_table">
+                                <thead>
+                                    <th colspan="9">1.2 PERSONAS O EMPRESAS QUE INTERVIENEN EN EL TRATATIMENTO CON PRODUCTOS FITOSANITARIOS<sup>(1)</sup></th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">Nº de orden</td>
+                                        <td rowspan="2">Nombre y apellidos/empresa de servicios</td>
+                                        <td rowspan="2">NIF</td>
+                                        <td rowspan="2">Nº Inscripción ROPO</td>
+                                        <td colspan="4">Tipo de carné<sup>(2)</sup></td>
+                                        <td rowspan="2">Asesor<sup>(2)</sup></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Básico</td>
+                                        <td>Cualif.</td>
+                                        <td>Fumig</td>
+                                        <td>Piloto</td>
+                                    </tr>
+                                    <tr t-foreach="o.phytosanitary_applicators" t-as="applicator">
+                                        <td><span t-field="applicator.sequence"/></td>
+                                        <td><span t-field="applicator.name"/></td>
+                                        <td><span t-field="applicator.vat"/></td>
+                                        <td><span t-field="applicator.ropo"/></td>
+                                        <td><span t-if="applicator.license_type == 'basic'">X</span></td>
+                                        <td><span t-if="applicator.license_type == 'qualified'">X</span></td>
+                                        <td><span t-if="applicator.license_type == 'fumigation'">X</span></td>
+                                        <td><span t-if="applicator.license_type == 'pilot'">X</span></td>
+                                        <td><span t-field="applicator.adviser"/></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <table class="custom_table text-center middle_table" style="margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th colspan="5">1.3 EQUIPOS DE APLICACIÓN DE PRODUCTOS FITOSANITARIOS PROPIOS DE LA EXPLOTACIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Nº de orden</td>
+                                        <td>Descripción del equipo<sup>(3)</sup></td>
+                                        <td>Nº inscrip. ROMA<sup>(4)</sup></td>
+                                        <td>Fecha de adquisición</td>
+                                        <td>Fecha de la última inspección</td>
+                                    </tr>
+                                    <tr t-foreach="o.phytosanitary_machines" t-as="machine">
+                                        <td><span t-field="machine.sequence"/></td>
+                                        <td><span t-field="machine.name"/></td>
+                                        <td><span t-field="machine.ROMA_inscription_number"/></td>
+                                        <td><span t-field="machine.acquisition_year"/></td>
+                                        <td><span t-field="machine.inspection_date"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="custom_table text-center middle_table" style="margin-top: 20px;">
+                                <thead>
+                                    <tr>
+                                        <th colspan="5">1.4 AGRUPACIÓN O ENTIDAD DE ASESORAMIENTO A LA QUE PERTENECE LA EXPLOTACIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Nombre o razón social</td>
+                                        <td>NIF</td>
+                                        <td>Nº de identificación</td>
+                                        <td>Tipo de explotación<sup>(5)</sup></td>
+                                    </tr>
+                                    <tr t-foreach="o.advisor_entity" t-as="advisor_entity">
+                                        <td><span t-field="advisor_entity.name"/></td>
+                                        <td><span t-field="advisor_entity.vat"/></td>
+                                        <td><span t-field="advisor_entity.id_number"/></td>
+                                        <td><span t-field="advisor_entity.farm_type"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="page_3" style="page-break-before:always;">
+                            <div class="section_head">
+                                <p>2.IDENTIFICACIÓN DE LAS PARCELAS DE LA EXPLOTACIÓN</p>
+                            </div>
+
+                            <table class="custom_table text-center middle_table">
+                                <thead>
+                                    <th colspan="16">2.1 DATOS IDENTIFICATIVOS Y AGRONÓMICOS DE LAS PARCELAS</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">Nº DE ORDEN<sup>(1)</sup></td>
+                                        <td colspan="9">REFERENCIAS SIGPAC</td>
+                                        <td colspan="5">DATOS AGRONÓMICOS</td>
+                                        <td rowspan="2">NOME DA FINCA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Código provincia</td>
+                                        <td>Término municipal (código y nombre)</td>
+                                        <td>Código agregado</td>
+                                        <td>Zona</td>
+                                        <td>Nº de poligono</td>
+                                        <td>Nº de parcela</td>
+                                        <td>Nº de recinto</td>
+                                        <td>Uso SIGPAC</td>
+                                        <td>Superficie SIGPAC(ha)</td>
+                                        <td>Superficie cultivada(ha)</td>
+                                        <td>Especiel</td>
+                                        <td>Variedad</td>
+                                        <td>Secano/regadío</td>
+                                        <td>Aire libre o protegido</td>
+                                    </tr>
+
+                                    <tr t-foreach="o.partner_fields" t-as="field">
+                                        <td><span t-field="field.sequence"/></td>
+                                        <td><span t-field="field.province_id.code"/></td>
+                                        <td><span t-field="field.townhall_data"/></td>
+                                        <td><span t-field="field.aggregate_code"/></td>
+                                        <td><span t-field="field.zone"/></td>
+                                        <td><span t-field="field.industrial_estate"/></td>
+                                        <td><span t-field="field.plot"/></td>
+                                        <td><span t-field="field.enclosure"/></td>
+                                        <td><span t-field="field.sixpac_use"/></td>
+                                        <td><span t-field="field.sixpac_surface"/></td>
+                                        <td><span t-field="field.cultivated_area"/></td>
+                                        <td><span t-field="field.raw_material"/></td>
+                                        <td><span t-field="field.use"/></td>
+                                        <td><span t-field="field.irrigation_dry"/></td>
+                                        <td><span t-field="field.outdoor_protected"/></td>
+                                        <td><span t-field="field.location_name"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="page_4" style="page-break-before:always;">
+                            <div class="section_head">
+                                <p>3. INFORMACIÓN SOBRE TRATAMIENTOS FITOSANITARIOS</p>
+                            </div>
+
+                            <table class="custom_table text-center middle_table">
+                                <thead>
+                                    <th colspan="13">3.1 REGISTRO DE ACTUACIONES FITOSANITARIAS DE LA PARCELA</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">Id. Parcelas</td>
+                                        <td colspan="2">Cultivo</td>
+                                        <td rowspan="2">Intervalo de fechas</td>
+                                        <td rowspan="2">Superficie tratada(ha)</td>
+                                        <td rowspan="2">Problema fitosanitario</td>
+                                        <td rowspan="2">Aplicador</td>
+                                        <td rowspan="2">Equipo</td>
+                                        <td colspan="3">Producto fitosanitario</td>
+                                        <td rowspan="2">Eficacia</td>
+                                        <td rowspan="2">Observaciones</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Especie</td>
+                                        <td>Variedad</td>
+                                        <td>Nombre comercial</td>
+                                        <td>Nº registro</td>
+                                        <td>Dosis (kg/ha o l/ha)</td>
+                                    </tr>
+                                    <tr t-foreach="o.phytosanitary_uses" t-as="use">
+                                        <td><span t-field="use.partner_field.sequence"/></td>
+                                        <td><span t-field="use.raw_material"/></td>
+                                        <td><span t-field="use.use"/></td>
+                                        <td><span t-field="use.date"/></td>
+                                        <td><span t-field="use.surface_treated"/></td>
+                                        <td><span t-field="use.phytosanitary_problem"/></td>
+                                        <td><span t-field="use.applicator.sequence"/></td>
+                                        <td><span t-field="use.machine.sequence"/></td>
+                                        <td><span t-field="use.phytosanitary_name"/></td>
+                                        <td><span t-field="use.phytosanitary_registry_number"/></td>
+                                        <td><span t-field="use.phytosanitary_dose"/></td>
+                                        <td><span t-field="use.efficacy"/></td>
+                                        <td><span t-field="use.notes"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="page_5" style="page-break-before:always;">
+                            <div class="section_head">
+                                <p>3. INFORMACIÓN SOBRE TRATAMIENTOS FITOSANITARIOS</p>
+                            </div>
+
+                            <table class="custom_table text-center middle_table">
+                                <thead>
+                                    <th colspan="16">3.1 bis REGISTRO DE ACTUACIONES FITOSANITARIAS DE LA PARCELA <p>(SOLAMENTE PARA CULTIVOS Y SUPERFICIES OBJETO DE ASESORAMIENTO)</p></th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="2">CULTIVO</td>
+                                        <td colspan="3">DATOS DE LA PARCELA</td>
+                                        <td colspan="2">PLAGA A CONTROLAR</td>
+                                        <td colspan="3">ALTERNATIVAS NO QUÍMICAS DE INTERVENCIÓN</td>
+                                        <td colspan="4">ALTERNATIVAS QUÍMICAS DE INTERVENCIÓN</td>
+                                        <td rowspan="2">EFICACIA DE LA INTERVENCIÓN (buena, regular o mala)</td>
+                                        <td rowspan="2">OBSERVACIONES</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Especie</td>
+                                        <td>Variedad</td>
+                                        <td>Id. parcelas</td>
+                                        <td>Superficie cultivada (ha)</td>
+                                        <td>Superficie tratada (ha)</td>
+                                        <td>Plaga</td>
+                                        <td>Justificación de la actuación (Superación de umbrales, condiciones meteorologicas, etc.)</td>
+                                        <td>Tipo de medida</td>
+                                        <td>Intensidad de la medida (Nº de trampas, nº de difusores, etc.)</td>
+                                        <td>Fecha de actuación</td>
+                                        <td>Nombre comercial</td>
+                                        <td>Número de registro</td>
+                                        <td>Dosis utilizada(l o kg / ha)</td>
+                                        <td>Fecha de actuación</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="row" style="margin-top: 50px;">
+                                <div class="col-xs-4" style="border: 1px solid black">
+                                    <h5 class="text-center"><u>VALIDACIÓN INTERMEDIA</u></h5>
+                                    <p>Firma</p>
+                                    <br/>
+                                    <br/>
+                                    <p>Asesor:</p>
+                                    <p>Nº Inscripción ROPO:</p>
+                                    <p>Fecha</p>
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-4" style="border: 1px solid black">
+                                    <h5 class="text-center"><u>VALIDACIÓN FINAL</u></h5>
+                                    <p>Firma</p>
+                                    <br/>
+                                    <br/>
+                                    <p>Asesor:</p>
+                                    <p>Nº Inscripción ROPO:</p>
+                                    <p>Fecha</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="page_6" style="page-break-before:always;">
+                            <div class="section_head">
+                                <p>3. INFORMACIÓN SOBRE TRATAMIENTOS FITOSANITARIOS</p>
+                            </div>
+
+                            <table class="custom_table text-center middle_table">
+                                <thead>
+                                    <th colspan="8">3.2 REGISTRO DE USO DE SEMILLA TRATADA</th>
+                                </thead>
+                                <tbody>
+                                    <tr><td colspan="8">APLICA TRATAMIENTO <span>SI</span> <span>NO</span></td></tr>
+                                    <tr>
+                                        <td rowspan="2">Fecha de siembra</td>
+                                        <td rowspan="2">Id. parcelas</td>
+                                        <td colspan="2">Cultivo</td>
+                                        <td rowspan="2">Superficie sembrada(Ha)</td>
+                                        <td rowspan="2">Cantidad de semilla(Kg)</td>
+                                        <td colspan="2">Producto fitosanitario</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Especie</td>
+                                        <td>Variedad</td>
+                                        <td>Materia activa / Nombre comercial</td>
+                                        <td>Nº de registro</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="custom_table text-center middle_table" style="margin-top: 50px;">
+                                <thead>
+                                    <th colspan="8">3.2 REGISTRO DE TRATAMIENTO POSTCOSECHA (en producto vegetal)</th>
+                                </thead>
+                                <tbody>
+                                    <tr><td colspan="8">APLICA TRATAMIENTO <span>SI</span> <span>NO</span></td></tr>
+                                    <tr>
+                                        <td rowspan="2">Fecha</td>
+                                        <td rowspan="2">Producto vegetal tratado</td>
+                                        <td rowspan="2">Problemática fitosanitaria</td>
+                                        <td rowspan="2">Cantidad de prod. veg. tratado (Tm)</td>
+                                        <td colspan="3">Producto fitosanitario</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre comercial</td>
+                                        <td>Nº registro</td>
+                                        <td>Cantidad utilizada (kg o l)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="page_5" style="page-break-before:always;">
+                            <div class="section_head">
+                                <p>5. REGISTRO DE COSECHA COMERCIALIZADA</p>
+                            </div>
+
+                            <table class="custom_table text-center middle_table">
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">Fecha</td>
+                                        <td rowspan="2">Producto</td>
+                                        <td rowspan="2">Cantidad de producto (kg)</td>
+                                        <td rowspan="2">Nº de orden parcela/s de origen</td>
+                                        <td rowspan="2">Nº de albarán o factura</td>
+                                        <td rowspan="2">Nº de lote</td>
+                                        <td colspan="4">Cliente</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre o razón social</td>
+                                        <td>NIF</td>
+                                        <td>Dirección</td>
+                                        <td>Nº de RGSEAA</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                 </t>
+             </t>
+        </template>
+
+    </data>
+</openerp>

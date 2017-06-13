@@ -16,6 +16,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.menu_phytosanitaries
+msgid "Phytosanitaries"
+msgstr "Fitosanitarios"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.farm_campaign_menu
+msgid "Farm campaigns"
+msgstr "Campañas"
+
+#. module: custom_menu
+#: model:ir.ui.menu,name:custom_menu.farm_notebook_menu
+msgid "Farm notebook"
+msgstr "Cuaderno de explotación"
+
+#. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.task_management
 msgid "Task management"
 msgstr "Partes de trabajo"

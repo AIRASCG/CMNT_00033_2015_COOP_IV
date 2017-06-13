@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="res_partner_fields_add_phytosanitary" model="ir.ui.view">
+            <field name="name">res.partner.fields.form</field>
+            <field name="model">res.partner.fields</field>
+            <field name="inherit_id" ref="res_partner_farm_data.view_res_partner_fields_form"/>
+            <field name="arch" type="xml">
+                <field name="townhall_id" position="after">
+                    <field name="townhall_name"/>
+                    <field name="aggregate_code"/>
+                </field>
+                <field name="sixpac_surface" position="after">
+                    <field name="sixpac_use"/>
+                    <field name="irrigation_dry"/>
+                    <field name="outdoor_protected"/>
+                </field>
+                <xpath expr="//group/group[2]" position="after">
+                    <separator string="Phytosanitary uses" colspan="4"/>
+                    <field name="phytosanitary_uses" nolabel="1" colspan="4">
+                        <tree editable="top">
+                            <field name="phytosanitary" domain="[('rest_qty', '&gt;', 0)]"/>
+                            <field name="campaign"/>
+                            <field name="used_qty"/>
+                            <field name="surface_treated"/>
+                            <field name="phytosanitary_problem"/>
+                            <field name="efficacy"/>
+                            <field name="applicator"/>
+                            <field name="machine"/>
+                            <field name="date"/>
+                            <field name="notes"/>
+                        </tree>
+                    </field>
+                    <separator string="Campaign crops" colspan="4"/>
+                    <field name="campaigns" nolabel="1" colspan="4">
+                        <tree editable="top">
+                            <field name="campaign"/>
+                            <field name="cultivated_area"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

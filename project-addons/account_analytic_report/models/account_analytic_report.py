@@ -62,6 +62,7 @@ class AccountAnalyticReport(models.Model):
     kg_another_1 = fields.Float('Another Kg')
     cow_buy_1 = fields.Float('Livestock purchased')
     inventory_difference_1 = fields.Float('Inventory difference')
+    campaign_1 = fields.Many2one('farm.campaign')
 
     ref_2 = fields.Reference(
         selection=[('res.company', 'Company'),
@@ -93,6 +94,7 @@ class AccountAnalyticReport(models.Model):
     kg_another_2 = fields.Float('Another Kg')
     cow_buy_2 = fields.Float('Livestock purchased')
     inventory_difference_2 = fields.Float('Inventory difference')
+    campaign_2 = fields.Many2one('farm.campaign')
 
     line_ids = fields.One2many('account.analytic.report.line', 'report_id',
                                'Lines')
@@ -447,8 +449,14 @@ class AccountAnalyticReportLine(models.Model):
                         _('Account with code %s not found') % val[1:])
                 from_date = self.report_id['from_date_' + field[6]]
                 to_date = self.report_id['to_date_' + field[6]]
-                val = sign + str(account.with_context(company_id=company.id,
-                                 from_date=from_date, to_date=to_date).balance)
+
+                if self.report_id['campaign_' + field[6]]:
+                    campaign = self.report_id['campaign_' + field[6]].id
+                    val = sign + str(account.with_context(company_id=company.id,
+                                     from_date=from_date, to_date=to_date, campaign=campaign).balance)
+                else:
+                    val = sign + str(account.with_context(company_id=company.id,
+                                     from_date=from_date, to_date=to_date).balance)
             if end_par:
                 val += ')' * end_par
             final_vals.append(val)

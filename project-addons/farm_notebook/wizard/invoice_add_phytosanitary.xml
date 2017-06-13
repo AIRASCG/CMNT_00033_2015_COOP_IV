@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="invoice_add_phytosanitary_view" model="ir.ui.view">
+            <field name="name">invoice.add.phytosanitary.form</field>
+            <field name="model">invoice.add.phytosanitary</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="total_qty"/>
+                        <field name="uom"/>
+                        <field name="registry_number"/>
+                        <field name="name"/>
+                        <field name="acquisition_date"/>
+                    </group>
+                    <footer>
+                        <button name="confirm" string="Add" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name=""
+            res_model="invoice.add.phytosanitary"
+            src_model="account.invoice.line"
+            view_id="invoice_add_phytosanitary_view"
+            view_mode="form"
+            target="new"
+            id="action_invoice_add_phytosanitary"/>
+
+    </data>
+</openerp>

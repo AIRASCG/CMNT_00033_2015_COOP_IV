@@ -29,6 +29,7 @@
                                 <group colspan="1">
                                     <separator string="Company 1" colspan="3"/>
                                     <field name="ref_1"/>
+                                    <field name="campaign_1"/>
                                     <field name="from_date_1"/>
                                     <field name="to_date_1"/>
                                     <field name="milk_1"/>
@@ -40,6 +41,7 @@
                                 <group colspan="1">
                                     <separator string="Company 2" colspan="3"/>
                                     <field name="ref_2"/>
+                                    <field name="campaign_2"/>
                                     <field name="from_date_2"/>
                                     <field name="to_date_2"/>
                                     <field name="milk_2"/>
