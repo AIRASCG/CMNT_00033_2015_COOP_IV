@@ -13,7 +13,7 @@
                 <xpath expr="//field[@name='invoice_line']/tree/field[@name='price_subtotal']" position="after">
                     <field name="phytosanitary" invisible="1"/>
                     <field name="phytosanitary_created" invisible="1"/>
-                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" attrs="{'invisible': [('phytosanitary', '!=', True)]}" icon="terp-personal"/>
+                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" string="create Phytosanitary" attrs="{'invisible': [('phytosanitary', '!=', True)]}" icon="terp-personal"/>
                 </xpath>
             </field>
         </record>
@@ -29,7 +29,7 @@
                 <xpath expr="//field[@name='invoice_line']/tree/field[@name='price_subtotal']" position="after">
                     <field name="phytosanitary" invisible="1"/>
                     <field name="phytosanitary_created" invisible="1"/>
-                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" attrs="{'invisible': ['|', ('phytosanitary', '!=', True), ('phytosanitary_created', '=', True)]}" icon="terp-personal"/>
+                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" string="create Phytosanitary" attrs="{'invisible': ['|', ('phytosanitary', '!=', True), ('phytosanitary_created', '=', True)]}" icon="terp-personal"/>
                 </xpath>
             </field>
         </record>
@@ -43,7 +43,7 @@
                 <field name="price_subtotal" position="after">
                     <field name="phytosanitary" invisible="1"/>
                     <field name="phytosanitary_created" invisible="1"/>
-                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" attrs="{'invisible': ['|', ('phytosanitary', '!=', True), ('phytosanitary_created', '=', True)]}" icon="terp-personal"/>
+                    <button name="%(farm_notebook.action_invoice_add_phytosanitary)d" type="action" string="create Phytosanitary" attrs="{'invisible': ['|', ('phytosanitary', '!=', True), ('phytosanitary_created', '=', True)]}" icon="terp-personal"/>
                 </field>
             </field>
         </record>

@@ -357,6 +357,24 @@
                                         <td>Dosis utilizada(l o kg / ha)</td>
                                         <td>Fecha de actuación</td>
                                     </tr>
+                                    <tr t-foreach="o.phytosanitary_advised_uses" t-as="use">
+                                        <td><span t-field="use.species"/></td>
+                                        <td><span t-field="use.use"/></td>
+                                        <td><span t-field="use.field.sequence"/></td>
+                                        <td><span t-field="use.cultivated_area"/></td>
+                                        <td><span t-field="use.treated_area"/></td>
+                                        <td><span t-field="use.plague"/></td>
+                                        <td><span t-field="use.action_justification"/></td>
+                                        <td><span t-field="use.non_chemical_action_type"/></td>
+                                        <td><span t-field="use.intensity"/></td>
+                                        <td><span t-field="use.non_chemical_action_date"/></td>
+                                        <td><span t-field="use.phytosanitary.name"/></td>
+                                        <td><span t-field="use.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="use.used_dose"/></td>
+                                        <td><span t-field="use.chemical_action_date"/></td>
+                                        <td><span t-field="use.efficiency"/></td>
+                                        <td><span t-field="use.notes"/></td>
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -393,7 +411,7 @@
                                     <th colspan="8">3.2 REGISTRO DE USO DE SEMILLA TRATADA</th>
                                 </thead>
                                 <tbody>
-                                    <tr><td colspan="8">APLICA TRATAMIENTO <span>SI</span> <span>NO</span></td></tr>
+                                    <tr><td colspan="8">APLICA TRATAMIENTO <span style="margin-right: 20px;"><span t-if="o.apply_seeds_treatement">X  </span> SI </span> <span> <span t-if="not o.apply_seeds_treatement">X  </span> NO </span></td></tr>
                                     <tr>
                                         <td rowspan="2">Fecha de siembra</td>
                                         <td rowspan="2">Id. parcelas</td>
@@ -408,6 +426,16 @@
                                         <td>Materia activa / Nombre comercial</td>
                                         <td>Nº de registro</td>
                                     </tr>
+                                    <tr t-foreach="o.treated_seed_uses" t-as="seed_use">
+                                        <td><span t-field="seed_use.date"/></td>
+                                        <td><span t-field="seed_use.field.sequence"/></td>
+                                        <td><span t-field="seed_use.cultivation_specie"/></td>
+                                        <td><span t-field="seed_use.cultivation_variety"/></td>
+                                        <td><span t-field="seed_use.seeded_surface"/></td>
+                                        <td><span t-field="seed_use.seed_quantity"/></td>
+                                        <td><span t-field="seed_use.phytosanitary.name"/></td>
+                                        <td><span t-field="seed_use.phytosanitary.registry_number"/></td>
+                                    </tr>
                                 </tbody>
                             </table>
 
@@ -416,7 +444,7 @@
                                     <th colspan="8">3.2 REGISTRO DE TRATAMIENTO POSTCOSECHA (en producto vegetal)</th>
                                 </thead>
                                 <tbody>
-                                    <tr><td colspan="8">APLICA TRATAMIENTO <span>SI</span> <span>NO</span></td></tr>
+                                    <tr><td colspan="8">APLICA TRATAMIENTO <span style="margin-right: 20px;"><span t-if="o.apply_post_harvest_treatement">X  </span> SI </span> <span> <span t-if="not o.apply_post_harvest_treatement">X  </span> NO </span></td></tr>
                                     <tr>
                                         <td rowspan="2">Fecha</td>
                                         <td rowspan="2">Producto vegetal tratado</td>
@@ -429,12 +457,90 @@
                                         <td>Nº registro</td>
                                         <td>Cantidad utilizada (kg o l)</td>
                                     </tr>
+                                    <tr t-foreach="o.post_harvest_treatements" t-as="post_harvest">
+                                        <td><span t-field="post_harvest.date"/></td>
+                                        <td><span t-field="post_harvest.vegetable_product_treated"/></td>
+                                        <td><span t-field="post_harvest.phytosanitary_problem"/></td>
+                                        <td><span t-field="post_harvest.treated_qty"/></td>
+                                        <td><span t-field="post_harvest.phytosanitary.name"/></td>
+                                        <td><span t-field="post_harvest.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="post_harvest.used_qty"/> <span t-field="post_harvest.used_uom"/></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
 
 
-                        <div class="page_5" style="page-break-before:always;">
+
+
+                        <div class="page_7" style="page-break-before:always;">
+                            <div class="section_head">
+                                <p>3. INFORMACIÓN SOBRE TRATAMIENTOS FITOSANITARIOS</p>
+                            </div>
+
+                            <table class="custom_table text-center middle_table">
+                                <thead>
+                                    <th colspan="7">3.4 REGISTRO DE TRATAMIENTO DE LOS LOCALES DE ALMACENAMIENTO</th>
+                                </thead>
+                                <tbody>
+                                    <tr><td colspan="7">APLICA TRATAMIENTO <span style="margin-right: 20px;"><span t-if="o.apply_storage_treatement">X  </span> SI </span> <span> <span t-if="not o.apply_storage_treatement">X  </span> NO </span></td></tr>
+                                    <tr>
+                                        <td rowspan="2">Fecha</td>
+                                        <td rowspan="2">Local tratado (tipo y dirección)</td>
+                                        <td rowspan="2">Problema fitosanitario</td>
+                                        <td rowspan="2">Volumen tratado (m<sup>2</sup>)</td>
+                                        <td colspan="3">Producto</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre comercial</td>
+                                        <td>Nº de registro</td>
+                                        <td>Cantidad utilizada (kg o l)</td>
+                                    </tr>
+                                    <tr t-foreach="o.storage_tratements" t-as="storage_tratement">
+                                        <td><span t-field="storage_tratement.date"/></td>
+                                        <td><span t-field="storage_tratement.storage_treated"/></td>
+                                        <td><span t-field="storage_tratement.phytosanitary_problem"/></td>
+                                        <td><span t-field="storage_tratement.treated_volume"/></td>
+                                        <td><span t-field="storage_tratement.phytosanitary.name"/></td>
+                                        <td><span t-field="storage_tratement.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="storage_tratement.product_used_qty"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="custom_table text-center middle_table" style="margin-top: 50px;">
+                                <thead>
+                                    <th colspan="8">3.5 REGISTRO DE TRATAMIENTOS DE LOS MEDIOS DE TRANSPORTE</th>
+                                </thead>
+                                <tbody>
+                                    <tr><td colspan="8">APLICA TRATAMIENTO <span style="margin-right: 20px;"><span t-if="o.apply_transport_treatement">X  </span> SI </span> <span> <span t-if="not o.apply_transport_treatement">X  </span> NO </span></td></tr>
+                                    <tr>
+                                        <td rowspan="2">Fecha</td>
+                                        <td rowspan="2">Vehículo tratado(tipo, modelo y matrícula)</td>
+                                        <td rowspan="2">Problema fitosanitario</td>
+                                        <td rowspan="2">Volumen tratado (m<sup>2</sup>)</td>
+                                        <td colspan="3">Producto</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre comercial</td>
+                                        <td>Nº de registro</td>
+                                        <td>Cantidad utilizada (kg o l)</td>
+                                    </tr>
+                                    <tr t-foreach="o.transport_tratements" t-as="transport_tratements">
+                                        <td><span t-field="transport_tratements.date"/></td>
+                                        <td><span t-field="transport_tratements.vehicle"/></td>
+                                        <td><span t-field="transport_tratements.phytosanitary_problem"/></td>
+                                        <td><span t-field="transport_tratements.treated_volume"/></td>
+                                        <td><span t-field="transport_tratements.phytosanitary.name"/></td>
+                                        <td><span t-field="transport_tratements.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="transport_tratements.product_used_qty"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                        <div class="page_8" style="page-break-before:always;">
                             <div class="section_head">
                                 <p>5. REGISTRO DE COSECHA COMERCIALIZADA</p>
                             </div>
@@ -455,6 +561,18 @@
                                         <td>NIF</td>
                                         <td>Dirección</td>
                                         <td>Nº de RGSEAA</td>
+                                    </tr>
+                                    <tr t-foreach="o.solded_harvests" t-as="solded_harvest">
+                                        <td><span t-field="solded_harvest.date"/></td>
+                                        <td><span t-field="solded_harvest.product"/></td>
+                                        <td><span t-field="solded_harvest.product_qty"/></td>
+                                        <td><span t-field="solded_harvest.order_number"/></td>
+                                        <td><span t-field="solded_harvest.picking_number"/></td>
+                                        <td><span t-field="solded_harvest.lot_number"/></td>
+                                        <td><span t-field="solded_harvest.customer_name"/></td>
+                                        <td><span t-field="solded_harvest.vat"/></td>
+                                        <td><span t-field="solded_harvest.address"/></td>
+                                        <td><span t-field="solded_harvest.rgseaa"/></td>
                                     </tr>
                                 </tbody>
                             </table>

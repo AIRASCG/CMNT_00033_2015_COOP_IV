@@ -9,6 +9,11 @@ class FarmCampaign(models.Model):
 
     _name = 'farm.campaign'
 
+    def _get_company(self):
+        return self.env.user.company_id
+
+    company_id = fields.Many2one('res.company', 'Company',
+                                 default=_get_company)
     name = fields.Char(required=True)
     year = fields.Char(required=True)
     notes = fields.Text()

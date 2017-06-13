@@ -11,6 +11,12 @@
             <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]),('company_id', '=', False)]</field>
         </record>
 
+        <record model="ir.rule" id="phytosanitary_use_multicompany_rule">
+            <field name="name">phyotsanitary use multicompany</field>
+            <field name="model_id" ref="farm_notebook.model_phytosanitary_use"/>
+            <field name="domain_force">['|',('phytosanitary.company_id','child_of',[user.company_id.id]),('phytosanitary.company_id', '=', False)]</field>
+        </record>
+
         <record model="ir.rule" id="phytosanitary_machine_multicompany_rule">
             <field name="name">phyotsanitary machine multicompany</field>
             <field name="model_id" ref="farm_notebook.model_phytosanitary_machine"/>
@@ -21,6 +27,25 @@
             <field name="name">phyotsanitary applicator multicompany</field>
             <field name="model_id" ref="farm_notebook.model_phytosanitary_applicator"/>
             <field name="domain_force">['|','|',('company_id.child_ids','child_of',[user.company_id.id]),('company_id','child_of',[user.company_id.id]),('company_id','=',False),]</field>
+        </record>
+
+
+        <record model="ir.rule" id="farm_campaign_multicompany_rule">
+            <field name="name">Farm campaign multicompany</field>
+            <field name="model_id" ref="farm_notebook.model_farm_campaign"/>
+            <field name="domain_force">['|',('company_id','child_of',[user.company_id.id]),('company_id', '=', False)]</field>
+        </record>
+
+        <record model="ir.rule" id="farm_crop_multicompany_rule">
+            <field name="name">Farm crop use multicompany</field>
+            <field name="model_id" ref="farm_notebook.model_farm_crop"/>
+            <field name="domain_force">['|',('campaign.company_id','child_of',[user.company_id.id]),('campaign.company_id', '=', False)]</field>
+        </record>
+
+        <record model="ir.rule" id="farm_notebook_multicompany_rule">
+            <field name="name">Farm notebook multicompany</field>
+            <field name="model_id" ref="farm_notebook.model_farm_notebook"/>
+            <field name="domain_force">['|',('partner.company_id','child_of',[user.company_id.id]),('partner.company_id', '=', False)]</field>
         </record>
     </data>
 </openerp>

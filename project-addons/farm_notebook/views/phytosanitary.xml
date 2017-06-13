@@ -31,6 +31,7 @@
                             <field name="name"/>
                             <field name="registry_number"/>
                             <field name="acquisition_date"/>
+                            <field name="company_id"/>
                         </group>
                         <group>
                             <field name="invoice_line"/>
@@ -42,7 +43,9 @@
                     <separator string="Phytosanitary uses"/>
                     <field name="phytosanitary_uses">
                         <tree editable="top">
-                            <field name="partner_field"/>
+                            <field name="year" invisible="1"/>
+                            <field name="date"/>
+                            <field name="partner_field" domain="[('year', '=', year)]"/>
                             <field name="campaign"/>
                             <field name="surface_treated"/>
                             <field name="phytosanitary_problem"/>
@@ -50,7 +53,6 @@
                             <field name="used_qty"/>
                             <field name="applicator"/>
                             <field name="machine"/>
-                            <field name="date"/>
                             <field name="notes"/>
                         </tree>
                     </field>
@@ -91,7 +93,6 @@
                     <field name="ropo"/>
                     <field name="license_type"/>
                     <field name="adviser"/>
-                    <field name="company_id"/>
                 </tree>
             </field>
         </record>
@@ -112,7 +113,6 @@
                             <group>
                                 <field name="license_type"/>
                                 <field name="adviser"/>
-                                <field name="company_id"/>
                             </group>
                         </group>
                     </sheet>
@@ -130,7 +130,6 @@
                     <field name="ROMA_inscription_number"/>
                     <field name="acquisition_year"/>
                     <field name="inspection_date"/>
-                    <field name="company_id"/>
                 </tree>
             </field>
         </record>
@@ -150,7 +149,6 @@
                             </group>
                             <group>
                                 <field name="inspection_date"/>
-                                <field name="company_id"/>
                             </group>
                         </group>
                     </sheet>

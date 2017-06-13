@@ -5,10 +5,6 @@ access_phytosanitary_machine,access_phytosanitary_machine,model_phytosanitary_ma
 access_phytosanitary_applicator,access_phytosanitary_applicator,model_phytosanitary_applicator,base.group_user,1,1,1,1
 access_farm_campaign,access_farm_campaign,model_farm_campaign,base.group_user,1,1,1,1
 access_farm_crop,access_farm_crop,model_farm_crop,base.group_user,1,1,1,1
-
-
-
-
 access_farm_notebook,access_farm_notebook,model_farm_notebook,base.group_user,1,1,1,1
 access_phytosanitary_applicator_notebook,access_phytosanitary_applicator_notebook,model_phytosanitary_applicator_notebook,base.group_user,1,1,1,1
 access_phytosanitary_machine_notebook,access_phytosanitary_machine_notebook,model_phytosanitary_machine_notebook,base.group_user,1,1,1,1

@@ -74,12 +74,14 @@
             <field name="type">search</field>
             <field name="arch" type="xml">
                 <search string="Partner fields">
-                   <group expand="0" string="Group By">
-                       <filter string="Year" icon="terp-personal" domain="[]" context="{'group_by':'year'}"/>
-                       <filter string="Use" icon="terp-personal" domain="[]" context="{'group_by':'use'}"/>
-                       <filter string="Partner" icon="terp-personal" domain="[]" context="{'group_by':'partner_id'}"/>
-                       <filter string="Province" icon="terp-personal" domain="[]" context="{'group_by':'province_id'}"/>
-                   </group>
+                    <field name="location_name"/>
+                    <field name="year"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Year" icon="terp-personal" domain="[]" context="{'group_by':'year'}"/>
+                        <filter string="Use" icon="terp-personal" domain="[]" context="{'group_by':'use'}"/>
+                        <filter string="Partner" icon="terp-personal" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter string="Province" icon="terp-personal" domain="[]" context="{'group_by':'province_id'}"/>
+                    </group>
                </search>
             </field>
         </record>

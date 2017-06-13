@@ -61,6 +61,13 @@ class PhytosanitaryUse(models.Model):
     applicator = fields.Many2one('phytosanitary.applicator', required=True)
     machine = fields.Many2one('phytosanitary.machine', required=True)
     notes = fields.Char()
+    year = fields.Char(compute='_compute_use_year')
+
+    @api.depends('date')
+    def _compute_use_year(self):
+        for use in self:
+            if use.date:
+                use.year = use.date[:4]
 
     @api.onchange('partner_field')
     def onchange_partner_field(self):

@@ -10,8 +10,8 @@ class FarmNotebook(models.Model):
     _name = 'farm.notebook'
     _rec_name = 'date'
 
-    partner = fields.Many2one('res.partner')
-    date = fields.Date()
+    partner = fields.Many2one('res.partner', required=True)
+    date = fields.Date(required=True)
     phytosanitary_applicators = fields.One2many(
         'phytosanitary.applicator.notebook', 'notebook')
     phytosanitary_machines = fields.One2many(
