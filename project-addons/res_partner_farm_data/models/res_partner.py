@@ -91,7 +91,7 @@ class ResPartner(models.Model):
     manure_pit = fields.Integer('Manure pit')
     manure_pit_outdoor = fields.Integer('Manure pit outdoor')
     trailer_access = fields.Boolean('Trailer access')
-    employees_quantity = fields.Integer('Employees quantity')
+    employees_quantity = fields.Float('Employees quantity')
     employees_date = fields.Date('Date')
     employee_count_ids = fields.One2many('employee.farm.count', 'partner_id',
                                          'Employees')
@@ -373,7 +373,7 @@ class ResPartnerFields(models.Model):
     _name = 'res.partner.fields'
     _rec_name = 'location_name'
 
-    partner_id = fields.Many2one("res.partner", "Exploitation")
+    partner_id = fields.Many2one("res.partner", "Exploitation", required=True)
     province_id = fields.Many2one("res.country.state", "Province Code")
     townhall_id = fields.Char("Town Hall Code")
     added = fields.Boolean("Added")

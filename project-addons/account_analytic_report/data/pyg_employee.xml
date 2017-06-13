@@ -85,15 +85,15 @@
             <field name="template_id" ref="pyg_employee"/>
         </record>
 
-        <record id="pyg_1000_l_8" model="account.analytic.report.template.line">
+        <record id="pyg_employee_l_8" model="account.analytic.report.template.line">
             <field name="code">8</field>
             <field name="sequence">8</field>
             <field name="name">Variación existencias vacas</field>
             <field name="value_1_1">611</field>
-            <field name="value_1_2">611,/#milk,*'1000</field>
+            <field name="value_1_2">[1_1],/#employees</field>
             <field name="value_2_1">611</field>
-            <field name="value_2_2">611,/#milk,*'1000</field>
-            <field name="template_id" ref="pyg_1000"/>
+            <field name="value_2_2">[2_1],/#employees</field>
+            <field name="template_id" ref="pyg_employee"/>
         </record>
 
         <!-- Falta .8-->
