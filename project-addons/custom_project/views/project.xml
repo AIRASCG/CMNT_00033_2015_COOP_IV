@@ -117,9 +117,9 @@
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='date']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//field[@name='work_ids']/tree/field[@name='date']" position="after">
-                    <field name="date_start"/>
-                    <field name="date_end"/>
+                <xpath expr="//field[@name='work_ids']/tree/field[@name='date']" position="before">
+                    <field name="date_start" widget="float_time"/>
+                    <field name="date_end" widget="float_time"/>
                 </xpath>
             </field>
         </record>
@@ -176,9 +176,9 @@
                     <field name="area" invisible="1"/>
                     <field name="work_type" domain="[('categ_id', '=', area)]"/>
                     <field name="name"/>
+                    <field name="date_start" widget="float_time"/>
+                    <field name="date_end" widget="float_time"/>
                     <field name="hours" widget="float_time" sum="Spent Hours"/>
-                    <field name="date_start"/>
-                    <field name="date_end"/>
                     <field name="user_id" readonly="1" context="{'default_groups_ref': ['base.group_user', 'base.group_partner_manager', 'project.group_project_user']}"/>
                     <field name="absence"/>
                     <field name="absence_type" attrs="{'readonly': [('absence', '!=', True)]}"/>

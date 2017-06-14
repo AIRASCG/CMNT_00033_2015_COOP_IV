@@ -111,17 +111,17 @@ msgstr "Parte diario"
 #. module: custom_project
 #: field:project.task.work,date_end:0
 msgid "Date end"
-msgstr "Fecha fin"
+msgstr "Hora fin"
 
 #. module: custom_project
 #: field:project.task.work,work_type:0
 msgid "Work type"
-msgstr "Tipo de trabajo"
+msgstr "Código de tarea"
 
 #. module: custom_project
 #: field:project.task.work,date_start:0
 msgid "Date start"
-msgstr "Fecha inicio"
+msgstr "Hora inicio"
 
 #. module: custom_project
 #: field:project.task,diet:0
@@ -136,7 +136,7 @@ msgstr "Parte diario"
 #. module: project
 #: field:project.task.work,name:0
 msgid "Work summary"
-msgstr "Descripción"
+msgstr "Temas tratados"
 
 #. module: custom_project
 #: field:project.task.work,exploitation_id:0
