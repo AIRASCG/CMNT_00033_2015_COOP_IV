@@ -147,7 +147,7 @@
                     <attribute name="groups">custom_menu.group_standard_menus</attribute>
                 </page>
                 <field name="title" position="after">
-                    <label for="vat"/>
+                    <label for="vat" string="NIF(ESXXXXXXX)"/>
                     <div name="vat_info">
                         <field name="vat" on_change="vat_change(vat)" placeholder="e.g. BE0477472701" class="oe_inline"/>
                         <button colspan="2" name="button_check_vat" string="Check Validity" type="object" icon="gtk-execute" class="oe_inline"/>

@@ -1103,7 +1103,7 @@ msgstr "PLAGA A CONTROLAR"
 #: field:farm.notebook,partner:0
 #: model:ir.model,name:farm_notebook.model_res_partner
 msgid "Partner"
-msgstr "Empresa"
+msgstr "Explotación"
 
 #. module: farm_notebook
 #: field:phytosanitary.use,partner_field:0
@@ -1533,10 +1533,16 @@ msgid "Use"
 msgstr "Use"
 
 #. module: farm_notebook
+#: field:phytosanitary.use,used_qty:0
 #: field:phytosanitary.use.notebook,used_qty:0
 #: field:post.harvest.treatements.notebook,used_qty:0
 msgid "Used qty"
 msgstr "Cantidad utilizada"
+
+#. module: farm_notebook
+#: field:res.partner,farm_representative:0
+msgid "Farm representative"
+msgstr "Representante de la explotación"
 
 #. module: farm_notebook
 #: field:post.harvest.treatements.notebook,used_uom:0

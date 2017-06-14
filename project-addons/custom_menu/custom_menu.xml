@@ -108,9 +108,9 @@
             <menuitem name="Plantations management" parent="farm_managemen" id="menu_plantation_management"/>
                 <menuitem name="Plantations" parent="menu_plantation_management" action="res_partner_farm_data.action_res_partner_fields" id="menu_res_partner_fields"/>
                 <menuitem name="Import plantations" parent="menu_plantation_management" action="res_partner_farm_data.import_fields_act2" id="menu_res_partner_fields_import"/>
-            <menuitem name="Phytosanitaries" parent="farm_managemen" action="farm_notebook.phytosanitary_action" id="menu_phytosanitaries"/>
-            <menuitem name="Farm campaigns" parent="farm_managemen" action="farm_notebook.farm_campaign_action" id="farm_campaign_menu"/>
-            <menuitem name="Farm notebook" parent="farm_managemen" action="farm_notebook.farm_notebook_action" id="farm_notebook_menu"/>
+            <menuitem name="Phytosanitaries" groups="custom_groups.group_tech_mngnt,custom_groups.group_admin" parent="farm_managemen" action="farm_notebook.phytosanitary_action" id="menu_phytosanitaries"/>
+            <menuitem name="Farm campaigns"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin" parent="farm_managemen" action="farm_notebook.farm_campaign_action" id="farm_campaign_menu"/>
+            <menuitem name="Farm notebook"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin" parent="farm_managemen" action="farm_notebook.farm_notebook_action" id="farm_notebook_menu"/>
 
         <menuitem id="myreport" name="Reports" parent="parent_menu" sequence="2" groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_sales"/>
 

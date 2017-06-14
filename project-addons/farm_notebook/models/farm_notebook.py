@@ -10,7 +10,8 @@ class FarmNotebook(models.Model):
     _name = 'farm.notebook'
     _rec_name = 'date'
 
-    partner = fields.Many2one('res.partner', required=True)
+    partner = fields.Many2one('res.partner', required=True,
+                              domain=[('farm', '=', True)])
     date = fields.Date(required=True)
     phytosanitary_applicators = fields.One2many(
         'phytosanitary.applicator.notebook', 'notebook')
@@ -132,7 +133,7 @@ class PhytosanitaryApplicatorNotebook(models.Model):
 
     applicator = fields.Many2one('phytosanitary.applicator')
     sequence = fields.Integer()
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
 
 
 class PhytosanitaryMachineNotebook(models.Model):
@@ -142,14 +143,14 @@ class PhytosanitaryMachineNotebook(models.Model):
 
     machine = fields.Many2one('phytosanitary.machine')
     sequence = fields.Integer()
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
 
 
 class AdvisorEntity(models.Model):
 
     _name = 'advisor.entity'
 
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     name = fields.Char()
     vat = fields.Char()
     id_number = fields.Char()
@@ -163,7 +164,7 @@ class ResPartnerFieldsNotebook(models.Model):
 
     sequence = fields.Integer()
     crop = fields.Many2one('farm.crop')
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     cultivated_area = fields.Float()
     raw_material = fields.Char()
     townhall_data = fields.Char(compute='_compute_townhall_data')
@@ -188,14 +189,14 @@ class PhytosanitaryUseNotebook(models.Model):
     phytosanitary_dose = fields.Char()
     use = fields.Char()
 
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
 
 
 class PhytosanitaryAdvisedUseNotebook(models.Model):
 
     _name = 'phytosanitary.advised.use.notebook'
 
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     species = fields.Char()
     use = fields.Char()
     field = fields.Many2one('res.partner.fields.notebook')
@@ -217,7 +218,7 @@ class PhytosanitaryAdvisedUseNotebook(models.Model):
 class TreatedSeedUse(models.Model):
 
     _name = 'treated.seed.use.notebook'
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     date = fields.Date()
     field = fields.Many2one('res.partner.fields.notebook')
     cultivation_specie = fields.Char()
@@ -230,7 +231,7 @@ class TreatedSeedUse(models.Model):
 class PostHarvestTreatements(models.Model):
 
     _name = 'post.harvest.treatements.notebook'
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     date = fields.Date()
     vegetable_product_treated = fields.Char()
     phytosanitary_problem = fields.Char()
@@ -243,7 +244,7 @@ class PostHarvestTreatements(models.Model):
 class StorageTreatements(models.Model):
 
     _name = 'storage.treatements.notebook'
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     date = fields.Date()
     storage_treated = fields.Char()
     phytosanitary_problem = fields.Char()
@@ -255,7 +256,7 @@ class StorageTreatements(models.Model):
 class TransportTreatements(models.Model):
 
     _name = 'transport.treatements.notebook'
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     date = fields.Date()
     vehicle = fields.Char()
     phytosanitary_problem = fields.Char()
@@ -267,7 +268,7 @@ class TransportTreatements(models.Model):
 class SoldedHarvest(models.Model):
 
     _name = 'solded.harvest'
-    notebook = fields.Many2one('farm.notebook')
+    notebook = fields.Many2one('farm.notebook', ondelete='cascade')
     date = fields.Date()
     product = fields.Char()
     product_qty = fields.Float('Product qty (kg)')

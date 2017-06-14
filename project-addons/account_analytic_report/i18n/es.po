@@ -16,6 +16,12 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: account_analytic_report
+#: field:account.analytic.report,campaign_1:0
+#: field:account.analytic.report,campaign_2:0
+msgid "Campaign"
+msgstr "Campaña"
+
+#. module: account_analytic_report
 #: field:account.analytic.report,zero_three_heifer_1:0
 #: field:account.analytic.report,zero_three_heifer_2:0
 msgid "0-3 months heifer"
@@ -612,4 +618,3 @@ msgstr "Informe"
 #: field:account.analytic.report.template.line,sequence:0
 msgid "sequence"
 msgstr "Secuencia"
-

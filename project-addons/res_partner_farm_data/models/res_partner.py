@@ -235,11 +235,11 @@ class ResPartner(models.Model):
                     'partner_id': self.id,
                     'date': vals.get('date_cow', date.today()),
                     'user_id': self.env.user.id,
-                    'heifer_0_3': vals.get('heifer_0_3', 0),
-                    'heifer_3_12': vals.get('heifer_3_12', 0),
-                    'heifer_plus_12': vals.get('heifer_plus_12', 0),
-                    'milk_cow': vals.get('milk_cow', 0),
-                    'dry_cow': vals.get('dry_cow', 0),
+                    'heifer_0_3': vals.get('heifer_0_3', partner.heifer_0_3),
+                    'heifer_3_12': vals.get('heifer_3_12', partner.heifer_3_12),
+                    'heifer_plus_12': vals.get('heifer_plus_12', partner.heifer_plus_12),
+                    'milk_cow': vals.get('milk_cow', partner.milk_cow),
+                    'dry_cow': vals.get('dry_cow', partner.dry_cow),
                 }
                 self.env['cow.count'].create(count_args)
                 partner.cow_count_ids.write({'state': 'history'})

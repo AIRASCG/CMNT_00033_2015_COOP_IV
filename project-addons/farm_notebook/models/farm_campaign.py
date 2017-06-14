@@ -40,8 +40,10 @@ class FarmCrop(models.Model):
 
     _name = 'farm.crop'
 
-    campaign = fields.Many2one('farm.campaign', required=True)
-    field = fields.Many2one('res.partner.fields', required=True)
+    campaign = fields.Many2one('farm.campaign', required=True,
+                               ondelete='cascade')
+    field = fields.Many2one('res.partner.fields', required=True,
+                            ondelete='cascade')
     cultivated_area = fields.Float()
 
     @api.onchange('field')

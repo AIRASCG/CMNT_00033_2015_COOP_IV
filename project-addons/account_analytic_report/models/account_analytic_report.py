@@ -62,7 +62,7 @@ class AccountAnalyticReport(models.Model):
     kg_another_1 = fields.Float('Another Kg')
     cow_buy_1 = fields.Float('Livestock purchased')
     inventory_difference_1 = fields.Float('Inventory difference')
-    campaign_1 = fields.Many2one('farm.campaign')
+    campaign_1 = fields.Many2one('farm.campaign', 'Campaign')
 
     ref_2 = fields.Reference(
         selection=[('res.company', 'Company'),
@@ -94,7 +94,7 @@ class AccountAnalyticReport(models.Model):
     kg_another_2 = fields.Float('Another Kg')
     cow_buy_2 = fields.Float('Livestock purchased')
     inventory_difference_2 = fields.Float('Inventory difference')
-    campaign_2 = fields.Many2one('farm.campaign')
+    campaign_2 = fields.Many2one('farm.campaign', 'Campaign')
 
     line_ids = fields.One2many('account.analytic.report.line', 'report_id',
                                'Lines')
