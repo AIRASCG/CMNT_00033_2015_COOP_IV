@@ -21,6 +21,13 @@ msgstr ""
 msgid "Custom id"
 msgstr "ID"
 
+
+#. module: farm_notebook
+#: view:phytosanitary:farm_notebook.phytosanitary_view_form
+#: view:phytosanitary.add.campaign:farm_notebook.phytosanitary_add_campaign_wizard_menu
+msgid "Add campaign"
+msgstr "Add campaign"
+
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/models/res_partner.py:409
 #: code:addons/res_partner_farm_data/models/res_partner.py:411

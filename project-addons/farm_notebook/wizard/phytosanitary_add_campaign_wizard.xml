@@ -26,7 +26,7 @@
             </field>
         </record>
 
-        <act_window name="phytosanitary_add_campaign_wizard"
+        <act_window name="Add campaign"
             res_model="phytosanitary.add.campaign"
             view_id="phytosanitary_add_campaign_wizard_menu"
             view_mode="form"

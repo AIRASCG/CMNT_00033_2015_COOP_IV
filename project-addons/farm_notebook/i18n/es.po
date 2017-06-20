@@ -15,6 +15,12 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. module: farm_notebook
+#: model:ir.actions.act_window,name:farm_notebook.phytosanitary_add_campaign_wizard_action
+#: view:phytosanitary:farm_notebook.phytosanitary_view_form
+#: view:phytosanitary.add.campaign:farm_notebook.phytosanitary_add_campaign_wizard_menu
+msgid "Add campaign"
+msgstr "Añadir campaña"
 
 #. module: farm_notebook
 #: field:invoice.add.phytosanitary,total_qty:0
@@ -173,6 +179,7 @@ msgid "Aplicador"
 msgstr "Aplicador"
 
 #. module: farm_notebook
+#: field:phytosanitary.add.campaign,applicator:0
 #: field:phytosanitary.applicator.notebook,applicator:0
 #: field:phytosanitary.use,applicator:0
 #: field:phytosanitary.use.notebook,applicator:0
@@ -251,6 +258,7 @@ msgstr "CULTIVO"
 #: field:account.invoice.line,campaign:0
 #: field:account.move.line,campaign:0
 #: field:farm.crop,campaign:0
+#: field:phytosanitary.add.campaign,campaign:0
 #: field:phytosanitary.use,campaign:0
 #: field:phytosanitary.use.notebook,campaign:0
 msgid "Campaign"
@@ -269,6 +277,7 @@ msgstr "Campañas"
 
 #. module: farm_notebook
 #: view:invoice.add.phytosanitary:farm_notebook.invoice_add_phytosanitary_view
+#: view:phytosanitary.add.campaign:farm_notebook.phytosanitary_add_campaign_wizard_menu
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -460,6 +469,7 @@ msgstr "DATOS DE LA PARCELA"
 
 #. module: farm_notebook
 #: field:farm.notebook,date:0
+#: field:phytosanitary.add.campaign,date:0
 #: field:phytosanitary.use,date:0
 #: field:phytosanitary.use.notebook,date:0
 #: field:post.harvest.treatements.notebook,date:0
@@ -872,6 +882,7 @@ msgid "Location Name"
 msgstr "Nombre de finca"
 
 #. module: farm_notebook
+#: field:phytosanitary.add.campaign,machine:0
 #: field:phytosanitary.machine.notebook,machine:0
 #: field:phytosanitary.use,machine:0
 #: field:phytosanitary.use.notebook,machine:0
@@ -1637,8 +1648,9 @@ msgstr "e-mail:"
 
 #. module: farm_notebook
 #: view:invoice.add.phytosanitary:farm_notebook.invoice_add_phytosanitary_view
+#: view:phytosanitary.add.campaign:farm_notebook.phytosanitary_add_campaign_wizard_menu
 msgid "or"
-msgstr "or"
+msgstr "o"
 
 #. module: farm_notebook
 #: selection:phytosanitary.applicator,license_type:0
