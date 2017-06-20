@@ -40,6 +40,7 @@
                 <sheet>
                     <group colspan="4">
                         <group col="2">
+                            <field name="custom_id"/>
                             <field name="province_id"/>
                             <field name="partner_id" domain="[('farm', '=', True)]"/>
                             <field name="townhall_id"/>
@@ -75,6 +76,7 @@
             <field name="arch" type="xml">
                 <search string="Partner fields">
                     <field name="location_name"/>
+                    <field name="custom_id"/>
                     <field name="year"/>
                     <group expand="0" string="Group By">
                         <filter string="Year" icon="terp-personal" domain="[]" context="{'group_by':'year'}"/>

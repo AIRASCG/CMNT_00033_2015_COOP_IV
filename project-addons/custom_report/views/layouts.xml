@@ -61,5 +61,50 @@
             </xpath>
         </template>
 
+
+        <template id="report.external_layout_landscape">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.cooperative_company"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company.cooperative_company"></t>
+            </t>
+
+            <t t-call="report.external_layout_header_landscape" />
+            <t t-raw="0" />
+            <t t-call="report.external_layout_footer" />
+        </template>
+
+        <template id="report.external_layout_header_landscape">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-7">
+                        <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 70px;"/>
+                        <div t-field="company.sudo().partner_id"
+                            t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": true}'
+                        />
+                    </div>
+                    <div class="col-xs-5 text-right">
+                        <p>
+                            <strong>Fecha del informe</strong><br/>
+                            <span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/><br/>
+                        <t t-if="'name' in o">
+                                <strong>Nombre informe</strong><br/>
+                                <span t-esc="o.name"/><br/>
+                        </t>
+                            <strong>Autor</strong><br/>
+                            <span t-esc="o.env.user.name"/>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12"><span style="color: #D5D5D5">Informe generado con</span> milkoop.es</div>
+                </div>
+                <div style="border-top: 1px solid #D5D5D5; height: 15px;"/>
+                <img src="/custom_report/static/src/img/milkoop-pdf.png" style="width: 100%; position:fixed; top:250px; z-index:99; color:white;"/>
+            </div>
+        </template>
+
     </data>
 </openerp>

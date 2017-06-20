@@ -29,9 +29,9 @@
                             <field name="surface_treated"/>
                             <field name="phytosanitary_problem"/>
                             <field name="efficacy"/>
-                            <field name="applicator"/>
-                            <field name="machine"/>
-                            <field name="date"/>
+                            <field name="applicator" required="True"/>
+                            <field name="machine" required="True"/>
+                            <field name="date" required="True"/>
                             <field name="notes"/>
                         </tree>
                     </field>

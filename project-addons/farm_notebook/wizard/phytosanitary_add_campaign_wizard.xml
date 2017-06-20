@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2017 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="phytosanitary_add_campaign_wizard_menu" model="ir.ui.view">
+            <field name="name">phytosanitary.add.campaign.form</field>
+            <field name="model">phytosanitary.add.campaign</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="campaign"/>
+                        <field name="applicator"/>
+                        <field name="machine"/>
+                        <field name="date"/>
+                    </group>
+                    <footer>
+                        <button name="add_campaign" string="Add campaign" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="phytosanitary_add_campaign_wizard"
+            res_model="phytosanitary.add.campaign"
+            view_id="phytosanitary_add_campaign_wizard_menu"
+            view_mode="form"
+            target="new"
+            id="phytosanitary_add_campaign_wizard_action"/>
+
+    </data>
+</openerp>

@@ -399,6 +399,12 @@ class ResPartnerFields(models.Model):
     location_name = fields.Char("Location Name")
     rent = fields.Float("Rent")
     year = fields.Char("Year")
+    custom_id = fields.Char()
+    cooperative = fields.Many2one('res.company', related='partner_id.company_id.cooperative_company', store=True)
+
+    _sql_constraints = [
+        ('cne_unique', 'unique(custom_id,cooperative)', 'The id is alredery assigned!')
+    ]
 
 
     @api.multi

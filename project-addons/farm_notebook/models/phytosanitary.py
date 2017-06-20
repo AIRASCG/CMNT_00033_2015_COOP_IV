@@ -52,7 +52,7 @@ class PhytosanitaryUse(models.Model):
 
     phytosanitary = fields.Many2one('phytosanitary', required=True,
                                     ondelete='cascade')
-    date = fields.Date(required=True)
+    date = fields.Date()
     partner_field = fields.Many2one('res.partner.fields', required=True,
                                     ondelete='cascade')
     campaign = fields.Many2one('farm.campaign', required=True,
@@ -61,8 +61,8 @@ class PhytosanitaryUse(models.Model):
     phytosanitary_problem = fields.Char()
     efficacy = fields.Char()
     used_qty = fields.Float()
-    applicator = fields.Many2one('phytosanitary.applicator', required=True)
-    machine = fields.Many2one('phytosanitary.machine', required=True)
+    applicator = fields.Many2one('phytosanitary.applicator')
+    machine = fields.Many2one('phytosanitary.machine')
     notes = fields.Char()
     year = fields.Char(compute='_compute_use_year')
 

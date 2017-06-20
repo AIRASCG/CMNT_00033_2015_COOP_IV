@@ -41,18 +41,19 @@
                         </group>
                     </group>
                     <separator string="Phytosanitary uses"/>
+                    <button name="%(farm_notebook.phytosanitary_add_campaign_wizard_action)d" string="Add campaign" type="action"/>
                     <field name="phytosanitary_uses">
                         <tree editable="top">
                             <field name="year" invisible="1"/>
-                            <field name="date"/>
+                            <field name="date" required="True"/>
                             <field name="partner_field" domain="[('year', '=', year)]"/>
                             <field name="campaign"/>
                             <field name="surface_treated"/>
                             <field name="phytosanitary_problem"/>
                             <field name="efficacy"/>
                             <field name="used_qty"/>
-                            <field name="applicator"/>
-                            <field name="machine"/>
+                            <field name="applicator" required="True"/>
+                            <field name="machine" required="True"/>
                             <field name="notes"/>
                         </tree>
                     </field>

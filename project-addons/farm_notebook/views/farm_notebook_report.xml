@@ -63,8 +63,8 @@
                 }
 
             </style>
-            <t t-call="report.html_container">
-                <t t-foreach="docs" t-as="o">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="report.external_layout_landscape">
                     <div class="page">
                         <div class="page_1">
                             <div class="section_head">
