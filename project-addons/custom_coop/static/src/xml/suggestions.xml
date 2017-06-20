@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+
+    <!-- Groups placeholder in sidebar -->
+    <t t-extend="mail.wall.sidebar">
+        <t t-jquery=".oe_mail_wall_sidebar" t-operation="replace">
+        </t>
+    </t>
+
+</template>

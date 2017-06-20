@@ -69,5 +69,9 @@
              'views/res_group.xml',
              'views/account_invoice.xml',
              'views/base_view.xml'],
-    "installable": True
+    "installable": True,
+
+    'qweb': [
+        'static/src/xml/suggestions.xml',
+    ],
 }
