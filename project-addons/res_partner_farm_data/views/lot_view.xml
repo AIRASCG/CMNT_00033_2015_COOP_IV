@@ -212,7 +212,50 @@
                         </group>
                         <field name="notes" placeholder="Notes..."/>
                         <field name="lot_contents"/>
+                        <span>Sumario</span>
+                        <table class="o_list_view table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Total KG teórico</th>
+                                    <th>Total MS teórico</th>
+                                    <th>Total ENL teórico</th>
+                                    <th>Total PB teórico</th>
+                                    <th>Total KG</th>
+                                    <th>Total MS</th>
+                                    <th>Total ENL</th>
+                                    <th>Total PB</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><field name="total_theo_kg"/></td>
+                                    <td><field name="total_theo_ms"/></td>
+                                    <td><field name="total_theo_enl"/></td>
+                                    <td><field name="total_theo_pb"/></td>
+                                    <td><field name="total_kg"/></td>
+                                    <td><field name="total_ms"/></td>
+                                    <td><field name="total_enl"/></td>
+                                    <td><field name="total_pb"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <group col="3">
+                            <span colspan="1"></span>
+                            <span colspan="1">Sin corregir</span>
+                            <span colspan="1">Corregida</span>
 
+                            <span colspan="1">Producción por vaca lactante:</span>
+                            <field name="milk_cow_production" nolabel="1"/>
+                            <field name="milk_cow_production_corrected" nolabel="1"/>
+
+                            <span colspan="1">Producción por vaca presente</span>
+                            <field name="eat_cow_production" nolabel="1"/>
+                            <field name="eat_cow_production_corrected" nolabel="1"/>
+
+                            <span colspan="1">Producción por cubículo</span>
+                            <field name="cubicle_production" nolabel="1"/>
+                            <field name="cubicle_production_corrected" nolabel="1"/>
+                        </group>
                         <group col="4">
                             <span colspan="1"></span>
                             <span colspan="1">Teorical</span>
@@ -349,14 +392,14 @@
                 <tree string="Lot">
                     <field name="eur_ton_mf"/>
                     <field name="product_id"/>
-                    <field name="theorical_kg_ration" string="Theorical Kg/Ration" sum="total"/>
-                    <field name="theorical_ms" string="Theorical %MS" sum="total"/>
-                    <field name="theorical_enl" string="Theorical ENL" sum="total"/>
-                    <field name="theorical_pb" string="Theorical %PB" sum="total"/>
-                    <field name="kg_ration" string="Real Kg/Ration" sum="total"/>
-                    <field name="ms" string="Real %MS" sum="total"/>
-                    <field name="enl" string="Real ENL" sum="total"/>
-                    <field name="pb" string="Real %PB" sum="total"/>
+                    <field name="theorical_kg_ration" string="Theorical Kg/Ration"/>
+                    <field name="theorical_ms" string="Theorical %MS"/>
+                    <field name="theorical_enl" string="Theorical ENL"/>
+                    <field name="theorical_pb" string="Theorical %PB"/>
+                    <field name="kg_ration" string="Real Kg/Ration"/>
+                    <field name="ms" string="Real %MS"/>
+                    <field name="enl" string="Real ENL"/>
+                    <field name="pb" string="Real %PB"/>
                 </tree>
             </field>
         </record>
@@ -373,6 +416,7 @@
                     <sheet>
                         <group>
                             <field name="eur_ton_mf"/>
+                            <field name="purchase"/>
                             <field name="product_id" widget="selection"/>
                                 <group string="Theorical ration">
                                     <field name="theorical_kg_ration"/>

@@ -60,7 +60,7 @@ class LotReport(models.AbstractModel):
                     subtotal += amount
                 body.append(subtotal)
                 if o.number_milking_cows:
-                    body.append(subtotal / o.number_milking_cows)
+                    body.append(round(subtotal / o.number_milking_cows, 2))
                 else:
                     body.append(0)
                 z.append(body)

@@ -147,7 +147,16 @@ class Lot(models.Model):
              ('id', '!=', self.id), ('date', '<=', self.date),
              ('state', '=', 'validated')],
             order='date desc', limit=1)
-        last_lot.lot_details.copy({'lot_id': self.id, 'date': datetime.now()})
+        for detail in last_lot.lot_details:
+            new_detail = detail.copy({'lot_id': self.id, 'date': datetime.now(), 'lot_contents': False})
+            for content in detail.lot_contents:
+                content.copy(
+                    {'detail_id': new_detail.id,
+                     'manual_setted': True,
+                     '_theorical_kg_ration': content.kg_ration,
+                     '_theorical_ms': content.ms,
+                     '_theorical_enl': content.enl,
+                     '_theorical_pb': content.pb})
         self.collection_frequency = last_lot.collection_frequency
         self.number_cubicle_lactation = last_lot.number_cubicle_lactation
         self.milk_price = last_lot.milk_price
@@ -380,6 +389,16 @@ class LotDetail(models.Model):
     sequence = fields.Integer('Sequence', related='sequence_id.name')
     max_seq = fields.Integer('', compute='_get_max_sequence', store=True)
 
+    total_theo_kg = fields.Float('Total Kg theorical', compute='_get_lot_calcs')
+    total_theo_ms = fields.Float('', compute='_get_lot_calcs')
+    total_theo_enl = fields.Float('Total ENL theorical', compute='_get_lot_calcs')
+    total_theo_pb = fields.Float('Total PB theorical', compute='_get_lot_calcs')
+
+    total_kg = fields.Float('Total Kg', compute='_get_lot_calcs')
+    total_ms = fields.Float('', compute='_get_lot_calcs')
+    total_enl = fields.Float('Total ENL', compute='_get_lot_calcs')
+    total_pb = fields.Float('Total PB', compute='_get_lot_calcs')
+
     @api.multi
     def _set_kf_mf_carriage(self):
         for lot_detail in self:
@@ -456,6 +475,53 @@ class LotDetail(models.Model):
                                                 lot_detail.number_milking_cows) / 2))
             else:
                 res['imf_real'] = 0
+
+            res['total_theo_kg'] = sum([x.theorical_kg_ration for x in lot_detail.lot_contents])
+            if res['total_theo_kg'] != 0:
+                res['total_theo_ms'] = sum([x.theorical_ms * x.theorical_kg_ration for x in lot_detail.lot_contents]) / res['total_theo_kg']
+            else:
+                res['total_theo_ms'] = 0
+            if sum([x.theorical_kg_ration * x.theorical_ms for x in lot_detail.lot_contents]) != 0:
+                res['total_theo_enl'] = sum(
+                    [(x.theorical_kg_ration * x.theorical_ms) * x.theorical_enl
+                     for x in lot_detail.lot_contents]) / \
+                     sum([x.theorical_kg_ration * x.theorical_ms
+                          for x in lot_detail.lot_contents])
+            else:
+                res['total_theo_enl'] = 0
+
+            if sum([x.theorical_kg_ration * x.theorical_ms for x in lot_detail.lot_contents]) != 0:
+                res['total_theo_pb'] = (
+                    sum([(x.theorical_kg_ration * x.theorical_ms) * x.theorical_pb * 1000
+                         for x in lot_detail.lot_contents]) /
+                        sum([x.theorical_kg_ration * x.theorical_ms
+                             for x in lot_detail.lot_contents])) / 1000
+            else:
+                res['total_theo_pb'] = 0
+
+            res['total_kg'] = sum([x.kg_ration for x in lot_detail.lot_contents])
+            if res['total_kg'] != 0:
+                res['total_ms'] = sum([x.ms * x.kg_ration for x in lot_detail.lot_contents]) / res['total_kg']
+            else:
+                res['total_ms'] = 0
+            if sum([x.kg_ration * x.ms for x in lot_detail.lot_contents]) != 0:
+                res['total_enl'] = sum(
+                    [(x.kg_ration * x.ms) * x.enl
+                     for x in lot_detail.lot_contents]) / \
+                     sum([x.kg_ration * x.ms
+                          for x in lot_detail.lot_contents])
+            else:
+                res['total_enl'] = 0
+
+            if sum([x.kg_ration * x.ms for x in lot_detail.lot_contents]) != 0:
+                res['total_pb'] = (
+                    sum([(x.kg_ration * x.ms) * x.pb * 1000
+                         for x in lot_detail.lot_contents]) /
+                        sum([x.kg_ration * x.ms
+                             for x in lot_detail.lot_contents])) / 1000
+            else:
+                res['total_pb'] = 0
+
             res['imf_anal'] = res['imf_real']
             if lot_detail.cows_eat_number:
                 res['kg_plucking_cow_day_theo'] = lot_detail.kg_plucking_theo / lot_detail.cows_eat_number
@@ -641,15 +707,29 @@ class LotDetail(models.Model):
                 res['ration_carriage_cost_eur_cow_day_real']
             res['diff_ing_cost'] = res['ingress_milk_cow_day'] - \
                 res['feed_cost_cow_day']
+
             if res['ingress_milk_cow_day'] != 0:
                 res['perc_feed_milk_ingress'] = res['feed_cost_cow_day'] / \
                     res['ingress_milk_cow_day'] * 100
+
+                total_kg_ration_purchased = sum([x.kg_ration for x in lot_detail.lot_contents if x.purchase])
+                if total_kg_ration_purchased != 0.0:
+                    perc_ms_ration_real_purchased = sum([x.kg_ration * x.ms for x in
+                                                      lot_detail.lot_contents if x.purchase]) / total_kg_ration_purchased
+                else:
+                    perc_ms_ration_real_purchased = 0.0
+                if res['imf_real'] != 0:
+                    ims_total_kg_cow_day_real_purchased = perc_ms_ration_real_purchased / 100 * res['imf_real']
+                else:
+                    ims_total_kg_cow_day_real_purchased = 0
+                feed_cost_cow_day_purchased = (ims_total_kg_cow_day_real_purchased * res['ration_cost_eur_ton_ms_real'] / 1000) + lot.carriage_cost_cow_day
+                res['perc_purchased_feed_milk_ingress'] = feed_cost_cow_day_purchased / res['ingress_milk_cow_day'] * 100
             else:
                 res['perc_feed_milk_ingress'] = 0.0
+                res['perc_purchased_feed_milk_ingress'] = 0.0
 
-            res['perc_purchased_feed_milk_ingress'] = 0
             y3 = sum([x.kg_ration * x.eur_ton_mf / 1000 for x in
-                      lot_detail.lot_contents if x.product_id.concenctrate])
+                      lot_detail.lot_contents if x.product_id.concentrated])
             if res['ingress_milk_cow_day'] != 0 and lot_detail.cows_eat_number:
                 res['perc_concentrated_milk_ingress'] = (
                     (y3 * lot_detail.rations_make_number) /
@@ -658,7 +738,7 @@ class LotDetail(models.Model):
             else:
                 res['perc_concentrated_milk_ingress'] = 0.0
             i3 = sum([x.kg_ration for x in lot_detail.lot_contents
-                      if x.product_id.concenctrate])
+                      if x.product_id.concentrated])
             if i3 * lot_detail.rations_make_number != 0:
                 res['liters_produced_kg_concentrated_used'] = (
                     float(lot_detail.tank_liters) + lot_detail.retired_liters +
@@ -718,6 +798,7 @@ class LotContent(models.Model):
     message_ms = fields.Char(compute='_compute_message')
     message_enl = fields.Char(compute='_compute_message')
     message_pb = fields.Char(compute='_compute_message')
+    purchase = fields.Boolean()
 
     @api.multi
     def set_real_by_theorical(self):

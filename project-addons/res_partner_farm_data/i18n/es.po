@@ -21,6 +21,10 @@ msgstr ""
 msgid "Custom id"
 msgstr "ID"
 
+#. module: res_partner_farm_data
+#: field:lot.content,purchase:0
+msgid "Purchase"
+msgstr "Comprado"
 
 #. module: farm_notebook
 #: view:phytosanitary:farm_notebook.phytosanitary_view_form
@@ -476,7 +480,7 @@ msgid "Company"
 msgstr "Compañía"
 
 #. module: res_partner_farm_data
-#: field:product.product,concenctrate:0
+#: field:product.product,concentrated:0
 msgid "Concentrate"
 msgstr "Concentrado"
 
@@ -1332,7 +1336,7 @@ msgstr "IMSTOTAL (kg/vaca y día):"
 #. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form
 msgid "IMSunifed  (Kg/vaca y día):"
-msgstr "IMS unificado (Kg/vaca y día):"
+msgstr "IMS unifeed:"
 
 #. module: res_partner_farm_data
 #: field:lot.detail,ic_corrected_liters_kg_anal:0
@@ -3086,7 +3090,7 @@ msgstr "Seg terc lact porcen animales 2"
 #: field:lot.detail,sequence:0
 #: field:lot.detail,sequence_id:0
 msgid "Sequence"
-msgstr "Secuencia"
+msgstr "Lote"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
