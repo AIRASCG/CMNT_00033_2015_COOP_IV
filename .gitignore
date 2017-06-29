@@ -13,6 +13,7 @@ sandbox/
 openerp*
 .installed.cfg
 .idea
+.vscode
 upgrade.py
 *.log
 *.pyc
