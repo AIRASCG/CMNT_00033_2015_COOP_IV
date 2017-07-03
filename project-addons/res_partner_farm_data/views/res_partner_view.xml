@@ -11,6 +11,7 @@
                 <field name="partner_id"/>
                 <field name="province_id"/>
                 <field name="townhall_id"/>
+                <field name="year"/>
                 <field name="added"/>
                 <field name="zone"/>
                 <field name="industrial_estate"/>
@@ -26,7 +27,6 @@
                 <field name="variety"/>
                 <field name="location_name"/>
                 <field name="rent"/>
-                <field name="year"/>
             </tree>
           </field>
         </record>
@@ -174,8 +174,8 @@
                 </page>
                 <field name="website" position="after">
                     <field name="ref"/>
-                    <field name="gescarro_reference"/>
-                    <field name="erp_reference"/>
+                    <field name="gescarro_reference"  attrs="{'invisible': [('farm', '=', False)]}"/>
+                    <field name="erp_reference"  attrs="{'invisible': [('farm', '=', False)]}"/>
                     <field name="is_cooperative" invisible="1"/>
                     <field name="active" attrs="{'invisible': [('is_cooperative', '=', True)]}"/>
                     <field name="temporary_farm" attrs="{'invisible': [('farm', '=', False)]}"/>
@@ -196,6 +196,9 @@
             <field name="arch" type="xml">
                 <button name="%(crm.crm_case_category_act_oppor11)d" position="attributes">
                     <attribute name="invisible">1</attribute>
+                </button>
+                <button name="schedule_meeting" position="attributes">
+                    <attribute name="attrs">{'invisible': [('farm', '!=', True)]}</attribute>
                 </button>
             </field>
         </record>
@@ -466,7 +469,8 @@
             <field name="inherit_id" ref="account.partner_view_buttons"/>
             <field name="arch" type="xml">
                 <button name="%(account.action_invoice_refund_out_tree)d" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', ('customer', '=', False), ('farm', '=', True)]}</attribute>
+                    <!--attribute name="attrs">{'invisible': ['|', ('customer', '=', False), ('farm', '=', True)]}</attribute-->
+                    <attribute name="invisible">1</attribute>
                 </button>
             </field>
         </record>
@@ -500,6 +504,17 @@
         <delete model="ir.actions.act_window" id="account.act_account_invoice_partner_relation"/>
         <delete model="ir.actions.act_window" id="account.action_account_partner_ledger"/>
         <delete model="ir.actions.report.xml" id="account.action_report_print_overdue"/>
+
+        <record id="res_partner_remove_task_button" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="project.view_task_partner_info_form"/>
+            <field name="arch" type="xml">
+                <button name="%(project.action_view_task)d" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </button>
+            </field>
+        </record>
 
 
         <record id="res_partner_attachment_view_tree" model="ir.ui.view">

@@ -16,13 +16,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: farm_notebook
-#: model:ir.actions.act_window,name:farm_notebook.phytosanitary_add_campaign_wizard_action
-#: view:phytosanitary:farm_notebook.phytosanitary_view_form
-#: view:phytosanitary.add.campaign:farm_notebook.phytosanitary_add_campaign_wizard_menu
-msgid "Add campaign"
-msgstr "Añadir campaña"
-
-#. module: farm_notebook
 #: field:invoice.add.phytosanitary,total_qty:0
 #: field:phytosanitary,total_qty:0
 msgid "Total qty"
@@ -141,6 +134,13 @@ msgstr "Added"
 #: field:phytosanitary.applicator.notebook,adviser:0
 msgid "Adviser"
 msgstr "Asesor"
+
+#. module: farm_notebook
+#: model:ir.actions.act_window,name:farm_notebook.phytosanitary_add_campaign_wizard_action
+#: view:phytosanitary:farm_notebook.phytosanitary_view_form
+#: view:phytosanitary.add.campaign:farm_notebook.phytosanitary_add_campaign_wizard_menu
+msgid "Add campaign"
+msgstr "Añadir campaña"
 
 #. module: farm_notebook
 #: view:farm.notebook:farm_notebook.farm_notebook_view_form
@@ -313,7 +313,11 @@ msgid "Cliente"
 msgstr "Cliente"
 
 #. module: farm_notebook
+#: field:farm.campaign,company_id:0
+#: field:phytosanitary,company_id:0
+#: field:phytosanitary.applicator,company_id:0
 #: field:phytosanitary.applicator.notebook,company_id:0
+#: field:phytosanitary.machine,company_id:0
 #: field:phytosanitary.machine.notebook,company_id:0
 msgid "Company"
 msgstr "Compañía"
