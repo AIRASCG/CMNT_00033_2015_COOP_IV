@@ -26,7 +26,7 @@ class AccountAnalyticAccount(models.Model):
 
     @api.model
     def create(self, vals):
-        if not vals.get('parent_id', False):
+        if not vals.get('parent_id', False) and vals.get('type', False) != 'contract':
             if self.env.user.id != 1:
                 raise exceptions.Warning(_('Create error'), _('Unauthorized user'))
         return super(AccountAnalyticAccount, self).create(vals)

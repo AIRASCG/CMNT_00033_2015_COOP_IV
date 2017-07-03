@@ -6,6 +6,15 @@ from openerp import models, fields, api, exceptions, _
 from datetime import datetime, timedelta
 
 
+class ProjectProject(models.Model):
+
+    _inherit = 'project.project'
+
+    @api.model
+    def create(self, vals):
+        return super(ProjectProject, self.with_context(bypass_cud_protection=True)).create(vals)
+
+
 class ProjectCategory(models.Model):
 
     _inherit = 'project.category'
