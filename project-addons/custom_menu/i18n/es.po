@@ -16,6 +16,18 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree1_all
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_line_tree1_all
+msgid "Customer all Invoice lines"
+msgstr "Todas las lineas de factura de clinete"
+
+#. module: custom_menu
+#: model:ir.actions.act_window,name:custom_menu.action_invoice_line_tree2_all
+#: model:ir.ui.menu,name:custom_menu.menu_action_invoice_line_tree2_all
+msgid "Supplier all Invoice lines"
+msgstr "Todas las lineas de factura de proveedor"
+
+#. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_phytosanitaries
 msgid "Phytosanitaries"
 msgstr "Fitosanitarios"

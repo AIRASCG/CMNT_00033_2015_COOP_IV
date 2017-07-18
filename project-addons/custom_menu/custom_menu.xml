@@ -178,6 +178,26 @@
             <field name="domain">[('invoice_id.type','=','in_invoice'),('invoice_id.state', '=', 'draft')]</field>
         </record>
 
+        <record id="action_invoice_line_tree1_all" model="ir.actions.act_window">
+            <field name="name">Customer all Invoice lines</field>
+            <field name="res_model">account.invoice.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field ref="account.view_invoice_line_tree" name="view_id"/>
+            <field ref="account_invoice_line_search" name="search_view_id"/>
+            <field name="domain">[('invoice_id.type','=','out_invoice')]</field>
+        </record>
+
+        <record id="action_invoice_line_tree2_all" model="ir.actions.act_window">
+            <field name="name">Supplier all Invoice lines</field>
+            <field name="res_model">account.invoice.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field ref="account.view_invoice_line_tree" name="view_id"/>
+            <field ref="account_invoice_line_search" name="search_view_id"/>
+            <field name="domain">[('invoice_id.type','=','in_invoice')]</field>
+        </record>
+
         <record id="view_invoice_line_tree_editable" model="ir.ui.view">
             <field name="name">account.invoice.line.tree</field>
             <field name="model">account.invoice.line</field>
@@ -204,8 +224,13 @@
                 <menuitem action="account.action_invoice_tree1" id="menu_action_invoice_tree1" parent="menu_tech_invoices" sequence="1"/>
                 <menuitem action="action_invoice_line_tree1" id="menu_action_invoice_line_tree1" parent="menu_tech_invoices"  sequence="2"
                      groups="custom_groups.group_tech_feed,custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_rancher"/>
-                <menuitem action="account.action_invoice_tree2" id="menu_action_invoice_tree2" parent="menu_tech_invoices"  sequence="3"/>
-                <menuitem action="action_invoice_line_tree2" id="menu_action_invoice_line_tree2" parent="menu_tech_invoices"  sequence="4"
+                <menuitem action="action_invoice_line_tree1_all" id="menu_action_invoice_line_tree1_all" parent="menu_tech_invoices"  sequence="3"
+                     groups="custom_groups.group_tech_feed,custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_rancher"/>
+                <menuitem action="account.action_invoice_tree2" id="menu_action_invoice_tree2" parent="menu_tech_invoices"  sequence="4"/>
+                <menuitem action="action_invoice_line_tree2" id="menu_action_invoice_line_tree2" parent="menu_tech_invoices"  sequence="5"
+                     groups="custom_groups.group_tech_feed,custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_rancher"/>
+
+                <menuitem action="action_invoice_line_tree2_all" id="menu_action_invoice_line_tree2_all" parent="menu_tech_invoices"  sequence="6"
                      groups="custom_groups.group_tech_feed,custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_rancher"/>
 
             <menuitem id="menu_finance_assets" name="Assets" parent="tech_economic_management"/>
