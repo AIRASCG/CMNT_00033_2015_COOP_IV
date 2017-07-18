@@ -37,3 +37,22 @@ class AccountAnalyticJournal(models.Model):
 
     company_id = fields.Many2one('res.company', 'Company', required=False,
                                  default=False)
+
+
+class AccountAnalyticPlanInstance(models.Model):
+
+    _inherit = 'account.analytic.plan.instance'
+
+    allowed_products = fields.Many2many(
+        'product.product',
+        'analytic_plan_product_rel',
+        'plan_id',
+        'product_id')
+
+    @api.model
+    def create(self, vals):
+        if self._context.get('product_id'):
+            if 'allowed_products' not in vals:
+                vals['allowed_products'] = []
+            vals['allowed_products'].append((4, self._context.get('product_id')))
+        return super(AccountAnalyticPlanInstance, self).create(vals)

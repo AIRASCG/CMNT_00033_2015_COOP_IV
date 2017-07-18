@@ -17,6 +17,21 @@
             </field>
         </record>
 
+        <record id="analytics_plans_add_domain" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="sale_analytic_plans.view_invoice_form_analytic_inherit"/>
+            <field name="arch" type="xml">
+                <field name="product_id" position="after">
+                    <field name="allowed_analytic_plans" invisible="1"/>
+                </field>
+                <field name="analytics_id" position="attributes">
+                    <attribute name="domain">[('plan_id','&lt;&gt;',False), ('id', 'in',  allowed_analytic_plans and allowed_analytic_plans[0] and allowed_analytic_plans[0][2] or False)]</attribute>
+                    <attribute name="context">{'product_id': product_id, 'journal_id':parent.journal_id}</attribute>
+                </field>
+            </field>
+        </record>
+
         <record id="invoice_supplier_product_no_create" model="ir.ui.view">
             <field name="name">account.invoice.form</field>
             <field name="model">account.invoice</field>

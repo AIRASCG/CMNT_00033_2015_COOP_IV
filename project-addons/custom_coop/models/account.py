@@ -113,3 +113,13 @@ class AccountInvoiceLine(models.Model):
     date_invoice = fields.Date(related='invoice_id.date_invoice')
     partner_id = fields.Many2one('res.partner',
                                  related='invoice_id.partner_id')
+    allowed_analytic_plans = fields.Many2many(
+        'account.analytic.plan.instance', compute='_compute_allowed_analytic_plans')
+
+    @api.depends('product_id')
+    def _compute_allowed_analytic_plans(self):
+        for line in self:
+            if line.product_id:
+                line.allowed_analytic_plans = self.env['account.analytic.plan.instance'].search(
+                    ['|', ('allowed_products', '=', line.product_id.id),
+                     ('allowed_products', '=', False)])

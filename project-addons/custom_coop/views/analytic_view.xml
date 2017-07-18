@@ -13,5 +13,17 @@
             </field>
         </record>
 
+        <record id="account_analytic_plan_instance_add_allowed_products" model="ir.ui.view">
+            <field name="name">account.analytic.plan.instance.form</field>
+            <field name="model">account.analytic.plan.instance</field>
+            <field name="inherit_id" ref="account_analytic_plans.account_analytic_plan_instance_form"/>
+            <field name="arch" type="xml">
+                <field name="account_ids" position="after">
+                    <separator string="Allowed products"/>
+                    <field name="allowed_products" />
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>
