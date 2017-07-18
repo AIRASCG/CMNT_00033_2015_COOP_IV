@@ -375,14 +375,14 @@
                             <group col="6" colspan="4">
                                 <group>
                                     <field name="heifer_0_3"/>
-                                    <field name="milk_cow"/>
-                                </group>
-                                <group>
                                     <field name="heifer_3_12"/>
-                                    <field name="dry_cow"/>
                                 </group>
                                 <group>
                                     <field name="heifer_plus_12"/>
+                                    <field name="milk_cow"/>
+                                </group>
+                                <group>
+                                    <field name="dry_cow"/>
                                     <field name="date_cow"/>
                                 </group>
                             </group>

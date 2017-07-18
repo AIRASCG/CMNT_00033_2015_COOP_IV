@@ -9,7 +9,15 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="sample_date"/>
-                    <field name="analysis_date"/>
+                    <field name="state"/>
+                    <field name="fat"/>
+                    <field name="protein"/>
+                    <field name="dry_extract"/>
+                    <field name="bacteriology"/>
+                    <field name="cs"/>
+                    <field name="inhibitors"/>
+                    <field name="cryoscope"/>
+                    <field name="urea"/>
                 </tree>
             </field>
         </record>
