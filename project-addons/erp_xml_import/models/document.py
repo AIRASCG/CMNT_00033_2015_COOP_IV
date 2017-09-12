@@ -85,21 +85,28 @@ class ErpXmlDocument(models.Model):
             partner_data['website'] = partner['web']
         if 'socio_relacionado' in partner.keys():
             partner_data['partner_of'] = partner['socio_relacionado']
-        created_partner = self.env['res.partner'].search(
-            [('erp_reference', '=', partner['codigo'])])
-        if created_partner:
-            created_partner.write(partner_data)
-        else:
-            if partner.get('explotacion', False):
+        if partner.get('explotacion', False):
+            company_ids = self.env['res.company'].\
+                search([('parent_id', '=', coop_partner.company_id.id),
+                        ('partner_id.erp_reference', '=', partner['codigo'])])
+            if not company_ids:
                 # se crea la compañía y se asigna a created_partner el partner
                 new_company = self.env['res.company'].create(
                     {'name': partner['nombre'],
                      'parent_id': coop_partner.company_id.id})
                 created_partner = new_company.partner_id
                 created_partner.write(partner_data)
-            elif partner.get('cliente', False) or partner.get('proveedor', False):
+            else:
+                company_ids[0].partner_id.write(partner_data)
+        elif partner.get('cliente', False) or partner.get('proveedor', False):
+            partner_ids = self.env['res.partner'].\
+                search([('company_id', '=', coop_partner.company_id.id),
+                        ('erp_reference', '=', partner['codigo'])])
+            if not partner_ids:
                 partner_data['company_id'] = coop_partner.company_id.id
                 self.env['res.partner'].create(partner_data)
+            else:
+                partner_ids[0].write(partner_data)
 
     @api.multi
     def parse_invoice(self, invoice):
@@ -225,7 +232,8 @@ class ErpXmlDocument(models.Model):
     def import_data(self, company):
 
         docs = self.search([('state', 'in', ('new', 'error')),
-                            ('type', '!=', 'undefined'), ('company_id', '=', company.id)])
+                            ('type', '!=', 'undefined'),
+                            ('company_id', '=', company.id)])
         data_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                     '..', 'data'))
         for doc in docs:
@@ -233,13 +241,14 @@ class ErpXmlDocument(models.Model):
             with_error = False
             with api.Environment.manage():
                 with registry(self.env.cr.dbname).cursor() as new_cr:
-                    new_env = api.Environment(new_cr, self.env.uid, self.env.context)
+                    new_env = api.Environment(new_cr, self.env.uid,
+                                              self.env.context)
                     #Se hace browse con un env diferente para guardar cambios
                     doc_ = self.with_env(new_env).browse(doc.id)
                     if not doc.document:
                         continue
-                    schema_file = doc.type == 'partner' and 'xsd/partner.xsd' or \
-                        'xsd/invoice.xsd'
+                    schema_file = doc.type == 'partner' and \
+                        'xsd/partner.xsd' or 'xsd/invoice.xsd'
                     schema_file = '%s%s%s' % (data_path, os.sep, schema_file)
                     with open(schema_file, 'r') as f:
                         xmlschema_doc = etree.parse(f)
@@ -255,7 +264,8 @@ class ErpXmlDocument(models.Model):
                             doc.send_mail_support()
                             continue
                         if doc.type == 'partner':
-                            for partner_element in xml_doc.getroot().iter('partner'):
+                            for partner_element in xml_doc.getroot().\
+                                    iter('partner'):
                                 if with_error:
                                     break
                                 partner = {}
