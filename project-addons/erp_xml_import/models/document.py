@@ -57,7 +57,9 @@ class ErpXmlDocument(models.Model):
             'country_id': country.id,
         }
         if 'nif' in partner.keys():
-            partner_data['vat'] = partner['cod_pais'] + partner['nif']
+            partner_data['vat'] = (partner['cod_pais'] and
+                                   partner['cod_pais'] or 'ES') + \
+                partner['nif']
         if 'calle' in partner.keys():
             partner_data['street'] = partner['calle']
         if 'cp' in partner.keys():
