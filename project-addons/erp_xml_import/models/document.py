@@ -38,6 +38,8 @@ class ErpXmlDocument(models.Model):
 
     @api.multi
     def parse_partner(self, partner):
+        ctx = self._context.copy()
+        ctx.update({'defer_parent_store_computation': True})
         coop_partner = self.env['res.partner'].search(
             [('erp_reference', '=', partner['codigo_coop'])])
         if not coop_partner:
@@ -56,7 +58,7 @@ class ErpXmlDocument(models.Model):
             'erp_reference': partner['codigo'],
             'country_id': country.id,
         }
-        if 'nif' in partner.keys():
+        if 'nif' in partner.keys() and partner['nif']:
             partner_data['vat'] = (partner['cod_pais'] and
                                    partner['cod_pais'] or 'ES') + \
                 partner['nif']
@@ -93,7 +95,7 @@ class ErpXmlDocument(models.Model):
                         ('partner_id.erp_reference', '=', partner['codigo'])])
             if not company_ids:
                 # se crea la compañía y se asigna a created_partner el partner
-                new_company = self.env['res.company'].create(
+                new_company = self.env['res.company'].with_context(ctx).create(
                     {'name': partner['nombre'],
                      'parent_id': coop_partner.company_id.id})
                 created_partner = new_company.partner_id
@@ -285,6 +287,7 @@ class ErpXmlDocument(models.Model):
                                     new_env.cr.rollback()
                                     with_error = True
                                     continue
+                            self.env['res.company']._parent_store_compute()
 
                         elif doc.type == 'invoice':
                             for invoice_element in \
