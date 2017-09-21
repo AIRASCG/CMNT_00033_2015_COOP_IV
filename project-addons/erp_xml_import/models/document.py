@@ -266,6 +266,7 @@ class ErpXmlDocument(models.Model):
                             doc.state = 'error'
                             with_error = True
                             doc.send_mail_support()
+                            new_env.cr.rollback()
                             continue
                         if doc.type == 'partner':
                             for partner_element in xml_doc.getroot().\

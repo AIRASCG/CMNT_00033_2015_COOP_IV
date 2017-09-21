@@ -136,7 +136,8 @@
             <field name="search_view_id" ref="gescarro_data_view_search"/>
         </record>
 
-        <menuitem name="Gescarro" parent="custom_menu.feeding_management" id="menu_gescarro"/>
+        <menuitem name="Gescarro" parent="custom_menu.feeding_management" id="menu_gescarro"
+            groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
 
         <menuitem name="Lecturas" parent="menu_gescarro" action="gescarro_data_action" id="menu_gescarro_data"/>
 

@@ -105,7 +105,7 @@
         <menuitem action="technical_account_invoice_line_action"
                   id="menu_technical_account_invoice_line_action"
                   parent="custom_menu.tech_economic_management"
-                  groups="custom_groups.group_tech_sales"
+                  groups="custom_groups.group_tech_sales,custom_groups.group_tech_crop"
                   sequence="99"/>
 
     </data>

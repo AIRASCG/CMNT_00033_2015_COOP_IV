@@ -105,12 +105,12 @@
         <menuitem id="farm_managemen" name="Farm management" parent="parent_menu" sequence="1"/>
             <menuitem id="partner_farm" name="Farms" parent="farm_managemen" action="action_partner_farm_form"/>
             <menuitem id="partner_farm_group" name="Farm groups" parent="farm_managemen" action="action_partner_farm_group_category_form"/>
-            <menuitem name="Plantations management" parent="farm_managemen" id="menu_plantation_management"/>
+            <menuitem name="Plantations management" parent="farm_managemen" id="menu_plantation_management" groups="custom_groups.group_tech_crop,custom_groups.group_admin,custom_groups.group_tech_mngnt"/>
                 <menuitem name="Plantations" parent="menu_plantation_management" action="res_partner_farm_data.action_res_partner_fields" id="menu_res_partner_fields"/>
                 <menuitem name="Import plantations" parent="menu_plantation_management" action="res_partner_farm_data.import_fields_act2" id="menu_res_partner_fields_import"/>
-            <menuitem name="Phytosanitaries" groups="custom_groups.group_tech_mngnt,custom_groups.group_admin" parent="farm_managemen" action="farm_notebook.phytosanitary_action" id="menu_phytosanitaries"/>
-            <menuitem name="Farm campaigns"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin" parent="farm_managemen" action="farm_notebook.farm_campaign_action" id="farm_campaign_menu"/>
-            <menuitem name="Farm notebook"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin" parent="farm_managemen" action="farm_notebook.farm_notebook_action" id="farm_notebook_menu"/>
+            <menuitem name="Phytosanitaries" groups="custom_groups.group_tech_mngnt,custom_groups.group_admin,custom_groups.group_tech_crop" parent="farm_managemen" action="farm_notebook.phytosanitary_action" id="menu_phytosanitaries"/>
+            <menuitem name="Farm campaigns"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin,custom_groups.group_tech_crop" parent="farm_managemen" action="farm_notebook.farm_campaign_action" id="farm_campaign_menu"/>
+            <menuitem name="Farm notebook"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin,custom_groups.group_tech_crop" parent="farm_managemen" action="farm_notebook.farm_notebook_action" id="farm_notebook_menu"/>
 
         <menuitem id="myreport" name="Reports" parent="parent_menu" sequence="2" groups="custom_groups.group_admin,custom_groups.group_tech_mngnt,custom_groups.group_tech_sales"/>
 
@@ -281,7 +281,8 @@
 
         <menuitem id="menu_customer" name="Customers"
                 parent="tech_economic_management"
-                action="action_partner_customer_form" />
+                action="action_partner_customer_form"
+                groups="custom_groups.group_admin,custom_groups.group_tech_mngnt"/>
 
         <record id="action_partner_supplier_form" model="ir.actions.act_window">
             <field name="name">Suppliers</field>
@@ -305,13 +306,14 @@
 
         <menuitem id="menu_supplier" name="Suppliers"
             parent="tech_economic_management"
-            action="action_partner_supplier_form" />
+            action="action_partner_supplier_form"
+            groups="custom_groups.group_admin,custom_groups.group_tech_mngnt"/>
 
-        <menuitem id="feeding_management" name="Feeding management" parent="parent_menu"  sequence="3" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
-            <menuitem action="res_partner_farm_data.action_lot" id="menu_lot" parent="feeding_management"/>
+        <menuitem id="feeding_management" name="Feeding management" parent="parent_menu"  sequence="3"/>
+            <menuitem action="res_partner_farm_data.action_lot" id="menu_lot" parent="feeding_management" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
 
 
-        <menuitem name="Quality simulator" parent="feeding_management" action="quality_simulator.quality_simulator_action" id="quality_simulator_menu"/>
+        <menuitem name="Quality simulator" parent="feeding_management" action="quality_simulator.quality_simulator_action" id="quality_simulator_menu" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
 
         <record model="ir.actions.act_window" id="action_ir_attachment">
             <field name="name">Attachments</field>
@@ -359,15 +361,15 @@
             </field>
         </record>
 
-        <menuitem name="Lot analysis" parent="custom_menu.feeding_management"  id="menu_lot_analysis_parent"/>
+        <menuitem name="Lot analysis" parent="custom_menu.feeding_management"  id="menu_lot_analysis_parent" groups="custom_groups.group_admin,custom_groups.group_tech_feed,custom_groups.group_tech_crop"/>
 
         <menuitem name="Lecturas" parent="menu_lot_analysis_parent"
             action="res_partner_farm_data.action_lot_analysis" id="menu_lot_analysis"/>
 
         <menuitem name="Milk analysis" parent="custom_menu.feeding_management"
-            action="res_partner_farm_data.action_milk_analysis" id="menu_milk_analysis"/>
+            action="res_partner_farm_data.action_milk_analysis" id="menu_milk_analysis" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
 
-        <menuitem name="Milk control" parent="custom_menu.feeding_management" id="menu_milk_control_parent"/>
+        <menuitem name="Milk control" parent="custom_menu.feeding_management" id="menu_milk_control_parent" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
         <menuitem name="Lecturas" parent="menu_milk_control_parent"
             action="res_partner_farm_data.action_milk_control" id="menu_milk_control"/>
         <menuitem name="Milk control report" parent="menu_milk_control_parent" action="res_partner_farm_data.milk_control_report_action" id="milk_control_report_menu" sequence="99"/>
@@ -376,11 +378,12 @@
             action="res_partner_farm_data.lot_analysis_import_act" id="menu_lot_analysis_import" sequence="99"/>
 
         <menuitem action="stock.action_production_lot_form" id="menu_action_production_lot_form"
-            parent="custom_menu.feeding_management" name="Stock lots"/>
+            parent="custom_menu.feeding_management" name="Stock lots" groups="custom_groups.group_admin,custom_groups.group_tech_feed,custom_groups.group_tech_crop"/>
 
 
         <menuitem id="task_management" name="Task management" parent="parent_menu" sequence="5" groups="project.group_project_user"/>
-            <menuitem id="projects_menu" name="Projects" parent="task_management" action="project.open_view_project_all" sequence="1"/>
+            <menuitem id="projects_menu" name="Projects" parent="task_management" action="project.open_view_project_all" sequence="1"
+                groups="custom_groups.group_admin,custom_groups.group_rancher"/>
             <menuitem id="task_menu" name="Daily part" parent="task_management" action="custom_project.action_view_task" sequence="2"/>
             <menuitem id="subtask_menu" name="Subtasks" parent="task_management" action="custom_project.project_task_work_action" sequence="3"/>
     </data>
