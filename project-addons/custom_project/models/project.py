@@ -92,8 +92,9 @@ class ProjectTaskWork(models.Model):
     @api.multi
     def write(self, vals):
         res = super(ProjectTaskWork, self).write(vals)
-        for work in self:
-            work._check_dates()
+        if not self._context.get('checked_on_task', False):
+            for work in self:
+                work._check_dates()
         return res
 
 
@@ -130,4 +131,11 @@ class ProjectTask(models.Model):
         if user_id:
             res['value']['reviewer_id'] = self.env['res.users'].browse(
                 user_id).reviewer_id.id
+        return res
+
+    @api.multi
+    def write(self, vals):
+        res = super(ProjectTask, self.with_context(checked_on_task=True)).write(vals)
+        for work in self.work_ids:
+            work._check_dates()
         return res
