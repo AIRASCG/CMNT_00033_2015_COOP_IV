@@ -157,7 +157,7 @@ class MilkAnalysisImport(models.TransientModel):
                     timedelta(seconds=int(expire_time))
             API.token = passwd.token
             samples = API.get_sample_data(
-                datetime.now() + timedelta(days=-7), datetime.now())
+                datetime.now() + timedelta(days=-90), datetime.now())
             analysis = {}
             for sample in samples:
                 sample_id = sample['Code']
@@ -184,6 +184,7 @@ class MilkAnalysisImport(models.TransientModel):
                         continue
                 else:
                     partner = passwd.partner_id
+
                 line_vals = {
                     'analysis_line_id': sample_id,
                     'route': sample['RelationRoute'],
@@ -217,6 +218,15 @@ class MilkAnalysisImport(models.TransientModel):
                     except:
                         pass
                     line_vals[test_map[test_code]] = test_val
+                try:
+                    float(line_vals['route'])
+                    float(line_vals['fat'])
+                    float(line_vals['protein'])
+                    float(line_vals['dry_extract'])
+                    float(line_vals['route'])
+                    float(line_vals['cryoscope'])
+                except ValueError:
+                    import ipdb; ipdb.set_trace()
                 line = self.env['milk.analysis.line'].search(
                     [('analysis_line_id', '=', sample_id)])
                 if line:
