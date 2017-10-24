@@ -219,14 +219,18 @@ class MilkAnalysisImport(models.TransientModel):
                         pass
                     line_vals[test_map[test_code]] = test_val
                 try:
-                    float(line_vals['route'])
-                    float(line_vals['fat'])
-                    float(line_vals['protein'])
-                    float(line_vals['dry_extract'])
-                    float(line_vals['route'])
-                    float(line_vals['cryoscope'])
+                    if 'route' in line_vals:
+                        float(line_vals['route'])
+                    if 'fat' in line_vals:
+                        float(line_vals['fat'])
+                    if 'protein' in line_vals:
+                        float(line_vals['protein'])
+                    if 'dry_extract' in line_vals:
+                        float(line_vals['dry_extract'])
+                    if 'cryoscope' in line_vals:
+                        float(line_vals['cryoscope'])
                 except ValueError:
-                    import ipdb; ipdb.set_trace()
+                    continue
                 line = self.env['milk.analysis.line'].search(
                     [('analysis_line_id', '=', sample_id)])
                 if line:
