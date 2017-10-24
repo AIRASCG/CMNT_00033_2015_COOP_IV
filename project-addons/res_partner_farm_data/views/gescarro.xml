@@ -123,6 +123,7 @@
             <field name="arch" type="xml">
                 <search>
                    <field name="date"/>
+                   <field name="exploitation_id"/>
                </search>
             </field>
         </record>

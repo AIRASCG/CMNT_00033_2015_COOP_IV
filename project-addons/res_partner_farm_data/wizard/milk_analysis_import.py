@@ -157,7 +157,7 @@ class MilkAnalysisImport(models.TransientModel):
                     timedelta(seconds=int(expire_time))
             API.token = passwd.token
             samples = API.get_sample_data(
-                datetime.now() + timedelta(days=-90), datetime.now())
+                datetime.now() + timedelta(days=-7), datetime.now())
             analysis = {}
             for sample in samples:
                 sample_id = sample['Code']
@@ -218,19 +218,6 @@ class MilkAnalysisImport(models.TransientModel):
                     except:
                         pass
                     line_vals[test_map[test_code]] = test_val
-                try:
-                    if 'route' in line_vals:
-                        float(line_vals['route'])
-                    if 'fat' in line_vals:
-                        float(line_vals['fat'])
-                    if 'protein' in line_vals:
-                        float(line_vals['protein'])
-                    if 'dry_extract' in line_vals:
-                        float(line_vals['dry_extract'])
-                    if 'cryoscope' in line_vals:
-                        float(line_vals['cryoscope'])
-                except ValueError:
-                    continue
                 line = self.env['milk.analysis.line'].search(
                     [('analysis_line_id', '=', sample_id)])
                 if line:

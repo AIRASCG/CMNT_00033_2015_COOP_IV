@@ -66,7 +66,7 @@ class MilkAnalysisLine(models.Model):
     bacteriology = fields.Char('Bacteriology')
     cs = fields.Char('CS')
     inhibitors = fields.Char('Inhibitors')
-    cryoscope = fields.Float('Cryoscope')
+    cryoscope = fields.Char('Cryoscope')
     urea = fields.Char('Urea')
 
 
@@ -86,7 +86,7 @@ class MilkAnalysisReport(models.Model):
     bacteriology = fields.Char()
     cs = fields.Char('CS')
     inhibitors = fields.Char()
-    cryoscope = fields.Float()
+    cryoscope = fields.Char()
     urea = fields.Float()
 
     def init(self, cr):
