@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, registry
+from openerp import models, fields, api, registry, exceptions
 import base64
 import xlrd
 import StringIO
@@ -262,6 +262,8 @@ class milk_analysis_api(object):
         resp = requests.get(url=self.url + self.paths['auth'],
                             data=data, headers=headers)
         data = resp.json()
+        if 'error' in data:
+            raise exceptions.Warning(data['error'], data['error_description'])
         return data['access_token'], data['expires_in']
 
     def get_sample_data(self, from_date, to_date):
