@@ -28,8 +28,8 @@ class ResCompany(models.Model):
     @api.multi
     def open_fiscalyear(self, year):
         self.ensure_one()
-        if self.env.user.id != 1:
-            raise exceptions.Warning(_('Access error'), _('Only administrator can open fiscal year'))
+        '''if self.env.user.id != 1:
+            raise exceptions.Warning(_('Access error'), _('Only administrator can open fiscal year'))'''
         for company in self.search([('id', 'child_of', self.id)]):
             fiscalyear = self.env['account.fiscalyear'].search([('company_id', '=', company.id),('code', '=', year)])
             if fiscalyear:
