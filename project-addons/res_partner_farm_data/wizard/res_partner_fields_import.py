@@ -48,6 +48,9 @@ class FieldsImport(models.TransientModel):
                 raise exceptions.Warning(
                     _('Partner not found'),
                     _('Partner with code %s not found') % row[0])
+            if row[8] and row[8] not in ['FO', 'HU', 'TA', 'PA', 'PR', 'PS', 'PM']:
+                raise exceptions.Warning(
+                    _('Validity error'), _('The use code %s is not available') % row[8])
             control_vals = {'partner_id': partner_id[0].id}
             province_ids = self.env['res.country.state'].search(
                 [('code', '=', row[0])])
