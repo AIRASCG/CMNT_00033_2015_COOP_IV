@@ -342,12 +342,12 @@
                 <field name="help">Create and manage users that will connect to the system. Users can be deactivated should there be a period of time during which they will/should not connect to the system. You can assign them groups in order to give them specific access to the applications they need to use in the system.</field>
             </record>
 
-            <menuitem action="action_res_users" id="menu_action_res_users" parent="configuration"/>
+            <menuitem action="action_res_users" id="menu_action_res_users" parent="configuration" sequence="1"/>
             <menuitem
                 id="company" name="Create Farm"
                 string="Create farm"
                 action="base.action_res_company_form"
-                parent="configuration"/>
+                parent="configuration" sequence="2"/>
             <menuitem id="information" parent="advanced_parameters" name="Information"/>
               <menuitem id="menu_log" name="Activity/log" parent="information"/>
                   <menuitem id="menu_audit_logs" name="Logs" parent="menu_log" action="auditlog.action_auditlog_log_tree"/>
@@ -387,5 +387,7 @@
                 groups="custom_groups.group_admin,custom_groups.group_rancher"/>
             <menuitem id="task_menu" name="Daily part" parent="task_management" action="custom_project.action_view_task" sequence="2"/>
             <menuitem id="subtask_menu" name="Subtasks" parent="task_management" action="custom_project.project_task_work_action" sequence="3"/>
+
+        <menuitem id="project_category_menu" name="Project tags" parent="configuration" action="project.project_category_action" sequence="3"/>
     </data>
 </openerp>
