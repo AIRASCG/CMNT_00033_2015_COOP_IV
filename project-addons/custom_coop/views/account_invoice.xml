@@ -14,6 +14,37 @@
                     <attribute name="options">{'no_create': True}</attribute>
                     <attribute name="domain">[('type', '=', 'service')]</attribute>
                 </field>
+                <field name="journal_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="account_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="number" position="after">
+                    <field name="name_2" class="oe_inline"  placeholder="Number"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_account_invoice_filter_add_name_2" model="ir.ui.view">
+            <field name="name">account.invoice.select</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <field name="number" position="attributes">
+                    <attribute name="filter_domain">['|','|','|', '|', ('number','ilike',self), ('origin','ilike',self), ('supplier_invoice_number', 'ilike', self), ('partner_id', 'child_of', self), ('name_2', 'ilike', self)]</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="invoice_tree_add_name_2" model="ir.ui.view">
+            <field name="name">account.invoice.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <field name="number" position="after">
+                    <field name="name_2"/>
+                </field>
             </field>
         </record>
 
@@ -41,6 +72,27 @@
                     <attribute name="string">Denomination</attribute>
                     <attribute name="options">{'no_create': True}</attribute>
                     <attribute name="domain">[('type', '=', 'service')]</attribute>
+                </field>
+                <field name="number" position="after">
+                    <field name="name_2" class="oe_inline"  placeholder="Number"/>
+                </field>
+                <field name="origin" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <label for="reference_type" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </label>
+                <xpath expr="//field[@name='reference_type']/.." position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <field name="date_due" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="journal_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="account_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
                 </field>
             </field>
         </record>

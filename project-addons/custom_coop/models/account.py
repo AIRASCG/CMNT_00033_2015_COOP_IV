@@ -123,3 +123,20 @@ class AccountInvoiceLine(models.Model):
                 line.allowed_analytic_plans = self.env['account.analytic.plan.instance'].search(
                     ['|', ('allowed_products', '=', line.product_id.id),
                      ('allowed_products', '=', False)])
+
+    @api.multi
+    def product_id_change(self, product, uom_id, qty=0, name='', type='out_invoice',
+            partner_id=False, fposition_id=False, price_unit=False, currency_id=False,
+            company_id=None):
+        res = super(AccountInvoiceLine, self).product_id_change(
+            product, uom_id, qty, name, type, partner_id, fposition_id,
+            price_unit, currency_id, company_id)
+        res['value']['name'] = ''
+        return res
+
+
+class AccountInvoice(models.Model):
+
+    _inherit = 'account.invoice'
+
+    name_2 = fields.Char('Name')
