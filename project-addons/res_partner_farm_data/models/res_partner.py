@@ -202,6 +202,7 @@ class ResPartner(models.Model):
                 'date': res.employees_date or date.today(),
                 'user_id': self.env.user.id,
                 'quantity': res.employees_quantity,
+                'state': 'current'
             }
             self.env['employee.farm.count'].create(count_args)
         return res
@@ -219,6 +220,7 @@ class ResPartner(models.Model):
                         'date': vals.get('employees_date', date.today()),
                         'user_id': self.env.user.id,
                         'quantity': vals.get('employees_quantity'),
+                        'state': 'current'
                     }
                     self.env['employee.farm.count'].create(count_args)
                 else:
@@ -240,6 +242,7 @@ class ResPartner(models.Model):
                     'heifer_plus_12': vals.get('heifer_plus_12', partner.heifer_plus_12),
                     'milk_cow': vals.get('milk_cow', partner.milk_cow),
                     'dry_cow': vals.get('dry_cow', partner.dry_cow),
+                    'state': 'current'
                 }
                 self.env['cow.count'].create(count_args)
                 partner.cow_count_ids.write({'state': 'history'})

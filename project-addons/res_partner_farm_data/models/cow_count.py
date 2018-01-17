@@ -28,7 +28,7 @@ class CowCount(models.Model):
 
     partner_id = fields.Many2one('res.partner', 'Partner', readonly=True)
     date = fields.Date('Date')
-    user_id = fields.Many2one('res.users', 'User', readonly=True)
+    user_id = fields.Many2one('res.users', 'User', readonly=True, default=lambda r: r.env.user.id)
     heifer_0_3 = fields.Integer('Heifer 0-3 months',
                                 states={'current': [('readonly', True)]})
     heifer_3_12 = fields.Integer('Heifer 3-12 months',
@@ -41,4 +41,4 @@ class CowCount(models.Model):
                              states={'current': [('readonly', True)]})
     state = fields.Selection(
         (('current', 'Current'), ('history', 'History')), 'State',
-        default='current', readonly=True)
+        default='history', readonly=True)
