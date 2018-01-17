@@ -117,7 +117,7 @@
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='date']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
-                <xpath expr="//field[@name='work_ids']/tree/field[@name='date']" position="before">
+                <xpath expr="//field[@name='work_ids']/tree/field[@name='hours']" position="before">
                     <field name="date_start" widget="float_time"/>
                     <field name="date_end" widget="float_time"/>
                 </xpath>
