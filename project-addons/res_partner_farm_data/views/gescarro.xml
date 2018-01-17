@@ -103,11 +103,11 @@
                         <field name="lines">
                             <tree editable="top">
                                 <field name="description"/>
-                                <field name="kg"/>
-                                <field name="ms"/>
-                                <field name="enl"/>
-                                <field name="raw_protein"/>
-                                <field name="cost"/>
+                                <field name="kg" sum="total"/>
+                                <field name="ms" sum="total"/>
+                                <field name="enl" sum="total"/>
+                                <field name="raw_protein" sum="total"/>
+                                <field name="cost" sum="total"/>
                                 <field name="type"/>
                             </tree>
                         </field>
