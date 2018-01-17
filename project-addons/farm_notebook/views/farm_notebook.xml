@@ -92,7 +92,7 @@
                                 <field name="phytosanitary_uses" colspan="4">
                                     <tree editable="top">
                                         <field name="notebook" invisible="1"/>
-                                        <field name="partner_field" domain="[('notebook', '=', notebook)]"/>
+                                        <field name="partner_field" domain="[('notebook', '=', notebook)]" required="True"/>
                                         <field name="raw_material"/>
                                         <field name="use"/>
                                         <field name="date"/>

@@ -25,6 +25,7 @@
                         <tree editable="top">
                             <field name="phytosanitary" domain="[('rest_qty', '&gt;', 0)]"/>
                             <field name="campaign"/>
+                            <field name="partner_field" invisible="1"/>
                             <field name="used_qty"/>
                             <field name="surface_treated"/>
                             <field name="phytosanitary_problem"/>

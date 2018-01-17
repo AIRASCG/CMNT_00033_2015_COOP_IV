@@ -53,7 +53,7 @@ class PhytosanitaryUse(models.Model):
     phytosanitary = fields.Many2one('phytosanitary', required=True,
                                     ondelete='cascade')
     date = fields.Date()
-    partner_field = fields.Many2one('res.partner.fields', required=True,
+    partner_field = fields.Many2one('res.partner.fields', required=False,
                                     ondelete='cascade')
     campaign = fields.Many2one('farm.campaign', required=True,
                                ondelete='cascade')
