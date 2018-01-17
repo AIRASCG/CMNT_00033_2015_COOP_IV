@@ -389,5 +389,9 @@
             <menuitem id="subtask_menu" name="Subtasks" parent="task_management" action="custom_project.project_task_work_action" sequence="3"/>
 
         <menuitem id="project_category_menu" name="Project tags" parent="configuration" action="project.project_category_action" sequence="3"/>
+
+        <record id="mail.mail_feeds_main" model="ir.ui.menu">
+            <field name="sequence">11</field>
+        </record>
     </data>
 </openerp>
