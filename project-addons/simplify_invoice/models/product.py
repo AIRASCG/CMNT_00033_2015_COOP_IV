@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields
+from openerp import models, fields, exceptions, api, _
 
 
 class ProductProduct(models.Model):
@@ -27,3 +27,10 @@ class ProductProduct(models.Model):
 
     analytic_default_ids = fields.One2many('account.analytic.default',
                                            'product_id', 'Analityc defaults')
+
+    @api.constrains('type', 'analytic_default_ids')
+    def required_analytic_default_ids(self):
+        for prod in self:
+            if prod.type == 'service' and not prod.analytic_default_ids:
+                raise exceptions.ValidationError(
+                    _('Plan analítico por defecto requerido'))
