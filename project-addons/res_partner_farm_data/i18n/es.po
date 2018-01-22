@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-28 12:40+0000\n"
-"PO-Revision-Date: 2017-11-21 11:34+0100\n"
+"PO-Revision-Date: 2018-01-22 11:46+0100\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "Sin nombre"
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 msgid "Milk analysis by month"
-msgstr "Análisis de leche por mes"
+msgstr "LIGAL medias"
 
 #. module: res_partner_farm_data
 #: view:milk.control.report:res_partner_farm_data.milk_control_report_view_form
@@ -129,7 +129,7 @@ msgstr "%MS de la ración:"
 #: field:lot.content,pb:0
 #: field:lot.content,theorical_pb:0
 msgid "%PB"
-msgstr "%PB"
+msgstr "%PB (s/MS)"
 
 #. module: res_partner_farm_data
 #: view:website:res_partner_farm_data.milk_control_qweb_report
@@ -770,12 +770,16 @@ msgstr "Superficie declarada"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data.line,description:0
-#: field:lot.detail,description:0
 #: field:res.partner.attachment,description:0
 #: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
 #: field:res.partner.category,description:0
 msgid "Description"
 msgstr "Descripción"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,description:0
+msgid "Description"
+msgstr "Descripción del lote"
 
 #. module: res_partner_farm_data
 #: view:website:res_partner_farm_data.milk_control_qweb_report
@@ -897,7 +901,7 @@ msgstr "EE"
 #: field:lot.content,enl:0
 #: field:lot.content,theorical_enl:0
 msgid "ENL"
-msgstr "ENL"
+msgstr "ENL (Mcal/Kg. MS)"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,enl_concentrated:0
@@ -947,7 +951,7 @@ msgstr "Recinto"
 #. module: res_partner_farm_data
 #: field:lot.analysis,enl:0
 msgid "Enl"
-msgstr "Enl"
+msgstr "ENL (Mcal/Kg. MS)"
 
 #. module: res_partner_farm_data
 #: field:lot.analysis,enterobacteriaceae:0
@@ -1982,10 +1986,14 @@ msgstr "Leche"
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_form
 #: view:milk.analysis:res_partner_farm_data.milk_analysis_tree
 #: view:milk.analysis.report:res_partner_farm_data.milk_analysis_report_view_tree
-#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
 #, python-format
 msgid "Milk analysis"
 msgstr "Análisis de leche"
+
+#. module: res_partner_farm_data
+#: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
+msgid "Milk analysis"
+msgstr "LIGAL diaria"
 
 #. module: res_partner_farm_data
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
@@ -2163,11 +2171,15 @@ msgstr "Múltiples explotaciones con la referencia %s "
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,name:0
-#: field:lot.detail,name:0
-#: field:lot.detail.sequence,name:0
 #: field:milk.control.line,name:0
 msgid "Name"
 msgstr "Nombre"
+
+#. module: res_partner_farm_data
+#: field:lot.detail,name:0
+#: field:lot.detail.sequence,name:0
+msgid "Name"
+msgstr "Nombre lote"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data
@@ -3095,7 +3107,7 @@ msgstr "Seg terc lact porcen animales 2"
 #: field:lot.detail,sequence:0
 #: field:lot.detail,sequence_id:0
 msgid "Sequence"
-msgstr "Lote"
+msgstr "Nº lote"
 
 #. module: res_partner_farm_data
 #: view:res.partner:res_partner_farm_data.res_partner_add_farm_data

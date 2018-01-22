@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-01 12:41+0000\n"
-"PO-Revision-Date: 2018-01-09 17:00+0100\n"
+"PO-Revision-Date: 2018-01-22 11:19+0100\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -281,7 +281,7 @@ msgstr "Calendario"
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_milk_analysis
 msgid "Milk analysis"
-msgstr "Análisis de leche"
+msgstr "Analíticas de Leche LIGAL"
 
 #. module: custom_menu
 #: model:ir.ui.menu,name:custom_menu.menu_milk_control_parent
