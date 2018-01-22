@@ -16,15 +16,15 @@
                     <t t-call="report.external_layout">
                         <div class="page">
                             <div class="row">
-                                <div class="col-xs-2">Nombre de la ganadería</div>
-                                <div class="col-xs-4"><span t-field="o.exploitation"/></div>
+                                <div class="col-xs-3">Nombre de la ganadería</div>
+                                <div class="col-xs-9"><b><span t-field="o.exploitation"/></b></div>
                             </div>
                             <div class="row m-t-20">
-                                <div class="col-xs-2">Fecha simulación</div>
-                                <div class="col-xs-4"><span t-field="o.date"/></div>
+                                <div class="col-xs-3">Fecha simulación</div>
+                                <div class="col-xs-9"><span t-field="o.date"/></div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-5">Premisas de la simulación:</div>
+                                <div class="col-xs-5"><b>Premisas de la simulación:</b></div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-3">Pago grasa(€/déc.)</div>
@@ -38,10 +38,10 @@
                             </div>
                             <div class="row" style="margin-top: 25px;">
                                 <div class="col-xs-2 col-xs-offset-3">
-                                    AHORA
+                                    <b>AHORA</b>
                                 </div>
                                 <div class="col-xs-2 col-xs-offset-3">
-                                    FUTURO
+                                    <b>FUTURO</b>
                                 </div>
                             </div>
                             <div class="row mt2">
@@ -115,11 +115,11 @@
                                 </div>
                             </div>
                             <div class="row mt2">
-                                <div class="col-xs-3">Beneficio 1</div>
+                                <div class="col-xs-3">Beneficio actual</div>
                                 <div class="col-xs-2">
                                     <span t-field="o.benefit_now"/>
                                 </div>
-                                <div class="col-xs-3">Beneficio 1</div>
+                                <div class="col-xs-3">Beneficio futuro</div>
                                 <div class="col-xs-2">
                                     <span t-field="o.benefit_future"/>
                                 </div>
@@ -142,7 +142,7 @@
                                 <div class="col-xs-3"><b>Informe SIMUCAL</b></div>
                             </div>
                             <div class="row">
-                                <div class="col-xs-6 col-xs-offset-1">
+                                <div class="col-xs-7">
                                     La propuesta supone un encarecimiento de la ración de
                                 </div>
                                 <div class="col-xs-2">
@@ -154,18 +154,17 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-3">
+                                <div class="col-xs-6">
                                     Para mantener beneficio la producción debe pasar de:
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     <span t-field="o.liters_now"/>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     a
                                 </div>
                                 <div class="col-xs-2">
                                     <span t-field="o.liters_future"/>
-
                                 </div>
                                 <div class="col-xs-2">
                                     Litros
@@ -173,13 +172,13 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-3">
+                                <div class="col-xs-6">
                                     El % de grasa debe pasar de un:
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     <span t-field="o.fat_percentage_now"/>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     a
                                 </div>
                                 <div class="col-xs-2">
@@ -192,13 +191,13 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-3">
+                                <div class="col-xs-6">
                                     El % de proteína debe pasar de un:
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     <span t-field="o.protein_percentage_now"/>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     a
                                 </div>
                                 <div class="col-xs-2">
@@ -211,13 +210,13 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-xs-3">
+                                <div class="col-xs-6">
                                     El % de lactosa debe pasar de un
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     <span t-field="o.lactose_percentage_now"/>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     a
                                 </div>
                                 <div class="col-xs-2">
@@ -231,7 +230,12 @@
 
                             <div class="row">
                                 <div class="col-xs-7">
-                                    Energéticamente es posible, e incluso se podrían producir a mayores otros:
+                                    <t t-if="o.production_increase &gt; 0">
+                                        Energéticamente es posible, e incluso se podrían producir a mayores otros:
+                                    </t>
+                                    <t t-if="o.production_increase &lt; 0">
+                                        Energéticamente no es posible, la producción bajaría:
+                                    </t>
                                 </div>
                                 <div class="col-xs-2">
                                     <span t-field="o.production_increase"/>
@@ -243,7 +247,12 @@
 
                             <div class="row">
                                 <div class="col-xs-7">
-                                    Por lo tanto ganaremos a mayores:
+                                    <t t-if="o.profit_increase &gt; 0">
+                                        Por lo tanto ganaremos a mayores:
+                                    </t>
+                                    <t t-if="o.profit_increase &lt; 0">
+                                        Por lo tanto perderemos:
+                                    </t>
                                 </div>
                                 <div class="col-xs-2">
                                     <span t-field="o.profit_increase"/>

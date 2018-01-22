@@ -42,8 +42,8 @@ class QualitySimulator(models.Model):
     benefit_future = fields.Float('Benefit', readonly=True,
                                   compute='_get_calc_vals', digits=(12, 2))
 
-    cow_liveweight = fields.Float()
-    ration_overrun = fields.Float()
+    cow_liveweight = fields.Integer()
+    ration_overrun = fields.Float(digits=(12, 2))
 
     production_increase = fields.Float(readonly=True, compute='_get_calc_vals',
                                        digits=(12, 2))
