@@ -212,6 +212,7 @@
             <field name="inherit_id" ref="project.project_category_form_view"/>
             <field name="arch" type="xml">
                 <field name="name"  position="after">
+                    <field name="company_id"/>
                     <separator string="Work types" colspan="4"/>
                     <field name="work_type_ids" colspan="4" nolabel="1">
                         <tree editable="top">

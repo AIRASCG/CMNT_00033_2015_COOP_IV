@@ -20,6 +20,7 @@ class ProjectCategory(models.Model):
     _inherit = 'project.category'
     work_type_ids = fields.One2many('project.work.type', 'categ_id',
                                     'Work types')
+    company_id = fields.Many2one('res.company', 'Company')
 
 class AbsenceType(models.Model):
 
