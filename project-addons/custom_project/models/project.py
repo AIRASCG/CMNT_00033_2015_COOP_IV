@@ -18,9 +18,16 @@ class ProjectProject(models.Model):
 class ProjectCategory(models.Model):
 
     _inherit = 'project.category'
+
+    def _get_company(self):
+        company_setted = self.sudo().env['res.company'].browse(self.env.user.company_id.id)
+        return company_setted.cooperative_company
+
     work_type_ids = fields.One2many('project.work.type', 'categ_id',
                                     'Work types')
-    company_id = fields.Many2one('res.company', 'Company')
+    company_id = fields.Many2one('res.company', 'Company',
+                                 default=_get_company,
+                                 domain=[('is_cooperative', '=', True)])
 
 class AbsenceType(models.Model):
 
