@@ -21,7 +21,7 @@
                     <attribute name="invisible">1</attribute>
                 </field>
                 <field name="number" position="after">
-                    <field name="name_2" class="oe_inline"  placeholder="Number"/>
+                    <field name="name_2"  placeholder="Number"/>
                 </field>
             </field>
         </record>
@@ -74,7 +74,7 @@
                     <attribute name="domain">[('type', '=', 'service')]</attribute>
                 </field>
                 <field name="number" position="after">
-                    <field name="name_2" class="oe_inline"  placeholder="Number"/>
+                    <field name="name_2" placeholder="Number"/>
                 </field>
                 <field name="origin" position="attributes">
                     <attribute name="invisible">1</attribute>
