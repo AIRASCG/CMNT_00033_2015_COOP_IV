@@ -13,7 +13,8 @@
     'installable': True,
     'depends': [
         'base',
-        'project'
+        'project',
+        'automatic_company'
     ],
     'data': [
         'views/project.xml',
