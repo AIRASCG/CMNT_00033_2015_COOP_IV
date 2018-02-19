@@ -34,6 +34,7 @@ class ResPartner(models.Model):
     temporary_farm = fields.Boolean(
         'Temporary farm', readonly=True,
         related='company_id.not_configured_accounting')
+    temporary = fields.Boolean('Temporary',  related='company_id.temporary')
     is_cooperative = fields.Boolean(
         'Cooperative', readonly=True, related='company_id.is_cooperative')
     partner_of = fields.Char('Partner of')

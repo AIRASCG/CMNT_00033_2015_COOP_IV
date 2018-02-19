@@ -9,6 +9,8 @@
                 <field name="partner_id" position="after">
                     <label for="not_configured_accounting" string="Temporary farm"/>
                     <field name="not_configured_accounting" nolabel="1"/>
+                    <label for="temporary" string="Temporary"/>
+                    <field name="temporary" nolabel="1"/>
                 </field>
                 <field name="partner_id" position="after">
                     <field name="xml_route"/>

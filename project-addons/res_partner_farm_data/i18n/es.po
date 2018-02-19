@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-28 12:40+0000\n"
-"PO-Revision-Date: 2018-01-22 11:46+0100\n"
+"PO-Revision-Date: 2018-02-19 13:42+0100\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1774,6 +1774,11 @@ msgid "Leftover reused"
 msgstr "Reutiliza sobras"
 
 #. module: res_partner_farm_data
+#: view:gescarro.data:res_partner_farm_data.gescarro_data_view_form
+msgid "Use last gescarro data"
+msgstr "Obtener datos de escritura anterior"
+
+#. module: res_partner_farm_data
 #: field:lot.analysis,lignina:0
 msgid "Lignina"
 msgstr "Lignina"
@@ -3229,7 +3234,14 @@ msgstr "Litros al tanque"
 #: view:res.company:res_partner_farm_data.res_company_add_temporary
 #: field:res.partner,temporary_farm:0
 msgid "Temporary farm"
-msgstr "Explotación temporal"
+msgstr "Gestión"
+
+#. module: res_partner_farm_data
+#: view:res.company:res_partner_farm_data.res_company_add_temporary
+#: field:res.partner,temporary:0
+#: field:res.users,temporary:0
+msgid "Temporary"
+msgstr "Temporal"
 
 #. module: res_partner_farm_data
 #: view:lot.detail:res_partner_farm_data.lot_detail_form

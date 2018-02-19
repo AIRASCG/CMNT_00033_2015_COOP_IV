@@ -141,6 +141,37 @@ class GescarroData(models.Model):
     urea = fields.Float('Urea (mg/kg)')
 
     @api.multi
+    def use_last_gescarro_data(self):
+        last_gescarro = self.env['gescarro.data'].search(
+            [('exploitation_id', '=',
+              self.exploitation_id.id), ('id', '!=', self.id)],
+            order='date desc', limit=1)
+        if last_gescarro:
+            self.write({
+                'milk_cows_lot': last_gescarro.milk_cows_lot,
+                'milking_cows': last_gescarro.milking_cows,
+                'tank_cows': last_gescarro.tank_cows,
+                'dry_cows_lot': last_gescarro.dry_cows_lot,
+                'minutes_first_ration': last_gescarro.minutes_first_ration,
+                'minutes_next_ration': last_gescarro.minutes_next_ration,
+                'first_ration_cost': last_gescarro.first_ration_cost,
+                'tank_liters': last_gescarro.tank_liters,
+                'retired_liters': last_gescarro.retired_liters,
+                'kg_leftover': last_gescarro.kg_leftover,
+                'next_ration_cost': last_gescarro.next_ration_cost,
+                'fix_cost': last_gescarro.fix_cost,
+                'leftover_reused': last_gescarro.leftover_reused,
+                'wet_mixture': last_gescarro.wet_mixture,
+                'wet_mixture_ms': last_gescarro.wet_mixture_ms,
+                'wet_mixture_ms_fodder': last_gescarro.wet_mixture_ms_fodder,
+                'wet_mixture_ms_concentrated': last_gescarro.wet_mixture_ms_concentrated,
+                'wet_mixture_enl': last_gescarro.wet_mixture_enl,
+                'wet_raw_protein': last_gescarro.wet_raw_protein,
+                'wet_cost': last_gescarro.wet_cost
+            })
+            last_gescarro.lines.copy({'data_id': self.id})
+
+    @api.multi
     def calculate_vals(self, type):
         self.ensure_one()
         ms_field = 'ms_' + type
@@ -190,7 +221,7 @@ class GescarroData(models.Model):
                     else:
                         last_gescarro = self.env['gescarro.data'].search(
                             [('exploitation_id', '=',
-                              data.exploitation_id.id)],
+                              data.exploitation_id.id), ('id', '!=', data.id)],
                             order='date desc', limit=1)
                         if last_gescarro:
                             total_leftover = data.kg_leftover + \
@@ -240,7 +271,7 @@ class GescarroData(models.Model):
                     else:
                         last_gescarro = self.env['gescarro.data'].search(
                             [('exploitation_id', '=',
-                              data.exploitation_id.id)],
+                              data.exploitation_id.id), ('id', '!=', data.id)],
                             order='date desc', limit=1)
                         if last_gescarro:
                             total_leftover = data.kg_leftover + \

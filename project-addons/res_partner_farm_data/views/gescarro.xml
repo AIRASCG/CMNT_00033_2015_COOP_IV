@@ -29,6 +29,9 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form string="Gescarro">
+                    <header>
+                        <button name="use_last_gescarro_data" type="object" string="Use last gescarro data" />
+                    </header>
                     <sheet>
                         <group>
                             <group>

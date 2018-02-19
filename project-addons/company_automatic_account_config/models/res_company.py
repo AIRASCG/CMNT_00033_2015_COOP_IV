@@ -27,6 +27,7 @@ class ResCompany(models.Model):
 
     not_configured_accounting = fields.Boolean(
         'Configured accounting', compute="_get_not_configured_accounting")
+    temporary = fields.Boolean('Temporary')
     with_complete_account = fields.Boolean('Install complete account')
 
     @api.one

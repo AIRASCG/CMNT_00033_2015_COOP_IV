@@ -141,9 +141,17 @@ class AccountInvoice(models.Model):
 
     name_2 = fields.Char('Name')
 
+    @api.model
+    def create(self, vals):
+        res = super(AccountInvoice, self).create(vals)
+        if not self._context.get('no_reset_taxes', False):
+            res.button_reset_taxes()
+        return res
+
     @api.multi
     def write(self, vals):
+        draft_invoices = self.with_context(no_reset_taxes=True).filtered(lambda r: r.state == 'draft')
         res = super(AccountInvoice, self).write(vals)
         if not self._context.get('no_reset_taxes', False):
-            self.with_context(no_reset_taxes=True).filtered(lambda r: r.state == 'draft').button_reset_taxes()
+            draft_invoices.button_reset_taxes()
         return res

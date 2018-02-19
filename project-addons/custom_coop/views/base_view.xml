@@ -12,6 +12,7 @@
                   <field name="mobile"/>
                   <field name="email"/>
                   <field name="not_configured_accounting"/>
+                  <field name="temporary"/>
               </field>
           </field>
       </record>
