@@ -12,8 +12,8 @@
             <field name="code">1</field>
             <field name="sequence">1</field>
             <field name="name">Leche producida</field>
-            <field name="value_1_1">7000,7006,7007,7008,7009</field>
-            <field name="value_2_1">7000,7006,7007,7008,7009</field>
+            <field name="value_1_1">#milk,/'1000</field>
+            <field name="value_2_1">#milk,/'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -57,8 +57,8 @@
             <field name="code">6</field>
             <field name="sequence">6</field>
             <field name="name">Coste de Alimentación Comprada vacas/1000 litros de leche</field>
-            <field name="value_1_1">(601, 602,6031, 6041, 6051, 6025,6061),/.1, *'1000</field>
-            <field name="value_2_1">(601, 602,6031, 6041, 6051, 6025,6061),/.1, *'1000</field>
+            <field name="value_1_1">(601,602,6051,6052,6111,6112),/.1, *'1000</field>
+            <field name="value_2_1">(601,602,6051,6052,6111,6112),/.1, *'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -66,8 +66,8 @@
             <field name="code">7</field>
             <field name="sequence">7</field>
             <field name="name">Coste de Producción de Forraje vacas/1000 litros de leche</field>
-            <field name="value_1_1">(600,6211,6212,6213,6214,6215,6216,640, 6281,6221,6222,6253,6815),/.1, *'1000</field>
-            <field name="value_2_1">(600,6211,6212,6213,6214,6215,6216,640, 6281,6221,6222,6253,6815),/.1, *'1000</field>
+            <field name="value_1_1">(600,6211,6212,6213,6214,6215,6216,6401,6202,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/.1, *'1000</field>
+            <field name="value_2_1">(600,6211,6212,6213,6214,6215,6216,6401,6202,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/.1, *'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -75,8 +75,8 @@
             <field name="code">8</field>
             <field name="sequence">8</field>
             <field name="name">Coste de Alimentación Total vacas/1000 litros leche</field>
-            <field name="value_1_1">(601, 602,6031, 6041, 6051, 6025,6061, 600,6211,6212,6213,6214,6215, 6216,640,6281,6221,6222,6253,6815,62311,62313),/.1, *'1000</field>
-            <field name="value_2_1">(601, 602,6031, 6041, 6051, 6025,6061, 600,6211,6212,6213,6214,6215, 6216,640,6281,6221,6222,6253,6815,62311,62313),/.1, *'1000</field>
+            <field name="value_1_1">(601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/.1, *'1000</field>
+            <field name="value_2_1">(601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/.1, *'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -102,260 +102,269 @@
             <field name="code">11</field>
             <field name="sequence">11</field>
             <field name="name">% de Alimentación Comprada/Ingreso leche</field>
-            <field name="value_1_1">(601, 602,6031, 6041, 6051, 6025,6061),/ (7000, 7001, 7002, 7003, 7004, 7005, 7006)</field>
-            <field name="value_2_1">(601, 602,6031, 6041, 6051, 6025,6061),/ (7000, 7001, 7002, 7003, 7004, 7005, 7006)</field>
+            <field name="value_1_1">(601,602,6051,6052,6111,6112),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_2_1">(601,602,6051,6052,6111,6112),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_12" model="account.analytic.report.template.line">
             <field name="code">12</field>
             <field name="sequence">12</field>
-            <field name="name">Concentrado/vaca/Año (Kg)</field>
-            <field name="value_1_1">(601, 602,6031, 6041, 6051, 6025,6061, 600,6211,6212,6213,6214, 6215,6216,640,6281, 6221,6222,6253,6815,62311,62313),/(7000, 7001, 7002, 7003, 7004, 7005, 7006)</field>
-            <field name="value_2_1">(601, 602,6031, 6041, 6051, 6025,6061, 600,6211,6212,6213,6214, 6215,6216,640,6281, 6221,6222,6253,6815,62311,62313),/(7000, 7001, 7002, 7003, 7004, 7005, 7006)</field>
+            <field name="name">% de Alimentación Total/Ingreso leche</field>
+            <field name="value_1_1">(601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_2_1">(601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_13" model="account.analytic.report.template.line">
             <field name="code">13</field>
             <field name="sequence">13</field>
-            <field name="name">Concentrado/litro (gr)</field>
-            <field name="value_1_1">(601, 602,6031, 6041, 6051, 6025,6061, 600,6211, 6212,6213,6214,6215,6216,640,6281, 6221,6222,6253,6815,62311,62313),/.1</field>
-            <field name="value_2_1">(601, 602,6031, 6041, 6051, 6025,6061, 600,6211, 6212,6213,6214,6215,6216,640,6281, 6221,6222,6253,6815,62311,62313),/.1</field>
+            <field name="name">Concentrado/vaca/Año (Kg)</field>
+            <field name="value_1_1">(602,6111),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_2_1">(602,6111),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_14" model="account.analytic.report.template.line">
             <field name="code">14</field>
             <field name="sequence">14</field>
-            <field name="name">Ingresos sobre coste de alimentación</field>
-            <field name="value_1_1">(.4,*((7000, 7001, 7002, 7003, 7004, 7005, 7006),/700 )),-.9, -.10</field>
-            <field name="value_2_1">(.4,*((7000, 7001, 7002, 7003, 7004, 7005, 7006),/700 )),-.9, -.10</field>
+            <field name="name">Concentrado/litro (gr)</field>
+            <field name="value_1_1">(602,6111),/.1</field>
+            <field name="value_2_1">(602,6111),/.1</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_15" model="account.analytic.report.template.line">
             <field name="code">15</field>
             <field name="sequence">15</field>
-            <field name="name">Precio de leche base+primas cantidad medio por Tn (€)</field>
-            <field name="value_1_1">(7000,7001),/700,*'1000</field>
-            <field name="value_2_1">(7000,7001),/700,*'1000</field>
+            <field name="name">ISCA leche/Vaca/Día</field>
+            <field name="value_1_1">(.4,*((7000,7001,7002,7003,7004,7005,7006,70010,70011),/.1)),(-.8,/'1000)</field>
+            <field name="value_2_1">(.4,*((7000,7001,7002,7003,7004,7005,7006,70010,70011),/.1)),(-.8,/'1000)</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_16" model="account.analytic.report.template.line">
             <field name="code">16</field>
             <field name="sequence">16</field>
-            <field name="name">Precio de leche base+primas cantidad+calidades medio por Tn (€)</field>
-            <field name="value_1_1">(7000, 7001, 7002, 7003, 7004, 7005, 7006),/700,*'1000</field>
-            <field name="value_2_1">(7000, 7001, 7002, 7003, 7004, 7005, 7006),/700,*'1000</field>
+            <field name="name">Precio de leche base+primas cantidad medio por Tn (€)</field>
+            <field name="value_1_1">(7000,7001,70011),/.1,*'1000</field>
+            <field name="value_2_1">(7000,7001,70011),/.1,*'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_17" model="account.analytic.report.template.line">
             <field name="code">17</field>
             <field name="sequence">17</field>
-            <field name="name">S.A.U. (Has.)</field>
-            <field name="value_1_1">#hectare</field>
-            <field name="value_2_1">#hectare</field>
+            <field name="name">Precio de leche base+primas cantidad+calidades medio por Tn (€)</field>
+            <field name="value_1_1">(7000,7001,7002,7003,7004,7005,7006,70010,70011),/.1,*'1000</field>
+            <field name="value_2_1">(7000,7001,7002,7003,7004,7005,7006,70010,70011),/.1,*'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_18" model="account.analytic.report.template.line">
             <field name="code">18</field>
             <field name="sequence">18</field>
-            <field name="name">Carga gandeira (UGM / Ha)</field>
-            <field name="value_1_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#hectare</field>
-            <field name="value_2_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#hectare</field>
+            <field name="name">S.A.U. (Has.)</field>
+            <field name="value_1_1">#hectare</field>
+            <field name="value_2_1">#hectare</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_19" model="account.analytic.report.template.line">
             <field name="code">19</field>
             <field name="sequence">19</field>
+            <field name="name">Carga gandeira (UGM / Ha)</field>
+            <field name="value_1_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#hectare</field>
+            <field name="value_2_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#hectare</field>
+            <field name="template_id" ref="tech_ec_index"/>
+        </record>
+
+        <record id="tech_ec_index_l_20" model="account.analytic.report.template.line">
+            <field name="code">21</field>
+            <field name="sequence">22</field>
             <field name="name">Litros Leche/Ha SF</field>
             <field name="value_1_1">.1,/#hectare</field>
             <field name="value_2_1">.1,/#hectare</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
-        <record id="tech_ec_index_l_20" model="account.analytic.report.template.line">
-            <field name="code">20</field>
-            <field name="sequence">20</field>
-            <field name="name">Coste cultivo Maiz</field>
-            <field name="value_1_1">6000, 6211, 6401, 6216, 6281, 6221, 6253</field>
-            <field name="value_2_1">6000, 6211, 6401, 6216, 6281, 6221, 6253</field>
-            <field name="template_id" ref="tech_ec_index"/>
-        </record>
-
         <record id="tech_ec_index_l_21" model="account.analytic.report.template.line">
             <field name="code">21</field>
             <field name="sequence">21</field>
-            <field name="name">Coste cultivo Maiz / Ha coseichada</field>
-            <field name="value_1_1">.20,/#corn_hectares</field>
-            <field name="value_2_1">.20,/#corn_hectares</field>
+            <field name="name">Coste cultivo Maiz</field>
+            <field name="value_1_1">6000,6211,62210,62310,62530,62811,6401,6216,62810</field>
+            <field name="value_2_1">6000,6211,62210,62310,62530,62811,6401,6216,62810</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_22" model="account.analytic.report.template.line">
             <field name="code">22</field>
             <field name="sequence">22</field>
-            <field name="name">Coste cultivo Maiz / Kg cosechado</field>
-            <field name="value_1_1">.20,/#kg_corn</field>
-            <field name="value_2_1">.20,/#kg_corn</field>
+            <field name="name">Coste cultivo Maiz / Ha coseichada</field>
+            <field name="value_1_1">.21,/#corn_hectares</field>
+            <field name="value_2_1">.21,/#corn_hectares</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_23" model="account.analytic.report.template.line">
             <field name="code">23</field>
             <field name="sequence">23</field>
-            <field name="name">Coste cultivo Hierba</field>
-            <field name="value_1_1">6001, 6212, 6402, 6216, 6281, 6221, 6253</field>
-            <field name="value_2_1">6001, 6212, 6402, 6216, 6281, 6221, 6253</field>
+            <field name="name">Coste cultivo Maiz / Kg cosechado</field>
+            <field name="value_1_1">.21,/#kg_corn</field>
+            <field name="value_2_1">.21,/#kg_corn</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_24" model="account.analytic.report.template.line">
             <field name="code">24</field>
             <field name="sequence">24</field>
-            <field name="name">Coste cultivo Hierba / Ha cosechada</field>
-            <field name="value_1_1">.23,/#grass_hectares</field>
-            <field name="value_2_1">.23,/#grass_hectares</field>
+            <field name="name">Coste cultivo Hierba</field>
+            <field name="value_1_1">6001,6212,62211,62311,62531,62812,6402,6216,62810</field>
+            <field name="value_2_1">6001,6212,62211,62311,62531,62812,6402,6216,62810</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_25" model="account.analytic.report.template.line">
             <field name="code">25</field>
             <field name="sequence">25</field>
-            <field name="name">Coste cultivo Hierba / Kg cosechado</field>
-            <field name="value_1_1">.23,/#kg_grass</field>
-            <field name="value_2_1">.23,/#kg_grass</field>
+            <field name="name">Coste cultivo Hierba / Ha cosechada</field>
+            <field name="value_1_1">.24,/#grass_hectares</field>
+            <field name="value_2_1">.24,/#grass_hectares</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_26" model="account.analytic.report.template.line">
             <field name="code">26</field>
             <field name="sequence">26</field>
-            <field name="name">Coste cultivo Cereal</field>
-            <field name="value_1_1">6002, 6213, 6403, 6216, 6281, 6221, 6253</field>
-            <field name="value_2_1">6002, 6212, 6402, 6216, 6281, 6221, 6253</field>
+            <field name="name">Coste cultivo Hierba / Kg cosechado</field>
+            <field name="value_1_1">.24,/#kg_grass</field>
+            <field name="value_2_1">.24,/#kg_grass</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_27" model="account.analytic.report.template.line">
             <field name="code">27</field>
             <field name="sequence">27</field>
-            <field name="name">Coste cultivo Cereal / Ha cosechada</field>
-            <field name="value_1_1">.26,/#cereal_hectares</field>
-            <field name="value_2_1">.26,/#cereal_hectares</field>
+            <field name="name">Coste cultivo Cereal</field>
+            <field name="value_1_1">6002,6213,62212,62312,62532,62813,6403,6216,62810</field>
+            <field name="value_2_1">6002,6213,62212,62312,62532,62813,6403,6216,62810</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_28" model="account.analytic.report.template.line">
             <field name="code">28</field>
             <field name="sequence">28</field>
-            <field name="name">Coste cultivo Cereal / Kg cosechado</field>
-            <field name="value_1_1">.26,/#kg_cereal</field>
-            <field name="value_2_1">.26,/#kg_cereal</field>
+            <field name="name">Coste cultivo Cereal / Ha cosechada</field>
+            <field name="value_1_1">.27,/#cereal_hectares</field>
+            <field name="value_2_1">.27,/#cereal_hectares</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_29" model="account.analytic.report.template.line">
             <field name="code">29</field>
             <field name="sequence">29</field>
-            <field name="name">Coste cultivo H seca</field>
-            <field name="value_1_1">6003, 6214, 6404, 6216, 6281, 6221, 6253</field>
-            <field name="value_2_1">6003, 6214, 6404, 6216, 6281, 6221, 6253</field>
+            <field name="name">Coste cultivo Cereal / Kg cosechado</field>
+            <field name="value_1_1">.27,/#kg_cereal</field>
+            <field name="value_2_1">.27,/#kg_cereal</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_30" model="account.analytic.report.template.line">
             <field name="code">30</field>
             <field name="sequence">30</field>
-            <field name="name">Coste cultivo H seca / Ha cosechada</field>
-            <field name="value_1_1">.29,/#dry_grass_hectares</field>
-            <field name="value_2_1">.29,/#dry_grass_hectares</field>
+            <field name="name">Coste cultivo H seca</field>
+            <field name="value_1_1">6003,6214,62213,62313,62533,62814,6404,6216,62810</field>
+            <field name="value_2_1">6003,6214,62213,62313,62533,62814,6404,6216,62810</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_31" model="account.analytic.report.template.line">
             <field name="code">31</field>
             <field name="sequence">31</field>
-            <field name="name">Coste cultivo H seca / Kg cosechado</field>
-            <field name="value_1_1">.29,/#kg_dry_grass</field>
-            <field name="value_2_1">.29,/#kg_dry_grass</field>
+            <field name="name">Coste cultivo H seca / Ha cosechada</field>
+            <field name="value_1_1">.30,/#dry_grass_hectares</field>
+            <field name="value_2_1">.30,/#dry_grass_hectares</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_32" model="account.analytic.report.template.line">
             <field name="code">32</field>
             <field name="sequence">32</field>
-            <field name="name">Coste Otros Cultivos</field>
-            <field name="value_1_1">6004, 6215, 6405, 6216, 6281, 6221, 6253</field>
-            <field name="value_2_1">6003, 6214, 6405, 6216, 6281, 6221, 6253</field>
+            <field name="name">Coste cultivo H seca / Kg cosechado</field>
+            <field name="value_1_1">.30,/#kg_dry_grass</field>
+            <field name="value_2_1">.30,/#kg_dry_grass</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_33" model="account.analytic.report.template.line">
             <field name="code">33</field>
             <field name="sequence">33</field>
-            <field name="name">Coste Otros Cultivos / Ha cosechada</field>
-            <field name="value_1_1">.32,/#another_hectares</field>
-            <field name="value_2_1">.32,/#another_hectares</field>
+            <field name="name">Coste Otros Cultivos</field>
+            <field name="value_1_1">6004,6215,62214,62314,62534,62815,6405,6216,62810</field>
+            <field name="value_2_1">6004,6215,62214,62314,62534,62815,6405,6216,62810</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_34" model="account.analytic.report.template.line">
             <field name="code">34</field>
             <field name="sequence">34</field>
-            <field name="name">Coste Otros Cultivos / Kg cosechado</field>
-            <field name="value_1_1">.32,/#kg_another</field>
-            <field name="value_2_1">.32,/#kg_another</field>
+            <field name="name">Coste Otros Cultivos / Ha cosechada</field>
+            <field name="value_1_1">.33,/#another_hectares</field>
+            <field name="value_2_1">.33,/#another_hectares</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_35" model="account.analytic.report.template.line">
             <field name="code">35</field>
             <field name="sequence">35</field>
-            <field name="name">Leche/UTA</field>
-            <field name="value_1_1">.1,/#employees</field>
-            <field name="value_2_1">.1,/#employees</field>
+            <field name="name">Coste Otros Cultivos / Kg cosechado</field>
+            <field name="value_1_1">.33,/#kg_another</field>
+            <field name="value_2_1">.33,/#kg_another</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_36" model="account.analytic.report.template.line">
             <field name="code">36</field>
             <field name="sequence">36</field>
-            <field name="name">UGM/UTA</field>
-            <field name="value_1_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#employees</field>
-            <field name="value_2_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#employees</field>
+            <field name="name">Leche/UTA</field>
+            <field name="value_1_1">.1,/#employees</field>
+            <field name="value_2_1">.1,/#employees</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_37" model="account.analytic.report.template.line">
             <field name="code">37</field>
             <field name="sequence">37</field>
-            <field name="name">Producto bruto/UTA</field>
-            <field name="value_1_1">7,/#employees</field>
-            <field name="value_2_1">7,/#employees</field>
+            <field name="name">UGM/UTA</field>
+            <field name="value_1_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#employees</field>
+            <field name="value_2_1">(#milk_and_dry,(#plus_twelve_heifer,*'0.6),(#three_twelve_heifer,*'0.4)),/#employees</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_38" model="account.analytic.report.template.line">
             <field name="code">38</field>
             <field name="sequence">38</field>
-            <field name="name">Margen neta/UTA</field>
-            <field name="value_1_1">(7,-6),/#employees</field>
-            <field name="value_2_1">(7,-6),/#employees</field>
+            <field name="name">Producto bruto/UTA</field>
+            <field name="value_1_1">(700,701,7401,7461,702,759,749,705,762,752,6114),/#employees</field>
+            <field name="value_2_1">(700,701,7401,7461,702,759,749,705,762,752,6114),/#employees</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
         <record id="tech_ec_index_l_39" model="account.analytic.report.template.line">
             <field name="code">39</field>
             <field name="sequence">39</field>
+            <field name="name">Margen neta/UTA</field>
+            <field name="value_1_1">((700,701,7401,7461,702,759,749,705,762,752,6114),-(601,602,603,604,605,606,607,608,600,621,622,623,624,625,629,640,628,681,611,610,642,649,630,626,678)),/#employees</field>
+            <field name="value_2_1">((700,701,7401,7461,702,759,749,705,762,752,6114),-(601,602,603,604,605,606,607,608,600,621,622,623,624,625,629,640,628,681,611,610,642,649,630,626,678)),/#employees</field>
+            <field name="template_id" ref="tech_ec_index"/>
+        </record>
+
+        <record id="tech_ec_index_l_40" model="account.analytic.report.template.line">
+            <field name="code">40</field>
+            <field name="sequence">40</field>
             <field name="name">Ganado Vendible</field>
-            <field name="value_1_1">701,-#cow_buy,#inventory_difference</field>
-            <field name="value_2_1">701,-#cow_buy,#inventory_difference</field>
+            <field name="value_1_1">701,-610,#inventory_difference</field>
+            <field name="value_2_1">701,-610,#inventory_difference</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
