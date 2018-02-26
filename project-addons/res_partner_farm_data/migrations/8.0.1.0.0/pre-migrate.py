@@ -13,7 +13,7 @@ def migrate(cr, version):
         new_line_vals = []
         for value in line[1:]:
             if value:
-                new_value = re.findall(r'[-+]?\d*\.\d+|[-+]?\d+', value)
+                new_value = re.findall(r'[-+]?\d*\.\d+|[-+]?\d+', str(value))
                 if new_value:
                     new_value = new_value[0]
                 else:

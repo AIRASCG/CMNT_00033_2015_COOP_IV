@@ -211,6 +211,7 @@ class LotDetail(models.Model):
     user_id = fields.Many2one('res.users', 'User', required=True, readonly=True,
                               default=lambda self: self.env.user.id)
     lot_id = fields.Many2one('lot', 'Lot')
+
     lot_contents = fields.One2many('lot.content', 'detail_id', 'Content',
                                    copy=True)
     date = fields.Datetime('Date', required=True,
@@ -411,7 +412,7 @@ class LotDetail(models.Model):
         for lot_detail in self:
             lot_detail.kf_mf_carriage = lot_detail.rations_make_number * sum([x.kg_ration for x in lot_detail.lot_contents])
 
-    @api.depends('lot_id.farm_id', 'user_id')
+    @api.depends('lot_id.farm_id.farm_lots', 'user_id')
     def _get_max_sequence(self):
         for detail in self:
             lot_partner = self.env['lot.partner'].search(
@@ -780,8 +781,7 @@ class LotContent(models.Model):
 
     _name = 'lot.content'
 
-    detail_id = fields.Many2one('lot.detail', 'Detail',
-                                default=lambda a: datetime.now())
+    detail_id = fields.Many2one('lot.detail', 'Detail')
     eur_ton_mf = fields.Integer('€/Tn MF')
     product_id = fields.Many2one('product.product', 'Product', required=True,
                                  domain=[('ingredient', '=', True)])
@@ -789,11 +789,10 @@ class LotContent(models.Model):
     ms = fields.Float('%MS', digits=(12, 2))
     enl = fields.Float('ENL', digits=(12, 2))
     pb = fields.Float('%PB', digits=(12, 2))
-    manual_setted = fields.Boolean()
-    _theorical_kg_ration = fields.Float('Kg/Ration')
-    _theorical_ms = fields.Float('%MS')
-    _theorical_enl = fields.Float('ENL')
-    _theorical_pb = fields.Float('%PB')
+    theorical_kg_ration = fields.Float('Kg/Ration', digits=(12, 2))
+    theorical_ms = fields.Float('%MS', digits=(12, 2))
+    theorical_enl = fields.Float('ENL', digits=(12, 2))
+    theorical_pb = fields.Float('%PB', digits=(12, 2))
     message_kg = fields.Char(compute='_compute_message')
     message_ms = fields.Char(compute='_compute_message')
     message_enl = fields.Char(compute='_compute_message')
@@ -829,67 +828,26 @@ class LotContent(models.Model):
             else:
                 content.message_kg = ''
 
-
-from openerp.osv import fields as fields2
-
-
-class LotContentOld(models.Model):
-
-    _inherit = 'lot.content'
-
-    def _get_theorical_values(self, cr, uid, ids, name, arg, context=None):
-        res = {}
-        for content in self.browse(cr, uid, ids, context):
-            content_fields = {}
-            if content.manual_setted:
-                content_fields['theorical_kg_ration'] = content._theorical_kg_ration
-                content_fields['theorical_ms'] = content._theorical_ms
-                content_fields['theorical_enl'] = content._theorical_enl
-                content_fields['theorical_pb'] = content._theorical_pb
-                res[content.id] = content_fields
+    @api.onchange('product_id', 'detail_id')
+    def onchange_product_id(self):
+        for content in self:
+            if not content.product_id:
                 continue
-            if not content.detail_id.lot_id:
-                continue
-            curr_lot = content.detail_id.lot_id
-            last_lot_id = self.pool.get('lot').search(
-                cr, uid, [('farm_id', '=', curr_lot.farm_id.id),
-                          ('id', '!=', curr_lot.id),
-                          ('date', '<=', curr_lot.date)],
-                order='date desc', limit=1, context=context)
-            if last_lot_id:
-                detail_id = self.env['lot.detail'].search(
-                    [('lot_id', '=', last_lot_id),
+            last_lot = self.env['lot'].search(
+                [('farm_id', '=', self._context['farm']),
+                 ('id', '!=', self._context['lot_id']),
+                 ('date', '<=', self._context['lot_date'])],
+                order='date desc', limit=1)
+            if last_lot:
+                detail = self.env['lot.detail'].search(
+                    [('lot_id', '=', last_lot.id),
                      ('sequence', '=', content.detail_id.sequence)], limit=1)
-                if detail_id:
-                    last_content_id = self.env['lot.content'].search(
-                        [('detail_id', '=', detail_id),
+                if detail:
+                    last_content = self.env['lot.content'].search(
+                        [('detail_id', '=', detail.id),
                          ('product_id', '=', content.product_id.id)])
-                    if last_content_id:
-                        content_fields = {}
-                        last_content = self.pool.get('lot.content').browse(cr, uid, last_content_id, context)
-                        content_fields['theorical_kg_ration'] = last_content.kg_ration
-                        content_fields['theorical_ms'] = last_content.ms
-                        content_fields['theorical_enl'] = last_content.enl
-                        content_fields['theorical_pb'] = last_content.pb
-                        res[content.id] = content_fields
-        return res
-
-    def _set_theorical_values(self, cr, uid, id, name, value, arg,
-                              context=None):
-        return self.write(cr, uid, id,
-                          {'manual_setted': True, '_%s' % name: value})
-
-    _columns = {
-        'theorical_kg_ration': fields2.function(
-            _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='Kg/Ration', multi='theo_vals', digits=(12, 2)),
-        'theorical_ms': fields2.function(
-            _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='%MS', multi='theo_vals', digits=(12, 2)),
-        'theorical_enl': fields2.function(
-            _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='ENL', multi='theo_vals', digits=(12, 2)),
-        'theorical_pb': fields2.function(
-            _get_theorical_values, fnct_inv=_set_theorical_values,
-            type='float', string='%PB', multi='theo_vals', digits=(12, 2)),
-    }
+                    if last_content:
+                        content['theorical_kg_ration'] = last_content.kg_ration
+                        content['theorical_ms'] = last_content.ms
+                        content['theorical_enl'] = last_content.enl
+                        content['theorical_pb'] = last_content.pb

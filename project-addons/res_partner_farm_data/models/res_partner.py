@@ -144,6 +144,7 @@ class ResPartner(models.Model):
         'attachment_id', domain=[('private', '=', True)])
     company_ids = fields.One2many("res.company", "partner_id",
                                   "Related Company", readonly=True)
+    farm_lots = fields.One2many('lot.partner', 'farm_id')
 
     @api.one
     @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
@@ -414,7 +415,7 @@ class ResPartnerFields(models.Model):
     @api.multi
     def name_get(self):
         if self._context.get('show_year', False):
-            res = [(x.id, '%s (%s)' % (x.location_name or _('No name'), x.year)) for x in self]
+            res = [(x.id, u'{}, {} ({})'.format(x.location_name or _('No name'), x.custom_id or '', x.year)) for x in self]
         else:
             res = [(x.id, x.location_name or _('No name')) for x in self]
         return res

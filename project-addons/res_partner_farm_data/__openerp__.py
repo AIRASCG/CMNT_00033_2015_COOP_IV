@@ -21,7 +21,7 @@
 
 {
     'name': 'Partner farm fields',
-    'version': '8.0.2.0.0',
+    'version': '8.0.1.0.0',
     'category': '',
     'description': """This module adds the fields required for a farm""",
     'author': 'Comunitea',

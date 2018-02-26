@@ -211,7 +211,7 @@
                             </group>
                         </group>
                         <field name="notes" placeholder="Notes..."/>
-                        <field name="lot_contents"/>
+                        <field name="lot_contents" context="{'lot_date': parent.date, 'farm': parent.farm_id, 'lot_id': parent.id}"/>
                         <span>Sumario</span>
                         <table class="o_list_view table table-striped">
                             <thead>

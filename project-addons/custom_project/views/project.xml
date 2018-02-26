@@ -205,6 +205,13 @@
                     <field name="date_end"/>
                     <field name="exploitation_id"/>
                     <field name="task_id"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Realized by" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Work type" domain="[]" context="{'group_by':'work_type'}"/>
+                        <filter string="Explotation" domain="[]" context="{'group_by':'exploitation_id'}"/>
+                        <filter string="Absence type" domain="[]" context="{'group_by':'absence_type'}"/>
+                        <filter string="Task" domain="[]" context="{'group_by':'task_id'}"/>
+                    </group>
                </search>
             </field>
         </record>
