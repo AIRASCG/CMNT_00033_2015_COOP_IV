@@ -12,7 +12,7 @@
             <field name="code">total_g</field>
             <field name="sequence">69</field>
             <field name="name">BENEFICIO TOTAL</field>
-            <field name="value_1_1">.6,-.68</field>
+            <field name="value_1_1">.total_v,-.total_c</field>
             <field name="value_1_2"></field>
             <field name="value_2_1"></field>
             <field name="value_2_2"></field>
