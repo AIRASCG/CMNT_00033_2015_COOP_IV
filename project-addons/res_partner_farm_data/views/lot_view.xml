@@ -29,7 +29,7 @@
                         <group>
                             <group>
                                 <field name="company_id" invisible="1"/>
-                                <field name="year_id" attrs="{'readonly': [('state', '=', 'old')]}" domain="[('company_id', '=', company_id),('state', '=', 'draft')]"/>
+                                <field name="year_id" attrs="{'readonly': [('state', '=', 'old')]}" domain="[('company_id', '=', company_id),('state', '=', 'draft')]" options="{'no_create': True, 'no_create_edit':True, 'no_open':True}"/>
                                 <field name="lot_number" attrs="{'readonly': [('state', '=', 'old')]}"/>
                             </group>
                             <group>

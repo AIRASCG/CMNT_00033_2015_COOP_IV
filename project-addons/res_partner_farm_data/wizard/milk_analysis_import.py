@@ -25,6 +25,7 @@ import StringIO
 import requests
 import logging
 import ast
+import re
 from datetime import date, datetime, timedelta
 
 logger = logging.getLogger(__name__)
@@ -60,6 +61,7 @@ class MilkAnalysisImport(models.TransientModel):
 
     @api.multi
     def import_milk_analysis(self):
+        number_regex = r'[-+]?\d*\.\d+|[-+]?\d+'
         try:
             self.analysis.line_ids.unlink()
             file = base64.b64decode(self.import_file)
@@ -100,21 +102,21 @@ class MilkAnalysisImport(models.TransientModel):
                                                    data.datemode)[:-3]
                     analysis_vals['analysis_date'] = date(*an_date)
                 if fat_pos:
-                    analysis_vals['fat'] = row[fat_pos]
+                    analysis_vals['fat'] = re.findall(number_regex, row[fat_pos])[0]
                 if prot_pos:
-                    analysis_vals['protein'] = row[prot_pos]
+                    analysis_vals['protein'] = re.findall(number_regex, row[prot_pos])[0]
                 if dry_pos:
-                    analysis_vals['dry_extract'] = row[dry_pos]
+                    analysis_vals['dry_extract'] = re.findall(number_regex, row[dry_pos])[0]
                 if bact_pos:
-                    analysis_vals['bacteriology'] = row[bact_pos]
+                    analysis_vals['bacteriology'] = re.findall(number_regex, row[bact_pos])[0]
                 if cs_pos:
-                    analysis_vals['cs'] = row[cs_pos]
+                    analysis_vals['cs'] = re.findall(number_regex, row[cs_pos])[0]
                 if inh_pos:
-                    analysis_vals['inhibitors'] = row[inh_pos]
+                    analysis_vals['inhibitors'] = re.findall(number_regex, row[inh_pos])[0]
                 if cryos_pos:
-                    analysis_vals['cryoscope'] = row[cryos_pos]
+                    analysis_vals['cryoscope'] = re.findall(number_regex, row[cryos_pos])[0]
                 if urea_pos:
-                    analysis_vals['urea'] = row[urea_pos]
+                    analysis_vals['urea'] = re.findall(number_regex, row[urea_pos])[0]
                 if state_pos:
                     analysis_vals['state'] = self.STATE_MAP[row[state_pos]]
                 if yearmonth_pos:
@@ -217,7 +219,10 @@ class MilkAnalysisImport(models.TransientModel):
                         test_val = float(test_val.replace(',', '.'))
                     except:
                         pass
-                    line_vals[test_map[test_code]] = test_val
+                    if test_code == '_I00007':  # Inibidores es un texto
+                        line_vals[test_map[test_code]] = test_val
+                    else:
+                        line_vals[test_map[test_code]] = re.findall(r'[-+]?\d*\.\d+|[-+]?\d+', str(test_val))[0]
                 line = self.env['milk.analysis.line'].search(
                     [('analysis_line_id', '=', sample_id)])
                 if line:

@@ -63,11 +63,11 @@ class MilkAnalysisLine(models.Model):
     fat = fields.Float('Fat')
     protein = fields.Float('Protein')
     dry_extract = fields.Float('Dry extract')
-    bacteriology = fields.Char('Bacteriology')
-    cs = fields.Char('CS')
+    bacteriology = fields.Float('Bacteriology')
+    cs = fields.Float('CS')
     inhibitors = fields.Char('Inhibitors')
-    cryoscope = fields.Char('Cryoscope')
-    urea = fields.Char('Urea')
+    cryoscope = fields.Float('Cryoscope')
+    urea = fields.Float('Urea')
 
 
 class MilkAnalysisReport(models.Model):
@@ -83,10 +83,10 @@ class MilkAnalysisReport(models.Model):
     fat = fields.Float()
     protein = fields.Float()
     dry_extract = fields.Float()
-    bacteriology = fields.Char()
-    cs = fields.Char('CS')
+    bacteriology = fields.Float()
+    cs = fields.Float('CS')
     inhibitors = fields.Char()
-    cryoscope = fields.Char()
+    cryoscope = fields.Float()
     urea = fields.Float()
 
     def init(self, cr):
@@ -114,8 +114,8 @@ class MilkAnalysisMonthReport(models.Model):
     fat = fields.Float()
     protein = fields.Float()
     dry_extract = fields.Float()
-    bacteriology = fields.Char(compute='_get_bacteriology')
-    cs = fields.Char('CS', compute='_get_bacteriology')
+    bacteriology = fields.Float()
+    cs = fields.Float('CS')
 
     def _get_date(self):
         for l in self:
@@ -154,6 +154,8 @@ SELECT ROW_NUMBER() OVER() AS id,
        avg(l.fat) as fat,
        avg(l.protein) as protein,
        avg(l.dry_extract) as dry_extract,
+       avg(l.bacteriology) as bacteriology,
+       avg(l.cs) as cs,
        to_char(l.sample_date, 'YYYY-MM') as date
 FROM milk_analysis_line l
      JOIN milk_analysis m ON l.analysis_id = m.id
