@@ -58,6 +58,7 @@ class ProjectTaskWork(models.Model):
     absence = fields.Boolean()
     absence_type = fields.Many2one('absence.type')
     area = fields.Many2one('project.category', related='task_id.area', readonly=True)
+    name = fields.Text()
 
     @api.onchange('date_start', 'date_end')
     def onchange_date_end(self):
