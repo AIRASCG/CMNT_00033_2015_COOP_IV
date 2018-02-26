@@ -154,8 +154,7 @@ class Lot(models.Model):
                     {'detail_id': new_detail.id,
                      'manual_setted': True,
                      '_theorical_kg_ration': content.kg_ration,
-                     '_theorical_ms': 0,
-                     'ms': 0,
+                     '_theorical_ms': content.ms,
                      '_theorical_enl': content.enl,
                      '_theorical_pb': content.pb})
         self.collection_frequency = last_lot.collection_frequency
@@ -869,6 +868,7 @@ class LotContentOld(models.Model):
                         content_fields = {}
                         last_content = self.pool.get('lot.content').browse(cr, uid, last_content_id, context)
                         content_fields['theorical_kg_ration'] = last_content.kg_ration
+                        content_fields['theorical_ms'] = last_content.ms
                         content_fields['theorical_enl'] = last_content.enl
                         content_fields['theorical_pb'] = last_content.pb
                         res[content.id] = content_fields
