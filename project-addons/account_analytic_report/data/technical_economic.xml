@@ -180,9 +180,9 @@
         </record>
 
         <record id="tech_ec_index_l_20" model="account.analytic.report.template.line">
-            <field name="code">21</field>
-            <field name="sequence">22</field>
-            <field name="name">Litros Leche/Ha SF</field>
+            <field name="code">20</field>
+            <field name="sequence">20</field>
+            <field name="name">Litros Leche/Ha</field>
             <field name="value_1_1">.1,/#hectare</field>
             <field name="value_2_1">.1,/#hectare</field>
             <field name="template_id" ref="tech_ec_index"/>
