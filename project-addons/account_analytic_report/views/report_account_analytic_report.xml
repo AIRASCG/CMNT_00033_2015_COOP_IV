@@ -53,7 +53,6 @@
                         <thead>
                             <tr>
                                 <th>name</th>
-                                <th>notes</th>
                                 <th><span t-field="o.title_1"/></th>
                                 <t t-if="o.title_2">
                                     <th><span t-field="o.title_2"/></th>
@@ -70,7 +69,6 @@
                             <t t-foreach="o.line_ids" t-as="line">
                                 <tr>
                                     <td t-att-class="line.css_style"><span t-field="line.name"/></td>
-                                    <td t-att-class="line.css_style"><span t-field="line.notes"/></td>
                                     <td t-att-class="line.css_style"><span t-field="line.value_1_1"/></td>
                                     <t t-if="o.title_2">
                                         <td t-att-class="line.css_style"><span t-field="line.value_1_2"/></td>

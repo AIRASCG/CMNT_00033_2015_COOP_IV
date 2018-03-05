@@ -23,7 +23,7 @@
             <div class="header">
                 <div class="row">
                     <div class="col-xs-1">
-                        <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 70px;"/>
+                        <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 30px"/>
                     </div>
                     <div class="col-xs-11 text-right">
                         <p>
@@ -82,7 +82,7 @@
             <div class="header">
                 <div class="row">
                     <div class="col-xs-1">
-                        <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 70px;"/>
+                        <img t-if="company.sudo().logo" t-att-src="'data:image/png;base64,%s' % company.sudo().logo" style="max-height: 30px;"/>
                     </div>
                     <div class="col-xs-11 text-right">
                         <p>
