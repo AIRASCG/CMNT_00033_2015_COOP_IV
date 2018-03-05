@@ -73,18 +73,9 @@
                     <attribute name="options">{'no_create': True}</attribute>
                     <attribute name="domain">[('type', '=', 'service')]</attribute>
                 </field>
-                <field name="number" position="after">
-                    <field name="name_2" placeholder="Number"/>
-                </field>
                 <field name="origin" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
-                <label for="reference_type" position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </label>
-                <xpath expr="//field[@name='reference_type']/.." position="attributes">
-                    <attribute name="invisible">1</attribute>
-                </xpath>
                 <field name="date_due" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </field>
@@ -159,6 +150,55 @@
                   parent="custom_menu.tech_economic_management"
                   groups="custom_groups.group_tech_sales,custom_groups.group_tech_crop"
                   sequence="99"/>
+
+        <record id="account_invoice_supplier_tree" model="ir.ui.view">
+            <field name="name">account.invoice.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree colors="blue:state == 'draft';black:state in ('proforma','proforma2','open');gray:state == 'cancel'" string="Invoice">
+                    <field name="partner_id" groups="base.group_user"/>
+                    <field name="commercial_partner_id" invisible="1"/>
+                    <field name="date_invoice"/>
+                    <field name="number"/>
+                    <field name="reference" invisible="1"/>
+                    <field name="name" invisible="1"/>
+                    <field name="journal_id" invisible="1"/>
+                    <field name="period_id" invisible="1" groups="account.group_account_user"/>
+                    <field name="company_id" groups="base.group_multi_company" widget="selection"/>
+                    <field name="user_id" string="Responsible"/>
+                    <field name="date_due"/>
+                    <field name="origin"/>
+                    <field name="currency_id" groups="base.group_multi_currency"/>
+                    <field name="residual" sum="Residual Amount"/>
+                    <field name="amount_untaxed" sum="Untaxed Amount"/>
+                    <field name="amount_total" sum="Total Amount"/>
+                    <field name="state"/>
+                    <field name="type" invisible="context.get('type',True)"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_invoice_tree2_view1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="account.action_invoice_tree2"/>
+            <field name="view_id" ref="account_invoice_supplier_tree"/>
+        </record>
+
+        <record id="action_invoice_tree2_view2" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="act_window_id" ref="account.action_invoice_tree2"/>
+            <field name="view_id" ref="account.invoice_supplier_form"/>
+        </record>
+
+        <record id="account.action_invoice_tree1_view1" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="act_window_id" ref="account.action_invoice_tree1"/>
+            <field name="view_id" ref="account.invoice_tree"/>
+        </record>
 
     </data>
 </openerp>
