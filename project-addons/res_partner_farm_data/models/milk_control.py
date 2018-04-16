@@ -56,11 +56,13 @@ class MilkControl(models.Model):
 
     @api.model
     def action_api_import_cron(self):
-        url_base = "http://213.60.254.109:85/Services/"
+        #PREPROD
+        #url_base = "http://213.60.254.109:85/Services/"
+        #PROD
+        url_base = "http://www.cegacol.com/Services/"
         url_api = url_base + "WsCatalogue.asmx?WSDL"
-        url_services = "http://www.cegacol.com/Services/"
         client = Client(url_api)
-        header = client.get_element("{" + url_services + "}AuthSoapHeader")
+        header = client.get_element("{" + url_base + "}AuthSoapHeader")
 
         milk_control_service = self.env.\
             ref('res_partner_farm_data.service_control_lechero')
