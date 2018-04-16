@@ -26,7 +26,7 @@
     'description': """ """,
     'author': 'Comunitea',
     'website': '',
-    "depends": ['base', 'account', 'stock', 'auditlog'],
+    "depends": ['base', 'account', 'stock', 'auditlog', 'project'],
     "data": ['security/custom_groups.xml',
              'security/security.xml',
              'security/ir.model.access.csv',

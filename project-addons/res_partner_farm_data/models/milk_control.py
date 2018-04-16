@@ -18,17 +18,19 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, exceptions, _
+from openerp import models, fields, api
 import openerp.addons.decimal_precision as dp
 from cairoplot import VerticalBarPlot
 import base64
-
+from zeep import Client
+from datetime import datetime, timedelta
 
 
 def average(lst):
     if not lst:
         return 0
     return reduce(lambda x, y: x + y, lst) / len(lst)
+
 
 class MilkControl(models.Model):
 
@@ -51,6 +53,88 @@ class MilkControl(models.Model):
     def _get_num_records(self):
         for obj in self:
             obj.num_records = len(obj.line_ids)
+
+    @api.model
+    def action_api_import_cron(self):
+        url_base = "http://213.60.254.109:85/Services/"
+        url_api = url_base + "WsCatalogue.asmx?WSDL"
+        url_services = "http://www.cegacol.com/Services/"
+        client = Client(url_api)
+        header = client.get_element("{" + url_services + "}AuthSoapHeader")
+
+        milk_control_service = self.env.\
+            ref('res_partner_farm_data.service_control_lechero')
+        passwds = self.env['res.partner.passwd'].search(
+            [('service', '=', milk_control_service.id)])
+        for passwd in passwds:
+            if not passwd.passwd or not passwd.name:
+                continue
+            header_value = header(UserName=passwd.name,
+                                  Password=passwd.
+                                  read(['passwd'])[0]['passwd'])
+            client.set_default_soapheaders([header_value])
+            last_sync_date = passwd.last_sync_date
+            end_date = datetime.strptime(fields.Date.today(), "%Y-%m-%d").\
+                date()
+            if last_sync_date:
+                start_date = datetime.\
+                    strptime(last_sync_date, "%Y-%m-%d").date() + \
+                    timedelta(1)
+            else:
+                start_date = end_date
+                start_date.day = 1
+                start_date.month = 1
+                start_date = start_date.date()
+            delta = end_date - start_date
+            for i in range(delta.days + 1):
+                vals = {}
+                filter_date = start_date + timedelta(days=i)
+                try:
+                    data = client.service.\
+                        Controles(
+                            dateInterval={'DateFrom': filter_date,
+                                          'DateTo': filter_date},
+                            idRangeQuery=0, status=0)
+                except Exception, e:
+                    self.create({'date': filter_date.strftime("%Y-%m-%d"),
+                                 'exploitation_id': passwd.partner_id.id,
+                                 'state': 'incorrect',
+                                 'exception_txt': e.message})
+                    break
+                if not data['ListResult']:
+                    if data['MessageType']['Id'] != 30010:
+                        self.create({'date': filter_date.strftime("%Y-%m-%d"),
+                                     'exploitation_id': passwd.partner_id.id,
+                                     'state': 'incorrect',
+                                     'exception_txt':
+                                     data['MessageType']['Description']})
+                    else:
+                        continue
+                else:
+                    milk_control = self.\
+                        create({'date': filter_date.strftime("%Y-%m-%d"),
+                                'exploitation_id': passwd.partner_id.id,
+                                'state': 'correct'})
+                    for cow_data in data['ListResult']['Control']:
+                        vals = {'control_id': milk_control.id,
+                                'cea': cow_data['Cea'],
+                                'cib': cow_data['Cib'],
+                                'name': cow_data['Nombre'],
+                                'date_birth': cow_data['FechaParto'].date().
+                                strftime("%Y-%m-%d"),
+                                'birth_number': cow_data['NumeroParto'],
+                                'control_number': cow_data['NumeroControl'],
+                                'days': (cow_data['FechaControl'] -
+                                cow_data['FechaParto']).days,
+                                'milk_liters': cow_data['LecheKilos'],
+                                'fat': cow_data['Grasa'],
+                                'protein': cow_data['Proteina'],
+                                'rcs': int(cow_data['RCS']),
+                                'urea': int(cow_data['Urea'])}
+                        vals['cumulative_milk'] = \
+                            int(vals['milk_liters'] * vals['days'])
+                        self.env['milk.control.line'].create(vals)
+                    passwd.last_sync_date = filter_date.strftime("%Y-%m-%d")
 
 
 class MilkControlLine(models.Model):

@@ -427,6 +427,7 @@ class ResPartnerPasswd(models.Model):
 
     token = fields.Char('Token')
     expire_time = fields.Datetime('Expire time')
+    last_sync_date = fields.Date()
 
 class ResPartnerService(models.Model):
 

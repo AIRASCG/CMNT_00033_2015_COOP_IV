@@ -164,7 +164,7 @@
                     <field name="commercial_partner_id" invisible="1"/>
                     <field name="date_invoice"/>
                     <field name="number"/>
-                    <field name="account_invoice_supplier_tree"/>
+                    <field name="supplier_invoice_number"/>
                     <field name="reference" invisible="1"/>
                     <field name="name" invisible="1"/>
                     <field name="journal_id" invisible="1"/>

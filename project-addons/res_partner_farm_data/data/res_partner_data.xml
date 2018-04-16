@@ -10,5 +10,10 @@
             <field name="company_id"></field>
         </record>
 
+        <record forcecreate="True" id="service_control_lechero" model="res.partner.service">
+            <field name="name">Control Lechero</field>
+            <field name="company_id"></field>
+        </record>
+
     </data>
 </openerp>
