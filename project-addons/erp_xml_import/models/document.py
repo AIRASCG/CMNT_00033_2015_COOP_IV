@@ -274,7 +274,7 @@ class ErpXmlDocument(models.Model):
                                 if with_error:
                                     break
                                 partner = {}
-                                for el in partner_element.iter():
+                                for el in partner_element:
                                     if el.tag in ('cliente', 'proveedor',
                                                   'explotacion', 'activo'):
                                         partner[el.tag] = bool(int(el.text))
@@ -283,6 +283,7 @@ class ErpXmlDocument(models.Model):
                                 try:
                                     doc_.parse_partner(partner)
                                 except Exception as e:
+                                    print "ERROR: ", e
                                     doc.errors += '\n%s' % str(e)
                                     doc.state = 'error'
                                     new_env.cr.rollback()
@@ -368,7 +369,7 @@ class ErpXmlDocument(models.Model):
             if 'procesados' not in os.listdir(folder):
                 os.mkdir(process_folder)
             import_files = [x for x in os.listdir(importation_folder)
-                            if x.endswith('.xml')]
+                            if x.endswith('.xml') or x.endswith('.XML')]
             docs = self.env['erp.document']
             for import_file in import_files:
                 errors = []
