@@ -388,6 +388,8 @@
                 groups="custom_groups.group_admin,custom_groups.group_rancher"/>
             <menuitem id="task_menu" name="Daily part" parent="task_management" action="custom_project.action_view_task" sequence="2"/>
             <menuitem id="subtask_menu" name="Subtasks" parent="task_management" action="custom_project.project_task_work_action" sequence="3"/>
+            <menuitem id="print_hours_resume_menu" name="Print hours summary" parent="task_management" action="custom_project.print_hours_resume_action" sequence="4"/>
+            <menuitem id="print_farm_visit_report_menu" name="Print farm visit" parent="task_management" action="custom_project.print_farm_visit_report_action" sequence="5"/>
 
         <menuitem id="project_category_menu" name="Project tags" parent="configuration" action="project.project_category_action" sequence="3"/>
 

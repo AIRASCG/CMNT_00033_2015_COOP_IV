@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="print_hours_resume_form" model="ir.ui.view">
+            <field name="name">print.hours.resume.form</field>
+            <field name="model">print.hours.resume</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="group"/>
+                            <field name="reviewer_id"/>
+                            <field name="date_start"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="area"/>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Print hours resume"
+            res_model="print.hours.resume"
+            view_id="print_hours_resume_form"
+            view_mode="form"
+            target="new"
+            id="print_hours_resume_action"/>
+
+    </data>
+</openerp>

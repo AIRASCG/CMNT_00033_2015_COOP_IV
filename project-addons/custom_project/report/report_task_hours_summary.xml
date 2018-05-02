@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <template id="task_hours_summary_report_document">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h3>Resumen <span t-field="o.group"/></h3>
+                        <img src="/web/static/src/img/logo-milkoop-min.png"/>
+                    </div>
+                    <div class="col-xs-3">
+                        <img t-if="o.env.user.sudo().company_id.logo" t-att-src="'data:image/png;base64,%s' % o.env.user.sudo().company_id.logo" style="max-height: 2cm"/>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div class="row" style="margin-bottom: 10px;" t-if="o.user_id">
+                    <div class="col-xs-2">Técnico:</div>
+                    <div class="col-xs-6" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.user_id.name"/></strong></div>
+                </div>
+                <div class="row" style="margin-bottom: 10px;" t-if="o.reviewer_id">
+                    <div class="col-xs-2">Revisor:</div>
+                    <div class="col-xs-6" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.reviewer_id.name"/></strong></div>
+                </div>
+                <div class="row" style="margin-bottom: 10px;" t-if="o.area">
+                    <div class="col-xs-2">Área:</div>
+                    <div class="col-xs-6" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.area.name"/></strong></div>
+                </div>
+                <div class="row" style="margin-bottom: 30px;" t-if="o.date_start or o.date_end">
+                    <div class="col-xs-2">Intervalo fechas:</div>
+                    <t t-if="o.date_start">
+                        <div class="col-xs-2" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.date_start"/></strong></div>
+                    </t>
+                    <t t-if="not o.date_start">
+                        <div class="col-xs-2">-</div>
+                    </t>
+                    <div class="col-xs-1">y</div>
+                    <t t-if="o.date_end">
+                        <div class="col-xs-2" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.date_end"/></strong></div>
+                    </t>
+                    <t t-if="not o.date_end">
+                        -
+                    </t>
+
+                </div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                <t t-if="o.group == 'month'">
+                                    Mes
+                                </t>
+                                <t t-if="o.group == 'day'">
+                                    Día
+                                </t>
+                            </th>
+                            <th>Total horas trabajadas</th>
+                            <th>Total horas ausencias</th>
+                            <th>Diferencia jornada</th>
+                            <th>Kms coche empresa</th>
+                            <th>Kms coche propio</th>
+                            <th>Dietas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="tasks" t-as="task">
+                            <td>
+                                <span t-esc="task['name:%s' % o.group]"/>
+                            </td>
+                            <td>
+                                <span t-esc="task['total_work_hours']" t-esc-options='{"widget": "time"}'/>
+                            </td>
+                            <td>
+                                <span t-esc="task['total_absence_hours']" t-esc-options='{"widget": "time"}'/>
+                            </td>
+                            <td>
+                                <span t-esc="task['total_time']" t-esc-options='{"widget": "time"}'/>
+                            </td>
+                            <td>
+                                <span t-esc="task['km_company_car']" />
+                            </td>
+                            <td>
+                                <span t-esc="task['km_own_car']"/>
+                            </td>
+                            <td>
+                                <span t-esc="task['diet']"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td><span t-esc="sum([x['total_work_hours'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td><span t-esc="sum([x['total_absence_hours'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td><span t-esc="sum([x['total_time'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td><span t-esc="sum([x['km_company_car'] for x in tasks])"/></td>
+                            <td><span t-esc="sum([x['km_own_car'] for x in tasks])"/></td>
+                            <td><span t-esc="sum([x['diet'] for x in tasks])"/></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <img t-att-src="'data:image/png;base64,%s' % graphic"/>
+            </div>
+            <div class="footer">
+                <div class="row">
+                    <div class="col-xs-3 pull-right">
+                        Fecha impresión: <span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="task_hours_summary_report">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'env.user.lang', 'custom_project.task_hours_summary_report_document')"/>
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="report_task_hours_summary"
+            string="task hours summary"
+            model="print.hours.resume"
+            report_type="qweb-pdf"
+            file="custom_project.task_hours_summary_report"
+            name="custom_project.task_hours_summary_report"
+            menu="False"
+        />
+
+    </data>
+</openerp>

@@ -49,7 +49,7 @@ class ProjectTaskWork(models.Model):
 
     work_type = fields.Many2one('project.work.type')
     task_id = fields.Many2one(string='Daily part')
-    user_id = fields.Many2one(compute='_compute_user_id')
+    user_id = fields.Many2one(compute='_compute_user_id', store=True)
     exploitation_id = fields.Many2one(
         'res.partner', 'Exploitation',
         domain="[('farm', '=', True),('is_cooperative','=',False)]")
@@ -57,6 +57,7 @@ class ProjectTaskWork(models.Model):
     date_end = fields.Float()
     absence = fields.Boolean()
     absence_type = fields.Many2one('absence.type')
+    lot_id = fields.Many2one('lot', 'Lot')
     area = fields.Many2one('project.category', related='task_id.area', readonly=True)
     name = fields.Text()
 
@@ -124,6 +125,17 @@ class ProjectTask(models.Model):
                                        store=True)
     total_time = fields.Float(compute='_compute_total_hours', store=True)
     notes = fields.Char()
+    reviewer_2_id = fields.Many2one('res.users', 'Reviewer 2', select=True, track_visibility='onchange')
+
+    @api.model
+    def _message_get_auto_subscribe_fields(self, updated_fields,
+                                           auto_follow_fields=None):
+        if auto_follow_fields is None:
+            auto_follow_fields = ['user_id', 'reviewer_id', 'reviewer_2_id']
+        else:
+            auto_follow_fields.append('reviewer_2_id')
+        return super(ProjectTask, self)._message_get_auto_subscribe_fields(
+            updated_fields, auto_follow_fields)
 
     @api.depends('work_ids.hours', 'work_ids.absence', 'contract_type.hours')
     def _compute_total_hours(self):
@@ -138,8 +150,9 @@ class ProjectTask(models.Model):
     def onchange_user_id(self, user_id):
         res = super(ProjectTask, self).onchange_user_id(user_id)
         if user_id:
-            res['value']['reviewer_id'] = self.env['res.users'].browse(
-                user_id).reviewer_id.id
+            user = self.env['res.users'].browse(user_id)
+            res['value']['reviewer_id'] = user.reviewer_id.id
+            res['value']['reviewer_2_id'] = user.reviewer_2_id.id
         return res
 
     @api.multi

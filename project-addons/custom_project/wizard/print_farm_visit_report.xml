@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="print_farm_visit_report_form" model="ir.ui.view">
+            <field name="name">print.farm.visit.report.form</field>
+            <field name="model">print.farm.visit.report</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="farm_id"/>
+                            <field name="date_start"/>
+                        </group>
+                        <group>
+                            <field name="work_type"/>
+                            <field name="date_end"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Print farm visit"
+            res_model="print.farm.visit.report"
+            view_id="print_farm_visit_report_form"
+            view_mode="form"
+            target="new"
+            id="print_farm_visit_report_action"/>
+
+    </data>
+</openerp>

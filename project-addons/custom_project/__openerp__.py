@@ -20,6 +20,11 @@
         'views/project.xml',
         'security/ir_rule.xml',
         'security/ir.model.access.csv',
-        'views/res_users.xml'
+        'views/res_users.xml',
+        'report/report_task_daily.xml',
+        'report/report_task_hours_summary.xml',
+        'report/farm_visit_report.xml',
+        'wizard/print_hours_resume.xml',
+        'wizard/print_farm_visit_report.xml'
     ],
 }
