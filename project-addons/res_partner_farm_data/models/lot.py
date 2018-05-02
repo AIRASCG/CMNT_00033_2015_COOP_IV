@@ -38,7 +38,6 @@ class LotPartner(models.Model):
 class Lot(models.Model):
 
     _name = 'lot'
-    _rec_name = 'date'
 
     date = fields.Datetime('Date', required=True, readonly=True,
                            states={'draft': [('readonly', False)]},
@@ -109,6 +108,10 @@ class Lot(models.Model):
     carriage_cost_cow_day = fields.Float('Carriage cost (€/ cow and day)',
                                          readonly=True, compute='_get_lot_data')
     urea = fields.Float('Urea')
+
+    @api.multi
+    def name_get(self):
+        return [(x.id, u'{} - {}'.format(x.date, x.farm_id.name)) for x in self]
 
     @api.multi
     def _get_lot_data(self):

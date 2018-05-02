@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+
+        <template id="farm_visit_report_document">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h3>Informe de visitas a granja</h3>
+                        <img src="/web/static/src/img/logo-milkoop-min.png"/>
+                    </div>
+                    <div class="col-xs-3">
+                        <img t-if="o.env.user.sudo().company_id.logo" t-att-src="'data:image/png;base64,%s' % o.env.user.sudo().company_id.logo" style="max-height: 2cm"/>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <div class="row" style="margin-bottom: 10px;" t-if="o.work_type">
+                    <div class="col-xs-2">Cod. Tarea:</div>
+                    <div class="col-xs-6" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.work_type.name"/></strong></div>
+                </div>
+                <div class="row" style="margin-bottom: 30px;" t-if="o.date_start or o.date_end">
+                    <div class="col-xs-2">Intervalo fechas:</div>
+                    <t t-if="o.date_start">
+                        <div class="col-xs-2" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.date_start"/></strong></div>
+                    </t>
+                    <t t-if="not o.date_start">
+                        <div class="col-xs-2">-</div>
+                    </t>
+                    <div class="col-xs-1">y</div>
+                    <t t-if="o.date_end">
+                        <div class="col-xs-2" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.date_end"/></strong></div>
+                    </t>
+                    <t t-if="not o.date_end">
+                        -
+                    </t>
+                </div>
+                <div class="row" style="margin-bottom: 10px;" t-if="o.user_id">
+                    <div class="col-xs-2">Técnico:</div>
+                    <div class="col-xs-6" style="font-family: Arial, font-size: 11px; border: 2px solid black;"><strong><span t-field="o.user_id.name"/></strong></div>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Día</th>
+                            <th>Técnico</th>
+                            <th>Explotación</th>
+                            <th>Resumen trabajo</th>
+                            <th>Hora incio</th>
+                            <th>Hora fin</th>
+                            <th>Tiempo dedicado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="tasks" t-as="task">
+                            <td><span t-field="task.sudo().task_id.name"/></td>
+                            <td><span t-field="task.sudo().task_id.user_id.name"/></td>
+                            <td><span t-field="task.sudo().lot_id.farm_id.name"/></td>
+                            <td><span t-field="task.sudo().name"/></td>
+                            <td><span t-esc="task.sudo().date_start" t-esc-options='{"widget": "time"}'/></td>
+                            <td><span t-esc="task.sudo().date_end" t-esc-options='{"widget": "time"}'/></td>
+                            <td><span t-esc="task.sudo().hours" t-esc-options='{"widget": "time"}'/></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><span t-esc="sum([x.sudo().date_start for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td><span t-esc="sum([x.sudo().date_end for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td><span t-esc="sum([x.sudo().hours for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <h4>Resumen de horas dedicadas a la granja</h4>
+                <t t-raw="table"/>
+
+            </div>
+            <div class="footer">
+                <div class="row">
+                    <div class="col-xs-3 pull-right">
+                        Fecha impresión: <span t-esc="time.strftime('%d/%m/%Y', time.localtime(time.time()))"/>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="farm_visit_report">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'env.user.lang', 'custom_project.farm_visit_report_document')"/>
+                </t>
+            </t>
+        </template>
+
+        <report
+            id="print_farm_visit_report"
+            string="Farm visit report"
+            model="print.farm.visit.report"
+            report_type="qweb-pdf"
+            file="custom_project.farm_visit_report"
+            name="custom_project.farm_visit_report"
+        />
+
+
+    </data>
+</openerp>

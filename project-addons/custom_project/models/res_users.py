@@ -19,4 +19,6 @@ class ResUsers(models.Model):
 
 
     reviewer_id = fields.Many2one('res.users', 'Reviewer')
+    reviewer_2_id = fields.Many2one('res.users', 'Reviewer 2')
+    is_reviewer = fields.Boolean()
     contract_type = fields.Many2one('contract.type', 'Contract type')

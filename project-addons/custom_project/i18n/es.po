@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-04 09:28+0000\n"
-"PO-Revision-Date: 2018-02-26 17:13+0100\n"
+"PO-Revision-Date: 2018-05-02 13:25+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,6 +56,11 @@ msgstr "Tipo de ausencia"
 #: field:project.category,work_type_ids:0
 msgid "Work types"
 msgstr "Tipos de trabajo"
+
+#. module: custom_project
+#: model:ir.actions.act_window,name:custom_project.print_hours_resume_action
+msgid "Print hours resume"
+msgstr "Imprimir resumen de horas"
 
 #. module: custom_project
 #: view:res.users:custom_project.view_users_form_add_task_management_data
@@ -137,10 +142,71 @@ msgid "Date end"
 msgstr "Hora fin"
 
 #. module: custom_project
+#: field:print.farm.visit.report,date_end:0
+#: field:print.hours.resume,date_end:0
+msgid "Date end"
+msgstr "Fecha fin"
+
+#. module: custom_project
+#: field:print.farm.visit.report,work_type:0
 #: view:project.task.work:custom_project.project_task_work_view_search
 #: field:project.task.work,work_type:0
 msgid "Work type"
 msgstr "Código de tarea"
+
+#. module: custom_project
+#: view:print.farm.visit.report:custom_project.print_farm_visit_report_form
+#: view:print.hours.resume:custom_project.print_hours_resume_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: custom_project
+#: field:print.hours.resume,reviewer_id:0
+msgid "Reviewer id"
+msgstr "Revisor"
+
+#. module: custom_project
+#: field:print.farm.visit.report,user_id:0
+#: field:print.hours.resume,user_id:0
+msgid "User id"
+msgstr "Usuario"
+
+#. module: custom_project
+#: model:ir.actions.report.xml,name:custom_project.report_task_daily
+msgid "Daily report"
+msgstr "Parte diario"
+
+#. module: custom_project
+#: field:print.hours.resume,group:0
+msgid "Group"
+msgstr "Agrupación"
+
+#. module: custom_project
+#: selection:print.hours.resume,group:0
+msgid "Hours / day"
+msgstr "Horas / día"
+
+#. module: custom_project
+#: selection:print.hours.resume,group:0
+msgid "Hours / month"
+msgstr "Horas / mes"
+
+#. module: custom_project
+#: field:project.task.work,lot_id:0
+msgid "Lot"
+msgstr "Visita"
+
+#. module: custom_project
+#: view:print.farm.visit.report:custom_project.print_farm_visit_report_form
+#: view:print.hours.resume:custom_project.print_hours_resume_form
+msgid "or"
+msgstr "o"
+
+#. module: custom_project
+#: view:print.farm.visit.report:custom_project.print_farm_visit_report_form
+#: view:print.hours.resume:custom_project.print_hours_resume_form
+msgid "Print"
+msgstr "Imprimir"
 
 #. module: custom_project
 #: view:project.task.work:custom_project.project_task_work_view_search
@@ -168,9 +234,16 @@ msgid "Work summary"
 msgstr "Temas tratados"
 
 #. module: custom_project
+#: field:print.farm.visit.report,farm_id:0
 #: field:project.task.work,exploitation_id:0
 msgid "Exploitation"
 msgstr "Explotación"
+
+#. module: custom_project
+#: field:print.farm.visit.report,date_start:0
+#: field:print.hours.resume,date_start:0
+msgid "Date start"
+msgstr "Fecha inicio"
 
 #. module: custom_project
 #: view:project.task:custom_project.task_custom_form
@@ -196,3 +269,8 @@ msgstr "Tareas"
 #: field:project.task.work,category_id:0
 msgid "Tag"
 msgstr "Etiqueta"
+
+#. module: custom_project
+#: model:ir.actions.act_window,name:custom_project.print_farm_visit_report_action
+msgid "Print farm visit"
+msgstr "Informe de visitas a granja"

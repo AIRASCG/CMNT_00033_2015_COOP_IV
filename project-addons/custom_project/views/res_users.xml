@@ -13,7 +13,9 @@
                 <notebook position="inside">
                     <page string="Task management">
                         <group>
-                            <field name="reviewer_id"/>
+                            <field name="reviewer_id" domain="[('is_reviewer', '=', True)]"/>
+                            <field name="reviewer_2_id" domain="[('is_reviewer', '=', True)]"/>
+                            <field name="is_reviewer"/>
                             <field name="contract_type"/>
                         </group>
                     </page>

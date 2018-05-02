@@ -4,6 +4,8 @@ parts/
 lib/
 include/
 eggs/
+eggs-custom/
+.mr.developer.cfg
 develop-eggs/
 downloads/
 /data/
