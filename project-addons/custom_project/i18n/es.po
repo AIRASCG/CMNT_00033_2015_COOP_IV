@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-04 09:28+0000\n"
-"PO-Revision-Date: 2018-05-02 13:25+0200\n"
+"PO-Revision-Date: 2018-05-02 20:15+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,16 @@ msgstr "Realizado por"
 msgid "The work time collapses with other works"
 msgstr "El tiempo trabajado colapsa con otras tareas"
 
+#. module: custom_project
+#: field:project.task,reviewer_2_id:0
+#: field:res.users,reviewer_2_id:0
+msgid "Reviewer 2"
+msgstr "Revisor 2"
+
+#. module: custom_project
+#: field:res.users,is_reviewer:0
+msgid "Is reviewer"
+msgstr "Es revisor"
 
 #. module: custom_project
 #: field:project.category,company_id:0
