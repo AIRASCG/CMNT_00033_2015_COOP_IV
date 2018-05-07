@@ -32,7 +32,7 @@ class FarmVisitRerport(models.AbstractModel):
                 mult = all_users.index(int(user_id))
                 mult -= curr_index
                 table += u'<td></td>' * mult
-                table += u'<td>{}</td>'.format(format_hour(all_tasks_dict[work_type_id][str(user_id)]))
+                table += u'<td align="right">{}</td>'.format(format_hour(all_tasks_dict[work_type_id][str(user_id)]))
                 curr_index += mult + 1
             table += '<td></td>' * (len(all_users) - curr_index)
             table += u'</tr>'

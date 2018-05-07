@@ -71,22 +71,22 @@
                             <td>
                                 <span t-esc="task['name:%s' % o.group]"/>
                             </td>
-                            <td>
+                            <td align="right">
                                 <span t-esc="task['total_work_hours']" t-esc-options='{"widget": "time"}'/>
                             </td>
-                            <td>
+                            <td align="right">
                                 <span t-esc="task['total_absence_hours']" t-esc-options='{"widget": "time"}'/>
                             </td>
-                            <td>
+                            <td align="right">
                                 <span t-esc="task['total_time']" t-esc-options='{"widget": "time"}'/>
                             </td>
-                            <td>
+                            <td align="right">
                                 <span t-esc="task['km_company_car']" />
                             </td>
-                            <td>
+                            <td align="right">
                                 <span t-esc="task['km_own_car']"/>
                             </td>
-                            <td>
+                            <td align="right">
                                 <span t-esc="task['diet']"/>
                             </td>
                         </tr>
@@ -94,12 +94,12 @@
                     <tfoot>
                         <tr>
                             <td></td>
-                            <td><span t-esc="sum([x['total_work_hours'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
-                            <td><span t-esc="sum([x['total_absence_hours'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
-                            <td><span t-esc="sum([x['total_time'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
-                            <td><span t-esc="sum([x['km_company_car'] for x in tasks])"/></td>
-                            <td><span t-esc="sum([x['km_own_car'] for x in tasks])"/></td>
-                            <td><span t-esc="sum([x['diet'] for x in tasks])"/></td>
+                            <td align="right"><span t-esc="sum([x['total_work_hours'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td align="right"><span t-esc="sum([x['total_absence_hours'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td align="right"><span t-esc="sum([x['total_time'] for x in tasks])" t-esc-options='{"widget": "time"}'/></td>
+                            <td align="right"><span t-esc="sum([x['km_company_car'] for x in tasks])"/></td>
+                            <td align="right"><span t-esc="sum([x['km_own_car'] for x in tasks])"/></td>
+                            <td align="right"><span t-esc="sum([x['diet'] for x in tasks])"/></td>
                         </tr>
                     </tfoot>
                 </table>

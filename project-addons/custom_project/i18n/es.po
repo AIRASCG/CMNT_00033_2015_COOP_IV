@@ -7,13 +7,19 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-05-04 09:28+0000\n"
-"PO-Revision-Date: 2018-05-02 20:15+0200\n"
+"PO-Revision-Date: 2018-05-07 13:00+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: custom_project
+#: code:addons/custom_project/report/task_hours_summary_report.py:47
+#, python-format
+msgid "total worked hours / "
+msgstr "Total horas trabajadas / "
 
 #. module: custom_project
 #: field:res.users,reviewer_id:0

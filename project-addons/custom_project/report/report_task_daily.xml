@@ -55,9 +55,9 @@
                         <tr t-foreach="o.work_ids" t-as="work_line">
                             <td><span t-field="work_line.work_type.name"/></td>
                             <td><span t-field="work_line.name"/></td>
-                            <td><span t-esc="work_line.date_start" t-esc-options='{"widget": "time"}'/></td>
-                            <td><span t-esc="work_line.date_end" t-esc-options='{"widget": "time"}'/></td>
-                            <td><span t-esc="work_line.hours" t-esc-options='{"widget": "time"}'/></td>
+                            <td align="right"><span t-esc="work_line.date_start" t-esc-options='{"widget": "time"}'/></td>
+                            <td align="right"><span t-esc="work_line.date_end" t-esc-options='{"widget": "time"}'/></td>
+                            <td align="right"><span t-esc="work_line.hours" t-esc-options='{"widget": "time"}'/></td>
                             <td><span t-field="work_line.exploitation_id.name"/></td>
                             <td><span t-field="work_line.absence_type.name"/></td>
                         </tr>

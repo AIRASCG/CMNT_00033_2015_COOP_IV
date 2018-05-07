@@ -13,7 +13,7 @@
                 <form>
                     <group>
                         <group>
-                            <field name="user_id"/>
+                            <field name="user_id" domain="[('is_reviewer', '=', True)]"/>
                             <field name="farm_id"/>
                             <field name="date_start"/>
                         </group>

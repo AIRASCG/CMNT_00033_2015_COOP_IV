@@ -22,8 +22,10 @@ class TaskHoursSummaryReport(models.AbstractModel):
         ax = plt.axes()
         locale.setlocale(locale.LC_TIME, "es_ES.utf8")
         if group == 'day':
+            group_str = u'día'
             date_format = '%d %b %Y'
         else:
+            group_str = u'mes'
             loc = mdates.MonthLocator()
             date_format = '%B %Y'
         dates = [datetime.strptime(x['name:{}'.format(group)], date_format) for x in datas]
@@ -44,7 +46,7 @@ class TaskHoursSummaryReport(models.AbstractModel):
         ax.xaxis.set_major_formatter(fmt)
         ax.yaxis.set_major_formatter(FuncFormatter(lambda inner, _: '%02d:%02d' % (int(inner), (inner - int(inner)) * 60)))
         plt.bar(dates, hours, align="center", color='green')
-        plt.title(_('total worked hours / ') + _(group))
+        plt.title(_('total worked hours / ') + group_str)
         plt.grid(True)
         fig = plt.figure(1)
         fig.autofmt_xdate()
