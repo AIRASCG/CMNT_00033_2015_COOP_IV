@@ -18,8 +18,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api, _
+from openerp import models, fields, api, _, exceptions
 from datetime import datetime
+
+
+class LotPartnerName(models.Model):
+
+    _name = 'lot.partner.name'
+
+    name = fields.Char()
+    sequence = fields.Integer()
+    lot_id = fields.Many2one('lot.partner')
 
 
 class LotPartner(models.Model):
@@ -28,11 +37,21 @@ class LotPartner(models.Model):
     _inherit = ['yearly.data']
 
     lot_number = fields.Integer('Lot number')
+    lot_names = fields.One2many('lot.partner.name', 'lot_id')
 
     _sql_constraints = [
         ('lot_uniq', 'unique (year_id,farm_id)',
          _('Error! Only one lot by year and company.'))
     ]
+
+    '''@api.one
+    @api.constrains('lot_names')
+    def _check_lot_names(self):
+        for lot in self:
+            if len(lot.lot_names) > lot.lot_number:
+                raise exceptions.ValidationError(_(''), _(''))
+            if sorted([x.sequence for x in lot.lot_names]) != range(1, lot.lot_number + 1):
+                raise exceptions.ValidationError(_(''), _(''))'''
 
 
 class Lot(models.Model):

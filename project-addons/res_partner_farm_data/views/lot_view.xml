@@ -38,6 +38,14 @@
                                 <field name="date" attrs="{'readonly': [('state', '=', 'old')]}"/>
                             </group>
                         </group>
+                        <group>
+                            <field name="lot_names">
+                                <tree editable="top">
+                                    <field name="sequence"/>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
                     </sheet>
                 </form>
             </field>
