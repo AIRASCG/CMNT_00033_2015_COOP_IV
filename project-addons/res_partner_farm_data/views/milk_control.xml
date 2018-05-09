@@ -17,6 +17,13 @@
                     <field name="control_number"/>
                     <field name="days"/>
                     <field name="milk_liters"/>
+                    <field name="fat"/>
+                    <field name="protein"/>
+                    <field name="rcs"/>
+                    <field name="urea"/>
+                    <field name="cumulative_milk"/>
+                    <field name="cumulative_fat"/>
+                    <field name="cumulative_protein"/>
                 </tree>
             </field>
         </record>

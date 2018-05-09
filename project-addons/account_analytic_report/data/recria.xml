@@ -287,8 +287,8 @@
             <field name="code">24</field>
             <field name="sequence">24</field>
             <field name="name">Balance de reposición</field>
-            <field name="value_1_1">((7011,7018),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)</field>
-            <field name="value_2_1">((7011,7018),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)</field>
+            <field name="value_1_1">((7011?qty,7018?qty),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)</field>
+            <field name="value_2_1">((7011?qty,7018?qty),/#milk_and_dry),-(#total_heifer,/'2,/#milk_and_dry)</field>
             <field name="template_id" ref="tech_rec_index"/>
         </record>
 

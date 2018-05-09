@@ -10,6 +10,11 @@
                 <field name="company_id" position="attributes">
                     <attribute name="attrs"></attribute>
                 </field>
+                <notebook position="inside">
+                    <page string="Allowed products">
+                        <field name="allowed_products" />
+                    </page>
+                </notebook>
             </field>
         </record>
 

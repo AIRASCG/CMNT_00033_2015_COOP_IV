@@ -441,6 +441,10 @@ class AccountAnalyticReportLine(models.Model):
                 called_field = val.replace('#', '')[1:] + '_' + field[-3]
                 val = sign + str(self.report_id[called_field])
             else:  # se referencia a una cuenta
+                acc_field = 'balance'
+                if '?qty' in val:  # Se usa el campo cantidad en vez de balance
+                    acc_field = 'quantity'
+                    val = val.replace('?qty', '')
                 account = self.env['account.analytic.account'].search(
                     [('code', '=', val[1:])])
                 if not account:
@@ -453,10 +457,10 @@ class AccountAnalyticReportLine(models.Model):
                 if self.report_id['campaign_' + field[6]]:
                     campaign = self.report_id['campaign_' + field[6]].id
                     val = sign + str(account.with_context(company_id=company.id,
-                                     from_date=from_date, to_date=to_date, campaign=campaign).balance)
+                                     from_date=from_date, to_date=to_date, campaign=campaign)[acc_field])
                 else:
                     val = sign + str(account.with_context(company_id=company.id,
-                                     from_date=from_date, to_date=to_date).balance)
+                                     from_date=from_date, to_date=to_date)[acc_field])
             if end_par:
                 val += ')' * end_par
             final_vals.append(val)

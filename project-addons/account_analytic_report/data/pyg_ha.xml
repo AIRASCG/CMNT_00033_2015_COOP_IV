@@ -348,9 +348,9 @@
             <field name="code">31</field>
             <field name="sequence">31</field>
             <field name="name">Generales(unifeed, cuotas, luz...)</field>
-            <field name="value_1_1">62310, 62312, 62314, 62315, 6293, 62316, 6282, 6283, 6284, 6285, 6286, 630, 6217</field>
+            <field name="value_1_1">62310, 62312, 62314, 62315, 62930, 62316, 6282, 6283, 6284, 6285, 6286, 630, 6217</field>
             <field name="value_1_2">[1_1],/#hectare</field>
-            <field name="value_2_1">62310, 62312, 62314, 62315, 6293, 62316, 6282, 6283, 6284, 6285, 6286, 630, 6217</field>
+            <field name="value_2_1">62310, 62312, 62314, 62315, 62930, 62316, 6282, 6283, 6284, 6285, 6286, 630, 6217</field>
             <field name="value_2_2">[2_1],/#hectare</field>
             <field name="template_id" ref="pyg_ha"/>
         </record>

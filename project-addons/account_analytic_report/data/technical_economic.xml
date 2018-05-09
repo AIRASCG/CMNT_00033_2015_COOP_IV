@@ -12,8 +12,8 @@
             <field name="code">1</field>
             <field name="sequence">1</field>
             <field name="name">Leche producida</field>
-            <field name="value_1_1">#milk,/'1000</field>
-            <field name="value_2_1">#milk,/'1000</field>
+            <field name="value_1_1">7000?qty,7006?qty,7007?qty,7008?qty,7009?qty</field>
+            <field name="value_2_1">7000?qty,7006?qty,7007?qty,7008?qty,7009?qty</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 

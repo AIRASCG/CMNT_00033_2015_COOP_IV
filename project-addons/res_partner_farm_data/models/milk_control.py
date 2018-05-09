@@ -316,7 +316,7 @@ class MilkControlReport(models.Model):
 
 
         self['total_cant%s' % suffix] = sum([1 for x in milk_data if x.get_liters(self['milking_type%s' % suffix]) > 0])
-        self['total_del%s' % suffix] = average([x.days for x in milk_data])
+        self['total_del%s' % suffix] = average([float(x.days) for x in milk_data])
         self['total_litros%s' % suffix] = average([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data])
 
         self['total_grasa%s' % suffix] = (sum([x.get_liters(self['milking_type%s' % suffix]) * (x.fat / 100)]) / (sum([x.get_liters(self['milking_type%s' % suffix])]) or 1.0)) * 100

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-05 18:17+0000\n"
-"PO-Revision-Date: 2018-02-26 10:45+0100\n"
+"PO-Revision-Date: 2018-05-09 16:50+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,6 +22,8 @@ msgid "Invoice line search"
 msgstr " Búsqueda de líneas de factura"
 
 #. module: custom_coop
+#: view:account.analytic.account:custom_coop.view_account_analytic_account_form_rp_comp
+#: field:account.analytic.account,allowed_products:0
 #: view:account.analytic.plan.instance:custom_coop.account_analytic_plan_instance_add_allowed_products
 #: field:account.analytic.plan.instance,allowed_products:0
 msgid "Allowed products"

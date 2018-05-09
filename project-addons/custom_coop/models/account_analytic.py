@@ -24,11 +24,21 @@ class AccountAnalyticAccount(models.Model):
 
     _inherit = 'account.analytic.account'
 
+    allowed_products = fields.Many2many(
+        'product.product',
+        'analytic_account_product_rel',
+        'account_id',
+        'product_id')
+
     @api.model
     def create(self, vals):
         if not vals.get('parent_id', False) and vals.get('type', False) != 'contract':
             if self.env.user.id != 1:
                 raise exceptions.Warning(_('Create error'), _('Unauthorized user'))
+        if self._context.get('product_id', False):
+            if 'allowed_products' not in vals:
+                vals['allowed_products'] = []
+            vals['allowed_products'].append((4, self._context.get('product_id')))
         return super(AccountAnalyticAccount, self).create(vals)
 
 
@@ -51,8 +61,26 @@ class AccountAnalyticPlanInstance(models.Model):
 
     @api.model
     def create(self, vals):
-        if self._context.get('product_id'):
+        if self._context.get('product_id', False):
             if 'allowed_products' not in vals:
                 vals['allowed_products'] = []
             vals['allowed_products'].append((4, self._context.get('product_id')))
         return super(AccountAnalyticPlanInstance, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        nocopy = False
+        if 'allowed_products' in vals and len(vals) == 1:
+            nocopy = True
+        old_plan = self.plan_id
+        res = super(AccountAnalyticPlanInstance, self.with_context(nocopy=nocopy)).write(vals)
+        if not self.plan_id and old_plan:
+            super(AccountAnalyticPlanInstance, self).write({'plan_id': old_plan.id})
+        return res
+
+    @api.multi
+    def copy(self, default=None):
+        self.ensure_one()
+        if self._context.get('nocopy', False):
+            return self
+        return super(AccountAnalyticPlanInstance, self).copy(default)
