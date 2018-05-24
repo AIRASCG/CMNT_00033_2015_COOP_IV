@@ -5,6 +5,13 @@
 from openerp import models, fields, api, exceptions, _
 
 
+class PhytosanitaryRegistryNumber(models.Model):
+
+    _name = 'phytosanitary.registry.number'
+
+    name = fields.Char()
+
+
 class Phytosanitary(models.Model):
 
     _name = 'phytosanitary'
@@ -15,19 +22,30 @@ class Phytosanitary(models.Model):
     invoice_line = fields.Many2one('account.invoice.line')
     total_qty = fields.Float(required=True)
     uom = fields.Many2one('product.uom', required=True)
-    registry_number = fields.Char(required=True)
+    registry_number = fields.Many2one('phytosanitary.registry.number', required=True)
     name = fields.Char(required=True)
     acquisition_date = fields.Date(required=True)
     phytosanitary_uses = fields.One2many('phytosanitary.use', 'phytosanitary')
     rest_qty = fields.Float(compute='_compute_rest_qty', store=True)
     company_id = fields.Many2one('res.company', 'Company',
                                  default=_get_company)
+    total_doses = fields.Integer(required=True)
+    qty_per_dose = fields.Float(compute='_compute_qty_per_dose', store=True)
+    rest_doses = fields.Integer(compute='_compute_rest_qty', store=True)
 
-    @api.depends('total_qty', 'phytosanitary_uses.used_qty')
+    @api.depends('total_qty', 'total_doses')
+    def _compute_qty_per_dose(self):
+        for phyto in self:
+            phyto.qty_per_dose = phyto.total_qty / phyto.total_doses or 1.0
+
+    @api.depends('total_qty', 'total_doses', 'phytosanitary_uses.used_qty')
     def _compute_rest_qty(self):
         for phyto in self:
+            phyto.rest_doses = phyto.total_doses - \
+                sum([x.used_doses for x in phyto.phytosanitary_uses])
             phyto.rest_qty = phyto.total_qty - \
-                sum([x.used_qty for x in phyto.phytosanitary_uses])
+                sum([x.used_doses * phyto.qty_per_dose
+                     for x in phyto.phytosanitary_uses])
 
     @api.multi
     def name_get(self):
@@ -60,11 +78,16 @@ class PhytosanitaryUse(models.Model):
     surface_treated = fields.Float()
     phytosanitary_problem = fields.Char()
     efficacy = fields.Char()
-    used_qty = fields.Float()
+    used_qty = fields.Float(compute='_compute_used_qty')
+    used_doses = fields.Float()
     applicator = fields.Many2one('phytosanitary.applicator')
     machine = fields.Many2one('phytosanitary.machine')
     notes = fields.Char()
     year = fields.Char(compute='_compute_use_year')
+
+    def _compute_used_qty(self):
+        for use in self:
+            use.used_qty = use.used_doses * use.phytosanitary.qty_per_dose
 
     @api.depends('date')
     def _compute_use_year(self):

@@ -110,6 +110,7 @@
             <menuitem name="Plantations management" parent="farm_managemen" id="menu_plantation_management" groups="custom_groups.group_tech_crop,custom_groups.group_admin,custom_groups.group_tech_mngnt"/>
                 <menuitem name="Plantations" parent="menu_plantation_management" action="res_partner_farm_data.action_res_partner_fields" id="menu_res_partner_fields"/>
                 <menuitem name="Import plantations" parent="menu_plantation_management" action="res_partner_farm_data.import_fields_act2" id="menu_res_partner_fields_import"/>
+                <menuitem name="Field Products" parent="custom_menu.menu_plantation_management" action="res_partner_farm_data.res_partner_fields_product_action" id="res_partner_fields_product_menu"/>
             <menuitem name="Phytosanitaries" groups="custom_groups.group_tech_mngnt,custom_groups.group_admin,custom_groups.group_tech_crop" parent="farm_managemen" action="farm_notebook.phytosanitary_action" id="menu_phytosanitaries"/>
             <menuitem name="Farm campaigns"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin,custom_groups.group_tech_crop" parent="farm_managemen" action="farm_notebook.farm_campaign_action" id="farm_campaign_menu"/>
             <menuitem name="Farm notebook"  groups="custom_groups.group_tech_mngnt,custom_groups.group_admin,custom_groups.group_tech_crop" parent="farm_managemen" action="farm_notebook.farm_notebook_action" id="farm_notebook_menu"/>

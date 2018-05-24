@@ -18,8 +18,45 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+from openerp import tools
 from openerp import models, fields, api, exceptions, _
 from datetime import datetime, date
+
+class ProductSurfaceByPartner(models.Model):
+
+    _name = 'product.surface.by.partner'
+    _auto = False
+    _order = 'product_id desc'
+
+    product_id = fields.Many2one('res.partner.fields.product', 'Product')
+    partner_id = fields.Many2one('res.partner')
+    surface = fields.Float()
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, 'product_surface_by_partner')
+        cr.execute("""
+            CREATE VIEW product_surface_by_partner as (
+                SELECT row_number() over () AS id,
+                       product_id,
+                       partner_id,
+                       SUM(surface) AS surface
+                FROM (
+                        SELECT product_1 AS product_id,
+                               partner_id,
+                               SUM(net_surface) AS surface
+                        FROM res_partner_fields
+                        GROUP BY product_1, partner_id
+
+                        UNION
+
+                        SELECT product_2 AS product_id,
+                               partner_id,
+                               SUM(net_surface) AS surface
+                        FROM res_partner_fields
+                        GROUP BY product_2, partner_id) AS x
+                GROUP BY product_id, partner_id
+            );
+        """)
 
 
 class ResPartner(models.Model):
@@ -145,6 +182,8 @@ class ResPartner(models.Model):
     company_ids = fields.One2many("res.company", "partner_id",
                                   "Related Company", readonly=True)
     farm_lots = fields.One2many('lot.partner', 'farm_id')
+    product_surfaces = fields.One2many('product.surface.by.partner',
+                                       'partner_id', readonly=True)
 
     @api.one
     @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
@@ -373,6 +412,13 @@ class ResPartnerCategory(models.Model):
                                   'res_partner_res_partner_category_rel',
                                   'category_id', 'partner_id', 'Partners')
 
+class ResPartnerFieldsProduct(models.Model):
+
+    _name = 'res.partner.fields.product'
+
+    code = fields.Char()
+    name = fields.Char()
+
 
 class ResPartnerFields(models.Model):
     _name = 'res.partner.fields'
@@ -398,8 +444,8 @@ class ResPartnerFields(models.Model):
     cap = fields.Float("CAP")
     declared_surface = fields.Float("Declared Surface")
     net_surface = fields.Float("Net Surface")
-    product_code = fields.Char("Product Code")
-    product_name = fields.Char("Product")
+    product_1 = fields.Many2one('res.partner.fields.product')
+    product_2 = fields.Many2one('res.partner.fields.product')
     variety = fields.Integer("Variety")
     location_name = fields.Char("Location Name")
     rent = fields.Float("Rent")

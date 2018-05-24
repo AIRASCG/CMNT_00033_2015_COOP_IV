@@ -37,7 +37,9 @@
                             <field name="invoice_line"/>
                             <field name="total_qty"/>
                             <field name="uom"/>
+                            <field name="total_doses"/>
                             <field name="rest_qty"/>
+                            <field name="rest_doses"/>
                         </group>
                     </group>
                     <separator string="Phytosanitary uses"/>
@@ -51,7 +53,7 @@
                             <field name="surface_treated"/>
                             <field name="phytosanitary_problem"/>
                             <field name="efficacy"/>
-                            <field name="used_qty"/>
+                            <field name="used_doses"/>
                             <field name="applicator" required="True"/>
                             <field name="machine" required="True"/>
                             <field name="notes"/>

@@ -22,8 +22,8 @@
                 <field name="cap"/>
                 <field name="declared_surface"/>
                 <field name="net_surface"/>
-                <field name="product_code"/>
-                <field name="product_name"/>
+                <field name="product_1"/>
+                <field name="product_2"/>
                 <field name="variety"/>
                 <field name="location_name"/>
                 <field name="rent"/>
@@ -56,8 +56,8 @@
                             <field name="cap"/>
                             <field name="declared_surface"/>
                             <field name="net_surface"/>
-                            <field name="product_code"/>
-                            <field name="product_name"/>
+                            <field name="product_1"/>
+                            <field name="product_2"/>
                             <field name="variety"/>
                             <field name="location_name"/>
                             <field name="rent"/>
@@ -406,6 +406,12 @@
                         </group>
                     </page>
                     <page string="Plantation"  attrs="{'invisible': [('farm', '=', False)]}">
+                        <field name="product_surfaces">
+                            <tree editable="top">
+                                <field name="product_id"/>
+                                <field name="surface"/>
+                            </tree>
+                        </field>
                         <separator string="Net Surface"/>
                         <group colspan="4">
                             <group col="2">
@@ -612,6 +618,41 @@
          <menuitem name="Password services" parent="base.menu_config_address_book"
                   action="res_partner_service_action"
                   id="res_partner_service_menu"/>
+        <record id="res_partner_fields_product_view_tree" model="ir.ui.view">
+            <field name="name">res.partner.fields.product.tree</field>
+            <field name="model">res.partner.fields.product</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="res_partner_fields_product_view_form" model="ir.ui.view">
+            <field name="name">res.partner.fields.product.form</field>
+            <field name="model">res.partner.fields.product</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="res_partner_fields_product_action" model="ir.actions.act_window">
+            <field name="name">Field Products</field>
+            <field name="res_model">res.partner.fields.product</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="res_partner_fields_product_view_tree"/>
+        </record>
 
     </data>
 </openerp>

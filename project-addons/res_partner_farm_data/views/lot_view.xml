@@ -196,7 +196,12 @@
                                 <field name="user_id"/>
                                 <field name="description"/>
                                 <field name="max_seq" invisible="1"/>
-                                <field name="sequence_id" widget="selection" domain="[('name', '&lt;=', max_seq)]"/>
+                                <field name="lot_partner" invisible="1"/>
+                                <field name="sequence_id"
+                                       widget="selection"
+                                       domain="[('name', '&lt;=', max_seq)]"
+                                       context="{'lot_partner': lot_partner}"
+                                        />
                             </group>
                         </group>
                         <group colspan="4" col="3">

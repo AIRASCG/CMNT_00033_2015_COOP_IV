@@ -27,7 +27,7 @@ class LotPartnerName(models.Model):
     _name = 'lot.partner.name'
 
     name = fields.Char()
-    sequence = fields.Integer()
+    sequence = fields.Integer(default=1)
     lot_id = fields.Many2one('lot.partner')
 
 
@@ -44,14 +44,13 @@ class LotPartner(models.Model):
          _('Error! Only one lot by year and company.'))
     ]
 
-    '''@api.one
     @api.constrains('lot_names')
     def _check_lot_names(self):
         for lot in self:
             if len(lot.lot_names) > lot.lot_number:
-                raise exceptions.ValidationError(_(''), _(''))
+                raise exceptions.ValidationError( _(''))
             if sorted([x.sequence for x in lot.lot_names]) != range(1, lot.lot_number + 1):
-                raise exceptions.ValidationError(_(''), _(''))'''
+                raise exceptions.ValidationError(_(''))
 
 
 class Lot(models.Model):
@@ -218,6 +217,23 @@ class LotDetailSequence(models.Model):
     _name = 'lot.detail.sequence'
 
     name = fields.Integer('Name')
+
+    @api.multi
+    def name_get(self):
+        if not self._context.get('lot_partner'):
+            return [(x.id, x.name) for x in self]
+        seq_names = []
+        for seq in self:
+            lot_partner = self.env['lot.partner.name'].search(
+                [('lot_id', '=', self._context.get('lot_partner')),
+                 ('sequence', '=', seq.name)])
+            name = str(seq.name)
+            if lot_partner:
+                name += ' ({})'.format(lot_partner.name)
+            seq_names.append((seq.id, name))
+        return seq_names
+
+
 
     _sql_constraints = [
         ('name_uniq', 'unique (name)', 'The sequence name must be unique !')
@@ -411,6 +427,7 @@ class LotDetail(models.Model):
     sequence_id = fields.Many2one('lot.detail.sequence', 'Sequence')
     sequence = fields.Integer('Sequence', related='sequence_id.name')
     max_seq = fields.Integer('', compute='_get_max_sequence', store=True)
+    lot_partner = fields.Many2one('lot.partner', compute='_get_max_sequence', store=True)
 
     total_theo_kg = fields.Float('Total Kg theorical', compute='_get_lot_calcs')
     total_theo_ms = fields.Float('', compute='_get_lot_calcs')
@@ -421,6 +438,15 @@ class LotDetail(models.Model):
     total_ms = fields.Float('', compute='_get_lot_calcs')
     total_enl = fields.Float('Total ENL', compute='_get_lot_calcs')
     total_pb = fields.Float('Total PB', compute='_get_lot_calcs')
+
+    @api.onchange('sequence_id')
+    def onchange_sequence_id(self):
+        for seq in self:
+            lot_partner = self.env['lot.partner.name'].search(
+                [('lot_id', '=', seq.lot_partner.id),
+                 ('sequence', '=', seq.sequence_id.name)])
+            if lot_partner:
+                seq.name = lot_partner.name
 
     @api.multi
     def _set_kf_mf_carriage(self):
@@ -442,6 +468,7 @@ class LotDetail(models.Model):
                  ('year_id.date_start', '<=', detail.lot_id.date),
                  ('year_id.date_stop', '>=', detail.lot_id.date)])
             detail.max_seq = lot_partner and lot_partner[0].lot_number or 0
+            detail.lot_partner = lot_partner and lot_partner or False
 
     _sql_constraints = [
         ('uniq_sequence_per_lot', 'unique (sequence_id, lot_id)',

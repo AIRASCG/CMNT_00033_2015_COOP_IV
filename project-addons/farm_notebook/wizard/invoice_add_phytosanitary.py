@@ -9,8 +9,9 @@ class InvoiceAddPhytosanitary(models.TransientModel):
     _name = 'invoice.add.phytosanitary'
 
     total_qty = fields.Float()
+    total_doses = fields.Float()
     uom = fields.Many2one('product.uom', required=True)
-    registry_number = fields.Char(required=True)
+    registry_number = fields.Many2one('phytosanitary.registry.number', required=True)
     name = fields.Char(required=True)
     acquisition_date = fields.Date(required=True)
     invoice_line = fields.Many2one('account.invoice.line')
@@ -29,8 +30,9 @@ class InvoiceAddPhytosanitary(models.TransientModel):
     def confirm(self):
         self.env['phytosanitary'].create({
             'total_qty': self.total_qty,
+            'total_doses': self.total_doses,
             'uom': self.uom.id,
-            'registry_number': self.registry_number,
+            'registry_number': self.registry_number.id,
             'name': self.name,
             'acquisition_date': self.acquisition_date,
             'invoice_line': self.invoice_line.id,

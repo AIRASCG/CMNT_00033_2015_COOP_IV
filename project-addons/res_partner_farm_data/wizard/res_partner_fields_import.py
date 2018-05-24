@@ -71,8 +71,14 @@ class FieldsImport(models.TransientModel):
             control_vals['cap'] = row[10]
             control_vals['declared_surface'] = row[11]
             control_vals['net_surface'] = row[12]
-            control_vals['product_code'] = str(int(row[13]))
-            control_vals['product_name'] = row[14]
+            product_1 = self.env['res.partner.fields.product'].search(
+                [('code', '=', str(int(row[13])))])
+            if product_1:
+                control_vals['product_1'] = product_1.id
+            else:
+                raise exceptions.Warning(
+                    _('Validity error'),
+                    _('The product code %s is not available') % row[13])
             control_vals['variety'] = int(row[15])
             control_vals['location_name'] = row[16]
             control_vals['rent'] = row[17]

@@ -4,7 +4,7 @@
 {
     'name': 'Farm notebook',
     'summary': '',
-    'version': '8.0.1.0.0',
+    'version': '8.0.2.0.0',
     'category': 'Uncategorized',
     'website': 'comunitea.com',
     'author': 'Comunitea',
@@ -23,9 +23,10 @@
         'wizard/phytosanitary_add_campaign_wizard.xml',
         'wizard/invoice_add_phytosanitary.xml', 'views/account_invoice.xml',
         'views/phytosanitary.xml', 'views/product.xml',
+        'wizard/farm_campaign_add_fields.xml',
         'views/farm_campaign.xml', 'views/res_partner.xml',
         'views/res_partner_fields.xml', 'views/farm_notebook.xml',
         'security/ir.model.access.csv', 'security/security.xml',
-        'farm_notebook_report.xml', 'views/farm_notebook_report.xml',
+        'farm_notebook_report.xml', 'views/farm_notebook_report.xml'
     ],
 }

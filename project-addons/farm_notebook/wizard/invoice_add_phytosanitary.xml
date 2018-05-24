@@ -13,6 +13,7 @@
                 <form>
                     <group>
                         <field name="total_qty"/>
+                        <field name="total_doses"/>
                         <field name="uom"/>
                         <field name="registry_number"/>
                         <field name="name"/>

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-28 12:40+0000\n"
-"PO-Revision-Date: 2018-02-26 10:50+0100\n"
+"PO-Revision-Date: 2018-05-24 19:13+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,16 @@ msgstr "El código de uso %s no existe"
 #: field:res.partner.fields,custom_id:0
 msgid "Custom id"
 msgstr "ID"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.res_partner_fields_product_action
+msgid "Field Products"
+msgstr "Productos finca"
+
+#. module: res_partner_farm_data
+#: field:res.partner.fields.product,code:0
+msgid "Code"
+msgstr "Código"
 
 #. module: res_partner_farm_data
 #: field:lot.content,purchase:0
@@ -2176,7 +2186,11 @@ msgstr "Múltiples explotaciones con la referencia %s "
 
 #. module: res_partner_farm_data
 #: field:gescarro.data,name:0
+#: field:lot.detail,name:0
+#: field:lot.detail.sequence,name:0
+#: field:lot.partner.name,name:0
 #: field:milk.control.line,name:0
+#: field:res.partner.fields.product,name:0
 msgid "Name"
 msgstr "Nombre"
 

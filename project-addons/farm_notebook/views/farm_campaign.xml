@@ -47,6 +47,7 @@
                             </group>
                         </group>
                         <separator string="Crops" />
+                        <button name="%(farm_campaign_add_fields_action)d" type="action" string="Add fields"/>
                         <field name="crops">
                             <tree editable="bottom">
                                 <field name="field" context="{'show_year': True}"/>
