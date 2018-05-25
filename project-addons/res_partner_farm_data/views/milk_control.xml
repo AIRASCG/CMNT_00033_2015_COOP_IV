@@ -95,6 +95,7 @@
                                 <field name="line_ids" nolabel="1" colspan="4"/>
                             </page>
                             <page string="Notes">
+                                <field name="notes" nolabel="1" colspan="4" Placeholder="Notas..."/>
                                 <separator string="Errors" colspan="4"/>
                                 <field name="exception_txt" nolabel="1" colspan="4"/>
                             </page>

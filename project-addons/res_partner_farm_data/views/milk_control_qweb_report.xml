@@ -65,7 +65,7 @@
                                             <tr>
                                                 <td>Total</td>
                                                 <td><span t-field="o.total_cant_1"/></td>
-                                                <td><span t-field="o.total_del_1"/></td>
+                                                <td><span t-esc="int(o.total_del_1)"/></td>
                                                 <td><span t-field="o.total_litros_1"/></td>
                                                 <td><span t-field="o.total_grasa_1"/></td>
                                                 <td><span t-field="o.total_proteina_1"/></td>
@@ -113,7 +113,7 @@
                                             <tr>
                                                 <td>Total</td>
                                                 <td><span t-field="o.total_cant_2"/></td>
-                                                <td><span t-field="o.total_del_2"/></td>
+                                                <td><span t-esc="int(o.total_del_2)"/></td>
                                                 <td><span t-field="o.total_litros_2"/></td>
                                                 <td><span t-field="o.total_grasa_2"/></td>
                                                 <td><span t-field="o.total_proteina_2"/></td>
@@ -194,24 +194,24 @@
                                                 <td><strong>Nº novillas entre 60-90 DEL</strong></td>
                                             </tr>
                                             <tr>
-                                                <td><span t-field="o.pico_novillas_2"/></td>
-                                                <td><span t-field="o.pico_novillas_del_2"/></td>
-                                                <td><span t-field="o.num_novillas_pico_del_2"/></td>
+                                                <td><span t-field="o.pico_novillas_1"/></td>
+                                                <td><span t-field="o.pico_novillas_del_1"/></td>
+                                                <td><span t-field="o.num_novillas_pico_del_1"/></td>
                                             </tr>
                                             <tr>
                                                 <td><strong>Pico producción adultas</strong></td>
                                                 <td><strong>DEL</strong></td>
-                                                <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                                <td><strong>Nº adultas entre 30-90 DEL</strong></td>
                                             </tr>
                                             <tr>
-                                                <td><span t-field="o.pico_adultas_2"/></td>
-                                                <td><span t-field="o.pico_adultas_del_2"/></td>
-                                                <td><span t-field="o.num_adultas_pico_del_2"/></td>
+                                                <td><span t-field="o.pico_adultas_1"/></td>
+                                                <td><span t-field="o.pico_adultas_del_1"/></td>
+                                                <td><span t-field="o.num_adultas_pico_del_1"/></td>
                                             </tr>
                                         </tbody>
                                         <tfooter>
                                             <tr>
-                                                <td><span t-field="o.relacion_entre_picos_2"/></td>
+                                                <td><span t-field="o.relacion_entre_picos_1"/></td>
                                                 <td colspan="2" align="left">= Relación entre picos</td>
                                             </tr>
                                         </tfooter>
@@ -233,7 +233,7 @@
                                             <tr>
                                                 <td><strong>Pico producción adultas</strong></td>
                                                 <td><strong>DEL</strong></td>
-                                                <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                                <td><strong>Nº adultas entre 30-90 DEL</strong></td>
                                             </tr>
                                             <tr>
                                                 <td><span t-field="o.pico_adultas_2"/></td>

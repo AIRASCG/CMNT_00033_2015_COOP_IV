@@ -137,7 +137,7 @@
                                         <tr>
                                             <td><strong>Pico producción adultas</strong></td>
                                             <td><strong>DEL</strong></td>
-                                            <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                            <td><strong>Nº adultas entre 30-90 DEL</strong></td>
                                         </tr>
                                         <tr>
                                             <td><field name="pico_adultas_1"/></td>
@@ -147,7 +147,7 @@
                                     </tbody>
                                     <tfooter>
                                         <tr>
-                                            <td><field name="relacion_entre_picos_2"/></td>
+                                            <td><field name="relacion_entre_picos_1"/></td>
                                             <td>= Relación entre picos</td>
                                         </tr>
                                     </tfooter>
@@ -222,7 +222,7 @@
                                         <tr>
                                             <td><strong>Pico producción adultas</strong></td>
                                             <td><strong>DEL</strong></td>
-                                            <td><strong>Nº adultas entre 60-90 DEL</strong></td>
+                                            <td><strong>Nº adultas entre 30-90 DEL</strong></td>
                                         </tr>
                                         <tr>
                                             <td><field name="pico_adultas_2"/></td>
