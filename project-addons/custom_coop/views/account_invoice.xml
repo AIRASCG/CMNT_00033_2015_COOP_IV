@@ -122,7 +122,7 @@
                 </field>
                 <field name="analytics_id" position="attributes">
                     <attribute name="domain">[('plan_id','&lt;&gt;',False), ('id', 'in',  allowed_analytic_plans and allowed_analytic_plans[0] and allowed_analytic_plans[0][2] or False)]</attribute>
-                    <attribute name="context">{'product_id': product_id, 'journal_id':parent.journal_id}</attribute>
+                    <attribute name="context">{'product_id': product_id}</attribute>
                 </field>
                 <field name='account_analytic_id' position="attributes">
                     <attribute name="domain">[('type','!=','view'),('state','not in',('close','cancelled')), ('id', 'in',  allowed_analytic_accounts and allowed_analytic_accounts[0] and allowed_analytic_accounts[0][2] or False)]</attribute>
