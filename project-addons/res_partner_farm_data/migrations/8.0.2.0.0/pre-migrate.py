@@ -6,4 +6,4 @@ import re
 
 def migrate(cr, version):
     cr.execute(
-        """ALTER TABLE phytosanitary rename column registry_number to registry_number_old;""")
+        """ALTER TABLE res_partner_fields ADD product_2 int;""")
