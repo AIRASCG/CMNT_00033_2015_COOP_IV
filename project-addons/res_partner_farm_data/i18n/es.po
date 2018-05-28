@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-28 12:40+0000\n"
-"PO-Revision-Date: 2018-05-24 19:13+0200\n"
+"PO-Revision-Date: 2018-05-28 17:10+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,16 @@ msgstr ""
 #, python-format
 msgid "The use code %s is not available"
 msgstr "El código de uso %s no existe"
+
+#. module: res_partner_farm_data
+#: field:res.partner.fields,product_1:0
+msgid "Product 1"
+msgstr "Producto 1"
+
+#. module: res_partner_farm_data
+#: field:res.partner.fields,product_2:0
+msgid "Product 2"
+msgstr "Producto 2"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,custom_id:0
@@ -2728,9 +2738,14 @@ msgstr "Coste litro producido €/l"
 #. module: res_partner_farm_data
 #: model:ir.model,name:res_partner_farm_data.model_product_product
 #: field:lot.content,product_id:0
-#: field:res.partner.fields,product_name:0
+#: field:product.surface.by.partner,product_id:0
 msgid "Product"
 msgstr "Producto"
+
+#. module: res_partner_farm_data
+#: field:product.surface.by.partner,surface:0
+msgid "Surface"
+msgstr "Superficie"
 
 #. module: res_partner_farm_data
 #: field:res.partner.fields,product_code:0
