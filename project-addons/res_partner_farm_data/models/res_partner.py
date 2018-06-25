@@ -22,43 +22,6 @@ from openerp import tools
 from openerp import models, fields, api, exceptions, _
 from datetime import datetime, date
 
-class ProductSurfaceByPartner(models.Model):
-
-    _name = 'product.surface.by.partner'
-    _auto = False
-    _order = 'product_id desc'
-
-    product_id = fields.Many2one('res.partner.fields.product', 'Product')
-    partner_id = fields.Many2one('res.partner')
-    surface = fields.Float()
-
-    def init(self, cr):
-        tools.drop_view_if_exists(cr, 'product_surface_by_partner')
-        cr.execute("""
-            CREATE VIEW product_surface_by_partner as (
-                SELECT row_number() over () AS id,
-                       product_id,
-                       partner_id,
-                       SUM(surface) AS surface
-                FROM (
-                        SELECT product_1 AS product_id,
-                               partner_id,
-                               SUM(net_surface) AS surface
-                        FROM res_partner_fields
-                        GROUP BY product_1, partner_id
-
-                        UNION
-
-                        SELECT product_2 AS product_id,
-                               partner_id,
-                               SUM(net_surface) AS surface
-                        FROM res_partner_fields
-                        GROUP BY product_2, partner_id) AS x
-                GROUP BY product_id, partner_id
-            );
-        """)
-
-
 class ResPartner(models.Model):
 
     _inherit = 'res.partner'
@@ -516,3 +479,40 @@ class ResPartnerAttachment(models.Model):
             companies.\
                 extend([x.partner_id.id for x in self.env.user.company_id.child_ids])
             attach.recipient_ids = [(6, 0, companies)]
+
+
+class ProductSurfaceByPartner(models.Model):
+
+    _name = 'product.surface.by.partner'
+    _auto = False
+    _order = 'product_id desc'
+
+    product_id = fields.Many2one('res.partner.fields.product', 'Product')
+    partner_id = fields.Many2one('res.partner')
+    surface = fields.Float()
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, 'product_surface_by_partner')
+        cr.execute("""
+            CREATE VIEW product_surface_by_partner as (
+                SELECT row_number() over () AS id,
+                       product_id,
+                       partner_id,
+                       SUM(surface) AS surface
+                FROM (
+                        SELECT product_1 AS product_id,
+                               partner_id,
+                               SUM(net_surface) AS surface
+                        FROM res_partner_fields
+                        GROUP BY product_1, partner_id
+
+                        UNION
+
+                        SELECT product_2 AS product_id,
+                               partner_id,
+                               SUM(net_surface) AS surface
+                        FROM res_partner_fields
+                        GROUP BY product_2, partner_id) AS x
+                GROUP BY product_id, partner_id
+            );
+        """)

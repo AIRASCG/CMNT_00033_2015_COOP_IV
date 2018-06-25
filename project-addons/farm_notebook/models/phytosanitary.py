@@ -36,7 +36,7 @@ class Phytosanitary(models.Model):
     @api.depends('total_qty', 'total_doses')
     def _compute_qty_per_dose(self):
         for phyto in self:
-            phyto.qty_per_dose = phyto.total_qty / phyto.total_doses or 1.0
+            phyto.qty_per_dose = phyto.total_qty / (phyto.total_doses or 1.0)
 
     @api.depends('total_qty', 'total_doses', 'phytosanitary_uses.used_qty')
     def _compute_rest_qty(self):

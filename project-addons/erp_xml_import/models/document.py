@@ -73,12 +73,8 @@ class ErpXmlDocument(models.Model):
         if 'cod_provincia' in partner.keys() and partner['cod_provincia']:
             state = self.env['res.country.state'].search(
                 [('code', '=', partner['cod_provincia'])])
-            if not state:
-                raise Exception(
-                    _('Code error'),
-                    _('State with code %s not found') %
-                    partner['cod_provincia'])
-            partner_data['state_id'] = state.id
+            if state:
+                partner_data['state_id'] = state.id
         if 'email' in partner.keys():
             partner_data['email'] = partner['email']
         if 'fax' in partner.keys():
