@@ -17,6 +17,7 @@
             <field name="value_2_1">700</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_2" model="account.analytic.report.template.line">
@@ -28,6 +29,7 @@
             <field name="value_2_1">701</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_3" model="account.analytic.report.template.line">
@@ -39,6 +41,7 @@
             <field name="value_2_1">7401</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_4" model="account.analytic.report.template.line">
@@ -50,6 +53,7 @@
             <field name="value_2_1">7461</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_5" model="account.analytic.report.template.line">
@@ -61,6 +65,7 @@
             <field name="value_2_1">702</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_6" model="account.analytic.report.template.line">
@@ -72,6 +77,7 @@
             <field name="value_2_1">759</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_7" model="account.analytic.report.template.line">
@@ -83,6 +89,7 @@
             <field name="value_2_1">749,705,762,752</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_8" model="account.analytic.report.template.line">
@@ -94,6 +101,7 @@
             <field name="value_2_1">6114</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_9" model="account.analytic.report.template.line">
@@ -117,6 +125,7 @@
             <field name="value_2_1">601</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_11" model="account.analytic.report.template.line">
@@ -128,39 +137,43 @@
             <field name="value_2_1">602</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_12" model="account.analytic.report.template.line">
             <field name="code">12</field>
             <field name="sequence">12</field>
-            <field name="name">Concentrado recría</field>
-            <field name="value_1_1">603,604</field>
-            <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">603,604</field>
-            <field name="value_2_2">[2_1],/#total_cows</field>
-            <field name="template_id" ref="pyg_cow"/>
-        </record>
-
-        <record id="pyg_cow_l_13" model="account.analytic.report.template.line">
-            <field name="code">13</field>
-            <field name="sequence">13</field>
             <field name="name">Ración completa vacas leche</field>
             <field name="value_1_1">6051</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
             <field name="value_2_1">6051</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
-        <record id="pyg_cow_l_14" model="account.analytic.report.template.line">
-            <field name="code">14</field>
-            <field name="sequence">14</field>
+        <record id="pyg_cow_l_13" model="account.analytic.report.template.line">
+            <field name="code">13</field>
+            <field name="sequence">13</field>
             <field name="name">Ración completa vacas secas</field>
             <field name="value_1_1">6052</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
             <field name="value_2_1">6052</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
+        </record>
+
+        <record id="pyg_cow_l_14" model="account.analytic.report.template.line">
+            <field name="code">14</field>
+            <field name="sequence">14</field>
+            <field name="name">Concentrado recría</field>
+            <field name="value_1_1">603,604</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">603,604</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_15" model="account.analytic.report.template.line">
@@ -172,6 +185,7 @@
             <field name="value_2_1">606</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_16" model="account.analytic.report.template.line">
@@ -183,6 +197,7 @@
             <field name="value_2_1">600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6815,6221,6253</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_17" model="account.analytic.report.template.line">
@@ -194,6 +209,7 @@
             <field name="value_2_1">62311,62313,6222</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_18" model="account.analytic.report.template.line">
@@ -205,6 +221,7 @@
             <field name="value_2_1">6111,6112,6113</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
 
@@ -223,7 +240,7 @@
         <record id="pyg_cow_l_20" model="account.analytic.report.template.line">
             <field name="code">20</field>
             <field name="sequence">20</field>
-            <field name="name">I.S.C.A.</field>
+            <field name="name">Margen de contribución sobre Alim. Total</field>
             <field name="value_1_1">.9,.19</field>
             <field name="value_1_2">.9,.19</field>
             <field name="value_2_1">.9,.19</field>
@@ -241,72 +258,77 @@
             <field name="value_2_1">6236</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_22" model="account.analytic.report.template.line">
             <field name="code">22</field>
             <field name="sequence">22</field>
-            <field name="name">Servicio reproduccion</field>
-            <field name="value_1_1">6237,6071</field>
+            <field name="name">Servicio reproduccion e semen</field>
+            <field name="value_1_1">6237,6071,6073,6074</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">6237,6071</field>
+            <field name="value_2_1">6237,6071,6073,6074</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_23" model="account.analytic.report.template.line">
             <field name="code">23</field>
             <field name="sequence">23</field>
-            <field name="name">Servicio veterinario e higiene</field>
-            <field name="value_1_1">6072,6073,6074,6075,6076,6077,6078,6238</field>
+            <field name="name">Veterinarios </field>
+            <field name="value_1_1">6238</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">6072,6073,6074,6075,6076,6077,6078,6238</field>
+            <field name="value_2_1">6238</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_24" model="account.analytic.report.template.line">
             <field name="code">24</field>
             <field name="sequence">24</field>
-            <field name="name">Servicios varios</field>
-            <field name="value_1_1">6291,6292,6241,6242,608,6251</field>
+            <field name="name">Podologos</field>
+            <field name="value_1_1">6077,6078</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">6291,6292,6241,6242,608,6251</field>
+            <field name="value_2_1">6077,6078</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_25" model="account.analytic.report.template.line">
             <field name="code">25</field>
             <field name="sequence">25</field>
-            <field name="name">Compra de ganado</field>
-            <field name="value_1_1">610</field>
+            <field name="name">Medicamentos</field>
+            <field name="value_1_1">6072</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">610</field>
+            <field name="value_2_1">6072</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_26" model="account.analytic.report.template.line">
             <field name="code">26</field>
             <field name="sequence">26</field>
-            <field name="name">Gastos variables</field>
-            <field name="value_1_1">.19,.21,.22,.23,.24,.25</field>
+            <field name="name">Vacunas</field>
+            <field name="value_1_1">6075</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">.19,.21,.22,.23,.24,.25</field>
+            <field name="value_2_1">6075</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">bold</field>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_27" model="account.analytic.report.template.line">
             <field name="code">27</field>
             <field name="sequence">27</field>
-            <field name="name">Margen de contribución</field>
-            <field name="value_1_1">.9,-.26</field>
-            <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">.9,-.26</field>
-            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="name">Coste sanidad</field>
+            <field name="value_1_1">.22,.23,.24,.25,.26,.27</field>
+            <field name="value_1_2">.22,.23,.24,.25,.26,.27</field>
+            <field name="value_2_1">.22,.23,.24,.25,.26,.27</field>
+            <field name="value_2_2">.22,.23,.24,.25,.26,.27</field>
             <field name="template_id" ref="pyg_cow"/>
             <field name="css_style">green_bold</field>
         </record>
@@ -314,135 +336,143 @@
         <record id="pyg_cow_l_28" model="account.analytic.report.template.line">
             <field name="code">28</field>
             <field name="sequence">28</field>
+            <field name="name">Cama</field>
+            <field name="value_1_1">608</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">608</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
+        </record>
+
+        <record id="pyg_cow_l_29" model="account.analytic.report.template.line">
+            <field name="code">29</field>
+            <field name="sequence">29</field>
+            <field name="name">Servicios varios</field>
+            <field name="value_1_1">6075,6076,6291,6292,6241,6242,6251</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">6075,6076,6291,6292,6241,6242,6251</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
+        </record>
+
+        <record id="pyg_cow_l_30" model="account.analytic.report.template.line">
+            <field name="code">30</field>
+            <field name="sequence">30</field>
+            <field name="name">Compra de ganado</field>
+            <field name="value_1_1">610</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">610</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
+        </record>
+
+        <record id="pyg_cow_l_31" model="account.analytic.report.template.line">
+            <field name="code">31</field>
+            <field name="sequence">31</field>
+            <field name="name">Gastos variables</field>
+            <field name="value_1_1">.21,.27,.28,.29,.30</field>
+            <field name="value_1_2">.21,.27,.28,.29,.30</field>
+            <field name="value_2_1">.21,.27,.28,.29,.30</field>
+            <field name="value_2_2">.21,.27,.28,.29,.30</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">bold</field>
+        </record>
+
+        <record id="pyg_cow_l_32" model="account.analytic.report.template.line">
+            <field name="code">32</field>
+            <field name="sequence">32</field>
+            <field name="name">Margen de contribución</field>
+            <field name="value_1_1">.9,.31</field>
+            <field name="value_1_2">.9,.31</field>
+            <field name="value_2_1">.9,.31</field>
+            <field name="value_2_2">.9,.31</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">green_bold</field>
+        </record>
+
+        <record id="pyg_cow_l_33" model="account.analytic.report.template.line">
+            <field name="code">33</field>
+            <field name="sequence">33</field>
             <field name="name">Mantenimiento instalaciones</field>
             <field name="value_1_1">6223,6224,6225</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
             <field name="value_2_1">6223,6224,6225</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
-        <record id="pyg_cow_l_29" model="account.analytic.report.template.line">
-            <field name="code">29</field>
-            <field name="sequence">29</field>
-            <field name="name">Salarios</field>
+        <record id="pyg_cow_l_34" model="account.analytic.report.template.line">
+            <field name="code">34</field>
+            <field name="sequence">34</field>
+            <field name="name">Salarios y seguridad social</field>
             <field name="value_1_1">6406,6407,6421,649</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
             <field name="value_2_1">6406,6407,6421,649</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
-        <record id="pyg_cow_l_30" model="account.analytic.report.template.line">
-            <field name="code">30</field>
-            <field name="sequence">30</field>
+        <record id="pyg_cow_l_35" model="account.analytic.report.template.line">
+            <field name="code">35</field>
+            <field name="sequence">35</field>
             <field name="name">Seguros</field>
             <field name="value_1_1">6252</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
             <field name="value_2_1">6252</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
-        </record>
-
-        <record id="pyg_cow_l_31" model="account.analytic.report.template.line">
-            <field name="code">31</field>
-            <field name="sequence">31</field>
-            <field name="name">Generales(unifeed, cuotas, luz...)</field>
-            <field name="value_1_1">62310, 62312, 62314, 62315, 62930, 62316, 6282, 6283, 6284, 6285, 6286, 630, 6217</field>
-            <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">62310, 62312, 62314, 62315, 62930, 62316, 6282, 6283, 6284, 6285, 6286, 630, 6217</field>
-            <field name="value_2_2">[2_1],/#total_cows</field>
-            <field name="template_id" ref="pyg_cow"/>
-        </record>
-
-        <record id="pyg_cow_l_32" model="account.analytic.report.template.line">
-            <field name="code">32</field>
-            <field name="sequence">32</field>
-            <field name="name">Gastos fijos</field>
-            <field name="value_1_1">.28,.29,.30,.31</field>
-            <field name="value_1_2">.28,.29,.30,.31</field>
-            <field name="value_2_1">.28,.29,.30,.31</field>
-            <field name="value_2_2">.28,.29,.30,.31</field>
-            <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">bold</field>
-        </record>
-
-        <record id="pyg_cow_l_33" model="account.analytic.report.template.line">
-            <field name="code">33</field>
-            <field name="sequence">33</field>
-            <field name="name">Gastos totales</field>
-            <field name="value_1_1">.32,.26</field>
-            <field name="value_1_2">.32,.26</field>
-            <field name="value_2_1">.32,.26</field>
-            <field name="value_2_2">.32,.26</field>
-            <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">bold</field>
-        </record>
-
-        <record id="pyg_cow_l_34" model="account.analytic.report.template.line">
-            <field name="code">34</field>
-            <field name="sequence">34</field>
-            <field name="name">EBITDA</field>
-            <field name="value_1_1">.9,.33</field>
-            <field name="value_1_2">.9,.33</field>
-            <field name="value_2_1">.9,.33</field>
-            <field name="value_2_2">.9,.33</field>
-            <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">green_bold</field>
-        </record>
-
-        <record id="pyg_cow_l_35" model="account.analytic.report.template.line">
-            <field name="code">35</field>
-            <field name="sequence">35</field>
-            <field name="name">Amortización instalaciones</field>
-            <field name="value_1_1">6813,6814</field>
-            <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">6813,6814</field>
-            <field name="value_2_2">[2_1],/#total_cows</field>
-            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_36" model="account.analytic.report.template.line">
             <field name="code">36</field>
             <field name="sequence">36</field>
-            <field name="name">Amortización maquinaria</field>
-            <field name="value_1_1">6812,6815</field>
+            <field name="name">Gastos de intereses</field>
+            <field name="value_1_1">626</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">6812,6815</field>
+            <field name="value_2_1">626</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_37" model="account.analytic.report.template.line">
             <field name="code">37</field>
             <field name="sequence">37</field>
-            <field name="name">Amortización ganado</field>
-            <field name="value_1_1">6811</field>
+            <field name="name">Generales(unifeed, cuotas, luz...)</field>
+            <field name="value_1_1">62310,62312,62314,62315,62930,62316,6282,6283,6284,6285,6286,6217</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">6811</field>
+            <field name="value_2_1">62310,62312,62314,62315,62930,62316,6282,6283,6284,6285,6286,6217</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_38" model="account.analytic.report.template.line">
             <field name="code">38</field>
             <field name="sequence">38</field>
-            <field name="name">Amortización derechos pago único</field>
-            <field name="value_1_1">6816</field>
-            <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">6816</field>
-            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="name">Gastos fijos</field>
+            <field name="value_1_1">.33,.34,.35,.36,.37</field>
+            <field name="value_1_2">.33,.34,.35,.36,.37</field>
+            <field name="value_2_1">.33,.34,.35,.36,.37</field>
+            <field name="value_2_2">.33,.34,.35,.36,.37</field>
             <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">bold</field>
         </record>
 
         <record id="pyg_cow_l_39" model="account.analytic.report.template.line">
             <field name="code">39</field>
             <field name="sequence">39</field>
-            <field name="name">Amortizaciones técnicas</field>
-            <field name="value_1_1">.35,.36,.37,.38</field>
-            <field name="value_1_2">.35,.36,.37,.38</field>
-            <field name="value_2_1">.35,.36,.37,.38</field>
-            <field name="value_2_2">.35,.36,.37,.38</field>
+            <field name="name">Gastos totales</field>
+            <field name="value_1_1">.31,.38</field>
+            <field name="value_1_2">.31,.38</field>
+            <field name="value_2_1">.31,.38</field>
+            <field name="value_2_2">.31,.38</field>
             <field name="template_id" ref="pyg_cow"/>
             <field name="css_style">bold</field>
         </record>
@@ -450,54 +480,126 @@
         <record id="pyg_cow_l_40" model="account.analytic.report.template.line">
             <field name="code">40</field>
             <field name="sequence">40</field>
-            <field name="name">Ingreso de intereses</field>
-            <field name="value_1_1">7622</field>
-            <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">7622</field>
-            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="name">EBITDA</field>
+            <field name="value_1_1">.9,.39</field>
+            <field name="value_1_2">.9,.39</field>
+            <field name="value_2_1">.9,.39</field>
+            <field name="value_2_2">.9,.39</field>
             <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">red</field>
+            <field name="css_style">green_bold</field>
         </record>
 
         <record id="pyg_cow_l_41" model="account.analytic.report.template.line">
             <field name="code">41</field>
             <field name="sequence">41</field>
-            <field name="name">Gastos de intereses</field>
-            <field name="value_1_1">626</field>
+            <field name="name">Amortización instalaciones</field>
+            <field name="value_1_1">6813,6814</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">626</field>
+            <field name="value_2_1">6813,6814</field>
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">red</field>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_42" model="account.analytic.report.template.line">
             <field name="code">42</field>
             <field name="sequence">42</field>
-            <field name="name">Resultado financiero</field>
-            <field name="value_1_1">.41,-.40</field>
-            <field name="value_1_2">.41,-.40</field>
-            <field name="value_2_1">.41,-.40</field>
-            <field name="value_2_2">.41,-.40</field>
+            <field name="name">Amortización maquinaria</field>
+            <field name="value_1_1">6812,6815</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">6812,6815</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">red_bold</field>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_43" model="account.analytic.report.template.line">
             <field name="code">43</field>
             <field name="sequence">43</field>
-            <field name="name">Resultado ordinario</field>
-            <field name="value_1_1">.34,-.39,-.42</field>
-            <field name="value_1_2">.34,-.39,-.42</field>
-            <field name="value_2_1">.34,-.39,-.42</field>
-            <field name="value_2_2">.34,-.39,-.42</field>
+            <field name="name">Amortización ganado</field>
+            <field name="value_1_1">6811</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">6811</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">green_bold</field>
+            <field name="css_style"></field>
         </record>
 
         <record id="pyg_cow_l_44" model="account.analytic.report.template.line">
             <field name="code">44</field>
             <field name="sequence">44</field>
+            <field name="name">Amortizaciones técnicas</field>
+            <field name="value_1_1">.41,.42,.43</field>
+            <field name="value_1_2">.41,.42,.43</field>
+            <field name="value_2_1">.41,.42,.43</field>
+            <field name="value_2_2">.41,.42,.43</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">bold</field>
+        </record>
+
+        <record id="pyg_cow_l_45" model="account.analytic.report.template.line">
+            <field name="code">45</field>
+            <field name="sequence">45</field>
+            <field name="name">Coste de producción teorico</field>
+            <field name="value_1_1">.39,.44</field>
+            <field name="value_1_2">.39,.44</field>
+            <field name="value_2_1">.39,.44</field>
+            <field name="value_2_2">.39,.44</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">bold</field>
+        </record>
+
+        <record id="pyg_cow_l_46" model="account.analytic.report.template.line">
+            <field name="code">46</field>
+            <field name="sequence">46</field>
+            <field name="name">Margen neto</field>
+            <field name="value_1_1">.9,.45</field>
+            <field name="value_1_2">.9,.45</field>
+            <field name="value_2_1">.9,.45</field>
+            <field name="value_2_2">.9,.45</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">green_bold</field>
+        </record>
+
+        <record id="pyg_cow_l_47" model="account.analytic.report.template.line">
+            <field name="code">47</field>
+            <field name="sequence">47</field>
+            <field name="name">Amortización de préstamos</field>
+            <field name="value_1_1">620</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">620</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">red_bold</field>
+        </record>
+
+        <record id="pyg_cow_l_48" model="account.analytic.report.template.line">
+            <field name="code">48</field>
+            <field name="sequence">48</field>
+            <field name="name">Coste de producción real</field>
+            <field name="value_1_1">.39,.47</field>
+            <field name="value_1_2">.39,.47</field>
+            <field name="value_2_1">.39,.47</field>
+            <field name="value_2_2">.39,.47</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
+        </record>
+
+        <record id="pyg_cow_l_49" model="account.analytic.report.template.line">
+            <field name="code">49</field>
+            <field name="sequence">49</field>
+            <field name="name">Impuestos y contribuciones</field>
+            <field name="value_1_1">630</field>
+            <field name="value_1_2">[1_1],/#total_cows</field>
+            <field name="value_2_1">630</field>
+            <field name="value_2_2">[2_1],/#total_cows</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style"></field>
+        </record>
+
+        <record id="pyg_cow_l_50" model="account.analytic.report.template.line">
+            <field name="code">50</field>
+            <field name="sequence">50</field>
             <field name="name">Gastos extraordinario</field>
             <field name="value_1_1">678</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
@@ -507,57 +609,9 @@
             <field name="css_style">red_bold</field>
         </record>
 
-        <record id="pyg_cow_l_45" model="account.analytic.report.template.line">
-            <field name="code">45</field>
-            <field name="sequence">45</field>
-            <field name="name">Resultado antes de impuestos</field>
-            <field name="value_1_1">.43,-.44</field>
-            <field name="value_1_2">.43,-.44</field>
-            <field name="value_2_1">.43,-.44</field>
-            <field name="value_2_2">.43,-.44</field>
-            <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">bold</field>
-        </record>
-
-        <record id="pyg_cow_l_46" model="account.analytic.report.template.line">
-            <field name="code">46</field>
-            <field name="sequence">46</field>
-            <field name="name">Coste de producción</field>
-            <field name="value_1_1">.33,.39,.42,.44</field>
-            <field name="value_1_2">.33,.39,.42,.44</field>
-            <field name="value_2_1">.33,.39,.42,.44</field>
-            <field name="value_2_2">.33,.39,.42,.44</field>
-            <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">bold</field>
-        </record>
-
-        <record id="pyg_cow_l_47" model="account.analytic.report.template.line">
-            <field name="code">47</field>
-            <field name="sequence">47</field>
-            <field name="name">Margen neto</field>
-            <field name="value_1_1">.9,.46</field>
-            <field name="value_1_2">.9,.46</field>
-            <field name="value_2_1">.9,.46</field>
-            <field name="value_2_2">.9,.46</field>
-            <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">bold</field>
-        </record>
-
-        <record id="pyg_cow_l_48" model="account.analytic.report.template.line">
-            <field name="code">48</field>
-            <field name="sequence">48</field>
-            <field name="name">Amortización de prestamos</field>
-            <field name="value_1_1">620</field>
-            <field name="value_1_2">[1_1],/#total_cows</field>
-            <field name="value_2_1">620</field>
-            <field name="value_2_2">[2_1],/#total_cows</field>
-            <field name="template_id" ref="pyg_cow"/>
-            <field name="css_style">red</field>
-        </record>
-
-        <record id="pyg_cow_l_49" model="account.analytic.report.template.line">
-            <field name="code">49</field>
-            <field name="sequence">49</field>
+        <record id="pyg_cow_l_51" model="account.analytic.report.template.line">
+            <field name="code">51</field>
+            <field name="sequence">51</field>
             <field name="name">Subvenciones de capital</field>
             <field name="value_1_1">7461</field>
             <field name="value_1_2">[1_1],/#total_cows</field>
@@ -565,6 +619,18 @@
             <field name="value_2_2">[2_1],/#total_cows</field>
             <field name="template_id" ref="pyg_cow"/>
             <field name="css_style">red</field>
+        </record>
+
+        <record id="pyg_cow_l_52" model="account.analytic.report.template.line">
+            <field name="code">52</field>
+            <field name="sequence">52</field>
+            <field name="name">Resultado de tesorería</field>
+            <field name="value_1_1">.9,.8,.48,.49,.50,.51</field>
+            <field name="value_1_2">.9,.8,.48,.49,.50,.51</field>
+            <field name="value_2_1">.9,.8,.48,.49,.50,.51</field>
+            <field name="value_2_2">.9,.8,.48,.49,.50,.51</field>
+            <field name="template_id" ref="pyg_cow"/>
+            <field name="css_style">green_bold</field>
         </record>
     </data>
 </openerp>

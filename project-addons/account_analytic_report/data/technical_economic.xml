@@ -12,8 +12,8 @@
             <field name="code">1</field>
             <field name="sequence">1</field>
             <field name="name">Leche producida</field>
-            <field name="value_1_1">7000?qty,7006?qty,7007?qty,7008?qty,7009?qty</field>
-            <field name="value_2_1">7000?qty,7006?qty,7007?qty,7008?qty,7009?qty</field>
+            <field name="value_1_1">(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty),*'1000</field>
+            <field name="value_2_1">(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty),*'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -30,8 +30,8 @@
             <field name="code">3</field>
             <field name="sequence">3</field>
             <field name="name">Leche/vaca (previsión 12 meses)</field>
-            <field name="value_1_1">.1,/#milk_and_dry,/(#months, *'12)</field>
-            <field name="value_2_1">.1,/#milk_and_dry,/(#months, *'12)</field>
+            <field name="value_1_1">.1,/#milk_and_dry,/#months,*'12</field>
+            <field name="value_2_1">.1,/#milk_and_dry,/#months,*'12</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -39,8 +39,8 @@
             <field name="code">4</field>
             <field name="sequence">4</field>
             <field name="name">Leche/Vaca ordeñada/Día (litros)</field>
-            <field name="value_1_1">.1,/#milk_cows,/(#months, *'30.42)</field>
-            <field name="value_2_1">.1,/#milk_cows,/(#months, *'30.42)</field>
+            <field name="value_1_1">.1,/#milk_cows,/#months,*'30.42</field>
+            <field name="value_2_1">.1,/#milk_cows,/#months,*'30.42</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -48,8 +48,8 @@
             <field name="code">5</field>
             <field name="sequence">5</field>
             <field name="name">Leche/Vaca/Día (litros)</field>
-            <field name="value_1_1">.1,/#milk_and_dry,/(#months, *'30.42)</field>
-            <field name="value_2_1">.1,/#milk_and_dry,/(#months, *'30.42)</field>
+            <field name="value_1_1">.1,/#milk_and_dry,/#months,*'30.42</field>
+            <field name="value_2_1">.1,/#milk_and_dry,/#months,*'30.42</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -57,8 +57,8 @@
             <field name="code">6</field>
             <field name="sequence">6</field>
             <field name="name">Coste de Alimentación Comprada vacas/1000 litros de leche</field>
-            <field name="value_1_1">(601,602,6051,6052,6111,6112),/.1, *'1000</field>
-            <field name="value_2_1">(601,602,6051,6052,6111,6112),/.1, *'1000</field>
+            <field name="value_1_1">(601,602,6051,6052,6111,6112),/.1,*'1000</field>
+            <field name="value_2_1">(601,602,6051,6052,6111,6112),/.1,*'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -102,8 +102,8 @@
             <field name="code">11</field>
             <field name="sequence">11</field>
             <field name="name">% de Alimentación Comprada/Ingreso leche</field>
-            <field name="value_1_1">(601,602,6051,6052,6111,6112),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
-            <field name="value_2_1">(601,602,6051,6052,6111,6112),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_1_1">((601,602,6051,6052,6111,6112),*'100),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_2_1">((601,602,6051,6052,6111,6112),*'100),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -111,8 +111,8 @@
             <field name="code">12</field>
             <field name="sequence">12</field>
             <field name="name">% de Alimentación Total/Ingreso leche</field>
-            <field name="value_1_1">(601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
-            <field name="value_2_1">(601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_1_1">((601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),*'100),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_2_1">((601,602,6051,6052,6111,6112,600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6221,6222,6253,6812,6815,6113),*'100),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -120,8 +120,8 @@
             <field name="code">13</field>
             <field name="sequence">13</field>
             <field name="name">Concentrado/vaca/Año (Kg)</field>
-            <field name="value_1_1">(602,6111),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
-            <field name="value_2_1">(602,6111),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)</field>
+            <field name="value_1_1">((602,6111),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)),*'1000</field>
+            <field name="value_2_1">((602,6111),/(7000,7001,7002,7003,7004,7005,7006,70010,70011)),*'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
