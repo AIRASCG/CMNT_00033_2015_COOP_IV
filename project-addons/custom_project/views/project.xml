@@ -101,7 +101,7 @@
                     <attribute name="invisible">1</attribute>
                 </page>
                 <field name="work_ids" position="attributes">
-                    <attribute name="context">{'task_date': name}</attribute>
+                    <attribute name="context">{'default_date': name}</attribute>
                 </field>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='name']" position="before">
                     <field name="work_type" domain="[('categ_id', '=', parent.area)]"/>

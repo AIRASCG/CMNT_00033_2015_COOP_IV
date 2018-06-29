@@ -53,7 +53,7 @@ class FieldsImport(models.TransientModel):
                     _('Validity error'), _('The use code %s is not available') % row[8])
             control_vals = {'partner_id': partner_id[0].id}
             province_ids = self.env['res.country.state'].search(
-                [('code', '=', row[0])])
+                [('code', '=', row[1])])
             control_vals['year'] = self.year
             control_vals['province_id'] = province_ids and \
                 province_ids[0].id or False
@@ -73,6 +73,10 @@ class FieldsImport(models.TransientModel):
             control_vals['net_surface'] = row[12]
             product_1 = self.env['res.partner.fields.product'].search(
                 [('code', '=', str(int(row[13])))])
+            if len(product_1) > 1:
+                raise exceptions.Warning(
+                    _('Validity error'),
+                    _('Multiple products with the code %s') % row[13])
             if product_1:
                 control_vals['product_1'] = product_1.id
             else:

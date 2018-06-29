@@ -39,6 +39,7 @@ class MilkAnalysisImport(models.TransientModel):
         'A': 'accepted',
         'R': 'rejected',
         'E': 'waiting',
+        'RNA': 'waiting' # añadido en la api, lo mapeamos a en espera.
     }
 
     def _get_analysis(self):
@@ -213,6 +214,8 @@ class MilkAnalysisImport(models.TransientModel):
                     if not sample[test_code]:
                         continue
                     test_val = ast.literal_eval(sample[test_code])['Result']
+                    if not test_val:
+                        continue
                     try:
                         if test_val == '-':
                             test_val = '0'

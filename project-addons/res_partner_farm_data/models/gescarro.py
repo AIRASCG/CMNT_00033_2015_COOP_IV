@@ -51,6 +51,7 @@ class DecodeDictReader(csv.DictReader):
 class GescarroData(models.Model):
 
     _name = 'gescarro.data'
+    _order = 'date desc'
 
     def _get_name_sequence(self):
         return self.env['ir.sequence'].get('gescarro.data')
@@ -140,6 +141,11 @@ class GescarroData(models.Model):
     protein = fields.Float('Protein (%)')
     urea = fields.Float('Urea (mg/kg)')
 
+    def create(self, vals):
+        res = super(GescarroData, self).create(vals)
+        res.use_last_gescarro_data()
+        return res
+
     @api.multi
     def use_last_gescarro_data(self):
         last_gescarro = self.env['gescarro.data'].search(
@@ -170,6 +176,40 @@ class GescarroData(models.Model):
                 'wet_cost': last_gescarro.wet_cost
             })
             last_gescarro.lines.copy({'data_id': self.id})
+
+    @api.multi
+    def update_last_gescarro_data(self):
+        last_gescarro = self.env['gescarro.data'].search(
+            [('exploitation_id', '=', self.exploitation_id.id),
+             ('date', '>=', self.date), ('id', '!=', self.id)])
+        update_fields = [
+            'milk_cows_lot', 'milking_cows', 'tank_cows', 'dry_cows_lot',
+            'minutes_first_ration', 'minutes_next_ration', 'first_ration_cost',
+            'tank_liters', 'retired_liters', 'kg_leftover', 'next_ration_cost',
+            'fix_cost', 'leftover_reused', 'wet_mixture', 'wet_mixture_ms',
+            'wet_mixture_ms_fodder', 'wet_mixture_ms_concentrated',
+            'wet_mixture_enl', 'wet_raw_protein', 'wet_cost']
+        for gescarro_data in last_gescarro:
+            vals = {}
+            for field in update_fields:
+                if self[field] != gescarro_data[field]:
+                    vals[field] = self[field]
+            if vals:
+                gescarro_data.write(vals)
+            for line in self.lines:
+                data_line = self.env['gescarro.data.line'].search(
+                    [('data_id', '=', gescarro_data.id),
+                     ('description', '=', line.description)])
+                if data_line:
+                    vals = {}
+                    for field in [
+                        'kg', 'ms', 'enl', 'raw_protein', 'cost', 'type']:
+                        if line[field] != data_line[field]:
+                            vals[field] = line[field]
+                    if vals:
+                        data_line.write(vals)
+
+
 
     @api.multi
     def calculate_vals(self, type):

@@ -312,6 +312,11 @@
             action="action_partner_supplier_form"
             groups="custom_groups.group_admin,custom_groups.group_tech_mngnt"/>
 
+        <menuitem id="menu_analytic_line" name="Analytic lines"
+            parent="tech_economic_management"
+            action="account.action_account_analytic_journal_open_form"
+            groups="custom_groups.group_admin,custom_groups.group_tech_mngnt"/>
+
         <menuitem id="feeding_management" name="Feeding management" parent="parent_menu"  sequence="3"/>
             <menuitem action="res_partner_farm_data.action_lot" id="menu_lot" parent="feeding_management" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
 

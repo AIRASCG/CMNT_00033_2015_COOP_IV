@@ -29,3 +29,10 @@ class StockLocation(models.Model):
         (('vertical', 'Vertical'), ('trentch', 'Trentch'), ('walls', 'Walls')),
         'Type')
     total_capacity = fields.Float('Total capacity')
+    attachment_count = fields.Integer(compute='_compute_attachment_count')
+
+    def _compute_attachment_count(self):
+        for location in self:
+            location.attachment_count = len(self.env['ir.attachment'].search(
+                [('res_model', '=', 'stock.location'),
+                 ('res_id', '=', location.id)]))

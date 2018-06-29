@@ -76,6 +76,11 @@ class ProjectTaskWork(models.Model):
         for work in self:
             work.user_id = work.task_id.user_id
 
+    @api.onchange('task_id')
+    def onchange_task_id(self):
+        for task_work in self:
+            task_work.date = task_work.task_id.name
+
     @api.multi
     def _check_dates(self):
         # Comprobamos que no se solape con otro project.task.work
@@ -96,6 +101,7 @@ class ProjectTaskWork(models.Model):
     @api.model
     def create(self, vals):
         res = super(ProjectTaskWork, self).create(vals)
+        res.date = res.task_id.name
         res._check_dates()
         return res
 

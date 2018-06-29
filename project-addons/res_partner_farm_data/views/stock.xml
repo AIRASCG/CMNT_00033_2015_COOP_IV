@@ -19,5 +19,16 @@
             </field>
         </record>
 
+        <record id="view_location_tree_add_attachment_count" model="ir.ui.view">
+            <field name="name">stock.location.tree</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_tree2"/>
+            <field name="arch" type="xml">
+                <field name="usage" position="after">
+                    <field name="attachment_count"/>
+                </field>
+            </field>
+        </record>
+
     </data>
 </openerp>

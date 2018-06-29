@@ -69,7 +69,7 @@
                     <tbody>
                         <tr t-foreach="tasks" t-as="task">
                             <td>
-                                <span t-esc="task['name:%s' % o.group]"/>
+                                <span t-esc="task['show_name']"/>
                             </td>
                             <td align="right">
                                 <span t-esc="task['total_work_hours']" t-esc-options='{"widget": "time"}'/>

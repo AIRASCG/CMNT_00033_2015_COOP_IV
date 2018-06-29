@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields, api
+from openerp import models, fields, api, _
 import openerp.addons.decimal_precision as dp
 from cairoplot import VerticalBarPlot
 import base64
@@ -49,6 +49,28 @@ class MilkControl(models.Model):
                                  compute='_get_num_records')
     exception_txt = fields.Text("Exceptions", readonly=True)
     notes = fields.Text()
+
+    @api.multi
+    def create_report(self):
+        control_report = self.env['milk.control.report'].create(
+            {'exploitation_1': self.exploitation_id.id,
+             'from_date': self.date,
+             'to_date': self.date,
+             'milking_type_1': 'total'})
+        report_xml_id = 'res_partner_farm_data.action_milk_control_qweb_report'
+        report_data = self.env.ref(report_xml_id).render_report(
+            [control_report.id],
+            'res_partner_farm_data.milk_control_qweb_report', False)
+        public_attachment = self.env['res.partner.attachment'].create(
+            {'description': _('Milk control report: {}'.format(self.date)),
+             'recipient_ids': [(4, self.exploitation_id.id)]})
+
+        self.env['ir.attachment'].create({
+            'res_model': 'res.partner.attachment',
+            'res_id': public_attachment.id,
+            'name': 'report.pdf',
+            'datas': base64.b64encode(report_data[0])
+        })
 
     @api.multi
     def _get_num_records(self):
@@ -137,6 +159,7 @@ class MilkControl(models.Model):
                         vals['cumulative_milk'] = \
                             int(vals['milk_liters'] * vals['days'])
                         self.env['milk.control.line'].create(vals)
+                    milk_control.create_report()
                     passwd.last_sync_date = filter_date.strftime("%Y-%m-%d")
 
 

@@ -28,7 +28,7 @@ class TaskHoursSummaryReport(models.AbstractModel):
             group_str = u'mes'
             loc = mdates.MonthLocator()
             date_format = '%B %Y'
-        dates = [datetime.strptime(x['name:{}'.format(group)], date_format) for x in datas]
+        dates = [datetime.strptime(x[u'name:{}'.format(group)], date_format) for x in datas]
         hours = [x['total_work_hours'] for x in datas]
         if not dates:
             return

@@ -48,6 +48,24 @@ class AccountAnalyticJournal(models.Model):
     company_id = fields.Many2one('res.company', 'Company', required=False,
                                  default=False)
 
+from openerp.osv import fields as fields_old
+
+class AccountAnalyticPlanInstance_old(models.Model):
+
+    _inherit = 'account.analytic.plan.instance'
+
+    def _compute_name(self, cr, uid, ids, name, args, context=None):
+        res = {}
+        for plan in self.browse(cr, uid, ids, context):
+            name = u', '.join([x.name for x in plan.allowed_products])
+            name += u': '
+            name += u'; '.join([u'{} {}%'.format(x.analytic_account_id.name, x.rate) for x in plan.account_ids])
+            res[plan.id] = name
+        return res
+
+    _columns = {
+        'name': fields_old.function(_compute_name, type='char', string='Analytic Distribution')
+    }
 
 class AccountAnalyticPlanInstance(models.Model):
 
@@ -59,7 +77,7 @@ class AccountAnalyticPlanInstance(models.Model):
         'plan_id',
         'product_id')
 
-    @api.model
+    '''@api.model
     def create(self, vals):
         if self._context.get('product_id', False):
             if 'allowed_products' not in vals:
@@ -69,6 +87,7 @@ class AccountAnalyticPlanInstance(models.Model):
 
     @api.multi
     def write(self, vals):
+        import ipdb; ipdb.set_trace()
         nocopy = False
         if 'allowed_products' in vals and len(vals) == 1:
             nocopy = True
@@ -80,7 +99,8 @@ class AccountAnalyticPlanInstance(models.Model):
 
     @api.multi
     def copy(self, default=None):
+        import ipdb; ipdb.set_trace()
         self.ensure_one()
         if self._context.get('nocopy', False):
             return self
-        return super(AccountAnalyticPlanInstance, self).copy(default)
+        return super(AccountAnalyticPlanInstance, self).copy(default)'''

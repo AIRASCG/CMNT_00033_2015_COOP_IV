@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # © 2018 Comunitea
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
-
+from datetime import datetime
 from openerp import models, fields, api, exceptions, _
 
 
@@ -40,6 +40,12 @@ class PrintHoursResume(models.TransientModel):
              'km_company_car', 'km_own_car', 'diet', 'name'],
             'name:{}'.format(self.group))
         data = self.read()[0]
+        for task in tasks:
+            if self.group == 'day':
+                task_date = datetime.strptime(task['name:day'], '%d %b %Y')
+                task['show_name'] = task_date.strftime('%a, %d %b %Y')
+            else:
+                task['show_name'] = task['name:month']
         data['tasks'] = tasks
         datas = {
             'ids': self._ids,

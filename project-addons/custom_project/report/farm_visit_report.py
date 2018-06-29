@@ -25,7 +25,10 @@ class FarmVisitRerport(models.AbstractModel):
             table += u'<th>{}</th>'.format(user_name)
         table += u'</tr></thead><tbody>'
         for work_type_id in all_tasks_dict.keys():
-            work_type_name = self.env['project.work.type'].sudo().browse(int(work_type_id)).name
+            try:
+                work_type_name = self.env['project.work.type'].sudo().browse(int(work_type_id)).name
+            except ValueError:
+                work_type_name = '-'
             table += u'<tr><td>{}</td>'.format(work_type_name)
             curr_index = 0
             for user_id in sorted([int(x) for x in all_tasks_dict[work_type_id].keys()]):
@@ -43,7 +46,7 @@ class FarmVisitRerport(models.AbstractModel):
             'doc_model': report.model,
             'docs': docs,
             'data': data,
-            'tasks': self.env['project.task.work'].browse(data['form']['tasks']),
+            'tasks': sorted(self.env['project.task.work'].browse(data['form']['tasks']), key=lambda x: (x.lot_id.farm_id.id, x.date)),
             'table': table
         }
         return report_obj.sudo().render('custom_project.farm_visit_report',

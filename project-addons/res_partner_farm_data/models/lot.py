@@ -229,7 +229,7 @@ class LotDetailSequence(models.Model):
                  ('sequence', '=', seq.name)])
             name = str(seq.name)
             if lot_partner:
-                name += ' ({})'.format(lot_partner.name)
+                name += u' ({})'.format(lot_partner.name)
             seq_names.append((seq.id, name))
         return seq_names
 

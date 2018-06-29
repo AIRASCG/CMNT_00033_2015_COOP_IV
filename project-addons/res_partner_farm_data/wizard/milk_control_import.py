@@ -64,6 +64,8 @@ class MilkControlImport(models.TransientModel):
                 control_vals['cumulative_protein'] = row[15]
                 self.env['milk.control.line'].create(control_vals)
             self.control.write({'state': 'correct', 'exception_txt': ''})
+            self.control.create_report()
+
         except Exception as e:
             with api.Environment.manage():
                 with registry(self.env.cr.dbname).cursor() as new_cr:

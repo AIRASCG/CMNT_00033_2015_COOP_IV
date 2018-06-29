@@ -11,7 +11,7 @@ class FarmVisitRerport(models.TransientModel):
     user_id = fields.Many2one('res.users')
     farm_id = fields.Many2one(
         'res.partner', 'Exploitation',
-        domain="[('farm', '=', True),('is_cooperative','=',False)]", required=True)
+        domain="[('farm', '=', True),('is_cooperative','=',False)]")
     date_start = fields.Date()
     date_end = fields.Date()
     work_type = fields.Many2one('project.work.type')
@@ -32,8 +32,10 @@ class FarmVisitRerport(models.TransientModel):
             domain,
             ['work_type', 'user_id', 'hours'], ['work_type', 'user_id'], lazy=True)
         all_tasks_dict = {}
+        #import ipdb; ipdb.set_trace()
         for res in all_tasks:
-            all_tasks_dict[res['work_type'][0]] = {}
+            dict_key = res['work_type'] and res['work_type'][0] or False
+            all_tasks_dict[dict_key] = {}
             new_grouped_tasks =  self.env['project.task.work'].\
                 sudo().read_group(res['__domain'],
                                   ['user_id', 'hours'],
@@ -41,7 +43,7 @@ class FarmVisitRerport(models.TransientModel):
             for res2 in new_grouped_tasks:
                 if res2['user_id'][0] not in all_users:
                     all_users.append(res2['user_id'][0])
-                all_tasks_dict[res['work_type'][0]][res2['user_id'][0]] = res2['hours']
+                all_tasks_dict[dict_key][res2['user_id'][0]] = res2['hours']
 
         if self.user_id:
             domain.append(('user_id', '=', self.user_id.id))
