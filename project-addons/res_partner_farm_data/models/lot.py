@@ -173,11 +173,10 @@ class Lot(models.Model):
             for content in detail.lot_contents:
                 content.copy(
                     {'detail_id': new_detail.id,
-                     'manual_setted': True,
-                     '_theorical_kg_ration': content.kg_ration,
-                     '_theorical_ms': content.ms,
-                     '_theorical_enl': content.enl,
-                     '_theorical_pb': content.pb})
+                     'theorical_kg_ration': content.kg_ration,
+                     'theorical_ms': content.ms,
+                     'theorical_enl': content.enl,
+                     'theorical_pb': content.pb})
         self.collection_frequency = last_lot.collection_frequency
         self.number_cubicle_lactation = last_lot.number_cubicle_lactation
         self.milk_price = last_lot.milk_price

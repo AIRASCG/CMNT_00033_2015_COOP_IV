@@ -8,6 +8,14 @@
                 <t t-foreach="docs" t-as="o">
                     <t t-call="report.external_layout">
                         <div class="page">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <strong>Exploitation</strong>: <span t-field="o.farm_id.name"/>
+                                </div>
+                                <div class="col-xs-6">
+                                    <strong>Date</strong>: <span t-field="o.date"/>
+                                </div>
+                            </div>
                             <table  class="table table-condensed">
                                 <thead>
                                     <tr>

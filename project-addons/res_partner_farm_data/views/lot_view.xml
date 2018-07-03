@@ -229,14 +229,14 @@
                         <table class="o_list_view table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Total KG teórico</th>
-                                    <th>Total MS teórico</th>
-                                    <th>Total ENL teórico</th>
-                                    <th>Total PB teórico</th>
-                                    <th>Total KG</th>
-                                    <th>Total MS</th>
-                                    <th>Total ENL</th>
-                                    <th>Total PB</th>
+                                    <th>Kg teórico</th>
+                                    <th>%MS teórica</th>
+                                    <th>ENL teórica</th>
+                                    <th>PB teórica</th>
+                                    <th>Kg real</th>
+                                    <th>%MS real</th>
+                                    <th>ENL real</th>
+                                    <th>PB real</th>
                                 </tr>
                             </thead>
                             <tbody>

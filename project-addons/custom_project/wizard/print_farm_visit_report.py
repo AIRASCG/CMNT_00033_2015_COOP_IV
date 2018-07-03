@@ -32,7 +32,6 @@ class FarmVisitRerport(models.TransientModel):
             domain,
             ['work_type', 'user_id', 'hours'], ['work_type', 'user_id'], lazy=True)
         all_tasks_dict = {}
-        #import ipdb; ipdb.set_trace()
         for res in all_tasks:
             dict_key = res['work_type'] and res['work_type'][0] or False
             all_tasks_dict[dict_key] = {}

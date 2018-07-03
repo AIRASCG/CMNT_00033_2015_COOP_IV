@@ -87,7 +87,6 @@ class AccountAnalyticPlanInstance(models.Model):
 
     @api.multi
     def write(self, vals):
-        import ipdb; ipdb.set_trace()
         nocopy = False
         if 'allowed_products' in vals and len(vals) == 1:
             nocopy = True
@@ -99,7 +98,6 @@ class AccountAnalyticPlanInstance(models.Model):
 
     @api.multi
     def copy(self, default=None):
-        import ipdb; ipdb.set_trace()
         self.ensure_one()
         if self._context.get('nocopy', False):
             return self
