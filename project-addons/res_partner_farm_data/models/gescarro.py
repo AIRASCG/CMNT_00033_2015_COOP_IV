@@ -175,6 +175,7 @@ class GescarroData(models.Model):
                 'wet_raw_protein': last_gescarro.wet_raw_protein,
                 'wet_cost': last_gescarro.wet_cost
             })
+            self.lines.unlink()
             last_gescarro.lines.copy({'data_id': self.id})
 
     @api.multi
@@ -196,18 +197,8 @@ class GescarroData(models.Model):
                     vals[field] = self[field]
             if vals:
                 gescarro_data.write(vals)
-            for line in self.lines:
-                data_line = self.env['gescarro.data.line'].search(
-                    [('data_id', '=', gescarro_data.id),
-                     ('description', '=', line.description)])
-                if data_line:
-                    vals = {}
-                    for field in [
-                        'kg', 'ms', 'enl', 'raw_protein', 'cost', 'type']:
-                        if line[field] != data_line[field]:
-                            vals[field] = line[field]
-                    if vals:
-                        data_line.write(vals)
+            gescarro_data.lines.unlink()
+            self.lines.copy({'data_id': gescarro_data.id})
 
 
 
