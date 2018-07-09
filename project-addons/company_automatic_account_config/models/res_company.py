@@ -108,3 +108,13 @@ class WizardMultiChartsAccounts(models.TransientModel):
             if ref_acc_bank.id not in acc_template_ref_2:
                 acc_template_ref_2[ref_acc_bank.id] = False
         return super(WizardMultiChartsAccounts, self)._prepare_bank_account(line, new_code, acc_template_ref, ref_acc_bank, company_id)
+
+    @api.model
+    def _prepare_all_journals(self, chart_template_id, acc_template_ref, company_id):
+        res = super(WizardMultiChartsAccounts, self)._prepare_all_journals(chart_template_id, acc_template_ref, company_id)
+        for journal_data in res:
+            if journal_data['type'] == 'general':
+                analytic_journal = self.env['account.analytic.journal'].search(
+                    [('type', '=', 'general')], limit=1)
+                journal_data['analytic_journal_id'] = analytic_journal.id
+        return res

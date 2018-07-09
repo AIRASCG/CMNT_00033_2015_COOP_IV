@@ -97,11 +97,14 @@ class WizardMultiChartsAccounts(models.TransientModel):
                               company_id):
         res = super(WizardMultiChartsAccounts, self)._prepare_all_journals(
             chart_template_id, acc_template_ref, company_id)
+        analytic_journal = self.env['account.analytic.journal'].search(
+            [('type', '=', 'general')], limit=1)
         res.append({
             'type': 'general',
             'name': _('Assets journal'),
             'code': 'ACT',
             'company_id': company_id,
+            'analytic_journal_id': analytic_journal.id
         })
         return res
 
