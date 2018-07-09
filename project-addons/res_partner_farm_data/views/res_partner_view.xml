@@ -79,10 +79,12 @@
                     <field name="custom_id"/>
                     <field name="year"/>
                     <group expand="0" string="Group By">
-                        <filter string="Year" icon="terp-personal" domain="[]" context="{'group_by':'year'}"/>
-                        <filter string="Use" icon="terp-personal" domain="[]" context="{'group_by':'use'}"/>
-                        <filter string="Partner" icon="terp-personal" domain="[]" context="{'group_by':'partner_id'}"/>
-                        <filter string="Province" icon="terp-personal" domain="[]" context="{'group_by':'province_id'}"/>
+                        <filter string="Year" domain="[]" context="{'group_by':'year'}"/>
+                        <filter string="Use" domain="[]" context="{'group_by':'use'}"/>
+                        <filter string="Partner" domain="[]" context="{'group_by':'partner_id'}"/>
+                        <filter string="Province" domain="[]" context="{'group_by':'province_id'}"/>
+                        <filter string="Prod. 1" domain="[]" context="{'group_by':'product_1'}"/>
+                        <filter string="Prod 2" domain="[]" context="{'group_by':'product_2'}"/>
                     </group>
                </search>
             </field>
@@ -241,6 +243,8 @@
                             string="Milk analysis" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin,custom_groups.group_tech_feed"/>
                     <button name="action_milk_analysis_month_report" icon="fa-flask" class="oe_stat_button"
                             string="Milk analysis by month" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin,custom_groups.group_tech_sales"/>
+                    <button name="action_fields" icon="fa-map-marker" class="oe_stat_button"
+                            string="Fincas" type="object" attrs="{'invisible': [('farm','=',False)]}"/>
                     <button name="action_users_related" icon="fa-user" class="oe_stat_button"
                             string="Users" type="object" attrs="{'invisible': [('farm','=',False)]}" groups="custom_groups.group_admin"/>
                     <button name="action_private_attachments" icon="fa-file" class="oe_stat_button"
@@ -407,25 +411,15 @@
                     </page>
                     <page string="Plantation"  attrs="{'invisible': [('farm', '=', False)]}">
                         <field name="product_surfaces">
-                            <tree editable="top">
+                            <tree>
+                                <field name="year"/>
                                 <field name="product_id"/>
                                 <field name="surface"/>
                             </tree>
                         </field>
                         <separator string="Net Surface"/>
                         <group colspan="4">
-                            <group col="2">
-                                <field name="use_fo"/>
-                                <field name="use_hu"/>
-                                <field name="use_ps"/>
-                                <field name="use_pm"/>
-                            </group>
-                            <group col="2">
-                                <field name="use_ta"/>
-                                <field name="use_pa"/>
-                                <field name="use_pr"/>
-                                <field name="total_net_surface"/>
-                            </group>
+                            <field name="total_net_surface"/>
                         </group>
                     </page>
                 </notebook>

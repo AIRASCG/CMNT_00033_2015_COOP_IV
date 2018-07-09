@@ -21,6 +21,47 @@
 from openerp import tools
 from openerp import models, fields, api, exceptions, _
 from datetime import datetime, date
+import time
+
+
+class ProductSurfaceByPartner(models.Model):
+
+    _name = 'product.surface.by.partner'
+    _auto = False
+    _order = 'year desc,product_id desc'
+
+    product_id = fields.Many2one('res.partner.fields.product', 'Product')
+    partner_id = fields.Many2one('res.partner')
+    surface = fields.Float()
+    year = fields.Char("Año")
+
+    def init(self, cr):
+        tools.drop_view_if_exists(cr, 'product_surface_by_partner')
+        cr.execute("""
+            CREATE VIEW product_surface_by_partner as (
+                SELECT row_number() over () AS id,
+                       product_id,
+                       partner_id,
+                       year,
+                       SUM(surface) AS surface
+                FROM (
+                        SELECT product_1 AS product_id,
+                               partner_id,
+                               SUM(net_surface) AS surface, year
+                        FROM res_partner_fields
+                        GROUP BY product_1, partner_id, year
+
+                        UNION
+
+                        SELECT product_2 AS product_id,
+                               partner_id,
+                               SUM(net_surface) AS surface, year
+                        FROM res_partner_fields
+                        GROUP BY product_2, partner_id, year) AS x
+                GROUP BY product_id, partner_id, year
+            );
+        """)
+
 
 class ResPartner(models.Model):
 
@@ -108,27 +149,6 @@ class ResPartner(models.Model):
         'Milk analysis type')
     plantation_ids = fields.One2many('res.partner.fields', 'partner_id',
                                      string='Plantations')
-    use_fo = fields.Float(string="Use Forest",
-                          readonly=True, multi=True,
-                          compute="_compute_net_surfaces")
-    use_hu = fields.Float(string="Use Vegetable Garden",
-                          readonly=True, multi=True,
-                          compute="_compute_net_surfaces")
-    use_ta = fields.Float(string="Use Corn",
-                          readonly=True, multi=True,
-                          compute="_compute_net_surfaces")
-    use_pa = fields.Float(string="Use Wooded Grass",
-                          readonly=True, multi=True,
-                          compute="_compute_net_surfaces")
-    use_pr = fields.Float(string="Use Shrubby Grass",
-                          readonly=True, multi=True,
-                          compute="_compute_net_surfaces")
-    use_ps = fields.Float(string="Use Grass > 5 Years",
-                          readonly=True, multi=True,
-                          compute="_compute_net_surfaces")
-    use_pm = fields.Float(string="Use Grass < 5 Years",
-                          readonly=True, multi=True,
-                          compute="_compute_net_surfaces")
     total_net_surface = fields.Float(string="Total Net Surface",
                                      readonly=True, multi=True,
                                      compute="_compute_net_surfaces")
@@ -146,11 +166,11 @@ class ResPartner(models.Model):
                                   "Related Company", readonly=True)
     farm_lots = fields.One2many('lot.partner', 'farm_id')
     product_surfaces = fields.One2many('product.surface.by.partner',
-                                       'partner_id', readonly=True)
+                                       'partner_id', readonly=True,
+                                       domain=[('year', '=',
+                                                time.strftime('%Y'))])
 
     @api.one
-    @api.depends('use_fo', 'use_hu', 'use_ta', 'use_pa', 'use_pr', 'use_ps',
-                 'use_pm', 'total_net_surface')
     def _compute_net_surfaces(self):
         use_obj = self.env['res.partner.fields']
         if self._context.get('use_year', False):
@@ -160,30 +180,9 @@ class ResPartner(models.Model):
             cur_year = date.today().year
         use_ids = use_obj.search([('partner_id', '=', self.id),
                                   ('year', '=', cur_year)])
-        sumtotal = sumfo = sumhu = sumta = sumpa = sumpr = sumps = sumpm = 0.0
+        sumtotal = 0.0
         for use_id in use_ids:
-            if use_id.use == u'FO':
-                sumfo += use_id.net_surface
-            elif use_id.use == u'HU':
-                sumhu += use_id.net_surface
-            elif use_id.use == u'TA':
-                sumta += use_id.net_surface
-            elif use_id.use == u'PA':
-                sumpa += use_id.net_surface
-            elif use_id.use == u'PR':
-                sumpr += use_id.net_surface
-            elif use_id.use == u'PS':
-                sumps += use_id.net_surface
-            elif use_id.use == u'PM':
-                sumpm += use_id.net_surface
             sumtotal += use_id.net_surface
-        self.use_fo = sumfo
-        self.use_hu = sumhu
-        self.use_ta = sumta
-        self.use_pa = sumpa
-        self.use_pr = sumpr
-        self.use_ps = sumps
-        self.use_pm = sumpm
         self.total_net_surface = sumtotal
 
     @api.model
@@ -297,6 +296,18 @@ class ResPartner(models.Model):
         }
 
     @api.multi
+    def action_fields(self):
+        return {
+            'domain': "[('partner_id','='," + str(self.id) + ")]",
+            'name': _('Fincas'),
+            'view_mode': 'tree,form',
+            'view_type': 'form',
+            'context': {'default_partner_id': self.id},
+            'res_model': 'res.partner.fields',
+            'type': 'ir.actions.act_window',
+        }
+
+    @api.multi
     def action_analytic_plan(self):
 
         return {
@@ -396,13 +407,35 @@ class ResPartnerFields(models.Model):
     plot = fields.Char("Plot")
     enclosure = fields.Char("Enclosure")
     use = fields.Selection(
-        (('FO', 'Forest'),
-         ('HU', 'Vegetable Garden'),
-         ('TA', 'Corn'),
-         ('PA', 'Wooded Grass'),
-         ('PR', 'Shrubby Grass'),
-         ('PS', 'Grass > 5 Years'),
-         ('PM', 'Grass < 5 Years')), 'Use', required=True)
+        [('AG', 'Corrientes y superficies de agua'),
+         ('CA', 'Viales'),
+         ('CF', u'Cítricos-Frutal'),
+         ('CI', u'Cítricos'),
+         ('CS', u'Cítricos-Frutal de cáscara'),
+         ('CV', u'Cítricos-Viñedo'),
+         ('ED', 'Edificaciones'),
+         ('FL', u'Frutal de cáscara-Olivar'),
+         ('FO', 'Forestal'),
+         ('FS', u'Frutal de cáscara'),
+         ('FV', 'Frutal de cáscara-Viñedo'),
+         ('FY', 'Frutal'),
+         ('IM', 'Improductivo'),
+         ('IV', u'Invernaderos y cultivos bajo plástico'),
+         ('OC', u'Olivar-Cítricos'),
+         ('OF', 'Olivar-Frutal'),
+         ('OV', 'Olivar'),
+         ('PA', 'Pasto arbolado'),
+         ('PR', 'Pasto arbustivo'),
+         ('PS', 'Pastizal'),
+         ('FF', u'Frutal de cáscara-Frutal'),
+         ('TA', 'Tierra arable'),
+         ('TH', 'Huerta'),
+         ('VF', u'Frutal-Viñedo'),
+         ('VI', u'Viñedo'),
+         ('VO', u'Olivar-Viñedo'),
+         ('ZC', 'Zona concentrada'),
+         ('ZU', 'Zona urbana'),
+         ('ZV', 'Zona censurada')], 'Use', required=True)
     sixpac_surface = fields.Float("Sixpac Surface")
     cap = fields.Float("CAP")
     declared_surface = fields.Float("Declared Surface")
@@ -479,40 +512,3 @@ class ResPartnerAttachment(models.Model):
             companies.\
                 extend([x.partner_id.id for x in self.env.user.company_id.child_ids])
             attach.recipient_ids = [(6, 0, companies)]
-
-
-class ProductSurfaceByPartner(models.Model):
-
-    _name = 'product.surface.by.partner'
-    _auto = False
-    _order = 'product_id desc'
-
-    product_id = fields.Many2one('res.partner.fields.product', 'Product')
-    partner_id = fields.Many2one('res.partner')
-    surface = fields.Float()
-
-    def init(self, cr):
-        tools.drop_view_if_exists(cr, 'product_surface_by_partner')
-        cr.execute("""
-            CREATE VIEW product_surface_by_partner as (
-                SELECT row_number() over () AS id,
-                       product_id,
-                       partner_id,
-                       SUM(surface) AS surface
-                FROM (
-                        SELECT product_1 AS product_id,
-                               partner_id,
-                               SUM(net_surface) AS surface
-                        FROM res_partner_fields
-                        GROUP BY product_1, partner_id
-
-                        UNION
-
-                        SELECT product_2 AS product_id,
-                               partner_id,
-                               SUM(net_surface) AS surface
-                        FROM res_partner_fields
-                        GROUP BY product_2, partner_id) AS x
-                GROUP BY product_id, partner_id
-            );
-        """)
