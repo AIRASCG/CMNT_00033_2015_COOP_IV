@@ -796,6 +796,8 @@ msgstr "Superficie declarada"
 
 #. module: res_partner_farm_data
 #: field:gescarro.data.line,description:0
+#: field:lot.detail,description:0
+#: field:lot.partner.name,description:0
 #: field:res.partner.attachment,description:0
 #: view:res.partner.category:res_partner_farm_data.res_partner_category_add_description_form
 #: field:res.partner.category,description:0
@@ -3168,6 +3170,7 @@ msgstr "Seg terc lact porcen animales 2"
 #. module: res_partner_farm_data
 #: field:lot.detail,sequence:0
 #: field:lot.detail,sequence_id:0
+#: field:lot.partner.name,sequence:0
 msgid "Sequence"
 msgstr "Nº lote"
 

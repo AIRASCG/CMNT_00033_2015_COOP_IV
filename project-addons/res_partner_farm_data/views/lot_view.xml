@@ -43,6 +43,7 @@
                                 <tree editable="top">
                                     <field name="sequence"/>
                                     <field name="name"/>
+                                    <field name="description"/>
                                 </tree>
                             </field>
                         </group>
@@ -191,17 +192,17 @@
                     <sheet>
                         <group>
                             <group>
+                                <field name="sequence_id"
+                                       widget="selection"
+                                       domain="[('name', '&lt;=', max_seq)]"
+                                       context="{'lot_partner': lot_partner}"
+                                        />
                                 <field name="name"/>
                                 <field name="date"/>
                                 <field name="user_id"/>
                                 <field name="description"/>
                                 <field name="max_seq" invisible="1"/>
                                 <field name="lot_partner" invisible="1"/>
-                                <field name="sequence_id"
-                                       widget="selection"
-                                       domain="[('name', '&lt;=', max_seq)]"
-                                       context="{'lot_partner': lot_partner}"
-                                        />
                             </group>
                         </group>
                         <group colspan="4" col="3">

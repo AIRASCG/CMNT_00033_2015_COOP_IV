@@ -26,9 +26,10 @@ class LotPartnerName(models.Model):
 
     _name = 'lot.partner.name'
 
-    name = fields.Char()
-    sequence = fields.Integer(default=1)
+    name = fields.Char(required=True)
+    sequence = fields.Integer(default=1, required=True)
     lot_id = fields.Many2one('lot.partner')
+    description = fields.Text()
 
 
 class LotPartner(models.Model):
@@ -446,6 +447,10 @@ class LotDetail(models.Model):
                  ('sequence', '=', seq.sequence_id.name)])
             if lot_partner:
                 seq.name = lot_partner.name
+                if lot_partner.description:
+                    seq.description = lot_partner.description
+                else:
+                    seq.description = lot_partner.name
 
     @api.multi
     def _set_kf_mf_carriage(self):
