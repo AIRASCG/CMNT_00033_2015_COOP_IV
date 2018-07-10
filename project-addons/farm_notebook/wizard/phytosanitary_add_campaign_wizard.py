@@ -23,6 +23,7 @@ class PhytosanitaryAddCampaign(models.TransientModel):
                  {'campaign': self.campaign.id,
                   'partner_field': crop.field.id,
                   'applicator': self.applicator.id,
+                  'surface_treated': crop.cultivated_area,
                   'machine': self.machine.id, 'date': self.date}))
         self.env['phytosanitary'].browse(
             self._context.get('active_id')).write({'phytosanitary_uses': uses})

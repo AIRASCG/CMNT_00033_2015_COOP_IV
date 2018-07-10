@@ -89,14 +89,24 @@ class FarmNotebook(models.Model):
         partner_fieds_dict = []
         field_sequence = 0
         for field in partner_fields:
-            for campaign_crop in field.campaigns:
+            if field.campaigns.\
+                    filtered(lambda x: x.campaign.year == str(notebook_year)):
+                for campaign_crop in field.campaigns.\
+                        filtered(lambda x: x.campaign.year ==
+                                 str(notebook_year)):
+                    field_sequence += 1
+                    field_data = field.copy_data()[0]
+                    field_data['crop'] = campaign_crop.id
+                    field_data['sequence'] = field_sequence
+                    field_data['cultivated_area'] = \
+                        campaign_crop.cultivated_area
+                    field_data['raw_material'] = \
+                        campaign_crop.campaign.raw_material
+                    partner_fieds_dict.append((0, 0, field_data))
+            else:
                 field_sequence += 1
                 field_data = field.copy_data()[0]
-                field_data['crop'] = campaign_crop.id
                 field_data['sequence'] = field_sequence
-                field_data['cultivated_area'] = campaign_crop.cultivated_area
-                field_data['raw_material'] = \
-                    campaign_crop.campaign.raw_material
                 partner_fieds_dict.append((0, 0, field_data))
         write_vals['partner_fields'] = partner_fieds_dict
 
@@ -106,23 +116,24 @@ class FarmNotebook(models.Model):
             field = self.partner_fields.filtered(
                 lambda r: r.crop.field == use.partner_field and
                 r.crop.campaign == use.campaign)
-            field = field and field[0]
-            use_data = use.copy_data()[0]
-            use_data['partner_field'] = field.id
-            use_data['raw_material'] = field.raw_material
-            use_data['use'] = field.use
-            use_data['applicator'] = self.phytosanitary_applicators.filtered(
-                lambda r: r.applicator == use.applicator).id
-            use_data['machine'] = self.phytosanitary_machines.filtered(
-                lambda r: r.machine == use.machine).id
-            use_data['phytosanitary_name'] = use.phytosanitary.name
-            use_data['phytosanitary_registry_number'] = \
-                use.phytosanitary.registry_number
-            if use.surface_treated:
-                use_data['phytosanitary_dose'] = '%.2f %s/ha' % \
-                    (use.used_qty / use.surface_treated,
-                     use.phytosanitary.uom.name)
-            phyto_uses_dict.append((0, 0, use_data))
+            if field:
+                field = field and field[0]
+                use_data = use.copy_data()[0]
+                use_data['partner_field'] = field.id
+                use_data['raw_material'] = field.raw_material
+                use_data['use'] = field.use
+                use_data['applicator'] = self.phytosanitary_applicators.filtered(
+                    lambda r: r.applicator == use.applicator).id
+                use_data['machine'] = self.phytosanitary_machines.filtered(
+                    lambda r: r.machine == use.machine).id
+                use_data['phytosanitary_name'] = use.phytosanitary.name
+                use_data['phytosanitary_registry_number'] = \
+                    use.phytosanitary.registry_number.name
+                if use.surface_treated:
+                    use_data['phytosanitary_dose'] = '%.2f %s/ha' % \
+                        (use.used_qty / use.surface_treated,
+                         use.phytosanitary.uom.name)
+                phyto_uses_dict.append((0, 0, use_data))
         self.write({'phytosanitary_uses': phyto_uses_dict})
 
 
@@ -171,8 +182,11 @@ class ResPartnerFieldsNotebook(models.Model):
 
     def _compute_townhall_data(self):
         for partner_field in self:
-            partner_field.townhall_data = '%s (%s)' % \
-                (partner_field.townhall_id, partner_field.townhall_name)
+            if partner_field.townhall_name:
+                partner_field.townhall_data = '%s (%s)' % \
+                    (partner_field.townhall_id, partner_field.townhall_name)
+            else:
+                partner_field.townhall_data = partner_field.townhall_id
 
 
 class PhytosanitaryUseNotebook(models.Model):

@@ -9,7 +9,28 @@ class PhytosanitaryRegistryNumber(models.Model):
 
     _name = 'phytosanitary.registry.number'
 
-    name = fields.Char()
+    name = fields.Char("Nº registro", required=True)
+    commercial_name = fields.Char("Nombre comercial")
+    company_name = fields.Char("Titular")
+    formula = fields.Char("Formulado")
+
+    def name_search(self, cr, user, name, args=None, operator='ilike',
+                    context=None, limit=100):
+        if not args:
+            args = []
+        domain = ['|', ('commercial_name', operator, name),
+                  ('name', operator, name)]
+        ids = self.search(cr, user, domain + args, limit=limit,
+                          context=context)
+        return self.name_get(cr, user, ids, context=context)
+
+    @api.multi
+    def name_get(self):
+        result = []
+        for reg in self:
+            result.append((reg.id, "%s %s" %
+                           (reg.name, reg.commercial_name or '')))
+        return result
 
 
 class Phytosanitary(models.Model):
@@ -22,30 +43,21 @@ class Phytosanitary(models.Model):
     invoice_line = fields.Many2one('account.invoice.line')
     total_qty = fields.Float(required=True)
     uom = fields.Many2one('product.uom', required=True)
-    registry_number = fields.Many2one('phytosanitary.registry.number', required=True)
+    registry_number = fields.Many2one('phytosanitary.registry.number',
+                                      required=True)
     name = fields.Char(required=True)
     acquisition_date = fields.Date(required=True)
     phytosanitary_uses = fields.One2many('phytosanitary.use', 'phytosanitary')
-    rest_qty = fields.Float(compute='_compute_rest_qty', store=True)
+    rest_qty = fields.Float(compute='_compute_rest_qty', store=True,
+                            digits=(13, 4))
     company_id = fields.Many2one('res.company', 'Company',
                                  default=_get_company)
-    total_doses = fields.Integer(required=True)
-    qty_per_dose = fields.Float(compute='_compute_qty_per_dose', store=True)
-    rest_doses = fields.Integer(compute='_compute_rest_qty', store=True)
 
-    @api.depends('total_qty', 'total_doses')
-    def _compute_qty_per_dose(self):
-        for phyto in self:
-            phyto.qty_per_dose = phyto.total_qty / (phyto.total_doses or 1.0)
-
-    @api.depends('total_qty', 'total_doses', 'phytosanitary_uses.used_qty')
+    @api.depends('total_qty', 'phytosanitary_uses.used_qty')
     def _compute_rest_qty(self):
         for phyto in self:
-            phyto.rest_doses = phyto.total_doses - \
-                sum([x.used_doses for x in phyto.phytosanitary_uses])
             phyto.rest_qty = phyto.total_qty - \
-                sum([x.used_doses * phyto.qty_per_dose
-                     for x in phyto.phytosanitary_uses])
+                sum([x.used_qty for x in phyto.phytosanitary_uses])
 
     @api.multi
     def name_get(self):
@@ -78,16 +90,18 @@ class PhytosanitaryUse(models.Model):
     surface_treated = fields.Float()
     phytosanitary_problem = fields.Char()
     efficacy = fields.Char()
-    used_qty = fields.Float(compute='_compute_used_qty')
-    used_doses = fields.Float()
+    used_qty = fields.Float(compute='_compute_used_qty', store=True,
+                            digits=(13, 4))
+    used_doses = fields.Float("Dosis/Hm")
     applicator = fields.Many2one('phytosanitary.applicator')
     machine = fields.Many2one('phytosanitary.machine')
     notes = fields.Char()
     year = fields.Char(compute='_compute_use_year')
 
+    @api.depends('used_doses', 'surface_treated')
     def _compute_used_qty(self):
         for use in self:
-            use.used_qty = use.used_doses * use.phytosanitary.qty_per_dose
+            use.used_qty = use.used_doses * use.surface_treated
 
     @api.depends('date')
     def _compute_use_year(self):
@@ -112,14 +126,6 @@ class PhytosanitaryUse(models.Model):
                 self.surface_treated = sum(crops.mapped('cultivated_area'))
             else:
                 self.surface_treated = crops.cultivated_area
-
-    @api.model
-    def create(self, vals):
-        res = super(PhytosanitaryUse, self).create(vals)
-        if res.phytosanitary.rest_qty - self.used_qty < 0:
-            raise exceptions.Warning(
-                _('Qty error'), _('Cantidad disponible insuficiente'))
-        return res
 
 
 class PhytosanitaryMachine(models.Model):

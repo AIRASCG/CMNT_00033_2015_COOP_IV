@@ -246,7 +246,7 @@
                                         <td>Uso SIGPAC</td>
                                         <td>Superficie SIGPAC(ha)</td>
                                         <td>Superficie cultivada(ha)</td>
-                                        <td>Especiel</td>
+                                        <td>Especie</td>
                                         <td>Variedad</td>
                                         <td>Secano/regadío</td>
                                         <td>Aire libre o protegido</td>
@@ -261,11 +261,11 @@
                                         <td><span t-field="field.industrial_estate"/></td>
                                         <td><span t-field="field.plot"/></td>
                                         <td><span t-field="field.enclosure"/></td>
-                                        <td><span t-field="field.sixpac_use"/></td>
+                                        <td><span t-field="field.use"/></td>
                                         <td><span t-field="field.sixpac_surface"/></td>
                                         <td><span t-field="field.cultivated_area"/></td>
                                         <td><span t-field="field.raw_material"/></td>
-                                        <td><span t-field="field.use"/></td>
+                                        <td><span t-field="field.variety"/></td>
                                         <td><span t-field="field.irrigation_dry"/></td>
                                         <td><span t-field="field.outdoor_protected"/></td>
                                         <td><span t-field="field.location_name"/></td>
@@ -312,9 +312,9 @@
                                         <td><span t-field="use.phytosanitary_problem"/></td>
                                         <td><span t-field="use.applicator.sequence"/></td>
                                         <td><span t-field="use.machine.sequence"/></td>
-                                        <td><span t-field="use.phytosanitary_name"/></td>
-                                        <td><span t-field="use.phytosanitary_registry_number"/></td>
-                                        <td><span t-field="use.phytosanitary_dose"/></td>
+                                        <td><span t-field="use.phytosanitary.registry_number.commercial_name"/></td>
+                                        <td><span t-field="use.phytosanitary.registry_number.name"/></td>
+                                        <td><span t-field="use.used_doses"/></td>
                                         <td><span t-field="use.efficacy"/></td>
                                         <td><span t-field="use.notes"/></td>
                                     </tr>
@@ -368,8 +368,8 @@
                                         <td><span t-field="use.non_chemical_action_type"/></td>
                                         <td><span t-field="use.intensity"/></td>
                                         <td><span t-field="use.non_chemical_action_date"/></td>
-                                        <td><span t-field="use.phytosanitary.name"/></td>
-                                        <td><span t-field="use.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="use.phytosanitary.registry_number.commercial_name"/></td>
+                                        <td><span t-field="use.phytosanitary.registry_number.name"/></td>
                                         <td><span t-field="use.used_dose"/></td>
                                         <td><span t-field="use.chemical_action_date"/></td>
                                         <td><span t-field="use.efficiency"/></td>
@@ -434,7 +434,7 @@
                                         <td><span t-field="seed_use.seeded_surface"/></td>
                                         <td><span t-field="seed_use.seed_quantity"/></td>
                                         <td><span t-field="seed_use.phytosanitary.name"/></td>
-                                        <td><span t-field="seed_use.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="seed_use.phytosanitary.registry_number.name"/></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -463,7 +463,7 @@
                                         <td><span t-field="post_harvest.phytosanitary_problem"/></td>
                                         <td><span t-field="post_harvest.treated_qty"/></td>
                                         <td><span t-field="post_harvest.phytosanitary.name"/></td>
-                                        <td><span t-field="post_harvest.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="post_harvest.phytosanitary.registry_number.name"/></td>
                                         <td><span t-field="post_harvest.used_qty"/> <span t-field="post_harvest.used_uom"/></td>
                                     </tr>
                                 </tbody>
@@ -502,7 +502,7 @@
                                         <td><span t-field="storage_tratement.phytosanitary_problem"/></td>
                                         <td><span t-field="storage_tratement.treated_volume"/></td>
                                         <td><span t-field="storage_tratement.phytosanitary.name"/></td>
-                                        <td><span t-field="storage_tratement.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="storage_tratement.phytosanitary.registry_number.name"/></td>
                                         <td><span t-field="storage_tratement.product_used_qty"/></td>
                                     </tr>
                                 </tbody>
@@ -532,7 +532,7 @@
                                         <td><span t-field="transport_tratements.phytosanitary_problem"/></td>
                                         <td><span t-field="transport_tratements.treated_volume"/></td>
                                         <td><span t-field="transport_tratements.phytosanitary.name"/></td>
-                                        <td><span t-field="transport_tratements.phytosanitary.registry_number"/></td>
+                                        <td><span t-field="transport_tratements.phytosanitary.registry_number.name"/></td>
                                         <td><span t-field="transport_tratements.product_used_qty"/></td>
                                     </tr>
                                 </tbody>

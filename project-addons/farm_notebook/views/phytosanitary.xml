@@ -5,6 +5,62 @@
 <openerp>
     <data>
 
+        <record id="phytosanitary_registry_number_view_tree" model="ir.ui.view">
+            <field name="name">phytosanitary.registry.number.tree</field>
+            <field name="model">phytosanitary.registry.number</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="commercial_name"/>
+                    <field name="company_name"/>
+                    <field name="formula"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="phytosanitary_registry_number_view_form" model="ir.ui.view">
+            <field name="name">phytosanitary.registry.number.form</field>
+            <field name="model">phytosanitary.registry.number</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_name"/>
+                        </group>
+                        <group>
+                            <field name="commercial_name"/>
+                            <field name="formula"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="phytosanitary_registry_number_view_search" model="ir.ui.view">
+            <field name="name">phytosanitary.registry.number.search</field>
+            <field name="model">phytosanitary.registry.number</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search>
+                   <field name="name"/>
+                   <field name="commercial_name"/>
+                   <field name="company_name"/>
+               </search>
+            </field>
+        </record>
+
+        <record id="phytosanitary_registry_number_action" model="ir.actions.act_window">
+            <field name="name">Registros fitosanitarios</field>
+            <field name="res_model">phytosanitary.registry.number</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="phytosanitary_registry_number_view_tree"/>
+            <field name="search_view_id" ref="phytosanitary_registry_number_view_search"/>
+        </record>
+
         <record id="phytosanitary_view_tree" model="ir.ui.view">
             <field name="name">phytosanitary.tree</field>
             <field name="model">phytosanitary</field>
@@ -16,6 +72,7 @@
                     <field name="uom"/>
                     <field name="registry_number"/>
                     <field name="acquisition_date"/>
+                    <field name="rest_qty"/>
                 </tree>
             </field>
         </record>
@@ -37,9 +94,7 @@
                             <field name="invoice_line"/>
                             <field name="total_qty"/>
                             <field name="uom"/>
-                            <field name="total_doses"/>
                             <field name="rest_qty"/>
-                            <field name="rest_doses"/>
                         </group>
                     </group>
                     <separator string="Phytosanitary uses"/>
@@ -54,6 +109,7 @@
                             <field name="phytosanitary_problem"/>
                             <field name="efficacy"/>
                             <field name="used_doses"/>
+                            <field name="used_qty"/>
                             <field name="applicator" required="True"/>
                             <field name="machine" required="True"/>
                             <field name="notes"/>
