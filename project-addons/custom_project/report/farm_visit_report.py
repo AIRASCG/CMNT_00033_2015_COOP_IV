@@ -46,7 +46,7 @@ class FarmVisitRerport(models.AbstractModel):
             'doc_model': report.model,
             'docs': docs,
             'data': data,
-            'tasks': sorted(self.env['project.task.work'].browse(data['form']['tasks']), key=lambda x: (x.lot_id.farm_id.id, x.date)),
+            'tasks': sorted(self.env['project.task.work'].browse(data['form']['tasks']), key=lambda x: (x.exploitation_id.id, x.task_id.name)),
             'table': table
         }
         return report_obj.sudo().render('custom_project.farm_visit_report',

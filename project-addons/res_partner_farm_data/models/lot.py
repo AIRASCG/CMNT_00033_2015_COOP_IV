@@ -57,6 +57,7 @@ class LotPartner(models.Model):
 class Lot(models.Model):
 
     _name = 'lot'
+    _order = "date desc"
 
     date = fields.Datetime('Date', required=True, readonly=True,
                            states={'draft': [('readonly', False)]},
@@ -196,12 +197,14 @@ class Lot(models.Model):
             analysis_ids = self.env['milk.analysis.line'].\
                 search([('analysis_id.exploitation_id', '=',
                          lot.farm_id.id), ('sample_date', '<=', lot.date),
-                        ('state', '=', 'accepted')],
+                        ('state', '=', 'accepted'), ('fat', '!=', 0.0)],
                        limit=3, order="sample_date desc")
-            mg_total = mp_total = 0
+            mg_total = mp_total = cs_total = urea_total = 0
             for line in analysis_ids:
                 mg_total += line.fat or 0.0
                 mp_total += line.protein or 0.0
+                cs_total += line.cs or 0.0
+                urea_total += line.urea or 0.0
             if mg_total:
                 lot.mg = mg_total / len(analysis_ids)
             else:
@@ -210,6 +213,14 @@ class Lot(models.Model):
                 lot.mp = mp_total / len(analysis_ids)
             else:
                 lot.mp = mp_total
+            if cs_total:
+                lot.cs = cs_total / len(analysis_ids)
+            else:
+                lot.cs = cs_total
+            if urea_total:
+                lot.urea = urea_total / len(analysis_ids)
+            else:
+                lot.urea = urea_total
 
 
 class LotDetailSequence(models.Model):

@@ -25,6 +25,7 @@ from calendar import monthrange, month_name
 class MilkAnalysis(models.Model):
 
     _name = 'milk.analysis'
+    _order = "date desc"
 
     date = fields.Datetime('Date', required=True)
     exploitation_id = fields.\
@@ -74,6 +75,7 @@ class MilkAnalysisReport(models.Model):
 
     _name = 'milk.analysis.report'
     _auto = False
+    _order = "date desc"
 
     exploitation_id = fields.Many2one('res.partner')
     date = fields.Date()
@@ -116,6 +118,8 @@ class MilkAnalysisMonthReport(models.Model):
     dry_extract = fields.Float()
     bacteriology = fields.Float()
     cs = fields.Float('CS')
+    cryoscope = fields.Float(u"Crioscópico")
+    urea = fields.Float("Urea")
 
     def _get_date(self):
         for l in self:
@@ -156,6 +160,8 @@ SELECT ROW_NUMBER() OVER() AS id,
        avg(l.dry_extract) as dry_extract,
        avg(l.bacteriology) as bacteriology,
        avg(l.cs) as cs,
+       avg(l.cryoscope) as cryoscope,
+       avg(l.urea) as urea,
        to_char(l.sample_date, 'YYYY-MM') as date
 FROM milk_analysis_line l
      JOIN milk_analysis m ON l.analysis_id = m.id

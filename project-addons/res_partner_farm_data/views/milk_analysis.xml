@@ -152,6 +152,8 @@
                     <field name="dry_extract"/>
                     <field name="bacteriology"/>
                     <field name="cs"/>
+                    <field name="cryoscope"/>
+                    <field name="urea"/>
                 </tree>
             </field>
         </record>

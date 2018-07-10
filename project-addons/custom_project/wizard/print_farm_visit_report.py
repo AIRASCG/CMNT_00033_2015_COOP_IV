@@ -22,7 +22,7 @@ class FarmVisitRerport(models.TransientModel):
         domain = []
         if self.farm_id:
             domain.append(
-                ('lot_id.farm_id', '=', self.farm_id.id))
+                ('exploitation_id', '=', self.farm_id.id))
         if self.date_start:
             domain.append(('task_id.name', '>=', self.date_start))
         if self.date_end:

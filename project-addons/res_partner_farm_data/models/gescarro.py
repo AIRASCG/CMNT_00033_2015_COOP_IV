@@ -344,9 +344,10 @@ class GescarroData(models.Model):
     def get_milk_analysis_vals(self):
         for gescarro in self:
             analysis_line = self.env['milk.analysis.line'].search(
-                [('sample_date', '=', gescarro.date),
+                [('sample_date', '<=', gescarro.date),
                  ('analysis_id.exploitation_id', '=',
-                  gescarro.exploitation_id.id)])
+                  gescarro.exploitation_id.id),
+                 ('fat', '!=', 0.0)], order="sample_date desc", limit=1)
             if analysis_line:
                 gescarro.write({'fat': analysis_line[0].fat,
                                 'protein': analysis_line[0].protein,
