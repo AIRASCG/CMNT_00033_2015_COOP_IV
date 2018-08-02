@@ -37,7 +37,8 @@ class AccountAssetCategory(models.Model):
         'account.account', 'Deterioration depr. expense dccount',
         company_dependent=True)
     subvention_analytic_account_id = fields.Many2one(
-        'account.analytic.account', 'Subvention analytic account')
+        'account.analytic.account', 'Subvention analytic account',
+        domain=[('type', '!=', 'view')])
     analytic_plan = fields.Many2one('account.analytic.plan.instance',
                                     'Analytic plan')
     subvention_analytic_plan = fields.Many2one(
@@ -52,7 +53,7 @@ class AccountAssetAsset(models.Model):
     account_analytic_id = fields.Many2one(
         'account.analytic.account', 'Analytic account',
         states={'draft': [('readonly', False)], 'open': [('readonly', True)],
-                'close': [('readonly', True)]})
+                'close': [('readonly', True)]}, domain=[('type', '!=', 'view')])
     analytic_plan = fields.Many2one(
         'account.analytic.plan.instance', 'Analytic plan',
         states={'draft': [('readonly', False)], 'open': [('readonly', True)],
