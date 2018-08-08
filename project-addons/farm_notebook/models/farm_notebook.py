@@ -85,15 +85,15 @@ class FarmNotebook(models.Model):
         write_vals['phytosanitary_machines'] = machines
         partner_fields = self.env['res.partner.fields'].search(
             [('year', '=', notebook_year),
-             ('partner_id', '=', self.partner.id)])
+             ('partner_id', '=', self.partner.id), ('phytosanitary_uses', '!=', None)])
         partner_fieds_dict = []
         field_sequence = 0
         for field in partner_fields:
-            if field.campaigns.\
-                    filtered(lambda x: x.campaign.year == str(notebook_year)):
-                for campaign_crop in field.campaigns.\
-                        filtered(lambda x: x.campaign.year ==
-                                 str(notebook_year)):
+            uses_campaigns = field.mapped('phytosanitary_uses.campaign')._ids
+            campaigns = field.campaigns.filtered(
+                lambda x: x.campaign.year == str(notebook_year) and x.campaign.id in uses_campaigns)
+            if campaigns:
+                for campaign_crop in campaigns:
                     field_sequence += 1
                     field_data = field.copy_data()[0]
                     field_data['crop'] = campaign_crop.id
