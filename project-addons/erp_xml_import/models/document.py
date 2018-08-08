@@ -90,12 +90,15 @@ class ErpXmlDocument(models.Model):
                 search([('parent_id', '=', coop_partner.company_id.id),
                         ('partner_id.erp_reference', '=', partner['codigo'])])
             if not company_ids:
-                # se crea la compañía y se asigna a created_partner el partner
-                new_company = self.env['res.company'].with_context(ctx).create(
-                    {'name': partner['nombre'],
-                     'parent_id': coop_partner.company_id.id})
-                created_partner = new_company.partner_id
-                created_partner.write(partner_data)
+                if self.env['res.company'].search([('name', '=', partner['nombre'])]):
+                    return u'\nCompañía %s no creada debido a nombre duplicado' % str(partner['nombre'])
+                else:
+                    # se crea la compañía y se asigna a created_partner el partner
+                    new_company = self.env['res.company'].with_context(ctx).create(
+                        {'name': partner['nombre'],
+                         'parent_id': coop_partner.company_id.id})
+                    created_partner = new_company.partner_id
+                    created_partner.write(partner_data)
             else:
                 company_ids[0].partner_id.write(partner_data)
         elif partner.get('cliente', False) or partner.get('proveedor', False):
@@ -277,7 +280,9 @@ class ErpXmlDocument(models.Model):
                                     else:
                                         partner[el.tag] = el.text
                                 try:
-                                    doc_.parse_partner(partner)
+                                    warning = doc_.parse_partner(partner)
+                                    if warning:
+                                        doc.errors += u'\n%s' % warning
                                 except Exception as e:
                                     print "ERROR: ", e
                                     doc.errors += '\n%s' % str(e)
