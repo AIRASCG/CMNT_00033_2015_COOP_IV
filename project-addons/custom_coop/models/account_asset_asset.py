@@ -178,7 +178,7 @@ class AccountAssetAsset(models.Model):
             current_currency or False,
             'amount_currency':
             company_currency != current_currency and sign * total or 0.0,
-            'analytic_account_id': category.account_analytic_id.id,
+            'analytic_account_id': self.account_analytic_id.id or category.account_analytic_id.id,
             'date': depreciation_date,
             'asset_id': self.id
         })
