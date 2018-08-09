@@ -48,16 +48,15 @@ class LotReport(models.AbstractModel):
 
             headers.extend(['Total', u'Ración media'])
             z.append(headers)
-
             # Productos
             for product in all_products:
                 body = [product]
-                subtotal = 0.0
+                subtotal = 0
                 for detail in o.lot_details:
                     content_detail = self.env['lot.content'].search([('product_id', '=', product.id), ('detail_id', '=', detail.id)])
                     amount = content_detail and content_detail[0].kg_ration * detail.rations_make_number or 0
-                    body.append(amount)
-                    subtotal += amount
+                    body.append(int(amount))
+                    subtotal += int(amount)
                 body.append(subtotal)
                 if o.number_milking_cows:
                     body.append(round(subtotal / o.number_milking_cows, 2))
@@ -103,9 +102,9 @@ class LotReport(models.AbstractModel):
                 ('z', 'Ingreso leche/vaca y día:', 'lot.ingress_milk_cow_day', '(o.liters_sold_per_day * o.milk_price / 1000) / table["e"]["total"]', False),
                 ('aa', 'Diferencia :', 'lot.diff_ing_cost', 'table["z"]["total"] - table["y"]["total"]', False),
                 ('ab', '% alimentación sobre ingresos leche:', 'lot.perc_feed_milk_ingress', '(table["y"]["total"] / table["z"]["total"]) * 100.0', False),
-                ('ac', '% alimentación comprada sobre ingresos leche:', '0', '0', False),
-                ('ad', '% concentrado sobre ingresos leche:', '0', '0', False),
-                ('ae', 'Lts producidos/kg de concentrado gastado:', '0', '0', False),
+                ('ac', '% alimentación comprada sobre ingresos leche:', 'lot.perc_purchased_feed_milk_ingress', 'sum([x.perc_purchased_feed_milk_ingress for x in lot_details])', False),
+                ('ad', '% concentrado sobre ingresos leche:', 'lot.perc_concentrated_milk_ingress', 'sum([x.perc_concentrated_milk_ingress for x in lot_details])', False),
+                ('ae', 'Lts producidos/kg de concentrado gastado:', 'lot.liters_produced_kg_concentrated_used', 'sum([x.liters_produced_kg_concentrated_used for x in lot_details])', False),
                 ('af', 'Punto umbral de este lote (destino matadero):', 'lot.lot_threshold_point_slaughterhouse', '(table["y"]["total"] / o.milk_price) * 1000', False),
                 ('ag', 'Punto umbral de este lote (destino lote secas):', 'lot.lot_threshold_point_dry', '((table["y"]["total"] - o.dry_cow_ration_cost) / o.milk_price) * 1000', False),
             ]

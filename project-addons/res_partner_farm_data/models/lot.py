@@ -705,9 +705,9 @@ class LotDetail(models.Model):
             res['milk_prediction_by_pb_anal'] = (
                 (res['ims_total_kg_cow_day_anal'] * s36)-450) / 86
 
-            res['real_production_deviation_theo'] = res['milk_prediction_by_enl_theo'] < res['milk_prediction_by_pb_theo'] and res['milk_cow_production_corrected'] - res['milk_prediction_by_enl_theo'] or res['milk_cow_production_corrected'] - res['milk_prediction_by_pb_theo']
-            res['real_production_deviation_real'] = res['milk_prediction_by_enl_real'] < res['milk_prediction_by_pb_real'] and res['milk_cow_production_corrected'] - res['milk_prediction_by_enl_real'] or res['milk_cow_production_corrected'] - res['milk_prediction_by_pb_real']
-            res['real_production_deviation_anal'] = res['milk_prediction_by_enl_anal'] < res['milk_prediction_by_pb_anal'] and res['milk_cow_production_corrected'] - res['milk_prediction_by_enl_anal'] or res['milk_cow_production_corrected'] - res['milk_prediction_by_pb_anal']
+            res['real_production_deviation_theo'] = res['milk_prediction_by_enl_theo'] < res['milk_prediction_by_pb_theo'] and res['milk_prediction_by_enl_theo'] - res['milk_cow_production_corrected'] or res['milk_prediction_by_pb_theo'] - res['milk_cow_production_corrected']
+            res['real_production_deviation_real'] = res['milk_prediction_by_enl_real'] < res['milk_prediction_by_pb_real'] and res['milk_prediction_by_enl_real'] - res['milk_cow_production_corrected'] or res['milk_prediction_by_pb_real'] - res['milk_cow_production_corrected']
+            res['real_production_deviation_anal'] = res['milk_prediction_by_enl_anal'] < res['milk_prediction_by_pb_anal'] and res['milk_prediction_by_enl_anal'] - res['milk_cow_production_corrected'] or res['milk_prediction_by_pb_anal'] - res['milk_cow_production_corrected']
 
             res['ration_cost_eur_theo'] = sum(
                 [x.theorical_kg_ration * x.eur_ton_mf /
@@ -784,11 +784,11 @@ class LotDetail(models.Model):
                 else:
                     perc_ms_ration_real_purchased = 0.0
                 if res['imf_real'] != 0:
-                    ims_total_kg_cow_day_real_purchased = perc_ms_ration_real_purchased / 100 * res['imf_real']
+                    ims_total_kg_cow_day_real_purchased = perc_ms_ration_real_purchased / 100.0 * res['imf_real']
                 else:
                     ims_total_kg_cow_day_real_purchased = 0
-                feed_cost_cow_day_purchased = (ims_total_kg_cow_day_real_purchased * res['ration_cost_eur_ton_ms_real'] / 1000) + lot.carriage_cost_cow_day
-                res['perc_purchased_feed_milk_ingress'] = feed_cost_cow_day_purchased / res['ingress_milk_cow_day'] * 100
+                feed_cost_cow_day_purchased = (ims_total_kg_cow_day_real_purchased * res['ration_cost_eur_ton_ms_real'] / 1000.0) + lot.carriage_cost_cow_day
+                res['perc_purchased_feed_milk_ingress'] = feed_cost_cow_day_purchased / res['ingress_milk_cow_day'] * 100.0
             else:
                 res['perc_feed_milk_ingress'] = 0.0
                 res['perc_purchased_feed_milk_ingress'] = 0.0
@@ -817,7 +817,7 @@ class LotDetail(models.Model):
                     (lot_detail.tank_liters +
                      lot_detail.liters_on_farm_consumption +
                      lot_detail.retired_liters) / \
-                     lot_detail.number_cubicles_in_lot
+                     float(lot_detail.number_cubicles_in_lot)
                 res['cubicle_production_corrected'] = \
                     (12.82 * res['cubicle_production'] * (lot.mg / 100.0)) + \
                     (7.13 * res['cubicle_production'] * (lot.mp / 100.0) + \

@@ -3,7 +3,7 @@
     <data noupdate="0">
         <record id="config_allowed_modules" model="ir.config_parameter">
             <field name="key">allowed_modules</field>
-            <field name="value">ir.values,ir.property,ir.attachment,stock.location,res.partner,res.users,account.installer,account.account,account.tax,account.tax.code,account.period,account.fiscalyear,wizard.multi.charts.accounts,ir.sequence,account.journal,account.fiscal.position,account.fiscal.position.line,product.product,product.template,product.price.history,res.partner.category,account.analytic.report,milk.control.report,calendar.event,project.task,project.task.work,project.project</field>
+            <field name="value">ir.values,ir.property,ir.attachment,stock.location,res.partner,res.users,account.installer,account.account,account.tax,account.tax.code,account.period,account.fiscalyear,wizard.multi.charts.accounts,ir.sequence,account.journal,account.fiscal.position,account.fiscal.position.line,product.product,product.template,product.price.history,res.partner.category,account.analytic.report,milk.control.report,calendar.event,project.task,project.task.work,project.project,project.category</field>
         </record>
     </data>
 </openerp>
