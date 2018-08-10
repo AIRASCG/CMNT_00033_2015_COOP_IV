@@ -35,3 +35,4 @@ from . import milk_control
 from . import gescarro
 from . import calendar_event
 from . import res_users
+from . import account_invoice
