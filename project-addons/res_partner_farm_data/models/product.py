@@ -27,3 +27,4 @@ class ProductProduct(models.Model):
 
     concentrated = fields.Boolean('Concentrate')
     ingredient = fields.Boolean("Ingredient")
+    is_milk_quota = fields.Boolean()
