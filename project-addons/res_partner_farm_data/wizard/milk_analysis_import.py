@@ -267,7 +267,8 @@ class milk_analysis_api(object):
     def new_token(self, user, password):
         data = 'username=%s&password=%s&grant_type=password' % (user, password)
         headers = {'Content-type': 'application/json',
-                   'Accept': 'application/json'}
+                   'Accept': 'application/json',
+                   'omitir_captcha': '1'}
         resp = requests.get(url=self.url + self.paths['auth'],
                             data=data, headers=headers)
         data = resp.json()
@@ -288,7 +289,8 @@ class milk_analysis_api(object):
         }
         headers = {'Content-type': 'application/json',
                    'Accept': 'application/json',
-                   'Authorization': self.token}
+                   'Authorization': self.token,
+                   'omitir_captcha': '1'}
         resp = requests.get(url=self.url + self.paths['samples'],
                             params=params, headers=headers)
         data = resp.json()
