@@ -22,15 +22,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <!--<div class="col-xs-3" t-if="o.milk_1">
+                        <div class="col-xs-3" t-if="o.milk_1">
                             Milk: <span t-field="o.milk_1"/>
-                        </div>-->
+                        </div>
                         <div class="col-xs-3" t-if="o.total_cows_1">
                             Total cows: <span t-esc="round(o.total_cows_1, 2)"/>
                         </div>
-                        <!--<div class="col-xs-3" t-if="o.milk_2">
+                        <div class="col-xs-3" t-if="o.milk_2">
                             Milk: <span t-field="o.milk_2"/>
-                        </div>-->
+                        </div>
                         <div class="col-xs-3" t-if="o.total_cows_2">
                             Total cows: <span t-esc="round(o.total_cows_2, 2)"/>
                         </div>

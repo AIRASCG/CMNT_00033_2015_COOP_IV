@@ -8,26 +8,14 @@
             <field name="title_2">€/1000 L</field>
         </record>
 
-        <record id="pyg_1000_l_0" model="account.analytic.report.template.line">
-            <field name="code">0</field>
-            <field name="sequence">0</field>
-            <field name="name">Toneladas de leche consideradas</field>
-            <field name="value_1_1">7000?qty,7006?qty,7007?qty,7008?qty,7009?qty</field>
-            <field name="value_1_2"></field>
-            <field name="value_2_1">7000?qty,7006?qty,7007?qty,7008?qty,7009?qty</field>
-            <field name="value_2_2"></field>
-            <field name="template_id" ref="pyg_1000"/>
-            <field name="css_style"></field>
-        </record>
-
         <record id="pyg_1000_l_1" model="account.analytic.report.template.line">
             <field name="code">1</field>
             <field name="sequence">1</field>
             <field name="name">Venta leche</field>
             <field name="value_1_1">700</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">700</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -37,9 +25,9 @@
             <field name="sequence">2</field>
             <field name="name">Venta ganado</field>
             <field name="value_1_1">701</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">701</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -49,9 +37,9 @@
             <field name="sequence">3</field>
             <field name="name">Subvenciones corrientes</field>
             <field name="value_1_1">7401</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">7401</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -61,9 +49,9 @@
             <field name="sequence">4</field>
             <field name="name">Subvenciones de capital</field>
             <field name="value_1_1">7461</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">7461</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -73,9 +61,9 @@
             <field name="sequence">5</field>
             <field name="name">Ventas de forraje</field>
             <field name="value_1_1">702</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">702</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -85,9 +73,9 @@
             <field name="sequence">6</field>
             <field name="name">Ingreso Agroseguro</field>
             <field name="value_1_1">759</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">759</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -97,9 +85,9 @@
             <field name="sequence">7</field>
             <field name="name">Otros ingresos</field>
             <field name="value_1_1">749,705,762,752</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">749,705,762,752</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -109,9 +97,9 @@
             <field name="sequence">8</field>
             <field name="name">Variación existencias vacas</field>
             <field name="value_1_1">6114</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6114</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -133,9 +121,9 @@
             <field name="sequence">10</field>
             <field name="name">Forrajes comprados</field>
             <field name="value_1_1">601</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">601</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -145,9 +133,9 @@
             <field name="sequence">11</field>
             <field name="name">Concentrado de vacas</field>
             <field name="value_1_1">602</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">602</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -157,9 +145,9 @@
             <field name="sequence">12</field>
             <field name="name">Ración completa vacas leche</field>
             <field name="value_1_1">6051</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6051</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -169,9 +157,9 @@
             <field name="sequence">13</field>
             <field name="name">Ración completa vacas secas</field>
             <field name="value_1_1">6052</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6052</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -181,9 +169,9 @@
             <field name="sequence">14</field>
             <field name="name">Concentrado recría</field>
             <field name="value_1_1">603,604</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">603,604</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -193,9 +181,9 @@
             <field name="sequence">15</field>
             <field name="name">Ración completa novillas</field>
             <field name="value_1_1">606</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">606</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -205,9 +193,9 @@
             <field name="sequence">16</field>
             <field name="name">Cultivos propios</field>
             <field name="value_1_1">600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6815,6221,6253</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">600,6211,6212,6213,6214,6215,6216,6401,6402,6403,6404,6405,6231,6232,6233,6234,6235,6281,6282,6815,6221,6253</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -217,9 +205,9 @@
             <field name="sequence">17</field>
             <field name="name">Servicios alimentación</field>
             <field name="value_1_1">62311,62313,6222</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">62311,62313,6222</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -229,9 +217,9 @@
             <field name="sequence">18</field>
             <field name="name">Variación existencias alimentación</field>
             <field name="value_1_1">6111,6112,6113</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6111,6112,6113</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -266,9 +254,9 @@
             <field name="sequence">21</field>
             <field name="name">Servicio recría(externo)</field>
             <field name="value_1_1">6236</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6236</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -278,9 +266,9 @@
             <field name="sequence">22</field>
             <field name="name">Servicio reproduccion e semen</field>
             <field name="value_1_1">6237,6071,6073,6074</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6237,6071,6073,6074</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -290,9 +278,9 @@
             <field name="sequence">23</field>
             <field name="name">Veterinarios </field>
             <field name="value_1_1">6238</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6238</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -302,9 +290,9 @@
             <field name="sequence">24</field>
             <field name="name">Podologos</field>
             <field name="value_1_1">6077,6078</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6077,6078</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -314,9 +302,9 @@
             <field name="sequence">25</field>
             <field name="name">Medicamentos</field>
             <field name="value_1_1">6072</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6072</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -326,9 +314,9 @@
             <field name="sequence">26</field>
             <field name="name">Vacunas</field>
             <field name="value_1_1">6075</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6075</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -350,9 +338,9 @@
             <field name="sequence">28</field>
             <field name="name">Cama</field>
             <field name="value_1_1">608</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">608</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -362,9 +350,9 @@
             <field name="sequence">29</field>
             <field name="name">Servicios varios</field>
             <field name="value_1_1">6075,6076,6291,6292,6241,6242,6251</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6075,6076,6291,6292,6241,6242,6251</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -374,9 +362,9 @@
             <field name="sequence">30</field>
             <field name="name">Compra de ganado</field>
             <field name="value_1_1">610</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">610</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -410,9 +398,9 @@
             <field name="sequence">33</field>
             <field name="name">Mantenimiento instalaciones</field>
             <field name="value_1_1">6223,6224,6225</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6223,6224,6225</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -422,9 +410,9 @@
             <field name="sequence">34</field>
             <field name="name">Salarios y seguridad social</field>
             <field name="value_1_1">6406,6407,6421,649</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6406,6407,6421,649</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -434,9 +422,9 @@
             <field name="sequence">35</field>
             <field name="name">Seguros</field>
             <field name="value_1_1">6252</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6252</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -446,9 +434,9 @@
             <field name="sequence">36</field>
             <field name="name">Gastos de intereses</field>
             <field name="value_1_1">626</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">626</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -458,9 +446,9 @@
             <field name="sequence">37</field>
             <field name="name">Generales(unifeed, cuotas, luz...)</field>
             <field name="value_1_1">62310,62312,62314,62315,62930,62316,6282,6283,6284,6285,6286,6217</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">62310,62312,62314,62315,62930,62316,6282,6283,6284,6285,6286,6217</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -506,9 +494,9 @@
             <field name="sequence">41</field>
             <field name="name">Amortización instalaciones</field>
             <field name="value_1_1">6813,6814</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6813,6814</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -518,9 +506,9 @@
             <field name="sequence">42</field>
             <field name="name">Amortización maquinaria</field>
             <field name="value_1_1">6812,6815</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6812,6815</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -530,9 +518,9 @@
             <field name="sequence">43</field>
             <field name="name">Amortización ganado</field>
             <field name="value_1_1">6811</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">6811</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -578,9 +566,9 @@
             <field name="sequence">47</field>
             <field name="name">Amortización de préstamos</field>
             <field name="value_1_1">620</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">620</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style">red_bold</field>
         </record>
@@ -602,9 +590,9 @@
             <field name="sequence">49</field>
             <field name="name">Impuestos y contribuciones</field>
             <field name="value_1_1">630</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">630</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style"></field>
         </record>
@@ -614,9 +602,9 @@
             <field name="sequence">50</field>
             <field name="name">Gastos extraordinario</field>
             <field name="value_1_1">678</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">678</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style">red_bold</field>
         </record>
@@ -626,9 +614,9 @@
             <field name="sequence">51</field>
             <field name="name">Subvenciones de capital</field>
             <field name="value_1_1">7461</field>
-            <field name="value_1_2">[1_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_1_2">[1_1],/#milk,*'1000</field>
             <field name="value_2_1">7461</field>
-            <field name="value_2_2">[2_1],/(7000?qty,7006?qty,7007?qty,7008?qty,7009?qty)</field>
+            <field name="value_2_2">[2_1],/#milk,*'1000</field>
             <field name="template_id" ref="pyg_1000"/>
             <field name="css_style">red</field>
         </record>
