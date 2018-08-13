@@ -21,14 +21,6 @@
                         <img src="/custom_report/static/src/img/milkoop-pdf.png" style="width: 100%; position:fixed; top:900px; z-index:99; color:white;"/>
                     </div>
                     <div class="page">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <strong>Desde: </strong><span t-field="o.from_date"/>
-                            </div>
-                            <div class="col-xs-6">
-                                <strong>Hasta: </strong><span t-field="o.to_date"/>
-                            </div>
-                        </div>
                         <table style="width:100%" >
                             <tr>
                                 <td>
@@ -36,6 +28,16 @@
                                 </td>
                                 <td t-if="o.exploitation_2">
                                     <h3><span t-field="o.exploitation_2"/></h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Desde: </strong><span t-field="o.from_date_1"/>
+                                    <strong style="margin-left: 120px;">Hasta: </strong><span t-field="o.to_date_1"/>
+                                </td>
+                                <td t-if="o.exploitation_2">
+                                    <strong>Desde: </strong><span t-field="o.from_date_2"/>
+                                    <strong style="margin-left: 120px;">Hasta: </strong><span t-field="o.to_date_2"/>
                                 </td>
                             </tr>
                             <tr>

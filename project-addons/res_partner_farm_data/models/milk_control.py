@@ -24,6 +24,7 @@ from cairoplot import VerticalBarPlot
 import base64
 from zeep import Client
 from datetime import datetime, timedelta
+from decimal import Decimal
 
 
 def average(lst):
@@ -54,8 +55,8 @@ class MilkControl(models.Model):
     def create_report(self):
         control_report = self.env['milk.control.report'].create(
             {'exploitation_1': self.exploitation_id.id,
-             'from_date': self.date,
-             'to_date': self.date,
+             'from_date_1': self.date,
+             'to_date_1': self.date,
              'milking_type_1': 'total'})
         report_xml_id = 'res_partner_farm_data.action_milk_control_qweb_report'
         report_data = self.env.ref(report_xml_id).render_report(
@@ -92,6 +93,7 @@ class MilkControl(models.Model):
         passwds = self.env['res.partner.passwd'].search(
             [('service', '=', milk_control_service.id)])
         for passwd in passwds:
+            stop_before = False
             if not passwd.passwd or not passwd.name:
                 continue
             header_value = header(UserName=passwd.name,
@@ -141,6 +143,9 @@ class MilkControl(models.Model):
                                 'exploitation_id': passwd.partner_id.id,
                                 'state': 'correct'})
                     for cow_data in data['ListResult']['Control']:
+                        if not cow_data['Grasa'] or cow_data['Grasa'] == Decimal('0.00'):
+                            stop_before = True
+                            break
                         vals = {'control_id': milk_control.id,
                                 'cea': cow_data['Cea'],
                                 'cib': cow_data['Cib'],
@@ -159,6 +164,10 @@ class MilkControl(models.Model):
                         vals['cumulative_milk'] = \
                             int(vals['milk_liters'] * vals['days'])
                         self.env['milk.control.line'].create(vals)
+                    if stop_before:
+                        milk_control.unlink()
+                        passwd.last_sync_date = start_date + timedelta(days=i)
+                        break
                     milk_control.create_report()
                     passwd.last_sync_date = filter_date.strftime("%Y-%m-%d")
 
@@ -208,8 +217,10 @@ class MilkControlReport(models.Model):
     exploitation_2 = fields.Many2one('res.partner', 'Exploitation 2',
                                      domain=[('farm', '=', True),
                                              ('is_cooperative','=',False)])
-    from_date = fields.Date('From date', required=True)
-    to_date = fields.Date('To date', required=True)
+    from_date_1 = fields.Date('From date', required=True)
+    from_date_2 = fields.Date('From date')
+    to_date_1 = fields.Date('To date', required=True)
+    to_date_2 = fields.Date('To date')
 
     milking_type_1 = fields.Selection(MILKING_TYPES, required=True)
     milking_type_2 = fields.Selection(MILKING_TYPES)
@@ -317,7 +328,7 @@ class MilkControlReport(models.Model):
     def _get_data(self, num):
         self.ensure_one()
         suffix = u'_%s' % num
-        milk_control = self.env['milk.control'].search([('date', '>=', self.from_date), ('date', '<=', self.to_date), ('exploitation_id', '=', self['exploitation%s' % suffix].id)])
+        milk_control = self.env['milk.control'].search([('date', '>=', self['from_date%s' % suffix]), ('date', '<=', self['to_date%s' % suffix]), ('exploitation_id', '=', self['exploitation%s' % suffix].id)])
         milk_data = milk_control.mapped('line_ids')
         if not milk_data:
             return
@@ -399,10 +410,10 @@ class MilkControlReport(models.Model):
             report._get_data(1)
             report._get_data(2)
 
-        milk_control_1 = self.env['milk.control'].search([('date', '>=', self.from_date), ('date', '<=', self.to_date), ('exploitation_id', '=', self.exploitation_1.id)])
+        milk_control_1 = self.env['milk.control'].search([('date', '>=', self.from_date_1), ('date', '<=', self.to_date_1), ('exploitation_id', '=', self.exploitation_1.id)])
         milk_data_1 = milk_control_1.mapped('line_ids')
         if self.exploitation_2:
-            milk_control_2 = self.env['milk.control'].search([('date', '>=', self.from_date), ('date', '<=', self.to_date), ('exploitation_id', '=', self.exploitation_2.id)])
+            milk_control_2 = self.env['milk.control'].search([('date', '>=', self.from_date_2), ('date', '<=', self.to_date_2), ('exploitation_id', '=', self.exploitation_2.id)])
             milk_data_2 = milk_control_2.mapped('line_ids')
         if not milk_data_1:
             return

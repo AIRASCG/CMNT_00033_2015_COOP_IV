@@ -13,8 +13,10 @@
                 <tree string="Milk control reports">
                     <field name="exploitation_1"/>
                     <field name="exploitation_2"/>
-                    <field name="from_date"/>
-                    <field name="to_date"/>
+                    <field name="from_date_1"/>
+                    <field name="to_date_1"/>
+                    <field name="from_date_2"/>
+                    <field name="to_date_2"/>
                 </tree>
             </field>
         </record>
@@ -64,8 +66,10 @@
                                 <field name="milking_type_2"/>
                             </group>
                             <group>
-                                <field name="from_date"/>
-                                <field name="to_date"/>
+                                <field name="from_date_1"/>
+                                <field name="to_date_1"/>
+                                <field name="from_date_2" attrs="{'required': [('exploitation_2', '!=', False)]}"/>
+                                <field name="to_date_2" attrs="{'required': [('exploitation_2', '!=', False)]}"/>
                             </group>
                         </group>
                         <group>
