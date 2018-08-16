@@ -23,3 +23,4 @@ from . import milk_analysis_import
 from . import milk_control_import
 from . import res_partner_fields_import
 from . import gescarro_import
+from . import print_milk_control_report_xls

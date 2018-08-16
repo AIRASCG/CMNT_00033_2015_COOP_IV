@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="print_milk_control_report_xls_wizard" model="ir.ui.view">
+            <field name="name">print.milk.control.report.xls.wizard.view</field>
+            <field name="model">print.milk.control.report.xls.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="selected_exploitation"/>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Print xls report"
+            res_model="print.milk.control.report.xls.wizard"
+            src_model="milk.control.report"
+            view_id="print_milk_control_report_xls_wizard"
+            view_mode="form"
+            target="new"
+            key2="client_print_multi"
+            id="print_milk_control_report_xls_wizard_actiov"/>
+
+    </data>
+</openerp>

@@ -317,6 +317,8 @@ class MilkControlReport(models.Model):
     terc_terc_lact_media_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
     terc_terc_lact_litros_total_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
     graphic_img = fields.Binary(compute='_calculate_vals')
+    rcs_1 = fields.Float(compute='_calculate_vals')
+    rcs_2 = fields.Float(compute='_calculate_vals')
 
     def _get_company(self):
         return self.env.user.company_id
@@ -400,7 +402,7 @@ class MilkControlReport(models.Model):
         self['terc_terc_lact_porcen_animales%s' % suffix] = (self['terc_terc_lact_num_animales%s' % suffix] / (float(len(milk_data)) or 1.0)) * 100
         self['terc_terc_lact_litros_total%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data if x.days > 180])
         self['terc_terc_lact_media%s' % suffix] = self['terc_terc_lact_litros_total%s' % suffix] / (self['terc_terc_lact_num_animales%s' % suffix] or 1.0)
-
+        self['rcs%s' % suffix] = sum([x.get_liters(self['milking_type%s' % suffix]) * x.rcs for x in milk_data]) / sum([x.get_liters(self['milking_type%s' % suffix]) for x in milk_data])
 
 
 

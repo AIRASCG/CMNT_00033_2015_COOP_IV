@@ -199,6 +199,16 @@
                                         <span t-field="o.relacion_grasa_prot_2"/>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <strong style="padding-right: 10px;">RCS</strong>
+                                        <span t-field="o.rcs_1"/>
+                                    </td>
+                                    <td>
+                                        <strong style="padding-right: 10px;">RCS</strong>
+                                        <span t-field="o.rcs_2"/>
+                                    </td>
+                                </tr>
                             </t>
                             <t t-if="not o.exploitation_2">
                                 <tr>
@@ -232,6 +242,12 @@
                                                 <td>
                                                     <strong>Relación % grasa/%Prot.</strong><span style="padding-right: 10px;">(Debe estar entre 1,10 - 1,50)</span>
                                                     <span t-field="o.relacion_grasa_prot_1"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong style="padding-right: 10px;">RCS</strong>
+                                                    <span t-field="o.rcs_1"/>
                                                 </td>
                                             </tr>
                                         </table>

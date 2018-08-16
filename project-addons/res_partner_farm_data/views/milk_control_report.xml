@@ -126,6 +126,7 @@
                                 <field name="prod_media_lact_acumulada_1"/>
                                 <field name="num_medio_partos_1"/>
                                 <field name="relacion_grasa_prot_1"/>
+                                <field name="rcs_1"/>
                                 <table class="milk_control_2" colspan="2">
                                     <tbody>
                                         <tr>
@@ -211,6 +212,7 @@
                                 <field name="prod_media_lact_acumulada_2"/>
                                 <field name="num_medio_partos_2"/>
                                 <field name="relacion_grasa_prot_2"/>
+                                <field name="rcs_2"/>
                                 <table class="milk_control_2" colspan="2">
                                     <tbody>
                                         <tr>

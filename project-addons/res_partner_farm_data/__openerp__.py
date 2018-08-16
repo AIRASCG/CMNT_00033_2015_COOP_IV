@@ -34,7 +34,7 @@
                 'email_template', 'company_automatic_account_config',
                 'automatic_company', 'partner_passwd', 'custom_groups',
                 'custom_report', 'crm',
-                'stock_production_lot_multi_company'],
+                'stock_production_lot_multi_company', 'report_aeroo'],
     "data": ['views/cost_imputation.xml', 'views/stock.xml',
              'views/output_quota_view.xml', 'views/lot_view.xml',
              'wizard/res_partner_fields_import.xml',
@@ -49,6 +49,6 @@
              'views/milk_control_qweb_report.xml', 'milk_control_qweb_report.xml',
              'data/decimal_precision.xml', 'views/calendar.xml',
              'views/gescarro.xml', 'wizard/gescarro_import.xml', 'data/ir_cron.xml',
-             'data/res_partner_data.xml'],
+             'data/res_partner_data.xml', 'wizard/print_milk_control_report_xls.xml'],
     "installable": True
 }

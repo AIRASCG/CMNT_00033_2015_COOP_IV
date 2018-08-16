@@ -67,6 +67,12 @@ $ bin/buildout -c <configuracion_elegida>
 - Supervisor : http://localhost:9001
 - Odoo: http://localhost:8069
 
+- Instalar libreoffice y aero_docs
+- https://github.com/aeroo/aeroo_docs/wiki/Installation-example-for-Ubuntu-14.04-LTS
+```
+$ apt-get install libreoffice-core --no-install-recommends
+```
+
 ## Configurar OpenERP
 Archivo de configuración: etc/openerp.cfg, si sequieren cambiar opciones en  openerp.cfg, no se debe editar el fichero,
 si no añadirlas a la sección [openerp] deñ buildout.cfg
@@ -101,4 +107,3 @@ postgres_port = 5434        (5432 default postgres)
 ## Creators
 
 Rastislav Kober, http://www.kybi.sk
-
