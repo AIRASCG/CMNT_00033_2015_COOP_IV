@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from openerp import models, fields, api, _, registry
+from openerp.exceptions import ValidationError
 from lxml import etree
 import os
 import errno
@@ -36,6 +37,13 @@ class ErpXmlDocument(models.Model):
     errors = fields.Text()
     document = fields.Text()
 
+    def _write_vat(partner, vat):
+        try:
+            partner.write{'vat': vat}
+        except ValidationError:
+            return 'NIF incorrecto %s' % vat
+
+
     @api.multi
     def parse_partner(self, partner):
         ctx = self._context.copy()
@@ -59,7 +67,7 @@ class ErpXmlDocument(models.Model):
             'country_id': country.id,
         }
         if 'nif' in partner.keys() and partner['nif']:
-            partner_data['vat'] = (partner['cod_pais'] and
+            curr_vat = (partner['cod_pais'] and
                                    partner['cod_pais'] or 'ES') + \
                 partner['nif'].upper()
         if 'calle' in partner.keys():
@@ -99,17 +107,21 @@ class ErpXmlDocument(models.Model):
                          'parent_id': coop_partner.company_id.id})
                     created_partner = new_company.partner_id
                     created_partner.write(partner_data)
+                    return self._write_vat(created_partner, curr_vat)
             else:
                 company_ids[0].partner_id.write(partner_data)
+                return self._write_vat(company_ids[0].partner_id, curr_vat)
         elif partner.get('cliente', False) or partner.get('proveedor', False):
             partner_ids = self.env['res.partner'].\
                 search([('company_id', '=', coop_partner.company_id.id),
                         ('erp_reference', '=', partner['codigo'])])
             if not partner_ids:
                 partner_data['company_id'] = coop_partner.company_id.id
-                self.env['res.partner'].create(partner_data)
+                new_partner = self.env['res.partner'].create(partner_data)
+                return self._write_vat(new_partner, curr_vat)
             else:
                 partner_ids[0].write(partner_data)
+                return self._write_vat(partner_ids[0], curr_vat)
 
     @api.multi
     def parse_invoice(self, invoice):
