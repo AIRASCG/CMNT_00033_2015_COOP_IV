@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-28 12:40+0000\n"
-"PO-Revision-Date: 2018-08-10 13:20+0200\n"
+"PO-Revision-Date: 2018-08-16 12:51+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -25,6 +25,21 @@ msgstr "El código de uso %s no existe"
 #: field:product.product,is_milk_quota:0
 msgid "Is milk quota"
 msgstr "Es cuota de leche"
+
+#. module: res_partner_farm_data
+#: model:ir.actions.act_window,name:res_partner_farm_data.print_milk_control_report_xls_wizard_actiov
+msgid "Print xls report"
+msgstr "Imprimir informe en excel"
+
+#. module: res_partner_farm_data
+#: view:print.milk.control.report.xls.wizard:res_partner_farm_data.print_milk_control_report_xls_wizard
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: res_partner_farm_data
+#: field:print.milk.control.report.xls.wizard,selected_exploitation:0
+msgid "Selected exploitation"
+msgstr "Explotación a mostrar"
 
 #. module: res_partner_farm_data
 #: code:addons/res_partner_farm_data/wizard/res_partner_fields_import.py:79
@@ -427,6 +442,7 @@ msgstr "Calcio"
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
 #: view:milk.control.import:res_partner_farm_data.milk_control_import_form
+#: view:print.milk.control.report.xls.wizard:res_partner_farm_data.print_milk_control_report_xls_wizard
 #: view:res.partner.fields.import:res_partner_farm_data.res_partner_fields_import_form
 msgid "Cancel"
 msgstr "Cancelar"
@@ -436,6 +452,18 @@ msgstr "Cancelar"
 #, python-format
 msgid "Cannot print report without lots"
 msgstr "No puede imprimir el informe sin lotes."
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,exploitation_1:0
+#: selection:print.milk.control.report.xls.wizard,selected_exploitation:0
+msgid "Exploitation 1"
+msgstr "Explotación 1"
+
+#. module: res_partner_farm_data
+#: field:milk.control.report,exploitation_2:0
+#: selection:print.milk.control.report.xls.wizard,selected_exploitation:0
+msgid "Exploitation 2"
+msgstr "Explotación 2"
 
 #. module: res_partner_farm_data
 #: field:lot,carriage_cost_cow_day:0
@@ -3842,6 +3870,7 @@ msgstr "Litros matinal"
 #: view:lot.analysis.import:res_partner_farm_data.lot_analysis_import_from
 #: view:milk.analysis.import:res_partner_farm_data.milk_analysis_import_form
 #: view:milk.control.import:res_partner_farm_data.milk_control_import_form
+#: view:print.milk.control.report.xls.wizard:res_partner_farm_data.print_milk_control_report_xls_wizard
 #: view:res.partner.fields.import:res_partner_farm_data.res_partner_fields_import_form
 msgid "or"
 msgstr "o"
