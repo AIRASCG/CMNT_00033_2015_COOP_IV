@@ -36,16 +36,20 @@ class ErpXmlDocument(models.Model):
     company_id = fields.Many2one('res.company')
     errors = fields.Text()
     document = fields.Text()
-
-    def _write_vat(partner, vat):
-        try:
-            partner.write{'vat': vat}
-        except ValidationError:
-            return 'NIF incorrecto %s' % vat
+    
+    @api.multi
+    def _write_vat(self, partner, vat):
+        if vat:
+            try:
+                partner.write({'vat': vat})
+            except ValidationError:
+                return 'NIF incorrecto %s' % vat
 
 
     @api.multi
     def parse_partner(self, partner):
+        if 'nombre' not in partner.keys() or not partner['nombre']:
+            return 'registro sin nombre'
         ctx = self._context.copy()
         ctx.update({'defer_parent_store_computation': True})
         coop_partner = self.env['res.partner'].search(
@@ -66,6 +70,7 @@ class ErpXmlDocument(models.Model):
             'erp_reference': partner['codigo'],
             'country_id': country.id,
         }
+        curr_vat = ''
         if 'nif' in partner.keys() and partner['nif']:
             curr_vat = (partner['cod_pais'] and
                                    partner['cod_pais'] or 'ES') + \
