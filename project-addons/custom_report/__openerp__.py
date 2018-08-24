@@ -13,9 +13,12 @@
     "installable": True,
     "depends": [
         "base",
-        "report"
+        "report",
+        "report_xlsx"
     ],
     "data": [
-    'views/layouts.xml'
+    'views/layouts.xml',
+    'wizard/analytic_account_month_report_wizard_view.xml',
+    'report/analytic_account_month_report.xml'
     ],
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <template id="multi_pyg_report">
+            <t t-call="report.html_container">
+                <t t-set="o" t-value="pyg_1000"/>
+                <t t-call="report.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                            <div class="row">
+                                <div class="col-xs-6" t-if="pyg_1000.ref_1">
+                                    Compañía: <span t-field="pyg_1000.ref_1.name"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-6" t-if="pyg_1000.from_date_1">
+                                    Periodo: <span t-field="pyg_1000.from_date_1"/> - <span t-field="pyg_1000.to_date_1"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3" t-if="pyg_1000.milk_1">
+                                    Leche: <span t-field="pyg_1000.milk_1"/>
+                                </div>
+                                <div class="col-xs-3" t-if="pyg_1000.total_cows_1">
+                                    Total vacas: <span t-esc="round(pyg_1000.total_cows_1, 2)"/>
+                                </div>
+                                <div class="col-xs-3" t-if="pyg_1000.employees_1">
+                                    Empleados: <span t-esc="round(pyg_1000.employees_1, 2)"/>
+                                </div>
+                                <div class="col-xs-3" t-if="pyg_1000.total_heifer_1">
+                                    Total novillas: <span t-esc="round(pyg_1000.total_heifer_1, 2)"/>
+                                </div>
+                            </div>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th><span t-esc="pyg_1000.title_1"/></th>
+                                    <th>
+                                        <span t-esc="pyg_1000.title_2"/>
+                                    </th>
+                                    <th>
+                                        <span t-esc="pyg_cow.title_2"/>
+                                    </th>
+                                    <th>
+                                        <span t-esc="pyg_employee.title_2"/>
+                                    </th>
+                                    <th>
+                                        <span t-esc="pyg_ha.title_2"/>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="pyg_1000.line_ids" t-as="line">
+                                    <tr>
+                                        <td><span t-esc="line.name"/></td>
+                                        <td><span t-esc="line.value_1_1"/></td>
+                                        <td><span t-esc="line.value_1_2"/></td>
+                                        <td><span t-esc="get_value(pyg_cow, line)"/></td>
+                                        <td><span t-esc="get_value(pyg_employee, line)"/></td>
+                                        <td><span t-esc="get_value(pyg_ha, line)"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+        <report
+            id="action_multi_pyg_report"
+            string="PyG 4 columnas"
+            model="account.analytic.report.print.wizard"
+            report_type="qweb-pdf"
+            name="account_analytic_report.multi_pyg_report"
+            file="account_analytic_report.multi_pyg_report"
+            menu="False"/>
+
+    </data>
+</openerp>

@@ -56,7 +56,7 @@
                     <field name="function" invisible="1"/>
                     <field name="is_cooperative" invisible="1"/>
                     <field name="phone"/>
-                    <field name="erp_reference"/>
+                    <!--field name="erp_reference"/-->
                     <field name="email"/>
                     <field name="vat"/>
                     <field name="temporary_farm"/>
@@ -139,10 +139,25 @@
 
         <menuitem
             id="account_analytic_report_menu"
+            sequence="1"
             name="Anaytic report"
             action="account_analytic_report.action_view_account_analytic_report"
             parent="myreport"/>
 
+        <menuitem
+            id="account_analytic_report_4_columns_menu"
+            sequence="2"
+            name="PyG multicolumn"
+            action="account_analytic_report.action_account_analytic_report_print_wizard"
+            parent="myreport"/>
+
+        <menuitem
+            id="account_analytic_account_month_report_wizard_menu"
+            sequence="3"
+            name="Print analytic account month report"
+            string="Print analytic account month report"
+            action="custom_report.account_analytic_account_month_report_wizard_action"
+            parent="myreport"/>
 
         <record id="account_invoice_line_search" model="ir.ui.view">
             <field name="name">account.invoice.line.search</field>
@@ -160,7 +175,6 @@
                 </search>
             </field>
         </record>
-
 
         <record id="action_invoice_line_tree1" model="ir.actions.act_window">
             <field name="name">Customer Invoice lines</field>

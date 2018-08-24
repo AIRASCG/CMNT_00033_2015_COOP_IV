@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="account_analytic_report_print_wizard_form" model="ir.ui.view">
+            <field name="name">account.analytic.report.print.wizard.form</field>
+            <field name="model">account.analytic.report.print.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                            <field name="exploitation"/>
+                            <field name="from_date"/>
+                            <field name="to_date"/>
+                            <group>
+                                <field name="milk"/>
+                                <field name="total_cows"/>
+                            </group>
+                            <group>
+                                <field name="employees"/>
+                                <field name="total_heifer"/>
+                                <field name="hectare"/>
+                            </group>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Print analytic report 4 columns"
+            res_model="account.analytic.report.print.wizard"
+            view_id="account_analytic_report_print_wizard_form"
+            view_mode="form"
+            target="new"
+            id="action_account_analytic_report_print_wizard"/>
+
+    </data>
+</openerp>

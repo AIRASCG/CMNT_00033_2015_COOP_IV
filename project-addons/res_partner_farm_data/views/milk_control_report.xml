@@ -246,7 +246,12 @@
                             </group>
                             <group colspan="2">
                                 <div style="width:500px;">
-                                    <field name="graphic_img" widget="image"/>
+                                    <field name="graphic_img_1" widget="image"/>
+                                </div>
+                            </group>
+                            <group colspan="2">
+                                <div style="width:500px;">
+                                    <field name="graphic_img_2" widget="image"/>
                                 </div>
                             </group>
                             <group>

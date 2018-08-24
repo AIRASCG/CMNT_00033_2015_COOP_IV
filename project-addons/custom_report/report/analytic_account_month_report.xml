@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <report
+            id="report_analytic_account_month_report_xlsx"
+            model="account.analytic.account.month.report.wizard"
+            string="Print to XLSX"
+            report_type="xlsx"
+            name="analytic.account.month.report.xlsx"
+            file="analytic.account.month.report.xlsx"
+            attachment_use="False"
+        />
+
+    </data>
+</openerp>

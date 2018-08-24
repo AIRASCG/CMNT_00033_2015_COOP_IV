@@ -36,6 +36,8 @@
              'data/pyg_cow.xml', 'data/pyg_employee.xml',
              'security/security.xml', 'data/pyg_ha.xml',
              'data/technical_economic.xml', 'data/recria.xml',
-             'data/commercial_report.xml'],
+             'data/commercial_report.xml',
+             'wizard/account_analytic_report_print_wizard.xml',
+             'wizard/multi_pyg_report.xml'],
     "installable": True
 }

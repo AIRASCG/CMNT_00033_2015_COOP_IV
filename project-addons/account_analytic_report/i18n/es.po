@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-12 12:42+0000\n"
-"PO-Revision-Date: 2018-01-22 13:23+0100\n"
+"PO-Revision-Date: 2018-08-23 18:08+0200\n"
 "Last-Translator: Jesús Ventosinos Mayor <jesus@comunitea.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -300,6 +300,7 @@ msgstr "Grupo de explotaciones"
 #. module: account_analytic_report
 #: field:account.analytic.report,from_date_1:0
 #: field:account.analytic.report,from_date_2:0
+#: field:account.analytic.report.print.wizard,from_date:0
 msgid "From date"
 msgstr "Desde"
 
@@ -334,6 +335,7 @@ msgstr "Verde negrita con fondo claro"
 #. module: account_analytic_report
 #: field:account.analytic.report,hectare_1:0
 #: field:account.analytic.report,hectare_2:0
+#: field:account.analytic.report.print.wizard,hectare:0
 msgid "Hectare"
 msgstr "Hectareas"
 
@@ -400,6 +402,7 @@ msgstr "Ganado comprado"
 #. module: account_analytic_report
 #: field:account.analytic.report,milk_1:0
 #: field:account.analytic.report,milk_2:0
+#: field:account.analytic.report.print.wizard,milk:0
 msgid "Milk"
 msgstr "Leche"
 
@@ -532,6 +535,7 @@ msgstr "Título valor 2"
 #. module: account_analytic_report
 #: field:account.analytic.report,to_date_1:0
 #: field:account.analytic.report,to_date_2:0
+#: field:account.analytic.report.print.wizard,to_date:0
 msgid "To date"
 msgstr "Hasta"
 
@@ -543,6 +547,7 @@ msgstr "Hasta:"
 #. module: account_analytic_report
 #: field:account.analytic.report,total_cows_1:0
 #: field:account.analytic.report,total_cows_2:0
+#: field:account.analytic.report.print.wizard,total_cows:0
 msgid "Total cows"
 msgstr "Total vacas"
 
@@ -558,8 +563,14 @@ msgid "Total employees"
 msgstr "Empleados"
 
 #. module: account_analytic_report
+#: field:account.analytic.report.print.wizard,employees:0
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: account_analytic_report
 #: field:account.analytic.report,total_heifer_1:0
 #: field:account.analytic.report,total_heifer_2:0
+#: field:account.analytic.report.print.wizard,total_heifer:0
 msgid "Total heifer"
 msgstr "Total novillas"
 
@@ -607,6 +618,26 @@ msgstr "Nombre"
 msgid "notes"
 msgstr "Notas"
 
+#: view:account.analytic.report.print.wizard:account_analytic_report.account_analytic_report_print_wizard_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: account_analytic_report
+#: view:account.analytic.report.print.wizard:account_analytic_report.account_analytic_report_print_wizard_form
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: account_analytic_report
+#: model:ir.actions.act_window,name:account_analytic_report.action_account_analytic_report_print_wizard
+msgid "Print analytic report 4 columns"
+msgstr "Informe analítico multi-columna"
+
+
+#. module: account_analytic_report
+#: view:account.analytic.report.print.wizard:account_analytic_report.account_analytic_report_print_wizard_form
+msgid "or"
+msgstr "o"
+
 #. module: account_analytic_report
 #: field:account.analytic.report,plus_twelve_heifer_1:0
 #: field:account.analytic.report,plus_twelve_heifer_2:0
@@ -623,3 +654,8 @@ msgstr "Informe"
 #: field:account.analytic.report.template.line,sequence:0
 msgid "sequence"
 msgstr "Secuencia"
+
+#. module: account_analytic_report
+#: field:account.analytic.report.print.wizard,exploitation:0
+msgid "Exploitation"
+msgstr "Explotación"

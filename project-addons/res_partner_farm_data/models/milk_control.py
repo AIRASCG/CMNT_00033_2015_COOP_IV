@@ -316,7 +316,8 @@ class MilkControlReport(models.Model):
     terc_terc_lact_porcen_animales_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
     terc_terc_lact_media_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
     terc_terc_lact_litros_total_2 = fields.Float(compute='_calculate_vals', digits=dp.get_precision('milk_report'))
-    graphic_img = fields.Binary(compute='_calculate_vals')
+    graphic_img_1 = fields.Binary(compute='_calculate_vals')
+    graphic_img_2 = fields.Binary(compute='_calculate_vals')
     rcs_1 = fields.Float(compute='_calculate_vals')
     rcs_2 = fields.Float(compute='_calculate_vals')
 
@@ -411,42 +412,31 @@ class MilkControlReport(models.Model):
         for report in self:
             report._get_data(1)
             report._get_data(2)
+        self.make_graph(1)
+        self.make_graph(2)
 
-        milk_control_1 = self.env['milk.control'].search([('date', '>=', self.from_date_1), ('date', '<=', self.to_date_1), ('exploitation_id', '=', self.exploitation_1.id)])
-        milk_data_1 = milk_control_1.mapped('line_ids')
-        if self.exploitation_2:
-            milk_control_2 = self.env['milk.control'].search([('date', '>=', self.from_date_2), ('date', '<=', self.to_date_2), ('exploitation_id', '=', self.exploitation_2.id)])
-            milk_data_2 = milk_control_2.mapped('line_ids')
-        if not milk_data_1:
+    def make_graph(self, i):
+
+        milk_control = self.env['milk.control'].search(
+            [('date', '>=', self['from_date_{}'.format(i)]),
+             ('date', '<=', self['to_date_{}'.format(i)]),
+             ('exploitation_id', '=', self['exploitation_{}'.format(i)].id)])
+        milk_data = milk_control.mapped('line_ids')
+        if not milk_data:
             return
         graph_vals = []
         for vals  in [(0, 31), (30, 91), (90, 121), (120, 181), (180, 241), (240, 305)]:
-            av = average([x.get_liters(self.milking_type_1) for x in milk_data_1 if x.days > vals[0] and x.days < vals[1]])
-            cont = sum([1 for x in milk_data_1 if x.days > vals[0] and x.days < vals[1] and x.get_liters(self.milking_type_1) > 0])
-            if self.exploitation_2:
-                av_2 = average([x.get_liters(self.milking_type_2) for x in milk_data_2 if x.days > vals[0] and x.days < vals[1]])
-                cont_2 = sum([1 for x in milk_data_2 if x.days > vals[0] and x.days < vals[1] and x.get_liters(self.milking_type_2) > 0])
-                graph_vals.append([round(av, 2), cont, round(av_2, 2), cont_2])
-            else:
-                graph_vals.append([round(av, 2), cont])
-
-        av = average([x.get_liters(self.milking_type_1) for x in milk_data_1 if x.days > 305])
-        cont = sum([1 for x in milk_data_1 if x.days > 305 and x.get_liters(self.milking_type_1) > 0])
-        if self.exploitation_2:
-            av_2 = average([x.get_liters(self.milking_type_2) for x in milk_data_2 if x.days > 305])
-            cont_2 = sum([1 for x in milk_data_2 if x.days > 305 and x.get_liters(self.milking_type_2) > 0])
-            graph_vals.append([round(av, 2), cont, round(av_2, 2), cont_2])
-        else:
+            av = average([x.get_liters(self['milking_type_{}'.format(i)]) for x in milk_data if x.days > vals[0] and x.days < vals[1]])
+            cont = sum([1 for x in milk_data if x.days > vals[0] and x.days < vals[1] and x.get_liters(self['milking_type_{}'.format(i)]) > 0])
             graph_vals.append([round(av, 2), cont])
 
-        if not self.exploitation_2:
-            y_vals = [x[0] for x in graph_vals] + [x[1] for x in graph_vals]
-            series_labels=[u'Media(lts/vaca y dia)', u'n de animales']
-            series_colors=['red', 'blue']
-        else:
-            y_vals = [x[0] for x in graph_vals] + [x[1] for x in graph_vals] + [x[2] for x in graph_vals] + [x[3] for x in graph_vals]
-            series_labels=[u'Media(lts/vaca y dia) %s' % self.exploitation_1.name, u'n de animales %s' % self.exploitation_1.name, u'Media(lts/vaca y dia) %s' % self.exploitation_2.name, u'n de animales %s' % self.exploitation_2.name]
-            series_colors=['red', 'blue', 'green', 'yellow']
+        av = average([x.get_liters(self['milking_type_{}'.format(i)]) for x in milk_data if x.days > 305])
+        cont = sum([1 for x in milk_data if x.days > 305 and x.get_liters(self['milking_type_{}'.format(i)]) > 0])
+        graph_vals.append([round(av, 2), cont])
+
+        y_vals = [x[0] for x in graph_vals] + [x[1] for x in graph_vals]
+        series_labels=[u'Media(lts/vaca y dia) %s' % self['exploitation_{}'.format(i)].name, u'n de animales %s' % self['exploitation_{}'.format(i)].name]
+        series_colors=['red', 'blue']
         max_y = int(max(y_vals)) + 10
         min_y = int(min(y_vals)) - 5
         min_y = min_y > 0 and min_y or 0
@@ -454,4 +444,4 @@ class MilkControlReport(models.Model):
         test.render()
         test.commit()
         f = open("/tmp/object_way.png", "rb")
-        self.graphic_img = base64.b64encode(f.read())
+        self['graphic_img_{}'.format(i)] = base64.b64encode(f.read())

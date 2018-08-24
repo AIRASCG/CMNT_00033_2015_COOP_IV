@@ -41,7 +41,8 @@
                 'custom_groups',
                 'custom_project',
                 'account_analytic_report',
-                'quality_simulator'],
+                'quality_simulator',
+                'custom_report'],
     "data": ['security/group.xml', 'security/ir_rule.xml', 'security/ir.model.access.csv', 'custom_menu.xml'],
     "installable": True
 }
