@@ -34,6 +34,7 @@ class AccountAnalyticReportPrintWizard(models.TransientModel):
             'hectare_1': self.hectare,
             'template_id': pyg_1000.id,
             'name': 'PYG 4 columnas',
+            'active': False
         }
         report_1000 = self.env['account.analytic.report'].create(report_vals)
         report_1000.calculate()

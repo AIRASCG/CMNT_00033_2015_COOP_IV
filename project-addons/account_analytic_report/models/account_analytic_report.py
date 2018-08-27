@@ -105,6 +105,7 @@ class AccountAnalyticReport(models.Model):
 
     title_1 = fields.Char('Title value 1')
     title_2 = fields.Char('Title value 2')
+    active = fields.Boolean(default=True)
 
     def _get_company(self):
         return self.env.user.company_id

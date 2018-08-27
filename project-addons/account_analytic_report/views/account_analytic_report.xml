@@ -19,6 +19,9 @@
                     <h1>
                         <field name="name" nolabel="1"/>
                     </h1>
+                    <group>
+                        <field name="active"/>
+                    </group>
                     <notebook>
                         <page string="Configuration">
                             <group col="6">
