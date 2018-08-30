@@ -6,6 +6,40 @@
     <data>
 
         <template id="multi_pyg_report">
+            <style>
+                .red_bold{
+                    color: red;
+                    font-weight: bold;
+                }
+                .green_bold{
+                    color: green;
+                    font-weight: bold;
+                }
+                .bold{
+                    font-weight: bold;
+                }
+                .red{
+                    color: red;
+                }
+                .red_bold_light_bkg{
+                    color: red;
+                    font-weight: bold;
+                    background-color: lightgrey;
+                }
+                .green_bold_light_bkg{
+                    color: green;
+                    font-weight: bold;
+                    background-color: lightgrey;
+                }
+                .bold_light_bkg{
+                    font-weight: bold;
+                    background-color: lightgrey;
+                }
+                .red_light_bkg{
+                    color: red;
+                    background-color: lightgrey;
+                }
+            </style>
             <t t-call="report.html_container">
                 <t t-set="o" t-value="pyg_1000"/>
                 <t t-call="report.external_layout">
@@ -39,17 +73,17 @@
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
-                                    <th><span t-esc="pyg_1000.title_1"/></th>
-                                    <th>
+                                    <th style="text-align: right;"><span t-esc="pyg_1000.title_1"/></th>
+                                    <th style="text-align: right;">
                                         <span t-esc="pyg_1000.title_2"/>
                                     </th>
-                                    <th>
+                                    <th style="text-align: right;">
                                         <span t-esc="pyg_cow.title_2"/>
                                     </th>
-                                    <th>
+                                    <th style="text-align: right;">
                                         <span t-esc="pyg_employee.title_2"/>
                                     </th>
-                                    <th>
+                                    <th style="text-align: right;">
                                         <span t-esc="pyg_ha.title_2"/>
                                     </th>
                                 </tr>
@@ -57,12 +91,12 @@
                             <tbody>
                                 <t t-foreach="pyg_1000.line_ids" t-as="line">
                                     <tr>
-                                        <td><span t-esc="line.name"/></td>
-                                        <td><span t-esc="line.value_1_1"/></td>
-                                        <td><span t-esc="line.value_1_2"/></td>
-                                        <td><span t-esc="get_value(pyg_cow, line)"/></td>
-                                        <td><span t-esc="get_value(pyg_employee, line)"/></td>
-                                        <td><span t-esc="get_value(pyg_ha, line)"/></td>
+                                        <td t-att-class="line.css_style"><span t-field="line.name"/></td>
+                                        <td t-att-class="line.css_style" style="text-align: right;"><span t-field="line.value_1_1"/></td>
+                                        <td t-att-class="line.css_style" style="text-align: right;"><span t-field="line.value_1_2"/></td>
+                                        <td t-att-class="line.css_style" style="text-align: right;"><span t-esc="get_value(pyg_cow, line)"/></td>
+                                        <td t-att-class="line.css_style" style="text-align: right;"><span t-esc="get_value(pyg_employee, line)"/></td>
+                                        <td t-att-class="line.css_style" style="text-align: right;"><span t-esc="get_value(pyg_ha, line)"/></td>
                                     </tr>
                                 </t>
                             </tbody>
