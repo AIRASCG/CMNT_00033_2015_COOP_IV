@@ -47,13 +47,10 @@ class AnalyticAccountMonthReportXlsx(ReportXlsx):
             return float(employees) / sum_days
 
     def get_milk(self, env, partner, from_date, to_date):
-        first_year = str(from_date[:4])
-        last_year = str(to_date[:4])
-
         quotas = self.env['output.quota'].search(
             [('farm_id', '=', partner.id),
-             ('date', '>=', first_year + "-01-01"),
-             ('date', '<=', last_year + "-12-31")])
+             ('date', '>=', from_date),
+             ('date', '<=', to_date)])
         return sum([x.value for x in quotas])
 
     def _add_account(self, env, company, account, periods):
