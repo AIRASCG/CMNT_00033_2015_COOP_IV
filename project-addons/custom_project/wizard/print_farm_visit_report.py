@@ -19,7 +19,7 @@ class FarmVisitRerport(models.TransientModel):
 
     @api.multi
     def print_report(self):
-        domain = []
+        domain = [('exploitation_id', '!=', False)]
         if self.farm_id:
             domain.append(
                 ('exploitation_id', '=', self.farm_id.id))
