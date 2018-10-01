@@ -36,6 +36,7 @@ class PhytosanitaryRegistryNumber(models.Model):
 class Phytosanitary(models.Model):
 
     _name = 'phytosanitary'
+    _order = "acquisition_date desc"
 
     def _get_company(self):
         return self.env.user.company_id

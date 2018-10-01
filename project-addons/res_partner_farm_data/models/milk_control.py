@@ -36,6 +36,7 @@ def average(lst):
 class MilkControl(models.Model):
 
     _name = 'milk.control'
+    _order = "date desc"
 
     date = fields.Datetime('Date', required=True)
     exploitation_id = fields.\
@@ -166,7 +167,8 @@ class MilkControl(models.Model):
                         self.env['milk.control.line'].create(vals)
                     if stop_before:
                         milk_control.unlink()
-                        passwd.last_sync_date = start_date + timedelta(days=i)
+                        passwd.last_sync_date = \
+                            filter_date.strftime("%Y-%m-%d")
                         break
                     milk_control.create_report()
                     passwd.last_sync_date = filter_date.strftime("%Y-%m-%d")
@@ -209,6 +211,7 @@ MILKING_TYPES = (('total', 'Total'), ('morning', 'morning Liters'),
 class MilkControlReport(models.Model):
 
     _name = 'milk.control.report'
+    _order = "id desc"
 
     exploitation_1 = fields.Many2one('res.partner', 'Exploitation 1',
                                      required=True,

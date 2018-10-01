@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="company_automatic_account_config.res_company_add_configure_accounting"/>
             <field name="arch" type="xml">
                 <header position="inside">
-                    <button name="%(company_open_fiscal_year_action)d" string="Open fiscal year" type="action" groups="custom_groups.group_admin" />
+                    <button name="%(company_open_fiscal_year_action)d" string="Open fiscal year" type="action" groups="custom_groups.group_tech_mngnt" />
                 </header>
             </field>
         </record>

@@ -26,6 +26,7 @@ from datetime import date, datetime
 class AccountAnalyticReport(models.Model):
 
     _name = 'account.analytic.report'
+    _order = "calc_date desc"
 
     name = fields.Char('Name', required=True)
     template_id = fields.Many2one('account.analytic.report.template',

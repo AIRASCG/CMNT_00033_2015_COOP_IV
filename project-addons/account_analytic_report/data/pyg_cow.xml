@@ -373,10 +373,10 @@
             <field name="code">31</field>
             <field name="sequence">31</field>
             <field name="name">Gastos variables</field>
-            <field name="value_1_1">.21,.27,.28,.29,.30</field>
-            <field name="value_1_2">.21,.27,.28,.29,.30</field>
-            <field name="value_2_1">.21,.27,.28,.29,.30</field>
-            <field name="value_2_2">.21,.27,.28,.29,.30</field>
+            <field name="value_1_1">.19,.21,.27,.28,.29,.30</field>
+            <field name="value_1_2">.19,.21,.27,.28,.29,.30</field>
+            <field name="value_2_1">.19,.21,.27,.28,.29,.30</field>
+            <field name="value_2_2">.19,.21,.27,.28,.29,.30</field>
             <field name="template_id" ref="pyg_cow"/>
             <field name="css_style">bold</field>
         </record>
