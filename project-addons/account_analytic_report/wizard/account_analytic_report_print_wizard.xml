@@ -24,6 +24,7 @@
                                 <field name="total_heifer"/>
                                 <field name="hectare"/>
                             </group>
+                            <field name="type" required="True"/>
                     </group>
                     <footer>
                         <button name="print_report" string="Print" type="object" class="oe_highlight"/>

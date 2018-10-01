@@ -17,6 +17,7 @@ class AccountAnalyticReportPrintWizard(models.TransientModel):
     employees = fields.Float(default=1)
     total_heifer = fields.Float(default=1)
     hectare = fields.Float(default=1)
+    type = fields.Selection((('xlsx', '.XLSX'), ('pdf', '.PDF')))
 
     @api.multi
     def print_report(self):
@@ -56,10 +57,16 @@ class AccountAnalyticReportPrintWizard(models.TransientModel):
         res = {'pyg_1000': report_1000.id, 'pyg_cow': report_cow.id,
                'pyg_employee': report_employee.id, 'pyg_ha': report_ha.id}
         datas['form'] = res
-
-        return self.env['report'].get_action(
-            self, 'account_analytic_report.multi_pyg_report', data=datas)
-
+        if self.type == 'pdf':
+            return self.env['report'].get_action(
+                self, 'account_analytic_report.multi_pyg_report', data=datas)
+        else:
+            datas['form'].update(report_vals)
+            datas['form']['exploitation_name'] = self.exploitation.name
+            action =  self.env['report'].get_action(
+                self, 'multi_pyg_report_aeroo', data=datas)
+            action['datas'] = action['data']
+            return action
 
     @api.onchange('exploitation', 'from_date', 'to_date')
     def onchange_exploitation(self):

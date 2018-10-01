@@ -26,7 +26,7 @@
     'description': """""",
     'author': 'Comunitea',
     'website': '',
-    "depends": ['account', 'custom_report', 'farm_notebook'],
+    "depends": ['account', 'custom_report', 'farm_notebook', 'report_aeroo'],
     "data": ['views/account_analytic_report_template.xml',
              'views/account_analytic_report.xml',
              'views/account_analytic_report_menu.xml',
@@ -38,6 +38,6 @@
              'data/technical_economic.xml', 'data/recria.xml',
              'data/commercial_report.xml',
              'wizard/account_analytic_report_print_wizard.xml',
-             'wizard/multi_pyg_report.xml'],
+             'wizard/multi_pyg_report.xml', 'wizard/multi_pyg_report_aeroo.xml'],
     "installable": True
 }

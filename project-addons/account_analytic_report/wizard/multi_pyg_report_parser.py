@@ -9,7 +9,12 @@ class MultiPygReportParser(models.AbstractModel):
     _name = 'report.account_analytic_report.multi_pyg_report'
 
     def _get_value(self, pyg, line):
-        return pyg.line_ids.filtered(lambda r: r.code == line.code).value_1_2
+        converter = self.pool.get(
+            'ir.qweb.field.float', self.pool['ir.qweb.field'])
+        return converter.value_to_html(
+            self.env.cr, self.env.uid,
+            pyg.line_ids.filtered(lambda r: r.code == line.code).value_1_2,
+            line._fields['value_1_2'], context=self.env.context)
 
     @api.multi
     def render_html(self, data=None):

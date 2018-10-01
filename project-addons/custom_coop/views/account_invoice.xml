@@ -23,6 +23,9 @@
                 <field name="number" position="after">
                     <field name="name_2"  placeholder="Number"/>
                 </field>
+                <xpath expr="//field[@name='company_id' and @widget='selection']" position="attributes">
+                    <attribute name="widget"></attribute>
+                </xpath>
             </field>
         </record>
 

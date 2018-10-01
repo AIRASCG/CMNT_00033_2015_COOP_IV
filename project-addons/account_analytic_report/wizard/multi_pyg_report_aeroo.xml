@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- © 2018 Comunitea
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<openerp>
+    <data>
+
+        <record id="multi_pyg_report_aeroo" model="ir.actions.report.xml">
+            <field name="name">multi pyg aeroo</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.analytic.report.print.wizard</field>
+            <field name="report_name">multi_pyg_report_aeroo</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name="out_format" ref="report_aeroo.report_mimetypes_xls_odt"/>
+            <field name="report_rml">account_analytic_report/reports/multi_pyg_report.ods</field>
+            <field name="tml_source">file</field>
+            <field name="parser_state">loc</field>
+            <field name="parser_loc">account_analytic_report/wizard/multi_pyg_report_aeroo_parser.py</field>
+        </record>
+
+    </data>
+</openerp>
