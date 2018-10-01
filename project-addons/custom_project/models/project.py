@@ -117,6 +117,7 @@ class ProjectTaskWork(models.Model):
 class ProjectTask(models.Model):
 
     _inherit = 'project.task'
+    _order = "name desc"
 
     name = fields.Date(default=fields.Date.today)
     area = fields.Many2one('project.category')

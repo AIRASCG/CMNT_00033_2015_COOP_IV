@@ -36,6 +36,7 @@ def average(lst):
 class MilkControl(models.Model):
 
     _name = 'milk.control'
+    _order = "date desc"
 
     date = fields.Datetime('Date', required=True)
     exploitation_id = fields.\
@@ -210,6 +211,7 @@ MILKING_TYPES = (('total', 'Total'), ('morning', 'morning Liters'),
 class MilkControlReport(models.Model):
 
     _name = 'milk.control.report'
+    _order = "id desc"
 
     exploitation_1 = fields.Many2one('res.partner', 'Exploitation 1',
                                      required=True,

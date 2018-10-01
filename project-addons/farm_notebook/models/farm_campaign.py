@@ -8,6 +8,7 @@ from openerp import models, fields, api
 class FarmCampaign(models.Model):
 
     _name = 'farm.campaign'
+    _order = "year desc"
 
     def _get_company(self):
         return self.env.user.company_id
