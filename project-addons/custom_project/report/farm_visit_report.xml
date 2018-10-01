@@ -60,7 +60,7 @@
                         <tr t-foreach="tasks" t-as="task">
                             <td><span t-field="task.sudo().task_id.name"/></td>
                             <td><span t-field="task.sudo().task_id.user_id.name"/></td>
-                            <td><span t-field="task.sudo().lot_id.farm_id.name"/></td>
+                            <td><span t-field="task.sudo().exploitation_id.name"/></td>
                             <td><span t-field="task.sudo().name"/></td>
                             <td align="right"><span t-esc="task.sudo().date_start" t-esc-options='{"widget": "time"}'/></td>
                             <td align="right"><span t-esc="task.sudo().date_end" t-esc-options='{"widget": "time"}'/></td>
