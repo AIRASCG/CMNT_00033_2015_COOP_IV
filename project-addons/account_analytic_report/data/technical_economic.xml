@@ -39,8 +39,8 @@
             <field name="code">4</field>
             <field name="sequence">4</field>
             <field name="name">Leche/Vaca ordeñada/Día (litros)</field>
-            <field name="value_1_1">.1,/#milk_cows,/#months,*'30.42</field>
-            <field name="value_2_1">.1,/#milk_cows,/#months,*'30.42</field>
+            <field name="value_1_1">(.1,/#milk_cows,/#months,*'30.42),/'1000</field>
+            <field name="value_2_1">(.1,/#milk_cows,/#months,*'30.42),/'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 
@@ -48,8 +48,8 @@
             <field name="code">5</field>
             <field name="sequence">5</field>
             <field name="name">Leche/Vaca/Día (litros)</field>
-            <field name="value_1_1">.1,/#milk_and_dry,/#months,*'30.42</field>
-            <field name="value_2_1">.1,/#milk_and_dry,/#months,*'30.42</field>
+            <field name="value_1_1">(.1,/#milk_and_dry,/#months,*'30.42),/'1000</field>
+            <field name="value_2_1">(.1,/#milk_and_dry,/#months,*'30.42),/'1000</field>
             <field name="template_id" ref="tech_ec_index"/>
         </record>
 

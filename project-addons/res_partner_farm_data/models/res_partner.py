@@ -397,6 +397,7 @@ class ResPartnerFieldsProduct(models.Model):
 class ResPartnerFields(models.Model):
     _name = 'res.partner.fields'
     _rec_name = 'location_name'
+    _order = "year desc"
 
     partner_id = fields.Many2one("res.partner", "Exploitation", required=True)
     province_id = fields.Many2one("res.country.state", "Province Code")
@@ -485,6 +486,7 @@ class ResPartnerAttachment(models.Model):
 
     _name = 'res.partner.attachment'
     _rec_name = "description"
+    _order = "upload_date desc"
 
     upload_date = fields.\
         Date(default=lambda self: datetime.now().strftime('%Y-%m-%d'),

@@ -103,6 +103,9 @@
                 <field name="work_ids" position="attributes">
                     <attribute name="context">{'default_date': name}</attribute>
                 </field>
+                <field name="company_id" position="attributes">
+                    <attribute name="widget"></attribute>
+                </field>
                 <xpath expr="//field[@name='work_ids']/tree/field[@name='name']" position="before">
                     <field name="work_type" domain="[('categ_id', '=', parent.area)]"/>
                 </xpath>

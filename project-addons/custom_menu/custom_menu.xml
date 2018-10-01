@@ -351,7 +351,7 @@
             <menuitem name="Attachments" parent="documental_management" action="action_ir_attachment" id="menu_attachment"/>
 
         <menuitem id="advanced_parameters" name="Advanced parameters" parent="parent_menu"  sequence="7"/>
-            <menuitem id="configuration" parent="advanced_parameters" name="Settings" groups="custom_groups.group_admin"/>
+            <menuitem id="configuration" parent="advanced_parameters" name="Settings" groups="custom_groups.group_tech_mngnt"/>
 
             <record id="action_res_users" model="ir.actions.act_window">
                 <field name="name">Users</field>
@@ -364,14 +364,14 @@
                 <field name="help">Create and manage users that will connect to the system. Users can be deactivated should there be a period of time during which they will/should not connect to the system. You can assign them groups in order to give them specific access to the applications they need to use in the system.</field>
             </record>
 
-            <menuitem action="action_res_users" id="menu_action_res_users" parent="configuration" sequence="1"/>
+            <menuitem action="action_res_users" id="menu_action_res_users" parent="configuration" sequence="1" groups="custom_groups.group_admin"/>
             <menuitem
                 id="company" name="Create Farm"
                 string="Create farm"
                 action="base.action_res_company_form"
                 parent="configuration" sequence="2"/>
             <menuitem id="information" parent="advanced_parameters" name="Information"/>
-              <menuitem id="menu_log" name="Activity/log" parent="information"/>
+              <menuitem id="menu_log" name="Activity/log" parent="information" groups="custom_groups.group_admin"/>
                   <menuitem id="menu_audit_logs" name="Logs" parent="menu_log" action="auditlog.action_auditlog_log_tree"/>
         <menuitem id="menu_action_auditlog_rule_tree" parent="base.menu_users" action="auditlog.action_auditlog_rule_tree" groups="custom_menu.group_standard_menus"/>
 
@@ -412,7 +412,7 @@
             <menuitem id="print_hours_resume_menu" name="Print hours summary" parent="task_management" action="custom_project.print_hours_resume_action" sequence="4"/>
             <menuitem id="print_farm_visit_report_menu" name="Print farm visit" parent="task_management" action="custom_project.print_farm_visit_report_action" sequence="5"/>
 
-        <menuitem id="project_category_menu" name="Project tags" parent="configuration" action="project.project_category_action" sequence="3"/>
+        <menuitem id="project_category_menu" name="Project tags" parent="configuration" action="project.project_category_action" sequence="3" groups="custom_groups.group_admin"/>
 
         <record id="mail.mail_feeds_main" model="ir.ui.menu">
             <field name="sequence">11</field>
