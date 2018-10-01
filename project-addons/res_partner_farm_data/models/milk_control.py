@@ -166,7 +166,8 @@ class MilkControl(models.Model):
                         self.env['milk.control.line'].create(vals)
                     if stop_before:
                         milk_control.unlink()
-                        passwd.last_sync_date = start_date + timedelta(days=i)
+                        passwd.last_sync_date = \
+                            filter_date.strftime("%Y-%m-%d")
                         break
                     milk_control.create_report()
                     passwd.last_sync_date = filter_date.strftime("%Y-%m-%d")
