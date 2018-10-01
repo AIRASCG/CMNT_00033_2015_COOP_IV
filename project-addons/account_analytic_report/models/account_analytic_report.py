@@ -135,18 +135,18 @@ class AccountAnalyticReport(models.Model):
             from_date = 'from_date_' + str(i)
             to_date = 'to_date_' + str(i)
             if self[from_date] and self[to_date]:
-                first_year = str(self[from_date][:4])
-                last_year = str(self[to_date][:4])
+                from_quota = self[from_date]
+                to_quota = self[to_date]
             else:
-                first_year = str(date.today().year)
-                last_year = first_year
+                from_quota = str(date.today().year) + '-01-01'
+                to_quota = str(date.today().year) + '-12-31'
 
             companies = self._get_companies(i)
             partner_companies = companies.mapped('partner_id')
             quotas = self.env['output.quota'].search(
                 [('farm_id', 'in', partner_companies._ids),
-                 ('date', '>=', first_year + "-01-01"),
-                 ('date', '<=', last_year + "-12-31")])
+                 ('date', '>=', from_quota),
+                 ('date', '<=', to_quota)])
             self['milk_' + str(i)] = sum([x.value for x in quotas])
 
     @api.multi

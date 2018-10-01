@@ -28,8 +28,3 @@ class OutputQuota(models.Model):
     _inherit = ['yearly.data']
 
     value = fields.Integer('Value')
-
-    _sql_constraints = [
-        ('quota_uniq', 'unique (year_id,farm_id)',
-         _('Error! Only one quota by year and company.'))
-    ]
