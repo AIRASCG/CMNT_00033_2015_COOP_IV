@@ -76,4 +76,4 @@ class ResCompany(models.Model):
                 assets = self.env['account.asset.asset'].search([('state', '=', 'open'),
                                                                  ('company_id', '=',
                                                                   company.id)])
-                assets.with_context(company_id=company.id)._compute_entries(period.id)
+                assets.with_context(company_id=company.id,force_company=company.id)._compute_entries(period.id)

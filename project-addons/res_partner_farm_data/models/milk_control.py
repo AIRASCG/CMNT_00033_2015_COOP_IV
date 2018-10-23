@@ -64,13 +64,13 @@ class MilkControl(models.Model):
             [control_report.id],
             'res_partner_farm_data.milk_control_qweb_report', False)
         public_attachment = self.env['res.partner.attachment'].create(
-            {'description': _('Milk control report: {}'.format(self.date)),
+            {'description': '{} Informe de control lechero'.format(self.date[:10]),
              'recipient_ids': [(4, self.exploitation_id.id)]})
 
         self.env['ir.attachment'].create({
             'res_model': 'res.partner.attachment',
             'res_id': public_attachment.id,
-            'name': 'report.pdf',
+            'name': '{} Informe de control lechero'.format(self.date[:10]) + '.pdf',
             'datas': base64.b64encode(report_data[0])
         })
 
