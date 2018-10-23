@@ -36,7 +36,8 @@ class ErpXmlDocument(models.Model):
     company_id = fields.Many2one('res.company')
     errors = fields.Text()
     document = fields.Text()
-    
+    moved = fields.Boolean()
+
     @api.multi
     def _write_vat(self, partner, vat):
         if vat:
@@ -44,7 +45,6 @@ class ErpXmlDocument(models.Model):
                 partner.write({'vat': vat})
             except ValidationError:
                 return 'NIF incorrecto %s' % vat
-
 
     @api.multi
     def parse_partner(self, partner):
@@ -248,22 +248,18 @@ class ErpXmlDocument(models.Model):
         else:
             self.env['account.invoice'].create(invoice_data)
 
-    @api.model
+    @api.multi
     def import_data(self, company):
-
-        docs = self.search([('state', 'in', ('new', 'error')),
-                            ('type', '!=', 'undefined'),
-                            ('company_id', '=', company.id)])
         data_path = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                     '..', 'data'))
-        for doc in docs:
+        for doc in self:
             doc.errors = ''
             with_error = False
             with api.Environment.manage():
                 with registry(self.env.cr.dbname).cursor() as new_cr:
                     new_env = api.Environment(new_cr, self.env.uid,
                                               self.env.context)
-                    #Se hace browse con un env diferente para guardar cambios
+                    # Se hace browse con un env diferente para guardar cambios
                     doc_ = self.with_env(new_env).browse(doc.id)
                     if not doc.document:
                         continue
@@ -355,11 +351,15 @@ class ErpXmlDocument(models.Model):
                         doc.send_mail_support()
 
     @api.multi
-    def move_imported_files(self, importation_folder, process_folder):
+    def move_imported_files(self, company):
+        folder = company.xml_route
+        importation_folder = '%s%slecturas' % (folder, os.sep)
+        process_folder = '%s%sprocesados' % (folder, os.sep)
         now = datetime.now()
         final_folder = process_folder + os.sep + str(now.year) + os.sep + \
             str(now.month)
-        for doc in self:
+        for doc in self.search([('state', '=', 'imported'),
+                                ('moved', '=', False)]):
             if doc.state == 'imported':
                 try:
                     os.makedirs(final_folder)
@@ -370,6 +370,7 @@ class ErpXmlDocument(models.Model):
                 from_file = '%s%s%s' % (importation_folder, os.sep, doc.name)
                 to_file = '%s%s%s' % (final_folder, os.sep, doc.name)
                 os.rename(from_file, to_file)
+                doc.moved = True
 
     @api.model
     def import_files(self):
@@ -421,8 +422,24 @@ class ErpXmlDocument(models.Model):
                         doc.send_mail_support()
                     doc.write({'type': type, 'document': doc_content,
                                'errors': '\n'.join(errors), 'state': state})
-            self.import_data(company)
-            docs.move_imported_files(importation_folder, process_folder)
+            # self.import_data(company)
+            # docs.move_imported_files(importation_folder, process_folder)
+
+    @api.model
+    def import_data_cron(self):
+        companies = self.env['res.company'].search(
+            [('xml_route', '!=', False)])
+        for company in companies:
+            docs = self.search([('state', 'in', ('new', 'error')),
+                                ('type', '!=', 'undefined'),
+                                ('company_id', '=', company.id)])
+            for doc in docs:
+                with api.Environment.manage():
+                    with registry(self.env.cr.dbname).cursor() as new_cr:
+                        new_env = api.Environment(new_cr, self.env.uid,
+                                                  self.env.context)
+                        doc.with_env(new_env).import_data(company)
+                        self.with_env(new_env).move_imported_files(company)
 
     @api.multi
     def send_mail_support(self):
