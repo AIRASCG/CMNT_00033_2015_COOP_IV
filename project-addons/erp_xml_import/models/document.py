@@ -438,7 +438,10 @@ class ErpXmlDocument(models.Model):
                     with registry(self.env.cr.dbname).cursor() as new_cr:
                         new_env = api.Environment(new_cr, self.env.uid,
                                                   self.env.context)
-                        doc.with_env(new_env).import_data(company)
+                        try:
+                            doc.with_env(new_env).import_data(company)
+                        except Exception as e:
+                            doc.write({'state': 'error', 'errors': str(e)})
                         self.with_env(new_env).move_imported_files(company)
 
     @api.multi
