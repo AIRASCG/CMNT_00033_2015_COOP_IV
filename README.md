@@ -34,33 +34,17 @@ $ sudo apt-get install libffi-dev
 - Descargar el  repositorio de buildouts :
 ```
 ```
-- [EN REVISIÓN] Hacer checkout de la rama deseada según proyecto
-```
-$ git checkout master
-```
 - Crear un virtualenv dentro de la carpeta del respositorio. Esto podría ser opcional, obligatorio para desarrollo o servidor de pruebas, tal vez podríamos no hacerlo para un despliegue en producción. Si no está instalado, instalar el paquete de virtualenv
 ```
 $ sudo apt-get install python-virtualenv
 $ cd <ubicacion_local_repo>
 $ virtualenv sandbox --no-setuptools
 ```
-- Crear la carpeta eggs (no se crea al vuelo, ¿debería?
-```
-$ mkdir eggs
-```
-- Ahora procedemos a ehecutar el buildout en nuestro entorno virtual
+- Ahora procedemos a ejecutar el buildout en nuestro entorno virtual
 ```
 $ sandbox/bin/python bootstrap.py -c <configuracion_elegida>
 ```
-- Ejecutar Supervisor, encargado de lanzar los servicios postgresql y odoo
-```
-$ bin/supervisord
-```
-- No crea carpeta project-addons, crearla a mano
-```
-$ mkdir project-addons
-```
-- Y por último
+- Lanzar el buildout
 ```
 $ bin/buildout -c <configuracion_elegida>
 ```
@@ -76,7 +60,7 @@ $ apt-get install libreoffice-core --no-install-recommends
 
 ## Configurar OpenERP
 Archivo de configuración: etc/openerp.cfg, si sequieren cambiar opciones en  openerp.cfg, no se debe editar el fichero,
-si no añadirlas a la sección [openerp] deñ buildout.cfg
+si no añadirlas a la sección [openerp] del buildout.cfg
 y establecer esas opciones .'add_option' = value, donde 'add_option'  y ejecutar buildout otra vez.
 
 Por ejmplo: cambiar el nivel de logging de OpenERP
