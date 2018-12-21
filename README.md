@@ -30,6 +30,9 @@ $ sudo apt-get install openerp-server-system-build-deps
 $ sudo apt-get install libreadline-dev
 $ sudo apt-get install libcairo2-dev
 $ sudo apt-get install libffi-dev
+$ sudo apt-get install libpq-dev
+$ sudo apt-get install libsasl2-dev
+$ sudo apt-get install libldap2-dev
 ```
 - Descargar el  repositorio de buildouts :
 ```
