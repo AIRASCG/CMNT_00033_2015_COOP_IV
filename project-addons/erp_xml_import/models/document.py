@@ -441,7 +441,7 @@ class ErpXmlDocument(models.Model):
                         try:
                             doc.with_env(new_env).import_data(company)
                         except Exception as e:
-                            doc.write({'state': 'error', 'errors': str(e)})
+                            doc.with_env(new_env).write({'state': 'error', 'errors': str(e)})
                         self.with_env(new_env).move_imported_files(company)
 
     @api.multi
