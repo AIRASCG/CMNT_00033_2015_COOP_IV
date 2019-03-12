@@ -15,9 +15,10 @@ En caso de no haberse hecho antes en la máquina en la que se vaya a realizar, i
 ```
 $ deb http://apt.anybox.fr/openerp common main
 ```
-- Si se quiere añadir la firma. Esta a veces tarda mucho tiempo o incluso da time out. Es opcional meterlo
+- Para firmar el repositorio
 ```
-$ sudo apt-key adv --keyserver hkp://subkeys.pgp.net --recv-keys 0xE38CEB07
+$ wget http://apt.anybox.fr/openerp/pool/main/a/anybox-keyring/anybox-keyring_0.2_all.deb
+$ sudo dpkg -i anybox-keyring_0.2_all.deb
 ```
 - Actualizar e instalar
 ```
@@ -29,37 +30,26 @@ $ sudo apt-get install openerp-server-system-build-deps
 $ sudo apt-get install libreadline-dev
 $ sudo apt-get install libcairo2-dev
 $ sudo apt-get install libffi-dev
+$ sudo apt-get install libpq-dev
+$ sudo apt-get install libsasl2-dev
+$ sudo apt-get install libldap2-dev
 ```
 - Descargar el  repositorio de buildouts :
 ```
+$ git clone https://github.com/Comunitea/CMNT_00033_2015_COOP_IV.git <ubicacion_local_repo>
 ```
-- [EN REVISIÓN] Hacer checkout de la rama deseada según proyecto
-```
-$ git checkout master
-```
+
 - Crear un virtualenv dentro de la carpeta del respositorio. Esto podría ser opcional, obligatorio para desarrollo o servidor de pruebas, tal vez podríamos no hacerlo para un despliegue en producción. Si no está instalado, instalar el paquete de virtualenv
 ```
 $ sudo apt-get install python-virtualenv
 $ cd <ubicacion_local_repo>
 $ virtualenv sandbox --no-setuptools
 ```
-- Crear la carpeta eggs (no se crea al vuelo, ¿debería?
-```
-$ mkdir eggs
-```
-- Ahora procedemos a ehecutar el buildout en nuestro entorno virtual
+- Ahora procedemos a ejecutar el buildout en nuestro entorno virtual
 ```
 $ sandbox/bin/python bootstrap.py -c <configuracion_elegida>
 ```
-- Ejecutar Supervisor, encargado de lanzar los servicios postgresql y odoo
-```
-$ bin/supervisord
-```
-- No crea carpeta project-addons, crearla a mano
-```
-$ mkdir project-addons
-```
-- Y por último
+- Lanzar el buildout
 ```
 $ bin/buildout -c <configuracion_elegida>
 ```
@@ -75,7 +65,7 @@ $ apt-get install libreoffice-core --no-install-recommends
 
 ## Configurar OpenERP
 Archivo de configuración: etc/openerp.cfg, si sequieren cambiar opciones en  openerp.cfg, no se debe editar el fichero,
-si no añadirlas a la sección [openerp] deñ buildout.cfg
+si no añadirlas a la sección [openerp] del buildout.cfg
 y establecer esas opciones .'add_option' = value, donde 'add_option'  y ejecutar buildout otra vez.
 
 Por ejmplo: cambiar el nivel de logging de OpenERP

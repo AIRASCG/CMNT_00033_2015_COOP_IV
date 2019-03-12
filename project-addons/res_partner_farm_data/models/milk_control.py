@@ -109,10 +109,7 @@ class MilkControl(models.Model):
                     strptime(last_sync_date, "%Y-%m-%d").date() + \
                     timedelta(1)
             else:
-                start_date = end_date
-                start_date.day = 1
-                start_date.month = 1
-                start_date = start_date.date()
+                start_date = datetime(end_date.year, end_date.month, 1).date()
             delta = end_date - start_date
             for i in range(delta.days + 1):
                 vals = {}
@@ -156,7 +153,7 @@ class MilkControl(models.Model):
                                 'birth_number': cow_data['NumeroParto'],
                                 'control_number': cow_data['NumeroControl'],
                                 'days': (cow_data['FechaControl'] -
-                                cow_data['FechaParto']).days,
+                                 cow_data['FechaParto']).days,
                                 'milk_liters': cow_data['LecheKilos'],
                                 'fat': cow_data['Grasa'],
                                 'protein': cow_data['Proteina'],
