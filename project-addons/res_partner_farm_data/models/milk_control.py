@@ -88,7 +88,9 @@ class MilkControl(models.Model):
         url_api = url_base + "WsCatalogue.asmx?WSDL"
         client = Client(url_api)
         header = client.get_element("{" + url_base + "}AuthSoapHeader")
-
+        end_date = datetime.strptime(fields.Date.today(), "%Y-%m-%d").\
+            date()
+        month_ago = datetime(end_date.year, end_date.month - 1, end_date.day).date()
         milk_control_service = self.env.\
             ref('res_partner_farm_data.service_control_lechero')
         passwds = self.env['res.partner.passwd'].search(
@@ -102,14 +104,14 @@ class MilkControl(models.Model):
                                   read(['passwd'])[0]['passwd'])
             client.set_default_soapheaders([header_value])
             last_sync_date = passwd.last_sync_date
-            end_date = datetime.strptime(fields.Date.today(), "%Y-%m-%d").\
-                date()
             if last_sync_date:
                 start_date = datetime.\
                     strptime(last_sync_date, "%Y-%m-%d").date() + \
                     timedelta(1)
+                if start_date < month_ago:
+                    start_date = month_ago
             else:
-                start_date = datetime(end_date.year, end_date.month, 1).date()
+                start_date = month_ago
             delta = end_date - start_date
             for i in range(delta.days + 1):
                 vals = {}
